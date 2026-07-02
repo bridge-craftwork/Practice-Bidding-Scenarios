@@ -516,7 +516,7 @@ def _partner_exposure_violations(path):
             continue
         nr = north_roles(ch)
         intro = re.split(r'\[BID|\[show', blk[1:])[0]
-        rm = re.search(r'\[show NS\](.*?)\}', blk, re.S)
+        rm = re.search(r'\[show (?:NS|NESW)\](.*?)\}', blk, re.S)
         for s in flags(intro, nr, _PE_FULL, False):
             yield b, 'intro', s
         for s in flags(rm.group(1) if rm else '', nr, _PE_HARD, True):
@@ -585,13 +585,14 @@ def validate(scn):
                 opp_voice.append(call)
         if opp_voice:
             probs.append(f"opponent call(s) narrated in student voice: {opp_voice}")
-        # Only [show NS] is allowed (it introduces the post-auction reflection).
-        # Any other [show X] inside a [BID] chunk makes the trainer DEFER that
-        # prose to post-auction, where it renders in the wrong person.
+        # Only the conclusion marker ([show NS] or [show NESW]) is allowed (it
+        # introduces the post-auction reflection). Any other [show X] inside a
+        # [BID] chunk makes the trainer DEFER that prose to post-auction, where
+        # it renders in the wrong person.
         bad_show = [m.group(1) for m in re.finditer(r'\[show\s+([^\]]+)\]', body)
-                    if m.group(1).strip() != 'NS']
+                    if m.group(1).strip() not in ('NS', 'NESW')]
         if bad_show:
-            probs.append(f"mid-auction [show {bad_show}] — defers/scrambles prose (only [show NS] allowed)")
+            probs.append(f"mid-auction [show {bad_show}] — defers/scrambles prose (only [show NS]/[show NESW] allowed)")
         # [ACCEPT] must follow a [BID <non-pass>] and not be on a Pass/opening-only
         for am in re.finditer(r'\[ACCEPT\s+([^\]]+)\]', body):
             pre = body[:am.start()]

@@ -24,7 +24,9 @@ Per board, emit the BODY of one `{...}` block (no braces, no code fences):
 - `[BID xxx]` — write it BEFORE the prose it anchors; the prose attaches to
   the next matching PBN-form call (`1N`, `2D`, `3NT`, `X`). Prose before the
   first `[BID]` is the intro chunk.
-- `[show NS]` — used ONCE, to introduce the closing reflection (post-auction).
+- `[show NESW]` — used ONCE, to introduce the closing reflection (post-auction);
+  it reveals all four hands at the conclusion of bidding (was `[show NS]` before
+  2026-07-02 — both are still accepted by the validator).
   Do NOT use any other `[show]` marker. **Never put `[show S]`/`[show N]`
   inside a `[BID]` chunk** — a partner/opponent reveal makes the trainer defer
   that prose to the post-auction chunk, where it renders in the wrong person
