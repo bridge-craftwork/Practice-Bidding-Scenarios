@@ -550,8 +550,17 @@ def validate(scn):
         # [BID] chunks (a bidding-lesson convention). The [BID]-structure
         # checks below would false-positive on every play board, so skip them
         # here. The suit-quality gate (after this loop, file-level) still runs.
-        if '[ROLE' in body:
+        if '[ROLE' in body or '[choose-card' in body:
             continue
+        # Folded (served-format) boards — the pre-2026-07 vintage where
+        # coaching-curated == coaching-non-rotated: a `[show S]` intro and
+        # partner's calls merged into ⟦⟧ chunks, so ONLY the student's (South's)
+        # non-pass calls carry a [BID]. Check those South-only (and allow the
+        # `[show S]` intro) rather than false-failing the un-folded expectation.
+        is_folded = '⟦' in body
+        if is_folded:
+            coached = [_norm_call(c) for j, c in enumerate(raw)
+                       if SEATS[(di + j) % 4] == 'S' and _norm_call(c) != 'PASS']
         bids = re.findall(r'\[BID\s+([^\]]+)\]', body)
         nbids = [_norm_call(x) for x in bids]
         probs = []
@@ -589,8 +598,9 @@ def validate(scn):
         # introduces the post-auction reflection). Any other [show X] inside a
         # [BID] chunk makes the trainer DEFER that prose to post-auction, where
         # it renders in the wrong person.
+        allowed_show = {'NS', 'NESW'} | ({'S'} if is_folded else set())
         bad_show = [m.group(1) for m in re.finditer(r'\[show\s+([^\]]+)\]', body)
-                    if m.group(1).strip() not in ('NS', 'NESW')]
+                    if m.group(1).strip() not in allowed_show]
         if bad_show:
             probs.append(f"mid-auction [show {bad_show}] — defers/scrambles prose (only [show NS]/[show NESW] allowed)")
         # [ACCEPT] must follow a [BID <non-pass>] and not be on a Pass/opening-only
