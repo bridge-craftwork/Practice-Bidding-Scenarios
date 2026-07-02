@@ -1,0 +1,162 @@
+Script,ResponsiveDouble
+window.currentPBSScenario = 'ResponsiveDouble';
+window.currentPBSScenarioFilename = 'Responsive_Double';
+console.log('PBS: Logging scenario selection for ResponsiveDouble');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'ResponsiveDouble',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: 21GF-GIB
+convention-card-ew: 21GF-GIB
+auction-filter: Auction.....\n(1C +X +2C|1D +X +2D|1H +X +2H|1S +X +2S) +X
+*/
+# curate: kind=bidding
+# convention-card-ns: 21GF-GIB
+# convention-card-ew: 21GF-GIB
+
+
+dealer west
+
+### Imported script: TP (Total Points)
+//   Total Points = HCP + Short-Suit Points - Penalty Points
+//   Short-Suit Points: 3 for void, 2 for singleton, 1 for doubleton
+//   Penalty Points: 1 for each honor (K/Q/J) in a short suit (devalues wasted honors like Kx, Qx)
+
+## Calculate TP for North
+# Short-Suit Points: void=3, singleton=2, doubleton=1
+nSpadeSSP = spades(north)<3   ? 3-spades(north)   : 0
+nHeartSSP = hearts(north)<3   ? 3-hearts(north)   : 0
+nDiamSSP  = diamonds(north)<3 ? 3-diamonds(north) : 0
+nClubSSP  = clubs(north)<3    ? 3-clubs(north)    : 0
+nSSP = nSpadeSSP + nHeartSSP + nDiamSSP + nClubSSP
+
+# Penalty Points: deduct 1 for honors in short suits
+nSpadePP = spades(north)<3   and hcp(north,spades)>0   ? 1 : 0
+nHeartPP = hearts(north)<3   and hcp(north,hearts)>0   ? 1 : 0
+nDiamPP  = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+nClubPP  = clubs(north)<3    and hcp(north,clubs)>0    ? 1 : 0
+nPP = nSpadePP + nHeartPP + nDiamPP + nClubPP
+
+tpNorth = hcp(north) + nSSP - nPP
+
+## Calculate TP for East
+eSpadeSSP = spades(east)<3   ? 3-spades(east)   : 0
+eHeartSSP = hearts(east)<3   ? 3-hearts(east)   : 0
+eDiamSSP  = diamonds(east)<3 ? 3-diamonds(east) : 0
+eClubSSP  = clubs(east)<3    ? 3-clubs(east)    : 0
+eSSP = eSpadeSSP + eHeartSSP + eDiamSSP + eClubSSP
+
+eSpadePP = spades(east)<3   and hcp(east,spades)>0   ? 1 : 0
+eHeartPP = hearts(east)<3   and hcp(east,hearts)>0   ? 1 : 0
+eDiamPP  = diamonds(east)<3 and hcp(east,diamonds)>0 ? 1 : 0
+eClubPP  = clubs(east)<3    and hcp(east,clubs)>0    ? 1 : 0
+ePP = eSpadePP + eHeartPP + eDiamPP + eClubPP
+
+tpEast = hcp(east) + eSSP - ePP
+
+## Calculate TP for South
+sSpadeSSP = spades(south)<3   ? 3-spades(south)   : 0
+sHeartSSP = hearts(south)<3   ? 3-hearts(south)   : 0
+sDiamSSP  = diamonds(south)<3 ? 3-diamonds(south) : 0
+sClubSSP  = clubs(south)<3    ? 3-clubs(south)    : 0
+sSSP = sSpadeSSP + sHeartSSP + sDiamSSP + sClubSSP
+
+sSpadePP = spades(south)<3   and hcp(south,spades)>0   ? 1 : 0
+sHeartPP = hearts(south)<3   and hcp(south,hearts)>0   ? 1 : 0
+sDiamPP  = diamonds(south)<3 and hcp(south,diamonds)>0 ? 1 : 0
+sClubPP  = clubs(south)<3    and hcp(south,clubs)>0    ? 1 : 0
+sPP = sSpadePP + sHeartPP + sDiamPP + sClubPP
+
+tpSouth = hcp(south) + sSSP - sPP
+
+## Calculate TP for West
+wSpadeSSP = spades(west)<3   ? 3-spades(west)   : 0
+wHeartSSP = hearts(west)<3   ? 3-hearts(west)   : 0
+wDiamSSP  = diamonds(west)<3 ? 3-diamonds(west) : 0
+wClubSSP  = clubs(west)<3    ? 3-clubs(west)    : 0
+wSSP = wSpadeSSP + wHeartSSP + wDiamSSP + wClubSSP
+
+wSpadePP = spades(west)<3   and hcp(west,spades)>0   ? 1 : 0
+wHeartPP = hearts(west)<3   and hcp(west,hearts)>0   ? 1 : 0
+wDiamPP  = diamonds(west)<3 and hcp(west,diamonds)>0 ? 1 : 0
+wClubPP  = clubs(west)<3    and hcp(west,clubs)>0    ? 1 : 0
+wPP = wSpadePP + wHeartPP + wDiamPP + wClubPP
+
+tpWest = hcp(west) + wSSP - wPP
+
+## Partnership Totals
+tpNS = tpNorth + tpSouth
+tpEW = tpEast + tpWest
+
+### End of Imported Script: TP
+# Defines tpWest, tpNorth, tpEast, tpSouth
+
+# Predict West's Opening suit
+s = spades(west)
+h = hearts(west)
+d = diamonds(west)
+c = clubs(west)
+oS = s>4 and s>=h and s>=d and s>=c
+oH = not oS and h>4 and h>=d and h>=c
+oD = not (oS or oH) and ((d>3 and d>=c) or c<3)
+oC = not (oS or oH or oD)
+westSuit = (oS or oH or oD or oC)
+
+# Define East's simple raise  --- w/good support       ------ avoid negative double          --- north Takeout X
+eS = oS and spades(east)  ==3 and hcp(east,spades)  >1                                       and spades(north)<3
+eH = oH and hearts(east)  ==3 and hcp(east,hearts)  >1                                       and hearts(north)<3
+eD = oD and diamonds(east)==4 and hcp(east,diamonds)>2 and spades(east)<4 and hearts(east)<4 and diamonds(north)<3
+eC = oC and clubs(east)   ==4 and hcp(east,clubs)   >3 and spades(east)<4 and hearts(east)<4 and clubs(north)<3
+
+# East raises
+eastRaises = (eS or eH or eD or eC) and hcp(east)>5 and tpEast<10
+
+# Major opened: other major ==4, both minors 3+
+# Minor opened: both majors ==4, other minor 3+
+dS = oS and spades(north)<3   and hearts(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,spades)==0
+dH = oH and hearts(north)<3   and spades(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,hearts)==0
+dD = oD and diamonds(north)<3 and spades(south)==4 and hearts(south)==4  and clubs(south)>2    and hcp(south,diamonds)==0 
+dC = oC and clubs(north)<3    and spades(south)==4 and hearts(south)==4  and diamonds(south)>2 and hcp(south,clubs)==0
+southSuits = dS or dH or dD or dC
+
+# Keep West a sound opener, not a distributional monster that preempts the
+# auction straight to game: no suit longer than six.
+westShape = s<7 and h<7 and d<7 and c<7
+
+westOpens    = hcp(west)>10 and hcp(west)<16 and tpWest>11 and westShape
+northDoubles = hcp(north)>11 and shape(north,any 4432 +any 4441 +any 5440 -5xxx -x5xx)
+southDoubles = tpSouth>8 and southSuits
+
+# Keep it a live part-score battle rather than a walk to the opponents' game:
+# hold the opponents below game values and give our side the balance of
+# strength, so partner's choice after the responsive double actually matters.
+partScoreFight = hcp(west)+hcp(east)<22 and hcp(north)+hcp(south)>18
+
+##### Now do it #####
+westOpens and northDoubles and eastRaises and southDoubles and partScoreFight
+
+produce 30
+action printoneline,
+`, "W", true)
+Script
+Button,Responsive Double,\n\
+--- Responsive Double\n\
+LHO Opens，Partner Doubles，RHO raises，and you make Responsive Double,\n\
+showing both majors if LHO opened a minor，otherwise，the other major and\n\
+3+ cards in each minor.\n\
+4NT is Roman Keycard Blackwood (0314) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 0 or 3 keycards\n\
+  • 5!D = 1 or 4\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
+%ResponsiveDouble%,backgroundColor=lightpink
