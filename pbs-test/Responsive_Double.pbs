@@ -140,13 +140,26 @@ southDoubles = tpSouth>8 and southSuits
 # Keep it a live part-score battle rather than a walk to the opponents' game:
 # hold the opponents below game values and give our side the balance of
 # strength, so partner's choice after the responsive double actually matters.
-partScoreFight = hcp(west)+hcp(east)<22 and hcp(north)+hcp(south)>18
+partScoreFight = hcp(west)+hcp(east)<23 and hcp(north)+hcp(south)>17
 
 ##### Now do it #####
 westOpens and northDoubles and eastRaises and southDoubles and partScoreFight
 
 produce 30
 action printoneline,
+	average "West HCP     " hcp(west),
+	average "East HCP     " hcp(east),
+	average "North HCP    " hcp(north),
+	average "South HCP    " hcp(south),
+	average "EW combined  " hcp(west)+hcp(east),
+	average "NS combined  " hcp(north)+hcp(south),
+	average "open Spades %" 100*oS,
+	average "open Hearts %" 100*oH,
+	average "open Diamond%" 100*oD,
+	average "open Clubs  %" 100*oC,
+	frequency "EW combined HCP" (hcp(west)+hcp(east), 14, 24),
+	frequency "NS combined HCP" (hcp(north)+hcp(south), 16, 28),
+	frequency "West opened-suit length" (oS*spades(west)+oH*hearts(west)+oD*diamonds(west)+oC*clubs(west), 4, 7)
 `, "W", true)
 Script
 Button,Responsive Double,\n\
