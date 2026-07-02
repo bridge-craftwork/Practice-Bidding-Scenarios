@@ -125,6 +125,12 @@ a defect to fix by re-running `nonrotate.py`, not a model to copy.)
   `coaching-non-rotated/toc.json` under the right category (e.g. "Minor/Major
   Sequences"): `id: <scn>`, a human `name`, one-line `description`, `difficulty`.
   Re-validate both as JSON.
+- **Intro PDF (don't skip):** BC's "Intro" button fetches
+  `<baseUrl>/<scn>_Intro.pdf` and only appears when that PDF exists — a new lesson
+  shows NO intro until you generate it. Ensure `btn/<scn>.btn` has a real
+  `/*@chat*/` body (a stub title yields an empty intro), then run
+  `python3 build-scripts-mac/generate-intro-pdfs.py` (reportlab; deterministic) and
+  commit `coaching-non-rotated/<scn>_Intro.pdf`.
 
 ## Report
 List the boards chosen, the validate + anchor-check results, the promote.py output
