@@ -306,3 +306,18 @@ own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/`
   plays before dummy) — the first scan's 6 "hits" were all duck-dependent establishment, none real.
   Corrected full-corpus rescan: ~90 raw → 36 mainstream-auction → 4 survivors (b63/b38 overtricks
   under the true lead, exotic-system pools deprioritized).
+- **2026-07-03** — **Finesse_Exam capstone shipped** (10 boards, David's idea: a mixed final test).
+  Exam voice: the auction-end prose poses the question WITHOUT naming the technique; the reveal +
+  lesson-name land in post-play. Board order interleaves types, difficulty rising, and the last
+  board is the 7♠ grand whose answer is "no finesse at all — count" (the family's through-line).
+  Coverage: Simple ×2 (side-suit AQ; trump-suit ten-run), Ruffing ×2 (5♦; 6♣ inverted-minors slam),
+  To_Finesse ×4 (2 decline boards resurrected from the old lesson's cutting-room floor — pool 32 +
+  202, prose re-voiced; 2 evidence: 4♥ trump-jack insert into the 1♦ opener where the ace wins but
+  the marked queen dies; 6♥ deep-nine into the 1♣ opener, queen wins but the trapped king never
+  scores), Repeated ×2 (4♠ hook-hook-drop; 3NT triple-hook vs Q965). **Four types could not field a
+  clean unseen board and are honestly absent:** Double (all 64-candidate leftovers were doubleton
+  drops / gift lines / overtricks), Two_Way (only true J-and-T-split candidate had no table-legible
+  direction inference — refused to fake one), Choice (Hold_Up multi-swing leftovers all dump muddy;
+  clean combines were 4-in-500 last time), Rabbi's (its vein went entirely into the live lesson —
+  two targeted rescans returned zero). Path to fill them later: deeper pools or last-resort dealer
+  generation (§4).
