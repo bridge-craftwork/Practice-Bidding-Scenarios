@@ -1,30 +1,31 @@
 [Event "Choice_Of_Finesses"]
 [Site ""]
 [Board "1"]
-[OriginalBoard "3"]
-% 0921BBF6AFAF12477EB6C178885F
+[OriginalBoard "225"]
+[OriginalScenario "Hold_Up_3N"]
+% 4DDE95D263103FDAF5E5687C9066
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A9.853.A95.KJT82 8742.92.Q86.Q976 KJT63.AJT.K43.A5 Q5.KQ764.JT72.43"]
-{Shape 2335 4234 5332 2542}
-{HCP 12 4 16 8}
-{Losers 8 9 7 8}
+[Vulnerable "None"]
+[Deal "N:95.984.A973.AQ76 K83.53.K8542.KJ5 AQJ42.AJ7.QJ.843 T76.KQT62.T6.T92"]
+{Shape 2344 3253 5323 3523}
+{HCP 10 10 15 5}
+{Losers 8 8 8 9}
 [Declarer "S"]
 [Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
+[Result "9"]
+[Score "NS 400"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
 bidding: standard
 bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
+declarer: standard finesse-safe-hand
+declarer-note: Combine two finesses safely: both the spade and club finesses lose only to East (safe hand); West holds the long hearts. Hold up to strip East, then take both.
 defense: reject
 defense-note: declarer-play scenario
 }
@@ -33,46 +34,47 @@ defense-note: declarer-play scenario
 Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \H6. From \HKQ764 there is no third honour to make a sequence, so lead fourth-best from your longest, strongest suit — the six.
+Lead the \HK. It is the top of your sequence and your longest suit — the standard notrump attack, hoping to set up your long hearts before declarer gathers his tricks.
 
 [ROLE declarer][STAGE auction-end]
-You are in 3\N with 2 \S, 1 \H (the lone ace), 2 \D and 2 \C on top — seven sure tricks. West is marked with the long, strong \H behind your single stopper and looks to have no outside entry, so West is the danger hand. Hold up the \HA, then develop \C, where you can build four tricks and any loser goes to safe East. Leave the \S finesse alone — it loses straight to West.
+You are in 3\N with two finesses to work with, a spade finesse and a club finesse. West's \HK warns you that hearts is his suit, so he is the danger hand. Here is the discipline of the deal: both of your finesses, if they lose, lose to EAST — and East is the safe hand. So you can take them both without fear. Duck the opening heart to cut the defenders' link, then help yourself to both chances.
 
 [ROLE declarer][STAGE post-lead]
-West led the \H6, which looks like a fourth-best, suggesting five \H headed by honours. Hold up your \HA — duck once, and again if East follows — to leave East with none, so the suit can't be run if East gets in. Then go after \C for four tricks; lead toward dummy's honours and let any loser fall to East, the safe hand. Two \S, one \H, two \D and four \C make nine. The \S finesse is fatal here: it loses to West's \SQ and the long \H cash, so develop \C instead.
+West's \HK marks the danger: a long heart suit sitting over your single stopper. Duck the first heart — East began with only two, so one hold-up leaves him with none — then win the second. Now run the spade finesse toward your \SA\SQ\SJ, and if you should need it, the club finesse as well. Both lose only to East, who has no heart left to lead, so combining your two chances costs you nothing. The spade king is onside; home you come.
 
 [ROLE declarer][STAGE post-play]
-Nine tricks — two \S, one \H, two \D, four \C — with West's \H dead because the hold-up exhausted East. You spotted that the \C finesse loses safely while the \S finesse loses fatally, and chose accordingly. That's the avoidance theme exactly right.}
+The skill here was not choosing between the finesses — it was noticing that both were safe, so you never had to choose. Read which defender is dangerous, steer your losers to the other one, and you can take every chance the hand offers.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Choice_Of_Finesses"]
 [Site ""]
 [Board "2"]
-[OriginalBoard "16"]
-% 0929B3F6BB25F06E9F07B7B8C646
+[OriginalBoard "35"]
+[OriginalScenario "Hold_Up_3N"]
+% D674155A1D2B40C664CACDE4C833
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:AT6.632.K9.KJ765 82.7.QT6532.Q832 KJ754.AT8.AJ4.AT Q93.KQJ954.87.94"]
-{Shape 3325 2164 5332 3622}
-{HCP 11 4 17 8}
-{Losers 8 7 7 7}
+[Vulnerable "None"]
+[Deal "N:863.J7.A853.AK95 Q2.T54.QJT4.Q873 AKJ7.A82.K62.JT2 T954.KQ963.97.64"]
+{Shape 3244 2344 4333 4522}
+{HCP 12 7 16 5}
+{Losers 8 9 8 8}
 [Declarer "S"]
 [Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
+[Result "9"]
+[Score "NS 400"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
 bidding: standard
 bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
+declarer: standard finesse-safe-hand
+declarer-note: Two queen-finesses (spade and club), both losing to safe East; West has the long hearts. Hold up twice to strip East (three each), then combine.
 defense: reject
 defense-note: declarer-play scenario
 }
@@ -81,650 +83,86 @@ defense-note: declarer-play scenario
 Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \HK. Top of your \HKQJ954 sequence is the clear shot — force out declarer's stopper and establish your long hearts before your entry is gone.
+Lead the \HK, top of your sequence in your longest suit, and drive out declarer's stopper while you still hold the length.
 
 [ROLE declarer][STAGE auction-end]
-You are in 3NT. Top tricks: the \HA, two top spades, two top diamonds and two top clubs — seven. West has led heart length and you hold only the \HA, so West is the danger hand and must stay off lead. Build the last two in the SAFE suits: clubs (\CKJ765 opposite \CAT) for a fourth trick, finessing into East, and a third diamond, also losing only to East. Take just the two top spades — do NOT finesse the \SJ even though you hold \SKJ754, because that finesse loses to West's \SQ.
+Your two extra chances are a spade finesse for the queen and a club finesse for the queen — and, once more, both lose to East, the safe hand. West's \HK brands hearts as the danger, so plan a hold-up before you touch the finesses: with a loss going only to harmless East, taking both your chances is completely safe.
 
 [ROLE declarer][STAGE post-lead]
-West led the \HK, top of a sequence, so West rates to hold the KQJ over six hearts — the danger hand. HOLD UP the \HA: duck once and win the second round to clear East of hearts. Then develop clubs, leading toward dummy and finessing the \CJ — if it loses, it loses to East's \CQ, who can no longer hurt you. A third diamond, conceding only to East, brings the total to nine. Avoid the spade finesse: your \SKJ754 is tempting, but the \SJ finesse loses to West's \SQ and the hearts cash. Take your two top spades and look elsewhere for the rest.
+Hold up your \HA — East started with three hearts, so duck the first two rounds and win the third, and East is stripped bare. Now take the spade finesse toward your \SA\SK\SJ and, if it is not enough, the club finesse toward dummy's \CA\CK\C9. Either loss goes to East, who can no longer reach West's winners. The spade queen sits right; nine tricks.
 
 [ROLE declarer][STAGE post-play]
-Well done. The temptation was your long spades, but finessing there hands the lead to the danger hand. Holding up the ace and then developing clubs and diamonds — suits whose losers go to safe East — is the textbook avoidance line.}
+Both finesses lost, if they lost at all, to the hand that could do no damage. That is what let you combine your chances instead of gambling on one: find the safe hand first, and finesse into it.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Choice_Of_Finesses"]
 [Site ""]
 [Board "3"]
-[OriginalBoard "39"]
-% 2B25BFF2AFC5C78641FB7DD26A7A
+[OriginalBoard "309"]
+[OriginalScenario "Hold_Up_3N"]
+% 67920ED9A7F42741ED7563E186BA
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A.T987.AT98.KJ96 7532.4.Q74.Q8432 KJ8.AJ3.KJ5.AT75 QT964.KQ652.632."]
-{Shape 1444 4135 3334 5530}
-{HCP 12 4 17 7}
-{Losers 7 8 8 6}
+[Vulnerable "None"]
+[Deal "N:J86.J7.AKQJ.9853 QT95.T84.8743.KJ AK2.A96.T95.AQ74 743.KQ532.62.T62"]
+{Shape 3244 4342 3334 3523}
+{HCP 12 6 17 5}
+{Losers 8 9 7 9}
 [Declarer "S"]
 [Contract "3N"]
 [Result "10"]
-[Score "NS 630"]
+[Score "NS 430"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
 bidding: standard
 bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
+declarer: standard finesse-safe-hand
+declarer-note: Dummy's solid diamonds plus a spade finesse and a club finesse, both losing to safe East; West has the long hearts. Hold up, cash diamonds, combine for the overtrick.
 defense: reject
 defense-note: declarer-play scenario
 }
 [Auction "S"]
-1N    Pass  2C =1=    Pass
-2D    Pass  3N    Pass
+1N    Pass  3N    Pass
 Pass  Pass
 {[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H5. With \HKQ652 your king-queen do not run to a three-card sequence, so lead fourth-best from your longest, strongest suit — the five.
+[ROLE leader][STAGE pre-lead]
+Lead the \HK from your long, strong suit — top of the sequence, the textbook notrump lead.
 
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 29 of the 40, leaving only 11 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never finesse the spade into West, which would hand the lead to the danger hand.
+[ROLE declarer][STAGE auction-end]
+Dummy's \DA\DK\DQ\DJ give you four tricks on their own, and two finesses supply the rest: a spade finesse and a club finesse, both of which lose only to East. West's hearts are the threat, so duck a round to protect yourself, then run your diamonds and take both finesses into the safe East hand.
 
-[ROLE declarer][STAGE post-lead] West led the \H5, which looks like a fourth-best, suggesting about five \H headed by honours sitting behind your lone stopper. Hold up the \HA as long as you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The trap is finessing the spade the wrong way into West's \SQ, letting West cash the \H — so take only the top spades that don't risk the lead to West.
+[ROLE declarer][STAGE post-lead]
+Duck the opening heart — East had three, so hold up until the third round leaves him with none. Cash dummy's diamonds, then take the club finesse and the spade finesse; both lose to East, who is now heartless and cannot put West on lead. Combining the two chances brings home ten tricks.
 
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[Note "1:Stayman"]
+[ROLE declarer][STAGE post-play]
+With the danger hand shut out by the hold-up, the two finesses were pure profit — a loss on either simply went to the safe hand. Counting your tricks and knowing which loser you can afford is what turns a close game into a comfortable one.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Choice_Of_Finesses"]
 [Site ""]
 [Board "4"]
-[OriginalBoard "18"]
-% 1A29B7FEB7685542512B0D703283
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:A653.852.Q5.KJ62 T9874.97.AT6.Q83 KJ2.AT6.KJ9.A975 Q.KQJ43.87432.T4"]
-{Shape 4324 5233 3334 1552}
-{HCP 10 6 16 8}
-{Losers 9 9 8 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2D    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ43 you hold a touching-honour sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, so the defence has only 14 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "5"]
-[OriginalBoard "32"]
-% 1925B3FAA78EFF3091265DC6BB44
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A86.T42.K87.KJ93 52.75.AJ642.QT64 KJT73.AJ6.Q3.A75 Q94.KQ983.T95.82"]
-{Shape 3334 2254 5323 3532}
-{HCP 11 7 15 7}
-{Losers 9 8 8 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H8. With \HKQ983 your king-queen do not run to a three-card sequence, so lead fourth-best from your longest, strongest suit — the eight.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, leaving only 14 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \S and \C, where the finesses lose safely to East — and never touch the \S finesse into West, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H8, which looks like a fourth-best, suggesting about five \H headed by honours sitting behind your lone stopper. Hold up the \HA as long as you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks in the long \S and in \C, leading so that any finesse loses into East — that's the safe hand. Between your top cards and the established suits you reach nine. The trap is finessing the spade the wrong way into West's \SQ, letting West cash the \H — so take only the top spades that don't risk the lead to West.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "6"]
-[OriginalBoard "15"]
-% 0A29BFF6B70B59A5CBF36CF3514A
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:AT.T72.K5.KJT764 9532.93.AT972.Q2 KJ8.A85.QJ8.A983 Q764.KQJ64.643.5"]
-{Shape 2326 4252 3334 4531}
-{HCP 11 6 15 8}
-{Losers 7 9 8 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HK. With \HKQJ64 you have a powerful sequence — lead the top of it to knock out declarer's stopper and set up your long hearts.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3NT. You start with the \HA, two top spades and two top clubs — five tricks. The danger is obvious: West has led from heart length and you hold a single stopper, so West cannot be allowed in. Your gold mine is clubs: \CKJT764 opposite \CA983 is a long, strong suit where any loser falls to East. Develop clubs for six tricks and you are home — \HA plus two spades plus six clubs is nine. Do NOT take the spade finesse; the \SJ would lose to West's \SQ and the hearts would crash down.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HK, top of a sequence, so West almost surely holds the KQJ and a long heart suit — the danger hand. HOLD UP the \HA one round, then win, leaving East without a heart to return. Now run the club suit: with \CKJT764 opposite \CA983 you can finesse if needed, and the only club honour out, the \CQ, sits with safe East. Driving clubs gives you six tricks, and even if East wins a club he has no heart to lead, so the contract is secure. Never finesse the \SJ into West's \SQ — that is the single play that lets the hearts run.
-
-[ROLE declarer][STAGE post-play]
-Excellent. The long club suit was the whole answer: it provides plenty of tricks and any loser goes to harmless East. Hold up, develop the safe suit, and leave the spade finesse strictly alone — that is how you keep the danger hand from ever scoring its hearts.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "7"]
-[OriginalBoard "7"]
-% 0B21BFF6AF57528BB10A88FB2EF2
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A63.865.QT.KJT84 T9.T9.A972.Q9632 KJ875.AJ3.KJ3.A7 Q42.KQ742.8654.5"]
-{Shape 3325 2245 5332 3541}
-{HCP 10 6 17 7}
-{Losers 9 8 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H4. From \HKQ742 you have no third touching honour, so lead fourth-best from your long, strong suit — the four.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3\N with 2 \S, 1 \H (the lone ace), 2 \C and no immediate \D — seven once you add the \C development. West rates to hold the long, strong \H behind your lone stopper with no side entry, so West is the danger hand. Hold up the \HA, then build tricks in \D and \C, both of which lose only to safe East. Never take the \S finesse — it loses to West and the \H come crashing down.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H4, which looks like a fourth-best, suggesting about five \H to honours. Hold up the \HA — duck once, and again while East follows — so East is stripped of \H and the suit dies if East ever wins. Then develop \C for four tricks and \D for two, leading so that any loser goes to East, the safe hand. Two \S, one \H, two \D and four \C reach nine. The \S finesse is the trap: losing to West's \SQ surrenders the contract to the long \H, so develop the minors instead.
-
-[ROLE declarer][STAGE post-play]
-Nine tricks built in the minors while the hold-up left West with winners but no way to reach them. You correctly read West as the danger hand and funnelled every losing finesse into East. Textbook avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "8"]
-[OriginalBoard "24"]
-% 1821BFFAAF9C0E4562B7F78BD277
+[OriginalBoard "192"]
+[OriginalScenario "Hold_Up_3N"]
+% 505873F0EA89F6766CBD6794B7F4
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
-[Deal "N:A9.984.Q4.KJ6542 872.T3.KJT9.Q973 KJT64.AJ7.A73.A8 Q53.KQ652.8652.T"]
-{Shape 2326 3244 5332 3541}
-{HCP 10 6 17 7}
-{Losers 8 9 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H5. With \HKQ652 your longest, strongest suit is hearts, and you have no three-card touching-honour block to lead from the top, so lead fourth-best — the five.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 1 top \D and 2 top \C — six on top, so you need three more. NS hold 27 of the 40, so the defence has only 13 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \S and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H5, which looks like a fourth-best, suggesting about five \H and the missing honours behind your ace. By the rule of eleven, only one card higher than the five sits outside your hand and dummy, so East rates to hold at most a single high \H — the long, strong hearts rate to sit with West, the danger hand. Win or hold up to cut East off, then develop your extra tricks by leading toward your honours so any losing finesse runs into East, the safe hand. Leave \S alone beyond the two top winners — the \S finesse loses to West and lets the \H cash.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "9"]
-[OriginalBoard "9"]
-% 0929B3F6BBC2356F37778D9AC464
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A97.T53.KT.KJ876 862.4.Q97632.QT4 KJ54.A82.AJ4.A95 QT3.KQJ976.85.32"]
-{Shape 3325 3163 4333 3622}
-{HCP 11 4 17 8}
-{Losers 8 8 8 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HK. \HKQJ976 carries the solid king-queen-jack sequence, so lead the top of the sequence — the king.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3\N. On top you have 2 \S, 1 \H (the lone ace), 2 \D and 2 \C — seven, with more to come. West is marked with the long, strong \H over your single \HA and no apparent entry, so West is the hand to shut out. Hold up the \HA, then develop \C for four tricks and \D for the rest, where every loser goes to safe East. Avoid the \S finesse completely — it loses to the danger hand.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HK, top of a sequence, so West holds the \HQJ and a long suit ready to run. Duck the \H to cut East off from West's hand. Then develop \C for four tricks and take two \D, leading toward your honours so any loser falls to East, the safe hand. Two \S, one \H, two \D and four \C make nine. Don't be tempted by the \S finesse: it loses to West's \SQ and the \H pour out, so the \C are your safe ninth-trick source.
-
-[ROLE declarer][STAGE post-play]
-Nine tricks, the \C doing the developing and the \HA hold-up keeping West off the lead. You found the safe line by losing only to East and refusing the fatal \S finesse. That's the avoidance idea handled just right.
-
-[PLAY 6 S \DJ]
-You have already knocked out clubs and cashed the \DK; now a low \D is led toward your hand, where you hold \DAJ4 with the \DQ still missing. The defender ahead of you plays low. Which \D do you play?
-[WHY]
-Play the \DJ - the finesse. The missing \DQ rates to sit over your \DAJ4 where the jack pins it, so the finesse brings in the extra trick; even on a loss it loses to East, the safe hand with no \H to lead. Rising with the \DA throws away the finesse and lets the \DQ score.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "10"]
-[OriginalBoard "13"]
-% 0B21BFF69FC042A7208D7AF33049
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A73.T962.Q8.KJ84 952.J.AT9743.Q95 KJ86.A87.KJ6.A62 QT4.KQ543.52.T73"]
-{Shape 3424 3163 4333 3523}
-{HCP 10 7 16 7}
-{Losers 9 8 8 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2S    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H4. With \HKQ543 your longest, strongest suit is hearts, and you have no three-card touching-honour block to lead from the top, so lead fourth-best — the four.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, so the defence has only 14 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H4, which looks like a fourth-best, suggesting about five \H and the missing honours behind your ace. By the rule of eleven, only one card higher than the four sits outside your hand and dummy, so East rates to hold at most a single high \H — the long, strong hearts rate to sit with West, the danger hand. Win or hold up to cut East off, then develop \D and \C, leading toward your honours so any losing finesse runs into East, the safe hand. Leave \S alone beyond the two top winners — the \S finesse loses to West and lets the \H cash.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "11"]
-[OriginalBoard "10"]
-% 0B2DB7F29F7AD1F3487B214E2B8F
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A53.742.K.KJ8632 T764.J9.Q985.QT4 KJ2.A53.AJ42.A95 Q98.KQT86.T763.7"]
-{Shape 3316 4243 3343 3541}
-{HCP 11 5 17 7}
-{Losers 8 9 8 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HK. Your \HKQT86 is a broken sequence headed by touching honors, so lead the top of it to drive out declarer's stopper and set up your long hearts.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3NT. Count the top tricks: the \HA, two top spades, two top diamonds and two top clubs make seven. The danger is West's heart length — you hold only the \HA as a stopper, so if West ever gets in, the long hearts run and you are dead. The plan is to develop the SAFE suits: clubs (\CKJ8632 opposite \CA95) and diamonds, both of which lose, if at all, only to East. Set those up for five club tricks plus a third diamond, and NEVER take the spade finesse — finessing the \SJ would lose to West's \SQ, the danger hand.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HK, which looks like top of a sequence, so West rates to hold the \HKQ over a long suit — the classic danger hand. HOLD UP the \HA: duck the first heart (and a second if they continue) to exhaust East of hearts, so East can never lead one back. Now go after clubs, where any loser is meant for safe East: lead toward dummy and finesse the \CJ — if it loses, it loses to East's \CQ, who has no heart to return. That brings in the club suit for five tricks; with the \HA, two spades and a diamond you are home with nine. Do NOT finesse the \SJ — that loses to West's \SQ and the hearts cash to beat you.
-
-[ROLE declarer][STAGE post-play]
-Nicely judged. The whole hand turned on refusing the tempting spade finesse and instead developing clubs, where any loser falls safely to East. Hold up the ace, keep the danger hand off lead, and let the safe opponent win — that is avoidance play in a nutshell.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "12"]
-[OriginalBoard "2"]
-% 0A25BFFAABBBC037C944FB29585D
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:A84.976.K2.KJT85 632.32.QJT7543.Q KJT.AJ4.A86.A742 Q975.KQT85.9.963"]
-{Shape 3325 3271 3334 4513}
-{HCP 11 5 17 7}
-{Losers 8 8 8 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HK. \HKQT85 is a broken sequence topped by the king-queen-ten, so you lead the top of the sequence — the king — rather than a fourth-best card.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3\N. On top you have 2 \S, 1 \H (the lone ace), 2 \D and 2 \C — seven winners. West rates to sit with a long, strong \H suit over your single \HA and no side entry, so West is the hand you must keep out. Hold up the \HA, then run your long \C, where the suit develops with the lead losing only to East if at all; that brings home nine or more. Do not take the \S finesse — it loses to the wrong opponent.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HK — top of a sequence, so West almost surely has the \HQ over you and a suit ready to cash. Duck once, ideally twice, to strip East of \H. Now attack \C: you have a long, strong holding that comes in for five tricks, and any loser falls to East, the safe hand. Two \S, one \H, two \D and the \C give you nine and more. Never finesse \S: West's \SQ wins and the \H cash out — clubs are the safe road home.
-
-[ROLE declarer][STAGE post-play]
-Made with the \C providing the bulk of the tricks while the held-up \HA kept West powerless. The key was refusing the tempting \S finesse and developing the suit that can only ever lose to safe East. Well played.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "13"]
-[OriginalBoard "19"]
-% 1925BBF2B7FE43775EA684003DA9
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A43.954.Q94.KJ98 987.7.AJ865.QT76 KJ652.A62.K2.A32 QT.KQJT83.T73.54"]
-{Shape 3334 3154 5323 2632}
-{HCP 10 7 15 8}
+[Deal "N:J32.T64.KT87.AQT KT6.J2.Q932.K753 AQ98.A9.A54.J986 754.KQ8753.J6.42"]
+{Shape 3343 3244 4234 3622}
+{HCP 10 9 15 6}
 {Losers 9 8 7 8}
 [Declarer "S"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJT83 you hold a touching-honour sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 25 of the 40, so the defence has only 15 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \S, \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "14"]
-[OriginalBoard "31"]
-% 1A29B7FEBF0E128067FAC6B867D9
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:AT9.T85.QJT.KJ73 73.92.A642.QT965 KJ84.A73.K753.A2 Q652.KQJ64.98.84"]
-{Shape 3334 2245 4342 4522}
-{HCP 11 6 15 8}
-{Losers 9 8 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ64 you hold a three-card sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, leaving only 14 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit sitting behind your lone stopper. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "15"]
-[OriginalBoard "12"]
-% 0A2DB7FA97414DE704E2325A38BB
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:A753.T97.A9.KJ82 T94.J4.Q432.Q654 KJ2.A86.KJ87.AT9 Q86.KQ532.T65.73"]
-{Shape 4324 3244 3343 3532}
-{HCP 12 5 16 7}
-{Losers 8 9 8 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2D    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H3. Lead fourth-best from your long, strong \HKQ532 to build heart tricks while you still hold an entry to cash them.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3NT. Top tricks: the \HA, two top spades, two top diamonds and two top clubs — seven ready. West's hearts are the threat and the \HA is your only stopper, so you must keep West off lead. Build the ninth tricks in the SAFE suits: clubs (\CKJ82 opposite \CAT9) for a fourth trick by finessing into East, and a third diamond, also losing only to East. Take the top two spades only — do NOT finesse the \SJ, which would hand West the \SQ and the contract.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H3, a fourth-best look, so West likely has five hearts headed by the KQ — the danger hand you must shut out. HOLD UP the \HA: duck the first round and win the second, stripping East of hearts. Then develop clubs by leading toward dummy and finessing — if the finesse loses it loses to East's \CQ, who is now safe with no heart to play. Add a third diamond, again conceding only to East, and you reach nine. Resist the spade finesse: the \SJ finesse loses to West's \SQ, the one hand that can cash hearts against you. Spades give you their two top honours and nothing more.
-
-[ROLE declarer][STAGE post-play]
-Well played. By holding up and then taking only the finesses that lose to East, you kept West — the hand with the long hearts — forever off lead. The spade finesse was the bait; clubs and a long diamond were the safe nine.
-
-[PLAY 4 S \CT]
-You cashed the \CJ from dummy, and now lead a low \C off the table toward your \CAT9 with the \CQ still out. East follows low. Which \C do you play?
-[WHY]
-Play the \CT - the finesse. The \CQ rates to sit with East, over your \CAT9 and below dummy's honours, so the ten drives it out or wins outright; best of all, if it loses it loses to East, the safe hand who can never reach West's \H. Banging down the \CA gives up the finesse and lets the \CQ make.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "16"]
-[OriginalBoard "6"]
-% 0929B3F6BBD8EC42518FC17376A6
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A.865.K8754.KJ64 8743.T7.Q32.Q832 KJ62.A92.AJT.A75 QT95.KQJ43.96.T9"]
-{Shape 1354 4234 4333 4522}
-{HCP 11 4 17 8}
-{Losers 7 9 8 7}
-[Declarer "S"]
-[Contract "3N"]
 [Result "10"]
 [Score "NS 430"]
 [Scoring "MP"]
@@ -733,8 +171,8 @@ class: intended
 difficulty: 3
 bidding: standard
 bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
+declarer: standard finesse-safe-hand
+declarer-note: West has a SIX-card heart suit against a single stopper; the hold-up is vital. Spade and club finesses both lose to safe East (two hearts). Duck once, then combine.
 defense: reject
 defense-note: declarer-play scenario
 }
@@ -743,662 +181,15 @@ defense-note: declarer-play scenario
 Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \HK. \HKQJ43 has the solid king-queen-jack sequence, so lead the top of the sequence — the king.
+Lead the \HK from your six-card suit — top of the sequence. With so many hearts, setting them up is your side's best hope.
 
 [ROLE declarer][STAGE auction-end]
-You are in 3\N. You hold 2 \S, 1 \H (the lone ace), 2 \D and 2 \C on top — seven, with plenty more available. West has the long, strong \H over your single \HA and no clear entry, so keep West out. Hold up the \HA, then run \D, which develops for five tricks with any loser going to safe East, and \C add more. You don't need the \S finesse at all — and you must not take it, since it would let the danger hand in.
+West leads from what looks like a six-card heart suit, and you hold it just once, so the hold-up is critical. Your two chances are a spade finesse and a club finesse — and both, if they lose, lose to East, who began with only a doubleton heart. Duck one round to leave East with none, and then both finesses are perfectly safe.
 
 [ROLE declarer][STAGE post-lead]
-West led the \HK, top of a sequence, so West holds the \HQJ and a long suit poised to run. Duck the \H to break East's link with West. Then develop \D, your richest source — it brings in five tricks and any loser falls to East, the safe hand — and the \C give still more. Two \S, one \H, five \D and three \C is eleven; nine is never in doubt. Even though both \S honours cash, never finesse \S: if it lost, West would win and run the \H. Take the tricks the safe way.
+Hold up your \HA on the first round; East, with two hearts, is void after the second. Now the danger is dead: West has all the long hearts but no way to reach them, because your spade and club finesses both lose to the heartless East. Take them both — the spade king is onside — and claim ten tricks.
 
 [ROLE declarer][STAGE post-play]
-Comfortably home, the long \D carrying the load and the \HA hold-up muzzling West. The discipline was in taking your sure \S tricks without ever risking a \S finesse into the danger hand. Cleanly done.
-
-[PLAY 4 S \DJ]
-You won the first \D in dummy with the \DK, and now lead a low \D off the table back toward your hand, where you hold \DAJT with the \DQ still out. East follows low. Which \D do you play?
-[WHY]
-Play the \DJ - the finesse. East followed low, so the \DQ rates to lie over your \DAJT exactly where the finesse traps it, and even a losing finesse loses to safe East, who has no \H to push through. Going up with the \DA instead drops your own trick and hands the defence the queen.}
+West's six-card suit never scored a single trick, because you ducked at the right moment and kept the dangerous hand off lead for the rest of the deal. A long suit is only as good as the entries to cash it — deny them, and even your finesses become risk-free.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "17"]
-[OriginalBoard "35"]
-% 2925BBF29BC16B02F5D6C8F264B7
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A8.T85.QT84.KJ92 93.J6.A7632.Q864 KJ2.A93.KJ95.AT7 QT7654.KQ742..53"]
-{Shape 2344 2254 3343 6502}
-{HCP 10 7 16 7}
-{Losers 8 8 8 5}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \S6. With \SQT7654 your spades are your longest suit, and without a solid sequence to lead from you lead fourth-best — the six.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, leaving only 14 for the defence, and with neither opponent bidding no one is hiding a big hand. Even so the danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Build your extra tricks in \D and \C, where the finesses lose safely to East — and never take the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \S6 rather than a heart, but the silence and your lone \HA still mark West as the danger hand: West rates to hold long \H ready to run if ever on lead. Win the \S cheaply with care, keeping your stopper, and do not be tempted to finesse the spade — a losing \S finesse hands the lead to West. Develop your extra tricks in \D and \C, leading toward your honours so any finesse loses into East, the safe hand. Between your top cards and the established \D and \C you reach nine.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West kept off lead and the long \H neutralised. The whole hand turned on which way to lose the lead — you steered every losing finesse into the safe East and refused the tempting spade finesse into West. Nicely judged avoidance.
-
-[PLAY 4 S \CT]
-You won the opening \S and crossed back to your hand; now a low \C is led from dummy toward your \CAT7 with the \CQ still out. East follows low. Which \C do you play?
-[WHY]
-Play the \CT - the finesse. The \CQ rates to sit with East, over your \CAT7 and under dummy's \CKJ92, so the ten drives it out or holds; and any loss goes to East, the safe hand who can never reach West's \H. Slapping down the \CA throws the finesse away and lets the \CQ make.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "18"]
-[OriginalBoard "17"]
-% 1829B3FEBFD2DAA54B768F6CBBC5
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:A.752.A973.KJ753 764.T9.QJ54.QT96 KJ853.A84.KT.A82 QT92.KQJ63.862.4"]
-{Shape 1345 3244 5323 4531}
-{HCP 12 5 15 8}
-{Losers 7 9 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ63 you hold a touching-honour sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 27 of the 40, so the defence has only 13 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "19"]
-[OriginalBoard "25"]
-% 1925BBF297B7F50B583C6286C7AC
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A86.843.Q5.KJT83 75.J7.AJT943.Q54 KJT42.A52.K87.A9 Q93.KQT96.62.762"]
-{Shape 3325 2263 5332 3523}
-{HCP 10 8 15 7}
-{Losers 9 8 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQT96 you hold a broken sequence headed by the king-queen-ten, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 25 of the 40, so the defence has only 15 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \S and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "20"]
-[OriginalBoard "38"]
-% 2921BBF6BB7C88028E7A6ED3615F
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:A8.987.A843.KJ42 T6532.42.Q.Q8765 KJ97.A53.KJ96.A3 Q4.KQJT6.T752.T9"]
-{Shape 2344 5215 4342 2542}
-{HCP 12 4 16 8}
-{Losers 8 8 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJT6 you hold a four-card sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 28 of the 40, leaving only 12 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit sitting behind your lone stopper. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "21"]
-[OriginalBoard "14"]
-% 082DBBF2B30049AC766B1F558C74
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:AT5.T93.K96.KJ65 97642.54.A853.Q7 KJ83.A86.QJT.A94 Q.KQJ72.742.T832"]
-{Shape 3334 5242 4333 1534}
-{HCP 11 6 15 8}
-{Losers 9 9 8 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ72 you hold a touching-honour sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, so the defence has only 14 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \S, \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "22"]
-[OriginalBoard "36"]
-% 2B2DB7F293E4F677855C40496FBA
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A.754.KT987.KJ83 86543.J6.QJ5.Q92 KJ72.AT3.A63.A74 QT9.KQ982.42.T65"]
-{Shape 1354 5233 4333 3523}
-{HCP 11 6 16 7}
-{Losers 7 9 8 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H8. With \HKQ982 your king-queen do not run to a three-card sequence, so lead fourth-best from your longest, strongest suit — the eight.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 27 of the 40, leaving only 13 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never finesse the spade into West, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H8, which looks like a fourth-best, suggesting about five \H headed by honours sitting behind your lone stopper. Hold up the \HA as long as you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The trap is finessing the spade the wrong way into West's \SQ, letting West cash the \H — so take only the top spades that don't risk the lead to West.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "23"]
-[OriginalBoard "20"]
-% 1B25BFF2AF73489D3840BA576FC3
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A7.962.A4.KJT432 T9643.84.QT62.Q5 KJ85.AJ3.KJ83.A8 Q2.KQT75.975.976"]
-{Shape 2326 5242 4342 2533}
-{HCP 12 4 17 7}
-{Losers 7 9 7 9}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQT75 you hold a broken sequence headed by the king-queen-ten, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 29 of the 40, so the defence has only 11 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "24"]
-[OriginalBoard "33"]
-% 2829B3FEAFEBCCBE7D1E044683B5
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:A65.9543.AT.KJT3 74.6.QJ9876.Q864 KJ832.AJT.K3.A72 QT9.KQ872.542.95"]
-{Shape 3424 2164 5323 3532}
-{HCP 12 5 16 7}
-{Losers 8 7 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2S    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H7. With \HKQ872 your king-queen do not run to a three-card sequence, so lead fourth-best from your longest, strongest suit — the seven.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 28 of the 40, leaving only 12 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \S and \C, where the finesses lose safely to East — and never finesse the spade into West, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H7, which looks like a fourth-best, suggesting about five \H headed by honours sitting behind your lone stopper. Hold up the \HA as long as you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks in the long \S and in \C, leading so that any finesse loses into East — that's the safe hand. Between your top cards and the established suits you reach nine. The trap is finessing the spade the wrong way into West's \SQ, letting West cash the \H — so take only the top spades that don't risk the lead to West.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "25"]
-[OriginalBoard "23"]
-% 1B21BFF6B7C1E0F39F4208A6827C
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A5.T653.QJ4.KJ87 62.7.AT9863.Q643 KJ743.A94.K72.AT QT98.KQJ82.5.952"]
-{Shape 2434 2164 5332 4513}
-{HCP 11 6 15 8}
-{Losers 8 7 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2S    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ82 you hold a touching-honour sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, so the defence has only 14 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \S, \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit behind your lone \HA. The long, strong hearts rate to sit with West, the danger hand, with East short. Hold up the \HA, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your extra tricks by leading toward your honours and letting any finesse lose into East, the safe hand — and leave the \S finesse alone beyond the two top winners, since it loses to West's \SQ and frees the \H.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.
-
-[PLAY 6 S \CT]
-You have cashed your top \S and \D winners; now a low \C is led from dummy toward your hand, where you hold \CAT with the \CQ still out. East follows low. Which \C do you play?
-[WHY]
-Play the \CT - the finesse. The \CQ rates to sit with East, over your \CAT and under dummy's \CKJ87, so the ten forces it out or wins; and even on a loss it loses to East, the safe hand who cannot reach West's \H. Crashing the \CA instead surrenders the finesse and lets the \CQ score a trick.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "26"]
-[OriginalBoard "28"]
-% 1A29B7FEB784785AE973038CEE16
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:A52.T54.Q43.KJ65 986.82.A987.Q832 KJT4.A73.KJT2.A7 Q73.KQJ96.65.T94"]
-{Shape 3334 3244 4342 3523}
-{HCP 10 6 16 8}
-{Losers 9 9 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJ96 you hold a three-card sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, leaving only 14 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit sitting behind your lone stopper. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "27"]
-[OriginalBoard "37"]
-% 2A25BFFABBF0710D8B6120475A19
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:A852.874.K8.KJ74 9643.32.QJ732.Q3 KJ7.A65.A4.A9862 QT.KQJT9.T965.T5"]
-{Shape 4324 4252 3325 2542}
-{HCP 11 5 16 8}
-{Losers 8 9 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  2C =1=    Pass
-2D    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJT9 you hold a five-card sequence headed by the king-queen-jack, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. NS hold 27 of the 40, leaving only 13 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \C, where the finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit sitting behind your lone stopper. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop your \C, leading toward your honours and letting the finesse lose into East — that's the safe hand. Between your top cards and the established \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered the losing finesse into the safe East. Nicely judged avoidance.}
-[Note "1:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "28"]
-[OriginalBoard "1"]
-% 0821BBFE9337B8FECE81E88A6F56
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:AT.764.K954.KJT3 32.J2.Q873.Q8742 KJ964.A53.AJ6.A6 Q875.KQT98.T2.95"]
-{Shape 2344 2245 5332 4522}
-{HCP 11 5 17 7}
-{Losers 8 8 7 7}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HK. With \HKQT98 you hold a broken sequence headed by the king-queen-ten, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end]
-You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 2 top \D and 2 top \C — seven on top, so you need two more. The danger is West, who figures to hold long, strong \H behind your lone \HA with no quick entry; if West ever gets in, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HK, which looks like top of a sequence, so West very likely holds the \HQ and a long suit behind it. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between top cards and the established \D and \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play]
-Nine tricks: two \S, one \H, three \D and three \C, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.
-
-[PLAY 9 S \DJ]
-You have cashed the \DK in dummy and now lead a low \D back toward your hand, where you hold \DAJ6 with the \DQ still out. East follows low. Which \D do you play?
-[WHY]
-Play the \DJ - the finesse. East followed low, so the \DQ rates to sit over your jack just where the finesse picks it up, and even if it loses it loses to East, the safe hand who can never reach West's hearts. Rising with the \DA instead would crash a winner and give the defence a diamond trick with the queen.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "29"]
-[OriginalBoard "26"]
-% 1B21BFF697E2F58C787783902A41
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A3.852.QJ96.KJ65 762.J4.AT542.QT3 KJ854.AT3.K8.A92 QT9.KQ976.73.874"]
-{Shape 2344 3253 5323 3523}
-{HCP 11 7 15 7}
-{Losers 8 9 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H7. With \HKQ976 your longest, strongest suit is hearts, and you have no three-card touching-honour block to lead from the top, so lead fourth-best — the seven.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 top \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, so the defence has only 14 between them, and with neither opponent bidding, no one is hiding a long suit or a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever gets in, those \H could run, so build your extra tricks in \D and \C, where any finesse loses safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H7, which looks like a fourth-best, suggesting about five \H and the missing honours behind your ace. By the rule of eleven, only one card higher than the seven sits outside your hand and dummy, so East rates to hold at most a single high \H — the long, strong hearts rate to sit with West, the danger hand. Win or hold up to cut East off, then develop \D and \C, leading toward your honours so any losing finesse runs into East, the safe hand. Leave \S alone beyond the two top winners — the \S finesse loses to West and lets the \H cash.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Choice_Of_Finesses"]
-[Site ""]
-[Board "30"]
-[OriginalBoard "29"]
-% 1B21B7FEBFF4E28D28405B8E1376
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:A73.864.KT2.KJ53 652.53.A963.Q942 KJ84.A97.QJ84.A8 QT9.KQJT2.75.T76"]
-{Shape 3334 3244 4342 3523}
-{HCP 11 6 15 8}
-{Losers 9 9 7 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: standard
-bidding-note: 1NT-3NT, not a bidding lesson
-declarer: textbook avoidance
-declarer-note: Avoidance: spade finesse loses to West (danger hand, long hearts); club finesse loses safely to East. Take clubs, not spades.
-defense: reject
-defense-note: declarer-play scenario
-}
-[Auction "S"]
-1N    Pass  3N    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HK. With \HKQJT2 you hold a four-card sequence headed by the king-queen-jack-ten, so lead the top of your sequence — the king — not a fourth-best.
-
-[ROLE declarer][STAGE auction-end] You are in 3\N. Count your tricks: 2 top \S, 1 \H (the lone ace), 0 \D and 2 top \C — five on top, so you need four more. NS hold 26 of the 40, leaving only 14 for the defence, and with neither opponent bidding no one is hiding a big hand. The danger is West, who rates to hold long, strong \H behind your lone \HA; if West ever wins the lead, those \H run. Plan to hold up the \HA to cut East off, then build your extra tricks in \D and \C, where the finesses lose safely to East — and never touch the \S finesse, which would hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \HK, which looks like top of a sequence, so West very likely holds the \HQJ and a long suit sitting behind your lone stopper. Duck the first \H, and duck again if you can, to exhaust East of \H so the suit is dead if East ever wins. Then develop \D and \C: lead toward your honours and let any finesse lose into East — that's the safe hand. Between your top cards and the established \D and \C you reach nine. The \S finesse is the trap: it loses to West's \SQ, and West cashes the \H — so leave \S alone beyond the two top winners.
-
-[ROLE declarer][STAGE post-play] Nine tricks, with West's \H neutralised. The whole hand turned on which way to lose the lead — you kept the dangerous West off play and steered every losing finesse into the safe East. Nicely judged avoidance.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
