@@ -34,6 +34,16 @@ import re
 import sys
 from pathlib import Path
 
+# Load the sibling play_line module by file path. `python3 -P` omits the script
+# dir from sys.path, and we must NOT prepend py/ to sys.path — it holds a
+# select.py that would shadow stdlib `select` and break endplay's DDS. importlib
+# by path sidesteps both.
+import importlib.util as _ilu
+_pl_path = Path(__file__).resolve().parent / "play_line.py"
+_pl_spec = _ilu.spec_from_file_location("play_line", _pl_path)
+play_line = _ilu.module_from_spec(_pl_spec)
+_pl_spec.loader.exec_module(play_line)
+
 ROOT = Path(__file__).resolve().parent.parent
 COACHING_DIR = ROOT / "coaching-non-rotated"
 
@@ -338,6 +348,12 @@ def transform_file(path, check):
     changed = out_text != text
     if changed and not check:
         path.write_text(out_text)
+    # Declarer-play lessons need a recorded [Play] line so bridge-classroom can
+    # play the hand out (it has no local double-dummy solver). Regenerate it here
+    # as the final serve step — idempotent — so a re-serve never leaves a board
+    # with coaching but no play data. Only declarer-play scenarios pay the DD cost.
+    if not check and "[ROLE declarer]" in out_text:
+        play_line.process(path.stem, check=False)
     return changed, len(boards), totals
 
 
