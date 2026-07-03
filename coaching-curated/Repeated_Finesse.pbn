@@ -1,0 +1,185 @@
+[Event "Repeated_Finesse"]
+[Site ""]
+[Board "1"]
+[OriginalBoard "69"]
+[OriginalScenario "Finesse_Simple"]
+% 4A886D849E24FF6B39F7CBEA1860
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:T73.AQ5.KJ9.9865 K82.J3.A87543.J4 AQJ.KT842.QT6.K7 9654.976.2.AQT32"]
+{Shape 3334 3262 3532 4315}
+{HCP 10 9 15 6}
+{Losers 9 8 6 8}
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 600"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 2
+bidding: textbook
+bidding-note: 1NT - 3NT, the simplest auction in bridge.
+declarer: textbook repeated-finesse
+declarer-note: 3NT needs 9 and dd gives exactly 9; South's SAQJ over dummy's T73 is missing the guarded king (K82 with East) — one finesse is not enough, so use dummy's two heart entries to hook the jack, then the queen, and the ace drops the bare king. Three spade tricks, no loser.
+defense: reject
+defense-note: W (S:9654 H:976 D:2 C:AQT32) runs clubs at the end for four tricks; nothing beats 3NT against the repeated spade finesse.
+}
+[Auction "S"]
+1N    Pass  3N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \C3, fourth-best from your longest suit — the standard start against 3NT.
+
+[ROLE declarer][STAGE auction-end] You are in 3NT needing nine tricks. Your spade suit is \SA-Q-J over dummy's T-7-3, missing only the king — but a king that rates to be GUARDED. Here is the point of this whole lesson: ONE finesse is not enough. Hook once and cash the ace, and a defender with K-x-x still scores the king. You must finesse TWICE, and that takes two entries to dummy — look at the hearts: dummy's \HA-Q opposite your \HK-T-8-4-2 provide exactly the transportation you need.
+
+[ROLE declarer][STAGE post-lead] West led the \C3; East's jack forces your king — trick one is yours. Now the plan: overtake or lead a heart to dummy's QUEEN, and pass the \SJ — it wins, East ducking. Back to dummy with the \HA, and finesse again: the \SQ — it wins too. NOW cash the \SA, and East's king, finally bare, falls under it. Three spade tricks without a loser, and with five heart tricks rolling in behind them the count reads nine. Concede the rest.
+
+[ROLE declarer][STAGE post-play] The spade king sat exactly where a finesse wanted it, but with two guards it would never fall to a single hook — you had to LEAD toward the A-Q-J twice, and dummy's two heart honors were the bridge. That is the repeated finesse: same finesse, taken again, living entirely on entries. Well played.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Repeated_Finesse"]
+[Site ""]
+[Board "2"]
+[OriginalBoard "262"]
+[OriginalScenario "Two_Over_One"]
+% 0997B02B0B6ED47C60DBFA9B3541
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:QJ3.J2.K72.AQJ64 T872.A964.A93.T5 AK4.QT7.QJ654.32 965.K853.T8.K987"]
+{Shape 3235 4432 3352 3424}
+{HCP 14 8 12 6}
+{Losers 7 9 7 9}
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 400"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: textbook
+bidding-note: 1D - 2C (2/1 game force); 2D - 3D; 3NT. Textbook 2/1 auction.
+declarer: standard repeated-finesse
+declarer-note: 3NT needs 9 and dd gives exactly 9; dummy's CAQJ64 over the 32 faces K987 with West — four to the king. Hook the jack, return to hand (overtaking the spade queen with the ace!), hook the queen: two club tricks and West's king never scores.
+defense: reject
+defense-note: W (S:965 H:K853 D:T8 C:K987) gets a heart trick and partner's two aces; the guarded club king dies without ever winning.
+}
+[Auction "S"]
+1D    Pass  2C    Pass
+2D    Pass  3D    Pass
+3N    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \H3, fourth-best from your longest suit — the normal attack against 3NT.
+
+[ROLE declarer][STAGE auction-end] You are in 3NT needing nine tricks. Diamonds will provide a stack once the ace is driven out, and the spades are solid — but the count still comes up short without TWO club tricks from dummy's \CA-Q-J-6-4 over your 3-2. The king is missing, and if it is guarded — even three or four deep — one finesse will not do. Plan to lead clubs from your hand TWICE, hooking the jack and then the queen. And mind your entries: your hand must be reachable in between.
+
+[ROLE declarer][STAGE post-lead] The defense takes its heart tricks early — your \HT wins the third round. Now lead a club and finesse dummy's JACK: it holds. Knock out the \DA, win the return, and here is the pretty moment: when you cash dummy's \SQ, OVERTAKE it with your ace — burning a high card to buy the entry — and lead a second club, finessing the QUEEN: it holds too. West began with \CK-9-8-7, four to the king, and never scores it. With the diamonds running and the spades cashed, that is nine.
+
+[ROLE declarer][STAGE post-play] West's club king had four cards of company, so no single finesse and no ace-banging would ever have caught it — but two finesses skated straight past it. The overtaken spade was the price of the second entry to your hand, and it bought a whole trick back in clubs. The repeated finesse lives on transportation; you paid for it exactly once. Nicely played.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Repeated_Finesse"]
+[Site ""]
+[Board "3"]
+[OriginalBoard "482"]
+[OriginalScenario "Fourth_Bid_Inviting"]
+% EA1715E83576C872B2A34C48890D
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AKJ2.95432.52.A6 T854.AK.Q943.T87 763.Q6.AKJT.KJ32 Q9.JT87.876.Q954"]
+{Shape 4522 4243 3244 2434}
+{HCP 12 9 14 5}
+{Losers 7 8 8 10}
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 600"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: standard
+bidding-note: 1D - 1H; 1NT - 2C New Minor Forcing; 3NT. Standard NMF sequence to game.
+declarer: standard repeated-finesse
+declarer-note: 3NT needs 9 and dd gives exactly 9; South's DAKJT is missing only the queen, but she sits Q943 with East — hook the TEN, re-enter dummy with the spades, hook the jack, and the top honors drop her. Four diamond tricks, none lost; cashing A-K first would leave the queen high.
+defense: reject
+defense-note: W (S:Q9 H:JT87 D:876 C:Q954) leads hearts to partner's A-K; the defense totals two hearts, a club, and nothing in diamonds.
+}
+[Auction "S"]
+1D    Pass  1H    Pass
+1N    Pass  2C =1=    Pass
+3N    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \HJ, top of your \HJ-T sequence — a safe, solid start against 3NT.
+
+[ROLE declarer][STAGE auction-end] You are in 3NT needing nine tricks, and the engine room is diamonds: your \DA-K-J-T missing only the queen. Do not let the near-solid look fool you into banging the ace and king — if the queen is guarded two or three deep, she simply outlasts them. The professional line is a REPEATED finesse: lead low from dummy and insert the TEN; return to dummy — the spade honors are your entries — and run the finesse again with the jack. Then the ace and king can do their work.
+
+[ROLE declarer][STAGE post-lead] West led the \HJ, East overtook with the king and shifted a club to dummy's ace. Diamonds now: low from dummy, and when East plays low, in with the TEN — it holds. Cross to dummy's \SJ, lead the second diamond, and finesse the JACK — it holds as well. Now cash the \DK and \DA, and East's queen, which started with THREE guards, comes tumbling down. Four diamond tricks without a loser, and with dummy's \SA-K-J-2 and the club ace they carry you to nine.
+
+[ROLE declarer][STAGE post-play] East's \DQ-9-4-3 would have laughed at your ace and king — and at any single finesse. Two finesses through her, fed by dummy's spade entries, picked up the whole suit. When you hold A-K-J-T, the ten is not a small card; it is your first finesse. Well played.}
+[Note "1:New Minor Forcing"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Repeated_Finesse"]
+[Site ""]
+[Board "4"]
+[OriginalBoard "439"]
+[OriginalScenario "2N_and_1_Minor"]
+% BBAFB32C1EF17DA7F3CB585A3782
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:QJ3.62.83.AK8763 954.J54.KT72.J42 AK82.AQ8.AQJ9.T9 T76.KT973.654.Q5"]
+{Shape 3226 3343 4342 3532}
+{HCP 10 5 20 5}
+{Losers 7 11 5 10}
+[Declarer "S"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 1440"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: standard
+bidding-note: 2NT - 4C Gerber; 4NT (three aces) - 6NT. Direct Gerber route to the notrump slam.
+declarer: judgment repeated-finesse
+declarer-note: 6NT needs 12 and dd gives exactly 12; the slam rides on FOUR diamond tricks from AQJ9 opposite 8-3, missing KT72 with East — a deep repeated finesse: hook the NINE first, then the jack, and the queen-ace crush the king and ten. The BBA playout took only 11 here; the repeat is the whole slam.
+defense: reject
+defense-note: W (S:T76 H:KT973 D:654 C:Q5) leads a heart into the A-Q-8 tenace; East's club jack is the defense's only trick.
+}
+[Auction "S"]
+2N    Pass  4C =1=    Pass
+4N =2=    Pass  6N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \H7, fourth-best from your longest suit — the standard choice against the notrump slam.
+
+[ROLE declarer][STAGE auction-end] Gerber found three aces and you sit in 6NT, needing twelve tricks. Count them: four spades once the suit behaves, the club ace-king with length behind them, two or three hearts after that lead — and the rest MUST come from diamonds, where you hold \DA-Q-J-9 opposite dummy's 8-3. The king is missing, and so are the ten and seven — East can hold K-T-7-2, a fortress against any single finesse. The answer is the deep repeated finesse: insert the NINE on the first round, the jack on the second, and only then unleash the queen and ace.
+
+[ROLE declarer][STAGE post-lead] West's \H7 ran to your eight — a free trick into the A-Q tenace. Unblock the spades and cross to dummy's \SQ-J: on the first diamond from dummy, East plays low, and you win the NINE. Back to dummy with the \CK, second diamond: East ducks again and your JACK holds. Now the \DQ and \DA — East's king and ten both come crashing down. Four diamond tricks, none lost; with four spades, two clubs, and the hearts, twelve tricks are on the table.
+
+[ROLE declarer][STAGE post-play] Missing K-T-7-2, even ace-queen-jack is not enough firepower for a frontal assault — the NINE had to win a trick, and it could only do that as a finesse, twice fed by dummy's entries. That deep repeat was worth the slam itself: cash-and-hope goes one down here. When the intermediates are strong, finesse them first and save the tops for the kill. Beautifully played.}
+[Note "1:Gerber"]
+[Note "2:A=3 out of 4"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]

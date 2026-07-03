@@ -4,10 +4,12 @@ Design + working plan for reworking the **declarer-play finesse lessons** as a
 coherent family. Started 2026-07-03 (David + Claude). Companion to
 [pbn-curation-plan.md](pbn-curation-plan.md).
 
-**Status:** design settled; **method PROVEN** (see §9 — detector + the "finesse actually taken"
-filter). Shipped: Finesse_Simple bd1 (`7888e8565`), Choice_Of_Finesses (`0af244bbc`), Rabbi's_Rule
-(`ed685535a`), To_Finesse_Or_Not rebuilt (5-board #1→#2 walk). Two_Way + Finesse_Simple verified
-clean (all served `[Play]` lines make). NEXT: new Ruffing / Double / Repeated finesse lessons.
+**Status: FAMILY COMPLETE — all 8 lessons live** (2026-07-03). Rebuilt: Finesse_Simple bd1
+(`7888e8565`), Choice (`0af244bbc`), Rabbi's (`ed685535a`), To_Finesse_Or_Not (`9467a3361`,
+5-board #1→#2 walk). NEW: Ruffing_Finesse (`8c8584352`, 4 bds), Double_Finesse (`0ff013766`, 3 bds),
+Repeated_Finesse (4 bds). Two_Way + Finesse_Simple verified clean. Method §9 proven; toolkit
+`py/finesse-harvest/`. Remaining (later): expand tight cuts as clean boards surface; §6 faceted
+cross-listing + BC dup-id check; §8 opens.
 
 ---
 
@@ -19,11 +21,11 @@ They form a **progression**: each lesson may assume the earlier ones and must no
 | # | Lesson | Owns the skill | New? |
 |---|---|---|---|
 | 1 | **Finesse_Simple** | Take a single finesse — the mechanic (lead toward the honor) | live |
-| 1b | **Ruffing_Finesse** | The trump-contract finesse: run an honor, ruff it if covered, pitch if not | NEW |
-| 1c | **Double_Finesse** | Two missing honors in one suit — finesse twice | NEW |
+| 1b | **Ruffing_Finesse** | The trump-contract finesse: run an honor, ruff it if covered, pitch if not | live |
+| 1c | **Double_Finesse** | Two missing honors in one suit — finesse twice | live |
 | 2 | **To_Finesse_Or_Not** | *Whether* at all — restraint + evidence; a safe line vs. a losing finesse | rebuilt |
-| 3 | **Two_Way_Finesse** | *Which direction* — finesse either opponent, resolved by the count/bidding | live (verify) |
-| 3b | **Repeated_Finesse** | Finesse the same suit several times — lives on entries | NEW |
+| 3 | **Two_Way_Finesse** | *Which direction* — finesse either opponent, resolved by the count/bidding | live (verified) |
+| 3b | **Repeated_Finesse** | Finesse the same suit several times — lives on entries | live |
 | 4 | **Choice_Of_Finesses** | *Which of several* + **combine chances** + order (entries / danger hand) | live (rebuild) |
 | 5 | **Rabbi's_Rule** | Finesse vs. the **drop** — play the ace for the stiff honor, *with a reason* | live (rebuild) |
 
@@ -281,3 +283,26 @@ own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/`
 - **2026-07-03** — Harvest toolkit **promoted to `py/finesse-harvest/`** (detect / rank / taken /
   verify_play / meta / check_served + README); all six smoke-tested against the session's known-good
   outputs from the new location.
+- **2026-07-03** — **Ruffing_Finesse NEW lesson shipped** (`8c8584352`, 4 boards): 4♥ both branches
+  (duck→pitch, cover→ruff, dummy's KQJ643 opposite a void), 4♠ AQJT9 signature after a splinter,
+  4♠ loser-on-loser jack ride after Jacoby 2NT, 6♣ slam riding on the heart ruffing finesse. New
+  `ruffing_detect.py` (structural scan — swing tests can't see a can't-lose finesse; DD-line acid =
+  sequence honor led, short hand ruffs the cover or pitches). 174 raw → 85 front → 4 survivors; the
+  real-lead re-dump killed b308 (DD pitches the suit away), b421 (defensive gift), b430/b466
+  (overtricks / ambiguous lead). Finesses toc shelf reordered to the plan's progression.
+- **2026-07-03** — **Double_Finesse NEW lesson shipped** (`0ff013766`, 3 boards): 3NT ♣AJT2 both
+  hooks genuinely taken, 3NT after 2NT-Smolen (queen rises into the ace), 5♣ after Michaels —
+  lose-win-win with the five-five bid marking the honors. New `double_detect.py`; acid refinement
+  learned: the second sub-honor win must come **while a missing honor is still live** (b56's "second
+  finesse" was a routine cash after the ace dropped a doubleton queen). 64 raw → 3 survivors; killed:
+  doubleton drops (b56), DD drop-and-ruff lines (b29), A-K-cash-then-exit gift lines (b387),
+  overtricks under the true lead (b455/b379/b90), lead-ambiguous (b381).
+- **2026-07-03** — **Repeated_Finesse NEW lesson shipped** (4 boards; family COMPLETE at 8 lessons).
+  Arc: 3NT ♠AQJ vs guarded K (dummy's two heart honors = exactly the two entries), 3NT ♣AQJ64 hooking
+  twice through West's K987 (overtake the ♠Q for the re-entry — entry management on screen), 3NT
+  ♦AKJT vs Q943 (the ten is the first finesse), 6NT ♦AQJ9 vs KT72 — deep repeat (hook the NINE, then
+  the jack) where **EPBot's own playout went one down**; the repeat IS the slam. Detector bug found +
+  fixed: the `front`/onside map was **inverted** (tenace in North → onside defender is WEST, who
+  plays before dummy) — the first scan's 6 "hits" were all duck-dependent establishment, none real.
+  Corrected full-corpus rescan: ~90 raw → 36 mainstream-auction → 4 survivors (b63/b38 overtricks
+  under the true lead, exotic-system pools deprioritized).
