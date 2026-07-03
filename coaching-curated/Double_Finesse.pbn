@@ -1,0 +1,139 @@
+[Event "Double_Finesse"]
+[Site ""]
+[Board "1"]
+[OriginalBoard "294"]
+[OriginalScenario "1M-3N_Picture_Bid"]
+% 29A3E056F32F62B68C350A99DC6F
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:T65.75.AKJ9.AJT2 Q92.Q43.Q86.Q985 A874.AKT92.54.64 KJ3.J86.T732.K73"]
+{Shape 3244 3334 4522 3343}
+{HCP 13 8 11 8}
+{Losers 8 8 7 10}
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 400"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: standard
+bidding-note: 1H - 2C; 2NT - 3NT. Plain-vanilla 2/1 auction to the notrump game.
+declarer: textbook double-finesse
+declarer-note: 3NT needs 9 and dd gives exactly 9; dummy's CAJT2 over the 64 is missing BOTH the king and queen — finesse the ten (loses to East's queen), later finesse the jack (wins through West's king), and the ace drops the king. Two hooks, one loss, three club tricks.
+defense: reject
+defense-note: W (S:KJ3 H:J86 D:T732 C:K73) collects the club queen trick, a spade, a heart, and the diamond queen — four and no more.
+}
+[Auction "S"]
+1H    Pass  2C    Pass
+2N    Pass  3N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \D2, fourth-best from your longest suit — the standard start against 3NT.
+
+[ROLE declarer][STAGE auction-end] You are in 3NT needing nine tricks. The suit that decides this hand is clubs: dummy's \CA-J-T-2 over your 6-4, missing BOTH the king and the queen. That calls for a DOUBLE FINESSE: lead toward dummy twice — the ten first, the jack later. You expect to lose one of the two, but roughly three times in four at least one hook wins, and that extra club trick is your ninth. Plan for one club loser, not two.
+
+[ROLE declarer][STAGE post-lead] West led the \D2 to dummy's king. Now go right after clubs: low toward dummy's ten — it loses to East's queen. One down, as expected; do not lose heart. Regain the lead and play a second club toward dummy, inserting the jack — it HOLDS, riding through West's king. Cash the \CA and the king falls too: two club winners, one loser, mission accomplished. With the top hearts, the diamonds behind dummy's A-K-J, and the \SA, nine tricks are home.
+
+[ROLE declarer][STAGE post-play] Missing the king AND queen, one finesse is a coin flip — but two finesses are a heavy favorite: about three chances in four that one of them wins. You hooked the ten, lost to the queen, hooked the jack, and won through the king. Losing the first round was part of the plan, and the second hook paid for it. Well played.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Double_Finesse"]
+[Site ""]
+[Board "2"]
+[OriginalBoard "76"]
+[OriginalScenario "2N_Smolen"]
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AJT4.T9762.92.53 K762.Q854.K63.T4 985.AK.QJ74.AKQJ Q3.J3.AT85.98762"]
+{Shape 4522 4432 3244 2245}
+{HCP 5 8 20 7}
+{Losers 9 8 5 9}
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 600"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: standard
+bidding-note: 2NT - 3C Stayman; 3D - 3S Smolen (five hearts, four spades); 3NT — no major fit, back to notrump.
+declarer: standard double-finesse
+declarer-note: 3NT needs 9 and dd gives exactly 9; dummy's SAJT4 over the 985 is missing the king and queen — the ten loses to East's king, the next lead toward the jack brings West's queen up and the ace captures it, and the jack rules the third round.
+defense: reject
+defense-note: W (S:Q3 H:J3 D:AT85 C:98762) scores the spade king trick to partner, the diamond ace, king, and a heart — the club runout and dummy's spades cap the defense at four.
+}
+[Auction "S"]
+2N    Pass  3C =1=    Pass
+3D    Pass  3S =2=    Pass
+3N    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \C6, fourth-best from your longest suit — the normal attack against 3NT.
+
+[ROLE declarer][STAGE auction-end] Partner's 3\S was Smolen — five hearts and four spades — but with no fit you belong in 3NT, needing nine tricks. Your club suit is solid, the top hearts are ready, and the ninth trick must come from dummy's \SA-J-T-4 over your 9-8-5, missing BOTH the king and queen. Plan the DOUBLE FINESSE: lead spades toward dummy twice — the ten first, then toward the jack. One of the two rates to win, and one spade trick beyond the ace is all this contract asks.
+
+[ROLE declarer][STAGE post-lead] West led the \C6, and your solid clubs win the first tricks. Now spades: low toward dummy's ten — East takes the KING. That was the first hook; the plan allows for it. Win the return and lead spades toward dummy again — this time West's QUEEN comes up, and dummy's ace captures it. Now the jack is the master spade: dummy's third-round winner. Two spade tricks, four clubs, the \HA-K, and a diamond make nine. Concede the rest and claim.
+
+[ROLE declarer][STAGE post-play] Both missing honors made an appearance — the king beat your ten, then the queen walked into the ace on the second lead — and that is exactly how a double finesse cashes in: two chances instead of one, and only one loser in the suit. The ten lost so that the jack could rule. Nicely played.}
+[Note "1:Stayman"]
+[Note "2:SMOLEN"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Double_Finesse"]
+[Site ""]
+[Board "3"]
+[OriginalBoard "359"]
+[OriginalScenario "Michaels_after_1m"]
+% 6BBFC1F95FFDF357B68A6ED13745
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:3.K62.8732.AJ983 J852.J84.K94.765 A76.5.AJT5.KQT42 KQT94.AQT973.Q6."]
+{Shape 1345 4333 3145 5620}
+{HCP 8 5 14 13}
+{Losers 8 11 6 4}
+[Declarer "S"]
+[Contract "5C"]
+[Result "11"]
+[Score "NS 600"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: standard
+bidding-note: 1C - 2C Michaels (both majors) - X - 3S; 4C - 5C. Competitive auction to the eleven-trick club game.
+declarer: judgment double-finesse
+declarer-note: 5C needs 11 and dd gives exactly 11; the diamond suit AJT5 over 8732 is missing the king and queen — ten loses to West's doubleton queen, the jack wins through East's king, and the king rises on the third round to be captured. West's Michaels bid (five-five majors) even marks the minor honors with East.
+defense: reject
+defense-note: W (S:KQT94 H:AQT973 D:Q6 C:-) cashes the heart ace and scores the doubleton diamond queen — the two-suiter has no third trick.
+}
+[Auction "S"]
+1C    2C =1=    X     3S
+4C    Pass  5C    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \SK, top of your \SK-Q sequence — the natural start from your five-five hand.
+
+[ROLE declarer][STAGE auction-end] West's 2\C was Michaels — at least five-five in the majors — and you have driven to 5\C, needing eleven tricks. Trumps are solid, but count your losers: a heart must go, and the diamond suit — your \DA-J-T-5 over dummy's 8-7-3-2 — is missing the king AND queen. Two finesses are available, so take them BOTH: lead diamonds from dummy twice, the ten first, the jack next. Losing one is expected; losing two would be unlucky — and here the auction helps, because a hand with five-five in the majors has little room for minor-suit cards. The honors rate to sit with East, in front of your tenace.
+
+[ROLE declarer][STAGE post-lead] West led the \SK to your ace; ruff your spade loser in dummy early. Diamonds now: low from dummy toward the ten — West's QUEEN wins the trick (a doubleton, as the Michaels bid hinted his minors were short). West cashes the \HA — the defense is done. Lead diamonds from dummy again: the jack this time, and it HOLDS through East's king. Draw trumps ending in dummy, lead a third diamond — East's king rises, and your ace swallows it. The suit came home for one loser: eleven tricks.
+
+[ROLE declarer][STAGE post-play] The double finesse in full: the ten lost to the queen, the jack won through the king, and the ace captured the king on the third round — every missing honor accounted for, one loser in the suit. And notice the bidding did the placing for you: five-five in the majors left West room for only two diamonds, so the deep honors were always sitting with East. Two hooks plus a listening ear — beautifully played.}
+[Note "1:Michaels Cuebid"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
