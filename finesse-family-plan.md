@@ -4,8 +4,10 @@ Design + working plan for reworking the **declarer-play finesse lessons** as a
 coherent family. Started 2026-07-03 (David + Claude). Companion to
 [pbn-curation-plan.md](pbn-curation-plan.md).
 
-**Status:** design settled; method unproven (see §9). First change shipped:
-Finesse_Simple board 1 re-curated (commit `7888e8565`).
+**Status:** design settled; **method PROVEN** (see §9 — detector + the "finesse actually taken"
+filter). Shipped: Finesse_Simple bd1 (`7888e8565`), Choice_Of_Finesses (`0af244bbc`), Rabbi's_Rule
+(`ed685535a`), To_Finesse_Or_Not rebuilt (5-board #1→#2 walk). Two_Way + Finesse_Simple verified
+clean (all served `[Play]` lines make). NEXT: new Ruffing / Double / Repeated finesse lessons.
 
 ---
 
@@ -19,7 +21,7 @@ They form a **progression**: each lesson may assume the earlier ones and must no
 | 1 | **Finesse_Simple** | Take a single finesse — the mechanic (lead toward the honor) | live |
 | 1b | **Ruffing_Finesse** | The trump-contract finesse: run an honor, ruff it if covered, pitch if not | NEW |
 | 1c | **Double_Finesse** | Two missing honors in one suit — finesse twice | NEW |
-| 2 | **To_Finesse_Or_Not** | *Whether* at all — restraint + evidence; a safe line vs. a losing finesse | live (rebuild) |
+| 2 | **To_Finesse_Or_Not** | *Whether* at all — restraint + evidence; a safe line vs. a losing finesse | rebuilt |
 | 3 | **Two_Way_Finesse** | *Which direction* — finesse either opponent, resolved by the count/bidding | live (verify) |
 | 3b | **Repeated_Finesse** | Finesse the same suit several times — lives on entries | NEW |
 | 4 | **Choice_Of_Finesses** | *Which of several* + **combine chances** + order (entries / danger hand) | live (rebuild) |
@@ -202,18 +204,63 @@ or `coaching-non-rotated/`.
 
 ---
 
-## 9. Method — TO BE VALIDATED (fill in after Choice proves it)
+## 9. Method — PROVEN (Choice, Rabbi's, To_Finesse #2)
 
-Intended: one **structural DDS detector** classifying a deal by finesse shape (single clean / one-suit
-two-way / two takeable finesses / safe-line-vs-losing-finesse / short-honor-drop-with-a-reason), run
-**intent-prioritized** over the dense pools, harvest per rung, DDS-verify, author, serve. Detector
-specifics + per-pool yields + board slates recorded here once Choice validates the pipeline.
+**Detector** (`scratchpad/finesse_detect.py`). Scan `bba/<pool>.pbn` for boards where **South
+declares** a game/slam that **makes EXACTLY** (DDS table, `endplay.dds.calc_dd_table`, index
+`t[Denom, Player]`). For each missing honor (K/Q/J the NS side lacks) held by a defender, run the
+**swing test**: move that honor to the *other* defender, re-solve, and read `delta = base − t2`:
+- **`delta < 0`** → the honor is *offside/unneeded*; the safe line still makes → **decline rung (#1)**.
+- **`delta > 0`** → the honor is *onside and needed*; making depends on it → **evidence rung (#2)**.
+Annotate each swing with whether the honor-holder bid (`holder_bid`) and the E/W calls, so a
+marking auction can be spotted. Run in the **background to JSON** (full-table DDS over ~15 pools
+exceeds a 2-min foreground call). Filter to real games/slams (`level≥4` or `3N`).
 
-_Detector notes (early scans):_ full-table DDS on ~425 boards exceeds a 2-min foreground call — run
-scans in the background to JSON. A holding-agnostic **swing test** (move a missing K/Q to the other
-defender, re-solve, see if the count moves) detects finesses regardless of card shape, but over-flags
-notrump-stopper and stiff-honor positions — the detector must distinguish a *takeable finesse* (lead
-toward a tenace) from mere honor-location sensitivity.
+**The swing test flags honor-location SENSITIVITY, which is NOT the same as a takeable finesse** —
+and this is where nearly all candidates die. A `delta>0` board must survive three more filters, in
+order of how many it kills:
+
+1. **The DD `[Play]` line must actually TAKE the finesse** (`scratchpad/finesse_taken.py`). Generate
+   the line, and require declarer to **win a finesse-suit trick with a card *below* the missing
+   honor while the marked honor NEVER wins a trick** (it is captured/trapped). This one filter
+   removes the majority. Failure modes it catches, all of which "make exactly" yet make by a
+   *different* mechanism, so "finesse the marked King" would be a lie:
+   - **side-suit establishment** (b445: makes on a long diamond, concedes the ♠K),
+   - **honor-forced establishment** (b324: cash A, concede the K, the Q-J are now high — not a finesse),
+   - **doubleton drop** (b332: KJ tight falls under AQ — that is Rabbi's, not a finesse),
+   - **defensive gift** (b183 under the natural ♥A lead: the DD defender leads into the tenace).
+2. **The forced opening lead must be West's genuinely principled lead** (top-of-sequence / longest
+   suit) *and* the finesse must still be the making line under THAT lead. A board that only finesses
+   under an unnatural passive lead is out (b183: finesses under an ace-underlead, but West's real
+   lead is the ♥A → gift line). `verify_play.py` force-leads a card and counts declarer tricks.
+3. **The marking must place the specific honor.** `holder_bid=True` is necessary, not sufficient: a
+   1♣ opening does not mark a *heart* Q. Keep only where the holder **bid the finesse suit, bid NT,
+   or made an opening/overcall whose values place the missing King** — i.e. a clean *"finesse into
+   the bidder."* Trust the DDS `delta` for on/offside; hand-geometry ("who sits over the tenace") is
+   error-prone in trump contracts with a missing ace — the sign already encodes it.
+
+**Per-pool yield (competitive scan, 15 pools, makes-exact game/slam, South declares):** Basic_Overcall
+11, Dealing_with_Overcalls_Strong 32, _Weak 24, After_Opp_Overcalls 23, Negative_Double 31,
+Support_Double 8, Takeout_Double 8, Jump_Overcalls 5, Michaels 0, Unusual_2N 2, Opps_Overcall_1NT 2,
+We_X_Opps_Weak_2 8, Opps_Preempt 14, Maximal 3, Game_Overcalls 36. Of **44** single-swing rung-2
+`holder_bid` candidates, **18** survived filter #1 (finesse genuinely taken), and only a handful
+survived filters #2–#3 with a clean principled lead → the tight cut the memory predicted. The dense
+vein for *side-suit* finesses-into-the-opener was **Game_Overcalls** ("1X–4M" auctions: RHO opens,
+South preempts to game); most of its boards are *trump* finesses (South's long suit) and only the
+side-suit ones (e.g. b253) are in-lane.
+
+**Serve chain (play lesson):** author `coaching-curated/<scn>.pbn` (South-fixed, `[ROLE]/[STAGE]`
+blocks, `[show NESW]`, `{Shape}/{HCP}/{Losers}` + `%` fingerprint copied from the bba source, `[OriginalScenario]`+`[OriginalBoard]`) →
+`py/coach.py validate` + `py/suit_quality.py` → `py/nonrotate.py` (folds; play boards pass through) →
+`py/bridge_classroom.py` (strips metadata blocks, injects the `[Play]` line via `play_line.process`
+for any `[ROLE declarer]` board) → `py/promote.py` (gated curated→served). `[Auction "E/N/W"]`
+non-South dealers render fine (250+ served boards already do). The harvest helpers
+(`finesse_detect.py`, `finesse_taken.py`, `verify_play.py`, `rank.py`, `meta.py`, `check_served.py`)
+were written in the **ephemeral session `scratchpad/`** — the spec above is the source of truth for
+rebuilding them (the last rebuild was lost the same way). **TODO: promote them into the repo** (e.g.
+`py/` or a `finesse-harvest/` dir) before the Ruffing/Double/Repeated builds so they are not
+reconstructed a third time — the DDS index (`t[Denom,Player]`), the trick-winner + `finesse_taken`
+logic, and the swing test are the fiddly parts.
 
 ---
 
@@ -221,3 +268,12 @@ toward a tenace) from mere honor-location sensitivity.
 
 - **2026-07-03** — Finesse_Simple board 1 re-curated (pool board 70), committed `7888e8565`. Family
   design, sourcing/architecture/organization, and this plan drafted. Next: build Choice_Of_Finesses.
+- **2026-07-03** — Choice_Of_Finesses (`0af244bbc`) + Rabbi's_Rule (`ed685535a`) rebuilt.
+- **2026-07-03** — **To_Finesse_Or_Not rebuilt** as a 5-board **#1→#2 walk**: three *decline* boards
+  (4S / 6NT / 6C — count first, the finesse is needless) reused from the native pool, then two
+  *demand-evidence* boards harvested from **Game_Overcalls** — b253 (4S, ♣ A-Q-J finesse into the 1♦
+  opener) and b363 (6H slam, ♠ A-Q finesse into the 1♣ opener): *finesse into the bidder; the opening
+  bid marks the King.* Both make exactly and the served `[Play]` genuinely takes the finesse (honor
+  trapped). §9 Method backfilled & proven. Two_Way (29) + Finesse_Simple (30) served lines all make.
+  Expansion candidates parked: overcaller-marked #2 boards (b292/b332-family) — need clean principled
+  leads; most failed the "finesse actually taken" filter. NEXT: new Ruffing / Double / Repeated lessons.
