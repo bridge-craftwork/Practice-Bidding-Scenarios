@@ -254,13 +254,14 @@ blocks, `[show NESW]`, `{Shape}/{HCP}/{Losers}` + `%` fingerprint copied from th
 `py/coach.py validate` + `py/suit_quality.py` → `py/nonrotate.py` (folds; play boards pass through) →
 `py/bridge_classroom.py` (strips metadata blocks, injects the `[Play]` line via `play_line.process`
 for any `[ROLE declarer]` board) → `py/promote.py` (gated curated→served). `[Auction "E/N/W"]`
-non-South dealers render fine (250+ served boards already do). The harvest helpers
-(`finesse_detect.py`, `finesse_taken.py`, `verify_play.py`, `rank.py`, `meta.py`, `check_served.py`)
-were written in the **ephemeral session `scratchpad/`** — the spec above is the source of truth for
-rebuilding them (the last rebuild was lost the same way). **TODO: promote them into the repo** (e.g.
-`py/` or a `finesse-harvest/` dir) before the Ruffing/Double/Repeated builds so they are not
-reconstructed a third time — the DDS index (`t[Denom,Player]`), the trick-winner + `finesse_taken`
-logic, and the swing test are the fiddly parts.
+non-South dealers render fine (250+ served boards already do).
+
+**Toolkit: `py/finesse-harvest/`** (promoted from the session scratchpad 2026-07-03; see its README
+for invocations). `finesse_detect.py` (scan → JSON), `rank.py` (eyeball by rung), `finesse_taken.py`
+(the genuinely-takes-the-finesse filter), `verify_play.py` (force a lead / `--show` the DD line),
+`meta.py` ({Shape}/{HCP}/{Losers}), `check_served.py` (served `[Play]` makes contract). Kept in its
+own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/` on `sys.path`
+(`py/select.py` shadows the stdlib module endplay needs — see the `-P` convention).
 
 ---
 
@@ -277,3 +278,6 @@ logic, and the swing test are the fiddly parts.
   trapped). §9 Method backfilled & proven. Two_Way (29) + Finesse_Simple (30) served lines all make.
   Expansion candidates parked: overcaller-marked #2 boards (b292/b332-family) — need clean principled
   leads; most failed the "finesse actually taken" filter. NEXT: new Ruffing / Double / Repeated lessons.
+- **2026-07-03** — Harvest toolkit **promoted to `py/finesse-harvest/`** (detect / rank / taken /
+  verify_play / meta / check_served + README); all six smoke-tested against the session's known-good
+  outputs from the new location.
