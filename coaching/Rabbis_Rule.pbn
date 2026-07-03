@@ -1,1464 +1,244 @@
 [Event "Rabbis_Rule"]
 [Site ""]
 [Board "1"]
-[OriginalBoard "22"]
-% 19AA9F18B7C0156088D00AB794F2
+[OriginalBoard "354"]
+[OriginalScenario "Rabbis_Rule"]
+% 8A5F5DBF737A0C1C8EEFF33C9D29
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:Q95.T75.T862.KJ4 8.KQ963.J943.A52 AKJ743.A8.AQ75.9 T62.J42.K.QT8763"]
-{Shape 3343 1543 6241 3316}
-{HCP 6 10 18 6}
-{Losers 10 7 4 9}
+[Vulnerable "None"]
+[Deal "N:J854.J75.9432.KQ T2.KQ9842.T875.J AK9763.A.AQJ6.95 Q.T63.K.AT876432"]
+{Shape 4342 2641 6142 1318}
+{HCP 7 6 18 9}
+{Losers 10 7 4 7}
 [Declarer "S"]
 [Contract "4S"]
-[Result "11"]
-[Score "NS 450"]
+[Result "10"]
+[Score "NS 420"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
-declarer: textbook safety-play
-declarer-note: Makes exactly 10; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
+bidding: standard
+bidding-note: competitive; West overcalls his long club suit
+declarer: standard safety-play
+declarer-note: West jumped to 4C on an 8-card suit, marking him short in diamonds; cash the D:A to drop his marked-short stiff K rather than finessing (good-bridge Rabbi: the count places the king).
 defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
+defense-note: declarer-play scenario
 }
 [Auction "S"]
-1S    Pass  2S    Pass
-4S    Pass  Pass  Pass
+1S    4C    4S    Pass
+Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \C7. With no safe singleton or sequence to lead, a low card from your long club suit is the normal start.
+Lead the \CA. You leapt to 4\C on an eight-card suit, so lead it — cash the ace and get a look at dummy.
 
 [ROLE declarer][STAGE auction-end]
-You are in 4\S. Trumps are good for six, and your side tricks come from the \HA, \DA and the \D suit where AQ7x faces T8xx missing the king. NS hold 24 of the 40, leaving the defence 16. The safe play in diamonds is to cash the \DA rather than finesse - a bare king drops and you never lose the lead.
+You are in 4\S. West's jump to 4\C screamed a long club suit — seven or eight of them — which leaves him almost no room in the other suits. You hold \DAQJ6 opposite three small, missing only the king. The reflex is to finesse, but West is marked with at most a card or two in diamonds, so a \DK in his hand is odds-on to be bare. Cash the \DA and drop it.
 
 [ROLE declarer][STAGE post-lead]
-West led the \C7, which looks like a low card from length rather than a singleton - win it in dummy. Draw trumps, picking up the missing ten, then play the \DA first instead of finessing. The finesse could lose the lead to the hand over your queen; the ace instead drops a singleton king for free, and the diamonds add the trick you need. Trumps, the two red aces and the diamonds bring you to ten.
+Win the club and draw trumps. In diamonds, forget the finesse: West's 4\C told you he is short here, so lay down the \DA and watch his singleton king fall. Finesse instead and you hand him a trick he should never make.
 
 [ROLE declarer][STAGE post-play]
-The diamond order won it - ace before the finesse - catching the bare king and keeping the danger hand off lead. Precisely the safety play to remember.}
+You played West for the short king because his bidding placed it there — that is Rabbi's Rule done right, not superstition. A preempt marks a long suit and, just as surely, marks the short ones.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Rabbis_Rule"]
 [Site ""]
 [Board "2"]
-[OriginalBoard "18"]
-% 1AA493140C9FDBDC28B7F9B8865E
+[OriginalBoard "396"]
+[OriginalScenario "Rabbis_Rule"]
+% E5E437411EBBDE2239B80A2957AF
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:QJ7.J3.JT82.KT96 2.KQT982.9754.32 AKT643.A7.AQ63.5 985.654.K.AQJ874"]
+[Vulnerable "None"]
+[Deal "N:J95.42.9763.KQ72 T.KQJ865.T542.94 AK7632.A7.AQJ8.6 Q84.T93.K.AJT853"]
 {Shape 3244 1642 6241 3316}
-{HCP 8 5 17 10}
+{HCP 6 6 18 10}
 {Losers 9 7 4 8}
 [Declarer "S"]
 [Contract "4S"]
-[Result "11"]
-[Score "NS 650"]
+[Result "10"]
+[Score "NS 420"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
+bidding: standard
+bidding-note: competitive; West overcalls his long club suit
 declarer: standard safety-play
-declarer-note: Makes 10 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
+declarer-note: West overcalled 2C (6+ clubs), marking short diamonds; cash the D:A for the marked-short stiff K instead of the finesse.
 defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
+defense-note: declarer-play scenario
 }
 [Auction "S"]
-1S    Pass  2S    Pass
+1S    2C    2S    Pass
 4S    Pass  Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \H4. With nothing better to attack, fourth-best from your longest suit is the standard opening.
+Lead the \CA, top of the suit you overcalled, and take a look at dummy.
 
 [ROLE declarer][STAGE auction-end]
-You are in 4\S. Trumps run for six, and the \HA, \DA and long \D suit fill out the tricks; in diamonds AQ6x faces JT8x missing only the king. NS hold 25 of the 40, leaving the defence 15. Handle diamonds safely by cashing the \DA rather than finessing - a bare king falls and you never give up the lead.
+You are in 4\S. West overcalled 2\C, promising a six-card suit and a hand with little length elsewhere. Missing the \DK with \DAQJ8 opposite dummy, you would ordinarily finesse — but the overcaller rates to be short in diamonds, so play him for a singleton king. Cash the \DA.
 
 [ROLE declarer][STAGE post-lead]
-West led the \H4, which looks like fourth-best - win the \HA. Draw trumps, then in diamonds cash the \DA first rather than running the queen. The finesse would risk the lead to the opponent over your queen, while the ace drops a singleton king for free; from there the diamonds and dummy's clubs give you the rest. The total comes to eleven tricks, a trick past your game.
+Win the club, draw trumps, and in diamonds lay down the ace rather than finessing. West's overcall marked him short, so his lone \DK drops under it. The finesse would have lost to that very king.
 
 [ROLE declarer][STAGE post-play]
-Even with slack, the \DA before the finesse is the line that cannot go wrong - it catches the bare king and protects the danger hand from the lead. Good discipline.}
+The count, handed to you by West's overcall, turned a fifty-fifty guess into a near-certainty. Play the opponent who bid a long suit for shortness everywhere else.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Rabbis_Rule"]
 [Site ""]
 [Board "3"]
-[OriginalBoard "31"]
-% 1AA493D71BC8BC5916F7BDBF983E
+[OriginalBoard "81"]
+[OriginalScenario "Rabbis_Rule"]
+% 1D8153E46370195A88B55E3B0B2D
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:J72.T.9542.KQJ64 8.KQJ873.JT83.72 AK9543.A.AQ76.85 QT6.96542.K.AT93"]
-{Shape 3145 1642 6142 3514}
-{HCP 7 7 17 9}
-{Losers 8 7 4 8}
+[Vulnerable "None"]
+[Deal "N:Q64.865.762.KJT8 7.KQJ93.JT984.64 AKT852.AT.AQ53.2 J93.742.K.AQ9753"]
+{Shape 3334 1552 6241 3316}
+{HCP 6 7 17 10}
+{Losers 10 7 4 8}
 [Declarer "S"]
 [Contract "4S"]
-[Result "12"]
-[Score "NS 680"]
+[Result "10"]
+[Score "NS 420"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
+bidding: standard
+bidding-note: competitive; West overcalls his long club suit
 declarer: standard safety-play
-declarer-note: Makes 10 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
+declarer-note: West's 2C overcall (6+ clubs) marks short diamonds; cash the D:A to drop the marked stiff K, not the finesse.
 defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
+defense-note: declarer-play scenario
 }
 [Auction "S"]
-1S    Pass  2S    Pass
+1S    2C    2S    Pass
 4S    Pass  Pass  Pass
 {[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H4. With a five-card heart suit headed by broken honours, fourth-best is the standard attacking lead.
+[ROLE leader][STAGE pre-lead]
+Lead the \CA — your long suit, the one you bid.
 
-[ROLE declarer][STAGE auction-end] I'm in 4\S with ten cards in trumps between us. The \HA is one trick, dummy's long clubs (KQJ64) give me three winners once the ace is knocked out, and I have AQ76 of diamonds opposite 9542 for two more led by the ace, so ten is comfortable. The thing to handle right is diamonds: cashing the \DA guards against a singleton king rather than finessing into the danger hand. With the trumps solid and clubs to set up, I don't need to gamble the diamond finesse.
+[ROLE declarer][STAGE auction-end]
+You are in 4\S, and West's 2\C overcall marks a six-card club suit, so his other suits are thin. With \DAQ53 facing small and the king missing, do not finesse into thin air — the overcaller is short in diamonds, so his \DK is likely singleton. Cash the ace.
 
-[ROLE declarer][STAGE post-lead] West led the \H4, which looks like a fourth-best, so it rates to be from a five-card suit; I win the \HA. NS hold 24 of the 40, leaving only 16 for the defence, and since neither opponent bid, no one is hiding a big hand. I draw trumps, force out the club ace to set up dummy's long clubs, and when I play diamonds I cash the \DA rather than finessing, so a bare king cannot escape. That brings home eleven: five trumps, the \HA, the diamond ace, three clubs, plus a diamond length trick.
+[ROLE declarer][STAGE post-lead]
+Win, draw trumps, and cash the \DA. West, marked short by his overcall, produces the bare king. A finesse would have gifted him a diamond trick and the contract.
 
-[ROLE declarer][STAGE post-play] The safe play was to cash the diamond ace instead of finessing toward the danger hand; with the contract never in doubt, dropping a possible singleton king costs nothing and avoids handing the lead to the wrong defender. Nicely judged, taking the sure line over the flashy one.}
+[ROLE declarer][STAGE post-play]
+You let West's bid locate the king. That is the whole of good-bridge Rabbi's Rule: play the long-suit bidder for shortness, and drop the honour you were told is bare.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Rabbis_Rule"]
 [Site ""]
 [Board "4"]
-[OriginalBoard "34"]
-% 2AA49317347AB99B8E3ED4845CFF
+[OriginalBoard "97"]
+[OriginalScenario "Rabbis_Rule"]
+% 4A37CD9895A1EBB8432521CE14CD
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:QJ6.74.7632.KQ82 T3.KQ853.T98.T76 AK9874.A.AQJ54.9 52.JT962.K.AJ543"]
-{Shape 3244 2533 6151 2515}
-{HCP 8 5 18 9}
-{Losers 8 9 3 8}
+[Vulnerable "None"]
+[Deal "N:Q65.T653.8754.KJ .KQ942.JT96.T852 AKJT32.AJ.AQ32.9 9874.87.K.AQ7643"]
+{Shape 3442 0544 6241 4216}
+{HCP 6 6 19 9}
+{Losers 9 7 4 7}
 [Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
+[Contract "4S"]
+[Result "10"]
+[Score "NS 420"]
 [Scoring "MP"]
 {Curate
-class: continuation
+class: intended
 difficulty: 3
 bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
+bidding-note: competitive; West overcalls his long club suit
+declarer: standard safety-play
+declarer-note: West overcalled 2C (6+ clubs) -> short diamonds; cash the D:A to drop the marked stiff K.
 defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
+defense-note: declarer-play scenario
 }
 [Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  6C =3=    Pass
-6S    Pass  Pass  Pass
+1S    2C    2S    Pass
+4S    Pass  Pass  Pass
 {[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HJ. With JT962 you hold a touching honour sequence, so lead the jack, the top of it.
+[ROLE leader][STAGE pre-lead]
+Lead the \CA, the top of your overcalled suit.
 
-[ROLE declarer][STAGE auction-end] I'm in 6\S with nine trumps. Six trump tricks, the \HA, and the diamond suit (AQJ54 opposite 7632) carry the slam, with clubs and a ruff for spare tricks. The key is the diamonds: missing the king, I should cash the \DA rather than finesse, because a singleton king offside will drop and the finesse would risk losing to the danger hand. I have the entries and a diamond ruff available, so there's no need to gamble.
+[ROLE declarer][STAGE auction-end]
+You reach 4\S after West's 2\C overcall — a long club suit, and therefore short holdings elsewhere. Missing the \DK with \DAQ32 opposite dummy, resist the finesse: West is marked short in diamonds, so a king in his hand is odds-on singleton. Cash the ace and drop it.
 
-[ROLE declarer][STAGE post-lead] West led the \HJ, which looks like the top of a sequence, so West probably holds the JT, and I win the \HA. NS hold 26 of the 40, leaving 14 for the defence, and as neither opponent bid no one is hiding length. I draw trumps, then play the diamond suit by cashing the \DA first; if the king is bare it falls and I run AQJ54 for five tricks. That's twelve: six trumps, the \HA, and five diamonds.
+[ROLE declarer][STAGE post-lead]
+Win the club, pull trumps, then play the \DA. West's overcall placed him short, and his stiff king falls. Finesse and you lose to a king that was always going to drop.
 
-[ROLE declarer][STAGE post-play] Cashing the ace before the finesse is what brought it home: the offside singleton king dropped, exactly the position the safety play is built for. Good discipline taking the sure drop rather than finessing into trouble.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:!S queen and !C king"]
+[ROLE declarer][STAGE post-play]
+The bidding did the finessing for you. When an opponent advertises length, believe the matching shortness — and cash for the drop.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Rabbis_Rule"]
 [Site ""]
 [Board "5"]
-[OriginalBoard "44"]
-% 2AA693D708C6BC99182BF49E3FB8
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:J763.JT.943.KQ63 .KQ874.J8762.AT4 AK9842.A6.AQT5.8 QT5.9532.K.J9752"]
-{Shape 4234 0553 6241 3415}
-{HCP 7 10 17 6}
-{Losers 9 6 4 9}
-[Declarer "S"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS 650"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
-declarer: textbook safety-play
-declarer-note: Makes exactly 10; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \C5. With J9752 and no sequence, lead fourth-best from your longest suit.
-
-[ROLE declarer][STAGE auction-end] I'm in 4\S with ten trumps. Five trump tricks (one short of the count because of the missing honours), the \HA, and the diamond suit (AQT5 opposite 943) bring the total to ten exactly. The diamonds need care: missing the king, I should cash the \DA rather than finesse, so an offside singleton king drops and I don't surrender the lead to the danger hand. I have a diamond ruff available in dummy for an extra trick.
-
-[ROLE declarer][STAGE post-lead] West led the \C5, which looks like a fourth-best from length; I win dummy's king or queen. NS hold 24 of the 40, leaving 16 for the defence, and since neither opponent bid no one is hiding a long suit. I draw trumps, then play diamonds by cashing the \DA first; a bare king falls and I take the ace, the queen, and a ruff. That makes ten: five trumps, the \HA, two diamond honours, the diamond ruff, and a club.
-
-[ROLE declarer][STAGE post-play] Cashing the \DA instead of finessing was exactly right: it dropped the singleton king and kept the dangerous defender off lead. Well played holding the line for the contract.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "6"]
-[OriginalBoard "20"]
-% 1BAF9B9E00E41CCDB4B2B0145333
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:J942.J8.T74.AK32 3.KQ943.J6532.Q6 AKQ765.AT.AQ98.8 T8.7652.K.JT9754"]
-{Shape 4234 1552 6241 2416}
-{HCP 9 8 19 4}
-{Losers 9 7 3 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  3S    Pass
-4N =1=    Pass  5D =2=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \CJ. Top of your long club sequence is a safe, natural lead against the slam.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Trumps are nearly solid for six, the \HA, \CAK and \DA are top winners, and extra tricks come from the \D suit, where AQ9x faces Txx missing the king. NS hold 28 of the 40, leaving the defence only 12 and both opponents silent. Handle diamonds safely by cashing the \DA rather than finessing so a bare king falls and the lead stays yours.
-
-[ROLE declarer][STAGE post-lead]
-West led the \CJ, which looks like top of a sequence - win it with the \CA or \CK in dummy. Draw trumps, then take the diamond safety play of the \DA first. The finesse would risk the lead to the hand over your queen, while the ace drops a singleton king for nothing; the diamonds and your top cards then carry the day. The hand is rich - well past the twelve you need.
-
-[ROLE declarer][STAGE post-play]
-With tricks to spare you still chose the \DA over the finesse - the only line that can never cost against the bare king. That is exactly the safe instinct this set is building.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=1/5 or 5/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "7"]
-[OriginalBoard "7"]
-% 0BAC9B5C03F0B2B7B40C96DE573D
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:J62.J6.8753.KJ83 Q3.KQ543.JT9.954 AK9875.A.AQ642.2 T4.T9872.K.AQT76"]
-{Shape 3244 2533 6151 2515}
-{HCP 6 8 17 9}
-{Losers 10 9 3 7}
-[Declarer "S"]
-[Contract "5S"]
-[Result "12"]
-[Score "NS 680"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Slam try stops in five; reasonable continuation beyond the brief's 4S.
-declarer: textbook safety-play
-declarer-note: Makes exactly 11; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  5S =3=    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HT. Top of your heart sequence is a safe, constructive lead and avoids opening up declarer's other suits.
-
-[ROLE declarer][STAGE auction-end]
-You are in 5\S. Trumps deliver six tricks, the \HA and \DA are cashing winners, and the contract rides on the \D suit: AQ6xx opposite 8xxx needs four tricks with the king missing. NS hold 23 of the 40, so the defence has 17 and neither opponent bid. Plan to cash the \DA rather than finesse, so a singleton king drops and the lead stays with you.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HT, which looks like top of a sequence - win the \HA. Draw the outstanding trumps, then attack diamonds the safe way: cash the \DA before any finesse. If you finessed and lost, the hand over your queen would be on lead in a dangerous position; cashing the ace instead drops a bare king and keeps you in charge. Cross to dummy's clubs to enjoy the long diamonds, and eleven tricks are there.
-
-[ROLE declarer][STAGE post-play]
-The diamond order was everything - ace first, not the finesse - picking up the singleton king while denying the danger hand the lead. That is the safety play this whole set is teaching, and you nailed it.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:no !S queen"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "8"]
-[OriginalBoard "30"]
-% 18A39790CC9098D2C84E09B2383E
+[OriginalBoard "283"]
+[OriginalScenario "Rabbis_Rule"]
+% 53594F9E284D3B01BE42B471F253
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
-[Deal "N:532.J765.9753.AK 6.KQT98.J62.8642 AKQT94.A.AQT84.5 J87.432.K.QJT973"]
-{Shape 3442 1534 6151 3316}
-{HCP 8 6 19 7}
-{Losers 9 8 2 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-2C =1=    Pass  2N    Pass
-3S    Pass  4S    Pass
-4N =2=    Pass  5D =3=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \CQ. With QJT in clubs you have a solid sequence, so lead the top of it against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S. Six spade tricks and the \HA bring me to seven, and the \CAK in dummy add two more, so the whole hand turns on the diamonds, where I have AQT84 opposite 9753. That suit is worth five tricks and the slam once set up. The temptation is to finesse the queen, but the safety play here is to cash the \DA first: if the missing king is singleton it crashes and I lose nothing, and even on a normal break I still have the finesse in reserve. Laying down the ace can never cost when I can stand the loss of one diamond, and it guards against a bare king.
-
-[ROLE declarer][STAGE post-lead] West led the \CQ, which looks like the top of a sequence, so I'll win in dummy with the ace or king. NS hold 27 of the 40 points and neither defender bid, so the missing 13 are split and nobody is marked with a long suit. I draw trumps ending in hand, then before touching the diamond queen I cash the \DA. If a defender's king is bare it falls under the ace, and I run the rest of the suit; if it doesn't appear I can still fall back on the finesse. That's twelve: six trumps, the \HA, two top clubs, and the run of the diamonds.
-
-[ROLE declarer][STAGE post-play] Cashing the \DA before the finesse was the whole point: a singleton king offside drops by force, and laying down the ace risks nothing when one diamond loser is affordable. Well played keeping the finesse in reserve instead of taking it blind.}
-[Note "1:strong"]
-[Note "2:Blackwood 0123, for !S"]
-[Note "3:A=1/5 or 5/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "9"]
-[OriginalBoard "33"]
-% 28A397903E0ADB30BFBAF1DC1892
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:JT83.T.T963.AK97 .KQ9432.J74.JT62 AKQ762.A.AQ852.5 954.J8765.K.Q843"]
-{Shape 4144 0634 6151 3514}
-{HCP 8 7 19 6}
-{Losers 8 7 2 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  4S    Pass
-4N =1=    Pass  5D =2=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H6. From a five-card heart suit with no solid sequence, fourth-best is your standard lead against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S holding ten trumps. Six trump tricks plus the \HA and two top clubs give me nine, and the diamonds, AQ852 opposite T963, are worth five once set up. The safety play is in that diamond suit: rather than finessing the queen into the danger hand, I cash the \DA first so a singleton king drops by force. I have a club to ruff in dummy too, so entries are no problem.
-
-[ROLE declarer][STAGE post-lead] West led the \H6, which looks like a fourth-best from length, and I win the \HA. NS hold 27 of the 40, so the defence has only 13 and neither opponent bid, meaning no one is marked with a freak hand. I draw trumps, cash the top clubs and can ruff my club loser in dummy, then attack diamonds by cashing the \DA before anything else. If the king is singleton it falls and the suit runs for five tricks; that's twelve in all, six trumps, the \HA, two clubs, and three more diamonds.
-
-[ROLE declarer][STAGE post-play] Laying down the \DA instead of finessing is the lesson: a bare king crashes, and with a loser to spare the play can never cost a trick it would otherwise win. Well done choosing the guaranteed line.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=1/5 or 5/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "10"]
-[OriginalBoard "5"]
-% 0AA693D7DCFC89D83C9B351B9B84
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:754.92.JT7.KQ643 .KQJ8643.98643.A AK9632.A.AQ52.95 QJT8.T75.K.JT872"]
-{Shape 3235 0751 6142 4315}
-{HCP 6 10 17 7}
-{Losers 9 4 4 9}
-[Declarer "S"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS 650"]
-[Scoring "MP"]
-{Curate
-class: interference
-difficulty: 3
-bidding: standard
-bidding-note: South competes over the overcall and reaches a sound spade game; routine with the interference.
-declarer: textbook safety-play
-declarer-note: Makes exactly 10; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    3H
-4S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \CJ. Top of your club sequence is the natural attacking lead and keeps your honours working together.
-
-[ROLE declarer][STAGE auction-end]
-You are in 4\S. Trumps are missing the QJT so expect to lose a trump trick, and the \D suit is your trick source: AQxx opposite JTx needs the king to behave. NS hold 23 of the 40, so the defence has 17 - and East did act, so the high cards may sit over you. Plan to cash the \DA rather than risk a finesse into the danger hand: with the king bare offside it drops, and you keep control.
-
-[ROLE declarer][STAGE post-lead]
-West led the \CJ, which looks like top of a sequence - win it in dummy. Start trumps; you will likely concede one round to the missing honours, but that is fine. For diamonds, do not finesse: cash the \DA, because if the finesse lost, the hand over your queen would be in to cash its long suit, whereas the ace first drops a singleton king with no risk. Take your established diamonds and the established clubs in dummy, and ten tricks come home.
-
-[ROLE declarer][STAGE post-play]
-The key was refusing the diamond finesse - cashing the ace dropped the bare king and never let the dangerous hand on lead. Well played under a little pressure from the bidding.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "11"]
-[OriginalBoard "56"]
-% 38A09712188D8C9E0889FC1040FC
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:QJ74.T9763.J76.K 3.KQJ84.T9852.Q8 AKT986.A.AQ43.T6 52.52.K.AJ975432"]
-{Shape 4531 1552 6142 2218}
-{HCP 7 8 17 8}
-{Losers 9 7 4 7}
-[Declarer "S"]
-[Contract "5SX"]
-[Result "12"]
-[Score "NS 750"]
-[Scoring "MP"]
-{Curate
-class: interference
-difficulty: 3
-bidding: standard
-bidding-note: South competes over the overcall and reaches a sound spade game; routine with the interference.
-declarer: standard safety-play
-declarer-note: Makes 11 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    4C    4S    5C
-5S    X     Pass  Pass
-Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H5. With only two small hearts, lead the higher one, top of your doubleton.
-
-[ROLE declarer][STAGE auction-end] They've doubled me in 5\S, so let me count carefully. With ten trumps I have six trump tricks, the \HA, dummy's long hearts (T9763) to set up, and the diamonds (AQ43 opposite J76) led by the ace. The double warns that the points are placed against me, which makes the diamond safety play matter more: cash the \DA rather than finesse, so a singleton king drops instead of my finessing into a known danger hand. A diamond ruff in dummy gives me an extra trick.
-
-[ROLE declarer][STAGE post-lead] West led the \H5, which from a short holding looks like top of two small, and I win the \HA. NS hold 24 of the 40, and a defender did act, so I'll expect the missing honours to sit unkindly. I draw trumps, set up dummy's hearts, and play diamonds by cashing the \DA first; against a doubled contract the drop of a bare king is exactly the break I'm hoping for, and I refuse to finesse into the danger hand. Eleven tricks: six trumps, the \HA, a heart length trick, the diamond ace, and a diamond ruff.
-
-[ROLE declarer][STAGE post-play] When the opponents double, placing the cards by the bidding and cashing the diamond ace instead of finessing is exactly right; the singleton king fell and the contract was safe. Strong play under pressure.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "12"]
-[OriginalBoard "29"]
-% 1BAC9BDF3F11F7849F3E94F39072
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:JT6.8.985.KQJ974 2.KQT753.T432.62 AK8753.A.AQJ76.T Q94.J9642.K.A853"]
-{Shape 3136 1642 6151 3514}
-{HCP 7 5 18 10}
-{Losers 8 7 3 8}
-[Declarer "S"]
-[Contract "5S"]
-[Result "12"]
-[Score "NS 680"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Slam try stops in five; reasonable continuation beyond the brief's 4S.
-declarer: textbook safety-play
-declarer-note: Makes exactly 11; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  5S =3=    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H4. With nothing better to attack, fourth-best from your longest suit is the natural lead.
-
-[ROLE declarer][STAGE auction-end]
-You are in 5\S. Trumps are missing the queen but still good for several tricks, and your winners come from the \HA, \DA, the long \D suit and dummy's strong \C suit; diamonds are AQJ7x opposite xxx missing the king. NS hold 25 of the 40, leaving the defence 15. The safe handling of diamonds is to cash the \DA rather than finesse - a bare king drops and you keep the lead.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H4, which looks like fourth-best - win the \HA. Draw trumps, allowing for the missing queen, then play the \DA before any finesse. The finesse could hand the lead to the hand over your queen; the ace instead drops a singleton king for free, and the diamonds plus dummy's clubs supply the rest. The tricks add up to eleven, just what you need.
-
-[ROLE declarer][STAGE post-play]
-The diamond order was the key - ace first, not the finesse - dropping the bare king while keeping the danger hand off lead. That is the Rabbi's Rule, applied cleanly.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:no !S queen"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "13"]
-[OriginalBoard "17"]
-% 18A29793CCB3323D58D8BF9A303F
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:9832.J.764.KQT52 7.KQ764.J852.A94 AKQT54.A.AQT93.8 J6.T98532.K.J763"]
-{Shape 4135 1543 6151 2614}
-{HCP 6 10 19 5}
-{Losers 8 7 2 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-2C =1=    Pass  2D =2=    Pass
-2S    Pass  3S    Pass
-4N =3=    Pass  5C =4=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \HT. Top of your heart sequence is a safe, constructive lead against the slam.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Trumps are good for six, the \HA and \DA are top winners, and the \D suit is your main source: AQT9x opposite xxx can produce five tricks, with only the king missing. NS hold 25 of the 40, so the defence has 15 and neither opponent bid. Plan to cash the \DA rather than finesse so a singleton king drops and the lead stays safe.
-
-[ROLE declarer][STAGE post-lead]
-West led the \HT, which looks like top of a sequence - win the \HA. Draw trumps, then take the diamond safety play of cashing the \DA first. Finessing could surrender the lead to the hand over your queen; the ace instead crashes a bare king for nothing, and the diamonds then run. Six trumps, the \HA and the long diamonds bring you to twelve.
-
-[ROLE declarer][STAGE post-play]
-The slam hinged on the diamond order - ace first, not the finesse - to pick up the bare offside king and keep the danger hand off lead. Beautifully judged.}
-[Note "1:strong"]
-[Note "2:waiting"]
-[Note "3:Blackwood 0123, for !S"]
-[Note "4:A=0/5 or 4/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "14"]
-[OriginalBoard "50"]
-% 3AA493D7C918A71CD87EBEBC07BA
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:T83.J3.8654.KQ93 6.KQT87.JT72.652 AK9542.A9.AQ93.J QJ7.6542.K.AT874"]
-{Shape 3244 1543 6241 3415}
-{HCP 6 6 18 10}
-{Losers 9 8 4 8}
+[Deal "N:J96.J2.J962.KQ65 8.KQ98765.T754.7 AKT732.A.AQ83.J8 Q54.T43.K.AT9432"]
+{Shape 3244 1741 6142 3316}
+{HCP 8 5 18 9}
+{Losers 9 6 4 8}
 [Declarer "S"]
 [Contract "4S"]
 [Result "10"]
-[Score "NS 620"]
+[Score "NS 420"]
 [Scoring "MP"]
 {Curate
 class: intended
 difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
-declarer: textbook safety-play
-declarer-note: Makes exactly 10; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H2. With a four-card heart suit and no sequence, lead fourth-best.
-
-[ROLE declarer][STAGE auction-end] I'm in 4\S with nine trumps. Five trump tricks (one fewer than the full count, with the QJ missing), the \HA, and the diamonds (AQ93 opposite 8654) bring me to ten exactly. The diamonds carry the safety play: cash the \DA rather than finesse, so an offside singleton king drops and I avoid losing the lead to the danger hand. Clubs in dummy give me an extra trick to lean on.
-
-[ROLE declarer][STAGE post-lead] West led the \H2, which looks like a fourth-best, so the heart suit is at most four long; I win the \HA. NS hold 24 of the 40, leaving 16 for the defence, and as neither opponent bid no one is hiding a big hand. I draw trumps, then play diamonds by cashing the \DA first, dropping a possible bare king before I'd ever finesse. Ten tricks: five trumps, the \HA, two diamond winners, and two clubs.
-
-[ROLE declarer][STAGE post-play] Cashing the diamond ace instead of finessing was the safe play: the singleton king fell, and the danger hand stayed off lead. Well done bringing in the game on the sure line.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "15"]
-[OriginalBoard "10"]
-% 0BAE9B1F3C80FC95935474C0833E
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:QJ2.T43.865.KQ73 65.KQ876.T743.A2 AKT873.A.AQJ92.8 94.J952.K.JT9654"]
-{Shape 3334 2542 6151 2416}
-{HCP 8 9 18 5}
-{Losers 9 7 3 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
 bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  6C =3=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \CJ. Top of your long club sequence is a sound, passive start that keeps your honours intact.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Trumps run for six, the \HA and \DA are top tricks, and your engine is the \D suit: AQJ9x opposite xxx can yield five tricks, but the king is missing. NS hold 26 of the 40, so the defence has just 14 and neither opponent bid. Plan to cash the \DA rather than take the finesse - a singleton king falls and you keep the lead away from danger.
-
-[ROLE declarer][STAGE post-lead]
-West led the \CJ, which looks like top of a sequence - win it in dummy. Draw trumps in two or three rounds, then play the \DA first instead of finessing. The reason is safety: the finesse could lose the lead to the hand sitting over your queen, while cashing the ace drops a bare king for free, after which the diamonds run for five tricks. Six trumps, the \HA and the diamond suit carry you to twelve.
-
-[ROLE declarer][STAGE post-play]
-The diamond suit was rich, but the safe handling - ace before the finesse - is what guaranteed it against the bare offside king. That is the Rabbi's Rule, and you applied it well.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:!S queen and !C king"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "16"]
-[OriginalBoard "59"]
-% 38A097933B3BBC9CFED9F24C13AF
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:JT3.4.JT6.KQJT32 4.KQ863.98742.75 AKQ982.A2.AQ53.6 765.JT975.K.A984"]
-{Shape 3136 1552 6241 3514}
-{HCP 8 5 19 8}
-{Losers 8 7 3 9}
-[Declarer "S"]
-[Contract "5S"]
-[Result "12"]
-[Score "NS 480"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Slam try stops in five; reasonable continuation beyond the brief's 4S.
+bidding-note: competitive; West overcalls his long club suit
 declarer: standard safety-play
-declarer-note: Makes 11 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
+declarer-note: West's 2C overcall (6+ clubs) marks short diamonds; cash the D:A for the marked-short stiff K.
 defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
+defense-note: declarer-play scenario
 }
 [Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HJ. With JT975 you hold a touching honour sequence, so lead the jack.
-
-[ROLE declarer][STAGE auction-end] I'm in 5\S with nine trumps. Six trump tricks and the \HA give me seven, dummy's long clubs (KQJT32) are a powerful source once the ace is dislodged, and the diamonds (AQ53 opposite JT6) add tricks topped by the ace. The diamond safety play applies: cash the \DA rather than finesse, so a singleton king offside drops. With the clubs to run, the diamond finesse is a risk I can simply avoid.
-
-[ROLE declarer][STAGE post-lead] West led the \HJ, which looks like top of a sequence, and I win the \HA. NS hold 27 of the 40, leaving the defence just 13, and neither opponent bid, so no one is hiding a big hand. I draw trumps, force out the club ace to set up dummy's long clubs, and when I play diamonds I cash the \DA first so a bare king cannot survive. Eleven tricks roll in: six trumps, the \HA, the diamond ace, and the established clubs.
-
-[ROLE declarer][STAGE post-play] Cashing the diamond ace instead of finessing was the safe play, and the offside singleton king fell as the rule predicts. Nicely done leaning on the clubs and refusing the needless finesse.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "17"]
-[OriginalBoard "25"]
-% 19AA9F18D11BB1388704C2B6F494
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:QT86.765.J95.KT7 .KQJT2.76432.A54 AK9742.A.AQT8.J9 J53.9843.K.Q8632"]
-{Shape 4333 0553 6142 3415}
-{HCP 6 10 18 6}
-{Losers 10 6 4 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "11"]
-[Score "NS -50"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  6C =3=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \C3. With no safe singleton or sequence, a low card from your long club suit is the standard lead against the slam.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Trumps run for six, the \HA and \DA are top winners, and the \D suit supplies the rest: AQT8 opposite Jxx needs four tricks with the king missing. NS hold 24 of the 40, leaving the defence 16 and neither opponent bid. Plan to cash the \DA rather than finesse so a singleton king falls and the lead stays out of the danger hand.
-
-[ROLE declarer][STAGE post-lead]
-West led the \C3, which looks like a low card from length - win it in dummy with the \CK or \CT. Draw trumps, then take the diamond safety play of the \DA first. The finesse would risk the lead to the hand over your queen, while the ace crashes a bare king for nothing, and the diamonds then run. Six trumps, the \HA and the established diamonds make twelve.
-
-[ROLE declarer][STAGE post-play]
-The slam came down to cashing the \DA instead of finessing - the safe order that picks up the bare offside king and protects the danger hand. Very well played.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:!S queen and !C king"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "18"]
-[OriginalBoard "49"]
-% 38A397D04ABE00FC988FB000591C
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:942.J964.J73.AK6 J3.KQ732.T862.JT AKT765.A.AQ954.3 Q8.T85.K.Q987542"]
-{Shape 3433 2542 6151 2317}
-{HCP 9 7 17 7}
-{Losers 10 8 3 8}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5D =2=    Pass
-5H    Pass  5S =3=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \C7. From your long club suit headed by the queen, fourth-best is the standard lead against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S with nine trumps. Six trump tricks, the \HA, and the \CAK give me nine, and the diamonds (AQ954 opposite J73) are worth five once set up, with diamond ruffs in dummy as well. The safety play is in diamonds: missing the king, cash the \DA rather than finesse the queen, so a singleton king offside drops and I never hand the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \C7, which looks like a fourth-best from length, and I win the \CA or \CK in dummy. NS hold 26 of the 40, leaving 14 for the defence, and neither opponent bid, so no one is marked with a freak. I draw trumps, then attack diamonds by cashing the \DA first; a bare king falls and the suit runs for five. That makes twelve: six trumps, the \HA, two top clubs, and three more diamonds.
-
-[ROLE declarer][STAGE post-play] The diamond ace before the finesse was the whole hand: a singleton king crashes, and with a trick in hand the play cannot cost. Good judgement taking the certain line to the slam.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=1/5 or 5/5"]
-[Note "3:no !S queen"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "19"]
-[OriginalBoard "43"]
-% 28A297D33CDCB8A059BF930C3B7A
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:J43.4.9732.KQ653 72.KQT75.JT64.A2 AK9865.A8.AQ85.7 QT.J9632.K.JT984"]
-{Shape 3145 2542 6241 2515}
-{HCP 6 10 17 7}
-{Losers 8 7 4 9}
-[Declarer "S"]
-[Contract "4S"]
-[Result "12"]
-[Score "NS 480"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
-declarer: standard safety-play
-declarer-note: Makes 10 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \CJ. With JT984 you hold a strong interior sequence, so the jack is the right lead.
-
-[ROLE declarer][STAGE auction-end] I'm in 4\S with nine trumps. Six trump tricks and the \HA give me seven, and the diamonds (AQ85 opposite 9732) plus dummy's long clubs supply the rest, so ten is safe. There's a diamond safety play to keep in mind: with the king missing, cashing the \DA guards against a singleton king and avoids finessing into the danger hand. I have a heart to ruff in dummy and clubs to develop, so I'm never short of tricks.
-
-[ROLE declarer][STAGE post-lead] West led the \CJ, which looks like the top of a sequence; I can win in dummy with the king or queen. NS hold 23 of the 40, so the defence has 17 between them, but neither opponent bid, so no single hand is huge. I draw trumps, ruff my heart loser in dummy, and when I tackle diamonds I cash the \DA rather than finessing, dropping a possible bare king. That brings eleven home: six trumps, the \HA, the heart ruff, and diamond tricks topped by the ace.
-
-[ROLE declarer][STAGE post-play] Choosing to cash the diamond ace over the finesse was the safe call: a singleton king falls under it, and with the game secure the play can't cost. Good work taking the certain line.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "20"]
-[OriginalBoard "60"]
-% 3AA79354BB961FF517CBBE3CB8D8
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "N:974.6.954.AKJ976 Q.KQT972.J632.T5 AKJT53.A.AQT87.8 862.J8543.K.Q432"]
-{Shape 3136 1642 6151 3514}
-{HCP 8 8 18 6}
-{Losers 8 7 3 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "13"]
-[Score "NS 1460"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-2C =1=    Pass  3C    Pass
-3S    Pass  4N =2=    Pass
-5C =3=    Pass  5D    Pass
-5S =4=    Pass  6S    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H4. With a five-card heart suit and broken honours, fourth-best is the standard lead against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S with nine trumps. Six trump tricks, the \HA, and the \CAK give me nine, and the diamonds (AQT87 opposite 954) are worth five once set up, with both clubs and diamonds offering ruffs. The safety play sits in diamonds: missing the king, cash the \DA rather than finesse, so a singleton king offside drops and I never lose the lead to the danger hand.
-
-[ROLE declarer][STAGE post-lead] West led the \H4, which looks like a fourth-best from length, and I win the bare \HA. NS hold 26 of the 40, leaving 14 for the defence, and neither opponent bid, so no one is marked with a freak hand. I draw trumps, then attack diamonds by cashing the \DA first; a bare king falls and the suit runs. That makes twelve: six trumps, the \HA, two top clubs, and three more diamonds.
-
-[ROLE declarer][STAGE post-play] The diamond ace before any finesse was the key: the singleton king crashed, and with tricks to spare the play could never cost. Well done choosing the guaranteed line to the slam.}
-[Note "1:strong"]
-[Note "2:Blackwood 0123, for !S"]
-[Note "3:A=0/5 or 4/5"]
-[Note "4:no !S queen"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "21"]
-[OriginalBoard "4"]
-% 0BAF9B1CB0B334AEDFB01206D6CC
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:Q954.42.943.AKT7 .KQ753.JT65.8543 AKJT86.A8.AQ872. 732.JT96.K.QJ962"]
-{Shape 4234 0544 6250 3415}
-{HCP 9 6 18 7}
-{Losers 8 7 3 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-2C =1=    Pass  2N    Pass
-3S    Pass  4N =2=    Pass
-5C =3=    Pass  6S    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \CQ. Top of your club sequence is a sound, safe lead against a slam - it sets up nothing for declarer and is hard to misread.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. The trumps run for six, the \HA and the \CAK in dummy are top winners, and the slam-going trick comes from the \D suit: AQ8xx opposite xxx needs four tricks, but the king is out. NS hold 27 of the 40, leaving the defence just 13, and with both opponents silent neither can be hiding much. Plan to cash the \DA rather than finesse, so a singleton king drops and you never lose the lead.
-
-[ROLE declarer][STAGE post-lead]
-West led the \CQ, which looks like top of a sequence rather than a singleton - win it with dummy's king or ace and you are off and running. Draw trumps in as many rounds as it takes, then take the diamond safety play: cash the \DA first. If you finessed and it lost, the opponent over your queen would be in to cash hearts, so the drop is strictly safer and gains whenever the king is bare. Cross to dummy's clubs to run the long diamonds, and twelve tricks are yours.
-
-[ROLE declarer][STAGE post-play]
-Cashing the \DA instead of finessing was the safety play that locked up the slam - it picks up the bare offside king and refuses the lead to the danger hand. Nicely judged.}
-[Note "1:strong"]
-[Note "2:Blackwood 0123, for !S"]
-[Note "3:A=0/5 or 4/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "22"]
-[OriginalBoard "16"]
-% 09A89F1BC500685454B2B89337B0
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:QT3.JT.T642.KQ43 987.KQ874.J873.6 AK6542.A9.AQ95.J J.6532.K.AT98752"]
-{Shape 3244 3541 6241 1417}
-{HCP 8 6 18 8}
-{Losers 8 8 4 7}
-[Declarer "S"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS 450"]
-[Scoring "MP"]
-{Curate
-class: intended
-difficulty: 3
-bidding: textbook
-bidding-note: Standard limit raise to game in spades; nothing competes.
-declarer: standard safety-play
-declarer-note: Makes 10 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
+1S    2C    2S    Pass
 4S    Pass  Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \H2. With no clear sequence or safe singleton, fourth-best from your longest suit is the standard lead.
+Lead the \CA, top of the suit you showed.
 
 [ROLE declarer][STAGE auction-end]
-You are in 4\S. Trumps are nearly solid for six, and your side tricks come from the \HA, \DA and the long \D suit, where AQ9x faces Txxx missing the king. NS hold 26 of the 40, leaving the defence only 14. The safe way to play diamonds is to cash the \DA rather than finesse - if the king is bare it falls and you never risk the lead.
+You are in 4\S; West overcalled 2\C and rates to hold six clubs and little length outside. With \DAQ83 facing small and the king out, play the marked man short: cash the \DA rather than finessing, because his \DK is likely a singleton.
 
 [ROLE declarer][STAGE post-lead]
-West led the \H2, which looks like fourth-best - win the \HA. Draw trumps, picking up the missing jack. In diamonds, cash the \DA first instead of finessing: the finesse would risk the lead to the hand over your queen, while the ace drops a singleton king with no downside. You have it comfortably - the trumps, two red aces and the established diamonds and clubs add up to eleven, past your ten.
+Win, draw trumps, and lead out the \DA. West's overcall marked the short diamond, and his lone king drops. The finesse loses to it.
 
 [ROLE declarer][STAGE post-play]
-There was a trick to spare, but cashing the \DA before any finesse is the play that can never cost - it drops the bare king and shields the danger hand from the lead. A good habit worth keeping.}
+You did not gamble on the singleton king — West's bidding told you he was short, so you played him for it. Read the auction, and the "lucky" drop becomes sound technique.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "23"]
-[OriginalBoard "6"]
-% 09A89F58339404308A65D09008B6
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:J983.973.J854.KJ Q6.KQT54.T962.72 AKT742.A6.AQ73.6 5.J82.K.AQT98543"]
-{Shape 4342 2542 6241 1318}
-{HCP 6 7 17 10}
-{Losers 10 8 4 6}
-[Declarer "S"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS 450"]
-[Scoring "MP"]
-{Curate
-class: interference
-difficulty: 3
-bidding: standard
-bidding-note: South competes over the overcall and reaches a sound spade game; routine with the interference.
-declarer: standard safety-play
-declarer-note: Makes 10 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    4C    Pass  Pass
-4S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H2. With no attractive sequence or safe singleton, fourth-best from your longest suit is the standard choice.
-
-[ROLE declarer][STAGE auction-end]
-You are in 4\S. Trumps are nearly solid for six tricks, the \HA and \DA are top cards, and you can build extra tricks in \D where AQ7x faces J8xx missing the king. NS hold 23 of the 40, leaving the defence 17 between them. The safe way to handle diamonds is to cash the \DA rather than finesse - a bare king falls and you never gift the lead.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H2, which looks like fourth-best - win the \HA. Draw trumps, picking up the missing queen along the way. When you play diamonds, cash the \DA first instead of finessing: the finesse would risk the lead to the hand sitting over your queen, while the ace drops a singleton king for free. You have plenty here - trumps, the \HA, the \DA and the diamonds you set up roll to eleven, comfortably past your ten.
-
-[ROLE declarer][STAGE post-play]
-Even with a trick to spare, the disciplined play is the \DA before the finesse - it is the line that can never go wrong. Good habit to lock in for the tighter versions of this deal.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "24"]
-[OriginalBoard "8"]
-% 08A297900B9F3DF81C1CB173BEFB
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "N:J976.J.J82.KJT42 4.KQT76.T9763.A3 AKQT53.A.AQ54.95 82.985432.K.Q876"]
-{Shape 4135 1552 6142 2614}
-{HCP 7 9 19 5}
-{Losers 9 6 3 8}
-[Declarer "S"]
-[Contract "6S"]
-[Result "11"]
-[Score "NS -50"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-2C =1=    Pass  2D =2=    Pass
-2S    Pass  3S    Pass
-4S    Pass  6S    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H4. With nothing better to attack, fourth-best from your longest suit is the textbook lead against a slam.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Your trumps are solid for six, the \HA and \DA are top winners, and the long \D and \C suits supply the rest - but diamonds, AQ5x opposite J8x missing the king, must be handled with care. NS hold 26 of the 40, leaving the defence only 14, and both opponents passed throughout. The safety play is to cash the \DA rather than finesse so a singleton king crashes and you never lose the lead.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H4, which looks like a fourth-best - win the \HA. Draw trumps, which should run smoothly, then take the diamond safety play: the \DA first. The point is that finessing would risk the lead to the hand over your queen, while the ace drops a bare king at no cost; then set up the long clubs in dummy for discards and extra tricks. Adding it up - six trumps, the \HA, the \DA, the established diamonds and clubs - brings you to twelve.
-
-[ROLE declarer][STAGE post-play]
-The slam was won by cashing the \DA instead of finessing - the safe order that drops the offside bare king and protects against the danger hand. Cleanly done.}
-[Note "1:strong"]
-[Note "2:waiting"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "25"]
-[OriginalBoard "54"]
-% 39A89F1B04541377B854B8F3B185
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:QJ9.J2.943.KQ984 T86.KQT96.JT862. AK7532.A.AQ75.32 4.87543.K.AJT765"]
-{Shape 3235 3550 6142 1516}
-{HCP 9 6 17 8}
-{Losers 8 7 4 7}
-[Declarer "S"]
-[Contract "5S"]
-[Result "12"]
-[Score "NS 480"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Slam try stops in five; reasonable continuation beyond the brief's 4S.
-declarer: textbook safety-play
-declarer-note: Makes exactly 11; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  3S    Pass
-4N =1=    Pass  5C =2=    Pass
-5S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \H4. With a five-card heart suit and broken honours, fourth-best is the natural lead.
-
-[ROLE declarer][STAGE auction-end] I'm in 5\S with nine trumps. Six trump tricks and the \HA give me seven, dummy's long clubs (KQ984) supply more once the ace is gone, and the diamonds (AQ75 opposite 943) add tricks topped by the ace. There's a diamond safety play here: cash the \DA rather than finesse, so a singleton king drops and I don't lose the lead to the danger hand. I have a diamond ruff in dummy too.
-
-[ROLE declarer][STAGE post-lead] West led the \H4, which looks like a fourth-best from a five-card suit, and I win the bare \HA. NS hold 26 of the 40, leaving only 14 for the defence, and neither opponent bid, so no one is marked with a wild hand. I draw trumps, force out the club ace to set up dummy's clubs, and when I play diamonds I cash the \DA rather than finessing, dropping a possible singleton king. Eleven tricks: six trumps, the \HA, three clubs, and a diamond, with a ruff in reserve.
-
-[ROLE declarer][STAGE post-play] Taking the diamond ace over the finesse was the safe choice: the offside king crashed and the dangerous hand never gained the lead. Nicely played setting up the clubs and trusting the sure diamond line.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "26"]
-[OriginalBoard "55"]
-% 3BAF9B9CF33CB572B09F1310E3C7
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:T54.2.92.AKJ6532 8.KQ654.J87543.8 AKQ976.A3.AQT6.9 J32.JT987.K.QT74"]
-{Shape 3127 1561 6241 3514}
-{HCP 8 6 19 7}
-{Losers 7 6 3 9}
-[Declarer "S"]
-[Contract "6S"]
-[Result "13"]
-[Score "NS 1460"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5D =2=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HJ. With JT987 you hold a touching honour sequence, so the jack is the right lead against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S with nine trumps. Six trump tricks, the \HA, and the long clubs (AKJ6532 opposite my singleton) are the engine, giving me a stack of club winners once they're set up, and the diamonds (AQT6 opposite 92) add tricks led by the ace. The safety play is still the diamonds: cash the \DA rather than finesse, so an offside singleton king drops harmlessly. With this club source I'm not relying on the diamond finesse at all.
-
-[ROLE declarer][STAGE post-lead] West led the \HJ, which looks like top of a sequence, and I win the \HA. NS hold 27 of the 40, leaving the defence just 13, and neither opponent bid, so no one is hiding length. I draw trumps, run the clubs, and when I touch diamonds I cash the \DA first so a bare king falls. That brings twelve home easily: six trumps, the \HA, the diamond ace, and a fistful of clubs.
-
-[ROLE declarer][STAGE post-play] Even with the clubs carrying the load, cashing the diamond ace rather than finessing was the disciplined play, and the singleton king duly fell. Well done taking no risk you didn't need to take.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=1/5 or 5/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "27"]
-[OriginalBoard "3"]
-% 09AB9F9AD6479338F0DBB9343482
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:843.T2.972.AKT96 T.KQJ96.JT43.QJ2 AKQ952.A.AQ865.5 J76.87543.K.8743"]
-{Shape 3235 1543 6151 3514}
-{HCP 7 10 19 4}
-{Losers 9 7 2 10}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: textbook safety-play
-declarer-note: Makes exactly 12; West's stiff D:K drops under the ace by force, finesse would lose the lead to the danger hand.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5D =2=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \H4. With no safe singleton spot to lead and nothing screaming for attention, fourth-best from your longest suit is the normal start against a slam.
-
-[ROLE declarer][STAGE auction-end]
-You are in 6\S. Trumps are solid for six tricks once you draw them, the \HA and the \CAK give you side winners, and the long \D suit is where the slam lives: with AQ8xx opposite xxx you need four \D tricks, but the king is missing. NS hold 26 of the 40 points, so the defence has only 14 between them, and with neither opponent bidding no one is marked with a long suit. The safety play is to cash the \DA first rather than finesse - if the bare king is offside it crashes, and you avoid handing the lead to the hand sitting over your queen.
-
-[ROLE declarer][STAGE post-lead]
-West led the \H4, which looks like a fourth-best heart - you have the \HA, so win it and take stock. Draw trumps (the missing honours should fall in two or three rounds), then turn to diamonds and cash the \DA before anything else. The reason is pure safety: if you finesse and it loses, the hand over your queen is the dangerous one, but cashing the ace first drops a singleton king by force and never risks the lead. Reaching dummy in clubs, run the established diamonds for the rest, bringing you to twelve.
-
-[ROLE declarer][STAGE post-play]
-The whole hand turned on the order in the diamond suit - ace first, not the finesse - because the finesse risks the lead to the danger hand while the drop costs nothing when the king is bare. You read it perfectly; that is the Rabbi's Rule in action.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=1/5 or 5/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "28"]
-[OriginalBoard "36"]
-% 2BAE9B1F30F6BCA797FECF1012B0
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:QJ43.5.T87.KQ875 .KQ743.J432.AT63 AK9872.A8.AQ965. T65.JT962.K.J942"]
-{Shape 4135 0544 6250 3514}
-{HCP 8 10 17 5}
-{Losers 7 6 3 10}
-[Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Sound Blackwood slam exploration past the brief's game; defensible to bid the cold slam.
-declarer: standard safety-play
-declarer-note: Makes 12 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  4S    Pass
-4N =1=    Pass  5C =2=    Pass
-6S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HJ. With JT962 you have a touching honour sequence, so lead the jack against the slam.
-
-[ROLE declarer][STAGE auction-end] I'm in 6\S with ten trumps. Six trump tricks plus the \HA give me seven, and the diamonds, AQ965 opposite T87, are worth five once developed, with clubs and ruffs to spare. The safety play lies in diamonds: cash the \DA instead of finessing the queen, so a singleton king offside falls by force rather than my losing the lead to the danger hand. I have ruffing values in both hands, so entries are plentiful.
-
-[ROLE declarer][STAGE post-lead] West led the \HJ, which looks like top of a sequence, so I win the bare \HA. NS hold 25 of the 40, leaving 15 for the defence, and neither opponent bid, so no one is marked with a wild hand. I draw trumps, then before finessing I cash the \DA; a bare king drops and the diamonds run for five. That makes twelve: six trumps, the \HA, and five diamonds.
-
-[ROLE declarer][STAGE post-play] The ace-first play in diamonds was the safe line: a singleton king crashes, and with tricks to spare the play risks nothing. Nicely done taking the guaranteed route to the slam.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "29"]
-[OriginalBoard "48"]
-% 29A89F1B94F596E4C0900893DA00
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:Q52.752.7642.KQ4 .KQJ9643.JT98.93 AKJ964.A8.AQ53.T T873.T.K.AJ87652"]
-{Shape 3343 0742 6241 4117}
-{HCP 7 7 18 8}
-{Losers 9 6 4 7}
-[Declarer "S"]
-[Contract "3S"]
-[Result "11"]
-[Score "NS 200"]
-[Scoring "MP"]
-{Curate
-class: interference
-difficulty: 3
-bidding: standard
-bidding-note: South competes over the overcall and reaches a sound spade game; routine with the interference.
-declarer: standard safety-play
-declarer-note: Makes 9 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    3C    Pass  Pass
-3S    Pass  Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead] Lead the \HT. Your singleton ten is your only heart, so leading it both attacks and angles for a later ruff.
-
-[ROLE declarer][STAGE auction-end] I'm in 3\S with nine trumps. Six trump tricks and the \HA give me seven, and the diamonds (AQ53 opposite 7642) and a club provide the rest, so nine is comfortable. There's still a diamond safety play worth taking: cash the \DA rather than finesse, since a singleton king will drop and the finesse would only risk the lead. One opponent did act in the bidding, so I'll watch the distribution as I go.
-
-[ROLE declarer][STAGE post-lead] West led the \HT, and a singleton-looking ten could be a short suit angling for a ruff, so I'll win the \HA promptly and draw trumps to remove the ruff threat. NS hold 25 of the 40, leaving 15 for the defence; with one opponent having bid, I'll let the play confirm the shape. When I turn to diamonds I cash the \DA rather than finessing, dropping a possible bare king. Nine tricks roll in: six trumps, the \HA, the diamond ace, and a club.
-
-[ROLE declarer][STAGE post-play] Drawing trumps to kill the ruff threat and then cashing the diamond ace instead of finessing was the safe sequence; the singleton king fell and the danger hand never got in. Nicely handled with an opponent in the auction.}
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Rabbis_Rule"]
-[Site ""]
-[Board "30"]
-[OriginalBoard "19"]
-% 19AA9FDB3AB0B448D72334D290A7
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "N:J65.8.T643.KQ762 8.KQ743.9752.AJ4 AKT932.A62.AQJ8. Q74.JT95.K.T9853"]
-{Shape 3145 1543 6340 3415}
-{HCP 6 10 18 6}
-{Losers 8 7 4 9}
-[Declarer "S"]
-[Contract "5S"]
-[Result "12"]
-[Score "NS 480"]
-[Scoring "MP"]
-{Curate
-class: continuation
-difficulty: 3
-bidding: standard
-bidding-note: Slam try stops in five; reasonable continuation beyond the brief's 4S.
-declarer: standard safety-play
-declarer-note: Makes 11 comfortably; cashing D:A to drop West's stiff K is the safe line but a trick of slack softens the lesson.
-defense: reject
-defense-note: West leads from a singleton D:K; the K falls under declarer's ace regardless, defenders have no decision.
-}
-[Auction "S"]
-1S    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  5S =3=    Pass
-Pass  Pass
-{[show NESW]
-[ROLE leader][STAGE pre-lead]
-Lead the \CT. Top of your club sequence is a sound, passive lead that gives little away.
-
-[ROLE declarer][STAGE auction-end]
-You are in 5\S. Trumps are missing the queen but still good for several tricks, and your winners come from the \HA, \DA and the long \D suit where AQJ8 faces Txxx missing the king. NS hold 24 of the 40, leaving the defence 16. The safe handling of diamonds is to cash the \DA rather than finesse - a singleton king drops and you keep the lead.
-
-[ROLE declarer][STAGE post-lead]
-West led the \CT, which looks like top of a sequence - win it in dummy. Draw trumps, allowing for the missing queen, then play the \DA before any finesse. The finesse could hand the lead to the hand over your queen, while the ace crashes a bare king at no cost; the diamonds then run for your extra tricks. It all adds up past eleven, so the contract is safe.
-
-[ROLE declarer][STAGE post-play]
-There was room to spare, but cashing the \DA instead of finessing is the play that never loses - it drops the bare offside king and denies the danger hand the lead. Well done.}
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=0/5 or 4/5"]
-[Note "3:no !S queen"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
