@@ -104,7 +104,7 @@ def _esc_attr(text: str) -> str:
     return _esc(text).replace('"', "&quot;").replace("\n", "&#10;")
 
 
-GITHUB_BTN_URL = "https://raw.githubusercontent.com/ADavidBailey/Practice-Bidding-Scenarios/main/btn"
+GITHUB_BTN_URL = "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/btn"
 
 
 # Explicit parent→children indent groups

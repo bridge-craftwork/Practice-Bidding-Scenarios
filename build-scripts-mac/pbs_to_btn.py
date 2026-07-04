@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import FOLDERS, PROJECT_ROOT
 
 # GitHub base URL pattern for converting back to #include
-GITHUB_SCRIPT_PATTERN = r'Import,https://github\.com/ADavidBailey/Practice-Bidding-Scenarios/blob/main/(script/[^\s]+)'
+GITHUB_SCRIPT_PATTERN = r'Import,https://github\.com/(?:bridge-craftwork|ADavidBailey)/Practice-Bidding-Scenarios/blob/main/(script/[^\s]+)'
 
 
 def parse_pbs_file(pbs_path: str) -> dict:

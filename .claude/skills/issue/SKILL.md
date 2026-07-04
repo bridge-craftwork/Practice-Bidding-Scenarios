@@ -37,7 +37,7 @@ restrict the run; with no args, process the whole open batch.
   in hundreds. Fix the class, not the symptom, whenever the cluster says so.
 
 ## Step 1 — Pull and cluster
-1. `gh issue list -R ADavidBailey/Practice-Bidding-Scenarios --label classroom-feedback --state open --limit 200 --json number,title,body,labels`
+1. `gh issue list -R bridge-craftwork/Practice-Bidding-Scenarios --label classroom-feedback --state open --limit 200 --json number,title,body,labels`
 2. Group into **clusters** by:
    - **defect class** — spoiler (pre-decision text gives away the call) · backwards-vs-`[Result]`
      (reflection contradicts the deal's own result) · factual error (auction/bridge
@@ -111,7 +111,7 @@ For any content change, in order:
 Until David's copy of Bridge Classroom has the Report button, David reports problems in
 chat. To file one: identify scenario + board, look up the **PBN deal** from
 `coaching-curated/<scn>.pbn`, show David the issue, then
-`gh issue create -R ADavidBailey/Practice-Bidding-Scenarios --label classroom-feedback`
+`gh issue create -R bridge-craftwork/Practice-Bidding-Scenarios --label classroom-feedback`
 with title `Classroom report: <scenario> · Deal <N>` and a body that puts David's words
 first, then the captured state (scenario, PBN deal, Deal N + tags, seat, auction, contract,
 step, **reporter tier**). These are exactly what `/issue` later processes.

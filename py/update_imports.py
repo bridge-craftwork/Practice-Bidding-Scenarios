@@ -8,8 +8,8 @@ import sys
 from pathlib import Path
 
 # URL pattern to find and replace
-OLD_URL = "https://github.com/ADavidBailey/Practice-Bidding-Scenarios/blob/main/"
-NEW_URL = "https://raw.githubusercontent.com/ADavidBailey/Practice-Bidding-Scenarios/main/"
+OLD_URL = "https://github.com/bridge-craftwork/Practice-Bidding-Scenarios/blob/main/"
+NEW_URL = "https://raw.githubusercontent.com/bridge-craftwork/Practice-Bidding-Scenarios/main/"
 
 def preview_changes(directory):
     """

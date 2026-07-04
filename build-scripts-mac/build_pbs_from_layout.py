@@ -11,7 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import PROJECT_ROOT
 
 # GitHub base URL for PBS files
-GITHUB_BASE = "https://github.com/ADavidBailey/Practice-Bidding-Scenarios/blob/main/pbs-test"
+GITHUB_BASE = "https://github.com/bridge-craftwork/Practice-Bidding-Scenarios/blob/main/pbs-test"
 
 
 def parse_btn_metadata(btn_path):
