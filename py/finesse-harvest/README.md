@@ -1,9 +1,17 @@
-# finesse-harvest — DDS harvest toolkit for the finesse-family play lessons
+# finesse-harvest — DDS harvest toolkit for the play-technique lessons
 
 Promoted from the session scratchpad 2026-07-03 after building
-To_Finesse_Or_Not with it. The conceptual spec — what each filter means, why
-each exists, and the failure modes they catch — is **finesse-family-plan.md
-§9**; read that first. Requires the `endplay` package (DDS).
+To_Finesse_Or_Not with it; now also powers the Squeezes & Endplays shelf.
+The conceptual specs — what each filter means, why each exists, and the
+failure modes they catch — are **finesse-family-plan.md §9** and
+**squeeze-endplay-plan.md §5**; read those first. Requires `endplay` (DDS).
+
+**`harvest_common.py` is the shared core** — parse/tricks/winner/dd_line and
+above all `book_lead()` (singleton → top of touching honors → fourth-best →
+never underlead an ace vs a suit). Every detector's acid runs on that lead:
+scans scored on synthetic passive leads produce candidates that evaporate
+when re-dumped under the real lead — the single most repeated failure mode
+of the first build day. Do not add a detector that doesn't use it.
 
 Typical run, from the repo root:
 

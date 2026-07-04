@@ -47,14 +47,15 @@ def play_line(ds, contract, declarer, lead):
         chrono.append((s,c)); d.play(c)
     return chrono
 
-def passive_lead(hands, leader, fin_suit, trumpL):
-    # West's longest suit that isn't the finesse suit or trump; low card
-    cand=[s for s in "SHDC" if s!=fin_suit and s!=trumpL and hands[leader][s]]
-    if not cand: cand=[s for s in "SHDC" if hands[leader][s]]
-    best=max(cand, key=lambda s: len(hands[leader][s]))
-    holding=hands[leader][best]
-    low=[r for r in RANKS if r in holding][-1]
-    return best+low
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from harvest_common import book_lead
+
+def passive_lead(hands, leader, *rest):
+    """Book lead (harvest_common) — trump letter is the LAST argument; any
+    avoid-suit argument from older call sites is intentionally ignored: the
+    acid must run on the REAL lead, even when it hits the taught suit."""
+    return book_lead(hands, leader, rest[-1])
 
 def check(ds, contract, declarer, fin_suit, honor, marked):
     hands=parse(ds); trumpL=contract[1]

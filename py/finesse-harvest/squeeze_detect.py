@@ -56,43 +56,16 @@ def dd_line(ds, contract, declarer, lead):
         chrono.append((s, c)); d.play(c)
     return chrono
 
-def book_lead(hands, leader, trumpL):
-    """Deterministic approximation of West's book lead — the lesson of the
-    day, learned repeatedly: the acid MUST run on a realistic line, not a
-    synthetic passive one. Priority: singleton (suit contracts) > top of
-    touching honors in the longest such suit > fourth-best of longest >
-    top of nothing. Vs suit contracts, prefer the A over underleading it."""
-    h = hands[leader]
-    plain = [s for s in "SHDC" if s != trumpL and h[s]]
-    if trumpL != "N":
-        singles = [s for s in plain if len(h[s]) == 1]
-        if singles:
-            s = singles[0]
-            return s + h[s]
-    # touching-honor sequence headed T or better
-    best = None
-    for s in plain:
-        cards = h[s]
-        for i in range(4):                       # A,K,Q,J as seq tops
-            r1, r2 = RANKS[i], RANKS[i+1]
-            if r1 in cards and r2 in cards:
-                key = (len(cards), -i)
-                if best is None or key > best[0]:
-                    best = (key, s, r1)
-                break
-    if best:
-        return best[1] + best[2]
-    long = max(plain, key=lambda s: (len(h[s]), max(14-RANKS.index(r) for r in h[s])))
-    cards = [r for r in RANKS if r in h[long]]
-    if trumpL != "N" and cards[0] == "A":
-        return long + "A"                        # don't underlead an ace vs a suit
-    if len(cards) >= 4:
-        return long + cards[3]                   # fourth-best
-    if all(RANKS.index(r) > 4 for r in cards):
-        return long + cards[0]                   # top of nothing
-    return long + cards[-1]
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from harvest_common import book_lead
 
-passive_lead = book_lead
+def passive_lead(hands, leader, *rest):
+    """Book lead (harvest_common) — trump letter is the LAST argument; any
+    avoid-suit argument from older call sites is intentionally ignored: the
+    acid must run on the REAL lead, even when it hits the taught suit."""
+    return book_lead(hands, leader, rest[-1])
+
 
 def compact_auction(b):
     am = re.search(r'\[Auction "[NESW]"\]\s*\n(.*?)(?=\n\[|\n\{|\Z)', b, re.S)
