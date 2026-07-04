@@ -344,3 +344,16 @@ own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/`
   8-fit, hook wins while Q live). Funnel notes: trick-1 "deep wins" are lead artifacts, not choices
   (exclude T1); a deep card that wins a trick the tops already owned is a flourish, not a finesse
   (b235); deep yields 716 raw → 144 (T≥2, mainstream) → 2 survivors.
+- **2026-07-03** — **Finesse_Exam expanded 10 → 13 boards**: three of the four absent types filled
+  via `exam_gap_detect.py` (one pass, four class-specific pre-filters + shared DD-line acids).
+  New b8 *Double* (Basic_Major 462: ♦AT74/Q62 missing K-J both behind — two leads toward, the king
+  climbs on air, the queen eats the jack); new b9 *Two-Way* (Jordan_2N 472: West's takeout double
+  marks the ♦Q — hook through the doubler, jack at trick four, ace collects her at the end); new
+  b10 *Rabbi's* (Found_Rabbis_Rule 111 — the SIBLING pool the original harvest never touched: an
+  8-club overcall leaves West five cards, his ♦K is stiff BEHIND the A-Q-J tenace, so the
+  cast-iron finesse LOSES and the ace drops the king). Old 8/9/10 renumbered 11/12/13; count
+  phrases fixed ("twelve to go", "a dozen boards"). **Choice stays absent**: five candidates
+  (b114/b265/b197/b417/b167) all died on real-lead dump-read — the lose-then-win combine keeps
+  degrading to gifts, stopper artifacts, or inverted order; its acid must check the REAL-lead line,
+  not the passive-lead line, before any future retry. Class yields: dblsplit 647→1, twoway 27→1,
+  rabbi 20→1, choice 514→0.
