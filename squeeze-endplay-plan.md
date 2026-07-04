@@ -16,9 +16,9 @@ live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fr
 |---|---|---|---|
 | 1 | **Strip_And_Endplay** | Strip the side suits, throw a defender in, force the lead you wanted — the 50% finesse becomes 100% | live |
 | 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | live |
-| 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | later |
-| 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | later |
-| 5 | Double_Squeeze | Both defenders, three suits — the capstone | later |
+| 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | live |
+| 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | live |
+| 5 | Double_Squeeze | Both defenders, three suits — the capstone | hunting |
 
 Endplay before squeeze in the learning order: the throw-in is concrete (a defender physically on
 lead, visibly stuck) while the squeeze is abstract (a card silently promoted). Both assume the whole
@@ -89,3 +89,18 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   five spades, West breaks twice, dummy's ♣9 wins trick 13; **EPBot's playout went one down**, the
   third bot-rescue board of the day), 6♥ trump squeeze (the last trump forces East's ♠J; the EIGHT
   scores at the death). Squeeze funnel: 77 → 24 honor-pitch → 3 authored.
+- **2026-07-04** — **THE TABLE-vs-LINE GATE BUG found and fixed.** The scans gated makes-exactly on
+  the DD *table*, but a gifted book lead makes the *line* one trick richer — check_served caught
+  four freshly-authored boards playing +1 against their Result tags, and the technique stops being
+  load-bearing at need+1. Fix in two layers: `line_tricks()` in harvest_common with every
+  line-scanning detector now gating `line == need` (finesse_taken was already line-based), and a
+  `post_count.py` sweep re-filtering existing scan JSONs. Casualties re-slated: Rectify lost
+  b118/b83, Show_Up lost b139/b62, the exam's pending Choice board b291 died too.
+- **2026-07-04** — **Rectify_The_Count shipped** (3 boards, all 6NT, all line-exact): the arc is a
+  duck-timing progression — duck at trick ONE (b428: the ♦9 wins trick 13), duck at trick TWO
+  (b185: concede the diamond the suit owed anyway; the ♦8 at trick 13), duck at trick FIVE into
+  the queen while holding A-T over her (b233: dummy's ♣5 wins trick 12).
+- **2026-07-04** — **Show_Up_Squeeze shipped** (3 boards, line-exact): 3NT hook-hook-then-the-count
+  (b237: West's 4-long ♠K rises into the ace), 3NT the un-pickable K-7-5-3 picked up anyway (b184:
+  pressure first, finesses second, drop last), 6NT where East's own discard is the confession
+  (b92: one hook, one cashed king, the ace drops the queen, the SEVEN scores). Shelf = 4 lessons.

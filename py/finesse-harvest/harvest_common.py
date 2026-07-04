@@ -118,3 +118,16 @@ def compact_auction(board_text):
         return ""
     return " ".join(tok for ln in am.group(1).strip().splitlines()
                     for tok in ln.split())
+
+
+def line_tricks(chrono, trump_letter, declarer):
+    """Declarer-side trick count of a played-out line. Scans MUST gate on
+    this, not (only) the DD table: a gifted book lead makes the line one
+    trick richer than the table, and the technique stops being the swing."""
+    decl_side = {declarer, {"N": "S", "S": "N", "E": "W", "W": "E"}[declarer]}
+    n = 0
+    for t in range(13):
+        w, _ = winner(chrono[t*4:t*4+4], trump_letter)
+        if w in decl_side:
+            n += 1
+    return n

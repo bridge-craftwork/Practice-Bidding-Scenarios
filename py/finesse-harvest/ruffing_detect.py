@@ -64,7 +64,7 @@ def dd_line(ds, contract, declarer, lead):
 
 import os as _os, sys as _sys
 _sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
-from harvest_common import book_lead
+from harvest_common import book_lead, line_tricks
 
 def passive_lead(hands, leader, *rest):
     """Book lead (harvest_common) — trump letter is the LAST argument; any
@@ -141,6 +141,8 @@ def scan(path):
                 chrono = dd_line(mdeal.group(1), f"{level}{trumpL}", "S", lead)
             except Exception:
                 continue
+        if line_tricks(chrono, strain, "S") != need:
+            continue
             a = acid(chrono, trumpL, suit, seq, short, missing, "S")
             if a is None:
                 continue

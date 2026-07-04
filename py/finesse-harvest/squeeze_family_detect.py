@@ -22,7 +22,7 @@ Usage: squeeze_family_detect.py bba/Pool_A.pbn [...] > scan.json
 import sys, json, re, os
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from harvest_common import (SEATS, RANKS, parse, tricks, sl, rk,
-                            winner, dd_line, book_lead, compact_auction)
+                            winner, dd_line, book_lead, compact_auction, line_tricks)
 
 
 def analyze(chrono, hands, trumpL):
@@ -109,6 +109,8 @@ def scan(path):
         try:
             chrono = dd_line(mdeal.group(1), f"{level}{strain}", "S", lead)
         except Exception:
+            continue
+        if line_tricks(chrono, strain, "S") != need:
             continue
         ducks, promoted, showups = analyze(chrono, hands, strain)
         hits = []
