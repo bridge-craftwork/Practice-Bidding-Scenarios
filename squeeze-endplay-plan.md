@@ -139,3 +139,10 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   stacked in diamonds at two heights; the ♥3 wins trick 12; the spade lead is West's natural
   attack and the strict line — a diamond lead concedes 11, noted in Curate). b318/w30plus genuine
   but narratively tangled — left in the well. Served gates: 12/12, 12/12, 10/10 exact.
+- **2026-07-04** — **Double_Squeeze shipped — the shelf is COMPLETE.** David wrote both the widened
+  detector (double_squeeze_detect.py: the corrected acid — a double squeeze scores ONE extra trick,
+  the common suit both defenders abandon) and the lesson itself (three boards: the canonical 6NT
+  with the club concession and the spade DEUCE at trick 13; the Smolen 6NT where both guards fall
+  on the club three; and a 4♣ SUIT double squeeze from Impossible_2S). The corpus that looked empty
+  under the wrong-shaped acid held 14 candidates under the right one. Detector credit: David.
+  Shelf = 5 lessons + exam; both shelves now complete, lessons through capstone through final test.
