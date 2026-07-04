@@ -4,9 +4,10 @@ Design + working plan for the **second play-technique family**, following the pa
 [finesse-family-plan.md](finesse-family-plan.md). Started 2026-07-03 (David + Claude). The shelf is
 David's call ("Squeezes & Endplays shelf"); the faceted-section design comes from the finesse plan §6.
 
-**Status: SHELF LIVE — first two lessons shipped 2026-07-03.** `Strip_And_Endplay` (3 boards,
-`414d27952`) and `Simple_Squeeze` (3 boards). Toc section `Play of the Hand: Squeezes & Endplays`
-live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fresh wells.
+**Status: SHELF COMPLETE — all five lessons + the exam live (capstone shipped 2026-07-04).**
+`Strip_And_Endplay`, `Simple_Squeeze`, `Rectify_The_Count`, `Show_Up_Squeeze`, `Double_Squeeze`
+(3 boards each) + `Squeeze_Endplay_Exam` (6 boards). Toc section
+`Play of the Hand: Squeezes & Endplays` live in both toc files.
 
 ---
 
@@ -18,7 +19,7 @@ live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fr
 | 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | live |
 | 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | live |
 | 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | live |
-| 5 | Double_Squeeze | Both defenders, three suits — the capstone | re-hunting (widened acid) |
+| 5 | Double_Squeeze | Both defenders, three suits — the capstone | live |
 
 Endplay before squeeze in the learning order: the throw-in is concrete (a defender physically on
 lead, visibly stuck) while the squeeze is abstract (a card silently promoted). Both assume the whole
@@ -121,3 +122,20 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   FOUR of spades takes a trick ("the trick you surrender at trick one buys the endgame"). Endplay
   candidates' stored leads predated the book-lead port — recomputed and re-verified per board.
   Shelf = 4 lessons + exam; the two-shelf curriculum now mirrors: each ends in a no-labels test.
+- **2026-07-04** — **Double_Squeeze SHIPPED (3 boards) — the widened acid found the well.** The
+  diagnosis: the old "double" class demanded TWO promoted winners with distinct victims, but a
+  textbook double squeeze scores exactly ONE extra trick — the common suit's menace, which BOTH
+  defenders abandon; the side menaces threaten, they never cash. New `double_squeeze_detect.py`
+  keys on one promoted winner whose pitched beaters came from both defenders (covers the length
+  menace by rank: against a low winner, every outstanding card is a beater). Full 344-pool rescan:
+  14 candidates, 15 both-pitch hits, 0 of the old two-menace shape. Dump-reads killed 11 — the
+  mirage catalog: spare winners at the death (b45 pitches a high ♣A on the "fruit"; b5 dummy sheds
+  a good ♣K), guards extracted by force rather than squeeze (b237, b126), Qx "guards" that were
+  always crashing (b220), finesse-dressed endings (b423) — and confirmed 3, all line-exact under
+  book leads: **b153/3N** (6NT canonical: rectify at six, run, and the ♠2 wins trick 13 — E guards
+  ♣J vs the 7, W guards ♥J vs dummy's 8; makes 12 under EVERY tested lead), **b176/Smolen** (6NT
+  split menaces: dummy's ♥8 vs W, declarer's ♦7 vs E, the club ace gathers BOTH honors, dummy's
+  ♣3 at trick 13), **b444/Impossible_2S** (4♣ — a GAME-level double with both side menaces
+  stacked in diamonds at two heights; the ♥3 wins trick 12; the spade lead is West's natural
+  attack and the strict line — a diamond lead concedes 11, noted in Curate). b318/w30plus genuine
+  but narratively tangled — left in the well. Served gates: 12/12, 12/12, 10/10 exact.
