@@ -18,7 +18,7 @@ live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fr
 | 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | live |
 | 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | live |
 | 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | live |
-| 5 | Double_Squeeze | Both defenders, three suits — the capstone | dry (see log 07-04) |
+| 5 | Double_Squeeze | Both defenders, three suits — the capstone | re-hunting (widened acid) |
 
 Endplay before squeeze in the learning order: the throw-in is concrete (a defender physically on
 lead, visibly stuck) while the squeeze is abstract (a card silently promoted). Both assume the whole
