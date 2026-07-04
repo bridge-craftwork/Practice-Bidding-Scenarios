@@ -18,7 +18,7 @@ live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fr
 | 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | live |
 | 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | live |
 | 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | live |
-| 5 | Double_Squeeze | Both defenders, three suits — the capstone | hunting |
+| 5 | Double_Squeeze | Both defenders, three suits — the capstone | dry (see log 07-04) |
 
 Endplay before squeeze in the learning order: the throw-in is concrete (a defender physically on
 lead, visibly stuck) while the squeeze is abstract (a card silently promoted). Both assume the whole
@@ -104,3 +104,11 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   (b237: West's 4-long ♠K rises into the ace), 3NT the un-pickable K-7-5-3 picked up anyway (b184:
   pressure first, finesses second, drop last), 6NT where East's own discard is the confession
   (b92: one hook, one cashed king, the ace drops the queen, the SEVEN scores). Shelf = 4 lessons.
+- **2026-07-04** — **Double_Squeeze: the full-corpus hunt came back DRY.** All 344 pools, 1,734
+  squeeze-family candidates, exactly ONE double hit (2N_Smolen 13, the ♦4/♣2 board) — and it fails
+  the line gate: its line takes all THIRTEEN tricks, the defense never scores, so the double
+  squeeze was overtrick garnish, not the make. A teaching double squeeze needs makes-exactly WITH
+  the squeeze load-bearing, and that intersection appears empty in these pools. Paths if wanted
+  later: widen the acid (length-menace doubles, where one menace scores by running rather than as
+  a led-suit promoted winner), or last-resort dealer generation (finesse plan §4). The shelf's
+  capstone slot stays honestly open.
