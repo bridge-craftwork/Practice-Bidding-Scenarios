@@ -12,17 +12,26 @@ diagnostics — roughly **400 requests per menu build**. A consumer can now fetc
 
 ## Files / tiers
 
-| File | Layout source | `.pbs` source | Purpose |
-|------|---------------|---------------|---------|
-| `manifest-release.json` | `btn/-button-layout-release.txt` | `pbs-release/` | Public menu (`Use_Beta_Layout=false`, `Enable_Test_Mode=false`) |
-| `manifest-beta.json` | `btn/-button-layout-beta.txt` | `pbs-release/` | David's staging layout (`Use_Beta_Layout=true`) |
-| `manifest-test.json` | `btn/-button-layout-beta.txt` | `pbs-release/` + `pbs-test/` | Bleeding edge + `[TEST]` section (`Enable_Test_Mode=true`) |
+The extension's two toggles (`Use_Beta_Layout`, `Enable_Test_Mode`) are
+orthogonal, so there are **4 combinations — one manifest each:**
 
-> The extension's two toggles (`Use_Beta_Layout`, `Enable_Test_Mode`) are
-> orthogonal — 4 combinations exist. These 3 tiers cover the ones actually used;
-> if a fourth (release-layout + test-pbs) is wanted, add it to `TIERS` in the
-> generator. **This mapping is the one open design choice — confirm before the
-> consumers depend on it.**
+| File | `Use_Beta_Layout` | `Enable_Test_Mode` | Layout source | `.pbs` source | Purpose |
+|------|:---:|:---:|---------------|---------------|---------|
+| `manifest-release.json` | false | false | `btn/-button-layout-release.txt` | `pbs-release/` | Public menu (what the picker uses by default) |
+| `manifest-beta.json` | true | false | `btn/-button-layout-beta.txt` | `pbs-release/` | David's staging layout |
+| `manifest-test.json` | true | true | `btn/-button-layout-beta.txt` | `pbs-release/` + `pbs-test/` | Beta layout + `[TEST]` section (bleeding edge) |
+| `manifest-release-test.json` | false | true | `btn/-button-layout-release.txt` | `pbs-release/` + `pbs-test/` | Release layout with test scenarios previewed |
+
+A consumer maps its two toggle checkboxes straight to the tier: pick the file
+whose `Use_Beta_Layout`/`Enable_Test_Mode` columns match. Any tier that includes
+`pbs-test/` (`test`, `release-test`) also carries a `testScenarios` list of the
+`pbs-test`-only scenarios; where a scenario exists in both, the `pbs-test`
+version overrides `pbs-release`.
+
+> Added `release-test` (PBS #167 follow-up): resolves the previously-open "4th
+> combination" design choice — all four toggle states now have a manifest.
+> Tiers are keyed by name (`release`/`beta`/`test`/`release-test`); the existing
+> three are byte-for-byte unchanged (the BBO extension keeps working).
 
 ## Schema (`schemaVersion: 1`)
 
@@ -64,7 +73,7 @@ diagnostics — roughly **400 requests per menu build**. A consumer can now fetc
   },
   "counts": { "referenced": 334, "scenarios": 334, "missing": 0, "orphans": 0 },
 
-  // test tier only:
+  // test-mode tiers only (test, release-test):
   "testScenarios": [ { "name": "Found_Endplay", "buttonText": "...", "chat": "...", ... } ]
 }
 ```
@@ -83,7 +92,7 @@ extension) with one manifest fetch:
 |-------|----------------------|
 | Fetch `btn/-button-layout-{release,beta}.txt` | `manifest.layout` |
 | Fetch `pbs-<tier>/<name>.pbs` per button for text/chat/alias/style | `manifest.scenarios[name]` |
-| GitHub-API list `pbs-test/` for the `[TEST]` section | `manifest.testScenarios` (test tier) |
+| GitHub-API list `pbs-test/` for the `[TEST]` section | `manifest.testScenarios` (test / release-test tiers) |
 | Per-button 404 check → MISSING PBS FILES | `manifest.deltas.missing` / `scenarios[name].missing` |
 | GitHub-API list `pbs-release/` → ORPHAN SCENARIOS | `manifest.deltas.orphans` |
 | (unavailable) gib-works / bba-works | `scenarios[name].gibWorks` / `.bbaWorks` |
