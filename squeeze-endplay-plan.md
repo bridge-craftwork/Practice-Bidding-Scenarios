@@ -112,3 +112,12 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   later: widen the acid (length-menace doubles, where one menace scores by running rather than as
   a led-suit promoted winner), or last-resort dealer generation (finesse plan §4). The shelf's
   capstone slot stays honestly open.
+- **2026-07-04** — **Squeeze_Endplay_Exam shipped** (6 boards, exam voice, all line-exact) — David
+  asked "I can't find the squeeze exam" and the answer was to build it. Coverage: Simple Squeeze ×2
+  (a 4♠ where the last trump squeezes out West's diamond jack, and the 6♠ crown jewel where West
+  pitches the very KING the beginner would finesse for), Strip & Endplay ×2 (East thrown in with his
+  spade king → forced diamond into A-Q-T-9; West given his diamond queen → forced club into J-T),
+  Show-Up ×1 (the queen counted out of hiding), Rectify ×1 as the FINALE — duck trick one, and the
+  FOUR of spades takes a trick ("the trick you surrender at trick one buys the endgame"). Endplay
+  candidates' stored leads predated the book-lead port — recomputed and re-verified per board.
+  Shelf = 4 lessons + exam; the two-shelf curriculum now mirrors: each ends in a no-labels test.
