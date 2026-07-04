@@ -357,3 +357,10 @@ own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/`
   degrading to gifts, stopper artifacts, or inverted order; its acid must check the REAL-lead line,
   not the passive-lead line, before any future retry. Class yields: dblsplit 647→1, twoway 27→1,
   rabbi 20→1, choice 514→0.
+- **2026-07-04** — **Choice slot FILLED — exam complete at 14 boards, full type coverage.** The
+  book-lead rescan + two structural fixes (lose/win suits may not be the led suit; gate on LINE
+  tricks, not the DD table) turned choice from 0-for-5 into 65 clean candidates. New board 11 =
+  Fourth_Bid_Inviting b316 (1♦-1♠-1NT-2NT-3NT): the diamond chance loses to West's king at trick
+  four, the club queen through East lands at trick seven — "take your chances in the order that
+  keeps the survivor alive." Slams renumbered 12-13, the 7♠ finale is board 14; count phrases
+  updated ("thirteen to go", "a baker's dozen"). All thirteen technique boards line-exact.
