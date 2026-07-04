@@ -436,6 +436,21 @@ def main():
               + (f" testOnly={c.get('testOnly')}" if "testOnly" in c else ""))
         if not args.check:
             path = os.path.join(out_dir, f"manifest-{tier}.json")
+            # Preserve the prior generatedAtCommit when nothing else changed, so a
+            # rebuild triggered by an unrelated input edit doesn't churn the file.
+            # generatedAtCommit then means "commit where this content last changed",
+            # and the CI commit-gate (git status --porcelain) skips no-op rebuilds
+            # instead of committing a SHA-only diff every push.
+            if os.path.exists(path):
+                try:
+                    with open(path, encoding="utf-8") as fh:
+                        old = json.load(fh)
+                    old_sha = old.pop("generatedAtCommit", None)
+                    if old_sha is not None and old == {k: v for k, v in m.items()
+                                                       if k != "generatedAtCommit"}:
+                        m["generatedAtCommit"] = old_sha
+                except Exception:
+                    pass
             with open(path, "w", encoding="utf-8") as fh:
                 json.dump(m, fh, ensure_ascii=False, indent=2, sort_keys=False)
                 fh.write("\n")
