@@ -1,0 +1,143 @@
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "1"]
+[OriginalBoard "460"]
+[OriginalScenario "Stayman"]
+% CADDA40E292FD969B6C2D933C840
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:QJT4.Q632.AQT.T4 82.A95.J9853.Q76 K7.KJT8.K7.AJ985 A9653.74.642.K32"]
+{Shape 4432 2353 2425 5233}
+{HCP 11 7 15 7}
+{Losers 7 9 6 9}
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
+[Score "NS 620"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: textbook
+bidding-note: 1NT - 2C Stayman; 2H - 4H. The fit found, game bid.
+declarer: standard simple-squeeze
+declarer-note: 4H needs 10 and dd gives exactly 10; after the black losers are conceded, dummy's fourth spade is the squeeze card — East, forced to keep his diamonds, finally releases the club queen, and declarer's club JACK wins trick thirteen.
+defense: reject
+defense-note: W (S:A9653 H:74 D:642 C:K32) gets the spade ace and club king, East the trump ace — and then East's hand is ground down by the spade run.
+}
+[Auction "S"]
+1N    Pass  2C =1=    Pass
+2H    Pass  4H    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \SA, top of your five-card suit against the heart game — take a look at dummy before committing further.
+
+[ROLE declarer][STAGE auction-end] Welcome to the squeeze. You are in 4\H needing ten tricks, and after the obvious losers — a spade, the trump ace, the club king — the count comes up one short: nine winners, ten needed, and no finesse in sight that helps. Here is the new tool: when your own tricks run out, run your winners ANYWAY and watch the discards. A defender who has to guard two suits at once will, on the last winner, have to abandon one of them. Your job is only to notice which.
+
+[ROLE declarer][STAGE post-lead] West takes the \SA and the defense collects its aces and the club king along the way — your count is now rectified: you have lost everything you can afford. Draw trumps, cash your top cards, and then lead dummy's LAST spade — the squeeze card. Watch East: he must keep his diamonds or dummy's ten scores, so at last the club QUEEN drops from his hand. Now your \CJ — a card that was a loser all evening — wins trick thirteen. Ten tricks.
+
+[ROLE declarer][STAGE post-play] That was a simple squeeze: two threats — dummy's diamond ten and your club jack — and one defender responsible for both. You did nothing clever except cash your winners in the right order and WATCH. Remember the feeling of that last spade hitting the table: the defender's problem is unsolvable, and his discard tells you the answer. The nine and the jack you were taught to finesse with — here they simply waited for the queen to leave.}
+[Note "1:Stayman"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "2"]
+[OriginalBoard "45"]
+[OriginalScenario "Slam_after_NT"]
+% 2B25833C5D38DB5A3F4EEDA208D3
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:AQT73.K63.A.K972 J86.J982.K42.864 K4.A54.QJ765.AJ5 952.QT7.T983.QT3"]
+{Shape 5314 3433 2353 3343}
+{HCP 16 5 15 4}
+{Losers 5 11 7 10}
+[Declarer "S"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 1440"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: standard
+bidding-note: 1NT - 2H transfer; 2S - 3C; 3D - 6NT. Slam on power after the transfer.
+declarer: judgment simple-squeeze
+declarer-note: 6NT needs 12 and dd gives exactly 12; eleven tricks on top — so RECTIFY at once (concede the diamond king early), run the five spades, and West, guarding both hearts and clubs, breaks: the heart queen goes, then the club ten, and dummy's NINE of clubs wins trick thirteen. The BBA playout went one down; the squeeze is the slam.
+defense: reject
+defense-note: W (S:952 H:QT7 D:T983 C:QT3) must hold the heart queen and the club queen-ten at once — the spade run makes that impossible.
+}
+[Auction "S"]
+1N    Pass  2H    Pass
+2S    Pass  3C    Pass
+3D    Pass  6N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \D3, fourth-best from your longest suit — the normal start against 6NT.
+
+[ROLE declarer][STAGE auction-end] You are in 6NT needing twelve tricks, and the count says ELEVEN: five spades, three hearts in time, the two minor-suit aces and the club king. No finesse for the twelfth. So the squeeze — and its first commandment: RECTIFY THE COUNT. A squeeze only bites when you can win every remaining trick but one, so give the defense its trick NOW, early, while you still control everything. Then run the spades and watch.
+
+[ROLE declarer][STAGE post-lead] Win the diamond ace and immediately give a diamond back — East's king takes it, and your count is rectified with eleven tricks and eleven cards to come. Now the engine: FIVE rounds of spades. West must keep the heart queen guarded and the club queen-ten guarded, and dummy's long cards stare at him the whole way. On the fifth spade his hearts crack; two tricks later the club TEN goes. Cash the hearts, then clubs: jack, king — his queen falls — and dummy's NINE of clubs takes trick thirteen. Twelve tricks.
+
+[ROLE declarer][STAGE post-play] The full classic: count eleven, rectify at trick three, run the long suit, and one defender guarding two suits collapsed on schedule. Notice that the machine that first played this hand went ONE DOWN — it never gave up the diamond, so the squeeze never bit. The trick you concede early is the trick that comes home doubled at the end: that is rectifying the count, and it is the heart of every squeeze you will ever play.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "3"]
+[OriginalBoard "447"]
+[OriginalScenario "Jacoby_2N"]
+% BA2D26C0776A69B38B8863D30890
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AK3.Q763.A.J8754 JT95.42.T9763.KT 8762.AKT95.KJ.A9 Q4.J8.Q8542.Q632"]
+{Shape 3415 4252 4522 2254}
+{HCP 14 4 15 7}
+{Losers 6 9 6 8}
+[Declarer "S"]
+[Contract "6H"]
+[Result "12"]
+[Score "NS 1430"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: standard
+bidding-note: 1H - 4D splinter; Blackwood; 6H. Sound slam auction to the nine-card fit.
+declarer: judgment trump-squeeze
+declarer-note: 6H needs 12 and dd gives exactly 12; the twelfth trick is nowhere — until the LAST TRUMP forces East to abandon the spade jack (his fourth spade guard) while West's club queen is ruffed to death, and South's EIGHT of spades wins trick thirteen.
+defense: reject
+defense-note: W (S:Q4 H:J8 D:Q8542 C:Q632) and East between them guard spades and clubs; the final trump makes one of the guards let go.
+}
+[Auction "S"]
+1H    Pass  4D =1=    Pass
+4H    Pass  4N =2=    Pass
+5D =3=    Pass  5H    Pass
+6H    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \D4, fourth-best from your longest suit — nothing else is safer against the heart slam.
+
+[ROLE declarer][STAGE auction-end] Partner's 4\D splinter drove you to 6\H — twelve tricks. Count: five trumps, the black-suit tops, the diamond pair, a club ruff… eleven, and the twelfth is hiding. Your spades are 8-7-6-2 facing A-K-3: the suit looks dead. But watch what a TRUMP can do late in a hand: when you have squeezed every other card out of the defenders' hands, your smallest spade may find itself promoted to royalty. Keep every trump; they are your squeeze cards.
+
+[ROLE declarer][STAGE post-lead] Win the diamond, draw trumps, cash the black tops, ruff dummy's clubs good — East's king and West's queen of clubs both fall in the wash — and then play your LAST trump. East is down to his final guards: he must keep a diamond winner, so the spade JACK — the card protecting his ten-nine — flutters away. And now the deal's quiet punchline: your EIGHT of spades, a spot card from a dead suit, wins trick thirteen. Slam made.
+
+[ROLE declarer][STAGE post-play] The trump squeeze: the same watching game as the last two boards, but the squeeze card was a trump, and the promoted winner was an eight. Notice you never guessed anything all day on this shelf — no finesse, no fifty-fifty. You counted, you conceded on your own terms, you ran your winners, and the defenders' hands did the rest. That is squeeze play: pressure, patience, and eyes open at the end.}
+[Note "1:Splinter"]
+[Note "2:Blackwood 1430, for !H"]
+[Note "3:A=0/5 or 3/5"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]

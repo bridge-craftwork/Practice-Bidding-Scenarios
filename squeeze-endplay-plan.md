@@ -4,9 +4,9 @@ Design + working plan for the **second play-technique family**, following the pa
 [finesse-family-plan.md](finesse-family-plan.md). Started 2026-07-03 (David + Claude). The shelf is
 David's call ("Squeezes & Endplays shelf"); the faceted-section design comes from the finesse plan §6.
 
-**Status:** building. Shelf = NEW toc section `Play of the Hand: Squeezes & Endplays` (group Play).
-First two lessons in flight: **Simple_Squeeze** (fresh harvest) and **Strip_And_Endplay** (from the
-two purpose-built pools).
+**Status: SHELF LIVE — first two lessons shipped 2026-07-03.** `Strip_And_Endplay` (3 boards,
+`414d27952`) and `Simple_Squeeze` (3 boards). Toc section `Play of the Hand: Squeezes & Endplays`
+live in both toc files. Next rungs (Rectify / Show-Up / Double squeeze) await fresh wells.
 
 ---
 
@@ -14,8 +14,8 @@ two purpose-built pools).
 
 | # | Lesson | Owns the skill | Status |
 |---|---|---|---|
-| 1 | **Strip_And_Endplay** | Strip the side suits, throw a defender in, force the lead you wanted — the 50% finesse becomes 100% | building |
-| 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | building |
+| 1 | **Strip_And_Endplay** | Strip the side suits, throw a defender in, force the lead you wanted — the 50% finesse becomes 100% | live |
+| 2 | **Simple_Squeeze** | One defender guards two suits: rectify, run the long suit, watch the discards | live |
 | 3 | Rectify_The_Count | Losing your losers EARLY as its own skill (the squeeze's ignition) | later |
 | 4 | Show_Up_Squeeze | The run bares the honor — the "finesse" at the end is no longer a guess (bridges back to the finesse family) | later |
 | 5 | Double_Squeeze | Both defenders, three suits — the capstone | later |
@@ -73,3 +73,19 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
 
 - **2026-07-03** — Shelf green-lit by David. Detectors written; scans launched (both endplay pools;
   18 NT/slam pools for squeezes). Plan doc created.
+- **2026-07-03** — **Strip_And_Endplay shipped** (3 boards from Found_Endplay: the textbook trump-Q
+  throw-in with both punishments visible; the timing study where the trump K wins exactly when West
+  is stripped; the manufactured throw-in that solves an unpickable guarded trump queen). 75 raw →
+  22 late into-tenace → 3 survivors; trick-1 "throw-ins" are lead artifacts, and passive-line hits
+  keep dying under real leads.
+- **2026-07-03** — **THE structural fix, finally codified:** `book_lead()` (singleton → top of
+  touching honors → fourth-best → don't-underlead-aces) now lives in `squeeze_detect.py` in place
+  of the synthetic passive lead, so the acid runs on a realistic line FIRST-pass. First scan under
+  passive leads: 80 candidates, first three dumps all evaporated (0-for-3). Rescan under book
+  leads: 77 candidates whose dumps AGREE with the scan. Port `book_lead` into the other detectors
+  before their next use.
+- **2026-07-03** — **Simple_Squeeze shipped** (3 boards): 4♥ Stayman intro (East abandons the ♣Q on
+  dummy's last spade; the jack wins trick 13), 6NT classic (rectify at trick THREE — visible! — run
+  five spades, West breaks twice, dummy's ♣9 wins trick 13; **EPBot's playout went one down**, the
+  third bot-rescue board of the day), 6♥ trump squeeze (the last trump forces East's ♠J; the EIGHT
+  scores at the death). Squeeze funnel: 77 → 24 honor-pitch → 3 authored.
