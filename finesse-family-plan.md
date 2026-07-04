@@ -26,6 +26,7 @@ They form a **progression**: each lesson may assume the earlier ones and must no
 | 2 | **To_Finesse_Or_Not** | *Whether* at all — restraint + evidence; a safe line vs. a losing finesse | rebuilt |
 | 3 | **Two_Way_Finesse** | *Which direction* — finesse either opponent, resolved by the count/bidding | live (verified) |
 | 3b | **Repeated_Finesse** | Finesse the same suit several times — lives on entries | live |
+| 3c | **Deep_Finesse** | Trust the intermediates (hook the T/9) + the ODDS rungs: 8-ever, 9-never | live |
 | 4 | **Choice_Of_Finesses** | *Which of several* + **combine chances** + order (entries / danger hand) | live (rebuild) |
 | 5 | **Rabbi's_Rule** | Finesse vs. the **drop** — play the ace for the stiff honor, *with a reason* | live (rebuild) |
 
@@ -91,6 +92,15 @@ Sits by Finesse_Simple as "the same mechanic, with trumps."
 one of two. Extension of Simple.
 
 **Repeated_Finesse** (NEW). AQJ / KJ10 finessed multiple times — lives on entries. Pairs with Choice.
+
+**Deep_Finesse** (NEW, David 2026-07-03). Two rungs in one lesson:
+- *Deep hooks:* the T/9/8 as deliberate finesse cards (AQT hooking the ten; AJ9-type nine-inserts) —
+  win cheaply on purpose while two higher cards are still out.
+- *Poor candidates:* a couple of boards where the tempting finesse is WRONG by the odds — the
+  "8-ever, 9-never" pair: with an 8-card fit missing the Q, hook ("8 ever"); with 9+, cash the tops
+  and the Q drops ("9 never") — on the 9-card boards the available hook would actually LOSE.
+- Boundary note: Rabbi's owns the *marked* drop (a reason from the auction); Deep_Finesse's
+  poor-candidate rung is the *odds* drop (no marking needed — arithmetic alone).
 
 **Two_Way_Finesse**, **Finesse_Simple**: largely in-lane; verify, light touch only.
 
@@ -321,3 +331,16 @@ own subdirectory rather than flat `py/` so intra-toolkit imports never put `py/`
   clean combines were 4-in-500 last time), Rabbi's (its vein went entirely into the live lesson —
   two targeted rescans returned zero). Path to fill them later: deeper pools or last-resort dealer
   generation (§4).
+- **2026-07-03** — **Deep_Finesse NEW lesson shipped** (5 boards, David's idea, slot 3c): (1) 3NT
+  where West's own fourth-best lead marks the K-T, so the deep NINE through him is a read, not a
+  guess; (2) 4♦ after a 3♥ preempt — vacant spaces put A-J over dummy's Q-T, so lead LOW and insert
+  the TEN (the queen was doomed; **EPBot's playout went one down here**); (3) 4♠ "eight ever" — the
+  jack-hook wins and the twice-guarded queen never drops; (4) 4♥ "nine never" on a 1♥-2♥-3♥-4♥
+  auction — A-K fell the doubleton queen and the tempting hook sat offside; (5) **7♥ grand "nine
+  never carved in stone"** — the jack-finesse loses the grand, the drop fells Q-T. New detectors
+  `deep_detect.py` (line-scan: T/9/8 wins a led-toward trick with 2+ higher cards live and a higher
+  card declined — plus a structural pre-filter, since an unfiltered line-scan costs hours) and
+  `odds_detect.py` (nine_never: 9+ fit, hook geometrically LOSING, Q falls in 2 rounds; eight_ever:
+  8-fit, hook wins while Q live). Funnel notes: trick-1 "deep wins" are lead artifacts, not choices
+  (exclude T1); a deep card that wins a trick the tops already owned is a flourish, not a finesse
+  (b235); deep yields 716 raw → 144 (T≥2, mainstream) → 2 survivors.
