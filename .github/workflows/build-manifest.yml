@@ -1,0 +1,52 @@
+name: Build deal-source manifest
+
+# PBS issue #167: pre-build manifest/manifest-{release,beta,test}.json so the BBO
+# extension and Bridge-Classroom deal-source dialog fetch ONE file instead of
+# scanning ~400 .btn/.pbs files. Regenerates whenever the inputs change.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'btn/**'
+      - 'pbs-release/**'
+      - 'pbs-test/**'
+      - 'py/build_manifest.py'
+      - '.github/workflows/build-manifest.yml'
+  workflow_dispatch:
+
+# GITHUB_TOKEN pushes do not re-trigger workflows, and manifest/** is excluded
+# from the push paths above, so the commit-back below cannot cause a loop.
+permissions:
+  contents: write
+
+concurrency:
+  group: build-manifest
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      PYTHONSAFEPATH: '1'   # keep py/select.py from shadowing the stdlib select
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Generate manifests
+        run: python3 -P py/build_manifest.py --out-dir manifest
+
+      - name: Commit manifests if changed
+        run: |
+          if [ -z "$(git status --porcelain manifest)" ]; then
+            echo "Manifests unchanged — nothing to commit."
+            exit 0
+          fi
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add manifest
+          git commit -m "manifest: rebuild from btn/pbs (${GITHUB_SHA::7}) [skip ci]"
+          git push
