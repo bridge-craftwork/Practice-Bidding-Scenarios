@@ -23,6 +23,11 @@ Layout plugin's Use_Beta_Layout / Enable_Test_Mode toggles):
   beta    : -button-layout-beta.txt     +  pbs-release/
   test    : -button-layout-beta.txt     +  pbs-release/ and pbs-test/
             (adds a testScenarios list for the [TEST: pbs-test/] section)
+  release-test : -button-layout-release.txt + pbs-release/ and pbs-test/
+            (the 4th toggle combination: release layout with test mode on)
+
+The two extension toggles (Use_Beta_Layout, Enable_Test_Mode) are orthogonal —
+these four tiers are the four combinations. See the TIERS table below.
 
 Pure stdlib so it runs unchanged in GitHub Actions (ubuntu) and on the Mac.
 Layout / btn parsing lineage: build-scripts-mac/build_pbs_from_layout.py.
@@ -46,10 +51,22 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BTN_DIR = os.path.join(ROOT, "btn")
 
 # tier -> (layout filename, list of pbs source dirs [primary first])
+#
+# The extension's two toggles are orthogonal, giving 4 combinations; each tier
+# below is one of them (Use_Beta_Layout selects the layout file, Enable_Test_Mode
+# adds pbs-test/ as an override source + a testScenarios list):
+#
+#   tier          | Use_Beta_Layout | Enable_Test_Mode | layout   | pbs sources
+#   ------------- | --------------- | ---------------- | -------- | ----------------------
+#   release       | false           | false            | release  | pbs-release
+#   beta          | true            | false            | beta     | pbs-release
+#   test          | true            | true             | beta     | pbs-release + pbs-test
+#   release-test  | false           | true             | release  | pbs-release + pbs-test
 TIERS = {
-    "release": ("-button-layout-release.txt", ["pbs-release"]),
-    "beta":    ("-button-layout-beta.txt",    ["pbs-release"]),
-    "test":    ("-button-layout-beta.txt",    ["pbs-release", "pbs-test"]),
+    "release":      ("-button-layout-release.txt", ["pbs-release"]),
+    "beta":         ("-button-layout-beta.txt",    ["pbs-release"]),
+    "test":         ("-button-layout-beta.txt",    ["pbs-release", "pbs-test"]),
+    "release-test": ("-button-layout-release.txt", ["pbs-release", "pbs-test"]),
 }
 
 
@@ -381,8 +398,9 @@ def build_tier(tier, btn_meta):
         },
     }
 
-    # test tier: expose the pbs-test-only scenarios for the [TEST] section.
-    if tier == "test":
+    # Any test-mode tier (pbs-test in its sources): expose the pbs-test-only
+    # scenarios for the [TEST] section. Same output as before for `test`.
+    if "pbs-test" in pbs_dirs:
         test_only = sorted(n for n in per_dir.get("pbs-test", {})
                            if n not in per_dir.get("pbs-release", {}))
         manifest["testScenarios"] = [
@@ -418,6 +436,21 @@ def main():
               + (f" testOnly={c.get('testOnly')}" if "testOnly" in c else ""))
         if not args.check:
             path = os.path.join(out_dir, f"manifest-{tier}.json")
+            # Preserve the prior generatedAtCommit when nothing else changed, so a
+            # rebuild triggered by an unrelated input edit doesn't churn the file.
+            # generatedAtCommit then means "commit where this content last changed",
+            # and the CI commit-gate (git status --porcelain) skips no-op rebuilds
+            # instead of committing a SHA-only diff every push.
+            if os.path.exists(path):
+                try:
+                    with open(path, encoding="utf-8") as fh:
+                        old = json.load(fh)
+                    old_sha = old.pop("generatedAtCommit", None)
+                    if old_sha is not None and old == {k: v for k, v in m.items()
+                                                       if k != "generatedAtCommit"}:
+                        m["generatedAtCommit"] = old_sha
+                except Exception:
+                    pass
             with open(path, "w", encoding="utf-8") as fh:
                 json.dump(m, fh, ensure_ascii=False, indent=2, sort_keys=False)
                 fh.write("\n")
