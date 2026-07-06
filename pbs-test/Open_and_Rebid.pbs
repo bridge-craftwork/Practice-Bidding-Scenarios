@@ -96,9 +96,9 @@ eHcp = hcp(east) < 11
 wHcp = hcp(west) < 11
 
 # ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
-levBalMin = balMin and keep19
+levBalMin = balMin and keep47
 levBalBig = balBig and keep
-levUnbal  = unbal  and keep25
+levUnbal  = unbal  and keep47
 levelTheDeal = levBalMin or levBalBig or levUnbal
 
 southHand and northHand and eHcp and wHcp and levelTheDeal
