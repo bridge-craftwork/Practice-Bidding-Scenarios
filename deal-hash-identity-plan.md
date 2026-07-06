@@ -106,3 +106,59 @@ the stamped token is the new canonical-form variant.
    and that the skill-path taxonomy is ours to define.
 2. On agreement, implement the producer tasks (stamping is independently executable;
    skill-path taxonomy is the larger piece).
+
+## Curation under the positional contract (the burden C3/C4/C5 put on us)
+
+ADR-0001 moves the "history can't be corrupted" guarantee from a technical mechanism
+(a content-keyed DB tolerant of churn) to a **behavioral contract curation must honor.**
+BC never re-fetches or verifies, so it won't stop us breaking it — the discipline is
+ours. It bites **only for promoted (`ready`) boards with student history**; pre-promotion
+everything stays free (regenerate, reorder, drop). With no students yet and all content
+`prerelease`, full freedom holds until the first promotion; the discipline switches on
+per-set, at promotion.
+
+### A. In-place replacement operation (the core new tool)
+
+Fix a promoted board without disturbing its slot. Never drop-and-renumber a ready board.
+
+1. **Locate the slot** — from the report's verbatim deal + token, find the board; read its
+   board number, `[SkillPath]`, difficulty, student seat/role, served rotation.
+2. **Pull a substitute from the pool** matching `{theme/skill-path, difficulty band,
+   student seat}` via `{Curate}` / `py/select.py` over the theme-index tags — **select from
+   the existing generated pool, no regeneration.**
+3. **Rotate to match** the slot's served orientation (student in the same seat/role).
+4. **Write into the same slot** — preserve board number, `[SkillPath]`, `[Ready "true"]`,
+   `[Collection]`. **Renumber nothing else.**
+5. **Re-stamp `[DealHash]`** (new deal family) and **author/port the coaching prose**; run
+   the gates (`py/coach.py validate`, `py/suit_quality.py`).
+6. **Replacement is itself `ready`** — re-reviewed, not dropped to beta (C3).
+
+Invariants: same `(collection, subfolder, number)` · same difficulty band · same
+seat/rotation · stays ready · no renumber. (Note: the token is rotation-*independent* — a
+locator across files — while the served board is rotation-*pinned* to the slot; the
+replacement must match the served rotation, which the token does not constrain.)
+
+### B. Readiness model
+
+- `[Ready]` file-level default `false`, per-board override; new content is beta until promoted.
+- A **promote** step flips a reviewed set/board to `ready=true`.
+- A replacement for a ready board must itself be ready.
+- **CI warns** when a ready board's content changes, so post-promotion edits are deliberate.
+
+### C. Skill-path taxonomy (the upfront work)
+
+Define a real skill-path tree for PBS content and assign `[SkillPath]` per board, retiring
+`uncategorized` (C5). The larger piece; needs David's input on how the content maps.
+
+### D. `/issue` grows one branch
+
+Report lands → **beta or ready?** Beta ⇒ free (drop / regenerate / reorder, today's
+behavior). Ready ⇒ operation **A** only, never drop-and-renumber.
+
+### Open decisions
+
+1. **Skill-path tree** — mirror Rick's Baker Bridge taxonomy, or a parallel PBS tree?
+2. **Where operation A lives** — extend `py/curate.py` / `py/select.py`, or a new `py/` script?
+3. **Difficulty-match tolerance** — how tight a band? (theme-index carries difficulty weights.)
+4. **Seat/theme tags** — confirm the theme-index carries student-seat + theme for the sets to
+   be promoted; the replacement query depends on them.
