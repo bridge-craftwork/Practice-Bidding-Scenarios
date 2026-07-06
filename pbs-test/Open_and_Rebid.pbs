@@ -1,0 +1,136 @@
+Script,OpenAndRebid
+window.currentPBSScenario = 'OpenAndRebid';
+window.currentPBSScenarioFilename = 'Open_and_Rebid';
+console.log('PBS: Logging scenario selection for OpenAndRebid');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'OpenAndRebid',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: Basic-Bridge
+convention-card-ew: Basic-Bridge
+auction-filter: Auction.....\n1[CD] +Pass +1[DHS] +Pass +(1[HSN]|2N|[23][CDHS])
+*/
+# curate: kind=bidding
+# convention-card-ns: Basic-Bridge
+# convention-card-ew: Basic-Bridge
+
+
+dealer south
+
+### Imported Leveling Code ###
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+####06 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep   = 1
+keep0  = 0
+### End of Imported Leveling Code ###
+
+# ---- South's hand TYPE is the whole lesson: what is my prepared rebid? ----
+sHcp = hcp(south)
+
+# Balanced = 4333, 4432, or 5332 (no singleton/void, at most one doubleton)
+balanced = shape(south, any 4333 + any 4432 + any 5332)
+
+# No 5-card major -> opener starts with a minor and rebids notrump
+noFiveMajor = spades(south) < 5 and hearts(south) < 5
+
+# Bucket 1  Balanced 12-14  ->  open 1m, rebid 1NT
+balMin = balanced and noFiveMajor and sHcp > 11 and sHcp < 15
+
+# Bucket 2  Balanced 18-19  ->  open 1m, jump-rebid 2NT
+balBig = balanced and noFiveMajor and sHcp > 17 and sHcp < 20
+
+# Bucket 3  Unbalanced -> open longest minor, rebid the second suit naturally.
+#   A singleton or void, and a 5+ card minor to open and rebid around.
+minorLong = clubs(south) > 4 or diamonds(south) > 4
+hasShort  = spades(south) < 2 or hearts(south) < 2 or diamonds(south) < 2 or clubs(south) < 2
+unbal = noFiveMajor and minorLong and hasShort and sHcp > 11 and sHcp < 19
+
+southHand = balMin or balBig or unbal
+
+# ---- Responder: 6-11 HCP so partner responds and South gets to rebid ----
+northHand = hcp(north) > 5 and hcp(north) < 12
+
+# ---- Quiet opponents keep the focus on opener's rebid ----
+eHcp = hcp(east) < 11
+wHcp = hcp(west) < 11
+
+# ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
+levBalMin = balMin and keep19
+levBalBig = balBig and keep
+levUnbal  = unbal  and keep25
+levelTheDeal = levBalMin or levBalBig or levUnbal
+
+southHand and northHand and eHcp and wHcp and levelTheDeal
+
+action printoneline,
+average "South HCP avg      " hcp(south),
+average "Bal 12-14 (reb 1N) " 100 * balMin,
+average "Bal 18-19 (reb 2N) " 100 * balBig,
+average "Unbalanced (2nd)   " 100 * unbal,
+`, "S", true)
+Script
+Button,Basic Open & Rebid,\n\
+--- Basic: Open，then Plan Your Rebid (beginner)\n\
+South opens one of a minor. The lesson: before you open，notice your hand TYPE，because\n\
+that decides your rebid. Plan the rebid first，then open.\n\
+\n\
+Two hand types:\n\
+• Balanced (4333，4432，or 5332 -- no singleton or void，at most one doubleton)\n\
+  Rebid notrump to show the balanced shape and the point range:\n\
+  • 12-14 HCP: open a minor，rebid 1NT      (e.g. 1!C-1!S-1NT)\n\
+  • 18-19 HCP: open a minor，jump to 2NT     (e.g. 1!C-1!H-2NT)\n\
+  (15-17 balanced would open 1NT and is not in this set.)\n\
+• Unbalanced (a singleton or void，with a long suit or two)\n\
+  Bid your suits naturally: open your longest suit，then rebid your second-longest.\n\
+  Open the HIGHER of two long suits so the rebid is cheap and does not reverse\n\
+  (e.g. with both minors，open 1!D so you can rebid 2!C).\n\
+\n\
+Reference: https://www.advinbridge.com/this-week-in-bridge/637\n\
+4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\n\
+  • 5!C = 0 or 4 aces\n\
+  • 5!D = 1 ace\n\
+  • 5!H = 2 aces\n\
+  • 5!S = 3 aces\n\
+  • 5NT then asks for kings the same way\n\
+%OpenAndRebid%
