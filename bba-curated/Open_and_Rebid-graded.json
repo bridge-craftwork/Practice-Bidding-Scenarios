@@ -1,12 +1,12 @@
 {
  "scenario": "Open_and_Rebid",
- "graded": 162,
+ "graded": 118,
  "aggregates": {
   "bidding_tiers": {
-   "textbook": 119,
-   "reject": 9,
-   "standard": 23,
-   "judgment": 11
+   "textbook": 49,
+   "standard": 45,
+   "judgment": 5,
+   "reject": 19
   }
  },
  "verdicts": [
@@ -14,11 +14,11 @@
    "board": "1",
    "deal_hash": "81ee9088cc00d6ae",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 0=3=5=5 (void S), 13 HCP: open higher of two 5-card minors 1D, rebid 2C shows the second suit cheaply, no reverse. Clean unbalanced two-suiter rebid."
+    "note": "5-5 minors: open 1D (higher), rebid 2C shows the second five-card suit; clean 2C partscore making +2."
    },
    "declarer": {
     "tier": "reject",
@@ -35,13 +35,13 @@
   },
   {
    "board": "2",
-   "deal_hash": "ce939102485e0374",
-   "auction_class": "bba-disagreed",
-   "difficulty": 3,
+   "deal_hash": "532f021146904dbe",
+   "auction_class": "intended",
+   "difficulty": 1,
    "bidding": {
-    "tier": "reject",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 4=3=2=4, 19 HCP should JUMP to 2NT after 1S response; instead South jump-raised to 4S (4-card support) into Blackwood, reaching an odd 5S. Never shows the 18-19 balanced 2NT rebid the lesson teaches."
+    "note": "Standard 5d-4c mirror: open 1D (longest), rebid the cheap 2C; natural 2C making exactly."
    },
    "declarer": {
     "tier": "reject",
@@ -58,13 +58,13 @@
   },
   {
    "board": "3",
-   "deal_hash": "985e69e83a776f65",
+   "deal_hash": "026b07776938de67",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 3=4=3=3, 19 HCP: open 1C, jump to 2NT over 1NT response = textbook 18-19 balanced rebid; partner raises to 3N. Ideal."
+    "note": "Standard 5d-4c: 1D then 2C; 15 HCP top of range, 2C making +3, clean single teaching point."
    },
    "declarer": {
     "tier": "reject",
@@ -81,13 +81,59 @@
   },
   {
    "board": "4",
-   "deal_hash": "1c3be25ba535ea08",
+   "deal_hash": "6b78855ef7da1ce5",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 2=3=3=5, 14 HCP: open 1C, rebid 1NT over 1D response = textbook 12-14 balanced rebid. Deep inside the rule; ideal first board."
+    "note": "5c-4d: open 1D (not 1C) so 2C rebid stays cheap; the core lesson point, 2C making +2."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "5",
+   "deal_hash": "06423055fff0936c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Standard 5d-4c: 1D then 2C correct; wrinkle is the 2C partscore going down one on a light dummy."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "6",
+   "deal_hash": "b0062538098abd9c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "5d-4c: 1D then 2C; North raised to invitational 3C and South correctly passed with a 12-count minimum, 3C +1."
    },
    "declarer": {
     "tier": "reject",
@@ -104,13 +150,13 @@
   },
   {
    "board": "7",
-   "deal_hash": "bdcc6ac23db37b4d",
+   "deal_hash": "dbe7445491bc56be",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 3=3=5=2, 18 HCP: open 1D, jump to 2NT over 1S = correct 18-19 balanced rebid; later 4S is partner-driven after 3H. Rebid is clean."
+    "note": "5c-4d: open 1D not 1C to keep 2C cheap; 11 HCP minimum, natural 2C making exactly."
    },
    "declarer": {
     "tier": "reject",
@@ -127,13 +173,15 @@
   },
   {
    "board": "8",
-   "deal_hash": "339aa064934d39a0",
+   "deal_hash": "58ff3b249ce2a1b7",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4=3=3=3, 18 HCP: open 1C, jump to 2NT over 1D = correct 18-19 balanced rebid; partner drives to 4S. Clean."
+    "tier": "judgment",
+    "also_ok": [
+     "Pass"
+    ],
+    "note": "1D then 2C correct, but South's 4S raise over invitational 3S on a bare 11 and J8 doubleton is aggressive and buries the lesson in a spade-fit game (22 HCP, 4S just makes); Pass is the sober call."
    },
    "declarer": {
     "tier": "reject",
@@ -150,13 +198,15 @@
   },
   {
    "board": "9",
-   "deal_hash": "9c36bd610221f3a3",
+   "deal_hash": "662507d6a876bd56",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 3=2=4=4, 12 HCP: open 1D, rebid 1NT over 1H = textbook 12-14 balanced rebid. Deep inside the rule."
+    "tier": "judgment",
+    "also_ok": [
+     "2C"
+    ],
+    "note": "Edge 5c-4d with a 4-card spade: after 1D-1H South's 1S shows the major (the debatable choice); rebidding 2C to show the longer club suit is equally defensible."
    },
    "declarer": {
     "tier": "reject",
@@ -173,13 +223,13 @@
   },
   {
    "board": "10",
-   "deal_hash": "b2d34be85d01efed",
+   "deal_hash": "f869f55134e5e328",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 3=3=4=3, 18 HCP (flags mislabel; no void): open 1D, jump 2NT over 1S = correct 18-19 balanced rebid; 3C checkback to 3N. Clean."
+    "note": "Balanced 13: open the longer minor 1C, rebid 1NT to show 12-14 balanced; textbook, 1NT down one is just card luck."
    },
    "declarer": {
     "tier": "reject",
@@ -191,20 +241,18 @@
     "themes": [],
     "note": ""
    },
-   "matched_intended_auction": false,
+   "matched_intended_auction": true,
    "dd_class": "ok"
   },
   {
    "board": "11",
-   "deal_hash": "cd0712f52b4404dc",
+   "deal_hash": "02b1f4c0fdd3a6f7",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
-    "also_ok": [
-     "2C"
-    ],
-    "note": "Unbalanced 2=1=4=6, 17 HCP: open longest 1C, rebid 2D. 2D is a REVERSE but sound with 17 and 6-4; a wrinkle for beginners (extras + higher second suit). Partner jumps to 3N."
+    "also_ok": [],
+    "note": "5-5 minors: 1D then 2C shows both suits; then a natural game auction to 3N (24 HCP) making exactly - sound but the auction runs past the partscore lesson."
    },
    "declarer": {
     "tier": "reject",
@@ -221,13 +269,13 @@
   },
   {
    "board": "12",
-   "deal_hash": "c9ad645a9bbf65db",
+   "deal_hash": "ea4959b699ea326a",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 3=3=3=4, 14 HCP (data HCP wrong; hand is 14): open 1C, rebid 1NT over 1H = textbook 12-14 balanced rebid. Ideal."
+    "note": "5c-4d: 1D then 2C correct; North gives preference to 2D and it drifts down one - normal partscore wrinkle."
    },
    "declarer": {
     "tier": "reject",
@@ -244,13 +292,13 @@
   },
   {
    "board": "13",
-   "deal_hash": "2bd084fc02ec0106",
+   "deal_hash": "fc384ef07f658e78",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "Unbalanced 3=6=3=1, 13 HCP: open longest 1H, rebid 2H over 1S = simple suit rebid showing a 6-card suit, minimum. Clean single-suiter rebid."
+    "note": "Opening 1D is right, but North's game-forcing 2C response bids South's second suit, so South never rebids 2C - the lesson's rebid never surfaces (South jumps to 3N instead). Sound bridge, poor example."
    },
    "declarer": {
     "tier": "reject",
@@ -267,13 +315,13 @@
   },
   {
    "board": "14",
-   "deal_hash": "a867cdb5aa56d4f7",
+   "deal_hash": "d5e597c54c82ffa0",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 3=4=4=2, 18 HCP (flags mislabel; no void): open 1D, jump 2NT over 1NT = correct 18-19 balanced rebid; partner raises to 3N. Clean."
+    "note": "5c-4d: 1D then 2C; 15 HCP top of range, clean natural 2C partscore making exactly."
    },
    "declarer": {
     "tier": "reject",
@@ -290,13 +338,13 @@
   },
   {
    "board": "15",
-   "deal_hash": "f032d23c6569f63d",
+   "deal_hash": "017df1dd1def5c8f",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "5=2=3=3, 18 HCP, open 1S; partner raises to 2S so South accepts game with 4S. With a fit and 18 there is no NT rebid to make - bidding game is the clean call."
+    "note": "5c-4d: 1D then 2C correct; with 15 HCP and Kx support South accepts the invitational 3H to 4H, a sound game (26 HCP) - just runs past the partscore lesson."
    },
    "declarer": {
     "tier": "reject",
@@ -313,15 +361,13 @@
   },
   {
    "board": "16",
-   "deal_hash": "2470205a2b3a1b23",
+   "deal_hash": "01f59937a9d6139d",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
     "tier": "standard",
-    "also_ok": [
-     "2H"
-    ],
-    "note": "Unbalanced 1=7=2=3, 17 HCP: open 1H, jump to 4H over 1S showing a huge single-suiter (~8 tricks). Sound but aggressive and skips the simple 2H rebid; DD says it is not cold."
+    "also_ok": [],
+    "note": "5c-4d: 1D then 2C; North gives 2D preference and it makes +1 - routine preference wrinkle."
    },
    "declarer": {
     "tier": "reject",
@@ -334,17 +380,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "17",
-   "deal_hash": "8541eced815e3b9e",
+   "deal_hash": "6d32be22a3ebe01f",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Unbalanced 5=1=4=3, 17 HCP: open longest 1S, rebid 2D over 1NT = natural second suit, cheap (not a reverse). Clean unbalanced two-suiter rebid."
+    "note": "5c-4d: 1D then 2C shows the club suit; North raises clubs and South bids 3N (25 HCP) making - natural game beyond the partscore lesson."
    },
    "declarer": {
     "tier": "reject",
@@ -361,15 +407,13 @@
   },
   {
    "board": "18",
-   "deal_hash": "8c14ada3c984e6f5",
+   "deal_hash": "50f9b9af8c333c21",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [
-     "2S"
-    ],
-    "note": "Unbalanced 4=6=2=1, 13 HCP: open longest 1H, rebid 2H over 2C = shows the 6-card suit, minimum; 3H later confirms. Clean single-suiter rebid (2S also possible)."
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Edge 6c-4d: open 1C (six-card suit) and rebid 2C, the correct edge choice; then a natural 3N (25 HCP) making +1 - sound, runs to game."
    },
    "declarer": {
     "tier": "reject",
@@ -386,13 +430,13 @@
   },
   {
    "board": "19",
-   "deal_hash": "849d3f3f02ae385c",
+   "deal_hash": "d70bae951c2af178",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 3=3=5=2, 19 HCP: open 1D, jump 2NT over 1H = textbook 18-19 balanced rebid; 3C checkback to 3N. Clean."
+    "note": "5c-4d: 1D then 2C; North responds 1NT then gives 2D preference, 2D +2 - responder-shape wrinkle."
    },
    "declarer": {
     "tier": "reject",
@@ -409,13 +453,13 @@
   },
   {
    "board": "20",
-   "deal_hash": "a8bb44281e5812b7",
+   "deal_hash": "e9802d3298880e0f",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Unbalanced 5=4=3=1, 16 HCP: open higher of two long suits 1S, rebid 2H over 1NT = natural second suit, cheap (no reverse). Clean two-suiter rebid."
+    "note": "5-5 minors: open 1D (higher), rebid 2C; North gives 2D preference and it makes +1 - clean lesson with a preference wrinkle."
    },
    "declarer": {
     "tier": "reject",
@@ -432,15 +476,13 @@
   },
   {
    "board": "21",
-   "deal_hash": "6d386def3f78ed1b",
+   "deal_hash": "0cfce2948203e50c",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
-    "also_ok": [
-     "2N"
-    ],
-    "note": "3=5=2=3, 14 HCP minimum: open 1H, rebid 2H over 2D showing 5+ hearts, minimum; then 3N over partner's 2NT. Sound but slightly awkward - balanced 14 with only a 5-card suit; the simple 2H is the safe rebid."
+    "also_ok": [],
+    "note": "5-5 minors: 1D open, 2C rebid clean, but 3H splinter continuation runs to 3NT past the teaching point."
    },
    "declarer": {
     "tier": "reject",
@@ -457,13 +499,13 @@
   },
   {
    "board": "22",
-   "deal_hash": "941f40a23c193540",
-   "auction_class": "bba-disagreed",
-   "difficulty": 3,
+   "deal_hash": "e2f2328f7f4c794c",
+   "auction_class": "intended",
+   "difficulty": 1,
    "bidding": {
-    "tier": "reject",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Robot misbid: South 4=3=1=5, 17 HCP with a SINGLETON diamond rebid 1NT over partner's 1D - notrump rebid with a stiff in partner's suit, and 17 is above the 12-14 1NT range. Correct rebid is 1S (4-card spade). Unusable."
+    "note": "Standard 5d4c mirror: open longest 1D, rebid 2C, partner prefers 2D; clean partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -480,15 +522,13 @@
   },
   {
    "board": "23",
-   "deal_hash": "9a1df632a4dfe227",
+   "deal_hash": "69ef6040cd86acb5",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
-    "also_ok": [
-     "2H"
-    ],
-    "note": "Unbalanced 6=4=2=1, 17 HCP: open longest 1S, jump-shift 3H over 1NT showing a strong 6-4; partner corrects to 3N. Correct for 17 but the jump is advanced; a plain 2H second-suit rebid is the beginner version."
+    "also_ok": [],
+    "note": "Edge 6c4d: 6-card club opens 1C, rebid 2C; correct but edge family."
    },
    "declarer": {
     "tier": "reject",
@@ -505,13 +545,13 @@
   },
   {
    "board": "24",
-   "deal_hash": "6175d262bba61a34",
+   "deal_hash": "f67ea3444abaebd2",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 18 (3-3-3-4): open 1C, jump-rebid 2NT \u2014 model 18-19 balanced rebid; North raises to sound 3N."
+    "note": "Edge 6c4d: open 1C, rebid 2C passed out; correct, near-duplicate of board 23's family."
    },
    "declarer": {
     "tier": "reject",
@@ -528,13 +568,13 @@
   },
   {
    "board": "25",
-   "deal_hash": "c962bc807269de16",
+   "deal_hash": "1c411b9a3705ebbe",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
-    "tier": "standard",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 5-4 (3-5-1-4) 18 HCP: opens longest 1H then jump-shifts 3C into second suit \u2014 right second-suit idea but a strong jump; reaches 3N."
+    "note": "5-5 minors: open higher 1D, rebid 2C, rests in partscore; shows the point exactly."
    },
    "declarer": {
     "tier": "reject",
@@ -551,13 +591,13 @@
   },
   {
    "board": "26",
-   "deal_hash": "2086ba294407a580",
+   "deal_hash": "3edbc0ffbcd7ecfd",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced one-suiter (1-6-3-3) 16 HCP: open 1H, jump-rebid 3H showing 6+ and extras; North raises to a good 4H."
+    "note": "Core 5c4d point: open 1D (not 1C), rebid 2C; clean, sensible partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -574,13 +614,15 @@
   },
   {
    "board": "27",
-   "deal_hash": "b888b6ca8a15552b",
+   "deal_hash": "2247a8ef22f17a4b",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 18 (4-3-4-2): open 1D, jump-rebid 2NT; 4-4 spade fit surfaces and pair settles in a sound 4S."
+    "tier": "judgment",
+    "also_ok": [
+     "1H"
+    ],
+    "note": "Balanced 14, open 1C rebid 1NT is the point, but 1NT buries a biddable 4-card heart suit; 1H (up the line) equally natural."
    },
    "declarer": {
     "tier": "reject",
@@ -597,15 +639,13 @@
   },
   {
    "board": "28",
-   "deal_hash": "01db9e762724ee0d",
+   "deal_hash": "977647b4a8a8415c",
    "auction_class": "bba-disagreed",
-   "difficulty": 4,
+   "difficulty": 3,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 12-14 (4-3-2-4): rebid 1S to show the spade suit instead of the lesson's 1NT \u2014 defensible up-the-line style but off the balanced-1NT teaching point."
+    "tier": "reject",
+    "also_ok": [],
+    "note": "Edge hand distorted: void in responder's spades + unshown 4-card heart suit; 25 combined HCP languishes in a 2S misfit."
    },
    "declarer": {
     "tier": "reject",
@@ -622,13 +662,13 @@
   },
   {
    "board": "29",
-   "deal_hash": "1a904dfe352df426",
-   "auction_class": "bba-disagreed",
+   "deal_hash": "9e85ef81108b6594",
+   "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
-    "tier": "reject",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Partner jump-raises 1H to 3H, so South's 4H is a plain game acceptance, not a hand-type-driven rebid \u2014 the prepared-rebid decision never happens."
+    "note": "Balanced: open 1D, rebid 1NT (forced, can't show hearts cheaply); auction then wanders through checkback to a 3S partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -645,13 +685,15 @@
   },
   {
    "board": "30",
-   "deal_hash": "4c64a11a94aadc0e",
+   "deal_hash": "26606430e0f20df4",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 12-14 (2-3-3-5, 5 clubs) 13 HCP: open 1C, rebid 1NT \u2014 exactly the balanced-minimum rule."
+    "tier": "judgment",
+    "also_ok": [
+     "2C"
+    ],
+    "note": "5c4d + 4-card spade edge: South showed the major with 1S; rebidding the 5-card club suit (2C) is the equally-valid other branch."
    },
    "declarer": {
     "tier": "reject",
@@ -668,13 +710,13 @@
   },
   {
    "board": "31",
-   "deal_hash": "a43454b316d7e17e",
+   "deal_hash": "29f9454e4e01ab3e",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Unbalanced 5-4 (5-4-3-1) 13 HCP: open higher-ranking 1S, rebid 2H (no reverse) \u2014 model minimum two-suiter; North gives 2S preference."
+    "note": "Core 5c4d: open 1D, rebid 2C clean; stops in 2H underbidding a viable game (South stiff HK)."
    },
    "declarer": {
     "tier": "reject",
@@ -691,13 +733,13 @@
   },
   {
    "board": "32",
-   "deal_hash": "77e41c195b7e2987",
+   "deal_hash": "652ffdab0418164a",
    "auction_class": "bba-disagreed",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
-    "tier": "reject",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Robot misbid: balanced 19 (4-4-2-3) jumps to 4H then drives to 6H, which is off double-dummy \u2014 not the prepared 2NT/3NT rebid and a silly slam."
+    "note": "Core 5c4d: open 1D, rebid 2C correct; North under-passes 2C with 10 HCP, leaving 25 in a too-low partscore (not South's fault)."
    },
    "declarer": {
     "tier": "reject",
@@ -710,17 +752,40 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
+  },
+  {
+   "board": "33",
+   "deal_hash": "679f843517468c0d",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "6-5: open the 5-card major 1S, rebid the 6-card minor 2C; exact 6-5 rule, sensible 2S partscore."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
   },
   {
    "board": "34",
-   "deal_hash": "c3fe9b4f1679bf45",
+   "deal_hash": "192312f567ba0de7",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 19 (3-3-3-4): open 1C, jump-rebid 2NT; 3N is the normal 30-HCP contract (fails only on a bad double-dummy layout)."
+    "note": "5d4c mirror: open 1D, rebid 2C, then a natural 3D invite with 15; clean."
    },
    "declarer": {
     "tier": "reject",
@@ -733,17 +798,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "35",
-   "deal_hash": "8e806ff0d4537c2f",
+   "deal_hash": "ee458e2d6f907f1f",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 19 (2-4-4-3): open 1D, jump-rebid 2NT; North raises to 3N, made comfortably."
+    "note": "5d4c minimum (11): open 1D, rebid 2C; South correctly declines the 2NT invite (normal spot though it fails on this layout)."
    },
    "declarer": {
     "tier": "reject",
@@ -760,13 +825,13 @@
   },
   {
    "board": "36",
-   "deal_hash": "8250973566bb62f8",
+   "deal_hash": "79e9cf1abf6e395f",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 19 (4-3-3-3): open 1C, jump-rebid 2NT; 3N is the right shot on 26 HCP (unlucky DD miss)."
+    "note": "Core 5c4d: open 1D, rebid 2C, partner prefers 2D; clean minimum partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -779,17 +844,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "37",
-   "deal_hash": "14c8be048ecf2e6b",
+   "deal_hash": "07947d779dec9b7f",
    "auction_class": "intended",
    "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 12-14 (3-2-4-4) 13 HCP: open 1D, rebid 1NT \u2014 clean balanced-minimum rebid."
+    "note": "5d4c mirror: open 1D, rebid 2C, partner rebids 6-card spades to 2S; clean partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -806,13 +871,13 @@
   },
   {
    "board": "38",
-   "deal_hash": "2b4c3347b5a0e0f9",
-   "auction_class": "intended",
-   "difficulty": 2,
+   "deal_hash": "e2f663ee8ce62036",
+   "auction_class": "bba-disagreed",
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "Balanced 19 (5-3-2-3): open five-card 1S, jump-rebid 2NT; North raises to 3N \u2014 model 18-19 balanced rebid."
+    "note": "Balanced 1C/1NT-rebid point is clean, but the auction overreaches to a failing 5C on only 25 HCP; silly game contract obscures the lesson."
    },
    "declarer": {
     "tier": "reject",
@@ -829,15 +894,13 @@
   },
   {
    "board": "39",
-   "deal_hash": "01bd32f8ff278784",
+   "deal_hash": "f54e4f75113a5fd2",
    "auction_class": "bba-disagreed",
    "difficulty": 3,
    "bidding": {
-    "tier": "standard",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 14 (3-4-3-3) with 4 hearts: raises partner's 1H to 2H showing the 4-4 fit rather than rebidding 1NT \u2014 correct fit-first bridge, minor departure from the pattern."
+    "tier": "reject",
+    "also_ok": [],
+    "note": "Edge hand distorted (near-duplicate of 28): void in responder's spades + unshown 4-card hearts; 25 HCP stuck in a 2S misfit."
    },
    "declarer": {
     "tier": "reject",
@@ -854,13 +917,13 @@
   },
   {
    "board": "40",
-   "deal_hash": "54c221f2831d9cbb",
+   "deal_hash": "6227a05a1483ecc2",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 5-5 (1-5-5-2) 12 HCP: open higher 1H, rebid 2D (no reverse) \u2014 model two-suiter; North leaps to 4S on a seven-bagger."
+    "note": "Core 5c4d minimum (11): open 1D, rebid 2C; South correctly passes partner's 3S invite; sensible partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -877,15 +940,13 @@
   },
   {
    "board": "41",
-   "deal_hash": "3d05b7f837f972de",
-   "auction_class": "bba-disagreed",
-   "difficulty": 4,
+   "deal_hash": "b1b396a086989178",
+   "auction_class": "intended",
+   "difficulty": 2,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "2D"
-    ],
-    "note": "Unbalanced 5-4 (4-3-5-1) 16 HCP: rebid 2S over 1NT is a reverse on borderline strength; a good 5-card suit makes ~17 total, so strong players could disagree with the reverse."
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "5C-4D: 1D buys the cheap 2C rebid; N takes preference to 2D. Point shown cleanly."
    },
    "declarer": {
     "tier": "reject",
@@ -902,13 +963,13 @@
   },
   {
    "board": "42",
-   "deal_hash": "7000728a6a68c91b",
+   "deal_hash": "090d3d2096b93ddc",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 12-14 (3-3-4-3) 14 HCP: open 1D, rebid 1NT \u2014 clean balanced-minimum rebid."
+    "note": "6C-4D: open longest 1C, natural 2C rebid over 1S; partner passes. Clean partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -921,17 +982,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "43",
-   "deal_hash": "a0b5bed179cd11ce",
-   "auction_class": "bba-disagreed",
+   "deal_hash": "61887bc1e923da14",
+   "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 18 (3-4-3-3): after partner's 2C club raise, South shows a stopper with 2H and the pair lands in 2NT (right spot on 25 HCP) \u2014 sound but an advanced sequence, not the simple rebid pattern."
+    "note": "Std 5D-4C: 1D/2C textbook, but auction climbs to 3NT which buries the open-suit point."
    },
    "declarer": {
     "tier": "reject",
@@ -948,13 +1009,13 @@
   },
   {
    "board": "44",
-   "deal_hash": "6357910ff7ec198e",
+   "deal_hash": "bca082fa8de188bc",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 12-14 (3-5-3-2) 14 HCP: open five-card 1H, rebid 1NT over 1S \u2014 model balanced-minimum rebid with a five-card major."
+    "note": "Std 5D-4C 1D/2C sound; 3NT on 25 HCP goes down 1 - contract a wrinkle for a beginner."
    },
    "declarer": {
     "tier": "reject",
@@ -971,15 +1032,13 @@
   },
   {
    "board": "45",
-   "deal_hash": "a51a6c3145c3f790",
-   "auction_class": "bba-disagreed",
-   "difficulty": 4,
+   "deal_hash": "b2b8b20b2c2354ee",
+   "auction_class": "intended",
+   "difficulty": 3,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 14 (2-3-4-4) with 4-4 minors: rebids 2C to show the second minor rather than 1NT \u2014 defensible either way; pair rests in a sound 2C part-score."
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Balanced 14: 1D then 1NT rebid is the moment, but auction runs on to 3H past the point."
    },
    "declarer": {
     "tier": "reject",
@@ -996,13 +1055,13 @@
   },
   {
    "board": "46",
-   "deal_hash": "d398bb55def5ce3d",
-   "auction_class": "bba-disagreed",
-   "difficulty": 1,
+   "deal_hash": "557cd95abcdd2329",
+   "auction_class": "intended",
+   "difficulty": 3,
    "bidding": {
-    "tier": "reject",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Robot misbid: 3NT rebid with a VOID in diamonds after partner jumped in diamonds; should support diamonds or show the 5-5 club suit, never bid 3NT with a void."
+    "note": "6C-4D open 1C correct, but partner's 1D and S's 2D raise turn it into a diamond fit; club length never the story."
    },
    "declarer": {
     "tier": "reject",
@@ -1019,13 +1078,13 @@
   },
   {
    "board": "47",
-   "deal_hash": "bfdabe923e4b5b92",
+   "deal_hash": "6101fc4b2169acd1",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "Balanced 19 HCP (2-5-3-3): open 1H, jump to 2NT, then support partner's 6-card spades to 4S. Model balanced-jump rebid."
+    "note": "1D/2C fine, but 4NT Blackwood to 5D on 26 combined HCP is far past a beginner open-suit lesson."
    },
    "declarer": {
     "tier": "reject",
@@ -1042,13 +1101,13 @@
   },
   {
    "board": "48",
-   "deal_hash": "74aead800e1f0898",
+   "deal_hash": "150198a790ff088b",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 18 HCP (4-3-3-3): open 1C, jump to 2NT showing the balanced 18-19; partner explores and settles in 3NT."
+    "note": "5C-4D: 1D buys the 2C rebid over 1S; N preferences to 2D. Clean minor partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -1065,13 +1124,13 @@
   },
   {
    "board": "49",
-   "deal_hash": "c427e5a52e1f2d88",
+   "deal_hash": "89b3f338efeafaec",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 18 HCP (3-2-4-4): open 1D (4-4 minors), jump to 2NT; partner raises to 3NT. Clean balanced jump."
+    "note": "Std 5D-4C mirror: open longest 1D, natural 2C rebid, N to 2D. Model example."
    },
    "declarer": {
     "tier": "reject",
@@ -1088,13 +1147,13 @@
   },
   {
    "board": "50",
-   "deal_hash": "a7ba8f3afee5826a",
+   "deal_hash": "727877ff3b687898",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "standard",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 18 HCP (5-3-1-4): open 1S, rebid second suit clubs; the JUMP to 3C shows the 5-4 shape plus extras rather than a bare minimum rebid."
+    "note": "5C-4D: 1D then cheap 2C over 1S; N to 2D. Point shown cleanly, partscore made."
    },
    "declarer": {
     "tier": "reject",
@@ -1111,13 +1170,13 @@
   },
   {
    "board": "51",
-   "deal_hash": "68005ee7f0a79f7d",
+   "deal_hash": "aa9293acbdda7d66",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "13 HCP with one 5-card suit (3-2-5-3): open 1D and rebid 2D over partner's 2C, showing the 5th diamond with no side suit to bid."
+    "note": "5-5 minors: open higher 1D, rebid lower 2C is textbook; but auction ends in a failing 3NT down 1."
    },
    "declarer": {
     "tier": "reject",
@@ -1134,13 +1193,13 @@
   },
   {
    "board": "52",
-   "deal_hash": "dd736e0c61a563b0",
+   "deal_hash": "8978f06d5c740817",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "standard",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 16 HCP (5-1-4-3): open 1S; partner raises, so the 'rebid' becomes a game-try 3S invite with the fit rather than a new-suit rebid."
+    "note": "5-5 minors: open 1D, rebid 2C; partner passes clubs. Clean fit-finding partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -1157,59 +1216,13 @@
   },
   {
    "board": "53",
-   "deal_hash": "58b2b82fc26dec64",
+   "deal_hash": "e47b7681440b5a2f",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "Unbalanced 18 HCP (1-3-5-4): open 1D, jump-rebid 3C showing the 5-4 second suit plus extras; partner corrects to 3NT."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "54",
-   "deal_hash": "ebbde5e10f19c41b",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 12 HCP (3-4-2-4): open 1C, rebid 1NT over partner's 1D. Model minimum-balanced 1NT rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "55",
-   "deal_hash": "14d8ba7914363687",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 18 HCP (4-3-3-3): open 1C, jump to 2NT; partner explores and lands in 3NT. Clean balanced-jump rebid."
+    "note": "Std 5D-4C: open longest 1D, natural 2C rebid over 1H, N to 2D. Model example."
    },
    "declarer": {
     "tier": "reject",
@@ -1226,38 +1239,15 @@
   },
   {
    "board": "56",
-   "deal_hash": "9470ca5f1b4b37aa",
+   "deal_hash": "ab471725817c33dd",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 4,
    "bidding": {
-    "tier": "standard",
+    "tier": "reject",
     "also_ok": [
-     "1N"
+     "PBN:S:1D N:1H S:2C N:2D S:Pass"
     ],
-    "note": "Balanced 12 HCP (4-2-4-3): after 1D-1H, showing the 4-card spade major with 1S is correct and preferred to a 1NT rebid; don't bypass a 4-card major."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "57",
-   "deal_hash": "cf1be8ae13c1662d",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "13 HCP with one 5-card suit (3-5-2-3): open 1H, rebid 2H over partner's 2C showing the 5th heart with no side 4-card suit."
+    "note": "1D/2C fine, but S's 2H raising into 874 xxx after N's 2D lands in a failing 2H down 1; should pass 2D."
    },
    "declarer": {
     "tier": "reject",
@@ -1274,13 +1264,13 @@
   },
   {
    "board": "58",
-   "deal_hash": "f0c035bfac6f286e",
+   "deal_hash": "b68de9475019b816",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 17 HCP (5-3-1-4): open 1S, rebid second suit 2C naturally (non-reverse); partner drives to 3NT."
+    "note": "5C-4D: 1D buys the 2C rebid over 1S; N to 2D. Clean minor partscore, point shown."
    },
    "declarer": {
     "tier": "reject",
@@ -1294,87 +1284,16 @@
    },
    "matched_intended_auction": true,
    "dd_class": "ok"
-  },
-  {
-   "board": "59",
-   "deal_hash": "8a3971605c39ee5e",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 13 HCP (3-5-4-1): open 1H, rebid second suit 2D over 1NT (non-reverse, minimum-safe). Model second-suit rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
   },
   {
    "board": "60",
-   "deal_hash": "8e98956ea81804a4",
+   "deal_hash": "7ce9b53430158288",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 13 HCP (5-3-1-4): open 1S, rebid second suit 2C over 1NT (non-reverse). Clean prepared second-suit rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "61",
-   "deal_hash": "694c097db0195776",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 19 HCP (3-3-3-4): open 1C, jump to 2NT over partner's 1H. Model balanced 18-19 jump rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "62",
-   "deal_hash": "bc7ad4a56f196a1b",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "3D"
-    ],
-    "note": "Unbalanced 16 HCP (4-3-5-1): open 1D, and 2S over 2C is technically a reverse on a 16-count; defensible in a game-forcing 2/1 (2S just shows shape) but borderline for the no-reverse-on-minimum rule; rebidding 3D avoids it."
+    "note": "Balanced 14: open 1D, rebid 1NT over 1S; N passes. Textbook minor-then-1NT."
    },
    "declarer": {
     "tier": "reject",
@@ -1391,13 +1310,36 @@
   },
   {
    "board": "63",
-   "deal_hash": "276b14201e882086",
+   "deal_hash": "5d8854d2b67dce4a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Balanced 12, 4C-3D: open longer minor 1C, rebid 1NT over 1S; N passes. Clean."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "64",
+   "deal_hash": "ca542d50043c38ea",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "18 HCP with a 5-card major (5-2-3-3): open 1S; partner raises so the 'rebid' is a straightforward jump to game 4S rather than a NT choice."
+    "note": "5C-4D: 1D/2C correct; weak D974 4-card and stiff HA opposite N's 5 hearts a slight wrinkle, N passes 2C."
    },
    "declarer": {
     "tier": "reject",
@@ -1414,13 +1356,13 @@
   },
   {
    "board": "65",
-   "deal_hash": "04bac572f3759bc7",
+   "deal_hash": "8a297206f13686af",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "standard",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 18 HCP (6-3-3-1): open 1S; partner raises so the rebid is a clear jump to game 4S with the six-card suit and fit."
+    "note": "5C-4D: 1D buys the cheap 2C rebid over 1H; N to 2D. Clean minor partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -1437,59 +1379,13 @@
   },
   {
    "board": "66",
-   "deal_hash": "6ea2d6a93eccf2e1",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 17 HCP (3-1-5-4): open 1D, rebid second suit 2C over 1S (non-reverse). Model prepared second-suit rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "67",
-   "deal_hash": "143088ac04403cc2",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 12 HCP (3-3-4-3): open 1D, rebid 1NT over partner's 1S. Model minimum-balanced 1NT rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "68",
-   "deal_hash": "b2374605b3516381",
+   "deal_hash": "753d11083f2db082",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 18 (3433): after 1NT response, jump to 2NT shows the 18-19 balanced hand exactly."
+    "note": "6C-4D: open longest 1C, natural 2C rebid over 1H; N raises to 3C. Clean club fit."
    },
    "declarer": {
     "tier": "reject",
@@ -1505,14 +1401,14 @@
    "dd_class": "ok"
   },
   {
-   "board": "69",
-   "deal_hash": "84bdcbdc6e4effe4",
+   "board": "68",
+   "deal_hash": "b9d0eda30db484c9",
    "auction_class": "intended",
    "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 14 (5332): open 1C, rebid 1NT \u2014 the 12-14 balanced rule, clean."
+    "note": "5c-4d: open 1D, rebid 2C is the clean cheap rebid; 2D partscore on 24 combined is sound."
    },
    "declarer": {
     "tier": "reject",
@@ -1529,13 +1425,13 @@
   },
   {
    "board": "70",
-   "deal_hash": "a3c0b9574b45513f",
+   "deal_hash": "7e145dbf92ffb491",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 19 (3343): open 1D, jump to 2NT \u2014 the 18-19 balanced rule."
+    "note": "6c-5h: open the 5-card major 1H, rebid the long minor 2C - the exact exception the lesson teaches."
    },
    "declarer": {
     "tier": "reject",
@@ -1552,36 +1448,13 @@
   },
   {
    "board": "71",
-   "deal_hash": "b364e10298378d23",
+   "deal_hash": "16dc50dddbf37bce",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "Unbalanced 18 (3-4-5-1): open longest 1D, reverse to 2H showing the strong 5-4 \u2014 extras justify the reverse."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "72",
-   "deal_hash": "c7772c047c4f0a8f",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 18 (3235): open 1C, jump to 2NT over the 1NT response \u2014 18-19 balanced rule."
+    "note": "6d-5h: open 5-card major 1H, rebid long minor 2D; clean illustration of the exception."
    },
    "declarer": {
     "tier": "reject",
@@ -1598,15 +1471,13 @@
   },
   {
    "board": "73",
-   "deal_hash": "80b23cb37b5c9517",
+   "deal_hash": "eb5a7cfd6e10f187",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 14 (4342): 1D-1H-1S shows the 4-card spade up the line vs the rule's 1NT rebid; both sound with a doubleton club."
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Balanced 14: open 1C, rebid 1NT is textbook, but auction runs on to 3S/3NT past the teaching point."
    },
    "declarer": {
     "tier": "reject",
@@ -1623,13 +1494,13 @@
   },
   {
    "board": "74",
-   "deal_hash": "8c8aba9e33604814",
+   "deal_hash": "4b295965074dd7a3",
    "auction_class": "intended",
    "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 13 (2443): open 1D, rebid 1NT \u2014 the 12-14 balanced rule."
+    "note": "Balanced 13: open longer minor 1C, rebid 1NT and pass; clean minor-then-1NT example."
    },
    "declarer": {
     "tier": "reject",
@@ -1646,15 +1517,13 @@
   },
   {
    "board": "75",
-   "deal_hash": "30da7b820f640d0a",
+   "deal_hash": "1cd5073caa18501b",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 1,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 14 (4243): 1D-1H-1S shows the 4-card spade up the line vs the rule's 1NT; both fine with a doubleton heart."
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "5c-4d: open 1D, rebid 2C; 2D partscore sensible, clean mirror example."
    },
    "declarer": {
     "tier": "reject",
@@ -1671,13 +1540,13 @@
   },
   {
    "board": "76",
-   "deal_hash": "ec52f22abb50c74c",
+   "deal_hash": "e80523d77f5cd405",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 14 with 4-card heart support: raise partner's 1H to 2H \u2014 showing the fit beats a NT rebid."
+    "note": "5c-4d: open 1D, rebid 2C; North's 2NT on 24 combined is reasonable, down-1 is a play matter."
    },
    "declarer": {
     "tier": "reject",
@@ -1694,15 +1563,13 @@
   },
   {
    "board": "77",
-   "deal_hash": "5ce35f4357964e31",
+   "deal_hash": "06dd7683183857d7",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
-    "tier": "standard",
-    "also_ok": [
-     "1S"
-    ],
-    "note": "Balanced 14 (4234): 1C-1D-1NT per the rule; 1S to show the 4-card spade is the minor wrinkle."
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Balanced 13, 4 diamonds: open 1D, rebid 1NT and pass; clean balanced example."
    },
    "declarer": {
     "tier": "reject",
@@ -1719,13 +1586,13 @@
   },
   {
    "board": "78",
-   "deal_hash": "f4cb4ebba24e0648",
+   "deal_hash": "d26a9229c0aa90e5",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 19 (3334): open 1C, jump to 2NT \u2014 the 18-19 balanced rule."
+    "note": "5c-4d: open 1D, rebid 2C; North's 2H rebid lands a sensible partscore."
    },
    "declarer": {
     "tier": "reject",
@@ -1742,13 +1609,13 @@
   },
   {
    "board": "79",
-   "deal_hash": "9994ee5a7886338d",
+   "deal_hash": "5f1f5c80abb897a4",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 19 (4324): open 1C, jump to 2NT \u2014 18-19 balanced rule; later 3S is just cue toward 3NT."
+    "note": "6c-4d edge: open longest 1C, rebid 2C - sound, but illustrates the ordinary case not the lesson's exception."
    },
    "declarer": {
     "tier": "reject",
@@ -1765,13 +1632,13 @@
   },
   {
    "board": "80",
-   "deal_hash": "48fe6961c3c40a88",
+   "deal_hash": "34d9329a9b5eee58",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 19 (3325): open 1C, jump to 2NT \u2014 18-19 balanced rule."
+    "note": "6d-5h: open 5-card major 1H, rebid long minor 2D; clean exception illustration."
    },
    "declarer": {
     "tier": "reject",
@@ -1788,13 +1655,13 @@
   },
   {
    "board": "81",
-   "deal_hash": "026b07776938de67",
+   "deal_hash": "736156879b8c6ed2",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced (3-1-5-4): open longest 1D, rebid the 4-card club (lower-ranking, no reverse) \u2014 natural minimum."
+    "note": "5c-4d: open 1D, rebid 2C; North passes, clean partscore example."
    },
    "declarer": {
     "tier": "reject",
@@ -1811,38 +1678,13 @@
   },
   {
    "board": "82",
-   "deal_hash": "330f059a01206276",
+   "deal_hash": "b44403e8ec35466c",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 12 (3325): open 1C, rebid 1NT \u2014 the 12-14 balanced rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "83",
-   "deal_hash": "7d5a08eb4455a6a3",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [
-     "2H"
-    ],
-    "note": "Unbalanced 15 with 6 diamonds: jump-rebid 3D shows the strong 6-card suit and extras; showing the 4-card heart with 2H also playable."
+    "note": "5c-4d: open 1D, rebid 2C; North's 4S jump is his 7-card suit, makes - South's open/rebid is textbook."
    },
    "declarer": {
     "tier": "reject",
@@ -1859,13 +1701,13 @@
   },
   {
    "board": "84",
-   "deal_hash": "1d6a4e22b18d1248",
+   "deal_hash": "2882fbf9168ddc31",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 1,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 18 (2335): open 1C, jump to 2NT \u2014 18-19 balanced rule (the 'two-suiter' flag is really a 5332)."
+    "note": "5c-4d: open 1D, rebid 2C; clean partscore, makes +2."
    },
    "declarer": {
     "tier": "reject",
@@ -1882,84 +1724,13 @@
   },
   {
    "board": "85",
-   "deal_hash": "fc43aaca8d108637",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 12 (3235): open 1C, rebid 1NT after 1S \u2014 the 12-14 balanced rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "86",
-   "deal_hash": "b89c9b67fe6f326c",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 12 (3334): open 1C, rebid 1NT after 1S \u2014 the 12-14 balanced rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "87",
-   "deal_hash": "4c4d7f348605c659",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "1N"
-    ],
-    "note": "Balanced 12 (4333): 1C-1H-1S shows the 4-card spade up the line vs the rule's 1NT rebid; both defensible."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "88",
-   "deal_hash": "e04ce7b975764553",
+   "deal_hash": "161ed35a38a8e8d6",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced (3-1-3-6): open longest 1C, rebid 2C on the 6-card suit \u2014 natural minimum, no second suit worth showing."
+    "note": "5-5 minors: open higher 1D, rebid 2C; 3NT on 26 combined is a sensible final contract."
    },
    "declarer": {
     "tier": "reject",
@@ -1976,36 +1747,13 @@
   },
   {
    "board": "89",
-   "deal_hash": "b5c042a2220da8d0",
+   "deal_hash": "f886dd23732d07a4",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "12-14 balanced 5-3-3-2 (5 clubs): open 1C, rebid 1NT \u2014 the balanced-minimum rebid."
-   },
-   "declarer": {
     "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "90",
-   "deal_hash": "37cefd3848ba53e4",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 5-4 (spade singleton): open longest 1H, rebid second suit 2D \u2014 cheap, non-reverse."
+    "note": "Open 1H/rebid 2D correct, but 9-call Blackwood auction to a failing 5S on 25 combined buries the beginner teaching point."
    },
    "declarer": {
     "tier": "reject",
@@ -2022,82 +1770,13 @@
   },
   {
    "board": "91",
-   "deal_hash": "432a26779a7da371",
+   "deal_hash": "067d7604e3eef385",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "18-count balanced 4-3-4-2 opens 1D (too strong for 1NT); over partner's limit 3D the value bid is 3N."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "92",
-   "deal_hash": "6849b9ef15156f04",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "18-19 balanced: open 1C, JUMP to 2NT \u2014 exactly the strong-balanced rebid rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "93",
-   "deal_hash": "5482cba6d33a9fc4",
-   "auction_class": "bba-disagreed",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Robot misbid: 12-count balanced 4-3-4-2 reverses into 2S over 2C \u2014 should rebid 2NT/2D, never reverse on a minimum."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "94",
-   "deal_hash": "e14b8aa4008197d3",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Two 5-card suits (D/C), spade singleton: open the higher 1D, rebid the lower 2C cheaply."
+    "note": "5-5 minors: open higher 1D, rebid 2C; clean 2D partscore example."
    },
    "declarer": {
     "tier": "reject",
@@ -2114,38 +1793,13 @@
   },
   {
    "board": "95",
-   "deal_hash": "c8c28dc229ce1627",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "19-count balanced: open 1D, JUMP to 2NT \u2014 top-of-range strong-balanced rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "96",
-   "deal_hash": "882e254c9387b3cb",
+   "deal_hash": "54381d7e7f9c3cba",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "3H"
-    ],
-    "note": "1S opener (13, 5-3-3-2); partner's 2H is game-forcing, so raising 3-card support to 4H names the strain \u2014 3H is the quieter route."
+    "tier": "reject",
+    "also_ok": [],
+    "note": "Open 1C/rebid 2C fine, but 3NT overreach on 23 combined goes down - a failing silly contract clouds the example."
    },
    "declarer": {
     "tier": "reject",
@@ -2162,59 +1816,36 @@
   },
   {
    "board": "97",
-   "deal_hash": "a88e85ec17845f47",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Minimum unbalanced with 6 diamonds: open 1D, rebid 2D \u2014 repeat the long suit."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "98",
-   "deal_hash": "b9fed7fe4dcd1450",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "18 balanced: open 1C, JUMP to 2NT over 1S \u2014 strong-balanced rebid rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "99",
-   "deal_hash": "c6932c0d51c83449",
+   "deal_hash": "fdbc25cf641dea56",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Unbalanced 5-4 (club singleton): open 1D, rebid the 4-card heart second suit 2H naturally (GF already set)."
+    "note": "5-5 minors, 15 HCP: open higher 1D, rebid 2C (not a reverse); clean 2C partscore."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "100",
+   "deal_hash": "2c7d63067b37c44c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "6c-4d edge: open longest 1C, rebid 2C - sound but the ordinary case; North's 3C raise makes +1."
    },
    "declarer": {
     "tier": "reject",
@@ -2231,13 +1862,13 @@
   },
   {
    "board": "101",
-   "deal_hash": "ce052175380a755a",
+   "deal_hash": "1865caa7eb8fc131",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "18 HCP with 5 hearts opposite a single raise: bid the game 4H \u2014 the value call."
+    "note": "4=0=4=5 opens 1D (avoids the no-rebid 1C trap), 1S, 4-4 spade fit, 4S=25 HCP making 5; clean single point."
    },
    "declarer": {
     "tier": "reject",
@@ -2254,13 +1885,13 @@
   },
   {
    "board": "102",
-   "deal_hash": "4a4bb0dd6f6b4321",
+   "deal_hash": "a0950d12bf508c3f",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "18 balanced 3-2-4-4: open 1D, JUMP to 2NT \u2014 strong-balanced rebid rule."
+    "note": "1C/2C opening point is fine, but 3N on 24 HCP with a stiff heart is unsound and goes down 1 (result 8) - silly contract buries the point."
    },
    "declarer": {
     "tier": "reject",
@@ -2277,15 +1908,13 @@
   },
   {
    "board": "103",
-   "deal_hash": "7635172191e9b344",
+   "deal_hash": "641736425d8b7731",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "2N"
-    ],
-    "note": "18 balanced with 4-card spade support: raising partner's major to 4S beats the 2NT jump once the fit shows \u2014 a fit-jump judgment."
+    "tier": "standard",
+    "also_ok": [],
+    "note": "6c4d opens 1C, rebids 2C on solid AKQJxx, N drives 3N; 25 HCP makes +1. Opening point clean."
    },
    "declarer": {
     "tier": "reject",
@@ -2298,17 +1927,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "104",
-   "deal_hash": "c30561bb4e513327",
+   "deal_hash": "5f928195c3925579",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "19-count balanced (void-flag spurious; hand is 4-3-2-4): open 1C, JUMP to 2NT."
+    "note": "5-5 minors opens 1D/rebids 2C correctly, but 3N on 23 HCP with two doubletons fails (result 8, down 1) - contract too aggressive."
    },
    "declarer": {
     "tier": "reject",
@@ -2325,105 +1954,13 @@
   },
   {
    "board": "105",
-   "deal_hash": "a59c30fa5e40f869",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "13 HCP with 6 hearts opposite an invitational 3H: accept and bid 4H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "106",
-   "deal_hash": "1e77be8c585eddb0",
-   "auction_class": "bba-disagreed",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Robot distorted jump: 1C-1D-5D leaps past the natural 2D/3D rebid on 5-4 minors \u2014 an absurd, exploration-skipping bid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "107",
-   "deal_hash": "73393ae41c992135",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "16 HCP with 6 hearts opposite invitational 3H: accept, bid 4H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "108",
-   "deal_hash": "108bf87a62c18fc1",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "18 balanced 4-3-3-3: open 1C, JUMP to 2NT \u2014 strong-balanced rebid rule (fit found later)."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "109",
-   "deal_hash": "58592b7a1a478afc",
+   "deal_hash": "12e84b4c96ab98cc",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "18-count 5-3-3-2 opens 1S; over GF 2H (no heart fit) 3N is the natural landing \u2014 minor wrinkle: diamond stopper is thin."
+    "note": "5-5 minors opens 1D, rebids 2C; N shows 6 spades, S raises with Kx doubleton to 3S then 4S makes 5. Minor wrinkle raising a rebid on a doubleton."
    },
    "declarer": {
     "tier": "reject",
@@ -2436,341 +1973,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
    "board": "110",
-   "deal_hash": "adec74f2fcc7c6e4",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "18 balanced 2-3-4-4: open 1D, JUMP to 2NT \u2014 strong-balanced rebid rule."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "111",
-   "deal_hash": "9e29c9214b3ddc55",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "2N"
-    ],
-    "note": "Bal 18 4333 with 4-card spade support: jump-raise 3S over North's 1S is standard; 2NT jump is the alt but the fit rates the raise."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "112",
-   "deal_hash": "c5e747c32070f410",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 18 (2-4-3-4), no fit for 1S: jump to 2NT shows 18-19 balanced. Textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "113",
-   "deal_hash": "36479103c8a28a89",
+   "deal_hash": "70cf9f3c0fb41dbc",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "12 HCP semi-bal 3-3-2-5, no 4-card major: rebid 1NT shows 12-14. Clean."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "114",
-   "deal_hash": "62e77e14a3f5c720",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "18 HCP 3-2-4-4; North jumped to 3D (limit raise), South accepts with 3NT. Sound; North's jump preempts the tidy 1NT rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "115",
-   "deal_hash": "402142064e934121",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 13 (2-4-4-3) with 4-card heart support: raise North's 1H to 2H. Textbook fit raise; 'void' flag spurious."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "117",
-   "deal_hash": "c0631f75391988ff",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 6-4 (spades-clubs), heart void: open longer 1S, rebid clubs 3C naturally. Textbook two-suiter."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "118",
-   "deal_hash": "e35d6afcae68b501",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "4-5 majors, singleton club, 15 HCP: open longer 1H, show spades with 3S over North's 3C. Sound shape-showing; 3NT contract is North's call."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "119",
-   "deal_hash": "6bb49648ec42220e",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 19 (3-2-5-3): jump to 2NT shows 18-19. Textbook (5-card diamond but balanced)."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "120",
-   "deal_hash": "0610397efdb41f58",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 18 5-3-3-2: open 1S, jump 2NT shows 18-19 balanced. Textbook; 'two-suiter' flag spurious."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "122",
-   "deal_hash": "385c555a06753f90",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 19 5-2-3-3: open 1S, jump to 2NT shows 18-19. Textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "wrong_sided"
-  },
-  {
-   "board": "124",
-   "deal_hash": "a71d7acc7d733145",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 14 (2-4-3-4): rebid 1NT shows 12-14. Textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "125",
-   "deal_hash": "0d30e0734ee5a951",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "5-5 spades-diamonds, 16 HCP: open higher 1S, rebid diamonds cheaply (no reverse). Textbook two-suiter."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "126",
-   "deal_hash": "60a3dab6584f4cd6",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 14 3-3-3-4: rebid 1NT shows 12-14. Textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "128",
-   "deal_hash": "3483aa7de4b4d4c8",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 14 (2-4-3-4): after 1C-1D rebid 1NT (can't show hearts w/o reverse). Textbook."
+    "note": "6c4d opens 1C, rebids 2C; N shows/signs off 6 spades, S passes 2S with the stiff. Clean partscore, +1."
    },
    "declarer": {
     "tier": "reject",
@@ -2787,105 +2000,13 @@
   },
   {
    "board": "129",
-   "deal_hash": "044ec1b360a03632",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 6-4 spades-clubs: open longer 1S, rebid clubs 2C naturally. Textbook two-suiter."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "130",
-   "deal_hash": "874b7f3abd11e307",
+   "deal_hash": "0f06bf1bd6dc49ee",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "5-4 clubs-diamonds, 17 HCP: open longer 1C, then 2D is a reverse showing both suits + extras \u2014 17 is ample. Sound; a reverse rather than the 'cheap rebid' ideal."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "131",
-   "deal_hash": "094e41043eb1b68b",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "5-4 spades-diamonds, singleton heart, 14 HCP: open longer 1S, rebid diamonds 2D (not a reverse). Textbook two-suiter."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "132",
-   "deal_hash": "3447ce23b17b0b0e",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 12 (2-4-4-3): after 1D-1S rebid 1NT (12-14). Textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "133",
-   "deal_hash": "26fbc51433131980",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Bal 18 (3-3-5-2): open 1D, jump to 2NT shows 18-19. Textbook."
+    "note": "6d5s opens the major 1S then 3D (natural new suit over the 2/1) to show the long minor; N 3N makes on 23 HCP. 6-5 shows the point well."
    },
    "declarer": {
     "tier": "reject",
@@ -2902,222 +2023,13 @@
   },
   {
    "board": "134",
-   "deal_hash": "0435c66a9f7aa612",
+   "deal_hash": "4f5dab0a8358c413",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 4,
    "bidding": {
-    "tier": "standard",
+    "tier": "reject",
     "also_ok": [],
-    "note": "14 HCP 3-5-2-3: rebid 1NT (12-14) is textbook; South's later leap to 3NT over 2D is an overbid on 14."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "136",
-   "deal_hash": "ddc2de82cf8744d5",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "5-5 hearts-clubs, singleton spade, 17 HCP: open higher 1H, rebid clubs 2C cheaply (no reverse). Textbook two-suiter."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "140",
-   "deal_hash": "2eaf3d70be1d5a2b",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 5=4=1=3; open longer spades, rebid 2H (2nd suit, below spades so no reverse) \u2014 cheap two-suiter rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "141",
-   "deal_hash": "245dc0aa6451b992",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "judgment",
-    "also_ok": [
-     "3D"
-    ],
-    "note": "1=4=6=2 16 HCP; instead of rebidding the 6-card diamond, South jump-raises partner's 1H to 3H on the found 4-card major fit \u2014 sound; 3D rebid also fine."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "145",
-   "deal_hash": "3f5c2b1fd2599635",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Unbalanced 1=6=4=2; open longer hearts, rebid 2D (2nd suit, below hearts, no reverse); partner gives heart preference."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "146",
-   "deal_hash": "95b51f35eadd202f",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "Unbalanced 1=5=4=3, correct natural 2D rebid (2nd suit, no reverse); 17 HCP is strong to be left in 2D but the pattern is right and partner passed."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "147",
-   "deal_hash": "16e5ef309a6d752e",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "Balanced-ish 3=3=5=2 12 HCP; partner's 1NT response pre-empts the 1NT rebid, so natural minimum 2D shows the 5th diamond; North raises to 3D."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "148",
-   "deal_hash": "dbe0b3421d2ce48a",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 19 HCP \u2014 jump to 2NT to show 18-19; North raises 3NT."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "150",
-   "deal_hash": "f2fb6a70539333e4",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 5332 18 HCP \u2014 jump to 2NT (18-19); North bids 3NT."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "151",
-   "deal_hash": "e3b444c337d28e91",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4333 19 HCP \u2014 jump to 2NT (18-19); North raises 3NT."
+    "note": "Opens 1D correctly on void-4-4-5, but then a 4NT keycard auction lands in 5D down 1 (result 10) on 24 HCP - Blackwood on a minimum, wrong contract, distorts the point."
    },
    "declarer": {
     "tier": "reject",
@@ -3134,151 +2046,13 @@
   },
   {
    "board": "158",
-   "deal_hash": "4a8f85e4210d36c6",
+   "deal_hash": "0683fe50c99f208b",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 4432 13 HCP \u2014 rebid 1NT over 1H (12-14); two-suiter flag misleading, hand is flat."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "161",
-   "deal_hash": "8b4e71cbe5e45fe1",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 5332 18 HCP with 5-card major \u2014 open 1H, jump 2NT to show 18-19; North checks back 3C, 3NT reached. DD failure is card luck."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "163",
-   "deal_hash": "db774294d2860dda",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 14 HCP \u2014 after 1C-1S, rebid 1NT (12-14); North passes with 6."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "165",
-   "deal_hash": "5d153bad21a4f5d4",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 5332 19 HCP with 5-card major \u2014 open 1H, jump 2NT (18-19); North raises 3NT."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "168",
-   "deal_hash": "e428383886e871f7",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 18 HCP \u2014 jump 2NT (18-19); North bids 3NT. DD failure is card luck."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "170",
-   "deal_hash": "b23efa99d2b7f038",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 18 HCP \u2014 jump 2NT (18-19); North checks back 3C, 3NT reached."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "172",
-   "deal_hash": "427d70febbf5ca93",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4333 14 HCP \u2014 after 1C-1D, rebid 1NT (12-14); North drives to 3NT."
+    "note": "4=0=4=5 opens 1D, shows spades then clubs; 24 HCP 3N makes exactly. Sound but multi-round auction adds noise to the single point."
    },
    "declarer": {
     "tier": "reject",
@@ -3295,82 +2069,13 @@
   },
   {
    "board": "174",
-   "deal_hash": "2675d14ebc8c05ea",
+   "deal_hash": "cf9d73a615fa4c95",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "Balanced 5332 14 HCP \u2014 after 1C-1D, rebid 1NT (12-14); North passes, correct stop at 22 combined."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "175",
-   "deal_hash": "8eb099a24ba9c589",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 19 HCP \u2014 jump 2NT (18-19); North shows a 6-card heart suit (3H), South places 4H in North's long major."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "176",
-   "deal_hash": "01de3f5eed30d433",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 19 HCP \u2014 open 1C, jump 2NT (18-19); North shows spades (3S), 4S in the 4-4 fit. DD failure is card luck."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "178",
-   "deal_hash": "6d9a1dc3b089a100",
-   "auction_class": "bba-disagreed",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Robot misbid: unbalanced 4=3=1=5 with a singleton diamond rebid 1NT over partner's 1D; correct rebid is 1S (show the 4-card spade, keep the 5-4 pattern). NT rebid with a stiff breaks the hand-type rule."
+    "note": "6c5s opens the major 1S, rebids 2C; N gives Kx preference to 2S, makes exactly. 6-5 open-the-major point clear."
    },
    "declarer": {
     "tier": "reject",
@@ -3387,13 +2092,15 @@
   },
   {
    "board": "180",
-   "deal_hash": "d48c36ff557a009a",
+   "deal_hash": "51429a07d0b4e829",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Balanced 4432 12 HCP \u2014 rebid 1NT (12-14) then decline North's 2NT invite with the minimum; two-suiter/void flags are spurious (no void present)."
+    "tier": "standard",
+    "also_ok": [
+     "S:2N"
+    ],
+    "note": "4=0=4=5 opens 1D then 1S correctly; but with 15 opposite a 2S raise passing is an underbid (2S makes 5, result 11). Point is clean, close-out timid."
    },
    "declarer": {
     "tier": "reject",
@@ -3409,152 +2116,14 @@
    "dd_class": "ok"
   },
   {
-   "board": "186",
-   "deal_hash": "310c70c73045c82c",
+   "board": "192",
+   "deal_hash": "5de8fa48c539430d",
    "auction_class": "intended",
-   "difficulty": 2,
+   "difficulty": 3,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Balanced 4432 13 HCP \u2014 rebid 1NT (12-14); after North's 2C South bids 2NT. DD failure is card luck."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "188",
-   "deal_hash": "856a773577e9a2ca",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 5332; open 1D, rebid 1NT (12-14) is the textbook plan-your-rebid call."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "194",
-   "deal_hash": "4c943a8ca3f53871",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "12 HCP balanced 5332 (5 clubs); open 1C, rebid 1NT is textbook; North's thin 3N drive is North's, not South's rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "211",
-   "deal_hash": "550b918201b767a7",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 4333; open 1C, rebid 1NT (12-14) is the textbook rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "213",
-   "deal_hash": "ac5fe0788013d0c8",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 4333; open 1C, rebid 1NT (12-14), passed out 1NT."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "223",
-   "deal_hash": "a34a031a65704db7",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 5332; open longest suit 1H, rebid 1NT (12-14) is textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "238",
-   "deal_hash": "54292c5322008227",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 4333 (4 diamonds); open 1D, rebid 1NT (12-14) is textbook."
+    "note": "6d5h opens the major 1H then 2D for the long minor; N with 7 spades jumps to 4S, 25 HCP makes. Textbook 6-5 open-the-major."
    },
    "declarer": {
     "tier": "reject",
@@ -3571,128 +2140,13 @@
   },
   {
    "board": "250",
-   "deal_hash": "862735db72582333",
+   "deal_hash": "0120ba5790e8b179",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "13 HCP balanced 5332 (5 clubs); open 1C, rebid 1NT (12-14), passed out 1NT=."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "255",
-   "deal_hash": "1f19489cad171795",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "13 HCP balanced 4-4-3-2; open the minor 1D (4-4 minors), rebid 1NT (12-14) is textbook."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "260",
-   "deal_hash": "c522425cfbfaa64b",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "13 HCP balanced 4333; open 1D, rebid 1NT (12-14) is the textbook rebid."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "269",
-   "deal_hash": "5910dbffeb3eef3a",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 4-4-3-2; open 1D, rebid 1NT (12-14) shows the balanced minimum after 1S."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "270",
-   "deal_hash": "ea4959b699ea326a",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Robot misbid: unbalanced 5-4-3-1 with singleton heart K opposite North's 1H; must rebid 2D (second suit), not 1NT with a stiff."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "273",
-   "deal_hash": "e2a03761b242f1c4",
-   "auction_class": "intended",
-   "difficulty": 1,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "14 HCP balanced 5332 (5 diamonds); open 1D, rebid 1NT (12-14) is textbook."
+    "note": "Void-4-4-5 opens 1D, rebids 2C; N shows hearts, S jumps to 4H on the 4-4 fit + shape, makes +1. Sound, opening point clean."
    },
    "declarer": {
     "tier": "reject",
@@ -3709,13 +2163,13 @@
   },
   {
    "board": "275",
-   "deal_hash": "8bd1e1c730ddbf3d",
+   "deal_hash": "109d8b4ab1de697f",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 3,
    "bidding": {
-    "tier": "textbook",
+    "tier": "reject",
     "also_ok": [],
-    "note": "12 HCP balanced 5332 (5 clubs); open 1C, rebid 1NT (12-14), passed out 1NT."
+    "note": "6c5s opens 1S/rebids 3C fine, but the auction reaches 3N on a total misfit and goes down 4 (result 5) - disastrous contract wrecks the teaching board."
    },
    "declarer": {
     "tier": "reject",
@@ -3731,14 +2185,14 @@
    "dd_class": "ok"
   },
   {
-   "board": "277",
-   "deal_hash": "9d6a1612ee426a4d",
+   "board": "280",
+   "deal_hash": "72f597dcaa6c8d44",
    "auction_class": "intended",
-   "difficulty": 1,
+   "difficulty": 2,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "13 HCP balanced 4333; open 1C, rebid 1NT (12-14) is textbook (void/two-suiter flags are other seats, not South)."
+    "note": "4=0=4=5 opens 1D then 1S correctly; N's weak 1N rebid closes it out at 1N making exactly (24 HCP, no major fit). South's calls are right; final spot low."
    },
    "declarer": {
     "tier": "reject",
@@ -3751,17 +2205,17 @@
     "note": ""
    },
    "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "dd_class": "ok"
   },
   {
-   "board": "278",
-   "deal_hash": "1bc041bfc2b0a486",
-   "auction_class": "bba-disagreed",
-   "difficulty": 2,
+   "board": "284",
+   "deal_hash": "15891e5efecc2af6",
+   "auction_class": "intended",
+   "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
+    "tier": "standard",
     "also_ok": [],
-    "note": "13 HCP balanced 4-4-3-2; open 1D, rebid 1NT (12-14) textbook; South's rebid is the hero call despite the extended auction."
+    "note": "6c5h opens the major 1H, rebids 2C; long fourth-suit auction lands in the 5-2 heart fit at 3H making exactly. Point sound but auction busy."
    },
    "declarer": {
     "tier": "reject",
@@ -3773,7 +2227,515 @@
     "themes": [],
     "note": ""
    },
-   "matched_intended_auction": false,
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "285",
+   "deal_hash": "355b1d19641d7ff7",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "6d5s opens the major 1S then 3D (natural, forcing) for the long minor; N raises to 4S on the 5-3 fit, makes +1. 6-5 point clear."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "306",
+   "deal_hash": "57ae29cff0bded50",
+   "auction_class": "intended",
+   "difficulty": 4,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "6c5h open-1H point is fine, but a 3N-4C-4NT-5S-6C keycard slam auction to 6C buries a beginner opening lesson - too far past the point."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "328",
+   "deal_hash": "ea0fa2b2372a859a",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "6d5h opens the major 1H then 2D for the long minor; N gives heart preference, 2H makes exactly on the 5-2 fit. Opening point clean."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "329",
+   "deal_hash": "3c430aa1eac16e7f",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Void-4-4-5 opens 1D then 2C correctly; N signs off in 6-card spades at 2S, S passes with the void, makes exactly. Point clean, sensible misfit stop."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "338",
+   "deal_hash": "a434e4af9a4c6467",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "North jump-shifts 3D; South rebids 3NT and never shows the 6-club suit, so the rebid-the-minor point is invisible."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "343",
+   "deal_hash": "51cf2ac3bdf0410c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Opens correct major; North's limit raise to 3H finds the fit, so the illustrative 2D minor-rebid never appears."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "359",
+   "deal_hash": "0cfbcc767d6a753e",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Model auction: 1H open, 2D long-minor rebid, partner preferences to 2H; contract makes exactly."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "371",
+   "deal_hash": "2c50efa751573383",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Model auction: 1S open, 2C long-minor rebid, North preferences to 2S; only overtricks are a wrinkle."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "398",
+   "deal_hash": "fcab5d4441c1c085",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "3NT on combined 22 HCP goes down one; failing contract, poor teaching board."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "400",
+   "deal_hash": "14e442a1f505a2b1",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "After the correct 2C rebid, South's 2NT with a 1-5-1-6 shape is distorted and 2NT fails (down one)."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "403",
+   "deal_hash": "96d6b434c34a9db8",
+   "auction_class": "intended",
+   "difficulty": 4,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "South passes North's forcing 3H jump-shift, never rebids the pattern, and 3H goes down two."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "418",
+   "deal_hash": "aab2e54efcce95bf",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Full pattern shown: 1H open, 2C long-minor rebid, North jumps to 4H on the fit; game makes."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "421",
+   "deal_hash": "f68d42e8065dc73b",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "judgment",
+    "also_ok": [
+     "1C"
+    ],
+    "note": "5c-4d minors: opening 1D to buy the 2C rebid is the lesson's rule, but 1C (longest) is the standard choice."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "425",
+   "deal_hash": "54178abc3d16a5e8",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "note": "Model auction: 1H open, 2D long-minor rebid, North preferences to 2H; overtricks only."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "426",
+   "deal_hash": "1838654002b379e7",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Opens major then rebids the long minor (3C) inside a 2/1 GF auction; sound but a notch above the beginner core."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "429",
+   "deal_hash": "2cbe14ef08917d5e",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "Pattern shown, but North's leap to 4S on combined 22 HCP goes down one; failing game."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "430",
+   "deal_hash": "817b3321fa7d3e16",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "reject",
+    "also_ok": [],
+    "note": "After the correct 3D rebid, North's 3NT on combined 24 fails (down one); poor result board."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "433",
+   "deal_hash": "3e3d7efbd44d158c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Open major, rebid long minor (3C), reach a making 3NT; sound but inside a 2/1 GF auction beyond beginner core."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "439",
+   "deal_hash": "7f0c934ce937e1cd",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Textbook 1H-2D-2H shape, but the 5-2 heart partscore goes down one on the card lie; not a model result."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "456",
+   "deal_hash": "aeb4679a46c68506",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Opens correct major; North's leap to 4H ends the auction before the illustrative minor rebid appears; game makes."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "463",
+   "deal_hash": "9f2caf89afd5d99b",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Open major, rebid long minor (3C), reach a making 4S; sound but inside a 2/1 GF auction beyond beginner core."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
+   "dd_class": "ok"
+  },
+  {
+   "board": "476",
+   "deal_hash": "deddb176807fab75",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "note": "Core 1H-2C pattern shown, then the auction runs into Blackwood and stops in 5H; keycard is well beyond the beginner point."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "matched_intended_auction": true,
    "dd_class": "ok"
   }
  ]
