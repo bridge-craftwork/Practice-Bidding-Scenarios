@@ -35,6 +35,8 @@ Reference: https://www.advinbridge.com/this-week-in-bridge/637
 dealer south
 
 #include "script/Leveling"
+#include "script/Calm-Opponents"
+# provides calmOpps (both opponents too weak/flat to interfere)
 
 # ---- South's hand TYPE is the whole lesson: what is my prepared rebid? ----
 sHcp = hcp(south)
@@ -59,17 +61,15 @@ southHand = balMin or balBig or unbal
 # ---- Responder: 6-11 HCP so partner responds and South gets to rebid ----
 northHand = hcp(north) > 5 and hcp(north) < 12
 
-# ---- Quiet opponents keep the focus on opener's rebid ----
-eHcp = hcp(east) < 11
-wHcp = hcp(west) < 11
+# ---- Calm opponents keep the focus on opener's rebid (no interference) ----
 
 # ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
-levBalMin = balMin and keep47
+levBalMin = balMin and keep67
 levBalBig = balBig and keep
-levUnbal  = unbal  and keep19
+levUnbal  = unbal  and keep47
 levelTheDeal = levBalMin or levBalBig or levUnbal
 
-southHand and northHand and eHcp and wHcp and levelTheDeal
+southHand and northHand and calmOpps and levelTheDeal
 
 action
 average "South HCP avg      " hcp(south),
