@@ -118,9 +118,9 @@ northHand = hcp(north) > 5 and hcp(north) < 12
 # ---- Calm opponents keep the focus on opener's rebid (no interference) ----
 
 # ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
-levBalMin = balMin and keep47
+levBalMin = balMin and keep67
 levBalBig = balBig and keep
-levUnbal  = unbal  and keep19
+levUnbal  = unbal  and keep47
 levelTheDeal = levBalMin or levBalBig or levUnbal
 
 southHand and northHand and calmOpps and levelTheDeal
