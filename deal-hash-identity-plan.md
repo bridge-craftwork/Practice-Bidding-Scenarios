@@ -31,6 +31,22 @@ contract when we swap a board.
 
 ## The PBN contract — tag names we emit (proposed to Rick)
 
+> **⚠️ Superseded by the accepted contract (2026-07-06).** The tag *names* below
+> were a proposal; the finalized
+> [Collection Producer Contract](https://github.com/bridge-craftwork/Bridge-Classroom/blob/main/documentation/adr/collection-producer-contract.md)
+> changed three of the four. The durable, authoritative producer rules now live in
+> the folder-scoped [`coaching-non-rotated/CLAUDE.md`](coaching-non-rotated/CLAUDE.md).
+> The mapping:
+>
+> | This doc proposed | Accepted contract |
+> |---|---|
+> | `[Collection "…"]` | **dropped** — collection id is BC-owned; do **not** put it in the PBN |
+> | `[Ready "true\|false"]` | `%bridge-classroom-stable: true\|false` (file) + `[Stable "…"]` (board); absent ⇒ not stable |
+> | `[SkillPath "…"]` | unchanged |
+> | `[DealHash "<16-hex>"]` | `[BoardVersionToken "…"]` — and the algorithm changed (see the token note below) |
+>
+> The rest of this section is retained as the historical proposal record.
+
 BC's frontend slice is gated on these. All fit PBN's `[Tag "value"]` grammar and
 the existing custom-tag precedent (`[OriginalBoard]`, `[BidSystemNS]`). PBN
 value-inheritance (a tag carries forward until re-declared) gives file-level
@@ -45,6 +61,12 @@ defaults with per-board override for free.
 
 To BC the token is opaque, so its definition is entirely ours — Rick only needs
 the tag name.
+
+> **Token algorithm — superseded.** The accepted contract specifies a
+> *rotation-**canonical*** hash (rotate deal **and auction** so the ♠A holder sits
+> North), `sha256( canonical_deal + "|" + canonical_auction )`, **lowercase hex** —
+> not the sort-invariant, deal-only `sha1[:16]` described immediately below. See
+> [`coaching-non-rotated/CLAUDE.md`](coaching-non-rotated/CLAUDE.md) §R3.
 
 ## The rotation-independent token (our definition)
 
