@@ -28,12 +28,6 @@ Ask "what is my hand TYPE?"
   so your 2!C rebid is comfortable -- open 1!C and partner's 1!S leaves you no good rebid.
 
 Reference: https://www.advinbridge.com/this-week-in-bridge/637
-4NT is Blackwood, asking for aces, or quantitative (inviting 6NT) after a natural notrump bid. Responses:
-  • 5!C = 0 or 4 aces
-  • 5!D = 1 ace
-  • 5!H = 2 aces
-  • 5!S = 3 aces
-  • 5NT then asks for kings the same way
 @chat*/
 
 dealer south
@@ -126,6 +120,9 @@ southHand = balMin or balBig or unbal
 # ---- Responder: 6-11 HCP so partner responds and South gets to rebid ----
 northHand = hcp(north) > 5 and hcp(north) < 12
 
+# ---- Keep combined N/S below slam range so the auction stays in game/partscore ----
+nsBelowSlam = hcp(north) + hcp(south) < 31
+
 # ---- Calm opponents keep the focus on opener's rebid (no interference) ----
 
 # ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
@@ -134,7 +131,7 @@ levBalBig = balBig and keep
 levUnbal  = unbal  and keep47
 levelTheDeal = levBalMin or levBalBig or levUnbal
 
-southHand and northHand and calmOpps and levelTheDeal
+southHand and northHand and nsBelowSlam and calmOpps and levelTheDeal
 
 action printoneline,
 average "South HCP avg      " hcp(south),
