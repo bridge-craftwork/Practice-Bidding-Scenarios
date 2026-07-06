@@ -3,26 +3,26 @@
 # scenario-title: --- Basic: Open, then Plan Your Rebid (beginner)
 # gib-works: true
 # bba-works: true
-# auction-filter: Auction.....\n1[CD] +Pass +1[DHS] +Pass +(1[HSN]|2N|[23][CDHS])
+# auction-filter: Auction.....\n1[CDHS] +Pass +(1[DHSN]|2[CDHS]) +Pass +(1[HSN]|2[CDHSN]|3[CDHS])
 # curate: kind=bidding
 # convention-card-ns: Basic-Bridge
 # convention-card-ew: Basic-Bridge
 
 /*@chat
 --- Basic: Open, then Plan Your Rebid (beginner)
-South opens one of a minor. The lesson: before you open, notice your hand TYPE, because
+South has an opening hand. The lesson: notice your hand TYPE before you open, because
 that decides your rebid. Plan the rebid first, then open.
 
 Two hand types:
 • Balanced (4333, 4432, or 5332 -- no singleton or void, at most one doubleton)
-  Rebid notrump to show the balanced shape and the point range:
-  • 12-14 HCP: open a minor, rebid 1NT      (e.g. 1!C-1!S-1NT)
-  • 18-19 HCP: open a minor, jump to 2NT     (e.g. 1!C-1!H-2NT)
-  (15-17 balanced would open 1NT and is not in this set.)
+  Rebid notrump to show the balanced shape and your point range:
+  • 12-14 HCP: open your suit, rebid 1NT      (e.g. 1!H-1!S-1NT)
+  • 18-19 HCP: open your suit, jump to 2NT     (e.g. 1!C-1!H-2NT)
+  (15-17 balanced opens 1NT and is not in this set.)
 • Unbalanced (a singleton or void, with a long suit or two)
-  Bid your suits naturally: open your longest suit, then rebid your second-longest.
-  Open the HIGHER of two long suits so the rebid is cheap and does not reverse
-  (e.g. with both minors, open 1!D so you can rebid 2!C).
+  Bid your suits naturally: open your LONGEST suit, then rebid the second-longest.
+  With two long suits, open the higher-ranking one so the rebid stays cheap
+  (e.g. 1!S then 2!H with spades and hearts, or 1!D then 2!C with both minors).
 
 Reference: https://www.advinbridge.com/this-week-in-bridge/637
 4NT is Blackwood, asking for aces, or quantitative (inviting 6NT) after a natural notrump bid. Responses:
@@ -76,23 +76,20 @@ keep0  = 0
 # ---- South's hand TYPE is the whole lesson: what is my prepared rebid? ----
 sHcp = hcp(south)
 
-# Balanced = 4333, 4432, or 5332 (no singleton/void, at most one doubleton)
+# Balanced = 4333, 4432, or 5332 (a 5-card suit may be a major)
 balanced = shape(south, any 4333 + any 4432 + any 5332)
 
-# No 5-card major -> opener starts with a minor and rebids notrump
-noFiveMajor = spades(south) < 5 and hearts(south) < 5
+# Bucket 1  Balanced 12-14  ->  open your suit, rebid 1NT   (e.g. 1H-1S-1NT)
+balMin = balanced and sHcp > 11 and sHcp < 15
 
-# Bucket 1  Balanced 12-14  ->  open 1m, rebid 1NT
-balMin = balanced and noFiveMajor and sHcp > 11 and sHcp < 15
+# Bucket 2  Balanced 18-19  ->  open your suit, jump to 2NT (e.g. 1C-1H-2NT)
+balBig = balanced and sHcp > 17 and sHcp < 20
 
-# Bucket 2  Balanced 18-19  ->  open 1m, jump-rebid 2NT
-balBig = balanced and noFiveMajor and sHcp > 17 and sHcp < 20
-
-# Bucket 3  Unbalanced -> open longest minor, rebid the second suit naturally.
-#   A singleton or void, and a 5+ card minor to open and rebid around.
-minorLong = clubs(south) > 4 or diamonds(south) > 4
-hasShort  = spades(south) < 2 or hearts(south) < 2 or diamonds(south) < 2 or clubs(south) < 2
-unbal = noFiveMajor and minorLong and hasShort and sHcp > 11 and sHcp < 19
+# Bucket 3  Unbalanced -> open your longest suit, rebid the second-longest.
+#   A singleton or void, plus a 5+ card suit (major or minor) to open and rebid around.
+longSuit = spades(south) > 4 or hearts(south) > 4 or diamonds(south) > 4 or clubs(south) > 4
+hasShort = spades(south) < 2 or hearts(south) < 2 or diamonds(south) < 2 or clubs(south) < 2
+unbal = longSuit and hasShort and sHcp > 11 and sHcp < 19
 
 southHand = balMin or balBig or unbal
 
@@ -106,7 +103,7 @@ wHcp = hcp(west) < 11
 # ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
 levBalMin = balMin and keep47
 levBalBig = balBig and keep
-levUnbal  = unbal  and keep47
+levUnbal  = unbal  and keep19
 levelTheDeal = levBalMin or levBalBig or levUnbal
 
 southHand and northHand and eHcp and wHcp and levelTheDeal
@@ -116,3 +113,4 @@ average "South HCP avg      " hcp(south),
 average "Bal 12-14 (reb 1N) " 100 * balMin,
 average "Bal 18-19 (reb 2N) " 100 * balBig,
 average "Unbalanced (2nd)   " 100 * unbal,
+average "Opens 1H/1S (5+ M) " 100 * (spades(south) > 4 or hearts(south) > 4),
