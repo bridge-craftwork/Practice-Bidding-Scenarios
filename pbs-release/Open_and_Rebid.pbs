@@ -92,68 +92,84 @@ calmOpps = calmEast and calmWest
 ##### End of Imported Script: Define Calm Opponents #####
 # provides calmOpps (both opponents too weak/flat to interfere)
 
-# ---- South's hand TYPE is the whole lesson: what is my prepared rebid? ----
 sHcp = hcp(south)
+s = spades(south)
+h = hearts(south)
+d = diamonds(south)
+c = clubs(south)
 
-# Balanced = 4333, 4432, or 5332 (a 5-card suit may be a major)
-balanced = shape(south, any 4333 + any 4432 + any 5332)
+# Minimum opener (11-15): South can NEVER reverse, so the opening choice is forced.
+minOpener   = sHcp > 10 and sHcp < 16
+shortMajors = s < 4 and h < 4     # keep majors short so the choice is minor-vs-minor
 
-# Bucket 1  Balanced 12-14  ->  open your suit, rebid 1NT   (e.g. 1H-1S-1NT)
-balMin = balanced and sHcp > 11 and sHcp < 15
+# ===== NON-STANDARD openings (~half): open a suit that is NOT your longest =====
+# 5c-4d -> open 1D (not 1C); 2C rebids cheaply, 2D would reverse.
+n_5c4d = c == 5 and d == 4 and shortMajors
+# 6-card minor + 5-card major -> open the 5-card MAJOR, rebid the long minor (no reverse).
+#   covers 6C-5H, 6C-5S, 6D-5H, 6D-5S.
+n_65mM = (c == 6 or d == 6) and (h == 5 or s == 5)
+# 5-5 minors -> open the higher, 1D, rebid 2C.
+n_55m  = c == 5 and d == 5
+nonStandard = (n_5c4d or n_65mM or n_55m) and minOpener
 
-# Bucket 2  Balanced 18-19  ->  open your suit, jump to 2NT (e.g. 1C-1H-2NT)
-balBig = balanced and sHcp > 17 and sHcp < 20
+# ===== STANDARD openings (~quarter): open your longest; the rebid is already cheap =====
+# 5d-4c -> open 1D (longest), rebid 2C -- the mirror of n_5c4d.
+t_5d4c = d == 5 and c == 4 and shortMajors
+# balanced 12-14, no 5-card major -> open a minor, rebid 1NT.
+t_bal  = shape(south, any 4432 + any 4333 + any 5332) and s < 5 and h < 5 and sHcp > 11 and sHcp < 15
+standard = (t_5d4c and minOpener) or t_bal
 
-# Bucket 3  Unbalanced -> open your longest suit, rebid the second-longest.
-#   A singleton or void, plus a 5+ card suit (major or minor) to open and rebid around.
-longSuit = spades(south) > 4 or hearts(south) > 4 or diamonds(south) > 4 or clubs(south) > 4
-hasShort = spades(south) < 2 or hearts(south) < 2 or diamonds(south) < 2 or clubs(south) < 2
-unbal = longSuit and hasShort and sHcp > 11 and sHcp < 19
+# ===== EDGE cases (~quarter): the opening choice is genuinely close =====
+# 6c-4d -> open 1C and rebid 2C (6-card), or 1D to show both?
+e_6c4d  = c == 6 and d == 4 and shortMajors
+# 5c-4d WITH a 4-card major -> show the major up the line, or open 1D?
+e_5c4dM = c == 5 and d == 4 and (s == 4 or h == 4)
+edge = (e_6c4d or e_5c4dM) and minOpener
 
-southHand = balMin or balBig or unbal
+southHand = nonStandard or standard or edge
 
-# ---- Responder: 6-11 HCP so partner responds and South gets to rebid ----
+# ===== Responder: 6-11 HCP so partner responds and South gets to rebid =====
 northHand = hcp(north) > 5 and hcp(north) < 12
 
-# ---- Keep combined N/S below slam range so the auction stays in game/partscore ----
-nsBelowSlam = hcp(north) + hcp(south) < 31
+# ===== Level toward ~50/25/25 (balanced + 5d4c are common, so downsample them) =====
+levN5c4d = n_5c4d and keep
+levN65mM = n_65mM and keep
+levN55m  = n_55m  and keep
+levT5d4c = t_5d4c and keep47
+levTbal  = t_bal  and keep015
+levE6c4d = e_6c4d and keep
+levE5c4dM= e_5c4dM and keep
+levelTheDeal = levN5c4d or levN65mM or levN55m or levT5d4c or levTbal or levE6c4d or levE5c4dM
 
-# ---- Calm opponents keep the focus on opener's rebid (no interference) ----
-
-# ---- Level the three hand-type buckets so each shows up (18-19 is rare, keep it all) ----
-levBalMin = balMin and keep67
-levBalBig = balBig and keep
-levUnbal  = unbal  and keep47
-levelTheDeal = levBalMin or levBalBig or levUnbal
-
-southHand and northHand and nsBelowSlam and calmOpps and levelTheDeal
+southHand and northHand and calmOpps and levelTheDeal
 
 action printoneline,
-average "South HCP avg      " hcp(south),
-average "Bal 12-14 (reb 1N) " 100 * balMin,
-average "Bal 18-19 (reb 2N) " 100 * balBig,
-average "Unbalanced (2nd)   " 100 * unbal,
-average "Opens 1H/1S (5+ M) " 100 * (spades(south) > 4 or hearts(south) > 4),
+average "South HCP avg          " hcp(south),
+average "NON 5c4d->1D        %  " 100 * (n_5c4d and minOpener),
+average "NON 6m5M->1M         %  " 100 * (n_65mM and minOpener),
+average "NON 5-5 minors      %  " 100 * (n_55m and minOpener),
+average "STD 5d4c->1D        %  " 100 * (t_5d4c and minOpener),
+average "STD balanced 12-14  %  " 100 * t_bal,
+average "EDGE 6c4d           %  " 100 * (e_6c4d and minOpener),
+average "EDGE 5c4d+4M        %  " 100 * (e_5c4dM and minOpener),
 `, "S", true)
 Script
 Button,Basic Open & Rebid,\n\
---- Basic: Plan Your Rebid，Then Open (beginner)\n\
-The habit this set builds: before you pick an opening bid，decide what you will REBID.\n\
-That plan is what makes the auction easy -- and it can even decide which suit you open.\n\
-Plan your rebid first，then open.\n\
-\n\
-Ask "what is my hand TYPE?"\n\
-• Balanced (4333，4432，or 5332 -- no singleton or void，at most one doubleton)\n\
-  Plan a notrump rebid that shows the balanced shape and your point range:\n\
-  • 12-14 HCP: open your suit，plan to rebid 1NT      (e.g. 1!H-1!S-1NT)\n\
-  • 18-19 HCP: open your suit，plan to jump to 2NT     (e.g. 1!C-1!H-2NT)\n\
-  (15-17 balanced opens 1NT and is not in this set.)\n\
-• Unbalanced (a singleton or void，with a long suit or two)\n\
-  Plan to rebid your second suit -- then open the suit that makes that rebid easy.\n\
-  With two long suits，open the HIGHER-ranking one so the second bid is cheap and does\n\
-  not reverse: 1!S then 2!H (spades + hearts)，or 1!D then 2!C (both minors).\n\
-  Planning first can even change what you open: with 5 clubs and 4 diamonds，open 1!D\n\
-  so your 2!C rebid is comfortable -- open 1!C and partner's 1!S leaves you no good rebid.\n\
+--- Basic: Open the Suit That Buys You a Rebid (beginner)\n\
+Usually you open your longest suit. But first ask: after I open，what will I REBID?\n\
+When you are minimum (about 11-15) you cannot introduce a higher-ranking second suit at\n\
+the two level -- that shows extra strength you do not have. So when opening your long\n\
+suit leaves you no cheap rebid，open a DIFFERENT suit instead.\n\
+• 5 clubs and 4 diamonds: open 1!D，not 1!C. Over partner's major you rebid 2!C，showing\n\
+  both minors. Open 1!C and your only way to show diamonds is 2!D -- a higher-ranking suit\n\
+  at the two level，promising more than you have.\n\
+• 6 of a minor and 5 of a major (6!C-5!H，6!C-5!S，6!D-5!H，6!D-5!S): open the 5-card MAJOR,\n\
+  then rebid your long minor cheaply. Open the 6-card minor and showing the major means\n\
+  bidding it at the two level -- higher-ranking，more than you have.\n\
+• Both minors 5-5: open the higher，1!D，then rebid 2!C.\n\
+Sometimes the ordinary rule already works: with 5 diamonds and 4 clubs，open your longest,\n\
+1!D，and 2!C is cheap anyway. The skill is spotting when opening your longest suit would\n\
+leave you stuck.\n\
 \n\
 Reference: https://www.advinbridge.com/this-week-in-bridge/637\n\
 %OpenAndRebid%
