@@ -43,12 +43,22 @@ import os
 import re
 import subprocess
 import sys
+from collections import Counter
 
-SCHEMA_VERSION = 1
+# The manifest build runs under `python3 -P` / PYTHONSAFEPATH=1 (see the workflow
+# and py/select.py stdlib-shadow note), which drops this script's own directory
+# from sys.path — so re-add it explicitly for the sibling import below.
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from board_version_token import board_version_token, normalize_calls  # noqa: E402
+
+SCHEMA_VERSION = 2
 
 # Repo root = parent of this file's directory (py/).
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BTN_DIR = os.path.join(ROOT, "btn")
+# Bridge-Classroom-served coaching collection: source of the v2 `lessons` roster
+# (producer contract R5). One .pbn per lesson; key = PBN basename.
+COACHING_DIR = os.path.join(ROOT, "coaching-non-rotated")
 
 # tier -> (layout filename, list of pbs source dirs [primary first])
 #
@@ -313,6 +323,95 @@ def parse_layout(layout_path):
 
 
 # --------------------------------------------------------------------------- #
+# lessons roster (schema v2 — producer contract R5)
+#
+# Authoritative per-board description of the Bridge-Classroom-served coaching
+# collection. Keyed by PBN basename (= the deal_subfolder BC stores on
+# observations). Each board carries number / stable / boardVersionToken /
+# skillPath. Per contract §7 the collection id, `report` flag and `prerelease`
+# column stay BC's — we do NOT emit them.
+#
+#   stable            : from `[Stable]` (board) over `%bridge-classroom-stable:`
+#                       (file). ABSENT ⇒ false (prerelease) — the safe default.
+#   boardVersionToken : R3 rotation-canonical hash, computed here from the
+#                       extracted deal + auction (board_version_token.py). Boards
+#                       do not yet carry the `[BoardVersionToken]` tag (the R3
+#                       back-stamp build step is a separate follow-up); computing
+#                       it in the manifest is equivalent and needs no file edits.
+#   skillPath         : from `[SkillPath]`; `uncategorized` while prerelease (R4).
+# --------------------------------------------------------------------------- #
+def _parse_coaching_board(text):
+    """One board chunk -> roster fields, or None if it isn't a board."""
+    bnum = re.search(r'\[Board "(\d+)"\]', text)
+    deal = re.search(r'\[Deal "([^"]+)"\]', text)
+    if not bnum or not deal:
+        return None
+    skill = re.search(r'\[SkillPath "([^"]*)"\]', text)
+    stable = re.search(r'\[Stable "([^"]*)"\]', text)
+    am = re.search(r'\[Auction "([^"]*)"\]\n(.*?)(?=\n\[|\n\{|\Z)', text, re.S)
+    if am:
+        dealer, calls = am.group(1), normalize_calls(am.group(2).split())
+    else:
+        dm = re.search(r'\[Dealer "([^"]*)"\]', text)
+        dealer, calls = (dm.group(1) if dm else ""), []
+    return {
+        "number": int(bnum.group(1)),
+        "stable_tag": stable.group(1).strip().lower() if stable else None,
+        "skillPath": skill.group(1) if skill else None,
+        "deal": deal.group(1),
+        "dealer": dealer,
+        "calls": calls,
+    }
+
+
+def build_lessons():
+    """Build the `lessons` roster from coaching-non-rotated/*.pbn."""
+    lessons = {}
+    if not os.path.isdir(COACHING_DIR):
+        return lessons
+    for fn in sorted(os.listdir(COACHING_DIR)):
+        if not fn.endswith(".pbn"):
+            continue
+        with open(os.path.join(COACHING_DIR, fn), encoding="utf-8") as fh:
+            raw = fh.read()
+        header = raw.split("[Event", 1)[0]
+        fm = re.search(r'%\s*bridge-classroom-stable:\s*(true|false)', header, re.I)
+        file_stable = bool(fm) and fm.group(1).lower() == "true"
+
+        boards = []
+        for chunk in re.split(r'(?=\[Event )', raw):
+            try:
+                b = _parse_coaching_board(chunk)   # normalize_calls may raise
+            except ValueError as e:
+                bn = re.search(r'\[Board "(\d+)"\]', chunk)
+                raise ValueError(f"{fn} board {bn.group(1) if bn else '?'}: {e}") from e
+            if not b:
+                continue
+            stable = file_stable if b["stable_tag"] is None else (b["stable_tag"] == "true")
+            try:
+                token = board_version_token(b["deal"], b["dealer"], b["calls"])
+            except ValueError:
+                token = None  # malformed deal — surface as null rather than crash
+            boards.append({
+                "number": b["number"],
+                "stable": stable,
+                "boardVersionToken": token,
+                "skillPath": b["skillPath"] or "uncategorized",
+            })
+        if not boards:
+            continue
+        # lesson-level default = most common board skillPath (positional tie-break).
+        lesson_skill = Counter(x["skillPath"] for x in boards).most_common(1)[0][0]
+        lessons[fn[:-4]] = {
+            "skillPath": lesson_skill,
+            "boardCount": len(boards),
+            "stableBoardCount": sum(1 for x in boards if x["stable"]),
+            "boards": boards,  # positional order (file order)
+        }
+    return lessons
+
+
+# --------------------------------------------------------------------------- #
 # manifest assembly
 # --------------------------------------------------------------------------- #
 def list_pbs(dir_name):
@@ -355,7 +454,7 @@ def git_sha():
         return None
 
 
-def build_tier(tier, btn_meta):
+def build_tier(tier, btn_meta, lessons):
     layout_name, pbs_dirs = TIERS[tier]
     layout_path = os.path.join(BTN_DIR, layout_name)
     items, referenced = parse_layout(layout_path)
@@ -389,6 +488,8 @@ def build_tier(tier, btn_meta):
         "sources": {"layout": f"btn/{layout_name}", "pbs": pbs_dirs},
         "layout": items,
         "scenarios": scenarios,
+        # v2 producer-contract R5 roster (tier-independent — coaching collection).
+        "lessons": lessons,
         "deltas": {"missing": sorted(missing), "orphans": orphans},
         "counts": {
             "referenced": len(referenced),
@@ -423,13 +524,19 @@ def main():
     args = ap.parse_args()
 
     btn_meta = load_all_btn_metadata()
+    lessons = build_lessons()  # tier-independent; compute once, share across tiers
     tiers = [args.tier] if args.tier else sorted(TIERS)
     out_dir = os.path.join(ROOT, args.out_dir)
     if not args.check:
         os.makedirs(out_dir, exist_ok=True)
 
+    lesson_boards = sum(l["boardCount"] for l in lessons.values())
+    lesson_stable = sum(l["stableBoardCount"] for l in lessons.values())
+    print(f"[lessons] {len(lessons)} lessons, {lesson_boards} boards "
+          f"({lesson_stable} stable)")
+
     for tier in tiers:
-        m = build_tier(tier, btn_meta)
+        m = build_tier(tier, btn_meta, lessons)
         c = m["counts"]
         print(f"[{tier}] referenced={c['referenced']} "
               f"missing={c['missing']} orphans={c['orphans']}"

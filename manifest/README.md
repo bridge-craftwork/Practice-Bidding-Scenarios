@@ -33,11 +33,16 @@ version overrides `pbs-release`.
 > Tiers are keyed by name (`release`/`beta`/`test`/`release-test`); the existing
 > three are byte-for-byte unchanged (the BBO extension keeps working).
 
-## Schema (`schemaVersion: 1`)
+## Schema (`schemaVersion: 2`)
+
+**v2 (PBS #179 / Bridge-Classroom ADR-0002, producer-contract R5):** adds the
+`lessons` roster — the authoritative per-board description of the
+Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
+`layout`/`scenarios`/`deltas`/`counts` blocks are unchanged from v1.
 
 ```jsonc
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "tier": "release",
   "generatedAtCommit": "<sha>",
   "sources": { "layout": "btn/-button-layout-release.txt", "pbs": ["pbs-release"] },
@@ -67,6 +72,19 @@ version overrides `pbs-release`.
     }
   },
 
+  "lessons": {                   // v2 — keyed by PBN basename (= BC deal_subfolder)
+    "Finesse_Simple": {
+      "skillPath": "uncategorized",   // lesson-level default (mode of board paths)
+      "boardCount": 30,               // derived convenience
+      "stableBoardCount": 0,          // derived convenience
+      "boards": [                     // one entry per board, positional order
+        { "number": 1, "stable": false,
+          "boardVersionToken": "0dad5f56…",  // R3 rotation-canonical hash
+          "skillPath": "uncategorized" }
+      ]
+    }
+  },
+
   "deltas": {
     "missing": ["..."],          // referenced in layout, no .pbs  (was: red MISSING PBS FILES)
     "orphans": ["..."]           // .pbs present, not in layout    (was: purple ORPHAN SCENARIOS)
@@ -82,6 +100,23 @@ version overrides `pbs-release`.
 they are byte-for-byte what the menu renders today (wide commas, `!C` suit
 tokens, `\n` continuations preserved). `gibWorks`/`bbaWorks`/convention cards
 come from the `.btn` header — the layout has never carried them before.
+
+### `lessons` roster (v2)
+
+Built from `coaching-non-rotated/*.pbn` (one file per lesson), identical across
+all tiers — the coaching collection is tier-independent, but BC treats the
+**`release`** manifest as authoritative for mastery. Per-board fields:
+
+| Field | Source | Notes |
+|-------|--------|-------|
+| `number` | `[Board]` | positional identity (mastery key with lesson) |
+| `stable` | `[Stable]` over file `%bridge-classroom-stable:` | **absent ⇒ `false`** (prerelease). BC derives `prerelease = !stable`. |
+| `boardVersionToken` | computed ([`board_version_token.py`](../py/board_version_token.py)) | R3 rotation-canonical `sha256` of the canonical deal+auction; opaque to BC. Computed from the extracted deal/auction — boards don't yet carry the `[BoardVersionToken]` tag (the R3 back-stamp is a separate step). |
+| `skillPath` | `[SkillPath]` | `uncategorized` allowed while prerelease (R4). |
+
+Lesson-level `skillPath` is the most common board path (a default); `boardCount`
+/ `stableBoardCount` are derived conveniences. Per contract §7 the **collection
+id, `report` flag, and `prerelease` column are BC's — we do not emit them.**
 
 ## Consumer refactor map (PBS #167, part 3)
 
