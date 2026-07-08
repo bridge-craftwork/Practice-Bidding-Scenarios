@@ -50,7 +50,11 @@ restrict the run; with no args, process the whole open batch.
 
 ## Step 2 — For each cluster: locate + verify
 1. From each issue body pull: scenario, **PBN deal**, Deal N, `[Board]`/`[OriginalBoard]`,
-   seat, auction, contract, step, `main` commit SHA, reporter tier, free text.
+   seat, auction, contract, step, `main` commit SHA, reporter tier, free text — plus, from
+   Rick's newer Report-a-Problem payload: the **Reporter** name/alias (defaults `anonymous`;
+   a named reviewer such as David or Rick outweighs an anonymous learner's "I'm confused")
+   and the dealer **seed** (a secondary locator alongside the PBN deal, which stays ground
+   truth). Both are additive — the durable locators are still the PBN deal + scenario + board.
 2. **Locate the board:** `grep` the PBN deal (or a distinctive holding from it) in
    `coaching-curated/<scn>.pbn`. Cross-check Deal N against the order in
    `coaching-non-rotated/<scn>.pbn` and its `[OriginalBoard]` → `coaching-curated` `[Board]`.
