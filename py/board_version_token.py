@@ -21,8 +21,9 @@ Normalization (defined here — opaque to BC, so this file IS the definition):
   * canonical_deal   -> "N:<h0> <h1> <h2> <h3>", hands clockwise from the ♠A
     holder (N,E,S,W); each hand uppercased with ranks sorted A→2 within each suit.
   * canonical_auction-> "<dealer>:<call> <call> …", dealer = rotated dealer seat
-    letter; calls uppercased, in order, alerts/annotations stripped, PASS/X/XX
-    preserved.
+    letter; calls uppercased, in order, PASS/X/XX preserved, notrump collapsed to
+    one form (`3N`==`3NT`). Alerts (`=n=`) / annotations (`!`,`?`) are stripped;
+    any OTHER unrecognized token raises (so variance can't silently churn a token).
 
 Pure stdlib (runs unchanged in GitHub Actions and on the Mac).
 """
@@ -31,7 +32,9 @@ import re
 
 _SEATS = "NESW"
 _RANK_ORDER = "AKQJT98765432"
-_CALL_RE = re.compile(r"^(?:PASS|X|XX|[1-7](?:C|D|H|S|N|NT))$")
+_BID_RE = re.compile(r"^([1-7])(C|D|H|S|NT|N)$")
+_ALERT_RE = re.compile(r"^=\d+=$")   # BBA alert marker — not a call
+_ANNOT_RE = re.compile(r"^[!?]+$")    # PBN call annotation (!, ?, !!) — not a call
 
 
 def _norm_hand(hand):
@@ -67,15 +70,30 @@ def _spade_ace_seat(hands):
 
 
 def normalize_calls(tokens):
-    """Filter a raw auction token stream to canonical calls (PASS/X/XX/bids)."""
+    """Raw auction token stream -> canonical calls (PASS/X/XX/bids).
+
+    Two hardenings so the (once-locked) token can't drift on future data-entry
+    variance:
+      * notrump is canonicalized to one form: `3N` and `3NT` both -> `3NT`.
+      * a token that is neither a call nor a KNOWN-droppable annotation (BBA
+        `=n=` alert, PBN `!`/`?`) RAISES, rather than being silently dropped —
+        so a stray/typo'd call surfaces loudly instead of changing the hash.
+    """
     calls = []
     for t in tokens:
         u = t.strip().upper()
         if not u:
             continue
-        if _CALL_RE.match(u):
+        if u in ("PASS", "X", "XX"):
             calls.append(u)
-        # else: alert (=n=), '!'/'?' annotations, comments -> dropped
+            continue
+        m = _BID_RE.match(u)
+        if m:
+            calls.append(m.group(1) + ("NT" if m.group(2) == "N" else m.group(2)))
+            continue
+        if _ALERT_RE.match(u) or _ANNOT_RE.match(u):
+            continue  # alert / annotation — legitimately not a call
+        raise ValueError(f"unrecognized auction token: {t!r}")
     return calls
 
 
@@ -117,3 +135,15 @@ if __name__ == "__main__":
         print(f"  rot {r}: dealer={rdealer} token={t} {'OK' if t == base else 'MISMATCH'}")
         ok = ok and (t == base)
     print("rotation-invariant:", ok)
+
+    # Hardening checks: NT canonicalization + raise on unrecognized token.
+    nt_deal = "N:AKQ.234.567.8TJ 234.567.8TJ.9QK 567.89T.JQK.A23 89T.AKQ.234.456"
+    assert (board_version_token(nt_deal, "N", normalize_calls("3N PASS PASS PASS".split()))
+            == board_version_token(nt_deal, "N", normalize_calls("3NT PASS PASS PASS".split()))), \
+        "3N and 3NT must collapse to the same token"
+    try:
+        normalize_calls(["1H", "ZZ", "PASS"])
+        raise AssertionError("expected ValueError on unrecognized token")
+    except ValueError:
+        pass
+    print("NT-collapse + raise-on-unknown: OK")

@@ -380,7 +380,11 @@ def build_lessons():
 
         boards = []
         for chunk in re.split(r'(?=\[Event )', raw):
-            b = _parse_coaching_board(chunk)
+            try:
+                b = _parse_coaching_board(chunk)   # normalize_calls may raise
+            except ValueError as e:
+                bn = re.search(r'\[Board "(\d+)"\]', chunk)
+                raise ValueError(f"{fn} board {bn.group(1) if bn else '?'}: {e}") from e
             if not b:
                 continue
             stable = file_stable if b["stable_tag"] is None else (b["stable_tag"] == "true")
