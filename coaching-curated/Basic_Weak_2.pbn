@@ -416,8 +416,8 @@ Pass  Pass
 [Auction "S"]
 2S    3C    Pass  Pass
 Pass
-{[show S]South holds a long suit and limited values, but the suit quality and the vulnerability make the opening a genuine judgment call rather than an automatic one.
-[BID 2S] ⟦[ACCEPT Pass]you open 2\S to show a six-card spade suit and limited values; passing is also defensible with a bare minimum, so this is a close decision. The preempt presses the opponents, and even if they bid on, you have already forced them to guess at an uncomfortable level.⟧
+{[show S]South holds a long suit with limited high-card strength and must pick the opening call that describes the hand in one stroke.
+[BID 2S] ⟦You open 2\S: a good six-card suit — AQT-to-six — with 5-10 points is exactly what the weak two-bid shows. The preempt describes the hand in one call and presses the opponents; even when they bid on, they have been forced to guess at an uncomfortable level.⟧
 [BID Pass] ⟦You pass; 3\C is the final contract.⟧
 [show NESW]South opened 2\S on AQT873, West overcalled 3\C, and that contract bought the deal. Being outbid here is a perfectly reasonable outcome: the preempt did its job by forcing West to commit at the three level, and South's side simply lost the part-score battle, which happens over a sound weak two.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -774,13 +774,14 @@ Pass  Pass
 [Board "30"]
 [OriginalBoard "2"]
 % 0AEC2A2B604B7D87D767A84148F0
+% repair: swapped D8(S)<->DJ(W); 11 points sits above the 5-10 weak-two range so 1H is the unique opening (issue #198); auction+result re-verified via bba-cli
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
-[Deal "N:KQ.T843.A9.QT876 JT9643.7.KQT53.K 85.AKQJ65.876.94 A72.92.J42.AJ532"]
+[Deal "N:KQ.T843.A9.QT876 JT9643.7.KQT53.K 85.AKQJ65.J76.94 A72.92.842.AJ532"]
 [Declarer "S"]
 [Contract "3H"]
 [Result "9"]
@@ -790,8 +791,8 @@ Pass  Pass
 1H    Pass  3H    Pass
 Pass  Pass
 {[show S]South holds a one-suited hand with limited high cards and has to choose how to describe it.
-[BID 1H] ⟦You have a strong one-suiter and treat it as a full opening, so open 1\H rather than preempting. That keeps the auction wide open and lets the partnership look for game. The textbook weak-two call is the disciplined 2\H, which limits the hand right away — both are defensible, but only 2\H teaches this lesson.[ACCEPT 2H]⟧ Your partner has heart support and a decent hand opposite a one-level opening, so raises to 3\H to invite. The jump shows the values and the fit without forcing to game.
+[BID 1H] ⟦With 11 points and a solid six-card suit, this hand is too strong for a weak two-bid, which shows 5-10. Open 1\H — the full opening keeps the auction alive and lets the partnership look for game instead of burying your own values.⟧ Your partner has heart support and a decent hand opposite a one-level opening, so raises to 3\H to invite. The jump shows the values and the fit without forcing to game.
 [BID Pass] ⟦You pass; 3\H is the final contract.⟧
-[show NESW]North and South belong in hearts, and 3\H lands the partnership safely in a sound part-score. Notice how the weak-two version (2\H) would have painted the picture instantly with one limited call — that discipline is the heart of this lesson. Nicely judged trusting the fit and stopping at a comfortable level.}
+[show NESW]North and South belong in hearts, and 3\H landed the partnership in a sound spot, making exactly. The boundary is the lesson: a weak two shows 5-10, and this hand's 11 with a solid suit sits just above it — count honestly and choose the opening that matches the hand's real strength.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
