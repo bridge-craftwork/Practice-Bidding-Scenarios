@@ -209,7 +209,6 @@ oneClub    = oC
 ##### End of Imported Script -- Predict Opening 1-Bid-East #####
 # Defines oneClub, oneDiamond, oneHeart, oneSpade, oneNT, twoNT, threeNT
 
-
 # Define South's suits for Michaels Cuebid
 sS = top5(south,spades)>2   and spades(south)>4
 sH = top5(south,hearts)>2   and hearts(south)>4
@@ -247,10 +246,15 @@ average "TP >= 4 " 100 * preempt,
 Script
 Button,Michaels Cuebid,\n\
 ---  Michaels Cuebid.\n\
-Two-suited OR a good hand.\n\
+Two-suited，5-11 or 16+\n\
   • 1!C - 2!C = 5+!H & 5+!S\n\
   • 1!D - 2!D = 5+!H & 5+!S\n\
   • 1!H - 2!H = 5+!S & 5+(!C or !D)\n\
   • 1!S - 2!S = 5+!H & 5+(!C or !D)\n\
 https://www.bridgebum.com/michaels_cuebid.php\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
 %MichaelsCuebid%
