@@ -134,6 +134,14 @@ southHand = nonStandard or standard or edge
 # ===== Responder: 6-11 HCP so partner responds and South gets to rebid =====
 northHand = hcp(north) > 5 and hcp(north) < 12
 
+# ===== Unbid-major rule (classroom feedback #191): after a minor opening, when =====
+# partner responds a major, opener must hold exactly 2 or 4 cards in the OTHER
+# (unbid) major -- never 3 -- so the rebid decision stays clean.
+# Major openings (n_65mM) are exempt; so are deals where North has no major to bid.
+nRespH = hearts(north) > 3 and (hearts(north) > spades(north) or (hearts(north) == 4 and spades(north) == 4))
+nRespS = spades(north) > 3 and not nRespH
+unbidMajorRule = n_65mM or (nRespS and (h == 2 or h == 4)) or (nRespH and (s == 2 or s == 4)) or not (nRespS or nRespH)
+
 # ===== Level toward ~50/25/25 (balanced + 5d4c are common, so downsample them) =====
 levN5c4d = n_5c4d and keep
 levN65mM = n_65mM and keep
@@ -144,7 +152,7 @@ levE6c4d = e_6c4d and keep
 levE5c4dM= e_5c4dM and keep
 levelTheDeal = levN5c4d or levN65mM or levN55m or levT5d4c or levTbal or levE6c4d or levE5c4dM
 
-southHand and northHand and calmOpps and levelTheDeal
+southHand and northHand and calmOpps and levelTheDeal and unbidMajorRule
 
 action printoneline,
 average "South HCP avg          " hcp(south),
