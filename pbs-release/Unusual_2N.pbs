@@ -204,10 +204,10 @@ tpEW = tpEast + tpWest
 # Defines tpNorth, tpSouth, tpEast, tpWest
 
 # South's 2NT shows 5-5 in the two lowest-ranked unbid suits (C < D < H < S)
-s2N1S = oneSpade   and clubs(south)>4 and diamonds(south)>4  # over 1S: 5+C 5+D
-s2N1H = oneHeart   and clubs(south)>4 and diamonds(south)>4  # over 1H: 5+C 5+D
-s2N1D = oneDiamond and clubs(south)>4 and hearts(south)>4    # over 1D: 5+C 5+H
-s2N1C = oneClub    and diamonds(south)>4 and hearts(south)>4 # over 1C: 5+D 5+H
+s2N1S = oneSpade   and clubs(south)>4 and diamonds(south)>4  // over 1S: 5+C 5+D
+s2N1H = oneHeart   and clubs(south)>4 and diamonds(south)>4  // over 1H: 5+C 5+D
+s2N1D = oneDiamond and clubs(south)>4 and hearts(south)>4    // over 1D: 5+C 5+H
+s2N1C = oneClub    and diamonds(south)>4 and hearts(south)>4 // over 1C: 5+D 5+H
 
 # South needs 12+ TP (per GIB's unusual 2NT definition)
 sUNT = (s2N1S or s2N1H or s2N1D or s2N1C) and tpSouth>11
@@ -223,4 +223,9 @@ Button,Unusual 2N,\n\
 --- Unusual 2N: East opens 1 of a suit，South overcalls 2N\n\
 South shows 5+ cards in each of the two lowest-ranked unbid suits (C < D < H < S).\n\
 Over 1!S or 1!H: 5+!C 5+!D. Over 1!D: 5+!C 5+!H. Over 1!C: 5+!D 5+!H.\n\
+4NT is Roman Keycard Blackwood (0314) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 0 or 3 keycards\n\
+  • 5!D = 1 or 4\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
 %Unusual2N%
