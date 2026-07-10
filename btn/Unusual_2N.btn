@@ -26,10 +26,10 @@ dealer east
 # Defines tpNorth, tpSouth, tpEast, tpWest
 
 # South's 2NT shows 5-5 in the two lowest-ranked unbid suits (C < D < H < S)
-s2N1S = oneSpade   and clubs(south)>4 and diamonds(south)>4  # over 1S: 5+C 5+D
-s2N1H = oneHeart   and clubs(south)>4 and diamonds(south)>4  # over 1H: 5+C 5+D
-s2N1D = oneDiamond and clubs(south)>4 and hearts(south)>4    # over 1D: 5+C 5+H
-s2N1C = oneClub    and diamonds(south)>4 and hearts(south)>4 # over 1C: 5+D 5+H
+s2N1S = oneSpade   and clubs(south)>4 and diamonds(south)>4  // over 1S: 5+C 5+D
+s2N1H = oneHeart   and clubs(south)>4 and diamonds(south)>4  // over 1H: 5+C 5+D
+s2N1D = oneDiamond and clubs(south)>4 and hearts(south)>4    // over 1D: 5+C 5+H
+s2N1C = oneClub    and diamonds(south)>4 and hearts(south)>4 // over 1C: 5+D 5+H
 
 # South needs 12+ TP (per GIB's unusual 2NT definition)
 sUNT = (s2N1S or s2N1H or s2N1D or s2N1C) and tpSouth>11
