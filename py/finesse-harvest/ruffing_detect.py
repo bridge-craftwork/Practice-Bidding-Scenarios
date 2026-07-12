@@ -141,8 +141,8 @@ def scan(path):
                 chrono = dd_line(mdeal.group(1), f"{level}{trumpL}", "S", lead)
             except Exception:
                 continue
-        if line_tricks(chrono, strain, "S") != need:
-            continue
+            if line_tricks(chrono, trumpL, "S") != need:
+                continue
             a = acid(chrono, trumpL, suit, seq, short, missing, "S")
             if a is None:
                 continue

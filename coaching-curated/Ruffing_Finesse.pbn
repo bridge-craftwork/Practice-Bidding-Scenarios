@@ -136,3 +136,190 @@ defense-note: W (S:AT6 H:8765 D:QJ2 C:T86) scores the trump ace, the heart ace, 
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
+[Event "Ruffing_Finesse"]
+[Site ""]
+[Board "4"]
+[OriginalBoard "22"]
+[OriginalScenario "Misfit"]
+% 19089E8B6B7C0A1EFCD42421456B
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:A9854.AQ93.4.QJ2 JT32.K86.653.K98 KQ.J542.AQJ92.43 76.T7.KT87.AT765"]
+{Shape 5413 4333 2452 2245}
+{HCP 13 7 13 7}
+{Losers 6 10 7 8}
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
+[Score "NS 420"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 2
+bidding: standard
+bidding-note: Misfit auction — 1D, 1S, 1NT, 2C (New Minor Forcing), 3H, 4H; South's fifth diamond and fourth heart find the heart game from his side.
+declarer: textbook ruffing-finesse
+declarer-note: 4H needs 10 and dd gives exactly 10; South's DAQJ92 opposite dummy's singleton D4 is the classic broken-sequence-opposite-a-stub shape — cash the ace, run the jack through West's KT87: covered, ruff in dummy; the DQ92 are then all high.
+defense: reject
+defense-note: W (S:76 H:T7 D:KT87 C:AT765) and partner cash two top clubs and wait for the HK — three tricks; the DK is trapped under the ace and never scores.
+}
+[Auction "S"]
+1D    Pass  1S    Pass
+1N    Pass  2C =1=    Pass
+3H    Pass  4H    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \CA — the ace of your longest suit, a safe way to see dummy before committing against the heart game.
+
+[ROLE declarer][STAGE auction-end] You are in 4\H needing ten tricks. Look at the diamonds: you hold \DA-Q-J-9-2 and dummy has a singleton \D4 — a broken sequence opposite a stub. That is a RUFFING FINESSE. Cash the \DA, then lead your \DJ: West is caught — if he covers with the king, dummy RUFFS it away; if he ducks, the jack wins. Either way the king cannot score, because your ace sits over it, and your remaining diamonds all become winners.
+
+[ROLE declarer][STAGE post-lead] West cashed the \CA and led another club to partner's king — two tricks to the defense. Win the return and go after diamonds: cash the \DA (dummy's 4 falls), then lead the \DJ. West covers with the \DK and you RUFF it in dummy. Now your \DQ-9-2 are all good. Draw the last trumps, cash your spade honors and the run of diamonds, and you lose only the two clubs and the \HK. Ten tricks.
+
+[ROLE declarer][STAGE post-play] That was the ruffing finesse: a broken sequence (\DA-Q-J-9-2) opposite a singleton, so you led the honors from your own hand and dummy's trumps guarded them. West's king was trapped under your ace — cover and it is ruffed, duck and the jack wins. The suit cost you nothing. Well played.}
+[Note "1:New Minor Forcing"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Ruffing_Finesse"]
+[Site ""]
+[Board "5"]
+[OriginalBoard "307"]
+[OriginalScenario "Fit_Showing_Jumps"]
+% 3933752B0848E90EEC41D671E65D
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "N:AQJ8.JT86.A64.AQ KT642.52.K53.853 .Q973.QJT9.K9642 9753.AK4.872.JT7"]
+{Shape 4432 5233 0445 4333}
+{HCP 18 6 8 8}
+{Losers 7 9 6 10}
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
+[Score "NS 420"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 2
+bidding: standard
+bidding-note: 1D - 1H - 3H (strong jump raise) - 4H; South's four hearts and long clubs play the game from his side opposite a big balanced dummy.
+declarer: textbook ruffing-finesse
+declarer-note: 4H needs 10 and dd gives exactly 10; dummy's SAQJ8 opposite South's void is the ruffing-finesse shape — cash the ace, run an honor through East's K642: covered, ruff in the void hand; not covered, pitch. Dummy's SQ-8 then discard South's losers.
+defense: reject
+defense-note: W (S:9753 H:AK4 D:872 C:JT7) cashes the two top hearts and partner has the DK — three tricks; the SK dies under the ruffing finesse.
+}
+[Auction "S"]
+Pass  Pass  1D    Pass
+1H    Pass  3H    Pass
+4H    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \CJ, top of your \CJ-T sequence — a safe, solid start against the heart game.
+
+[ROLE declarer][STAGE auction-end] You are in 4\H needing ten tricks. Dummy's \SA-Q-J-8 sits opposite your spade VOID — the ruffing-finesse shape. Cash dummy's \SA, then run the \SJ through East: if East covers with the king, RUFF it in your hand; if not, throw a loser. Your void is the weapon — the king dies whichever way East turns, and dummy's remaining spades become discards for your losers.
+
+[ROLE declarer][STAGE post-lead] West led the \CJ to dummy's queen. Cash dummy's club ace and the \DA, then knock out the \DK to set up your \DJ. When you regain the lead, the key play: cash dummy's \SA, then lead the \SJ. East covers with the \SK and you RUFF in hand — your void doing its job. Dummy's \SQ-8 are now high. You lose only a diamond and the two top hearts: ten tricks.
+
+[ROLE declarer][STAGE post-play] The spade void was the engine: dummy's \SA-Q-J-8 ran through East, and the moment his king appeared you ruffed it away. A sequence opposite a void is a finesse you cannot lose — cover meets a ruff, a duck lets the honor win. Nicely played.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Ruffing_Finesse"]
+[Site ""]
+[Board "6"]
+[OriginalBoard "49"]
+[OriginalScenario "Namyats"]
+% 38E7EAE38B206C56C6D32C28129C
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "N:T543.J7.KJ4.AQJ6 98.8632.952.K873 J2.AKQT954.QT63. AKQ76..A87.T9542"]
+{Shape 4234 2434 2740 5035}
+{HCP 12 3 12 13}
+{Losers 8 10 4 5}
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
+[Score "NS 420"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 2
+bidding: standard
+bidding-note: 1H - (2H Michaels) - Pass - (2NT) - 4H; South's seven-card heart suit jumps to game over the two-suited overcall.
+declarer: standard ruffing-finesse
+declarer-note: 4H needs 10 and dd gives exactly 10; with three fast losers off the top (SA, SQ, DA), dummy's CAQJ6 opposite South's void supplies the discards — cash the ace, run the jack through East's K873: covered, ruff; dummy's CQ-6 then pitch South's minor losers.
+defense: reject
+defense-note: W (S:AKQ76 H:void D:A87 C:T9542) cashes two top spades and the DA — three fast tricks — but the CK dies under dummy's ace and the finesse.
+}
+[Auction "S"]
+1H    2H =1=    Pass  2N =2=
+4H    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \SA, top of your \SA-K-Q sequence — cash a top honor and have a look against the heart game.
+
+[ROLE declarer][STAGE auction-end] You are in 4\H with a monster trump suit, but three fast losers loom — two top spades and the \DA. Dummy's \CA-Q-J-6 opposite your club VOID is the ruffing finesse that finds the tricks you need: cash dummy's \CA, then lead the \CJ through East. If East covers with the king, RUFF it; if not, pitch. The \CK never scores, and dummy's clubs become discards for your minor losers.
+
+[ROLE declarer][STAGE post-lead] West cashed the \SA and \SQ and switched to the \DA — the defense has taken its three tricks. Win, draw a round of trumps, and go to the clubs: dummy's \CA, then the \CJ — East covers with the king and you RUFF it away. Dummy's \CQ-6 are high. Draw the last trump and pitch your losing diamonds on the clubs. Ten tricks.
+
+[ROLE declarer][STAGE post-play] Even with seven solid trumps you needed a source of discards, and the ruffing finesse in clubs supplied it: dummy's \CA-Q-J-6 ran through East, his king met a ruff, and the rest were winners. A sequence opposite a void — the finesse you cannot lose. Well played.}
+[Note "1:Michaels Cuebid"]
+[Note "2:to the partner's longer"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Ruffing_Finesse"]
+[Site ""]
+[Board "7"]
+[OriginalBoard "353"]
+[OriginalScenario "Splinters_after_Minor"]
+% 689FEBA3BAFFC15355DD4419BB74
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "N:4.95.KJ43.AKQT83 8752.A8764.AT6.J AQJ3.KQ.Q98.9764 KT96.JT32.752.52"]
+{Shape 1246 4531 4234 4432}
+{HCP 13 9 14 4}
+{Losers 5 8 7 10}
+[Declarer "S"]
+[Contract "5C"]
+[Result "11"]
+[Score "NS 400"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 3
+bidding: standard
+bidding-note: 1C - 3S splinter (club support, spade shortness) - 5C; the minor-suit game plays from South, whose SAQJ3 sits over the spade king.
+declarer: textbook ruffing-finesse
+declarer-note: 5C needs 11 and dd gives exactly 11; South's SAQJ3 opposite dummy's singleton S4 runs through West's KT96 — cash the ace, lead the jack; covered, ruff in dummy; the SQ is then high and a second spade ruff clears the suit, dummy's trumps and diamonds bringing it home.
+defense: reject
+defense-note: W (S:KT96 H:JT32 D:752 C:52) has no trick of her own; East's HA and DA are the defense's only two, and West's SK falls under the ruffing finesse.
+}
+[Auction "S"]
+1C    Pass  3S =1=    Pass
+5C    Pass  Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \HJ, top of your \HJ-T sequence — a safe, solid lead against the club game.
+
+[ROLE declarer][STAGE auction-end] Partner's 3\S was a splinter — club support with spade shortness — and you are in 5\C needing eleven. Your \SA-Q-J-3 sit opposite dummy's singleton \S4: the ruffing finesse. Cash the \SA, then lead the \SJ through West; if she covers with the king, RUFF in dummy; if not, pitch. The spade king is trapped under your ace, and dummy's long trumps mop up.
+
+[ROLE declarer][STAGE post-lead] West led the \HJ to East's ace; you win the return with the \HK. Draw a round of trumps, cash the \SA, then lead the \SJ — West covers with the \SK and dummy RUFFS. Your \SQ is now high; ruff a spade good in dummy, and the long trumps and diamonds bring it home. You lose only a heart and a diamond: eleven tricks.
+
+[ROLE declarer][STAGE post-play] The spade ruffing finesse did the work: \SA-Q-J-3 opposite a singleton, ace cashed, then the jack ridden through West — her king met a ruff and your queen was suddenly high. A broken sequence opposite a stub, and the king trapped underneath: no way to lose. Well played.}
+[Note "1:Splinter"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
