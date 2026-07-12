@@ -28,10 +28,21 @@ The acid, over the book-lead DD line:
      holder shed (g - r) cards of the suit as DISCARDS on other suits' leads —
      the squeeze. r == g is a pure length-drop; excluded.
   6. H never wins a trick anywhere (trapped throughout).
+  7. The fall is a DECISION, not a collision (the first dump-read's mirage
+     catalog): it happens on trick 12 or earlier (at trick 13 every card is
+     forced and nothing was read); the fall trick was not LED by the holder
+     (that is a throw-in exit — endplay, not squeeze); and the card led to
+     the fall trick is the ace or a spot (<= 9) — an honor led and covered
+     is a routine finesse-capture, not a show-up.
 
 `hooks_first` records how many lower rounds NS won with a card below H before
 the show-up (0 = pure count; 1-2 = the "finesse twice, then the count" shape of
-the shipped boards). See squeeze-endplay-plan.md §5 and finesse-family-plan.md §9.
+the shipped boards). `dividend` records whether a sub-H NS card wins a suit
+trick AFTER the fall ("the seven is a winner" — the drop visibly promoted
+something). Boards with dividend=False make their point only as an avoided
+third-round guess (shipped b237's shape) — rank dividend=True first when
+authoring; the decoration mirage (honor drops, nothing gained) lives in the
+dividend=False pile. See squeeze-endplay-plan.md §5 and finesse-family-plan.md §9.
 
 Usage: showup_detect.py bba/Pool_A.pbn [...] > scan.json
 """
@@ -118,7 +129,11 @@ def scan(path):
                     if hc is not None and sl(hc) == suit and rk(hc) == H:
                         if (ws, wc) == (holder, hc):
                             honor_wins = True
-                        elif rk(wc) == "A" and ws in ("N", "S") and fell is None:
+                        elif (rk(wc) == "A" and ws in ("N", "S") and fell is None
+                              and t < 12                        # decision, not a T13 collision
+                              and trick[0][0] != holder          # holder led = throw-in exit
+                              and (rk(trick[0][1]) == "A"
+                                   or RANKS.index(rk(trick[0][1])) >= 5)):  # ace or spot led
                             fell = rounds      # H rose and the ace swallowed it
                 else:
                     if hc is not None and sl(hc) == suit:
@@ -130,11 +145,24 @@ def scan(path):
                 continue
             if pitched < 1:
                 continue
+            # dividend: does a sub-H NS card win a suit trick AFTER the fall?
+            dividend = False
+            seen_rounds = 0
+            for t in range(13):
+                trick = chrono[t*4:t*4+4]
+                if sl(trick[0][1]) != suit:
+                    continue
+                seen_rounds += 1
+                if seen_rounds <= r:
+                    continue
+                ws, wc = winner(trick, trumpL)
+                if ws in ("N", "S") and RANKS.index(rk(wc)) > hv:
+                    dividend = True
             out.append({"board": int(mb.group(1)), "contract": f"{level}{trumpL}",
                         "deal": deal, "auction": compact_auction(b),
                         "suit": suit, "honor": H, "holder": holder, "guard": g,
                         "fell_round": r, "hooks_first": hooks_first,
-                        "pitched": pitched, "lead": lead,
+                        "pitched": pitched, "dividend": dividend, "lead": lead,
                         "ns_holding": "".join(sorted(hands["N"][suit] + hands["S"][suit],
                                                      key=RANKS.index)),
                         "holder_holding": hands[holder][suit]})
