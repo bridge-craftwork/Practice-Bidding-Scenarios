@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "beta",
-  "generatedAtCommit": "9146460ea1298d9fc0ea55d700b070bf02ebaa65",
+  "generatedAtCommit": "828953603b6b78a9c173b3c602aac53da4b8c35f",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -2368,7 +2368,10 @@
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "Opps_Weak_Jump_Overcall",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -5904,6 +5907,16 @@
       "conventionCardNS": "21GF-DEFAULT",
       "conventionCardEW": "21GF-GIB",
       "missing": false
+    },
+    "Opps_Weak_Jump_Overcall": {
+      "buttonText": "Weak Jump Overcall",
+      "chat": "--- Opponents Weak Jump Overcall",
+      "alias": "OppsWeakJumpOvercall",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": true
     },
     "Opps_Double_1_NT": {
       "buttonText": "X Notrump",
@@ -16419,13 +16432,15 @@
     }
   },
   "deltas": {
-    "missing": [],
+    "missing": [
+      "Opps_Weak_Jump_Overcall"
+    ],
     "orphans": []
   },
   "counts": {
-    "referenced": 335,
-    "scenarios": 335,
-    "missing": 0,
+    "referenced": 336,
+    "scenarios": 336,
+    "missing": 1,
     "orphans": 0
   }
 }
