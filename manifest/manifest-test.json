@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "test",
-  "generatedAtCommit": "72858418d1468bdad5e574dacb381115f7df0708",
+  "generatedAtCommit": "31dd112914ebb5a76a77e60b7e2743f263052184",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -2346,13 +2346,13 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Opps_Preemptive_Overcall",
+          "name": "Opps_Weak_Jump_Overcall",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "Going_for_Blood",
+          "name": "Opps_Preemptive_Overcall",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -2363,13 +2363,13 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Jordan_2N",
+          "name": "Going_for_Blood",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "Opps_Weak_Jump_Overcall",
+          "name": "Jordan_2N",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -5879,6 +5879,16 @@
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
+    "Opps_Weak_Jump_Overcall": {
+      "buttonText": "Weak Jump Overcall",
+      "chat": "\\n--- Opponents Weak Jump Overcall\\nNorth opens 1C/1D/1H and East makes a weak jump overcall at the 2 level\\nshowing a 6-card suit and 4-9 HCP. The jump must be at the 2 level，so East's\\nsuit must outrank North's suit.\\n",
+      "alias": "OppsWeakJumpOvercall",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
     "Opps_Preemptive_Overcall": {
       "buttonText": "Preempt Overcall",
       "chat": "\\n--- Opponents Preemptive Overcall\\n",
@@ -5903,16 +5913,6 @@
       "buttonText": "Jordan 2N",
       "chat": "\\n--- Jordan 2N\\nAfter 1M (X)，2N shows 4+ card support and 10+ TP.\\nhttps://www.bridgebum.com/jordan_2nt.php\\n",
       "alias": "Jordan2N",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
-    "Opps_Weak_Jump_Overcall": {
-      "buttonText": "Weak Jump Overcall",
-      "chat": "\\n--- Opponents Weak Jump Overcall\\nNorth opens 1C/1D/1H and East makes a weak jump overcall at the 2 level\\nshowing a 6-card suit and 4-9 HCP. The jump must be at the 2 level，so East's\\nsuit must outrank North's suit.\\n",
-      "alias": "OppsWeakJumpOvercall",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
