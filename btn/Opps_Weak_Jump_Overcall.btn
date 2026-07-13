@@ -8,6 +8,9 @@
 
 /*@chat
 --- Opponents Weak Jump Overcall
+North opens 1C/1D/1H and East makes a weak jump overcall at the 2 level
+showing a 6-card suit and 4-9 HCP. The jump must be at the 2 level, so East's
+suit must outrank North's suit.
 @chat*/
 
 # North opens 1C/1D/1H and East makes a weak jump overcall at the 2 level
@@ -29,3 +32,8 @@ jumpOver1H = oH and WJS
 nOpens = hcp(north)>11 and hcp(north)<15 and (hcp(north) + hcp(south)) >19
 eJumps = hcp(east)>3 and hcp(east)<10 and (jumpOver1C or jumpOver1D or jumpOver1H)
 nOpens and eJumps
+
+action
+average "2D" 100 * WJD,
+average "2H" 100 * WJH,
+average "2S" 100 * WJS
