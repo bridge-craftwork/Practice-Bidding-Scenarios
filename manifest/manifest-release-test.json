@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release-test",
-  "generatedAtCommit": "72858418d1468bdad5e574dacb381115f7df0708",
+  "generatedAtCommit": "13864405d7f91f5c6d9af058eba28ba81ae9f62c",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -16421,14 +16421,16 @@
   },
   "deltas": {
     "missing": [],
-    "orphans": []
+    "orphans": [
+      "Opps_Weak_Jump_Overcall"
+    ]
   },
   "counts": {
     "referenced": 335,
     "scenarios": 335,
     "missing": 0,
-    "orphans": 0,
-    "testOnly": 5
+    "orphans": 1,
+    "testOnly": 4
   },
   "testScenarios": [
     {
@@ -16452,17 +16454,6 @@
       "conventionCardEW": "Basic-Bridge",
       "missing": false,
       "name": "Found_Rabbis_Rule"
-    },
-    {
-      "buttonText": "Weak Jump Overcall",
-      "chat": "\\n--- Opponents Weak Jump Overcall\\nNorth opens 1C/1D/1H and East makes a weak jump overcall at the 2 level\\nshowing a 6-card suit and 4-9 HCP. The jump must be at the 2 level，so East's\\nsuit must outrank North's suit.\\n",
-      "alias": "OppsWeakJumpOvercall",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false,
-      "name": "Opps_Weak_Jump_Overcall"
     },
     {
       "buttonText": "Reversed Splinter by Opener",
