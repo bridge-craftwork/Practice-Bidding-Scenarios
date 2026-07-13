@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release",
-  "generatedAtCommit": "13864405d7f91f5c6d9af058eba28ba81ae9f62c",
+  "generatedAtCommit": "0532012b5fa8fdee5df3bbe27d246ffa2747d8bd",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -2345,13 +2345,13 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Opps_Preemptive_Overcall",
+          "name": "Opps_Weak_Jump_Overcall",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "Going_for_Blood",
+          "name": "Opps_Preemptive_Overcall",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -2362,13 +2362,16 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Jordan_2N",
+          "name": "Going_for_Blood",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "Jordan_2N",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -5871,6 +5874,16 @@
       "alias": "TislevollAfterOppsPreempt",
       "gibWorks": false,
       "bbaWorks": false,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Opps_Weak_Jump_Overcall": {
+      "buttonText": "Weak Jump Overcall",
+      "chat": "\\n--- Opponents Weak Jump Overcall\\nNorth opens 1C/1D/1H and East makes a weak jump overcall at the 2 level\\nshowing a 6-card suit and 4-9 HCP. The jump must be at the 2 level，so East's\\nsuit must outrank North's suit.\\n",
+      "alias": "OppsWeakJumpOvercall",
+      "gibWorks": true,
+      "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
       "conventionCardEW": "21GF-GIB",
       "missing": false
@@ -16420,14 +16433,12 @@
   },
   "deltas": {
     "missing": [],
-    "orphans": [
-      "Opps_Weak_Jump_Overcall"
-    ]
+    "orphans": []
   },
   "counts": {
-    "referenced": 335,
-    "scenarios": 335,
+    "referenced": 336,
+    "scenarios": 336,
     "missing": 0,
-    "orphans": 1
+    "orphans": 0
   }
 }
