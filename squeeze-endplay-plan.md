@@ -139,6 +139,32 @@ finesse family — especially counting and Deep_Finesse's odds discipline.
   stacked in diamonds at two heights; the ♥3 wins trick 12; the spade lead is West's natural
   attack and the strict line — a diamond lead concedes 11, noted in Curate). b318/w30plus genuine
   but narratively tangled — left in the well. Served gates: 12/12, 12/12, 10/10 exact.
+- **2026-07-13** — **Restock: Simple_Squeeze 3→6, Rectify_The_Count 3→6, Double_Squeeze 3→4** (the
+  shelf-restock campaign's final leg). Prerequisite delivered first: the showup-v4-style acid
+  tightening. New `rectify_detect.py` supersedes squeeze_family_detect's rectify class — nine rungs
+  (line-exact; beater-duck with a held-beater CHOICE; late fruit; ONE victim; round-aware genuine
+  guard; busy-in-a-second-suit at the pitch snapshot; choice-not-collision; live-guard-at-release —
+  the dead-wood class found on shipped b233's dump; no-spare-winner with the jettison/unblock
+  exemption learned from shipped b185's ♠A pitch). It re-finds the three shipped genuine squeezes
+  (428/185/45) and refuses 233/460/447 — decoration and dead-wood boards that predate the mirage
+  catalog (they stay shipped; no retrofit). `double_squeeze_detect.py` v2 encodes the 07-04 mirage
+  catalog as per-hit acid flags + a `tight` verdict (spare-winner, ROUND-AWARE joint length guards —
+  b153's 6-5-3 spot guard forced the model — live-at-release, per-defender busy suits, three-suit
+  geometry, choice pitches): shipped 153/176 rank tight, 444 correctly ranks as the exotic
+  stacked-menace shape, and b318 ("left in the well" in July) is exposed as a 3-3-break mirage.
+  Full 347-pool rescan: rectify/simple 42 candidates (4 with visible ducks), doubles 12 loose /
+  0 new tight. Ten dump-reads → 7 authored, 3 killed (b1/b172 alternate-line fruit, b390
+  ruffing-finesse dressed up). **Rectify** b4-6: Opps_Double_Stayman 258 (3NT! duck T3 into the
+  stiff ♦J, E's Stayman double maps the hand, the ♦8 at T13 — EPBot went three down), Gerber 293
+  (duck T6 into the SEVEN; the heart ace doubles as squeeze card; the ♣4 at T13), Misfit 228 (duck
+  T3 holding the ace; TWO-WAY ending — declarer's last discard mirrors East's: the ♣5 or the shadow
+  ♦Q). **Simple** b4-6: 3N 210 (East's five hearts die; the ♥4 at T12 — EPBot went one down),
+  2N_Smolen 124 (West's lead-directing X of 3♦; East's SIX clubs can't be kept; the ♣6 at T12),
+  2N_and_Balanced 321 (menaces of SEVEN and SEVEN vs guards of nine and jack-eight). **Double** b4:
+  SCS_Impossible_Negative 351 — a 7♥ GRAND double squeeze, E welded to clubs, W to spades, and the
+  ♦A fells the K and J together; the ♦4 and ♦5 win tricks 12-13. (Its lone acid fail, `spare`, is a
+  T13 transportation-stranded master — a known flag false-positive class; the flag exists to draw
+  the dump-read's eye, and did.) All gates clean; all 14 served lines line-exact.
 - **2026-07-04** — **Double_Squeeze shipped — the shelf is COMPLETE.** David wrote both the widened
   detector (double_squeeze_detect.py: the corrected acid — a double squeeze scores ONE extra trick,
   the common suit both defenders abandon) and the lesson itself (three boards: the canonical 6NT

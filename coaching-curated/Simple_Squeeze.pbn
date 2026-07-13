@@ -141,3 +141,147 @@ defense-note: W (S:Q4 H:J8 D:Q8542 C:Q632) and East between them guard spades an
 [Note "3:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "4"]
+[OriginalBoard "210"]
+[OriginalScenario "3N"]
+% DA24A5299B0FDB1276CDF2EC18D4
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AQT83.T6.T64.JT9 7.J9832.QJ93.875 KJ.AKQ4.AK72.KQ6 96542.75.85.A432"]
+{Shape 5233 1543 2443 5224}
+{HCP 7 4 25 4}
+{Losers 9 9 3 9}
+[Declarer "S"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 1440"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: textbook
+bidding-note: A 25-point 3NT opening raised directly to 6NT.
+declarer: standard simple-squeeze
+declarer-note: 6NT needs 12 and dd gives exactly 12; drive the club ace at trick three to rectify, overtake the spade king and run dummy's suit — East, holding five hearts against A-K-Q-4 plus the diamond guard over dummy's ten, must shed hearts, and the FOUR of hearts wins trick twelve. The BBA playout went one down; the squeeze is the slam.
+defense: reject
+defense-note: W (S:96542 H:75 D:85 C:A432) scores the club ace and nothing else; East cannot keep four hearts and the diamond queen-jack at once.
+}
+[Auction "S"]
+3N    Pass  6N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \S4, fourth-best from your longest suit — the routine start against 6NT.
+
+[ROLE declarer][STAGE auction-end] A 25-point 3NT opening, raised to six. Count: four spades once the king-jack unblock, three top hearts, two diamonds, two clubs after the ace is dislodged — eleven. The twelfth is already in your hand: the FOUR of hearts. East dealt himself five hearts to your ace-king-queen-four, and if he could keep four of them the four would never grow up — but dummy's modest ten of diamonds has a claim on his attention too. One defender, two suits: the simple squeeze in its purest geometry.
+
+[ROLE declarer][STAGE post-lead] The spade four rides to your JACK — a small gift. Cash a top diamond, then rectify: lead the club QUEEN and let West's ace take it. Win the diamond return, unblock your clubs, and run the spades, overtaking the king with dummy's ace: on the ten and queen East pitches heart after heart, for his queen-jack of diamonds must stand guard against dummy's ten. From five hearts he is down to the bare jack. Dummy's heart ten to your king collects it — and now the FOUR of hearts wins trick twelve, the ace thirteen. Twelve tricks.
+
+[ROLE declarer][STAGE post-play] From J-9-8-3-2, East needed four hearts to outlast your holding — and dummy's diamond ten made keeping four impossible. That is all a simple squeeze is: a defender dealt one card too few for two jobs, and a declarer who ran his winners and watched. Note that the machine that first played this deal went one down — it never saw that the smallest heart at the table could become the slam. Count the defender's jobs, not just his honors.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "5"]
+[OriginalBoard "124"]
+[OriginalScenario "2N_Smolen"]
+% 7A218D666702F279B2190EC245F3
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AT65.KT543.K5.J2 QJ83.6.86.QT9754 K7.AQJ.QJ3.AK863 942.9872.AT9742."]
+{Shape 4522 4126 2335 3460}
+{HCP 11 5 20 4}
+{Losers 7 7 5 8}
+[Declarer "S"]
+[Contract "6H"]
+[Result "12"]
+[Score "NS 1430"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 4
+bidding: convention
+bidding-note: 2NT - 3C Stayman (West doubles the 3D reply for a diamond lead); 3S Smolen — four spades and five hearts, forcing; 4H sets the trumps, Blackwood, 6H.
+declarer: standard simple-squeeze
+declarer-note: 6H needs 12 and dd gives exactly 12; West cashes the marked diamond ace at trick one — the count rectifies itself — and the trump run crushes East, who holds SIX clubs against declarer's five plus the spade queen-jack over dummy's ten: four club discards later, the SIX of clubs wins trick twelve.
+defense: reject
+defense-note: W (S:942 H:9872 D:AT9742 C:-) doubles 3D and cashes his ace — one trick; East's six-card club holding and his spade guard are one card too many for the endgame.
+}
+[Auction "S"]
+2N    Pass  3C =1=    Pass
+3D    X     3S =2=    Pass
+4H    Pass  4N =3=    Pass
+5S =4=    Pass  6H    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \DA — you doubled the artificial 3\D to ask for a diamond lead, and the lead turned out to be yours: cash the ace of your own suit.
+
+[ROLE declarer][STAGE auction-end] Smolen landed the heart slam in your hand, and West's double of 3\D has marked the diamond ace on your left before a card is played. Count: five trump tricks, two spades, the diamond king-queen, two top clubs — eleven, once West cashes the ace he so helpfully advertised. The twelfth must be your fifth club — and here is the astonishment of the board: East holds Q-T-9-7-5-4 of clubs, SIX of them, one more than you. It will not help him. He also owns the spade queen-jack over dummy's ten, and the trumps are about to make him choose, four times over.
+
+[ROLE declarer][STAGE post-lead] West cashes the diamond ace and continues; win dummy's king, unblocking your jack. Draw trumps — West has four, so it takes every honor you own — and along the way cash the diamond queen, pitching dummy's small club: the spade ten must keep its escort. Across those middle tricks East feeds club after club to the table, four in all, clinging to his spade guard. Now reap: spade ace and king, then the club jack — covered, king — the ace felling his ten, and the SIX of clubs, fifth round of a suit East owned six of, wins trick twelve. The last club rides home under dummy's remaining trump. Slam made.
+
+[ROLE declarer][STAGE post-play] Six cards in a suit, and East still could not guard it — that is what a squeeze does to arithmetic. His real anchor was the spade queen-jack; every trump you led cost him a club, and only counting them told you the six had grown up. Two notes for the notebook: a lead-directing double is a gift that keeps giving — it placed the missing ace before trick one — and dummy's small club went away EARLY, on the diamond queen, so the spade ten stayed alive as the second threat. Feed dead wood to your winners; keep the menaces.}
+[Note "1:Stayman"]
+[Note "2:SMOLEN"]
+[Note "3:Blackwood 0314, for !H"]
+[Note "4:A=2/5 or 5/5, Q(H)=1"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Simple_Squeeze"]
+[Site ""]
+[Board "6"]
+[OriginalBoard "321"]
+[OriginalScenario "2N_and_Balanced"]
+% 4801B1ABCADA7776217E250C6FD4
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "N:A754.AJ4.QJT.Q93 9863.T2.643.JT86 KQ.Q753.AK7.AK75 JT2.K986.9852.42"]
+{Shape 4333 4234 2434 3442}
+{HCP 14 1 21 4}
+{Losers 8 11 5 10}
+[Declarer "S"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 990"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 5
+bidding: standard
+bidding-note: 2NT - 3C Stayman; 3H, no major fit — 6NT on sheer power.
+declarer: judgment simple-squeeze
+declarer-note: 6NT needs 12 and dd gives exactly 12; the menaces are dummy's SEVEN of spades and declarer's SEVEN of clubs, and East guards both with a nine and a jack-eight. Feed the heart queen to West's king to rectify, and the third diamond squeezes East at trick eleven: the club ace fells his jack and the seven wins trick thirteen.
+defense: reject
+defense-note: W (S:JT2 H:K986 D:9852 C:42) scores the heart king on declarer's schedule and finishes with a master diamond nobody ever leads; East alone guards both black sevens and must fail.
+}
+[Auction "S"]
+2N    Pass  3C =1=    Pass
+3H    Pass  6N    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \SJ, top of your J-T — the safe, standard start against 6NT.
+
+[ROLE declarer][STAGE auction-end] Stayman found no fit and power alone put you in 6NT. Count: three spades with the king-queen unblocked, the heart finesse and the ace, three diamonds, three clubs — eleven. Now look hard for the twelfth, because it is small: dummy's fourth spade is the SEVEN; your fourth club is the SEVEN. Two sevens, two threats — and East was dealt four cards in each black suit, responsible for both. Squeezes are not always about kings and queens; when the count is right, even the sevens report for duty.
+
+[ROLE declarer][STAGE post-lead] Take the spade queen, then two rounds of clubs ending in your king — East's ten already falling — and back to spades: king, then the heart finesse of the jack, then the ace as your king-queen unblock completes. Rectify on your own terms: lead the heart QUEEN into West's king, while dummy's ace still commands the third round. Win his return, unblock the diamonds, and cash the third one at trick eleven — the squeeze card. East holds the spade nine and the club jack-eight: three cards, two jobs. A club leaves; your ace collects his jack; and the SEVEN of clubs wins trick thirteen. Had the spade nine gone instead, dummy's spade SEVEN would score the same trick. Twelve either way.
+
+[ROLE declarer][STAGE post-play] The smallest squeeze on the shelf: menaces of seven and seven, guards of nine and jack-eight. Nothing here looked like a slam ending — just four quiet cards arranged so East could not hold them all. The two habits that carried it: the heart queen was FED to the king on your schedule, not West's, and the last diamond waited until every black-suit winner had been counted home. West ends the hand clutching a master diamond that nobody will ever lead. When the count is right, size means nothing.}
+[Note "1:Stayman"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]

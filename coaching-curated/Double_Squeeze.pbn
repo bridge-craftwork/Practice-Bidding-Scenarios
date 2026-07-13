@@ -129,10 +129,67 @@ Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead] Lead the \S3, fourth-best — their 2\S was artificial, so the suit is really yours.
 
-[ROLE declarer][STAGE auction-end] A quiet 4\C, and the point of this final hand: squeezes are not slam furniture. Ten tricks need the diamond ace, four trump tricks plus a ruff, and FOUR heart tricks from A-K-Q-3-2 — but the defenders hold seven hearts between them, so the fourth round loses by every ordinary reckoning. Let them cash their spades; count what falls; and notice that dummy's modest \DJ-7 will end up commanding two defenders at once.
+[ROLE declarer][STAGE auction-end] A quiet 4\C, and the point of this hand: squeezes are not slam furniture. Ten tricks need the diamond ace, four trump tricks plus a ruff, and FOUR heart tricks from A-K-Q-3-2 — but the defenders hold seven hearts between them, so the fourth round loses by every ordinary reckoning. Let them cash their spades; count what falls; and notice that dummy's modest \DJ-7 will end up commanding two defenders at once.
 
 [ROLE declarer][STAGE post-lead] Three rounds of spades — the defense takes them and, without meaning to, rectifies the count for you. East shifts to a diamond; take dummy's ace as West's king pops up. Now trumps: ace, king felling West's queen, the jack felling East's ten, and the FOURTH trump is the squeeze card. East must keep the \DQ behind dummy's jack; West must keep the \DT behind dummy's seven; so East parts with a heart and West parts with a heart — the only cards they can spare, and exactly the cards they cannot afford. Overtake the heart jack with the queen, cash the king and ace — everyone follows — and the \H3 wins trick twelve. Ruff your last diamond in dummy for ten.
 
 [ROLE declarer][STAGE post-play] A double squeeze to make a PART-SCORE, with both side menaces stacked in ONE suit at two heights: the jack tortured East's queen while the seven tortured West's ten, and the common suit was your own ragged five-card heart holding. West began with three hearts above your three, East with four; the trump run made both of them shorter than your suit. The count, the run, the watch — the machine is the same at every level of the auction; carry it with you below the slam line.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Double_Squeeze"]
+[Site ""]
+[Board "4"]
+[OriginalBoard "351"]
+[OriginalScenario "SCS_Impossible_Negative"]
+% 5A272B45B21AC28D30EAF7E647FA
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "N:AKT7.Q983.8.AK53 Q3.T.KT62.JT9642 J8.AK64.AQ543.Q8 96542.J752.J97.7"]
+{Shape 4414 2146 2452 5431}
+{HCP 16 6 16 2}
+{Losers 5 8 6 10}
+[Declarer "S"]
+[Contract "7H"]
+[Result "13"]
+[Score "NS 2210"]
+[Scoring "MP"]
+{Curate
+class: intended
+difficulty: 5
+bidding: convention
+bidding-note: A strong-club relay: 1C is 16+, 2NT shows any 4-4-4-1, 3C/3D locate the singleton and the heart fit, Blackwood and the king-ask confirm everything — 7H. The destination is the lesson: thirteen tricks, zero losers to schedule.
+declarer: double squeeze, grand slam
+declarer-note: 7H needs 13 and dd gives exactly 13; East is welded to four clubs by dummy's five, West to spades by dummy's ten-seven, so neither can keep diamonds: East pitches two under the trumps, West one under the club ace, and the diamond ACE fells the king and jack together — the FOUR and FIVE of diamonds win the last two tricks.
+defense: reject
+defense-note: W (S:96542 H:J752 D:J97 C:7) leads his singleton safely and even guards trumps four deep — every card working, and still no trick anywhere; East's clubs and his own spades leave the diamonds to nobody.
+}
+[Auction "S"]
+1C =1=    Pass  2N =2=    Pass
+3C =3=    Pass  3D =4=    Pass
+3H    Pass  4N =5=    Pass
+5C =6=    Pass  5N =7=    Pass
+6C =8=    Pass  7H    Pass
+Pass  Pass
+{[show NESW]
+[ROLE leader][STAGE pre-lead] Lead the \C7, your singleton. Against a grand slam the first rule is safety — with two points and no sequence, the short suit gives nothing away.
+
+[ROLE declarer][STAGE auction-end] The relay auction told the whole story — a strong club, partner's 2NT showing some 4-4-4-1, the asks locating his singleton diamond and the heart fit, Blackwood confirming every keycard — and 7\H needs all thirteen. Count: four trump tricks even through West's jack-fourth, two top spades and a third when the queen falls, three clubs, the diamond ace-queen. Twelve. The thirteenth hides in your ragged diamonds — A-Q-5-4-3 opposite dummy's bare eight, seven of them out against you. For little diamonds to score, BOTH defenders must abandon the suit: that is the double squeeze, and this hand plays it for the biggest prize in the game.
+
+[ROLE declarer][STAGE post-lead] Dummy's club king wins trick one. Trumps: king, ace, the queen over West's jack, the nine drawing his last — and East, out after one round, has already let two diamonds go. Spades next: the king, then the jack overtaken by the ace as East's doubleton queen crashes — dummy's ten and seven now tower over West's nine-six, so West is pinned to spades for the rest of his cards. Club queen, club ace — East must cling to his clubs against dummy's five, so West's third diamond leaves instead. Now the harvest: the eight to your QUEEN through East's ten, and the ACE — king and jack fall on it TOGETHER, both guards in one trick. Your FOUR and FIVE of diamonds — the two smallest cards of the suit — win tricks twelve and thirteen. Grand slam.
+
+[ROLE declarer][STAGE post-play] The full double squeeze, one level up from the lesson's other boards: East welded to clubs by dummy's fourth-round five, West welded to spades by dummy's ten-seven, and the common suit — your own five ragged diamonds — abandoned by both because neither had a card to spare. Notice how early the pressure began: East's diamonds went at tricks four and six, under the trumps, long before anything looked dangerous. And the ace gathering king and jack together is the double squeeze's signature — both defenders convicted in the same instant. When the auction buys a grand, the play must supply perfection; this is the machine that manufactures it.}
+[Note "1:16+ HCP"]
+[Note "2:any 4441"]
+[Note "3:artificial ask"]
+[Note "4:artificial"]
+[Note "5:Blackwood 0314, for !H"]
+[Note "6:A=0/5 or 3/5"]
+[Note "7:King ask by 5NT"]
+[Note "8:K=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]

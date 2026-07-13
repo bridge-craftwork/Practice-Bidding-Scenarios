@@ -131,3 +131,30 @@ def line_tricks(chrono, trump_letter, declarer):
         if w in decl_side:
             n += 1
     return n
+
+def busy_suits(snap, victim, fruit_suit, trumpL):
+    """Suits (≠ fruit, ≠ trump) where the victim alone guards a live
+    declarer-side card: he holds a card beating some live N/S card d, no
+    card above d is held by his partner, AND his holding is long enough to
+    survive declarer's tops (a guard the tops would fell anyway isn't busy —
+    the same always-crashing logic as the fruit-suit rung)."""
+    partner = "W" if victim == "E" else "E"
+    out = {}
+    for su in "SHDC":
+        if su in (fruit_suit, trumpL):
+            continue
+        vict = snap[victim][su]
+        if not vict:
+            continue
+        top_v = min(vict, key=RANKS.index)
+        decl = snap["N"][su] | snap["S"][su]
+        tops_over = sum(1 for r in decl if RANKS.index(r) < RANKS.index(top_v))
+        if len(vict) <= tops_over:
+            continue
+        for d in decl:
+            di = RANKS.index(d)
+            if (any(RANKS.index(v) < di for v in vict)
+                    and not any(RANKS.index(p) < di for p in snap[partner][su])):
+                out[su] = "".join(r for r in RANKS if r in vict)
+                break
+    return out
