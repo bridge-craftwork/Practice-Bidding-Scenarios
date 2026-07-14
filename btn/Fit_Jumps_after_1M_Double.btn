@@ -1,0 +1,100 @@
+# alias: FitJumpsAfter1MDouble
+# button-text: Fit-Jumps after 1M (X)
+# gib-works: true
+# bba-works: true
+# auction-filter: Note....Fit showing jump
+# convention-card-ns: 21GF-GIB
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Fit-Jumps after 1M - (X)
+Partner opens 1H or 1S, your right-hand opponent makes a takeout double, and you
+have a fit for partner plus a good second suit. A jump shift in a new suit is a
+FIT-SHOWING JUMP, showing in one bid:
+. 4+ card support for partner's major
+. a 5-card side suit with at least one top-3 honor (a real source of tricks)
+. limit-raise-or-better values (about 10-12 support points)
+
+Auctions (north opens 1M, east doubles for takeout):
+. 1H - (X) - 2S / 3C / 3D — fit jump: 4+ hearts + a good 5-card spades / clubs / diamonds
+. 1S - (X) - 3C / 3D / 3H — fit jump: 4+ spades + a good 5-card clubs / diamonds / hearts
+
+Why jump instead of redouble or a simple raise? The double crowds the auction, so
+one descriptive bid is worth a lot. Showing the fit AND where your side values live
+lets opener judge the double fit, spot wasted honors, and decide how high to compete
+or whether to bid game/slam.
+
+Opener then evaluates:
+. fitting honors opposite your side suit -> push to game or slam
+. wasted honors opposite your side suit -> compete only, or stop in the major
+. minimum with no side fit -> sign off in the trump suit
+
+https://www.advinbridge.com/this-week-in-bridge/574
+@chat*/
+
+# Competitive Fit-Showing Jump: partner opens 1M, RHO doubles, you fit-jump.
+# North opens 1H or 1S. East makes a takeout double. South (an unpassed
+# responder) jumps in a 5-card side suit, promising 4+ support and limit+ values.
+
+dealer north
+
+#include "script/Predict-Opening-1-Bid-North"
+# Defines oneClub, oneDiamond, oneHeart, oneSpade (for North as the opener)
+#include "script/TP"
+# Defines tpSouth, tpEast, etc.
+#include "script/Calm-Opponents"
+# Defines calmWest (East is NOT calm here -- East makes the takeout double)
+
+####### What we WANT #######
+# 1. North opens 1H or 1S.
+# 2. East makes a takeout double (short in the major, opening values, support
+#    for the other three suits, no 5-card suit of its own to overcall instead).
+# 3. South has 4+ card support for partner's major.
+# 4. South has a 5-card side suit with a top-3 honor.
+# 5. South holds limit-raise-or-better values.
+
+# 1. Wanted opening: north opens a major
+nOpensMajor = oneHeart or oneSpade
+
+# 2. Wanted takeout double by East: short in the opened major, 3+ in every other
+#    suit, no 5-card suit (so BBA doubles rather than overcalls), opening values.
+eTakeoutH = oneHeart and hearts(east)<3 and
+            spades(east)>2   and spades(east)<5 and
+            diamonds(east)>2 and diamonds(east)<5 and
+            clubs(east)>2    and clubs(east)<5
+eTakeoutS = oneSpade and spades(east)<3 and
+            hearts(east)>2   and hearts(east)<5 and
+            diamonds(east)>2 and diamonds(east)<5 and
+            clubs(east)>2    and clubs(east)<5
+eDoubles = (eTakeoutH or eTakeoutS) and hcp(east)>11 and hcp(east)<16
+
+# 3. Wanted support: 4-5 cards in partner's opened major
+sWantedFit = (oneHeart and hearts(south)>3 and hearts(south)<6) or
+             (oneSpade and spades(south)>3 and spades(south)<6)
+
+# 4. Wanted side suit: exactly 5 cards with at least one of the top-3 honors,
+#    reachable by a jump shift over the double.
+sSideS_overH = oneHeart and spades(south)==5   and top3(south,spades)>0
+sSideD_overH = oneHeart and diamonds(south)==5 and top3(south,diamonds)>0
+sSideC_overH = oneHeart and clubs(south)==5    and top3(south,clubs)>0
+sSideH_overS = oneSpade and hearts(south)==5   and top3(south,hearts)>0
+sSideD_overS = oneSpade and diamonds(south)==5 and top3(south,diamonds)>0
+sSideC_overS = oneSpade and clubs(south)==5    and top3(south,clubs)>0
+
+sWantedSide = sSideS_overH or sSideD_overH or sSideC_overH or
+              sSideH_overS or sSideD_overS or sSideC_overS
+
+# 5. Wanted range: limit-raise-or-better (about 10-12 support points), not enough
+#    to force to game on its own.
+sWantedRange = hcp(south)>8 and hcp(south)<12 and tpSouth>9 and tpSouth<13
+
+####### Compose all wanted conditions #######
+# (Tightest constraints first for short-circuit speedup.)
+sWantedSide and sWantedFit and sWantedRange and eDoubles and nOpensMajor and calmWest
+
+produce 30
+action
+average "South HCP " hcp(south),
+average "East HCP  " hcp(east),
+average "Opens 1H  " 100 * oneHeart,
+average "Opens 1S  " 100 * oneSpade,
