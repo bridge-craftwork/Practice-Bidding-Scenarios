@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release",
-  "generatedAtCommit": "2f5962023fec952df1ad4834342acb96a1746ce5",
+  "generatedAtCommit": "c1dbdc1b96a955f471f287df91b77908a5dba4af",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -549,6 +549,20 @@
       "type": "row",
       "buttons": [
         {
+          "name": "Preemptive_Major_Raise",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "---"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
           "name": "Major_Opener",
           "color": null,
           "width": "50%",
@@ -559,20 +573,6 @@
           "color": null,
           "width": "50%",
           "grouped": false
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
-          "name": "Preemptive_Major_Raise",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        },
-        {
-          "name": "---"
         }
       ]
     },
@@ -4052,6 +4052,16 @@
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
+    "Preemptive_Major_Raise": {
+      "buttonText": "Preemptive Major Raise",
+      "chat": "--- Preemptive Major Raise (1!H-4!H, 1!S-4!S)\nPartner opens 1!H or 1!S.  With about 3-6 HCP, five-plus trumps, and a shapely hand,\njump straight to game.  The raise is weak and distributional, not an invitation: it\nshows the fifth (often sixth) trump and shortness, bids to the level of the fit, and\ntakes the opponents' room away.  Opener trusts the picture and passes a normal opening,\nsince the raise has already placed the contract.  When the opponents intervene, an\ninvitational raise is often more effective.",
+      "alias": "PreemptiveMajorRaise",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": true
+    },
     "Major_Opener": {
       "buttonText": "Major Opener",
       "chat": "\\n--- Major Opener\\n",
@@ -4071,16 +4081,6 @@
       "conventionCardNS": "21GF-DEFAULT",
       "conventionCardEW": "21GF-GIB",
       "missing": false
-    },
-    "Preemptive_Major_Raise": {
-      "buttonText": "Preemptive Major Raise",
-      "chat": "--- Preemptive Major Raise (1!H-4!H, 1!S-4!S)\nPartner opens 1!H or 1!S.  With about 3-6 HCP, five-plus trumps, and a shapely hand,\njump straight to game.  The raise is weak and distributional, not an invitation: it\nshows the fifth (often sixth) trump and shortness, bids to the level of the fit, and\ntakes the opponents' room away.  Opener trusts the picture and passes a normal opening,\nsince the raise has already placed the contract.  When the opponents intervene, an\ninvitational raise is often more effective.",
-      "alias": "PreemptiveMajorRaise",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": true
     },
     "Exclusion_After_1M": {
       "buttonText": "Exclusion After 1M",
