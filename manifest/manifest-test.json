@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "test",
-  "generatedAtCommit": "efd37a4124ae0303b0b2d3d202f4494a35ec800f",
+  "generatedAtCommit": "8a9357d48445f06878f47f49b8716913411801ed",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -3504,8 +3504,8 @@
   ],
   "scenarios": {
     "Basic_What_To_Open": {
-      "buttonText": "Basic What to Open",
-      "chat": "\\n--- Basic: What Should I Open? (beginner)\\nSouth has a typical opening hand (12-21 HCP). The challenge: pick the right opening bid.\\nDecision tree:\\n• 20-21 HCP balanced (4-3-3-3，4-4-3-2，or 5-3-3-2 with 5-card minor) open 2NT\\n• 15-17 HCP balanced open 1NT\\n• Open the longest five-card or longer suit at the one-level. If you have two suits that\\n  are the same length，open the higher ranking.\\n• Open 1!D if you have four diamonds and four or fewer clubs.\\n• Open 1!D if your shape is exactly 4=4=3=2.\\n• Otherwise，Open 1!C.\\nhttps://pfdubois.github.io/BridgeBidding/Opening.html#choosing-an-opening-bid\\n",
+      "buttonText": "What to Open",
+      "chat": "\\n--- Basic: What Should I Open? (beginner)\\nSouth has a typical opening hand (12-21 HCP). The challenge: pick the right opening bid.\\nDecision tree:\\n• 20-21 HCP balanced (any 4333，4432，or 5332 with 5-card minor) open 2NT\\n• 15-17 HCP balanced open 1NT\\n• Open the longest five-card or longer suit at the one-level. If you have two suits that\\n  are the same length，open the higher ranking.\\n• Open 1!D if you have four diamonds and four or fewer clubs.\\n• Open 1!D if your shape is exactly 4=4=3=2.\\n• Otherwise，Open 1!C.\\nhttps://pfdubois.github.io/BridgeBidding/Opening.html#choosing-an-opening-bid\\n4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\\n  • 5!C = 0 or 4 aces\\n  • 5!D = 1 ace\\n  • 5!H = 2 aces\\n  • 5!S = 3 aces\\n  • 5NT then asks for kings the same way\\n",
       "alias": "BasicWhatToOpen",
       "gibWorks": true,
       "bbaWorks": true,
@@ -3514,7 +3514,7 @@
       "missing": false
     },
     "Basic_Responses": {
-      "buttonText": "Basic Response",
+      "buttonText": "What to Respond",
       "chat": "\\n--- Basic: How to Respond (beginner)\\nPartner opened one of a suit. With about 6 or more points you must answer -- passing\\nwould leave partner guessing. Your first job is to keep the bidding alive and start\\ndescribing your hand.\\n• A fit for partner's major: raise. 3-card support and 6-9 is a single raise to the two\\n  level; about 10-12 with support jumps to the three level to invite game.\\n• A new suit you can show at the ONE level: bid it (going \"up the line\" to the cheapest\\n  four-card suit). A new suit is forcing -- partner must bid again.\\n• No fit and nothing to bid at the one level: respond 1NT，showing about 6-10 and denying\\n  support or a cheap new suit.\\n• A good five-card suit and about 10+ points: you can introduce it at the two level，which\\n  promises more than a one-level response.\\nAnswer partner -- the cheapest honest call that starts the conversation is almost always\\nright.\\n",
       "alias": "BasicResponses",
       "gibWorks": true,
@@ -3524,7 +3524,7 @@
       "missing": false
     },
     "Basic_Openers_Rebid": {
-      "buttonText": "Basic Rebid",
+      "buttonText": "Opener's Rebid",
       "chat": "\\n--- Basic: Opener's Rebid (beginner)\\nYou opened one of a suit and partner responded. Your REBID finishes the picture in\\none more call -- how strong you are (a minimum，or a little extra) and what shape.\\n• Balanced 12-14 with no fit: rebid 1NT. One call shows the whole hand.\\n• Four-card support for partner's suit: raise. Two of the suit shows a minimum; a jump\\n  to three shows about 16-18 and invites game.\\n• A six-card suit and no fit: rebid your suit. Cheaply (the two level) shows a minimum;\\n  a jump (the three level) shows extra and invites.\\n• A second four-card suit you can show at the ONE level: bid it. A new suit up the line\\n  needs no extra strength.\\nThe level of the rebid is the message: the cheapest call shows a minimum，a jump shows\\nabout 16-18 and asks partner to think about game.\\n",
       "alias": "BasicOpenersRebid",
       "gibWorks": true,
@@ -3534,7 +3534,7 @@
       "missing": false
     },
     "Open_and_Rebid": {
-      "buttonText": "Basic Open & Rebid",
+      "buttonText": "Open w/Rebid in Mind",
       "chat": "\\n--- Basic: Open the Suit That Buys You a Rebid (beginner)\\nUsually you open your longest suit. But first ask: after I open，what will I REBID?\\nWhen you are minimum (about 11-15) you cannot introduce a higher-ranking second suit at\\nthe two level -- that shows extra strength you do not have. So when opening your long\\nsuit leaves you no cheap rebid，open a DIFFERENT suit instead.\\n• 5 clubs and 4 diamonds: open 1!D，not 1!C. Over partner's major you rebid 2!C，showing\\n  both minors. Open 1!C and your only way to show diamonds is 2!D -- a higher-ranking suit\\n  at the two level，promising more than you have.\\n• 6 of a minor and 5 of a major (6!C-5!H，6!C-5!S，6!D-5!H，6!D-5!S): open the 5-card MAJOR,\\n  then rebid your long minor cheaply. Open the 6-card minor and showing the major means\\n  bidding it at the two level -- higher-ranking，more than you have.\\n• Both minors 5-5: open the higher，1!D，then rebid 2!C.\\nSometimes the ordinary rule already works: with 5 diamonds and 4 clubs，open your longest,\\n1!D，and 2!C is cheap anyway. The skill is spotting when opening your longest suit would\\nleave you stuck.\\n\\nReference: https://www.advinbridge.com/this-week-in-bridge/637\\n",
       "alias": "OpenAndRebid",
       "gibWorks": true,
@@ -17084,31 +17084,9 @@
     "scenarios": 340,
     "missing": 1,
     "orphans": 0,
-    "testOnly": 6
+    "testOnly": 4
   },
   "testScenarios": [
-    {
-      "buttonText": "Basic Rebid",
-      "chat": "\\n--- Basic: Opener's Rebid (beginner)\\nYou opened one of a suit and partner responded. Your REBID finishes the picture in\\none more call -- how strong you are (a minimum，or a little extra) and what shape.\\n• Balanced 12-14 with no fit: rebid 1NT. One call shows the whole hand.\\n• Four-card support for partner's suit: raise. Two of the suit shows a minimum; a jump\\n  to three shows about 16-18 and invites game.\\n• A six-card suit and no fit: rebid your suit. Cheaply (the two level) shows a minimum;\\n  a jump (the three level) shows extra and invites.\\n• A second four-card suit you can show at the ONE level: bid it. A new suit up the line\\n  needs no extra strength.\\nThe level of the rebid is the message: the cheapest call shows a minimum，a jump shows\\nabout 16-18 and asks partner to think about game.\\n",
-      "alias": "BasicOpenersRebid",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false,
-      "name": "Basic_Openers_Rebid"
-    },
-    {
-      "buttonText": "Basic Response",
-      "chat": "\\n--- Basic: How to Respond (beginner)\\nPartner opened one of a suit. With about 6 or more points you must answer -- passing\\nwould leave partner guessing. Your first job is to keep the bidding alive and start\\ndescribing your hand.\\n• A fit for partner's major: raise. 3-card support and 6-9 is a single raise to the two\\n  level; about 10-12 with support jumps to the three level to invite game.\\n• A new suit you can show at the ONE level: bid it (going \"up the line\" to the cheapest\\n  four-card suit). A new suit is forcing -- partner must bid again.\\n• No fit and nothing to bid at the one level: respond 1NT，showing about 6-10 and denying\\n  support or a cheap new suit.\\n• A good five-card suit and about 10+ points: you can introduce it at the two level，which\\n  promises more than a one-level response.\\nAnswer partner -- the cheapest honest call that starts the conversation is almost always\\nright.\\n",
-      "alias": "BasicResponses",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false,
-      "name": "Basic_Responses"
-    },
     {
       "buttonText": "Found Endplay",
       "chat": "\\n--- Found Endplays (4!H / 4!S) — curated strip-and-endplay candidates\\n\\nThese hands are scanned from all bba/*.pbn files by\\n[find_endplay_candidates.py]: South declares a 4-of-major contract，and\\ndeclarer's side holds an AJ tenace in one side suit (with East likely\\nholding the Q) plus solid honors (AK or AKQ) in another side suit so a\\nstrip is feasible.\\n\\nThe teaching pattern: strip the side suits where you have winners，then\\nthrow East in (typically with a heart or club) and force East to lead\\ninto your tenace. This converts a 50% finesse into a 100% endplay.\\n\\nThings to think about:\\n• Count your losers; if a finesse can be avoided，look for a throw-in.\\n• Strip the safe exits BEFORE the throw-in. Once East is in，every lead\\n  helps you.\\n• The thrown-in opponent should be the one holding the Q of your tenace\\n  suit.\\n\\nReference: https://www.bridgebum.com/endplay.php\\n",
