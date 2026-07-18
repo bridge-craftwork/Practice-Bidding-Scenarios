@@ -98,8 +98,9 @@ def contract_display(chunk):
 def parse_block(chunk):
     """Return (intro, [(call, text), ...], reflection) from the LAST {...} block."""
     block = chunk[chunk.rfind('{') + 1: chunk.rfind('}')]
-    # split on [BID xxx] and [show NS]
-    parts = re.split(r'(\[BID [^\]]+\]|\[show NS\])', block)
+    # split on [BID xxx] and the closing reflection marker ([show NS] or the
+    # current [show NESW] — both are accepted; curated files use [show NESW]).
+    parts = re.split(r'(\[BID [^\]]+\]|\[show N(?:S|ESW)\])', block)
     intro = parts[0].strip()
     chunks, reflection = [], ''
     i = 1
@@ -109,7 +110,7 @@ def parse_block(chunk):
         if marker.startswith('[BID'):
             cur_call = marker[len('[BID '):-1].strip()
             chunks.append((cur_call, body.strip()))
-        elif marker == '[show NS]':
+        elif marker in ('[show NS]', '[show NESW]'):
             reflection = body.strip()
         i += 2
     return intro, chunks, reflection
@@ -182,7 +183,7 @@ def fold_board(chunk):
     body_lines = ['[show S]' + intro]
     for call, text in out:
         body_lines.append(f'[BID {call}] {text}')
-    body_lines.append('[show NS]' + reflection)
+    body_lines.append('[show NESW]' + reflection)
     return '{' + '\n'.join(body_lines) + '}'
 
 
