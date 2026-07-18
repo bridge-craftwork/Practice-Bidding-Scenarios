@@ -1,0 +1,187 @@
+Script,BasicResponses
+window.currentPBSScenario = 'BasicResponses';
+window.currentPBSScenarioFilename = 'Basic_Responses';
+console.log('PBS: Logging scenario selection for BasicResponses');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'BasicResponses',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: Basic-Bridge
+convention-card-ew: Basic-Bridge
+auction-filter: Auction.....\n1[CDHS] +Pass +[1-5][CDHSN] .* Pass\n(P|[1-5])
+*/
+# curate: kind=bidding
+# convention-card-ns: Basic-Bridge
+# convention-card-ew: Basic-Bridge
+
+
+dealer north
+
+### Imported Leveling Code ###
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+####06 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep   = 1
+keep0  = 0
+### End of Imported Leveling Code ###
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+# provides calmOpps (both opponents too weak or flat to interfere)
+
+nHcp = hcp(north)
+sHcp = hcp(south)
+os = spades(north)
+oh = hearts(north)
+od = diamonds(north)
+oc = clubs(north)
+ss = spades(south)
+sh = hearts(south)
+sd = diamonds(south)
+sc = clubs(south)
+
+# ===== North opens a natural one-of-a-suit (not 1NT, not a preempt/strong 2) =====
+nBal   = shape(north, any 4432 + any 4333 + any 5332)
+n1NT   = nBal and nHcp > 14 and nHcp < 18       // would open 1NT, not a suit
+oS = os > 4 and os >= oh and os >= od and os >= oc
+oH = not oS and oh > 4 and oh >= od and oh >= oc
+oD = not (oS or oH) and ((od > 3 and od >= oc) or oc < 3)
+oC = not (oS or oH or oD)
+openMajor = oS or oH
+northOpens = nHcp > 11 and nHcp < 18 and not n1NT
+
+# The major North opened (for the raise / 1NT families)
+oMajorSuit = oS or oH
+
+# ===== Family 1 -- raise partner's major: 3+ support, minimum (6-9) =====
+# North opened a major; South has support and a plain minimum, with no four-card suit
+# to show more cheaply, so the single raise is the clean call.
+f1support = (oH and sh > 2 and ss < 4) or (oS and ss > 2)
+f1 = oMajorSuit and f1support and sHcp > 5 and sHcp < 10
+
+# ===== Family 2 -- new suit at the one level: 6+, a four-card suit up the line =====
+# Over 1C: 1D/1H/1S; over 1D: 1H/1S; over 1H: 1S. South shows the cheapest 4+ suit.
+r_over1C = oC and ((sd > 3 and sd >= sh and sd >= ss) or (sh > 3 and sh >= ss) or ss > 3)
+r_over1D = oD and ((sh > 3 and sh >= ss) or ss > 3)
+r_over1H = oH and ss > 3 and sh < 3           // show spades; not a heart raise
+f2 = (r_over1C or r_over1D or r_over1H) and sHcp > 5 and sHcp < 11
+
+# ===== Family 3 -- respond 1NT: 6-10, no fit, nothing to bid at the one level =====
+# Over 1S with no support and no 1-level suit; or over 1H with no support and no spades.
+f3over1S = oS and ss < 3 and sHcp > 5 and sHcp < 10
+f3over1H = oH and sh < 3 and ss < 4 and sHcp > 5 and sHcp < 10
+f3 = f3over1S or f3over1H
+
+# ===== Family 4 -- jump raise (invitational): 4-card support, about 10-12 =====
+f4support = (oH and sh > 3) or (oS and ss > 3)
+f4 = oMajorSuit and f4support and sHcp > 9 and sHcp < 13
+
+# ===== Family 5 -- new suit at the two level: a good 5-card suit, 10+ =====
+# South must go to the two level to show the suit (lower-ranking than opener's).
+r2_over1S = oS and ((sh > 4) or (sd > 4) or (sc > 4))
+r2_over1H = oH and ((sd > 4) or (sc > 4))
+f5 = (r2_over1S or r2_over1H) and sHcp > 9 and sHcp < 13 and ss < 4 and (not ((oH and sh > 2) or (oS and ss > 2)))
+
+southHand = f1 or f2 or f3 or f4 or f5
+
+# ===== Level toward mostly-minimum spread; the 10+ families are the minority tier =====
+levF1 = f1 and keep
+levF2 = f2 and keep25
+levF3 = f3 and keep
+levF4 = f4 and keep
+levF5 = f5 and keep25
+levelTheDeal = levF1 or levF2 or levF3 or levF4 or levF5
+
+northOpens and southHand and calmOpps and levelTheDeal
+
+produce 30
+
+action printoneline,
+average "North HCP avg            " hcp(north),
+average "South HCP avg            " hcp(south),
+average "F1 raise major (6-9)   % " 100 * f1,
+average "F2 new suit 1-level    % " 100 * f2,
+average "F3 respond 1NT         % " 100 * f3,
+average "F4 jump raise (inv)    % " 100 * f4,
+average "F5 new suit 2-level    % " 100 * f5,
+`, "N", true)
+Script
+Button,What to Respond,\n\
+--- Basic: How to Respond (beginner)\n\
+Partner opened one of a suit. With about 6 or more points you must answer -- passing\n\
+would leave partner guessing. Your first job is to keep the bidding alive and start\n\
+describing your hand.\n\
+• A fit for partner's major: raise. 3-card support and 6-9 is a single raise to the two\n\
+  level; about 10-12 with support jumps to the three level to invite game.\n\
+• A new suit you can show at the ONE level: bid it (going "up the line" to the cheapest\n\
+  four-card suit). A new suit is forcing -- partner must bid again.\n\
+• No fit and nothing to bid at the one level: respond 1NT，showing about 6-10 and denying\n\
+  support or a cheap new suit.\n\
+• A good five-card suit and about 10+ points: you can introduce it at the two level，which\n\
+  promises more than a one-level response.\n\
+Answer partner -- the cheapest honest call that starts the conversation is almost always\n\
+right.\n\
+%BasicResponses%
