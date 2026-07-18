@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "test",
-  "generatedAtCommit": "2f5962023fec952df1ad4834342acb96a1746ce5",
+  "generatedAtCommit": "f053c897a951eaf13a54014947a748886544f917",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -550,20 +550,6 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Preemptive_Major_Raise",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        },
-        {
-          "name": "---"
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
           "name": "Major_Opener",
           "color": null,
           "width": "50%",
@@ -581,13 +567,16 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Exclusion_After_1M",
+          "name": "Two-Way_Game_Try",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "Bergen_Raises",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -605,6 +594,37 @@
           "color": null,
           "width": "50%",
           "grouped": false
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Gavin_3-Card_Limit_Raise",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "Preemptive_Major_Raise",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Exclusion_After_1M",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "---"
         }
       ]
     },
@@ -667,23 +687,6 @@
         },
         {
           "name": "---"
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
-          "name": "Two-Way_Game_Try",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        },
-        {
-          "name": "Bergen_Raises",
-          "color": null,
-          "width": "50%",
-          "grouped": false
         }
       ]
     },
@@ -4053,16 +4056,6 @@
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
-    "Preemptive_Major_Raise": {
-      "buttonText": "Preemptive Major Raise",
-      "chat": "\\n--- Preemptive Major Raise (1!H-4!H，1!S-4!S)\\nPartner opens 1!H or 1!S.  With about 3-6 HCP，five-plus trumps，and a shapely hand,\\njump straight to game.  The raise is weak and distributional，not an invitation: it\\nshows the fifth (often sixth) trump and shortness，bids to the level of the fit，and\\ntakes the opponents' room away.  Opener trusts the picture and passes a normal opening,\\nsince the raise has already placed the contract.  When the opponents intervene，an\\ninvitational raise is often more effective.\\n",
-      "alias": "PreemptiveMajorRaise",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
     "Major_Opener": {
       "buttonText": "Major Opener",
       "chat": "\\n--- Major Opener\\n",
@@ -4083,13 +4076,23 @@
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
-    "Exclusion_After_1M": {
-      "buttonText": "Exclusion After 1M",
-      "chat": "\\n--- Exclusion Blackwood after 1M\\nAfter a Major is bid and raised，a suit-bid above 4 of our Major is Exclusion Blackwood.\\n",
-      "alias": "ExclusionAfter1M",
+    "Two-Way_Game_Try": {
+      "buttonText": "Two-Way Game Try",
+      "chat": "\\n--- Two-Way Game Try\\nAfter a single raise of a major\\n. a step bid is an unspecified shortness game try\\n. any other bid below 3 or the major is a long suit/help suit game try\\n. bidding 3 of the major is a general strength game try\\n https://www.bridgebase.com/doc/gib_system_notes.php#Two-way_Game_Try\\n",
+      "alias": "TwoWayGameTry",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-GIB",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Bergen_Raises": {
+      "buttonText": "Bergen Raises (Lev)",
+      "chat": "\\n--- Bergen Raises all show exactly 4-card support.\\n• 3!C = Constructive (7-10) TP\\n• 3!D = Limit Raise (11-12) TP\\n• 3M  = Preemptive Raise (3-6) TP\\n• 3OM = Ambiguous Splinter (12+) TP\\n• 3N  = 4333 (13-15) HCP\\nhttps://www.bridgebum.com/bergen_raises.php\\n",
+      "alias": "BergenRaises",
       "gibWorks": false,
       "bbaWorks": true,
-      "conventionCardNS": "21GF-SPECIALS2",
+      "conventionCardNS": "21GF-GIB-Bergen",
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
@@ -4110,6 +4113,36 @@
       "gibWorks": false,
       "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Gavin_3-Card_Limit_Raise": {
+      "buttonText": "3-card Limit Raise (11-12 TP) 1N/3M",
+      "chat": "\\n--- 3-card Limit Raise (11-12 TP) 1N/3M\\nhttps://tinyurl.com/4dvh42e7\\n",
+      "alias": "LimitRaise3Card",
+      "gibWorks": false,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Preemptive_Major_Raise": {
+      "buttonText": "Preemptive Major Raise",
+      "chat": "\\n--- Preemptive Major Raise (1!H-4!H，1!S-4!S)\\nPartner opens 1!H or 1!S.  With about 3-6 HCP，five-plus trumps，and a shapely hand,\\njump straight to game.  The raise is weak and distributional，not an invitation: it\\nshows the fifth (often sixth) trump and shortness，bids to the level of the fit，and\\ntakes the opponents' room away.  Opener trusts the picture and passes a normal opening,\\nsince the raise has already placed the contract.  When the opponents intervene，an\\ninvitational raise is often more effective.\\n",
+      "alias": "PreemptiveMajorRaise",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Exclusion_After_1M": {
+      "buttonText": "Exclusion After 1M",
+      "chat": "\\n--- Exclusion Blackwood after 1M\\nAfter a Major is bid and raised，a suit-bid above 4 of our Major is Exclusion Blackwood.\\n",
+      "alias": "ExclusionAfter1M",
+      "gibWorks": false,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-SPECIALS2",
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
@@ -4170,26 +4203,6 @@
       "gibWorks": false,
       "bbaWorks": true,
       "conventionCardNS": "21GF-Flannery",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
-    "Two-Way_Game_Try": {
-      "buttonText": "Two-Way Game Try",
-      "chat": "\\n--- Two-Way Game Try\\nAfter a single raise of a major\\n. a step bid is an unspecified shortness game try\\n. any other bid below 3 or the major is a long suit/help suit game try\\n. bidding 3 of the major is a general strength game try\\n https://www.bridgebase.com/doc/gib_system_notes.php#Two-way_Game_Try\\n",
-      "alias": "TwoWayGameTry",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-GIB",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
-    "Bergen_Raises": {
-      "buttonText": "Bergen Raises (Lev)",
-      "chat": "\\n--- Bergen Raises all show exactly 4-card support.\\n• 3!C = Constructive (7-10) TP\\n• 3!D = Limit Raise (11-12) TP\\n• 3M  = Preemptive Raise (3-6) TP\\n• 3OM = Ambiguous Splinter (12+) TP\\n• 3N  = 4333 (13-15) HCP\\nhttps://www.bridgebum.com/bergen_raises.php\\n",
-      "alias": "BergenRaises",
-      "gibWorks": false,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-GIB-Bergen",
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
@@ -6137,16 +6150,6 @@
       "buttonText": "Semi-Constructive 3-card Raise (8-10 TP) 2M",
       "chat": "\\n--- Semi-Constructive 3-card Raise (8-10 TP) 2M\\nhttps://tinyurl.com/4dvh42e7\\n",
       "alias": "SemiConstructiveRaise",
-      "gibWorks": false,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
-    "Gavin_3-Card_Limit_Raise": {
-      "buttonText": "3-card Limit Raise (11-12 TP) 1N/3M",
-      "chat": "\\n--- 3-card Limit Raise (11-12 TP) 1N/3M\\nhttps://tinyurl.com/4dvh42e7\\n",
-      "alias": "LimitRaise3Card",
       "gibWorks": false,
       "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
