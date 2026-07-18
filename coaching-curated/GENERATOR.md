@@ -135,6 +135,32 @@ token-free, South-fixed file, exactly like the defense sets where
   `coach.py validate` (`_partner_exposure_violations`), which blocks promote on
   any partner-hand mention in the intro (and on card/HCP recitation in the
   reflection).
+- HIDDEN HANDS — OPPONENTS AND NARROWING. The same "hidden hand stays hidden"
+  rule covers the OPPONENTS, and it covers a subtler leak than reciting cards:
+  - **Opponents (E/W).** Never state what East or West actually holds. A defender's
+    hand is hidden all through the auction, and the closing `[show NESW]` reveal is
+    no license to name their cards — the lesson is about the partnership's decision,
+    not the layout. What a call SHOWS is fair ("West's overcall shows 5+ spades"),
+    and so is an inference the auction forces ("a keycard is missing, so it sits with
+    the opponents"; "East-West found a heart fit and reached 4\H"). What is out is a
+    FLAT PLACEMENT: not "the \HK sat offside in the West hand" / "West held the \SA" /
+    "West held opening values and a two-suiter" but "the missing keycard was offside"
+    / "the last keycard lay wrong, so the grand was never there." Which defender holds
+    a card is never derivable from the auction — leave it unsaid.
+  - **Narrowing (both partner AND opponents).** A call promises a RANGE (of strength,
+    of length, of shape); stating that range is the legitimate inference, but PINNING
+    the hidden hand to a spot inside it resolves the very ambiguity the range exists to
+    hold. Say what the call shows, not where in its range the hand actually sits:
+    - BAD: "partner has a hand near the top of the invitational range"; "North at the
+      bottom of the invitational zone"; "opener's 1\D is a real suit" (1\D can be 3 on
+      4=4=3=2); "the 1NT is a bad 15"; "partner's raise is on the good side".
+    - GOOD: "partner's 2NT invites, showing about 8-9"; "partner lacked the values to
+      invite, so passed"; "1\D shows 4+ diamonds"; "the 1NT showed 15-17".
+    "A maximum"/"a minimum" is fine when it states what a call SHOWS or ASKS ("raise to
+    game with a maximum, pass with a minimum", the NMF jump = maximum) — the problem is
+    only range-POSITION or quality pinning of a hand the bidding didn't itself resolve.
+    This applies in `[BID]` chunks too, not just intro/reflection. Enforced by
+    `coach.py validate` (`_hidden_hand_disclosure_violations`).
 - JUDGMENT-tier boards: present the call as genuinely close, name the
   defensible alternative in plain prose, AND — when the judgment call is a
   NON-PASS call — emit `[ACCEPT <call>]` inside that call's `[BID]` chunk so

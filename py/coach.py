@@ -466,6 +466,115 @@ _PE_BIDNOUN = re.compile(r"^['’s]*\s+(opening|open|double|raise|rais\w+|bid|ca
                          r"transfer\w*|probe|ask\w*|advance\w*|invitation|signoff|"
                          r"signs?\s+off|step|reply)", re.I)
 
+# --- Opponent disclosure (Class A) + narrowing (Class B): two gaps left by
+# _partner_exposure_violations, which only scans intro/reflection and only for
+# North/partner subjects. See GENERATOR.md ("Hidden hands: opponents and
+# narrowing"). ---
+_PE_HONOR = r"\b(?:ace|king|queen|jack|values|strength)\b"
+_PE_OPP_CONC = re.compile(f"(?:{_PE_CARD}|{_PE_HCP}|{_PE_SHAPE}|{_PE_LEN}|{_PE_HONOR})", re.I)
+# Flat ASSERTION that a named defender HOLDS concrete cards. "East-West held a
+# fit" (a pair reaching a contract) is auction inference, excluded via the
+# (?<![-\w]) guard against the compound name; hypotheticals ("would need the
+# ace onside") never match these placement idioms.
+_OPP_HELD = re.compile(r"(?<![-\w])(East|West)\b\s+(?:held|holds|had|has)\b", re.I)
+_OPP_PLACE = re.compile(
+    r"\b(?:sitting|sat|lies?|lying|lay)\s+with\s+(?:East|West)\b"
+    r"|\bin\s+the\s+(?:East|West)\s+hand\b"
+    r"|\b(?:offside|onside|sits?|sat|sitting|lies?|lay)\b[^.]{0,20}\bin\s+(?:the\s+)?(?:East|West)\b",
+    re.I)
+_OPP_NEG = re.compile(r"\b(?:no|not|never|nothing|without)\b", re.I)
+# Narrowing: pin a HIDDEN hand to a spot inside the range its call only promised.
+# "shows 15-17" is fine; "at the top of its range" resolves the ambiguity.
+_NARROW_PIN = re.compile(
+    r"(?:top|bottom)\s+of\s+(?:its|his|her|their|the|a)\s+(?:\w+\s+){0,2}(?:range|zone)"
+    r"|(?:near|at)\s+the\s+(?:top|bottom)\s+of\s+(?:its|his|her|their|the|a)?\s*(?:\w+\s+){0,2}(?:range|zone)"
+    r"|on\s+the\s+good\s+side", re.I)
+
+
+def _north_roles(chunk):
+    """Which role words denote North (partner) on THIS board, so "opener" is only
+    treated as partner when North actually opened. Mirrors the auction walk used
+    by _partner_exposure_violations."""
+    SEATS = ['N', 'E', 'S', 'W']
+    m = re.search(r'\[Auction "(\w)"\]\s*\n((?:[^\[{][^\n]*\n?)*)', chunk)
+    if not m:
+        return {'responder', 'advancer'}
+    di = SEATS.index(m.group(1))
+    calls = [t for t in m.group(2).split()
+             if re.match(r'(?i)^(pass|x|xx|\d[cdhsn]t?)$', t)]
+    for j, c in enumerate(calls):
+        if c.lower() == 'pass':
+            continue
+        return {'opener'} if SEATS[(di + j) % 4] == 'N' else {'responder', 'advancer'}
+    return {'responder', 'advancer'}
+
+
+def _hidden_hand_disclosure_violations(path):
+    """Two disclosures GENERATOR.md forbids but _partner_exposure_violations misses:
+    (A) a named opponent's concrete holding stated as fact (intro/reflection), and
+    (B) NARROWING — pinning a hidden hand (partner OR opponent) to a spot inside
+    the range/zone its call only promised, in ANY chunk (including [BID] chunks,
+    which the partner-exposure gate never scans). Yields (board, loc, cls, snip)."""
+    def _sentences(t):
+        return re.split(r'(?<=[.!?])\s+', re.sub(r'\s+', ' ', t).strip())
+
+    def _chunks(blk):
+        pos, lab = 0, 'intro'
+        for m in re.finditer(r'\[(BID [^\]]+|show [^\]]+)\]', blk):
+            yield lab, blk[pos:m.start()]
+            tok = m.group(1)
+            if tok.startswith('BID'):
+                lab = 'BID:' + tok[4:].strip()
+            else:
+                arg = tok[5:].strip()
+                lab = 'reflection' if arg in ('NS', 'NESW') else 'show ' + arg
+            pos = m.end()
+        yield lab, blk[pos:]
+
+    def _opp(sent):
+        for rx in (_OPP_HELD, _OPP_PLACE):
+            m = rx.search(sent)
+            if not m:
+                continue
+            tail = sent[m.end():m.end() + 45]
+            if _OPP_NEG.match(tail.lstrip()[:8]):
+                continue
+            if rx is _OPP_HELD and not _PE_OPP_CONC.search(tail):
+                continue
+            return sent[m.start():m.end() + 45].strip()[:70]
+        return None
+
+    def _narrow(sent, roles):
+        subs = [r"partner'?’?s?", r"North'?’?s?"] + [w for r in roles
+                                                     for w in (r.capitalize(), r)]
+        subj = re.compile(r"\b(" + "|".join(subs) + r")\b")
+        for sm in subj.finditer(sent):
+            pm = _NARROW_PIN.search(sent, sm.end())
+            if not pm:
+                continue
+            if re.search(r"\b(you|your|South)\b", sent[sm.start():pm.end()], re.I):
+                continue
+            return sent[sm.start():pm.end()].strip()[:80]
+        return None
+
+    for ch in split_boards(path):
+        b = tag(ch, 'Board')
+        if not b:
+            continue
+        blk = ch[ch.rfind('{') + 1:ch.rfind('}')]
+        if '[ROLE' in blk:          # play lessons use a different prose dialect
+            continue
+        roles = _north_roles(ch)
+        for loc, seg in _chunks(blk):
+            for s in _sentences(seg):
+                if loc in ('intro', 'reflection'):
+                    d = _opp(s)
+                    if d:
+                        yield b, loc, 'opponent-disclosure', d
+                n = _narrow(s, roles)
+                if n:
+                    yield b, loc, 'narrowing', n
+
 
 def _partner_exposure_violations(path):
     """Flag intro / [show NS] prose that exposes partner's (North's — the non-student
@@ -633,6 +742,12 @@ def validate(scn):
     for b, loc, snip in _partner_exposure_violations(path):
         issues += 1
         print(f"  {scn} b{b}: partner-hand exposure in {loc}: \"{snip}\"")
+    # Opponent disclosure (Class A) and narrowing (Class B): a named opponent's
+    # concrete holding, or a hidden hand pinned inside its promised range/zone
+    # (checked in [BID] chunks too, which the partner-exposure gate skips).
+    for b, loc, cls, snip in _hidden_hand_disclosure_violations(path):
+        issues += 1
+        print(f"  {scn} b{b}: {cls} in {loc}: \"{snip}\"")
     print(f"{scn}: {issues} board(s) with structure issues")
     return issues
 
