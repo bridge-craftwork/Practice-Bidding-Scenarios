@@ -1,0 +1,132 @@
+Script,BasicWhatToOpen
+window.currentPBSScenario = 'BasicWhatToOpen';
+window.currentPBSScenarioFilename = 'Basic_What_To_Open';
+console.log('PBS: Logging scenario selection for BasicWhatToOpen');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'BasicWhatToOpen',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: Basic-Bridge
+convention-card-ew: Basic-Bridge
+auction-filter: Auction.....\n(1[CDHSN]|2N)
+*/
+# curate: kind=bidding
+# convention-card-ns: Basic-Bridge
+# convention-card-ew: Basic-Bridge
+
+
+dealer south
+
+### Imported Leveling Code ###
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+####06 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep   = 1
+keep0  = 0
+### End of Imported Leveling Code ###
+
+ntShape = shape(south,any 4333 + any 4432 + any 5332 - 5xxx -x5xx)
+
+oN = hcp(south)>14 and hcp(south)<18 and ntShape
+tN = hcp(south)>19 and hcp(south)<22 and ntShape
+
+# Predict South's Opening suit
+# What's the longest suit?
+s = spades(south)
+h = hearts(south)
+d = diamonds(south)
+c = clubs(south)
+oS = s>4 and s>=h and s>=d and s>=c             and not (oN or tN)
+oH = not oS and h>4 and h>=d and h>=c           and not (oN or tN)
+oD = not (oS or oH) and ((d>3 and d>=c) or c<3) and not (oN or tN)
+oC = not (oS or oH or oD) and c>3               and not (oN or tN)
+
+# Standard 1-of-suit opening range
+sHcp = hcp(south) > 11 and hcp(south) < 22 and losers(south)>3
+
+# Quiet opponents and partner so the focus is on the opening choice
+nHcp = hcp(north) >= 0 and hcp(north) < 14
+eHcp = hcp(east) < 11
+wHcp = hcp(west) < 11
+
+# Leveling: balance the six opening-bid paths so each shows up roughly equally.
+# 2N is so rare it stays at full keep regardless.
+lev1C = oC and keep25
+lev1D = oD and keep19
+lev1H = oH and keep30
+lev1S = oS and keep25
+lev1N = oN and keep44
+lev2N = tN and keep
+
+levelTheDeal = lev1C or lev1D or lev1H or lev1S or lev1N or lev2N
+
+(oS or oH or oD or oC or oN or tN) and sHcp and levelTheDeal
+
+action printoneline,
+average "1C " 100 * oC,
+average "1D " 100 * oD,
+average "1H " 100 * oH,
+average "1S " 100 * oS,
+average "1N " 100 * oN,
+average "2N " 100 * tN,
+`, "S", true)
+Script
+Button,What to Open,\n\
+--- Basic: What Should I Open? (beginner)\n\
+South has a typical opening hand (12-21 HCP). The challenge: pick the right opening bid.\n\
+Decision tree:\n\
+• 20-21 HCP balanced (any 4333，4432，or 5332 with 5-card minor) open 2NT\n\
+• 15-17 HCP balanced open 1NT\n\
+• Open the longest five-card or longer suit at the one-level. If you have two suits that\n\
+  are the same length，open the higher ranking.\n\
+• Open 1!D if you have four diamonds and four or fewer clubs.\n\
+• Open 1!D if your shape is exactly 4=4=3=2.\n\
+• Otherwise，Open 1!C.\n\
+https://pfdubois.github.io/BridgeBidding/Opening.html#choosing-an-opening-bid\n\
+4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\n\
+  • 5!C = 0 or 4 aces\n\
+  • 5!D = 1 ace\n\
+  • 5!H = 2 aces\n\
+  • 5!S = 3 aces\n\
+  • 5NT then asks for kings the same way\n\
+%BasicWhatToOpen%
