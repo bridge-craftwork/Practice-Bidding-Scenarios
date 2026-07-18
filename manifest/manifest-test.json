@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "test",
-  "generatedAtCommit": "2ee79eb4c7b999bddd4f75bd9018c85d175511ab",
+  "generatedAtCommit": "1c218a337b372c35269c02de8a294b8336e24d7a",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -58,7 +58,52 @@
           "grouped": false
         },
         {
-          "name": "Basic_Overcall",
+          "name": "Basic_Responses",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Basic_Openers_Rebid",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "---"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Open_and_Rebid",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "---"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Basic_NT",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "Basic_Weak_2",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -86,47 +131,13 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Basic_NT",
+          "name": "Basic_Overcall",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
           "name": "Basic_Takeout_Double",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
-          "name": "Basic_Weak_2",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        },
-        {
-          "name": "Basic_Openers_Rebid",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
-          "name": "Open_and_Rebid",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        },
-        {
-          "name": "Basic_Responses",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -3502,60 +3513,10 @@
       "conventionCardEW": "Basic-Bridge",
       "missing": false
     },
-    "Basic_Overcall": {
-      "buttonText": "Basic Overcall",
-      "chat": "\\n--- Basic Overcall (beginner)\\nEast opens 1!C，1!D，1!H，or 1!S (NOT 1NT). South — sitting next — makes\\na simple non-jump suit overcall.\\n\\nRequirements for South:\\n• 5+ cards in a side suit (NOT the same suit East opened)\\n• 8+ HCP at the 1-level (e.g.，1!C — 1!H)\\n• 11+ HCP at the 2-level (e.g.，1!H — 2!C)\\n• NOT a takeout-double hand (this scenario excludes 4-4-4-1 / 4-4-3-2\\n  takeout shapes — those go to Basic_Takeout_Double instead)\\n• NO weak jump overcalls (the filter excludes jumps; this is a NATURAL\\n  one-level-higher overcall only)\\n\\nFor beginners: an overcall says \"I have a real suit and some values.\"\\nWith a 5-card suit and 8+ HCP，lead-direction and obstruction are both\\nserved. Don't overcall on weaker hands — partner will assume values.\\n\\nReference: https://www.bridgebum.com/overcalls.php\\n",
-      "alias": "BasicOvercall",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Basic_Minor": {
-      "buttonText": "Basic 1m (Minor)",
-      "chat": "\\n--- Basic 1m Opening (beginner)\\nSouth opens 1!C or 1!D (12-21 HCP，3+ clubs or 4+ diamonds). This scenario\\npractices the natural responses without conventions like Inverted Minors.\\n\\nNorth's responses:\\n• 1!D — 6+ HCP，4+ diamonds (only over 1!C)\\n• 1!H / 1!S — 6+ HCP，4+ in that major\\n• 1NT — 6-10 HCP，balanced，no 4-card major\\n• 2NT — 11-12 HCP，balanced，no 4-card major\\n• Simple raise (2!C / 2!D) — 6-9 HCP with 4+ support\\n• Limit raise (3!C / 3!D) — 10-12 HCP with 4+ support\\n• 4 or 5 of opener's minor — preemptive\\n\\nReference: https://www.bridgebum.com/responses_to_one_of_a_minor.php\\n",
-      "alias": "BasicMinor",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Basic_Major": {
-      "buttonText": "Basic 1M (Major)",
-      "chat": "\\n--- Basic 1M Opening (beginner)\\nSouth opens 1!H or 1!S (12-21 HCP，5+ in that major).\\n\\nNorth's responses:\\n• 1!S (over 1!H) — 6+ HCP，4+ spades，no fit\\n• 1NT — 6+ HCP，no support，no 4-card major above opener's suit\\n• Simple raise (2M) — 6-9 HCP with 3+ support\\n• 2NT — 11-12 HCP balanced (in some systems this is Jacoby 2NT — see chart)\\n• Limit raise (3M) — 10-12 HCP with 4+ support\\n• Game raise (4M) — preemptive (0-7 HCP with 5+ support) or strong with 5+ trump\\n\\nFor beginners: count HCP，count support cards，choose the right response.\\n\\nReference: https://www.bridgebum.com/responses_to_one_of_a_major.php\\n",
-      "alias": "BasicMajor",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Basic_NT": {
-      "buttonText": "Basic 1NT (Natural)",
-      "chat": "\\n--- Basic 1NT Opening — natural responses only (beginner)\\nSouth opens 1NT (15-17 HCP balanced). Responder uses NATURAL responses —\\nno Stayman，no transfers.\\n\\nNorth's responses:\\n• Pass — 0-7 HCP，balanced\\n• 2NT — 8-9 HCP balanced，invitational\\n• 3NT — 10-15 HCP balanced\\n• 4NT — quantitative slam invite (16-17 HCP，no fit-finding)\\n• 6NT — slam，18+ HCP\\n\\nResponder is constrained to have NO 4-card major and NO 5-card suit,\\nso the right answer is always a natural NT raise (or pass). Stayman and\\ntransfers don't apply here.\\n\\nReference: https://www.bridgebum.com/1nt_15_17.php\\n",
-      "alias": "BasicNT",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Basic_Takeout_Double": {
-      "buttonText": "Basic Takeout Double",
-      "chat": "\\n--- Basic Takeout Double (beginner)\\nEast opens 1!C，1!D，1!H，or 1!S. South — sitting next — makes a takeout\\ndouble，asking partner to bid an unbid suit.\\n\\nA takeout double is:\\n• 12-18 HCP\\n• Shortness in opener's suit (typically 0-2 cards)\\n• 3+ cards in each unbid suit，ideally 4+ in any unbid major\\n• Distributional hands work too: 4-4-4-1 with shortness in opener's suit\\n  is the classic \"perfect\" shape\\n\\nIt is NOT a penalty double — partner is expected to bid，not pass.\\n\\nAfter the double，partner (advancer) responds:\\n• Bid a suit (length-priority: any unbid major if 4+，else 3+ minor)\\n• 1NT — 6-9 HCP with stoppers in opener's suit\\n• Cuebid opener's suit — 11+ HCP，forcing to game\\n\\nFor beginners: count HCP，count shape，check shortness in opener's suit.\\n\\nReference: https://www.bridgebum.com/takeout_double.php\\n",
-      "alias": "BasicTakeoutDouble",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Basic_Weak_2": {
-      "buttonText": "Basic Weak 2",
-      "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two_bid.php\\n",
-      "alias": "BasicWeak2",
+    "Basic_Responses": {
+      "buttonText": "Basic Responses",
+      "chat": "\\n--- Basic: How to Respond (beginner)\\nPartner opened one of a suit. With about 6 or more points you must answer -- passing\\nwould leave partner guessing. Your first job is to keep the bidding alive and start\\ndescribing your hand.\\n• A fit for partner's major: raise. 3-card support and 6-9 is a single raise to the two\\n  level; about 10-12 with support jumps to the three level to invite game.\\n• A new suit you can show at the ONE level: bid it (going \"up the line\" to the cheapest\\n  four-card suit). A new suit is forcing -- partner must bid again.\\n• No fit and nothing to bid at the one level: respond 1NT，showing about 6-10 and denying\\n  support or a cheap new suit.\\n• A good five-card suit and about 10+ points: you can introduce it at the two level，which\\n  promises more than a one-level response.\\nAnswer partner -- the cheapest honest call that starts the conversation is almost always\\nright.\\n",
+      "alias": "BasicResponses",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "Basic-Bridge",
@@ -3582,10 +3543,60 @@
       "conventionCardEW": "Basic-Bridge",
       "missing": false
     },
-    "Basic_Responses": {
-      "buttonText": "Basic Responses",
-      "chat": "\\n--- Basic: How to Respond (beginner)\\nPartner opened one of a suit. With about 6 or more points you must answer -- passing\\nwould leave partner guessing. Your first job is to keep the bidding alive and start\\ndescribing your hand.\\n• A fit for partner's major: raise. 3-card support and 6-9 is a single raise to the two\\n  level; about 10-12 with support jumps to the three level to invite game.\\n• A new suit you can show at the ONE level: bid it (going \"up the line\" to the cheapest\\n  four-card suit). A new suit is forcing -- partner must bid again.\\n• No fit and nothing to bid at the one level: respond 1NT，showing about 6-10 and denying\\n  support or a cheap new suit.\\n• A good five-card suit and about 10+ points: you can introduce it at the two level，which\\n  promises more than a one-level response.\\nAnswer partner -- the cheapest honest call that starts the conversation is almost always\\nright.\\n",
-      "alias": "BasicResponses",
+    "Basic_NT": {
+      "buttonText": "Basic 1NT (Natural)",
+      "chat": "\\n--- Basic 1NT Opening — natural responses only (beginner)\\nSouth opens 1NT (15-17 HCP balanced). Responder uses NATURAL responses —\\nno Stayman，no transfers.\\n\\nNorth's responses:\\n• Pass — 0-7 HCP，balanced\\n• 2NT — 8-9 HCP balanced，invitational\\n• 3NT — 10-15 HCP balanced\\n• 4NT — quantitative slam invite (16-17 HCP，no fit-finding)\\n• 6NT — slam，18+ HCP\\n\\nResponder is constrained to have NO 4-card major and NO 5-card suit,\\nso the right answer is always a natural NT raise (or pass). Stayman and\\ntransfers don't apply here.\\n\\nReference: https://www.bridgebum.com/1nt_15_17.php\\n",
+      "alias": "BasicNT",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Basic_Weak_2": {
+      "buttonText": "Basic Weak 2",
+      "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two_bid.php\\n",
+      "alias": "BasicWeak2",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Basic_Minor": {
+      "buttonText": "Basic 1m (Minor)",
+      "chat": "\\n--- Basic 1m Opening (beginner)\\nSouth opens 1!C or 1!D (12-21 HCP，3+ clubs or 4+ diamonds). This scenario\\npractices the natural responses without conventions like Inverted Minors.\\n\\nNorth's responses:\\n• 1!D — 6+ HCP，4+ diamonds (only over 1!C)\\n• 1!H / 1!S — 6+ HCP，4+ in that major\\n• 1NT — 6-10 HCP，balanced，no 4-card major\\n• 2NT — 11-12 HCP，balanced，no 4-card major\\n• Simple raise (2!C / 2!D) — 6-9 HCP with 4+ support\\n• Limit raise (3!C / 3!D) — 10-12 HCP with 4+ support\\n• 4 or 5 of opener's minor — preemptive\\n\\nReference: https://www.bridgebum.com/responses_to_one_of_a_minor.php\\n",
+      "alias": "BasicMinor",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Basic_Major": {
+      "buttonText": "Basic 1M (Major)",
+      "chat": "\\n--- Basic 1M Opening (beginner)\\nSouth opens 1!H or 1!S (12-21 HCP，5+ in that major).\\n\\nNorth's responses:\\n• 1!S (over 1!H) — 6+ HCP，4+ spades，no fit\\n• 1NT — 6+ HCP，no support，no 4-card major above opener's suit\\n• Simple raise (2M) — 6-9 HCP with 3+ support\\n• 2NT — 11-12 HCP balanced (in some systems this is Jacoby 2NT — see chart)\\n• Limit raise (3M) — 10-12 HCP with 4+ support\\n• Game raise (4M) — preemptive (0-7 HCP with 5+ support) or strong with 5+ trump\\n\\nFor beginners: count HCP，count support cards，choose the right response.\\n\\nReference: https://www.bridgebum.com/responses_to_one_of_a_major.php\\n",
+      "alias": "BasicMajor",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Basic_Overcall": {
+      "buttonText": "Basic Overcall",
+      "chat": "\\n--- Basic Overcall (beginner)\\nEast opens 1!C，1!D，1!H，or 1!S (NOT 1NT). South — sitting next — makes\\na simple non-jump suit overcall.\\n\\nRequirements for South:\\n• 5+ cards in a side suit (NOT the same suit East opened)\\n• 8+ HCP at the 1-level (e.g.，1!C — 1!H)\\n• 11+ HCP at the 2-level (e.g.，1!H — 2!C)\\n• NOT a takeout-double hand (this scenario excludes 4-4-4-1 / 4-4-3-2\\n  takeout shapes — those go to Basic_Takeout_Double instead)\\n• NO weak jump overcalls (the filter excludes jumps; this is a NATURAL\\n  one-level-higher overcall only)\\n\\nFor beginners: an overcall says \"I have a real suit and some values.\"\\nWith a 5-card suit and 8+ HCP，lead-direction and obstruction are both\\nserved. Don't overcall on weaker hands — partner will assume values.\\n\\nReference: https://www.bridgebum.com/overcalls.php\\n",
+      "alias": "BasicOvercall",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Basic_Takeout_Double": {
+      "buttonText": "Basic Takeout Double",
+      "chat": "\\n--- Basic Takeout Double (beginner)\\nEast opens 1!C，1!D，1!H，or 1!S. South — sitting next — makes a takeout\\ndouble，asking partner to bid an unbid suit.\\n\\nA takeout double is:\\n• 12-18 HCP\\n• Shortness in opener's suit (typically 0-2 cards)\\n• 3+ cards in each unbid suit，ideally 4+ in any unbid major\\n• Distributional hands work too: 4-4-4-1 with shortness in opener's suit\\n  is the classic \"perfect\" shape\\n\\nIt is NOT a penalty double — partner is expected to bid，not pass.\\n\\nAfter the double，partner (advancer) responds:\\n• Bid a suit (length-priority: any unbid major if 4+，else 3+ minor)\\n• 1NT — 6-9 HCP with stoppers in opener's suit\\n• Cuebid opener's suit — 11+ HCP，forcing to game\\n\\nFor beginners: count HCP，count shape，check shortness in opener's suit.\\n\\nReference: https://www.bridgebum.com/takeout_double.php\\n",
+      "alias": "BasicTakeoutDouble",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "Basic-Bridge",
