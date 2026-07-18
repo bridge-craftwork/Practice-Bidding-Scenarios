@@ -101,11 +101,12 @@ c = clubs(south)
 # Strength bands. A minimum opener rebids cheaply; 16-18 jumps to invite. Cap below 19
 # so we never stray into strong / 2C / reversing territory (not on the basic card).
 minOpener = sHcp > 11 and sHcp < 16      // 12-15: the cheapest rebid
-invOpener = sHcp > 15 and sHcp < 19      // 16-18: the invitational jump
+invOpener = sHcp > 15 and sHcp < 18      // 16-17: the invitational jump (cap below game-force)
 opener    = minOpener or invOpener
 
-# Responder: 6-11, holds a suit to introduce so opener gets a rebid.
-northHand = hcp(north) > 5 and hcp(north) < 12
+# Responder: 6-9, a minimal one-level response so OPENER'S rebid carries the message
+# (a stronger responder would jump or force, stealing the rebid decision from South).
+northHand = hcp(north) > 5 and hcp(north) < 10
 
 # The major North will introduce (BBA bids 4-card suits up the line; 4-4 -> 1H).
 nRespH = hearts(north) > 3 and (hearts(north) > spades(north) or (hearts(north) == 4 and spades(north) == 4))
