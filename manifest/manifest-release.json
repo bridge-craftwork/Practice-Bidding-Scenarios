@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release",
-  "generatedAtCommit": "d74ac3e81c552af038f19f4b25fae74efbd8f1cc",
+  "generatedAtCommit": "2bb3e9a6c9e4ceb950f574362cf3b18292e16cd4",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -108,24 +108,10 @@
           "grouped": false
         },
         {
-          "name": "Play_Top_Tricks",
-          "color": null,
-          "width": "50%",
-          "grouped": false
-        }
-      ]
-    },
-    {
-      "type": "row",
-      "buttons": [
-        {
           "name": "Open_and_Rebid",
           "color": null,
           "width": "50%",
           "grouped": false
-        },
-        {
-          "name": "---"
         }
       ]
     },
@@ -3451,13 +3437,16 @@
       "type": "row",
       "buttons": [
         {
-          "name": "Play_Top_Tricks_Suit",
+          "name": "Play_Top_Tricks",
           "color": null,
           "width": "50%",
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "Play_Top_Tricks_Suit",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -3535,16 +3524,6 @@
       "buttonText": "Basic Weak 2",
       "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two_bid.php\\n",
       "alias": "BasicWeak2",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false
-    },
-    "Play_Top_Tricks": {
-      "buttonText": "Play Top Tricks",
-      "chat": "\\n--- Play Your Top Tricks (beginner — partial contract)\\nSouth opens at the 1-level in a suit; both sides stay quiet at the 2-level.\\n• 1X — Pass — 2X — Pass — Pass — Pass            (North raises South's suit; S declares)\\n• 1X — Pass — 1Y — Pass — 2Y — Pass — Pass — Pass  (North bids new suit，South raises; N declares)\\nY is always a suit (D/H/S，never NT). NT openings are excluded — the\\ntopTricksNS=8 constraint counts tricks in suit-contract terms.\\n\\nTeaching feature: declarer has enough TOP tricks (sure winners) to make\\n8 tricks for the contract. The lesson is COUNT FIRST，CASH SECOND —\\ndon't get fancy with finesses or unnecessary risks when you already have\\nthe tricks you need.\\n\\nThings to think about:\\n• Count your AKs and trump length tricks before leading anything.\\n• If you have 8 top tricks，take them. Don't risk for overtricks unless\\n  it's free.\\n• If you're short of 8 top tricks，then find the ones you're missing —\\n  but THIS scenario is designed so you have enough already.\\n• Watch for entry problems: order your plays so each hand can lead when\\n  needed.\\n\\nReference: https://www.bridgebum.com/counting.php\\n",
-      "alias": "PlayTopTricks",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "Basic-Bridge",
@@ -6825,6 +6804,16 @@
       "buttonText": "Endplay / Strip",
       "chat": "\\n--- Strip-and-Endplay (4!S)\\nSouth opens 1!S，partnership reaches 4!S.\\n\\nTeaching feature: declarer faces a critical loser problem in one side suit\\n(typically clubs). Rather than finessing for the Q，declarer can STRIP the\\nother suits，then throw East in with a heart and force East to lead into\\ndeclarer's club tenace.\\n\\nHoldings:\\n• Spades — 5-3 fit with solid honors.\\n• Hearts — declarer has AKx (or similar) opposite small; can play two\\n  rounds to exhaust East，then throw the third round to East.\\n• Diamonds — declarer cashes A and K，ruffs the third in dummy if needed.\\n• Clubs — AJx opposite Kxx，with the Q missing. The 50% finesse can be\\n  avoided entirely by the endplay.\\n\\nThe plan:\\n1. Win the opening lead.\\n2. Draw two rounds of trump (don't draw all — you may need a trump entry).\\n3. Cash AK of diamonds; ruff the third diamond in dummy.\\n4. Cash AK of hearts.\\n5. Lead a third heart to East.\\n6. East must return either a club (into your AJ tenace — J wins) or give\\n   you a ruff-and-discard. Either way，you don't lose a club trick.\\n\\nThings to think about:\\n• Why do you NOT take the club finesse?\\n• What if East has shorter clubs than expected?\\n• How do you keep the trumps you need to recover from each ruff?\\n\\nReference: https://www.bridgebum.com/endplay.php\\n",
       "alias": "EndplayStrip",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
+      "missing": false
+    },
+    "Play_Top_Tricks": {
+      "buttonText": "Play Top Tricks",
+      "chat": "\\n--- Play Your Top Tricks (beginner — partial contract)\\nSouth opens at the 1-level in a suit; both sides stay quiet at the 2-level.\\n• 1X — Pass — 2X — Pass — Pass — Pass            (North raises South's suit; S declares)\\n• 1X — Pass — 1Y — Pass — 2Y — Pass — Pass — Pass  (North bids new suit，South raises; N declares)\\nY is always a suit (D/H/S，never NT). NT openings are excluded — the\\ntopTricksNS=8 constraint counts tricks in suit-contract terms.\\n\\nTeaching feature: declarer has enough TOP tricks (sure winners) to make\\n8 tricks for the contract. The lesson is COUNT FIRST，CASH SECOND —\\ndon't get fancy with finesses or unnecessary risks when you already have\\nthe tricks you need.\\n\\nThings to think about:\\n• Count your AKs and trump length tricks before leading anything.\\n• If you have 8 top tricks，take them. Don't risk for overtricks unless\\n  it's free.\\n• If you're short of 8 top tricks，then find the ones you're missing —\\n  but THIS scenario is designed so you have enough already.\\n• Watch for entry problems: order your plays so each hand can lead when\\n  needed.\\n\\nReference: https://www.bridgebum.com/counting.php\\n",
+      "alias": "PlayTopTricks",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "Basic-Bridge",
