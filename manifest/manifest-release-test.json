@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release-test",
-  "generatedAtCommit": "4f61a4eecc1ff8f24ccb87cf502bb9844719b2ed",
+  "generatedAtCommit": "0925b5ca3c97c8872f4e69bbbac52e7ce89a6036",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -17452,27 +17452,18 @@
   },
   "deltas": {
     "missing": [],
-    "orphans": []
+    "orphans": [
+      "1N_Balanced_Raise"
+    ]
   },
   "counts": {
     "referenced": 340,
     "scenarios": 340,
     "missing": 0,
-    "orphans": 0,
-    "testOnly": 5
+    "orphans": 1,
+    "testOnly": 4
   },
   "testScenarios": [
-    {
-      "buttonText": "1N w/Bal Raise",
-      "chat": "\\n--- 1NT Balanced Raise (no four- or five-card major)\\nPartner opens 1NT (15-17).  You are balanced with no four-card or five-card major，so there is\\nno Stayman bid and no transfer to make -- you raise notrump straight to the level your points\\ncall for.  Pass with 0-7，invite game with 2NT on 8-9，and bid game with 3NT on 10-15.  With\\nslam values keep bidding notrump: 4NT is a quantitative slam invitation on about 16-17，and with\\n18-19 bid 6NT to play.  Opener passes a minimum over your 2NT or 4NT and accepts with a maximum.\\nA pure point-count decision: add your points to partner's 15-17 and pick the level.\\n",
-      "alias": "OneNTBalancedRaise",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false,
-      "name": "1N_Balanced_Raise"
-    },
     {
       "buttonText": "Found Endplay",
       "chat": "\\n--- Found Endplays (4!H / 4!S) — curated strip-and-endplay candidates\\n\\nThese hands are scanned from all bba/*.pbn files by\\n[find_endplay_candidates.py]: South declares a 4-of-major contract，and\\ndeclarer's side holds an AJ tenace in one side suit (with East likely\\nholding the Q) plus solid honors (AK or AKQ) in another side suit so a\\nstrip is feasible.\\n\\nThe teaching pattern: strip the side suits where you have winners，then\\nthrow East in (typically with a heart or club) and force East to lead\\ninto your tenace. This converts a 50% finesse into a 100% endplay.\\n\\nThings to think about:\\n• Count your losers; if a finesse can be avoided，look for a throw-in.\\n• Strip the safe exits BEFORE the throw-in. Once East is in，every lead\\n  helps you.\\n• The thrown-in opponent should be the one holding the Q of your tenace\\n  suit.\\n\\nReference: https://www.bridgebum.com/endplay.php\\n",
