@@ -1,0 +1,64 @@
+# alias: OneNTBalancedRaise
+# button-text: 1N w/Bal Raise
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n1N
+# curate: kind=bidding
+# convention-card-ns: Basic-Bridge
+# convention-card-ew: Basic-Bridge
+
+/*@chat
+--- 1NT Balanced Raise (no four- or five-card major)
+Partner opens 1NT (15-17).  You are balanced with no four-card or five-card major, so there is
+no Stayman bid and no transfer to make -- you raise notrump straight to the level your points
+call for.  Pass with 0-7, invite game with 2NT on 8-9, and bid game with 3NT on 10-15.  With
+slam values keep bidding notrump: 4NT is a quantitative slam invitation on about 16-17, and with
+18-19 bid 6NT to play.  Opener passes a minimum over your 2NT or 4NT and accepts with a maximum.
+A pure point-count decision: add your points to partner's 15-17 and pick the level.
+@chat*/
+
+# 1NT Balanced Raise
+dealer north
+
+#include "script/Predict-Opening-1-Bid-North"
+# Defines gibNT (North opens a balanced 15-17 1NT)
+
+#include "script/Leveling"
+
+# Responder (South): balanced, and NO four- or five-card major (both majors <4)
+southBalanced = shape(south, any 4333 +any 4432 +any 5332)
+southNoMajor  = spades(south)<4 and hearts(south)<4
+
+# The quantitative decisions, by responder point count (Basic-Bridge = quantitative NT,
+# no Gerber).  The slam rungs need no five-card minor, so they raise notrump cleanly.
+noFiveMinor = diamonds(south)<5 and clubs(south)<5
+passZone   = hcp(south)>3  and hcp(south)<8    // 4-7   -> Pass
+inviteZone = hcp(south)>7  and hcp(south)<10   // 8-9   -> 2NT (invitational)
+gameZone   = hcp(south)>9  and hcp(south)<16   // 10-15 -> 3NT (game)
+fourNTzone = hcp(south)>15 and hcp(south)<18 and noFiveMinor   // 16-17 -> 4NT quantitative invite
+sixNTzone  = hcp(south)>17 and hcp(south)<20 and noFiveMinor   // 18-19 -> 6NT to play
+fiveNTzone = hcp(south)>19 and hcp(south)<21 and noFiveMinor   // 20    -> 5NT grand invite
+sevenNTzone= hcp(south)>20                     and noFiveMinor   // 21+   -> 7NT
+
+# Flatten the natural spread: keep few of the very common pass/invite/game hands and
+# all of the rare slam hands.  Each slam rung is leveled separately so it can be tuned
+# on its own; lowering the 2NT/3NT keeps forces the dealer to capture more slam hands.
+levPass    = passZone   and keep03
+levInvite  = inviteZone and keep06
+levGame    = gameZone   and keep03
+lev4N      = fourNTzone  and keep47
+lev6N      = sixNTzone   and keep
+lev5N      = fiveNTzone  and keep
+lev7N      = sevenNTzone and keep
+southRaise = southBalanced and southNoMajor and (levPass or levInvite or levGame or lev4N or lev6N or lev5N or lev7N)
+
+gibNT and southRaise
+
+action
+average "Pass 4-7    " 100 * (southBalanced and southNoMajor and passZone),
+average "2NT  8-9    " 100 * (southBalanced and southNoMajor and inviteZone),
+average "3NT  10-15  " 100 * (southBalanced and southNoMajor and gameZone),
+average "4NT  16-17  " 100 * (southBalanced and southNoMajor and fourNTzone),
+average "6NT  18-19  " 100 * (southBalanced and southNoMajor and sixNTzone),
+average "5NT  20     " 100 * (southBalanced and southNoMajor and fiveNTzone),
+average "7NT  21+    " 100 * (southBalanced and southNoMajor and sevenNTzone),
