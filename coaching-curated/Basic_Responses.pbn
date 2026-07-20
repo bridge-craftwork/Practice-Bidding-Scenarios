@@ -28,7 +28,7 @@ defense: reject
 [Auction "N"]
 1S    Pass  2S    Pass
 Pass  Pass
-{When you hold support for partner's major and a minimum hand, the cheapest raise tells the whole story.
+{You have support for partner's major and a minimum.
 [BID 1S]Your partner opens 1\S, showing five or more spades and opening values, asking you to describe your hand.
 [BID 2S]You have three or more spades and about 6 to 9 points, so raise to 2\S. A single raise to the two level is the minimum message: a real fit, but no game interest. The level itself is the strength signal, so keep it low with a bare minimum and let partner decide whether to try for more.
 [show NESW]You held four trumps and 6 points, a clean minimum. Your single raise promised a fit and 6 to 9, and with a minimum of his own opener was happy to pass and play the partscore.}
@@ -66,7 +66,7 @@ defense: reject
 1S    Pass  1N    Pass
 2D    Pass  2S    Pass
 Pass  Pass
-{With no fit and nothing you can name at the one level, responder falls back on the catch-all response.
+{Partner opens a major and you have a modest hand with no fit.
 [BID 1S]Your partner opens 1\S, showing five or more spades and opening strength.
 [BID 1N]You have about 6 to 10 points but only two spades, so no raise, and your four hearts sit BELOW spades — you cannot show them without going to the two level. That leaves 1NT, the leftover response that denies support and denies a suit you could bid cheaply.
 [BID 2D]Partner rebids 2\D, showing a second suit — longer spades and four or more diamonds — and asking you to pick between them.
@@ -106,7 +106,7 @@ defense: reject
 1S    Pass  2S    Pass
 2N    Pass  3S    Pass
 Pass  Pass
-{A minimum single raise stays a minimum even when partner comes back asking for more.
+{You have four trumps and a minimum facing partner's major.
 [BID 1S]Your partner opens 1\S, promising five or more spades and opening values.
 [BID 2S]You have four-card support and about 6 to 9 points, so raise to 2\S — a minimum single raise. The low level is the whole message: a fit, but nothing extra.
 [BID 2N]Partner bids 2NT, a game try, asking whether your raise was toward the top of its range.
@@ -146,12 +146,12 @@ defense: reject
 1D    Pass  1H    Pass
 1S    Pass  1N    Pass
 2C    Pass  Pass  Pass
-{With no fit for partner's minor, responder shows a four-card suit up the line at the one level.
+{Partner opens a minor and you have a four-card major but no fit.
 [BID 1D]Your partner opens 1\D, showing an unbalanced hand or a four-plus diamond suit and opening values.
 [BID 1H]You have about 6 or more points and a four-card heart suit, so bid 1\H. A new suit at the one level shows four or more and is FORCING — partner must bid again — so you needn't have extra strength. Bid your cheapest four-card suit first, up the line.
 [BID 1S]Partner rebids 1\S, showing another four-card suit and still searching for a fit.
 [BID 1N]With no fit and a minimum, rebid 1NT to show your limited values and cap the hand.
-[BID 2C]Partner offers a third suit with 2\C; holding no better spot, you pass and settle there.
+[BID 2C]Partner offers a third suit with 2\C.
 [show NESW]You held 6 points and a four-card heart suit. Bidding hearts up the line was forcing and cost nothing, and when no fit appeared you kept the auction low and let it die in partner's suit.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -186,10 +186,10 @@ defense: reject
 [Auction "N"]
 1S    Pass  1N    Pass
 2C    Pass  Pass  Pass
-{No support and nothing biddable at the one level points responder to the catch-all.
+{Partner opens a major; you have a modest, flat hand with no fit.
 [BID 1S]Your partner opens 1\S, showing five or more spades and opening values.
 [BID 1N]You have about 6 to 10 points but only two spades and no suit you can name at the one level over 1\S, so respond 1NT. It is the leftover call: it denies three-card support and denies a cheap new suit.
-[BID 2C]Partner rebids 2\C, showing a second suit; with nothing better to say, you pass.
+[BID 2C]Partner rebids 2\C, showing a second suit.
 [show NESW]You held 7 points, a doubleton spade, and no suit worth showing at the one level. 1NT described it exactly, and you passed partner's 2\C to rest in his second suit.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -224,7 +224,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  3H    Pass
 4H    Pass  Pass  Pass
-{With four trumps and invitational values, responder jumps the raise to shout for game.
+{You have four trumps and invitational values facing partner's major.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 3H]You have four-card support and about 10 to 12 points, so jump straight to 3\H. The jump raise is invitational — more than a single raise — and the extra level is exactly how you signal the extra strength, inviting partner to bid game with anything to spare.
 [BID 4H]Partner accepts the invitation and carries on to 4\H, the heart game.
@@ -234,39 +234,28 @@ defense: reject
 
 [Event "Basic_Responses"]
 [Site ""]
-[Board "2"]
-% 02C92F41CC903BA0622A7A3F6502
+[Board "303"]
+% 3003B42A2C4287D2E821EF147E5A
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:K9642.AQJ2.3.AQ3 Q753.T.QT872.JT8 T8.K8763.KJ4.K94 AJ.954.A965.7652"]
-{Shape 5413 4153 2533 2344}
-{HCP 16 5 10 9}
-{Losers 5 8 8 9}
+[Vulnerable "None"]
+[Deal "N:AQJ64.AT9.AT86.6 T32.842.K94.KJ74 K9.QJ765.Q72.A95 875.K3.J53.QT832"]
 [Declarer "S"]
 [Contract "4H"]
-[Result "10"]
-[Score "NS 620"]
+[Result "12"]
+[Score "NS 480"]
 [Scoring "MP"]
-{Curate
-class: intended
-difficulty: 2
-bidding: textbook new-suit-2-level
-bidding-note: Genuine 5-card hearts, 10 HCP, correctly shown as 2H over 1S.
-declarer: reject
-defense: reject
-}
 [Auction "N"]
 1S    Pass  2H    Pass
 4H    Pass  Pass  Pass
-{A good five-card suit and near-invitational values are worth showing at the two level.
+{You have a five-card suit of your own and full opening values facing partner's major.
 [BID 1S]Your partner opens 1\S, showing five or more spades and opening values.
-[BID 2H]You have a genuine five-card heart suit and about 10 or more points, so bid 2\H. A new suit at the two level raises the auction, so it promises more than a one-level response — a real five-plus suit and the strength to back it. It is forcing, so partner will bid again.
+[BID 2H]You have a genuine five-card heart suit and about 11 or more points, so bid 2\H. A new suit at the two level promises a real five-plus suit and the values to back it, and it is forcing.
 [BID 4H]Partner likes hearts and jumps to 4\H, having found the fit.
-[show NESW]You held 10 points and a five-card heart suit, plenty to introduce at the two level. Showing hearts uncovered the fit, and partner drove it to game.}
+[show NESW]You held 12 points and a five-card heart suit, plenty to introduce at the two level. Showing hearts uncovered the fit, and partner drove it to game.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -300,7 +289,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  2H    Pass
 4H    Pass  Pass  Pass
-{Support for partner's major plus a minimum hand calls for the quiet single raise.
+{You have support for partner's major and a minimum.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 2H]You have three or more hearts and about 6 to 9 points, so raise to 2\H. The single raise is your minimum: a fit, no game ambitions. Keep the level low and let opener judge whether there's more.
 [BID 4H]With extra values, partner jumps all the way to game in 4\H.
@@ -338,10 +327,10 @@ defense: reject
 [Auction "N"]
 1H    Pass  1S    Pass
 2D    Pass  Pass  Pass
-{One new suit at the one level is available, so responder bids it and stays forcing.
+{Partner opens a major and you have a five-card suit of your own.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 1S]You have about 6 or more points and a good spade suit, so bid 1\S. A new suit at the one level shows four or more spades and forces partner to bid again; over 1\H it is the only one-level suit you have, and it costs nothing to show.
-[BID 2D]Partner rebids 2\D, showing a second suit; with a minimum you pass and leave it there.
+[BID 2D]Partner rebids 2\D, showing a second suit.
 [show NESW]You held 8 points and a five-card spade suit. Bidding 1\S was forcing and free, and when partner showed diamonds you had nothing extra to add, so you let 2\D play.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -376,10 +365,10 @@ defense: reject
 [Auction "N"]
 1H    Pass  1N    Pass
 2H    Pass  Pass  Pass
-{When your suit is too weak for the two level and you have no fit, take the catch-all.
+{Partner opens a major; your long suit is weak and you have no fit.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 1N]You have about 6 to 10 points, only one heart, and just three spades, so no raise and no 1\S bid. Your five diamonds are ragged and not worth pushing to the two level, which would promise real values and a genuine suit. So respond 1NT, the leftover call.
-[BID 2H]Partner rebids 2\H, showing a six-card suit; you pass and play in his long suit.
+[BID 2H]Partner rebids 2\H, showing a six-card suit.
 [show NESW]You held 9 points, a stiff heart, and diamonds too weak to bid at the two level. 1NT was the accurate limited call, and partner's rebid found a safe home in 2\H.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -415,7 +404,7 @@ defense: reject
 1H    Pass  3H    Pass
 3N    Pass  4H    Pass
 Pass  Pass
-{With four trumps and invitational values, responder jumps the raise and then insists on the major fit.
+{You have four trumps and invitational values facing partner's major.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 3H]You have four-card support and about 10 to 12 points, so jump to 3\H — an invitational raise, with the extra level carrying the extra strength.
 [BID 3N]Partner accepts and offers 3NT as a possible landing spot for game.
@@ -454,7 +443,7 @@ defense: reject
 [Auction "N"]
 1C    Pass  1D    Pass
 2D    Pass  Pass  Pass
-{Over partner's club opening, responder shows the cheapest four-card suit up the line.
+{Partner opens a minor and you have a four-card suit of your own.
 [BID 1C]Your partner opens 1\C, showing three or more clubs and opening values.
 [BID 1D]You have about 6 or more points and a four-card diamond suit, so bid 1\D. A new suit at the one level shows four or more and is forcing; bid your cheapest four-card suit first, up the line.
 [BID 2D]Partner raises to 2\D, confirming a diamond fit; with a minimum you have nothing extra, so pass.
@@ -492,7 +481,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  1N    Pass
 Pass  Pass
-{No raise and no one-level suit leaves responder with the catch-all.
+{Partner opens a major; you have no fit and nothing to name at the one level.
 [BID 1H]Your partner opens 1\H, showing five or more hearts and opening values.
 [BID 1N]You have about 6 to 10 points but only two hearts, so no raise, and only three spades — a 1\S response would promise four. With nothing else biddable, respond 1NT, the leftover call that denies support and denies a suit.
 [show NESW]You held 9 points, a doubleton heart, and only three spades. 1NT was the honest description, and both sides passed it out in the partscore.}
@@ -530,7 +519,7 @@ defense: reject
 1S    Pass  2C =1=    Pass
 2H    Pass  3N    Pass
 Pass  Pass
-{A chunky five-card suit and full opening values are worth a two-level response, then game.
+{You have a chunky five-card suit and full opening values facing partner's major.
 [BID 1S]Your partner opens 1\S, showing five or more spades and opening values.
 [BID 2C]You have a chunky five-card club suit and about 12 points but no spade fit, so bid 2\C. A new suit at the two level promises real length and extra strength — more than a one-level response — and it forces partner to bid again.
 [BID 2H]Partner rebids 2\H, showing a second suit.
@@ -542,39 +531,28 @@ Pass  Pass
 
 [Event "Basic_Responses"]
 [Site ""]
-[Board "85"]
-% 52953467E1F79E5471345D8BEAAA
+[Board "40"]
+% 216A1F02C97F31A26764C88CBDD6
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:K6.4.AKQT86.AJ75 Q875.A985.J7.K86 A942.QJ32.95.QT4 JT3.KT76.432.932"]
-{Shape 2164 4423 4423 3433}
-{HCP 17 10 9 4}
-{Losers 4 8 8 11}
-[Declarer "N"]
-[Contract "2C"]
-[Result "10"]
-[Score "NS 130"]
+[Vulnerable "EW"]
+[Deal "N:KQ9.QJ54.AJ5.J93 AT76.K2.KT43.654 843.A876.Q98.KT7 J52.T93.762.AQ82"]
+[Declarer "S"]
+[Contract "2H"]
+[Result "8"]
+[Score "NS 110"]
 [Scoring "MP"]
-{Curate
-class: intended
-difficulty: 2
-bidding: textbook new-suit-1-level
-bidding-note: 1D-1H: 4-4 majors, up the line to cheaper 1H (hearts QJ32).
-declarer: reject
-defense: reject
-}
 [Auction "N"]
-1D    Pass  1H    Pass
-2C    Pass  Pass  Pass
-{With about 6 or more points opposite partner's opening, responder must find an answer, and the cheapest good suit comes first.
-[BID 1D] Your partner opens 1\D, showing an opening hand with at least four diamonds. It is your turn to describe your hand.
-[BID 1H] A new suit at the one level shows at least four cards and about 6 or more points, and it is forcing — partner must bid again. When you hold both majors, bid them up the line, naming the cheaper suit first, so 1\H comes ahead of spades. It costs nothing extra to show the suit.
-[BID 2C] Your partner rebids 2\C, a second suit, showing a diamond-club two-suiter and giving you a choice of partscores. You have described your hand and can pass.
-[show NESW] South held 9 points with four hearts and four spades. The one-level 1\H response showed a four-card suit and the values to answer, bidding the cheaper major first. Opener's 2\C then revealed a second suit, and the partnership landed in a comfortable minor-suit partscore.}
+1C    Pass  1H    Pass
+2H    Pass  Pass  Pass
+{Partner opens a minor and you have a four-card major.
+[BID 1C]Your partner opens 1\C, showing an opening hand with at least three clubs.
+[BID 1H]You have about 6 or more points and a four-card heart suit, so bid 1\H. A new suit at the one level shows four or more and is forcing.
+[BID 2H]Partner raises to 2\H, showing four-card support and a minimum.
+[show NESW]You held 9 points and a four-card heart suit. The one-level response uncovered a heart fit, and the partnership rested in a comfortable partscore.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -609,7 +587,7 @@ defense: reject
 1S    Pass  1N    Pass
 3S    Pass  4S    Pass
 Pass  Pass
-{When you cannot support partner's major and have no suit worth naming cheaply, one notrump is the catch-all response.
+{Partner opens a major; you have no fit and a suit too weak to name at the two level.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 1N] You hold enough to respond but lack three-card spade support, and your only long suit is too weak to introduce at the two level. So you fall back on 1NT, the leftover bucket: about 6 to 10 points, denying a fit for partner's major and denying a cheap new suit.
 [BID 3S] Your partner jumps to 3\S, showing extra strength and a long, strong spade suit — a strong invitation asking you to bid game with anything near the top of your range.
@@ -649,7 +627,7 @@ defense: reject
 1C    Pass  1D    Pass
 1H    Pass  2D    Pass
 Pass  Pass
-{With opening values facing partner's minor, name your own long suit at the one level and keep the auction low.
+{Partner opens a minor and you have a strong six-card suit of your own.
 [BID 1C] Your partner opens 1\C, showing an opening hand with at least three clubs.
 [BID 1D] You have the values to respond and a good long suit of your own. 1\D shows at least four diamonds and about 6 or more points, and it is forcing — partner must bid again. Naming your suit at the one level keeps the bidding cheap while you look for the best fit.
 [BID 1H] Your partner rebids 1\H, showing four hearts and exploring for a major fit. This does not promise extra strength.
@@ -688,10 +666,10 @@ defense: reject
 [Auction "N"]
 1D    Pass  1S    Pass
 1N    Pass  Pass  Pass
-{Answer partner's opening by naming a four-card suit at the one level, choosing the cheapest one you can.
+{Partner opens a minor and you have a four-card major.
 [BID 1D] Your partner opens 1\D, showing an opening hand with at least four diamonds.
 [BID 1S] You have the values to respond and a four-card major to show. A new suit at the one level promises at least four cards and about 6 or more points, and it is forcing. You skip a one-level heart response only because you lack four hearts, so 1\S is your cheapest biddable suit.
-[BID 1N] Your partner rebids 1NT, showing a balanced minimum below a strong opening. With no major fit found, the partnership settles in notrump.
+[BID 1N] Your partner rebids 1NT, showing a balanced minimum below a strong opening.
 [show NESW] South held 9 points with four strong spades and a doubleton heart. Bidding 1\S named the only four-card major, the cheapest new suit available. Opener's 1NT rebid showed a balanced minimum, and with no eight-card fit the partnership stopped in a comfortable notrump partscore.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -726,7 +704,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  2H    Pass
 Pass  Pass
-{When you hold support for partner's major and modest values, a single raise tells the whole story at once.
+{You have support for partner's major and modest values.
 [BID 1H] Your partner opens 1\H, showing an opening hand with at least five hearts.
 [BID 2H] You raise to 2\H, showing about 6 to 9 points and at least three-card support. The level is the message: a single raise is the minimum-strength raise, promising a fit but denying invitational values. Textbook support is four trumps, but three good ones opposite a five-card major make a sound raise.
 [show NESW] South held 7 points with three-card heart support. The single raise to 2\H showed a fit and 6 to 9 points, exactly a minimum raise. With three trumps rather than the ideal four it was still the right call, and the partnership rested safely at the two level.}
@@ -764,7 +742,7 @@ defense: reject
 [Auction "N"]
 1C    Pass  1S    Pass
 3S    Pass  Pass  Pass
-{With two suits to show over partner's opening, length usually decides which to name first.
+{Partner opens a minor and you have two suits of your own.
 [BID 1C] Your partner opens 1\C, showing an opening hand with at least three clubs.
 [BID 1S] You have the values to respond and two biddable suits. Here is the wrinkle: with a five-card suit and a four-card suit, name the longer suit first, so 1\S comes before hearts even though hearts is cheaper. Strict up-the-line would suggest 1\H, but bidding your longest suit first gives partner a truer picture, and it is forcing.
 [BID 3S] Your partner jumps to 3\S, raising your suit with four-card support and extra strength — a strong invitation to game.
@@ -803,7 +781,7 @@ defense: reject
 1S    Pass  1N    Pass
 2C    Pass  3C    Pass
 Pass  Pass
-{Even a shapely hand must sometimes take the humble path when it is too weak to bid a suit at the two level.
+{Partner opens a major; your two-suiter has no fit and is short of two-level values.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 1N] You lack spade support, and to show a new suit you would have to go to the two level, which promises about 10 or more points. With less than that, you fall back on 1NT, the catch-all showing about 6 to 10 and denying a fit for partner's major. Long minors are tempting, but they are not worth the extra strength a two-level suit demands.
 [BID 2C] Your partner rebids 2\C, a second suit, showing a spade-club two-suiter and offering you a choice of contracts.
@@ -842,7 +820,7 @@ defense: reject
 [Auction "N"]
 1S    Pass  2S    Pass
 Pass  Pass
-{A fit for partner's major and modest values call for the simplest raise there is.
+{You have a fit for partner's major and modest values.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 2S] You raise to 2\S, showing about 6 to 9 points and at least three-card support. The single raise is the minimum-strength raise — it promises a fit while denying invitational values. Four trumps is the ideal, but three cards opposite a five-card major is a full fit and a sound raise.
 [show NESW] South held 7 points with three-card spade support. The raise to 2\S showed 6 to 9 and a fit, keeping the auction low. With a minimum and only three trumps there was no reason to do more, and the partnership settled into its eight-card fit at the two level.}
@@ -881,7 +859,7 @@ defense: reject
 1H    Pass  1S    Pass
 2D    Pass  2H    Pass
 4H    Pass  Pass  Pass
-{With enough strength to bid twice, respond first with the suit that keeps the auction lowest and most flexible.
+{Partner opens a major; you have the strength to bid more than once.
 [BID 1H] Your partner opens 1\H, showing an opening hand with at least five hearts.
 [BID 1S] You have plenty to respond and a four-card major, so bid 1\S, a new suit at the one level, forcing, showing four or more spades. Here is the wrinkle: you also hold a five-card minor you could bid at the two level with your good values. Naming the major cheaply first keeps the bidding low and lets partner show more, so the one-level 1\S leads.
 [BID 2D] Your partner rebids 2\D, a second suit, showing a heart-diamond two-suiter.
@@ -921,7 +899,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  2H    Pass
 Pass  Pass
-{Support for partner's major plus limited values makes for an easy, descriptive single raise.
+{You have support for partner's major and limited values.
 [BID 1H] Your partner opens 1\H, showing an opening hand with at least five hearts.
 [BID 2H] You raise to 2\H, showing about 6 to 9 points and at least three-card support. The level carries the message: a single raise is the minimum-strength raise, promising the fit but denying invitational strength. Three trumps opposite a five-card major make a sound fit even when four would be ideal.
 [show NESW] South held 8 points with three-card heart support. The single raise to 2\H showed a fit and 6 to 9 points. Even at the top of that range with only three trumps, a simple raise was exactly right, and the partnership rested comfortably in its heart fit.}
@@ -958,7 +936,7 @@ defense: reject
 [Auction "N"]
 1S    Pass  2S    Pass
 Pass  Pass
-{A fit and modest values point to the plainest raise of partner's major.
+{You have a fit for partner's major and modest values.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 2S] You raise to 2\S, showing about 6 to 9 points and at least three-card support. The single raise is the minimum raise: it confirms the fit but denies invitational values. Four trumps would be ideal, yet three cards opposite a five-card major is a genuine fit and a sound raise.
 [show NESW] South held 8 points with three-card spade support and a five-card club suit. The clubs were not worth a two-level response, and the spade fit was more important, so the single raise to 2\S told the story at once — a fit and 6 to 9 points, keeping the partnership safe at the two level.}
@@ -995,7 +973,7 @@ defense: reject
 [Auction "N"]
 1S    Pass  2S    Pass
 4S    Pass  Pass  Pass
-{With three trumps and a minimum, the single raise says everything in one bid.
+{You have three trumps and a minimum facing partner's major.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 2S] You raise to 2\S, showing about 6 to 9 points and at least three-card support. The single raise is the minimum-strength raise — it promises the fit while denying invitational values. Three small trumps opposite a five-card major still make a sound eight-card fit.
 [BID 4S] Your partner jumps to game at 4\S, judging that the extra strength opposite your announced fit is worth bidding game outright.
@@ -1035,7 +1013,7 @@ defense: reject
 1H    Pass  1N    Pass
 3H    Pass  4H    Pass
 Pass  Pass
-{Sometimes a hand with a long minor is still worth only the quiet 1NT response, though the long suit can tempt you the other way.
+{Partner opens a major; you have a long minor but a modest hand.
 [BID 1H] Your partner opens 1\H, showing an opening hand with at least five hearts.
 [BID 1N] This is a genuinely close choice. By the count you lack heart support, and a two-level suit wants about 10 or more points, so the disciplined call is 1NT, showing about 6 to 10 and no fit. But a long, chunky six-card minor argues the other way, since bidding it at the two level describes your shape far better than a flat notrump. Both are defensible — 1NT respects the point count, while introducing the suit shows the source of tricks. [ACCEPT 2C]
 [BID 3H] Your partner jumps to 3\H, showing a strong six-card suit and extra values — an invitation to game.
@@ -1075,7 +1053,7 @@ defense: reject
 [Auction "N"]
 1H    Pass  3H    Pass
 4H    Pass  Pass  Pass
-{The line between a simple raise and an invitational jump can hinge on a single extra trump.
+{You have four-card support for partner's major and modest-plus values.
 [BID 1H] Your partner opens 1\H, showing an opening hand with at least five hearts.
 [BID 3H] This raise is a close call. By high cards alone — about 9 points — a single raise to 2\H looks right, showing 6 to 9 and a fit. But you hold four-card support rather than three, and that extra trump adds ruffing value and playing strength, nudging the hand up to a jump raise to 3\H, the invitational raise showing about 10 to 12 with four trumps. Count the fourth trump as nearly a point and the invitation is justified; value strictly by high cards and the simple raise is fine. [ACCEPT 2H]
 [BID 4H] Your partner accepts your invitation and bids game at 4\H, judging the combined values enough with the fit confirmed.
@@ -1114,10 +1092,37 @@ defense: reject
 [Auction "N"]
 1S    Pass  1N    Pass
 Pass  Pass
-{With good values and a decent five-card suit but no support for partner, two responses compete for the right answer.
+{Partner opens a major; you have good values and a five-card suit but no fit.
 [BID 1S] Your partner opens 1\S, showing an opening hand with at least five spades.
 [BID 1N] This is a genuinely close choice. You have no spade fit and around 10 points, at the top of the 1NT range — so 1NT, showing about 6 to 10 and denying support, is a sound, simple answer. But you also hold a chunky five-card suit, and with 10 points you have just enough to name it at the two level, which shows a real suit and about 10 or more. Bidding 2\D paints the shape, while 1NT keeps things simple and limits the hand at once. Both are defensible. [ACCEPT 2D]
 [show NESW] South held 10 points with a chunky five-card diamond suit and no spade support. At the top of the 1NT range with a biddable suit, either the simple 1NT or the more descriptive 2\D was reasonable, and the quiz accepts both. The hand had just enough strength to introduce diamonds at the two level, but the flat 1NT description was equally sound.}
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Basic_Responses"]
+[Site ""]
+[Board "12"]
+% 02D58F7801AB3DF65A54A4137B8E
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:J94.KJ2.A865.AJ9 Q763.A764.J4.Q65 KT52.T5.K92.KT43 A8.Q983.QT73.872"]
+[Declarer "N"]
+[Contract "1N"]
+[Result "8"]
+[Score "NS 120"]
+[Scoring "MP"]
+[Auction "N"]
+1D    Pass  1S    Pass
+1N    Pass  Pass  Pass
+{Partner opens a minor and you have a four-card spade suit.
+[BID 1D]Your partner opens 1\D, showing an opening hand with at least four diamonds.
+[BID 1S]You have about 6 or more points and a four-card spade suit, so bid 1\S. A new suit at the one level shows four or more and is forcing.
+[BID 1N]Partner rebids 1NT, showing a balanced minimum with no spade support.
+[show NESW]You held 9 points and a four-card spade suit. The one-level response found no fit, and partner's 1NT rebid settled the hand in a balanced partscore.}
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
