@@ -157,20 +157,29 @@ def fold_board(chunk):
 
     opener = ns_nonpass[0][0] if ns_nonpass else 'S'
     out = []  # list of (anchor_call, text)
-    if opener == 'N':                      # South is responder → prepend partner's preceding call
-        pending = None
-        for seat, call, text in seated:
-            if seat == 'N':
-                pending = text
-            else:                          # South
-                merged = (pending + ' ' if pending else '') + JBEG + text + JEND
-                out.append((call, merged))
-                pending = None
-        if south_ends_pass:                # partner's final bid + South's closing pass
-            tail = (pending + ' ' if pending else '')
-            out.append(('Pass', f"{tail}{JBEG}You pass; {contract_display(chunk)} is the final contract.{JEND}"))
-        elif pending:                      # safety: leftover partner call with no anchor
-            out[-1] = (out[-1][0], out[-1][1] + ' ' + pending)
+    if opener == 'N':                      # South is responder
+        # A [BID] step reveals text BEFORE the tag as the PROMPT (seen before acting) and
+        # text AFTER as the post-answer. The post-answer of one step is the prompt of the
+        # next. So partner's calls must land in the *next* decision's prompt, not the
+        # current step's post-answer — otherwise the student doesn't see what partner bid
+        # until after they respond to it. Mirror the opener==S append: partner's OPENING
+        # (leading N calls, before South acts) goes into the intro prompt; each LATER
+        # partner call is appended to the previous South chunk (its post-answer = the next
+        # prompt).
+        k, lead = 0, []
+        while k < len(seated) and seated[k][0] == 'N':
+            lead.append(seated[k][2]); k += 1
+        if lead:
+            intro = (intro + ' ' if intro else '') + ' '.join(lead)
+        for seat, call, text in seated[k:]:
+            if seat == 'S':
+                out.append((call, JBEG + text + JEND))
+            elif out:                      # N (later partner bid) → previous step's post-answer
+                out[-1] = (out[-1][0], out[-1][1] + ' ' + text)
+            else:                          # safety: no anchor yet
+                intro = intro + ' ' + text
+        if south_ends_pass:
+            out.append(('Pass', JBEG + f"You pass; {contract_display(chunk)} is the final contract." + JEND))
     else:                                  # South opens → append partner's following call
         for seat, call, text in seated:
             if seat == 'S':
