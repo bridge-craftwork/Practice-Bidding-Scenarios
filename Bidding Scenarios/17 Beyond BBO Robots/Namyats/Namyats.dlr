@@ -1,0 +1,30 @@
+# alias: namyatSWeak
+# button-text: namyatS - Weak
+# scenario-title: --- namyatS - Weak
+# gib-works: false
+# bba-works: true
+# auction-filter: Auction.....\n4[CDHS]
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- namyatS - Weak
+4!H = 7+ good !H and 7-8 tricks
+4!S = 7+ good !S and 7-8 tricks
+@chat*/
+
+# namyatS Weak
+dealer south
+
+# Define A/K/AK
+akS = top2(south,spades)>0 and spades(south)>0
+akH = top2(south,hearts)>0 and hearts(south)>0
+akD = top2(south,diamonds)>0 and diamonds(south)>0
+akC = top2(south,clubs)>0 and clubs(south)>0
+
+# Define H & S suits suitable for 4-level preempt with As/Ks outside
+Gs = spades(south)>6 and top5(south,spades)>3 and (akH or akD or akC)==0
+Gh = hearts(south)>6 and top5(south,hearts)>3 and (akS or akD or akC)==0
+
+(Gs or Gh) and loser(south)<6 and hcp(south)<18
+action printoneline,

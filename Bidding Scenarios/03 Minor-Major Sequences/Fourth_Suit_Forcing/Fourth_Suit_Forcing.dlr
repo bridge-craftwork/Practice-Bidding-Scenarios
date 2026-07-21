@@ -1,0 +1,315 @@
+# alias: FourthSuitForcing
+# button-text: 4th Suit Forcing
+# scenario-title: --- Fourth Suit Forcing
+# gib-works: true
+# bba-works: true
+# auction-filter: Note...:Fourth.suit
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Fourth Suit Forcing
+After 1!C, 1!D, or 1!H, a suit response at the 1-level, and a new suit by
+opener, the 4th suit is artificial and game forcing.
+NOTE: Many have different agreements about the sequence, 1!C - 1!D - 1!H - 1!S.
+Some play it as natural and forcing one round.
+Some play it as GF and less than 4 spades and use 2!S for GF with 4 spades. Talk to your partner!
+https://www.bridgebum.com/fourth_suit_forcing.php
+@chat*/
+
+produce 100
+dealer north
+
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+##### Imported Script -- Predict Opening 1-Bid North #####
+# 01/19/2026 -- Changed to use TP and separate ranges for C, D, and majors
+# 03/30/2025 -- Changed to use gibNT
+
+# GIB opens 1N w/15-17 HCP or 15-16 and a 5-card major
+ntP = hcp(north) + shape(north,5xxx+x5xx)
+nt1 = shape(north, any 5332+any 4432+any 4333) and hcp(north)>14 and ntP<18
+
+# GIB does not open with 5422 and a 5-card major
+# GIB does not open with 5422 and the strength to reverse
+nt2 = shape(north, any 5422 -5xxx-x5xx-4xxx) and hcp(north)>14 and hcp(north)<17
+
+gibNT = nt1 or nt2
+
+## Calculate TP for North -- NOTE:  This uses different variable names than TP to avoid conflicts when both are used.
+# Calculate North's Short-Suit Penalty Points
+ssp = spades(north)<3 and hcp(north,spades)>0     ? 1 : 0
+shp = hearts(north)<3 and hcp(north,hearts)>0     ? 1 : 0
+sdp = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+scp = clubs(north)<3 and hcp(north,clubs)>0       ? 1 : 0
+
+# Calculate North's Short-Suit Points
+sv01 = shape(north, any 0xxx) ? 3 : 0
+ss01 = shape(north, any 1xxx) ? 2 : 0 // allow for 2 singletons
+ss02 = shape(north, any 11xx) ? 2 : 0
+sd01 = shape(north, any 2xxx) ? 1 : 0 // allow for 3 doubletons
+sd02 = shape(north, any 22xx) ? 1 : 0
+sd03 = shape(north, any 222x) ? 1 : 0
+
+# Calculate North's Total Points
+nTP = hcp(north) + sv01+ss01+ss02+sd01+sd02+sd03 -ssp-shp-sdp-scp
+
+# Calculate length points for North (lengthPoints)
+lp1 = spades(north)>4 ? spades(north)-4 : 0
+lp2 = hearts(north)>4 ? hearts(north)-4 : 0
+lp3 = diamonds(north)>4 ? diamonds(north)-4 : 0
+lp4 = clubs(north)>4 ? clubs(north)-4 : 0
+lengthPoints = lp1 + lp2 + lp3 + lp4
+
+# Define suit points for north (suitPoints)
+suitPoints = hcp(north) + lengthPoints
+
+TwoNtShape = shape(north, any 4333 +any 4432 +any 5332 +any 5422)
+
+# Define ntPoint ranges
+oneNT   = gibNT
+twoNT   = TwoNtShape and hcp(north)>19 and hcp(north)<22
+
+# Define Gambling 3N
+g3Shape = shape(north,any 9xxx +any 8xxx +any 7xxx -any 4xxx -any 5xxx -any 6xxx)
+threeNT = (top3(north,clubs)==3 and clubs(north)>6) or (top3(north,diamonds)==3 and diamonds(north)>6) and hcp(north)<12 and g3Shape
+
+# Define Game Forcing 2C
+case1 = hcp(north)>18 and nTP>21
+case2 = hcp(north)>18 and nTP>19 and losers(north)<5 and (spades(north)>5 or hearts(north)>5)
+case3 = hcp(north)>18 and nTP>19 and losers(north)<4 and (diamonds(north)>5 or clubs(north)>5)
+gameForce2C = (case1 or case2 or case3)
+
+### Predict North's opening BID
+P1 = gameForce2C
+P2 = P1 or threeNT or twoNT or oneNT
+
+# Define quality and length lower limits for 10 HCP openers
+
+q2of3 = (top3(north,spades)>1 or top3(north,hearts)>1) and controls(north)>3
+lgt5  = (spades(north)>4 or hearts(north)>4) and shape(north,any 7xxx +any 64xx +any 55xx +any 1xxx+any 0xxx -any 8xxx -any 54xx) and nTP>(hcp(north) +2)
+
+# Predict North's Opening suit
+# What's the longest suit?
+s = spades(north)
+h = hearts(north)
+d = diamonds(north)
+c = clubs(north)
+
+## GIB has different requirements for 1H/S, 1D, and 1C openings
+#Define range for 1 H/S
+lS = s>4 and s>=h and s>=d and s>=c
+lH = h>4 and h>s and h>=d and h>=c
+lM = lS or lH
+
+hsOK1 = lM and hcp(north)>11
+hsOK2 = lM and hcp(north)>10 and nTP>12 and not hsOK1
+hsOK3 = lM and hcp(north)>9  and lgt5 and q2of3 and not (hsOK1 or hsOK2)
+hsRange = (hsOK1 or hsOK2 or hsOK3) and not P2
+
+# Define 1D Range
+dOK1 = hcp(north)>11 and (diamonds(north)>3 or shape(north, 4432))
+dOK2 = hcp(north)>9  and nTP>12 and diamonds(north)>5 and not dOK1
+dRange = (dOK1 or dOK2) and not P2
+
+# Define 1C Range
+cOK1 = hcp(north)>10 and nTP>12 and spades(north)==4
+cOK2 = hcp(north)>9  and nTP>12 and clubs(north)>5 and not cOK1
+cOK3 = hcp(north)>11 and clubs(north)>2            and not (cOK1 or cOK2)
+cRange = (cOK1 or cOK2 or cOK3) and clubs(north)>2 and clubs(north)>diamonds(north) and not P2
+
+oS = s>4 and s>=h and s>=d and s>=c and hsRange
+oH = not oS and h>4 and h>=d and h>=c and hsRange
+oD = not (oS or oH) and ((d>3 and d>=c) or c<3) and dRange
+oC = not (oS or oH or oD) and cRange
+openingSuit = (oS or oH or oD or oC)
+oneSpade   = oS
+oneHeart   = oH
+oneDiamond = oD
+oneClub    = oC
+
+##### End of Imported Script -- Predict Opening 1-Bid-North #####
+
+###### Define Bidding Sequences #####
+# These variables are defined in the imported script
+# The number of cards North has in each suit: s, h, d, c
+# North's predicted opening suit: oC, oD, oH, oS
+
+nP = hcp(north)
+sP = hcp(south)
+
+# Predict South's 1-level response
+sS = spades(south)
+hS = hearts(south)
+dS = diamonds(south)
+cS = clubs(south)
+
+# South responds in D, H, or S (Walsh style), or raises C.  longer than C to avoid 2/1
+
+# Predict South's responding suit
+rS  =  sP<11 ? sS>3 and sS>hS : sS>3 and sS>hS and sS>=dS and sS>=cS               // avoid 2/1 in minor
+rH  = (sP<11 ? hS>3           : hS>3           and hS>=dS and hS>=cS) and not (rS)
+rD  = dS>3           and dS>=cS and not (rS or rH)
+rC  = cS>4           and cS>4   and not (rS or rH or rD)
+rN  = not (rS or rH or rD or rC)
+
+# Define North's possible rebids
+nRC = clubs(north)>3
+nRD = diamonds(north)>3
+nRH = hearts(north)>3
+nRS = spades(north)>3
+nRN = shape(north,any 4333+any 4432+any 5332)
+
+# Defining North's opening (not NT) & South's non-GF response
+CD = oC and rD
+CH = oC and rH
+CS = oC and rS
+CN = oC and rN
+CC = oC and rC
+
+DH = oD and rH
+DS = oD and rS
+DN = oD and rN
+DD = oD and not (DH or DS or DN)
+
+HS = nP<11 ? oH and rS and hS<3 : oH and rS and hS<4     // no Jacoby 2N
+HN = oH and rN
+HH = oH and not (HS or HN)
+
+CDH = CD and nRH
+CDS = CD and nRS and not (CDH)
+CDN = CD and nRN and not (CDH or CDS)
+CDC = CD and c>5 and not (CDH or CDS or CDN)
+CDD = CD and d>3 and not (CDH or CDS or CDN or CDC)
+
+CHS = CH and nRS
+CHN = CH and nRN and not (CHS)
+CHC = CH and c>5 and not (CHS or CHN)
+CHD = CH and nRD and not (CHS or CHN or CHC)
+CHH = CH and nRH and not (CHS or CHN or CHC or CHD)
+
+CSN = CS and nRN
+CSC = CS and c>5 and not (CSN)
+CSD = CS and nRD and not (CSN or CSC)
+CSH = CS and nRH and not (CSN or CSC or CSD)
+CSS = CS and nRS and not (CSN or CSC or CSD or CSH)
+
+CNC = CN and c>5
+CND = CN and nRD and not (CNC)
+CNH = CN and nRH and not (CNC or CND)
+CNS = CN and nRS and not (CNC or CND or CNH)
+CNN = CN and nRN and not (CNC or CND or CNH or CNS)
+
+CCD = CC and nRD
+CCH = CC and nRH and not (CCD)
+CCS = CC and nRS and not (CCD or CCH)
+CCN = CC and nRN and not (CCD or CCH or CCS)
+CCC = CC and c>5 and not (CCD or CCH or CCS or CCN)
+
+DHS = DH and nRS
+DHN = DH and nRN and not (DHS)
+DHC = DH and nRC and not (DHS or DHN)
+DHD = DH and d>5 and not (DHS or DHC or DHN)
+DHH = DH and nRH and not (DHS or DHC or DHN or DHD)
+
+DSN = DS and nRN
+DSC = DS and nRC and not (DSN)
+DSD = DS and d>5 and not (DSN or DSC)
+DSH = DS and nRH and not (DSN or DSC or DSD)
+DSS = DS and nRS and not (DSN or DSC or DSD or DSH)
+
+DNC = DN and nRC
+DND = DN and d>5 and not (DNC)
+DNH = DN and nRH and not (DNC or DND)
+DNS = DN and nRS and not (DNC or DND or DNH)
+DNN = DN and nRN and not (DNC or DND or DNH or DNS)
+
+HSN = HS and nRN
+HSC = HS and nRC and not (HSN)
+HSD = HS and nRD and not (HSN or HSC)
+HSH = HS and h>5 and not (HSN or HSC or HSD)
+HSS = HS and nRS and not (HSN or HSC or HSD or HSH)
+
+HNC = HN and nRC
+HND = HN and nRD and not (HNC)
+HNH = HN and h>5 and not (HNC or HND)
+HNS = HN and nRS and not (HNC or HND or HNH)
+HNN = HN and nRN and not (HNC or HND or HNH or HNS)
+
+##### End of Define Bidding Sequences #####
+
+##### Select appropriate 4SF bidding sequences #####
+noReverse = (CDH or CDS or CHS or DHS or DHC or DSC or HSC or HSD) and nP>11 and nP<17 // Avoid Jump Shifts
+isReverse = (CHD or CSD or CSH or DSH) and nP>16
+allSequences = noReverse or isReverse //and not CDH
+
+# South's constraints
+sShape = shape(south,any 7xxx+any 6xxx+any 5xxx-any 74xx-any 64xx-any 5332-any 4432-any 4333)
+sRange = sP>12 and sP<16   // with 13-15 I got Soloway jumpshifts
+sConstraints = sShape and sRange
+
+# North's constraints
+nSpades   = (CS or DS or HS) and spades(north)<=3
+nHearts   = (CH or DH)       and hearts(north)<=3
+nDiamonds = CD               and diamonds(north)<4
+
+nSupport  = nSpades or nHearts or nDiamonds
+twoSuits  = shape(north,any 54xx+any 44xx)
+nConstraints = nSupport and twoSuits and nP<19
+
+# Now do it
+condition
+allSequences and nConstraints and sConstraints and calmOpps
+#and CHD
+
+# Just for stats...
+bal = shape(north,any 5422+any 5332+any 4432)
+h3  = h==3 and (CH or DH)
+s3  = s==3 and (CS or DS or HS)
+
+
+action printoneline,
+average "noReverse " 100 * noReverse,
+average "CDH       " 100 * CDH,
+average "CDS       " 100 * CDS,
+average "CHS       " 100 * CHS,
+average "DHS       " 100 * DHS,
+average "DHC       " 100 * DHC,
+average "DSC       " 100 * DSC,
+average "HSC       " 100 * HSC,
+average "HSD       " 100 * HSD,
+average "isReverse " 100 * isReverse,
+average "CHD       " 100 * CHD,
+average "CSD       " 100 * CSD,
+average "CSH       " 100 * CSH,
+average "DSH       " 100 * DSH,
+average "balanced  " 100 * bal,
+average " Heart sup" 100 * (bal and h3),
+average " Spade sup" 100 * (bal and s3),
+average "unbalanced" 100 * not bal,
+average " Heart sup" 100 * (not bal and h3),
+average " Spade sup" 100 * (not bal and s3),

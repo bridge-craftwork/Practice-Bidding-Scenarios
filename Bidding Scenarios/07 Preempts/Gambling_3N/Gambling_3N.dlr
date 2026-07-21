@@ -1,0 +1,27 @@
+# alias: Gambling3N
+# button-text: Gambling 3N
+# scenario-title: --- Gambling 3N
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n3NT? +
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Gambling 3N
+A gambling 3N opening bid shows a solid 7 or 8-card minor suit and less than a K outside.
+https://www.bridgebum.com/gambling_3nt.php
+@chat*/
+
+dealer south
+
+# Gambling 3N
+hcp(south)>8 and hcp(south)<12  // could have a Q or two J's outside
+and
+(
+(top3(south,diamonds)==3 and diamonds(south)>6)
+or
+(top3(south,clubs)==3 and clubs(south)>6)
+)
+and shape(south,any 9xxx +any 8xxx +any 7xxx -any 4xxx -any 5xxx -any 6xxx)
+action printoneline,

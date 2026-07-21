@@ -1,0 +1,40 @@
+# alias: KokishRelay
+# button-text: Kokish Relay
+# scenario-title: --- Kokish Relay
+# gib-works: false
+# bba-works: true
+# auction-filter: Note....Kokish Relay
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Kokish Relay
+After the sequence 2!C - 2!D - 2!H
+showing 22+ unbal with 5+H or 25-27 balanced GF
+and forcing partner to accept the relay to 2!S.  Then
+2N = 25+ Balanced game forcing
+3!C = 5+!H and !C
+3!D = 5+!H and !D
+3!H = 6+!H
+3!S = 5+!H and !S
+https://www.bridgebum.com/kokish_relay.php
+@chat*/
+
+# Kokish Relay
+dealer south
+
+# Kokish relay shows unbal w/5+H and 4 on the side or a 25-27 NT
+sHearts = hcp(south)>21 and hearts(south)>4 and shape(south,any 74xx +any 64xx +any 54xx)
+sNT     = hcp(south)>24 and hcp(south)<28 and shape(south,any 5332+any 4432+any 4333) and not sHearts
+s2C     = sHearts or sNT
+
+# North bids 2D, waiting
+n2D = hcp(north)<9
+
+# Now do it
+s2C and n2D
+
+produce 5000
+action printoneline,
+average "hearts  " 100 * sHearts,
+average "notrump " 100 * sNT,

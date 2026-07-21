@@ -1,0 +1,107 @@
+# alias: Snapdragon
+# button-text: Snapdragon Double
+# scenario-title: --- Snapdragon Double
+# gib-works: false
+# bba-works: true
+# auction-filter: (1C +1D +1[HS]|1C +1H +(1S|2D)|1C +1S +2[DH]|1D +1H +(1S|2C)|1D +1S +2[CH]|1D +2C +2[HS]|1H +1S +2[CD]) +X
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Snapdragon Double
+After LHO opens, partner overcalls, and RHO bids a new suit, a Snapdragon double
+is artifical and forcing.  It shows 5+ cards in the lone unbid suit, at least 8 HCP, 
+and a tolerance for partner's suit.  'Tolerance' ranges from 2 to 3 cards.
+https://www.bridgebum.com/snapdragon_double.php
+@chat*/
+
+# kill 1x-(Y)-2Z forcing
+
+# Overcalls
+dealer east
+
+# Predict East's Opening suit
+es = spades(east)
+eh = hearts(east)
+ed = diamonds(east)
+ec = clubs(east)
+eS = es>4 and es>=eh and es>=ed and es>=ec
+eH = not eS and eh>4 and eh>=ed and eh>=ec
+eD = not (eS or eH) and ((ed>3 and ed>=ec) or ec<3)
+eC = not (eS or eH or eD)
+
+# Avoid 1C-?-2C, 1D-?-2D.  West will bid 1N some
+oneC = eC and shape(west,xxx3)
+oneD = eD and shape(west,xx3x)
+eOpens = (oneC or oneD) and hcp(east)>11 and hcp(east)<15
+
+# Predict south's overcall and north's tolerance (2/3-cards) in south's suit (restricting to 2/3 greatly reduces production)
+ss = shape(south,     5xxx-any 7xxx-any 66xx-any 65xx-any 55xx) and top4(south,spades)>1   and spades(north)>1   and spades(north)<4
+sh = shape(south,     x5xx-any 7xxx-any 66xx-any 65xx-any 55xx) and top4(south,hearts)>1   and hearts(north)>1   and hearts(north)<4
+sd = shape(south,     xx5x-any 7xxx-any 66xx-any 65xx-any 55xx) and top4(south,diamonds)>1 and diamonds(north)>1 and diamonds(north)<4
+sc = shape(south,xxx6+xxx5-any 7xxx-any 66xx-any 65xx-any 55xx) and top4(south,clubs)>1    and clubs(north)>1    and clubs(north)<4
+ 
+# Predict West's response
+ws = shape(west,6xxx+5xxx-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(west,spades)>2
+wh = shape(west,x6xx+x5xx-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(west,hearts)>2
+wd = shape(west,xx6x+xx5x-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(west,diamonds)>2
+wc = shape(west,xxx6+xxx5-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(west,clubs)>2
+
+# Predict North's suit  // I think I've discovered a Dealer bug -- ns does not work as a variable name
+nss = shape(north,6xxx+5xxx-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(north,spades)>2
+nh  = shape(north,x6xx+x5xx-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(north,hearts)>2
+nd  = shape(north,xx6x+xx5x-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(north,diamonds)>2
+nc  = shape(north,xxx6+xxx5-any 7xxx-any 66xx-any 65xx-any 55xx) and top5(north,clubs)>2
+
+CDHS = oneC and sd and wh and nss // 1C - 1D - 1H - 1S
+CDSH = oneC and sd and ws and nh  // 1C - 1D - 1S - 2H
+CHSD = oneC and sh and ws and nd  // 1C - 1H - 1S - 2D
+CHDS = oneC and sh and wd and nss and hcp(west)>10 // 1C - 1H - 2D - 2S
+CSDH = oneC and ss and wd and nh  and hcp(west)>10 // 1C - 1S - 2D - 2H
+CSHD = oneC and ss and wh and nd  and hcp(west)>10 // 1C - 1S - 2H - 3D
+
+DHSC = oneD and sh and ws and nc  // 1D - 1H - 1S - 2C
+DHCS = oneD and sh and wc and nss and hcp(west)>10 // 1D - 1H - 2C - 2S
+DSCH = oneD and ss and wc and nh  and hcp(west)>10 // 1D - 1S - 2C - 2H
+DSHC = oneD and ss and wh and nc  and hcp(west)>10 // 1D - 1S - 2H - 3C
+DCHS = oneD and sc and wh and nss and hcp(west)>10 // 1D - 2C - 2H - 2S
+DCSH = oneD and sc and ws and nh  and hcp(west)>10 // 1D - 2C - 2S - 3H
+
+# south's makes some weak jump overcalls
+otherHCP = hcp(south)>7 and hcp(west)>7 and hcp(north)>7
+sequences = (CDHS or CDSH or CHSD or CHDS or CSDH or CSHD or DHSC or DHCS or DSCH or DSHC or DCHS or DCSH)
+
+
+##include "script/Leveling"
+
+#lCDHS = CDHS and keep25
+#lCDSH = CDSH and keep25
+#lCHSD = CHSD and keep25
+#lCHDS = CHDS and keep
+#lCSDH = CSDH and keep
+#lCSHD = CSHD and keep
+#lDHSC = DHSC and keep14
+#lDHCS = DHCS and keep
+#lDSCH = DSCH and keep
+#lDSHC = DSHC and keep
+#lDCHS = DCHS and keep
+#lDCSH = DCSH and keep
+#levelTheDeal = (lCDHS or lCDSH or lCHSD or lCHDS or lCSDH or lCSHD or lDHSC or lDHCS or lDSCH or lDSHC or lDCHS or lDCSH)
+
+# Now do it
+eOpens and otherHCP and sequences
+#and levelTheDeal
+
+action printoneline,
+average "CDHS" 100 * CDHS,
+average "CDSH" 100 * CDSH,
+average "CHSD" 100 * CHSD,
+average "CHDS" 100 * CHDS,
+average "CSDH" 100 * CSDH,
+average "CSHD" 100 * CSHD,
+average "DHSC" 100 * DHSC,
+average "DHCS" 100 * DHCS,
+average "DSCH" 100 * DSCH,
+average "DSHC" 100 * DSHC,
+average "DCHS" 100 * DCHS,
+average "DCSH" 100 * DCSH,

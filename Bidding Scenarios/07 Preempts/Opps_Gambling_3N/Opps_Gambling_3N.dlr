@@ -1,0 +1,29 @@
+# alias: OppsGambling3N
+# button-text: Opps Gambling 3N
+# scenario-title: --- Opponents Gambling 3N
+# gib-works: false
+# bba-works: true
+# auction-filter: Note....Gambling
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-SPECIALS
+
+/*@chat
+--- Opponents Gambling 3N
+A gambling 3N opening bid shows a solid 7+ card minor suit and less than a K outside.
+@chat*/
+
+dealer east
+
+solidClubs    = top3(east,clubs)==3    and clubs(east)>6
+solidDiamonds = top3(east,diamonds)==3 and diamonds(east)>6
+
+# This range leaves room for one Q or two J's outside
+eastRange = hcp(east)>8 and hcp(east)<12
+
+# Now do it
+eastRange and (solidClubs or solidDiamonds)
+
+# Testing
+
+produce 30
+action printoneline,
