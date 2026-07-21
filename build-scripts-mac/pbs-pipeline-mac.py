@@ -211,7 +211,7 @@ def _cleanup_filter_outputs(scenario: str, verbose: bool = True):
                     print(f"  Removed stale: {folder_name}/{scenario}{ext}")
 
 
-def run_operations(scenario: str, operations: list, verbose: bool = True) -> bool:
+def run_operations(scenario: str, operations: list, verbose: bool = True) -> tuple:
     """
     Run a list of operations on a scenario.
 
@@ -221,7 +221,9 @@ def run_operations(scenario: str, operations: list, verbose: bool = True) -> boo
         verbose: Whether to print progress
 
     Returns:
-        True if all operations succeeded
+        (success, durations) — success is True if all operations succeeded;
+        durations maps each op that ran to its elapsed seconds (empty when
+        every operation was filtered out, e.g. bba-works=false leaves nothing).
     """
     # Filter operations based on scenario capabilities
     filtered_ops = filter_operations_for_scenario(scenario, operations)
@@ -237,7 +239,7 @@ def run_operations(scenario: str, operations: list, verbose: bool = True) -> boo
     if not filtered_ops:
         if verbose:
             print("  No operations to run after filtering")
-        return True
+        return True, {}
 
     success = True
     durations = {}
