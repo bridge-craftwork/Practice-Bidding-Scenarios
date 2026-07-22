@@ -1,20 +1,25 @@
-# alias: respToGibNt
-# button-text: Basic NT
-# scenario-title: ---  Basic Notrump Responses
-# gib-works: true
-# bba-works: true
-# auction-filter: Auction.....\n1N +Pass +\d
-# convention-card-ns: 21GF-GIB
-# convention-card-ew: 21GF-GIB
+Script,respToGibNt
+window.currentPBSScenario = 'respToGibNt';
+window.currentPBSScenarioFilename = 'GIB_1N_Basic';
+console.log('PBS: Logging scenario selection for respToGibNt');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'respToGibNt',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
 
-/*@chat
----  Basic Notrump Responses
-A Basic 1NT shows a balanced hand (4333, 4432, 5332, or maybe 5422) w/15-17 HCP and no 5-card major
-or 15-16 with a 5-card major. Basic Responses include Stayman, Jacoby Transfer, and 2/3 Notrump.
-@chat*/
-
-dealer north
-
+/*
+convention-card-ns: 21GF-GIB
+convention-card-ew: 21GF-GIB
+auction-filter: Auction.....\n1N +Pass +\d
+*/
 ### Imported script: TP (Total Points)
 //   Total Points = HCP + Short-Suit Points - Penalty Points
 //   Short-Suit Points: 3 for void, 2 for singleton, 1 for doubleton
@@ -118,3 +123,10 @@ action printoneline,
 average "stayman " 100 * stayman,
 average "jacoby  " 100 * jacoby,
 average "threeNT " 100 * threeNT,
+`, "N", true)
+Script
+Button,Basic NT Resp,\n\
+---  Basic Notrump Responses\n\
+A Basic 1NT shows a balanced hand (4333，4432，5332，or maybe 5422) w/15-17 HCP and no 5-card major\n\
+or 15-16 with a 5-card major. Basic Responses include Stayman，Jacoby Transfer，and 2/3 Notrump.\n\
+%respToGibNt%
