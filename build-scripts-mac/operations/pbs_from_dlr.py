@@ -353,10 +353,21 @@ def _git_commit_and_push(pbs_test_path: str, scenario: str, verbose: bool = True
             if verbose:
                 print(f"  Committed: {commit_msg}")
 
-        # Push (rebase-and-retry on the manifest-bot race; non-fatal for the pbs
-        # auto-commit — a failed push just leaves the commit local, as before)
-        from git_utils import push_with_rebase_retry
-        push_with_rebase_retry(verbose)
+        # Push (fire-and-forget: a failed push just leaves the commit local, to be
+        # pushed later). Deliberately NOT rebase-and-retry — this runs mid-pipeline
+        # (per scenario), where a git pull --rebase would autostash in-progress
+        # artifacts and can stall. Rebase-retry is only for the terminal release ops.
+        result = subprocess.run(
+            ["git", "push"],
+            capture_output=True,
+            text=True
+        )
+
+        if result.returncode != 0:
+            print(f"  Git push failed: {result.stderr}")
+        else:
+            if verbose:
+                print(f"  Pushed successfully")
 
     except Exception as e:
         print(f"  Git error: {e}")
