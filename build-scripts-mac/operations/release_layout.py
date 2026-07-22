@@ -94,20 +94,10 @@ def run_release_layout(scenario: str = None, verbose: bool = True) -> bool:
                 if verbose:
                     print(f"  Committed: {commit_msg}")
 
-            # Push
-            result = subprocess.run(
-                ["git", "push"],
-                capture_output=True,
-                text=True
-            )
-
-            if result.returncode != 0:
-                print(f"  Git push failed: {result.stderr}")
-                print(f"  (You may need to pull first)")
+            # Push (rebase-and-retry on the manifest-bot race)
+            from git_utils import push_with_rebase_retry
+            if not push_with_rebase_retry(verbose):
                 return False
-
-            if verbose:
-                print(f"  Pushed successfully")
 
         finally:
             os.chdir(original_dir)
