@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "beta",
-  "generatedAtCommit": "35b90d49cbb847ebc79999af168ebfbb398baf33",
+  "generatedAtCommit": "594a750b8e47ac168bb80969a35ee8e863e02352",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "pbs": [
@@ -113,7 +113,7 @@
       "type": "row",
       "buttons": [
         {
-          "name": "1N_Balanced_Raise",
+          "name": "Basic_NT",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -907,7 +907,10 @@
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "1N_Balanced_Raise",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -3565,10 +3568,10 @@
       "conventionCardEW": "Basic-Bridge",
       "missing": false
     },
-    "1N_Balanced_Raise": {
-      "buttonText": "1N w/Bal Raise",
-      "chat": "\\n--- 1NT Balanced Raise (no four- or five-card major)\\nPartner opens 1NT (15-17).  You are balanced with no four-card or five-card major，so there is\\nno Stayman bid and no transfer to make -- you raise notrump straight to the level your points\\ncall for.  Pass with 0-7，invite game with 2NT on 8-9，and bid game with 3NT on 10-15.  With\\nslam values keep bidding notrump: 4NT is a quantitative slam invitation on about 16-17，and with\\n18-19 bid 6NT to play.  Opener passes a minimum over your 2NT or 4NT and accepts with a maximum.\\nA pure point-count decision: add your points to partner's 15-17 and pick the level.\\n",
-      "alias": "OneNTBalancedRaise",
+    "Basic_NT": {
+      "buttonText": "Basic 1NT (Natural)",
+      "chat": "\\n--- Basic 1NT Opening — natural responses only (beginner)\\nSouth opens 1NT (15-17 HCP balanced). Responder uses NATURAL responses —\\nno Stayman，no transfers.\\n\\nNorth's responses:\\n• Pass — 0-7 HCP，balanced\\n• 2NT — 8-9 HCP balanced，invitational\\n• 3NT — 10-15 HCP balanced\\n• 4NT — quantitative slam invite (16-17 HCP，no fit-finding)\\n• 6NT — slam，18+ HCP\\n\\nResponder is constrained to have NO 4-card major and NO 5-card suit,\\nso the right answer is always a natural NT raise (or pass). Stayman and\\ntransfers don't apply here.\\n\\nReference: https://www.bridgebum.com/1nt_15_17.php\\n",
+      "alias": "BasicNT",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "Basic-Bridge",
@@ -3577,7 +3580,7 @@
     },
     "Basic_Weak_2": {
       "buttonText": "Basic Weak 2",
-      "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two_bid.php\\n",
+      "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two.php\\n4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\\n  • 5!C = 0 or 4 aces\\n  • 5!D = 1 ace\\n  • 5!H = 2 aces\\n  • 5!S = 3 aces\\n  • 5NT then asks for kings the same way\\n",
       "alias": "BasicWeak2",
       "gibWorks": true,
       "bbaWorks": true,
@@ -4443,6 +4446,16 @@
       "bbaWorks": true,
       "conventionCardNS": "21GF-GIB",
       "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "1N_Balanced_Raise": {
+      "buttonText": "1N w/Bal Raise",
+      "chat": "\\n--- 1NT Balanced Raise (no four- or five-card major)\\nPartner opens 1NT (15-17).  You are balanced with no four-card or five-card major，so there is\\nno Stayman bid and no transfer to make -- you raise notrump straight to the level your points\\ncall for.  Pass with 0-7，invite game with 2NT on 8-9，and bid game with 3NT on 10-15.  With\\nslam values keep bidding notrump: 4NT is a quantitative slam invitation on about 16-17，and with\\n18-19 bid 6NT to play.  Opener passes a minimum over your 2NT or 4NT and accepts with a maximum.\\nA pure point-count decision: add your points to partner's 15-17 and pick the level.\\n",
+      "alias": "OneNTBalancedRaise",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "Basic-Bridge",
+      "conventionCardEW": "Basic-Bridge",
       "missing": false
     },
     "GIB_1N": {
@@ -17396,14 +17409,12 @@
   },
   "deltas": {
     "missing": [],
-    "orphans": [
-      "Basic_NT"
-    ]
+    "orphans": []
   },
   "counts": {
-    "referenced": 340,
-    "scenarios": 340,
+    "referenced": 341,
+    "scenarios": 341,
     "missing": 0,
-    "orphans": 1
+    "orphans": 0
   }
 }
