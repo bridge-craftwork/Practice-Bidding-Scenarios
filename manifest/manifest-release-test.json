@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release-test",
-  "generatedAtCommit": "e6c56a472fa38ba1e3a54f1c43a96ccf1fcd88af",
+  "generatedAtCommit": "d7dd656b796285b996b2624e613f2c663c238bc9",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -120,10 +120,24 @@
           "grouped": false
         },
         {
+          "name": "GIB_1N_Basic",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
           "name": "Basic_Weak_2",
           "color": null,
           "width": "50%",
           "grouped": false
+        },
+        {
+          "name": "---"
         }
       ]
     },
@@ -3579,6 +3593,16 @@
       "conventionCardEW": "Basic-Bridge",
       "missing": false
     },
+    "GIB_1N_Basic": {
+      "buttonText": "Basic NT Resp",
+      "chat": "\\n---  Basic Notrump Responses\\nA Basic 1NT shows a balanced hand (4333，4432，5332，or maybe 5422) w/15-17 HCP and no 5-card major\\nor 15-16 with a 5-card major. Basic Responses include Stayman，Jacoby Transfer，and 2/3 Notrump.\\n",
+      "alias": "respToGibNt",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-GIB",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
     "Basic_Weak_2": {
       "buttonText": "Basic Weak 2",
       "chat": "\\n--- Basic Weak Two-Bid (beginner)\\nSouth opens 2!D，2!H，or 2!S as a weak preempt.\\n\\nA weak two-bid shows:\\n• 6-card suit (exactly 6 cards — not 5，not 7)\\n• 5-10 HCP\\n• 2 of the top 3 honors in the suit，or 3 of the top 5 (good suit quality)\\n• Limited side-suit values (no 4-card major outside，no 4+-card minor with\\n  values)\\n\\nPartner's responses:\\n• Pass — happy to play 2-of-suit with a weak hand\\n• 2NT — strong inquiry asking for shape and strength (Ogust or feature ask)\\n• 3-of-suit — to play，with 3+ support and weakish hand\\n• 4-of-major — to play，often preemptive\\n• New suit — strong，forcing\\n\\nFor beginners: open weak 2 with disciplined hands. The 6-card suit is the\\npreempt's whole structure. Don't preempt with poor suits — partner will\\nsometimes raise to game on a fit，and you need to deliver tricks.\\n\\nReference: https://www.bridgebum.com/weak_two.php\\n4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\\n  • 5!C = 0 or 4 aces\\n  • 5!D = 1 ace\\n  • 5!H = 2 aces\\n  • 5!S = 3 aces\\n  • 5NT then asks for kings the same way\\n",
@@ -4436,16 +4460,6 @@
       "gibWorks": false,
       "bbaWorks": false,
       "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false
-    },
-    "GIB_1N_Basic": {
-      "buttonText": "Basic NT Resp",
-      "chat": "\\n---  Basic Notrump Responses\\nA Basic 1NT shows a balanced hand (4333，4432，5332，or maybe 5422) w/15-17 HCP and no 5-card major\\nor 15-16 with a 5-card major. Basic Responses include Stayman，Jacoby Transfer，and 2/3 Notrump.\\n",
-      "alias": "respToGibNt",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-GIB",
       "conventionCardEW": "21GF-GIB",
       "missing": false
     },
