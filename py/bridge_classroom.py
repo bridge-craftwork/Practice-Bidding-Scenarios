@@ -280,8 +280,18 @@ def _fold_partner_bids(text, stats, student="S"):
         tag, txt = parts[i], parts[i + 1] if i + 1 < len(parts) else ""
         val = _norm_call(_BID_TAG.match(tag).group(1))
         if val == "PASS":
-            # The student's confirming end-of-auction pass — always keep it
-            # (partner/opponent passes are never anchored in the first place).
+            # An anchored Pass is always the student's own (partner/opponent
+            # passes are never anchored), so always keep it — but the cursor MUST
+            # advance past that pass. Intermediate student passes are anchored
+            # too, and leaving `p` behind one makes the NEXT anchor re-match a
+            # call that precedes it, mis-seat it as an opponent's, and fold the
+            # student's own later call away.
+            j = p
+            while j < len(callvals) and not (
+                    callvals[j] == "PASS" and callseats[j] == student):
+                j += 1
+            if j < len(callvals):
+                p = j + 1
             out += tag + txt
             kept_student = True
             i += 2

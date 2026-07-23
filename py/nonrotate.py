@@ -11,14 +11,20 @@ fixes South=student and differs in TWO ways:
      render 2nd person ("You open 1D"), North's render 3rd ("Your partner ...").
   2. Partner's (North's) `[BID]` anchors are FOLDED away: bridge-classroom quizzes
      only the student, so each North chunk is merged into the adjacent South chunk
-     and only South's calls keep a `[BID]`. South's auction-ending Pass is anchored
-     with `[BID Pass]`.
+     and only South's calls keep a `[BID]`.
 
-Fold direction follows who opened (strict N/S alternation in these uncontested
-auctions): if North opens (South is responder) each North chunk PREPENDS to the
-following South chunk, and a trailing North chunk (partner's final bid that South
-passes) becomes a `[BID Pass]` chunk. If South opens, each North chunk APPENDS to
-the preceding South chunk.
+EVERY South call is anchored — including the intermediate passes the student would
+have to make at the table. An unanchored call is one bridge-classroom makes silently
+on the student's behalf, which reads as a skipped turn (classroom-feedback #243, "I
+did not make the first pass"). South's passes carry generated prose: the auction-
+ending one names the final contract, an intermediate one is a bare "You pass."
+
+Partner's non-pass calls fold into an adjacent South chunk: partner's OPENING (any
+call before South first acts) goes into the intro prompt, and each LATER partner call
+is appended to the previous South chunk — whose post-answer is the next step's
+prompt, so the student sees partner's bid before having to answer it. Partner's
+passes and the opponents' calls are not narrated; they appear only where the curated
+prose mentions them.
 
 Run from the project root, then run `bridge_classroom.py <scn>` to strip the
 pre-auction stat blocks, renumber, and add [OriginalBoard]:
@@ -137,57 +143,73 @@ def fold_board(chunk):
     # Old-format curated files bake a leading [show S] into the intro; strip any
     # leading [show ...] so the [show S] we add below isn't doubled.
     intro = re.sub(r'^\s*\[show [^\]]+\]\s*', '', intro)
-    assert len(chunks) == len(ns_nonpass), \
-        f"board {tag(chunk,'Board')}: {len(chunks)} BID chunks vs {len(ns_nonpass)} N/S calls"
     # [ACCEPT] survives only on South's own bid chunks (the student's quiz calls).
     # Strip it from intro/reflection (not bids) and from partner's calls (which fold
     # into a South chunk and would otherwise mis-accept the student's call).
     intro = _ACCEPT.sub('', intro)
     reflection = _ACCEPT.sub('', reflection)
-    # attach seat to each chunk
-    seated = []
-    for i, (call, text) in enumerate(chunks):
-        is_student = ns_nonpass[i][0] == 'S'
+    # Bind each curated chunk to the auction call it explains by walking both in
+    # order and matching on the call's VALUE (the way the renderers anchor), rather
+    # than assuming chunks line up 1:1 with the N/S non-pass calls. That assumption
+    # forbids the one thing a chunk legitimately wants to explain but the old
+    # positional scheme had no slot for: SOUTH'S OWN PASS. Partner's passes are
+    # never authored, but South's may be — a pass the student still has to make can
+    # carry real teaching prose ("you have shown your hand, so you let it go"), and
+    # an unmatched South pass simply falls through to generated text below.
+    ns_calls = [(i, s, c) for i, (s, c) in enumerate(seats) if s in 'NS']
+    seated = {}                      # index into `seats` -> (seat, call, text)
+    p = 0
+    for call, text in chunks:
+        j = p
+        while j < len(ns_calls) and ns_calls[j][2] != call:
+            j += 1
+        assert j < len(ns_calls), (
+            f"board {tag(chunk,'Board')}: chunk [BID {call}] matches no remaining "
+            f"N/S call in {[c for _, _, c in ns_calls]}")
+        idx, seat, _ = ns_calls[j]
+        is_student = seat == 'S'
         text = fill_pronouns(text, is_student)
         if not is_student:
             # Drop partner's [ACCEPT] and tidy the space it leaves, so folding this
             # single-line bid prose into the South chunk doesn't double a space.
             text = _ACCEPT.sub('', text).strip()
-        seated.append((ns_nonpass[i][0], call, text))
+        seated[idx] = (seat, call, text)
+        p = j + 1
 
-    opener = ns_nonpass[0][0] if ns_nonpass else 'S'
-    out = []  # list of (anchor_call, text)
-    if opener == 'N':                      # South is responder
-        # A [BID] step reveals text BEFORE the tag as the PROMPT (seen before acting) and
-        # text AFTER as the post-answer. The post-answer of one step is the prompt of the
-        # next. So partner's calls must land in the *next* decision's prompt, not the
-        # current step's post-answer — otherwise the student doesn't see what partner bid
-        # until after they respond to it. Mirror the opener==S append: partner's OPENING
-        # (leading N calls, before South acts) goes into the intro prompt; each LATER
-        # partner call is appended to the previous South chunk (its post-answer = the next
-        # prompt).
-        k, lead = 0, []
-        while k < len(seated) and seated[k][0] == 'N':
-            lead.append(seated[k][2]); k += 1
-        if lead:
-            intro = (intro + ' ' if intro else '') + ' '.join(lead)
-        for seat, call, text in seated[k:]:
-            if seat == 'S':
-                out.append((call, JBEG + text + JEND))
-            elif out:                      # N (later partner bid) → previous step's post-answer
-                out[-1] = (out[-1][0], out[-1][1] + ' ' + text)
-            else:                          # safety: no anchor yet
-                intro = intro + ' ' + text
-        if south_ends_pass:
-            out.append(('Pass', JBEG + f"You pass; {contract_display(chunk)} is the final contract." + JEND))
-    else:                                  # South opens → append partner's following call
-        for seat, call, text in seated:
-            if seat == 'S':
-                out.append((call, JBEG + text + JEND))
+    # Walk the FULL auction so EVERY South call carries its own [BID] anchor —
+    # including the intermediate passes the student would have to make at the table.
+    # (classroom-feedback #243: "I did not make the first pass" — an unanchored pass
+    # is made silently by bridge-classroom, so the student never gets the call.)
+    # A [BID] step reveals text BEFORE the tag as the PROMPT (seen before acting) and
+    # text AFTER as the post-answer. The post-answer of one step is the prompt of the
+    # next. So partner's calls must land in the *next* decision's prompt, not the
+    # current step's post-answer — otherwise the student doesn't see what partner bid
+    # until after they respond to it. Partner's OPENING (calls before South ever acts)
+    # goes into the intro prompt; each LATER partner call is appended to the previous
+    # South chunk. Partner's passes and the opponents' calls stay unnarrated — they are
+    # mentioned only where the curated prose says so.
+    south_idx = [i for i, (s, c) in enumerate(seats) if s == 'S']
+    last_south = south_idx[-1] if south_idx else -1
+    out = []                               # list of (anchor_call, text)
+    for i, (seat, call) in enumerate(seats):
+        if seat not in 'NS':
+            continue
+        ent = seated.get(i)
+        if seat == 'S':
+            if ent:                        # authored prose for this call
+                text = ent[2]
+            elif call == 'Pass':           # unauthored pass — generate the prose
+                text = (f"You pass; {contract_display(chunk)} is the final contract."
+                        if i == last_south and south_ends_pass else "You pass.")
             else:
-                out[-1] = (out[-1][0], out[-1][1] + ' ' + text)
-        if south_ends_pass:
-            out.append(('Pass', JBEG + f"You pass; {contract_display(chunk)} is the final contract." + JEND))
+                raise AssertionError(
+                    f"board {tag(chunk,'Board')}: South's {call} has no coaching chunk")
+            out.append((call, JBEG + text + JEND))
+        elif ent and ent[2]:               # partner's authored call (passes: never)
+            if out:                        # later partner bid → previous step's post-answer
+                out[-1] = (out[-1][0], out[-1][1] + ' ' + ent[2])
+            else:                          # partner's opening, before South acts
+                intro = (intro + ' ' if intro else '') + ent[2]
 
     body_lines = ['[show S]' + intro]
     for call, text in out:
