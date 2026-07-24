@@ -697,14 +697,13 @@ def _premature_theme_violations(path):
             if _REJECTED_CALL.search(lead):
                 continue
             named.add(_norm_call(m.group(1) + m.group(2).replace('\\', '')))
-        # Strictly AFTER the student's first turn. A theme that names the student's
-        # own next call ("South opens 1NT with a balanced 15 to 17") is a separate,
-        # debatable question — on a beginner lesson that reads as framing the topic,
-        # not leaking an answer — and it is not what was reported. Widening this to
-        # `k >= first` fires on ~78 further boards and is David's call, not the
-        # gate's; see the note raised with the #245/#246/#247 batch.
+        # `k >= first`, not `k > first`: the student's OWN first call counts too.
+        # Naming it ("South opens 1NT with a balanced 15 to 17") hands over the
+        # answer to the very decision the theme precedes — the most direct reveal
+        # there is. David ruled on this 2026-07-23, extending the 2026-06-24
+        # no-reveal rule to the student's next call and not just the ones beyond it.
         later = {c for k, (_, c) in enumerate(seats)
-                 if k > first and c not in ('PASS', 'X', 'XX')}
+                 if k >= first and c not in ('PASS', 'X', 'XX')}
         both = sorted(named & later)
         if both:
             out.append((tag(ch, 'Board'), both, theme[:80]))
