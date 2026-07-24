@@ -632,6 +632,148 @@ def _partner_exposure_violations(path):
             yield b, 'reflection', s
 
 
+_SEATS4 = ['N', 'E', 'S', 'W']
+# a call written in prose: 1NT, 3\S, 2\D  (suit escapes, never a bare letter)
+_PROSE_CALL = re.compile(r'\b([1-7])\s*(NT|N(?![A-Za-z])|\\[SHDC])')
+# a call named only to be ruled out ("too weak for 1NT", "would promise 3\H")
+_REJECTED_CALL = re.compile(
+    r'\b(too (?:weak|strong|light|good|much)|short of|rather than|instead of|'
+    r'would (?:promise|imply|show|be)|avoids?|not quite|a shade too|light for|'
+    r'without|denies|cannot|can\'t|no longer)\b[^.]{0,34}$')
+
+
+def _auction_seats(chunk):
+    """[(seat, call)] for the board's auction, in order."""
+    m = re.search(r'\[Auction "(\w)"\]\s*\n((?:[^\[{][^\n]*\n?)*)', chunk)
+    if not m:
+        return []
+    di = _SEATS4.index(m.group(1))
+    calls = [_norm_call(t) for t in m.group(2).split()
+             if re.match(r'(?i)^(pass|x|xx|\d[cdhsn]t?)$', t)]
+    return [(_SEATS4[(di + j) % 4], c) for j, c in enumerate(calls)]
+
+
+def _theme_of(chunk):
+    """The step-0 theme: prose from the block open up to the first [BID]."""
+    a = chunk.find('[Auction')
+    i = chunk.find('{', a)
+    if i < 0:
+        return ''
+    body = chunk[i:chunk.find('}', i)]
+    if '[ROLE' in body or '[choose-card' in body:
+        return ''                      # play lesson: reveal belongs at auction-end
+    theme = re.split(r'\[BID\s', body)[0]
+    theme = re.sub(r'^\{\s*(?:\[show [^\]]+\])?', '', theme)
+    return theme.strip()
+
+
+def _premature_theme_violations(path):
+    """The step-0 theme must not name a call NOBODY HAS MADE YET.
+
+    The theme renders before the student's first decision, so a call that lands
+    later in the auction is the answer handed over in advance — "partner ... rebid
+    1NT over your five-card major" while the student has yet to bid 1S
+    (classroom-feedback #245/#246: "'and rebid 1NT...' is premature"). Same family
+    as the no-reveal rule David set corpus-wide on 2026-06-24, but checkable: it
+    keys on the auction rather than on a list of convention names, so it does not
+    false-fire on a convention partner has ALREADY bid (legitimate setup)."""
+    out = []
+    for ch in split_boards(path):
+        seats = _auction_seats(ch)
+        theme = _theme_of(ch)
+        if not seats or not theme:
+            continue
+        first = next((k for k, (s, _) in enumerate(seats) if s == 'S'), None)
+        if first is None:
+            continue
+        # normalise BOTH sides through _norm_call ("1N" and "1NT" are one call).
+        # A call named as a REJECTED option ("a shade too weak for a 1NT opening",
+        # "a jump that would promise four") is describing the hand, not narrating
+        # the auction — the student is being told what they are NOT doing, which is
+        # legitimate setup. Only forward-looking mentions are the reveal.
+        named = set()
+        for m in _PROSE_CALL.finditer(theme):
+            lead = theme[max(0, m.start() - 34):m.start()].lower()
+            if _REJECTED_CALL.search(lead):
+                continue
+            named.add(_norm_call(m.group(1) + m.group(2).replace('\\', '')))
+        # Strictly AFTER the student's first turn. A theme that names the student's
+        # own next call ("South opens 1NT with a balanced 15 to 17") is a separate,
+        # debatable question — on a beginner lesson that reads as framing the topic,
+        # not leaking an answer — and it is not what was reported. Widening this to
+        # `k >= first` fires on ~78 further boards and is David's call, not the
+        # gate's; see the note raised with the #245/#246/#247 batch.
+        later = {c for k, (_, c) in enumerate(seats)
+                 if k > first and c not in ('PASS', 'X', 'XX')}
+        both = sorted(named & later)
+        if both:
+            out.append((tag(ch, 'Board'), both, theme[:80]))
+    return out
+
+
+def _intro_seat_violations(path):
+    """The theme must seat the student in the chair they actually occupy.
+
+    Seat-alternating lessons put the student in either chair, and a theme written
+    for one gets served with the other: "Partner opened a minor and you rebid
+    1NT..." on a board where the STUDENT opened (classroom-feedback #246, "I'm the
+    opening bidder"). Slam_after_Stayman b2 manages both in one sentence —
+    "Partner opened a strong notrump ... You are the opener"."""
+    out = []
+    for ch in split_boards(path):
+        seats = _auction_seats(ch)
+        theme = _theme_of(ch)
+        if not seats or not theme:
+            continue
+        opener = next((s for s, c in seats if c != 'PASS'), None)
+        if opener == 'S' and re.search(r'^\s*Partner open(?:ed|s)\b', theme):
+            out.append((tag(ch, 'Board'), 'student opened, theme says "Partner opened"',
+                        theme[:80]))
+        elif opener == 'N' and re.search(r'^\s*You open(?:ed|s)?\b', theme):
+            out.append((tag(ch, 'Board'), 'partner opened, theme says "You opened"',
+                        theme[:80]))
+    return out
+
+
+def _response_length_violations(path):
+    """A 1-level major RESPONSE shows four or more, not five or more.
+
+    The hand may well hold five, but the call does not promise it — describing what
+    a bid SHOWS has to be accurate (classroom-feedback #247). Only responses are
+    flagged: a 1H/1S OPENING legitimately promises five on a five-card-major card."""
+    out = []
+    FIVE = re.compile(r'five(?:\s+or\s+(?:more|longer)|-card or longer)')
+    for ch in split_boards(path):
+        seats = _auction_seats(ch)
+        if not seats:
+            continue
+        a = ch.find('[Auction')
+        i = ch.find('{', a)
+        if i < 0:
+            continue
+        body = ch[i:ch.find('}', i)]
+        if '[ROLE' in body:
+            continue
+        seq = [(c, s) for s, c in seats if c != 'PASS']
+        parts = re.split(r'(\[BID\s+[^\]]+\])', body)
+        si = 0
+        for k in range(1, len(parts), 2):
+            call = _norm_call(re.match(r'\[BID\s+([^\]]+)\]', parts[k]).group(1))
+            text = parts[k + 1] if k + 1 < len(parts) else ''
+            while si < len(seq) and seq[si][0] != call:
+                si += 1
+            if si >= len(seq):
+                break
+            seat = seq[si][1]
+            is_response = any(s == ('N' if seat == 'S' else 'S') for _, s in seq[:si])
+            si += 1
+            if call in ('1H', '1S') and is_response and FIVE.search(text):
+                m = FIVE.search(text)
+                out.append((tag(ch, 'Board'), call,
+                            text[max(0, m.start() - 40):m.end() + 10].strip()))
+    return out
+
+
 def validate(scn):
     """Check coaching-curated/<scn>.pbn structure: every non-pass call has
     exactly one anchored [BID] chunk, intro carries no [BID], [ACCEPT] sits
@@ -748,6 +890,20 @@ def validate(scn):
     for b, loc, cls, snip in _hidden_hand_disclosure_violations(path):
         issues += 1
         print(f"  {scn} b{b}: {cls} in {loc}: \"{snip}\"")
+    # Step-0 theme gates (classroom-feedback #245/#246/#247): the theme renders
+    # before the student's first decision, so it must not narrate calls still to
+    # come, and it must seat the student in the chair they actually hold.
+    for b, calls, snip in _premature_theme_violations(path):
+        issues += 1
+        print(f"  {scn} b{b}: premature theme — names {calls}, not yet bid at "
+              f"step 0: \"{snip}\"")
+    for b, why, snip in _intro_seat_violations(path):
+        issues += 1
+        print(f"  {scn} b{b}: wrong chair — {why}: \"{snip}\"")
+    for b, call, snip in _response_length_violations(path):
+        issues += 1
+        print(f"  {scn} b{b}: a {call} RESPONSE shows four or more, not five: "
+              f"\"{snip}\"")
     print(f"{scn}: {issues} board(s) with structure issues")
     return issues
 
