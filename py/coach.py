@@ -773,6 +773,68 @@ def _response_length_violations(path):
     return out
 
 
+_STRAIN_RANK = {'C': 0, 'D': 1, 'H': 2, 'S': 3, 'N': 4, 'NT': 4}
+
+
+def _is_jump(calls, target):
+    """Given the auction `calls` (list of normalised calls in order), is the first
+    occurrence of `target` a jump — i.e. above the minimum legal level for its
+    strain at that point? Returns None if target isn't found / has no prior bid."""
+    norm = [re.sub(r'NT', 'N', c) for c in calls]
+    tgt = re.sub(r'NT', 'N', target)
+    if tgt not in norm:
+        return None
+    i = norm.index(tgt)
+    prior = [c for c in norm[:i] if re.fullmatch(r'[1-7][CDHSN]', c)]
+    if not prior:
+        return None
+    pl, ps = int(prior[-1][0]), prior[-1][1]
+    cl, cs = int(tgt[0]), tgt[1]
+    min_level = pl if _STRAIN_RANK[cs] > _STRAIN_RANK[ps] else pl + 1
+    return cl > min_level
+
+
+# "jump(s|ing) to 3H" naming a call. Flagged when that call is really the minimum
+# legal level. Counterfactual framings ("rather than jump to 3H", "a jump to 3H
+# would promise four", "instead of jumping to 3S") describe a road NOT taken and
+# may correctly call a hypothetical DIRECT jump a jump, so they are excluded by the
+# lead-in window scanned in the loop.
+_JUMP_CLAIM = re.compile(r'jump(?:s|ing)?\s+to\s+(\d)\\?([SHDCN])', re.I)
+# counterfactual BEFORE the phrase ("rather than jump to 3H")
+_CF_BEFORE = re.compile(
+    r'\b(?:rather than|instead of|than|would|could|a direct|avoid)\b[^.]{0,20}$',
+    re.I)
+# counterfactual AFTER it ("jumping to 3S would promise four")
+_CF_AFTER = re.compile(r'^[^.]{0,20}\b(?:would|could|promis)', re.I)
+
+
+def _false_jump_violations(path):
+    """Prose that calls a minimum-level bid a 'jump' (classroom-feedback #253:
+    '3C is not a jump'). Counterfactual mentions ('rather than jump to 3H', a
+    hypothetical direct raise that really would be a jump) are left alone."""
+    out = []
+    for ch in split_boards(path):
+        am = re.search(r'\[Auction "(\w)"\]\s*\n((?:[^\[{][^\n]*\n?)*)', ch)
+        if not am:
+            continue
+        calls = [_norm_call(t) for t in am.group(2).split()
+                 if re.fullmatch(r'(?i)(pass|x|xx|\d[cdhsn]t?)', t)]
+        a = ch.find('[Auction')
+        i = ch.find('{', a)
+        if i < 0:
+            continue
+        body = ch[i:ch.find('}', i)]
+        for m in _JUMP_CLAIM.finditer(body):
+            if (_CF_BEFORE.search(body[max(0, m.start() - 40):m.start()])
+                    or _CF_AFTER.search(body[m.end():m.end() + 30])):
+                continue
+            call = _norm_call(m.group(1) + m.group(2))
+            if _is_jump(calls, call) is False:
+                snip = body[max(0, m.start() - 12):m.end() + 12].strip().replace('\n', ' ')
+                out.append((tag(ch, 'Board'), call, snip))
+    return out
+
+
 def validate(scn):
     """Check coaching-curated/<scn>.pbn structure: every non-pass call has
     exactly one anchored [BID] chunk, intro carries no [BID], [ACCEPT] sits
@@ -902,6 +964,10 @@ def validate(scn):
     for b, call, snip in _response_length_violations(path):
         issues += 1
         print(f"  {scn} b{b}: a {call} RESPONSE shows four or more, not five: "
+              f"\"{snip}\"")
+    for b, call, snip in _false_jump_violations(path):
+        issues += 1
+        print(f"  {scn} b{b}: {call} is not a jump (minimum legal level): "
               f"\"{snip}\"")
     print(f"{scn}: {issues} board(s) with structure issues")
     return issues
