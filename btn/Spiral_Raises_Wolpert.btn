@@ -69,21 +69,36 @@ diamondUnguarded = diamonds(south)<2 or (diamonds(south)==2 and top5(south,diamo
 clubUnguarded    = clubs(south)<2    or (clubs(south)==2    and top5(south,clubs)==0)
 heartShortSide = spadeUnguarded or diamondUnguarded or clubUnguarded
 spadeShortSide = heartUnguarded or diamondUnguarded or clubUnguarded
-threeCardSuitable   = (northBidsHearts and hearts(south)==3 and heartShortSide) or (northBidsSpades and spades(south)==3 and spadeShortSide)
-threeCardUnsuitable = (northBidsHearts and hearts(south)==3 and not heartShortSide) or (northBidsSpades and spades(south)==3 and not spadeShortSide)
+
+# ...but even WITH a ruffing value, decline the 3-card raise when opener has a
+# more descriptive call: a 4-card spade suit to bid up the line after partner's
+# 1H, or a 6+ card minor to rebid.  (A reviewer's read of the served deals: these
+# belong in the do-not-raise bucket, not the raise bucket.)  The flat 4-3-3-3 and
+# the honor-doubleton (10x+) hands are already excluded by heartShortSide above.
+fourSpadesOver1H   = northBidsHearts and spades(south)==4
+longMinorRebid     = clubs(south)>5 or diamonds(south)>5
+betterBidThanRaise = fourSpadesOver1H or longMinorRebid
+
+threeCardSupport    = (northBidsHearts and hearts(south)==3) or (northBidsSpades and spades(south)==3)
+threeCardHasRuff    = (northBidsHearts and hearts(south)==3 and heartShortSide) or (northBidsSpades and spades(south)==3 and spadeShortSide)
+threeCardSuitable   = threeCardHasRuff and not betterBidThanRaise
+threeCardUnsuitable = threeCardSupport and not threeCardSuitable
 
 #include "script/Calm-Opponents"
 #include "script/Leveling"
 
-# Practice wants all three rebid problems in roughly equal measure: the
-# four-card raise, the suitable three-card raise, and the UNSUITABLE three-
-# card hand (opener should NOT raise -- instead rebid 1NT, bid an unbid 1S,
-# bid 2C, or rebid the opening minor).  Natural frequencies are lopsided
-# (172 : 66 : 262), so level the plentiful paths down to the rarest (the
-# suitable hands).  Retune the keepNN (keep = 100%, keep44 = 44%, keep25 = 25%).
-fourCardLeveled   = fourCardRaise       and keep33
+# Practice should FEATURE the convention's signature -- the suitable three-card
+# raise (three trumps plus a ruffing value, which fires the spiral ladder) -- as
+# HALF the hands, with a solid quarter each of four-card raises (the ordinary
+# simple raise) and UNSUITABLE hands (opener should NOT raise -- rebid 1NT, bid an
+# unbid 1S, or rebid a long minor).  After tightening, natural frequencies are
+# lopsided the OTHER way (4card : suitable : unsuitable = 34.5 : 7.2 : 58.3), so
+# keep every (now-rare) suitable hand and level the plentiful two down toward a
+# quarter each.  keep11 / keep / keep06 lands about 50 : 26 : 24.  Re-measure and
+# retune the keepNN if the constraints change (keep = 100%, keep11 = 11%, keep06 = 6%).
+fourCardLeveled   = fourCardRaise       and keep11
 suitableLeveled   = threeCardSuitable
-unsuitableLeveled = threeCardUnsuitable and keep25
+unsuitableLeveled = threeCardUnsuitable and keep06
 teachingHand = fourCardLeveled or suitableLeveled or unsuitableLeveled
 
 # --- statistics breakdowns (over produced hands) ---
