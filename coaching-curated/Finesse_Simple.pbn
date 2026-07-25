@@ -393,22 +393,22 @@ What mattered was tackling spades by leading toward the A-Q-ten, not crashing yo
 [Event "Finesse_Simple"]
 [Site ""]
 [Board "9"]
-[OriginalBoard "23"]
-% 1BE51FAAB05082DBCECF143AA085
+[OriginalBoard "179"]
+% B9A398623E814DC6CF2F16BAB5DC
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "N:K54.9762.A52.K86 T.KT85.JT93.Q974 QJ932.AQ3.K76.A2 A876.J4.Q84.JT53"]
-{Shape 3433 1444 5332 4234}
-{HCP 10 6 16 8}
-{Losers 9 8 6 9}
+[Vulnerable "EW"]
+[Deal "N:J65.T987.AQT.A76 Q9.K52.853.QJ854 AKT43.AQ6.K4.T93 872.J43.J9762.K2"]
+{Shape 3433 2335 5323 3352}
+{HCP 11 8 16 5}
+{Losers 9 9 6 10}
 [Declarer "S"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
+[Result "10"]
+[Score "NS 430"]
 [Scoring "MP"]
 {Curate
 class: intended
@@ -416,9 +416,9 @@ difficulty: 2
 bidding: textbook
 bidding-note: 1NT-2C-2S-3N showing 5 spades and game values; standard.
 declarer: standard finesse-basic
-declarer-note: 3NT makes 10; the spade AQ (and heart AQ) finesses bring an overtrick but nine tricks are secure regardless.
+declarer-note: 3NT is cold (spades run for five, minors add more); the heart AQ finesse is the unique best card for the overtrick — duck costs one, ace costs two.
 defense: reject
-defense-note: W (8 HCP, A876) on lead cannot hold declarer to nine.
+defense-note: W (5 HCP) on lead cannot trouble declarer.
 }
 [Auction "S"]
 1N    Pass  2C =1=    Pass
@@ -426,22 +426,21 @@ defense-note: W (8 HCP, A876) on lead cannot hold declarer to nine.
 Pass  Pass
 {[show NESW]
 [ROLE leader][STAGE pre-lead]
-Lead the \S6. Fourth-best from your longest suit headed by the ace is a reasonable notrump lead; it attacks declarer's likely source of tricks while you retain control of the suit.
+Lead the \D6. Fourth-best from your longest suit is a sound notrump lead when nothing better stands out; it keeps your length and honors working for later.
 
 [ROLE declarer][STAGE auction-end]
-You are in 3\NT. Establish the spades for four tricks and the other suits fill nine, with the \HA\HQ finesse offering more. Plan: develop spades, then lead toward your \HA\HQ for the extra trick. Nothing in the bidding places the missing kings, so back the finesses.
+You are in 3\NT. Your spades run for five tricks off the top, the minors add more, and the \HA\HQ finesse brings extra. Plan: cash your top tricks, then lead toward your \HA\HQ for the extra heart trick. Nothing in the bidding places the \HK, so back the finesse.
 
 [ROLE declarer][STAGE post-lead]
-West led the \S6, which looks like a fourth-best, so the spade length probably sits with West. By the rule of eleven, five cards higher than the six lie outside West's hand, and you and dummy hold four of them, so just one higher spade sits with East. With West marked for the spade length and East down to a near-singleton there, East has more room in the rounded suits, so the room for the missing kings the finesses target may sit over there with East. Win as suits your entries and let the lead and the vacant spaces guide your finesse decisions.
+West led the \D6, a fourth-best, so West holds the diamond length. By the rule of eleven, five cards higher than the six lie outside West's hand, and you and dummy hold four of them, so just one higher diamond sits with East. Win the diamond cheaply, cash your side winners, then take the heart finesse: with West long in diamonds, East has more room in the rounded suits, so the \HK is a fair bet to sit over your A-Q. Lead toward the tenace and let the vacant spaces back your play.
 
 [ROLE declarer][STAGE post-play]
-Nine tricks were always there, and reading the lead with the rule of eleven let you play the extra finesses for the overtrick on a sound count. Well played — you secured the contract and then pressed for more with good technique.
+Your top tricks were always there, and the heart finesse — backed by the lead read and the vacant spaces — brought the overtrick. Well played: contract secured, then pressed for more on a sound count.
 
-[PLAY 3 S \HQ]
-This is the heart finesse the extra trick rides on. Dummy leads the \H2 toward your hand, East follows low, and you hold \HAQ3 with the king still out. Which heart do you play?
-[ACCEPT \H3]
+[PLAY 6 S \HQ]
+This is the heart finesse the extra trick rides on. Dummy leads a low heart toward your hand, East follows low, and you hold \HAQ6 with the king still out. Which heart do you play?
 [WHY]
-Play the \HQ — the finesse. East followed low, so the \HK rates to sit under your A-Q just where you want it; the queen forces it out or wins outright, and the ace mops up the suit. Rising with the \HA instead gives back the free trick the finesse was set to win. Lead toward the A-Q and insert the queen — never bang the ace down first.}
+Play the \HQ — the finesse. East followed low, so the \HK rates to sit under your A-Q just where you want it; lead low toward the tenace and insert the queen. It wins, and the ace scores your second heart trick. Rising with the \HA first — or ducking low — hands back a trick the finesse was set to win. Lead toward the A-Q and finesse; never bang the ace down first.}
 [Note "1:Stayman"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
