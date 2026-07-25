@@ -1,0 +1,209 @@
+Script,SpiralRaisesWolpert
+window.currentPBSScenario = 'SpiralRaisesWolpert';
+window.currentPBSScenarioFilename = 'Spiral_Raises_Wolpert';
+console.log('PBS: Logging scenario selection for SpiralRaisesWolpert');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'SpiralRaisesWolpert',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: 21GF-DEFAULT
+convention-card-ew: 21GF-GIB
+auction-filter: .
+*/
+# curate: kind=bidding spiral_max_cutoff=14
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+
+dealer south
+produce 1000
+
+# Spiral Raise Revisited --------------------------------------------
+# South opens a minor and raises North's major to 2M on 3- or 4-card
+# support.  North asks with the cheapest step (2!S over 1!H, 2N over
+# 1!S) and opener spirals out support length, strength, and shortness.
+# Unlike the two earlier Spiral Raise scenarios, opener may be short
+# in a major or hold a 5-4-2-2, so the whole step-response ladder
+# (the splinter and 5-4-2-2 answers included) can come up.
+
+# South: 12-14 with no 5-card major, so it opens a minor (not 1M/1NT).
+noFiveCardMajor = spades(south)<5 and hearts(south)<5
+minorOpening = hcp(south)>11 and hcp(south)<15 and noFiveCardMajor
+
+# North: invitational, a 4-card major, nothing longer.  Responds 1H
+# with 4 hearts (4-4 goes up the line), else 1S with 4 spades.
+northResponds = shape(north, 44xx+43xx+34xx -any 5xxx -any 6xxx) and hcp(north)>10 and hcp(north)<14
+northBidsHearts = hearts(north)==4
+northBidsSpades = spades(north)==4 and hearts(north)==3
+
+# Opener raises North's actual major.  Four-card support is the ordinary
+# simple raise.  Three-card support is raised only WITH a ruffing value -- an
+# "unguarded" short side suit: a void/singleton, or a doubleton with no card a
+# ten or higher (top5 counts A,K,Q,J,T, so ==0 means xx).  That is the
+# article's rule -- raise on xx, but rebid 1NT to decelerate on 10x -- and it
+# drops the flat 4-3-3-3 minimums while keeping the doubleton hands (2N/3N
+# answers) and the shortness hands (3D/3H answers) the spiral ladder needs.
+fourCardRaise = (northBidsHearts and hearts(south)==4) or (northBidsSpades and spades(south)==4)
+spadeUnguarded   = spades(south)<2   or (spades(south)==2   and top5(south,spades)==0)
+heartUnguarded   = hearts(south)<2   or (hearts(south)==2   and top5(south,hearts)==0)
+diamondUnguarded = diamonds(south)<2 or (diamonds(south)==2 and top5(south,diamonds)==0)
+clubUnguarded    = clubs(south)<2    or (clubs(south)==2    and top5(south,clubs)==0)
+heartShortSide = spadeUnguarded or diamondUnguarded or clubUnguarded
+spadeShortSide = heartUnguarded or diamondUnguarded or clubUnguarded
+
+# ...but even WITH a ruffing value, decline the 3-card raise when opener has a
+# more descriptive call: a 4-card spade suit to bid up the line after partner's
+# 1H, or a 6+ card minor to rebid.  (A reviewer's read of the served deals: these
+# belong in the do-not-raise bucket, not the raise bucket.)  The flat 4-3-3-3 and
+# the honor-doubleton (10x+) hands are already excluded by heartShortSide above.
+fourSpadesOver1H   = northBidsHearts and spades(south)==4
+longMinorRebid     = clubs(south)>5 or diamonds(south)>5
+betterBidThanRaise = fourSpadesOver1H or longMinorRebid
+
+threeCardSupport    = (northBidsHearts and hearts(south)==3) or (northBidsSpades and spades(south)==3)
+threeCardHasRuff    = (northBidsHearts and hearts(south)==3 and heartShortSide) or (northBidsSpades and spades(south)==3 and spadeShortSide)
+threeCardSuitable   = threeCardHasRuff and not betterBidThanRaise
+threeCardUnsuitable = threeCardSupport and not threeCardSuitable
+
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+### Imported Leveling Code ###
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+####06 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep   = 1
+keep0  = 0
+### End of Imported Leveling Code ###
+
+# Practice should FEATURE the convention's signature -- the suitable three-card
+# raise (three trumps plus a ruffing value, which fires the spiral ladder) -- as
+# HALF the hands, with a solid quarter each of four-card raises (the ordinary
+# simple raise) and UNSUITABLE hands (opener should NOT raise -- rebid 1NT, bid an
+# unbid 1S, or rebid a long minor).  After tightening, natural frequencies are
+# lopsided the OTHER way (4card : suitable : unsuitable = 34.5 : 7.2 : 58.3), so
+# keep every (now-rare) suitable hand and level the plentiful two down toward a
+# quarter each.  keep11 / keep / keep06 lands about 50 : 26 : 24.  Re-measure and
+# retune the keepNN if the constraints change (keep = 100%, keep11 = 11%, keep06 = 6%).
+fourCardLeveled   = fourCardRaise       and keep11
+suitableLeveled   = threeCardSuitable
+unsuitableLeveled = threeCardUnsuitable and keep06
+teachingHand = fourCardLeveled or suitableLeveled or unsuitableLeveled
+
+# --- statistics breakdowns (over produced hands) ---
+# Suitable raises: balanced (doubleton -> 2N/3N) vs shortness (singleton/void -> 3D/3H).
+heartHasShortness = spades(south)<2 or diamonds(south)<2 or clubs(south)<2
+spadeHasShortness = hearts(south)<2 or diamonds(south)<2 or clubs(south)<2
+threeShortness = (northBidsHearts and hearts(south)==3 and heartHasShortness) or (northBidsSpades and spades(south)==3 and spadeHasShortness)
+threeBalanced = threeCardSuitable and not threeShortness
+# Unsuitable hands by opener's likely rebid: an unbid 1S (4 spades over 1H),
+# else a long minor to rebid (5+), else a balanced 1NT.
+unsuitable1S    = threeCardUnsuitable and northBidsHearts and spades(south)==4
+unsuitableMinor = threeCardUnsuitable and not unsuitable1S and (clubs(south)>4 or diamonds(south)>4)
+unsuitable1NT   = threeCardUnsuitable and not unsuitable1S and not unsuitableMinor
+
+# Now do it...
+minorOpening and northResponds and teachingHand and calmOpps
+action printoneline,
+average "South HCP                      " hcp(south),
+average "4-card raise pct               " 100 * fourCardRaise,
+average "3-card suitable raise pct      " 100 * threeCardSuitable,
+average "3-card unsuitable pct          " 100 * threeCardUnsuitable,
+average "  suitable: balanced 2N/3N pct " 100 * threeBalanced,
+average "  suitable: shortness 3D/3H pct" 100 * threeShortness,
+average "  unsuitable: rebid 1NT pct    " 100 * unsuitable1NT,
+average "  unsuitable: unbid 1S pct     " 100 * unsuitable1S,
+average "  unsuitable: rebid minor pct  " 100 * unsuitableMinor,
+average "North 1H response pct          " 100 * northBidsHearts,
+average "North 1S response pct          " 100 * northBidsSpades,
+`, "S", true)
+Script
+Button,Spiral Raises Wolpert,\n\
+--- Spiral Raises Wolpert\n\
+Opener may raise responder's major to 2M on 3- OR 4-card support.\n\
+Responder then asks with the cheapest step，and opener spirals out\n\
+support length，strength，and shortness.\n\
+(Wolpert: Spiral Raises.)\n\
+After 1!D 1!H 2!H，responder asks with 2!S.  Opener answers:\n\
+- 2N  3-card support，balanced，minimum\n\
+- 3!C 4-card support，balanced\n\
+- 3!D 3-card support，short in the other minor (!C)\n\
+- 3!H 3-card support，short in the other major (!S)\n\
+- 3!S 4-card support，splinter in !S\n\
+- 3N  3-card support，balanced，maximum\n\
+- 4!C 4-card support，splinter in the other minor (!C)\n\
+- 4!D 5-4-2-2，maximum\n\
+- 4!H 5-4-2-2，minimum\n\
+(5-4-2-2 means five in the opened minor with four-card support.)\n\
+After 1m 1!S 2!S the ask is 2N，the same scheme shifted up a step.\n\
+A 1!C opening mirrors 1!D with the minors swapped.\n\
+https://bridgewinners.com/article/view/spiral-raises/\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
+%SpiralRaisesWolpert%,backgroundColor=lightpink
