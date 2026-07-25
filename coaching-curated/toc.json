@@ -2,17 +2,18 @@
   "name": "Practice Bidding Scenarios",
   "description": "Bidding and play-of-the-hand lessons curated for the Practice Bidding Scenarios project.",
   "icon": "♦",
-  "version": "1.0",
-  "generatedAt": "2026-06-18T05:41:00",
+  "version": "1.1",
+  "generatedAt": "2026-06-18T19:10:37",
   "categories": [
     {
       "id": "beginners_bidding",
       "name": "Beginning Bidding",
+      "group": "Bid",
       "lessons": [
         {
           "id": "Basic_What_To_Open",
           "name": "What Should I Open?",
-          "description": "South opens with a balanced-looking hand that is too weak for 1NT, so the choice is which suit to name first.",
+          "description": "South has an opening hand, and the question is which suit should start the bidding.",
           "difficulty": "beginner"
         },
         {
@@ -42,7 +43,7 @@
         {
           "id": "Basic_Major",
           "name": "Major Suit Openings",
-          "description": "South opens a major and North has a strong hand of his own.",
+          "description": "South opens a major suit and must judge how high to steer the partnership.",
           "difficulty": "beginner"
         },
         {
@@ -80,23 +81,30 @@
     {
       "id": "minor_major_sequences",
       "name": "Minor/Major Sequences",
+      "group": "Bid",
       "lessons": [
+        {
+          "id": "Two_Over_One",
+          "name": "Two-Over-One Game Force",
+          "description": "A new suit at the two level over partner's major opening is game-forcing, showing 13+ points. Practice it from both chairs — driving the auction as responder and describing your hand as opener.",
+          "difficulty": "intermediate"
+        },
         {
           "id": "Fourth_Suit_Forcing",
           "name": "Fourth Suit Forcing",
-          "description": "After a 1-level response and a new suit by opener, bid the fourth suit as an artificial game force, asking opener for major support, a stopper, or extra shape.",
+          "description": "The fourth suit is an artificial game force: from the responder's chair bid it and then place the game or slam, and from the opener's chair answer it — three-card major support, a stopper for notrump, or extra shape. Both seats.",
           "difficulty": "intermediate"
         },
         {
-          "id": "Preemptive_Major_Raise",
-          "name": "Preemptive Major Raise",
-          "description": "Partner opens a major and you hold a weak, shapely hand with five-plus trumps: jump straight to game. A distributional raise, not an invitation — it bids to the level of the fit, denies slam, and steals the opponents' room. From the responder's chair.",
+          "id": "New_Minor_Forcing",
+          "name": "New Minor Forcing",
+          "description": "After opener's 1NT rebid, bid the other minor as an artificial checkback: from the responder's chair place the contract once the 5-3 fit is known, and from the opener's chair answer the ask by showing or denying three-card support. Both seats.",
           "difficulty": "intermediate"
         },
         {
-          "id": "Gavin_3-Card_Limit_Raise",
-          "name": "3-Card Limit Raise",
-          "description": "Partner opens a major and you have invitational values (about 11-12) with only three-card support: too good for a simple raise, but a direct limit raise would promise four trumps. Start with a forcing 1NT, then jump to three of the major — showing the invitational raise on exactly three trumps, so opener can judge game precisely. From the responder's chair.",
+          "id": "Reverse_By_Opener",
+          "name": "Reverse by Opener",
+          "description": "A reverse — a new higher suit at the two level showing 5-4 shape and extra values, forcing. From the opener's chair make the reverse and follow up; from the responder's chair handle it (preference, raise, notrump, or a game-forcing move). Both seats.",
           "difficulty": "intermediate"
         },
         {
@@ -110,12 +118,6 @@
           "name": "Spiral Raises — Weinstein",
           "description": "When opener's Weinstein raise might rest on only three trumps, responder bids naturally to test for a sounder 4-4 fit before settling the game.",
           "difficulty": "advanced"
-        },
-        {
-          "id": "Reverse_By_Opener",
-          "name": "Reverse by Opener",
-          "description": "Opener rebids a new, higher suit at the two level — a reverse showing 5-4 shape and extra values — and responder reads the strength to place the contract.",
-          "difficulty": "intermediate"
         },
         {
           "id": "Drury",
@@ -136,21 +138,58 @@
           "difficulty": "intermediate"
         },
         {
+          "id": "Soloway_Jump_Shift",
+          "name": "Soloway Jump Shift",
+          "description": "A strong jump shift announces a slam-going hand (17+, four-plus controls, a good suit). From the responder's chair make the jump shift and drive the slam; from the opener's chair describe and cooperate. Both seats.",
+          "difficulty": "advanced"
+        }
+      ]
+    },
+    {
+      "id": "major_suit_sequences",
+      "name": "Major Suit Sequences",
+      "group": "Bid",
+      "lessons": [
+        {
+          "id": "Major_Opener",
+          "name": "Bidding After a Major Opening",
+          "description": "Partner opens one of a major: choose your response from every rung of the ladder, and from the opener's chair pick the rebid that best describes your hand. Practiced from both seats.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Major_Suit_Fit",
+          "name": "Major-Suit Raises",
+          "description": "You have a fit for partner's major: show its strength with the right raise — simple, invitational, or preemptive — and from the opener's chair judge whether to pass, try for game, or bid it. Both seats.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Preemptive_Major_Raise",
+          "name": "Preemptive Major Raise",
+          "description": "Partner opens a major and you hold a weak, shapely hand with five-plus trumps: jump straight to game. A distributional raise, not an invitation — it bids to the level of the fit, denies slam, and steals the opponents' room. From the responder's chair.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Gavin_3-Card_Limit_Raise",
+          "name": "3-Card Limit Raise",
+          "description": "Partner opens a major and you have invitational values (about 11-12) with only three-card support: too good for a simple raise, but a direct limit raise would promise four trumps. Start with a forcing 1NT, then jump to three of the major — showing the invitational raise on exactly three trumps, so opener can judge game precisely. From the responder's chair.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Forcing_NT",
+          "name": "Forcing 1NT Response",
+          "description": "After you open a major and partner responds a forcing 1NT, choose the rebid that best describes your strength and distribution before partner places the contract.",
+          "difficulty": "intermediate"
+        },
+        {
           "id": "Jacoby_2N",
           "name": "Jacoby 2NT",
-          "description": "Partner's game-forcing major raise asks opener to describe; opener shows shortness, a side suit, or extra strength, and the partnership judges game or slam.",
-          "difficulty": "intermediate"
+          "description": "The game-forcing major raise: from the responder's chair bid 2NT and place the contract, and from the opener's chair describe shortness, a side suit, or extra strength — then cue-bid and keycard toward the right game or slam. Both seats.",
+          "difficulty": "advanced"
         },
         {
           "id": "Splinters",
           "name": "Splinters",
-          "description": "Responder's double jump shows four-plus trump support with a singleton or void; opener counts whether the high cards are working — declining game when they are wasted opposite the shortness, driving to slam (or staying disciplined off a keycard) when they are controls.",
-          "difficulty": "advanced"
-        },
-        {
-          "id": "Soloway_Jump_Shift",
-          "name": "Soloway Jump Shift",
-          "description": "Partner's strong jump shift announces a slam-going hand with a good suit; opener clarifies and the partnership cue-bids toward the right slam.",
+          "description": "A double jump shows four-plus trumps and a singleton or void. From the opener's chair judge whether your high cards work opposite the shortness — decline to game when they are wasted, drive to slam when they are controls; from the responder's chair make the splinter and cooperate. Both seats.",
           "difficulty": "advanced"
         }
       ]
@@ -158,12 +197,19 @@
     {
       "id": "notrump_sequences",
       "name": "Notrump Sequences",
+      "group": "Bid",
       "lessons": [
         {
           "id": "Stayman",
           "name": "Stayman",
           "description": "Over 1NT, 2♣ asks opener for a four-card major so the partnership can find a 4-4 major fit before settling in notrump.",
           "difficulty": "beginner"
+        },
+        {
+          "id": "Jacoby_Transfer",
+          "name": "Jacoby Transfer",
+          "description": "Partner transfers to a major over your 1NT opening; you complete the transfer, and super-accept with a maximum and four-card support.",
+          "difficulty": "intermediate"
         },
         {
           "id": "Texas_Transfer",
@@ -180,7 +226,7 @@
         {
           "id": "Slam_after_Stayman",
           "name": "Slam after Stayman",
-          "description": "After you open 1NT and answer Stayman, partner explores slam - a quantitative 4NT to accept or decline, or Roman Key Card Blackwood when a major fit is found; cooperate and place the contract.",
+          "description": "Slam exploration after Stayman, from both chairs - as opener you answer Stayman then cooperate in the hunt; as responder you drive with a quantitative 4NT or Roman Key Card Blackwood once a major fit is found, then place the contract.",
           "difficulty": "advanced"
         },
         {
@@ -192,8 +238,53 @@
       ]
     },
     {
+      "id": "they_compete_in_our_auctions",
+      "name": "They Compete in Our Auctions",
+      "group": "Bid",
+      "lessons": [
+        {
+          "id": "Negative_Double",
+          "name": "Negative Double",
+          "description": "Partner opens a minor and the opponent overcalls in a major, so responder doubles to show values and the unbid suits without losing the major.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Responsive_Double",
+          "name": "Responsive Double",
+          "description": "The opponents open a major, partner doubles for takeout, and they raise; from both chairs - as advancer you make the responsive double (the other major and both minors) and judge whether to sell out, compete, or sacrifice, and as the takeout doubler you read partner's responsive double and place the contract.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Support_Double",
+          "name": "Support Double",
+          "description": "We open and partner responds a major at the one level; when the opponent overcalls, opener doubles to show exactly three-card support, distinct from a four-card raise.",
+          "difficulty": "intermediate"
+        }
+      ]
+    },
+    {
+      "id": "we_compete_in_their_auctions",
+      "name": "We Compete in Their Auctions",
+      "group": "Bid",
+      "lessons": [
+        {
+          "id": "Michaels_Cuebid",
+          "name": "Michaels Cuebid",
+          "description": "An opponent opens and South holds a big two-suiter; cue-bidding their suit shows two five-card suits in a single call.",
+          "difficulty": "intermediate"
+        },
+        {
+          "id": "Unusual_2N",
+          "name": "Unusual 2NT",
+          "description": "An opponent opens and South holds two long suits; an Unusual 2NT overcall shows five-five in the two lowest unbid suits at once.",
+          "difficulty": "intermediate"
+        }
+      ]
+    },
+    {
       "id": "play_finesses",
       "name": "Play of the Hand: Finesses",
+      "group": "Play",
       "lessons": [
         {
           "id": "Finesse_Simple",
@@ -260,6 +351,7 @@
     {
       "id": "play_notrump",
       "name": "Play of the Hand: Notrump Play",
+      "group": "Play",
       "lessons": [
         {
           "id": "Hold_Up_3N",
@@ -284,6 +376,7 @@
     {
       "id": "play_suit",
       "name": "Play of the Hand: Suit Contract Play",
+      "group": "Play",
       "lessons": [
         {
           "id": "Side_Suit_Ruff_Before_Trump",
@@ -350,6 +443,69 @@
           "name": "Squeeze & Endplay Exam",
           "description": "The shelf's final test — six mixed hands, no labels: endplays, squeezes, show-ups, and one perfectly timed duck.",
           "difficulty": "advanced"
+        }
+      ],
+      "group": "Play"
+    },
+    {
+      "id": "defense_opening_leads",
+      "name": "Defense: Opening Leads",
+      "group": "Defend",
+      "lessons": [
+        {
+          "id": "Basic_NT_Defense_LHO",
+          "name": "Opening Leads vs Notrump",
+          "description": "The opponents bid to notrump and it is your lead. Pick the textbook card: top of a sequence, or fourth best from your longest suit.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Basic_Major_Defense_LHO",
+          "name": "Opening Leads vs a Major",
+          "description": "They bid and raised a major. Choose your opening lead against the suit contract.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Basic_Minor_Defense_LHO",
+          "name": "Opening Leads vs a Minor",
+          "description": "They settled in a minor. Find the right opening lead.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Competitive_Defense_LHO",
+          "name": "Opening Leads after Competition",
+          "description": "A contested auction. Read the bidding for your lead, often partner's suit.",
+          "difficulty": "beginner"
+        }
+      ]
+    },
+    {
+      "id": "defense_third_hand",
+      "name": "Defense: Third-Hand Play",
+      "group": "Defend",
+      "lessons": [
+        {
+          "id": "Basic_NT_Defense_RHO",
+          "name": "Third Hand vs Notrump",
+          "description": "The opponents open 1NT and your side defends — reading partner's lead and the dummy, one card at a time.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Basic_Major_Defense_RHO",
+          "name": "Third Hand vs a Major",
+          "description": "Partner leads a side suit against their major. Play third hand.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Basic_Minor_Defense_RHO",
+          "name": "Third Hand vs a Minor",
+          "description": "Partner leads against their minor. Your third-hand play.",
+          "difficulty": "beginner"
+        },
+        {
+          "id": "Competitive_Defense_RHO",
+          "name": "Third Hand after Competition",
+          "description": "A contested auction; partner leads. Play third hand.",
+          "difficulty": "beginner"
         }
       ]
     }
