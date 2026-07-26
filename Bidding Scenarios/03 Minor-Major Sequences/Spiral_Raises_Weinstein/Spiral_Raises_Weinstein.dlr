@@ -1,0 +1,190 @@
+# alias: SpiralRaisesWeinstein
+# button-text: Spiral Raises Weinstein
+# scenario-title: --- Spiral Raises Weinstein
+# gib-works: false
+# bba-works: true
+# auction-filter: .
+# curate: kind=bidding spiral_max_cutoff=14
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Spiral Raises Weinstein
+Opener may raise responder's major to 2M on 3- OR 4-card support.
+Instead of relaying first, responder bids naturally to find a 4-4
+fit, or asks with 2N for opener's range and support length.
+After 1!D 1!H 2!H, responder may bid:
+- 2!S natural, 4+ !S, looking for the 4-4 spade fit
+- 3!D natural game try (forcing)
+- 2N  forcing, asks opener to describe.  Opener answers:
+    3!C minimum, 3-card support
+    3!D maximum, 3-card support
+    3!H minimum, 4-card support
+    3!S maximum, 4-card support
+After 1!D 1!S 2!S the ask is again 2N with the same four answers;
+here 3!H is the natural 4-card heart bid (seeking the 4-4) and 3!D
+is the natural game try.
+The guiding idea: don't fixate on 3- vs 4-card support — show the
+rest of your hand, and bid naturally to find the 4-4 fit.
+https://bridgewinners.com/article/view/1m-1m-now-what/
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed, or quantitative (inviting 6NT) in a notrump auction. Keycard responses:
+  • 5!C = 1 or 4 keycards
+  • 5!D = 0 or 3
+  • 5!H = 2 without the trump queen
+  • 5!S = 2 with the trump queen
+@chat*/
+
+dealer south
+produce 1000
+
+# Spiral Raise -- Weinstein style -----------------------------------
+# South opens a minor and raises North's major to 2M on 3- or 4-card
+# support (3-card support only with a ruffing value; see below).
+# Instead of relaying, North bids NATURALLY to find a 4-4 fit in the
+# OTHER major (2!S over 1!H; the rare 3!H over 1!S), or asks with 2N --
+# to which opener shows strength (min/max) and support length (3- vs
+# 4-card) with 3!C / 3!D / 3!H / 3!S.
+
+# South: 12-14 with no 5-card major, so it opens a minor (not 1M/1NT).
+noFiveCardMajor = spades(south)<5 and hearts(south)<5
+minorOpening = hcp(south)>11 and hcp(south)<15 and noFiveCardMajor
+
+# North: invitational, a 4-card major, nothing longer.  4-4 normally
+# goes up the line (1H), but with a ratty 4-card heart suit (J-high or
+# worse) North skips it to bid 1S -- so the rare 1S response can still
+# hold 4 hearts, which is what powers the natural 3H 4-4 search.
+northResponds = shape(north, 44xx+43xx+34xx -any 5xxx -any 6xxx) and hcp(north)>10 and hcp(north)<14
+weakHearts = top3(north,hearts)==0
+northBidsSpades = spades(north)==4 and (hearts(north)<4 or weakHearts)
+northBidsHearts = hearts(north)==4 and not northBidsSpades
+
+# Opener raises North's actual major.  Four-card support is the ordinary
+# simple raise.  Three-card support is raised only WITH a ruffing value -- an
+# "unguarded" short side suit: a void/singleton, or a doubleton with no card a
+# ten or higher (top5 counts A,K,Q,J,T, so ==0 means xx).  That is the
+# article's rule -- raise on xx (e.g. Kxx KQx xx Axxxx), but rebid 1NT to
+# decelerate on 10x (Kxx KQx 10x Axxxx) where the ten pulls toward notrump.
+fourCardRaise = (northBidsHearts and hearts(south)==4) or (northBidsSpades and spades(south)==4)
+spadeUnguarded   = spades(south)<2   or (spades(south)==2   and top5(south,spades)==0)
+heartUnguarded   = hearts(south)<2   or (hearts(south)==2   and top5(south,hearts)==0)
+diamondUnguarded = diamonds(south)<2 or (diamonds(south)==2 and top5(south,diamonds)==0)
+clubUnguarded    = clubs(south)<2    or (clubs(south)==2    and top5(south,clubs)==0)
+heartShortSide = spadeUnguarded or diamondUnguarded or clubUnguarded
+spadeShortSide = heartUnguarded or diamondUnguarded or clubUnguarded
+threeCardSuitable   = (northBidsHearts and hearts(south)==3 and heartShortSide) or (northBidsSpades and spades(south)==3 and spadeShortSide)
+threeCardUnsuitable = (northBidsHearts and hearts(south)==3 and not heartShortSide) or (northBidsSpades and spades(south)==3 and not spadeShortSide)
+
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+### Imported Leveling Code ###
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+####06 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep   = 1
+keep0  = 0
+### End of Imported Leveling Code ###
+
+# Practice wants all three rebid problems in roughly equal measure: the
+# four-card raise, the suitable three-card raise, and the UNSUITABLE three-
+# card hand (opener should NOT raise -- instead rebid 1NT, bid an unbid 1S,
+# bid 2C, or rebid the opening minor).  Natural frequencies are lopsided
+# (172 : 66 : 262), so level the plentiful paths down to the rarest (the
+# suitable hands).  Retune the keepNN (keep = 100%, keep44 = 44%, keep25 = 25%).
+fourCardLeveled   = fourCardRaise       and keep33
+suitableLeveled   = threeCardSuitable
+unsuitableLeveled = threeCardUnsuitable and keep25
+teachingHand = fourCardLeveled or suitableLeveled or unsuitableLeveled
+
+# --- statistics breakdowns (over produced hands) ---
+# Weinstein's 2N ask returns one of four answers -- minimum/maximum strength
+# (14 is the maximum of the 12-14 range) crossed with 3- or 4-card support.
+openerMin = hcp(south)<14
+openerMax = hcp(south)==14
+minThreeCard = threeCardSuitable and openerMin   // answers 3C
+maxThreeCard = threeCardSuitable and openerMax   // answers 3D
+minFourCard  = fourCardRaise     and openerMin   // answers 3H
+maxFourCard  = fourCardRaise     and openerMax   // answers 3S
+# Weinstein's natural fit search: a 4-4 responder bids the other major over
+# the raise (2S over 1H; the rare 3H over 1S when hearts were too weak to
+# show first).  The 4-4 fit is real only when opener raised on 3-card support
+# and holds 4 cards in that other major.
+responder44 = spades(north)==4 and hearts(north)==4
+fit44exists = (northBidsHearts and responder44 and hearts(south)==3 and spades(south)==4) or (northBidsSpades and responder44 and spades(south)==3 and hearts(south)==4)
+# Unsuitable hands by opener's likely rebid: an unbid 1S (4 spades over 1H),
+# else a long minor to rebid (5+), else a balanced 1NT.
+unsuitable1S    = threeCardUnsuitable and northBidsHearts and spades(south)==4
+unsuitableMinor = threeCardUnsuitable and not unsuitable1S and (clubs(south)>4 or diamonds(south)>4)
+unsuitable1NT   = threeCardUnsuitable and not unsuitable1S and not unsuitableMinor
+
+# Now do it...
+minorOpening and northResponds and teachingHand and calmOpps
+action printoneline,
+average "South HCP                      " hcp(south),
+average "4-card raise pct               " 100 * fourCardRaise,
+average "3-card suitable raise pct      " 100 * threeCardSuitable,
+average "3-card unsuitable pct          " 100 * threeCardUnsuitable,
+average "  2N ans 3C (min, 3-card) pct  " 100 * minThreeCard,
+average "  2N ans 3D (max, 3-card) pct  " 100 * maxThreeCard,
+average "  2N ans 3H (min, 4-card) pct  " 100 * minFourCard,
+average "  2N ans 3S (max, 4-card) pct  " 100 * maxFourCard,
+average "  unsuitable: rebid 1NT pct    " 100 * unsuitable1NT,
+average "  unsuitable: unbid 1S pct     " 100 * unsuitable1S,
+average "  unsuitable: rebid minor pct  " 100 * unsuitableMinor,
+average "responder 4-4 majors pct       " 100 * responder44,
+average "  ...4-4 fit found pct          " 100 * fit44exists,
+average "North 1H response pct          " 100 * northBidsHearts,
+average "North 1S response pct          " 100 * northBidsSpades,
