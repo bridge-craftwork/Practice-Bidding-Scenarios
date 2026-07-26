@@ -1,24 +1,28 @@
 {
  "scenario": "Responsive_Double",
- "graded": 33,
+ "graded": 94,
  "aggregates": {
-  "bidding_tiers": {
-   "textbook": 23,
-   "reject": 4,
-   "judgment": 1,
-   "standard": 5
+  "bidding": {
+   "textbook": 59,
+   "standard": 32,
+   "judgment": 3
   }
  },
  "verdicts": [
   {
-   "board": "3",
-   "deal_hash": "70b727d5b910639a",
+   "board": "1",
+   "deal_hash": "e2f51be5411bb63c",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Over 1H-X-2H, S holds 4S and 4-4 minors with a stiff H: classic responsive X showing the other major plus both minors. N picks 2S."
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "short-in-openers-suit"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 8 HCP short in S, 4H + both minors \u2014 textbook responsive X vs a major. EW's 4S makes."
    },
    "declarer": {
     "tier": "reject",
@@ -29,19 +33,430 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   }
   },
   {
-   "board": "48",
+   "board": "2",
+   "deal_hash": "5aecdf8ab6f8aaa3",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "penalty-double"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 9 HCP short in S \u2014 textbook responsive X; S then doubles EW's 4S and sets it one."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "3",
+   "deal_hash": "c400612130e7082f",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4 short in S but only 7 HCP (K, A) \u2014 right shape, light values; sound but minimum. 3S-1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "4",
+   "deal_hash": "0d1f01156214c8b8",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "minimum-values"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 7 HCP (AK diamonds) short in H, 4S + minors \u2014 correct shape for a major, light. 3H-1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "5",
+   "deal_hash": "8d4fd93cddfdb5b9",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 7 HCP short in S \u2014 right shape, minimum values; W redoubles, EW make 4S+1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "6",
+   "deal_hash": "6670dcf57ffe3acb",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "short-in-openers-suit"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 8 HCP (AK diamonds) short in S, 4H + both minors \u2014 textbook responsive X. 3S=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "7",
+   "deal_hash": "a4a2baa9a5396a37",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4 short in S but 7 quacky HCP (Q Q K) \u2014 right shape, light values. 3S=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "8",
+   "deal_hash": "2c5d5ae140dd6823",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "short-in-openers-suit"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 8 HCP short in H, 4S + both minors \u2014 textbook responsive X vs a major. 3H=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "9",
+   "deal_hash": "3cc29f3f6cd797d9",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 7 HCP short in S \u2014 correct shape, minimum values. 3S=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "10",
+   "deal_hash": "7c17e6dd538ac144",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "minimum-values"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 7 HCP (A, K) short in H, 4S + minors \u2014 right shape, light. 3H=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "11",
+   "deal_hash": "91f178eb110321c8",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "competitive-save"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 11 HCP short in S \u2014 textbook responsive X; NS push to 4H-1, a cheap save vs EW's spade game."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "12",
+   "deal_hash": "42ca9fb5bf4e1fc2",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 7 HCP (AK clubs) short in H \u2014 right shape, light; W jumps to 4H=."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "13",
+   "deal_hash": "f63d7a9fa9f7454c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "short-in-openers-suit"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 10 HCP (KQ/KQ) short in H, 4S + minors \u2014 textbook responsive X; EW's 4H-1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "14",
+   "deal_hash": "e13a1502ae771d21",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "competitive-save"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 11 HCP short in H \u2014 textbook responsive X; S bids on to 4S-1, a fair save vs EW's hearts."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "15",
+   "deal_hash": "f32b6ed57fc60b1b",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "judgment",
+    "also_ok": [
+     "Pass"
+    ],
+    "themes": [
+     "responsive-double",
+     "penalty-double"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 9 HCP short in H \u2014 responsive X textbook, but S's later penalty X of 4H on a singleton trump lets it make; pass better."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "16",
+   "deal_hash": "00bc52172041c92f",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 7 HCP (A, K) short in H \u2014 right shape, minimum. W redoubles; 3H-1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "17",
+   "deal_hash": "2bac7b7518c5d454",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "minimum-values"
+    ],
+    "note": "1H-X-2H-X: S 4=1=4=4, 7 HCP short in H, 4S + minors \u2014 correct shape, light values. 3H+1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "18",
    "deal_hash": "a9303fc1da3acedd",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "Over 1S-X-2S, S has 4H plus 4-4 minors, stiff S: textbook responsive X (other major + both minors). W's 4S ends it."
+    "themes": [
+     "responsive-double",
+     "other-major",
+     "short-in-openers-suit"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 9 HCP short in S, 4H + both minors \u2014 textbook responsive X; W jumps to 4S+1."
    },
    "declarer": {
     "tier": "reject",
@@ -52,19 +467,830 @@
     "tier": "reject",
     "themes": [],
     "note": ""
+   }
+  },
+  {
+   "board": "19",
+   "deal_hash": "3186558e4fe72e89",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "competitive-save"
+    ],
+    "note": "1S-X-2S-X: S 1=4=4=4, 10 HCP short in S \u2014 textbook responsive X; NS push to 4H-1, a cheap save vs EW's spades."
    },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "20",
+   "deal_hash": "a1a07b22f058a5d1",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 9 HCP (dia AKJ), stiff heart: textbook responsive over 1H showing spades + both minors."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "21",
+   "deal_hash": "075595286b187a4f",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP (heart A, dia K), stiff spade: textbook responsive over 1S; minimum but shape ideal."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "22",
+   "deal_hash": "365e31322bf6181f",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 9 HCP, stiff spade: textbook responsive over 1S; later doubles 4S for +300 (4SX-2)."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "23",
+   "deal_hash": "6ab80707c4cadb44",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP (dia K, heart Q), stiff spade: textbook responsive over 1S; light but perfect shape."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "24",
+   "deal_hash": "8104f89f0c17fefe",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP, stiff spade but hearts 7643 jackless: sound responsive, minimum with weak shown major."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "25",
+   "deal_hash": "db85544c5d51ace0",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double",
+     "sacrifice"
+    ],
+    "note": "South 4=1=4=4, 9 HCP (spades KQ), stiff heart: textbook responsive; then 4S over vul 4H a sound save (4SX-3 = -500)."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "26",
+   "deal_hash": "9b47c49f3d9aa2dd",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP (club AJ), stiff spade but hearts 9864 jackless: sound responsive, minimum with weak shown major."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "27",
+   "deal_hash": "3177ff6b0e67a7cf",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP (heart A, club K), stiff spade: textbook responsive over 1S; minimum but clean."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "28",
+   "deal_hash": "58f2ce590a0727c2",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 9 HCP (heart KQ), stiff spade: textbook responsive over 1S showing hearts + both minors."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "29",
+   "deal_hash": "d85fc7423cc26788",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 7 HCP (heart A, dia Q), stiff spade: textbook responsive over 1S; minimum but clean shape."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "30",
+   "deal_hash": "5314519bc5c98e86",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 7 HCP (spades AQJT), stiff heart: textbook responsive over 1H showing spades + both minors."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "31",
+   "deal_hash": "209c98494ecd4d55",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 8 HCP (dia A, club K), stiff heart: textbook responsive over 1H."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "32",
+   "deal_hash": "4a7ab4196368147c",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 7 HCP (club A), stiff heart: textbook responsive over 1H; minimum values, clean shape."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "33",
+   "deal_hash": "106f93e192929a17",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 8 HCP (heart A, dia K), stiff spade: textbook responsive over 1S."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "34",
+   "deal_hash": "c5f14e3de4f12745",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 8 HCP (spade K, dia AJ), stiff heart: textbook responsive over 1H."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "35",
+   "deal_hash": "f69be716086fa258",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 10 HCP (clubs KQJ), stiff spade: textbook responsive; later 4H push, defends 4SX-1."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "36",
+   "deal_hash": "5fb2ef0c521e1235",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 10 HCP (hearts AQJ), stiff spade: textbook responsive over 1S; 4SX-1 on defense."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "37",
+   "deal_hash": "8a9cc3eebbc96e00",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 4=1=4=4, 8 HCP (spade K, dia K, club Q), stiff heart: textbook responsive over 1H."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "38",
+   "deal_hash": "0dacf2a3754c182a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "South 1=4=4=4, 9 HCP (dia AKQ), stiff spade: textbook responsive over 1S; hearts weak but values ample."
+   },
+   "declarer": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "39",
+   "deal_hash": "08275dbcd6569621",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 9HCP: 4S, stiff H, 4-4 minors - textbook RD shape, but N stretched to 3NT down 1 on ~19 combined."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "40",
+   "deal_hash": "e728ee69e23ba490",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 1=4=4=4 11HCP after 1S: stiff spade, 4H, 4-4 minors - picture RD; clean, EW settles in 3S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "41",
+   "deal_hash": "f2e5a314145d8f50",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 1=4=4=4 7HCP+stiff S (~9 total) after 1S: 4H, 4-4 minors - sound RD, values minimum; EW plays 3S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "42",
+   "deal_hash": "4a8ccbf063a35f80",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 8HCP after 1H: 4S, stiff heart, 4-4 minors - clean RD; N picks 3C, EW reclaims 3H made."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "43",
+   "deal_hash": "ecc0389a97a2d37f",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 1=4=4=4 7HCP+stiff S after 1S: Ax of H, 4-4 minors - sound RD; EW plays 3S made, N-S let it go."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "44",
+   "deal_hash": "f2c0a9f038dfa467",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 1=4=4=4 7HCP RD is fine shape; wrinkle is N passing for penalty of 2S with only 96 - risky, 2SX down 1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "45",
+   "deal_hash": "5e2269fa315a1012",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP RD shape fine; N later doubled W's 4H (7-card suit) on stiff support - 4HX made, N-S error."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "46",
+   "deal_hash": "5be666d2c21e4a00",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP+A after 1H: 4S incl ace, stiff heart, 4-4 minors - sound RD; N picks 2S, EW plays 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "47",
+   "deal_hash": "41a3f128d98a34c0",
+   "auction_class": "intended",
+   "difficulty": 1,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 11HCP after 1H: 4S, stiff heart, K-J minors - picture RD, top of range; EW plays 3H made."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "48",
+   "deal_hash": "888c1870bcc5aaca",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 1=4=4=4 8HCP RD is textbook shape; but S then pushed 3NT with stiff-8 spade, no stopper - down 2."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "49",
+   "deal_hash": "d01720f0958eae2d",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 8HCP after 1H: 4S, stiff heart, 4-4 minors w/ AJ clubs - clean RD; EW plays 3H made."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "50",
+   "deal_hash": "2e6b84e073564563",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP after 1H: KJ72 spades, stiff heart, 4-4 minors - sound RD; EW pushes to 4H made."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "51",
+   "deal_hash": "b80d3fb943d34901",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 8HCP after 1H: KJT9 spades, stiff heart, 4-4 minors - clean RD; N-S to 3S, EW 4H down 1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "52",
+   "deal_hash": "5cf26b123b53ef2e",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 10HCP after 1H: 4S, stiff heart, three kings in minors - strong RD; N doubles 4H down 1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "53",
+   "deal_hash": "9cc8d05267b0cdf2",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [],
+    "note": "S 4=1=4=4 8HCP after 1H: 4 spades, stiff heart, KQ/K minors - sound RD; N-S compete 3S, EW 4H made."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
   },
   {
    "board": "54",
-   "deal_hash": "075595286b187a4f",
+   "deal_hash": "b288109ecddbd2b2",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "1S-X-2S-X: S has 4H and 4-4 minors with a stiff S. Clean responsive double showing the unbid major and both minors."
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP after 1H: 4S, stiff heart, A-diamonds+4-4 minors - sound RD; N buys it in 3S made."
    },
    "declarer": {
     "tier": "reject",
@@ -75,19 +1301,18 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   }
   },
   {
-   "board": "62",
-   "deal_hash": "6ab80707c4cadb44",
+   "board": "55",
+   "deal_hash": "4d7302681189d4e1",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "1S-X-2S-X: 4H and 4-4 minors, stiff S. Textbook responsive shape; lets N choose the strain."
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP after 1H: JT87 spades, stiff heart, KJ diamonds, 4-4 minors - sound RD; EW plays 3H."
    },
    "declarer": {
     "tier": "reject",
@@ -98,42 +1323,18 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "97",
-   "deal_hash": "a32927adf01a1413",
-   "auction_class": "continuation",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Not a responsive double: N overcalled 1NT, not takeout X. S's X over 2H is competitive/penalty, so the convention is not on display."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "108",
-   "deal_hash": "5e2269fa315a1012",
+   "board": "56",
+   "deal_hash": "94b7954348f12c4f",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H. Textbook responsive double showing the other major plus both minors."
+    "themes": [],
+    "note": "S 1=4=4=4 7HCP after 1S: stiff spade, K952 hearts, KJT5 diamonds - sound RD; N picks clubs, EW 3S."
    },
    "declarer": {
     "tier": "reject",
@@ -144,320 +1345,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "152",
-   "deal_hash": "03ecac3c90de3261",
+   "board": "57",
+   "deal_hash": "5e37675039f91606",
    "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S, 4-4 minors, stiff H, 8 HCP. Clean responsive double; well-placed values to compete."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "157",
-   "deal_hash": "f94036a4243aeb93",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1S-X-2S-X: 4H and 4-4 minors, stiff S. Textbook responsive double; N picks a minor (3D)."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "174",
-   "deal_hash": "016092c58f05db63",
-   "auction_class": "continuation",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Not a responsive double: N overcalled 1NT, not takeout X. S's X over 2S is not responsive; convention not on display."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "190",
-   "deal_hash": "c15590481a1a3421",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H, 9 HCP. Textbook responsive double; N explores minors (3C/3D)."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "210",
-   "deal_hash": "d5e0b020abc55404",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H. Textbook responsive double showing the other major plus both minors."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "220",
-   "deal_hash": "3dbcc0bd8bcc1e66",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1S-X-2S-X: 4H and 4-4 minors, stiff S, 9 HCP. Clean responsive double; N picks 3D before W competes to 4S."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "229",
-   "deal_hash": "390b530a8a122840",
-   "auction_class": "continuation",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "reject",
-    "also_ok": [],
-    "note": "Not a responsive double: N overcalled 1NT, not takeout X. S's X over 2S is not responsive; convention not on display."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "273",
-   "deal_hash": "0d36f598f52709bb",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1S-X-2S-X: 4H and 4-4 minors, stiff S. Textbook responsive double showing the other major plus both minors."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "274",
-   "deal_hash": "14363f14b2380020",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H. Textbook responsive double; W competes to 4H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "287",
-   "deal_hash": "d1c7aa36abc089c5",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H, 9 HCP. Textbook responsive double showing the other major plus both minors."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "295",
-   "deal_hash": "871857a385eda8fd",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "1H-X-2H-X: 4S and 4-4 minors, stiff H. Textbook responsive double; N picks 2S, W competes to 3H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "305",
-   "deal_hash": "badffd66c9c44266",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "Other major H4 + D4/C4 over 1S: textbook responsive shape, 8 HCP. Partner picks 3D, opps 3S."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "312",
-   "deal_hash": "65eab3cff859efce",
-   "auction_class": "intended",
-   "difficulty": 2,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "H4/D4/C4 over 1S, 8 HCP: textbook responsive shape. RHO jumps 4S, no room for partner."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "352",
-   "deal_hash": "46dbde6ed436fae9",
-   "auction_class": "continuation",
    "difficulty": 4,
    "bidding": {
     "tier": "judgment",
     "also_ok": [
      "Pass"
     ],
-    "note": "Spade4 + D4/C4 over 1H: textbook responsive X. But pulling partner's pass to a voluntary 4S over 4H is pushy; XX down."
+    "themes": [],
+    "note": "S 4=1=4=4 7HCP RD is fine; over W splinter+4H, S sacs 4S doubled down 3 (-500) vs a making 4H - close save."
    },
    "declarer": {
     "tier": "reject",
@@ -468,42 +1369,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   }
   },
   {
-   "board": "359",
-   "deal_hash": "77a6409f8059630b",
+   "board": "58",
+   "deal_hash": "06a9206ffb400bc2",
    "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "S4 + D4/C4 over 1H, 9 HCP: textbook responsive shape. Partner 3C, South prefs 3D, opps 3H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "360",
-   "deal_hash": "4f500aebfab7364f",
-   "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "H4/D4/C4 over 1S, sound responsive shape but only 7 HCP: light value stretch at the 3-level."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S is 1-4-4-4 (singleton S), textbook RD shape but only 7 HCP; both majors/minors covered."
    },
    "declarer": {
     "tier": "reject",
@@ -514,19 +1393,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   }
   },
   {
-   "board": "371",
-   "deal_hash": "e063945cf1f53a74",
+   "board": "59",
+   "deal_hash": "bfa899ac72cea12c",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "H4/D4/C4 over 1S, correct responsive shape but 7 HCP: a value stretch. Partner picks 3C."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S 1-4-4-4 singleton spade, ideal RD shape, light 7 HCP; EW have the values and make 4S."
    },
    "declarer": {
     "tier": "reject",
@@ -537,42 +1417,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   }
   },
   {
-   "board": "403",
-   "deal_hash": "725152f45ffc5ba8",
-   "auction_class": "continuation",
-   "difficulty": 4,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "S4 + D4/C4 over 1H, 8 HCP: textbook responsive X. Long competitive auction; partner doubles 4H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "407",
-   "deal_hash": "25ce9bbf8986a938",
+   "board": "60",
+   "deal_hash": "6ffad5ba9eebdc27",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "H4/D4/C4 over 1S, correct shape but 7 HCP: light. RHO jumps to 4S, ending it."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 (Sx KT75, singleton H), other major + 3+ minors; 7 HCP a shade light."
    },
    "declarer": {
     "tier": "reject",
@@ -583,42 +1441,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "427",
-   "deal_hash": "103ffee8a1e6acd3",
-   "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "S4 + D4/C4 over 1H, 9 HCP: textbook responsive shape. RHO 4C, partner picks 4H."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
-  },
-  {
-   "board": "437",
-   "deal_hash": "eaf7599485268d1a",
+   "board": "61",
+   "deal_hash": "53342cfaef428054",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "S4 + D4/C4 over 1H, 9 HCP: textbook responsive shape. RHO preempts 4H, no room for partner."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade, 1-4-4-4 with 8 HCP; both majors and both minors held, clean competitive RD."
    },
    "declarer": {
     "tier": "reject",
@@ -629,42 +1465,23 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "452",
-   "deal_hash": "8c4d645867e9c658",
+   "board": "62",
+   "deal_hash": "03ecac3c90de3261",
    "auction_class": "intended",
-   "difficulty": 3,
-   "bidding": {
-    "tier": "standard",
-    "also_ok": [],
-    "note": "H4/D4/C4 over 1S, correct shape but 7 HCP: light. RHO jumps 4S."
-   },
-   "declarer": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "defense": {
-    "tier": "reject",
-    "themes": [],
-    "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
-  },
-  {
-   "board": "465",
-   "deal_hash": "b3c73d685192a998",
-   "auction_class": "continuation",
    "difficulty": 4,
    "bidding": {
-    "tier": "textbook",
-    "also_ok": [],
-    "note": "H4/D4/C4 over 1S, 8 HCP: textbook responsive shape. Wandering auction lands in 4H making."
+    "tier": "judgment",
+    "also_ok": [
+     "Pass"
+    ],
+    "themes": [
+     "responsive_double",
+     "sacrifice"
+    ],
+    "note": "RD itself textbook 4-1-4-4/8HCP, but S then pulled P's pass of 4H to 4S, doubled, -3 (-500), likely phantom."
    },
    "declarer": {
     "tier": "reject",
@@ -675,19 +1492,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "481",
-   "deal_hash": "b8194b4d5546f06f",
+   "board": "63",
+   "deal_hash": "f94036a4243aeb93",
    "auction_class": "intended",
    "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "H4/D4/C4 over 1S, 8 HCP: textbook responsive shape. RHO preempts 4S."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade 1-4-4-4, 8 HCP (KJ/KJ); perfect RD shape and values."
    },
    "declarer": {
     "tier": "reject",
@@ -698,19 +1516,92 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "483",
-   "deal_hash": "f6ce211bd414e461",
+   "board": "64",
+   "deal_hash": "272fafe42e2dbf3f",
    "auction_class": "intended",
-   "difficulty": 3,
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 (Sx K543, singleton H), textbook shape but only 7 HCP; 3H made, fair defense."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "65",
+   "deal_hash": "5dfba53417d5ce8c",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart, ideal RD shape, 7 HCP light; N's XX then 3C, EW play 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "66",
+   "deal_hash": "32d55012a76f4f05",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade 1-4-4-4, textbook shape but quacky 7 HCP (three queens+jack)."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "67",
+   "deal_hash": "e7939a92e5bb590b",
+   "auction_class": "intended",
+   "difficulty": 2,
    "bidding": {
     "tier": "textbook",
     "also_ok": [],
-    "note": "S4 + D4/C4 over 1H, 9 HCP: textbook responsive shape. Partner 2S, competitive to 3S."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 (KQJ5 spades), 9 HCP; RD then 3S and penalty X of 4H for +200. Clean throughout."
    },
    "declarer": {
     "tier": "reject",
@@ -721,19 +1612,165 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "495",
-   "deal_hash": "7de436e5d6c1b4a3",
+   "board": "68",
+   "deal_hash": "fc0dbf2567c35cf7",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart; 7 HCP all in spades (AK54); textbook shape, thin values."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "69",
+   "deal_hash": "8837bbd0111b6ea0",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart, 9 HCP (KQ92 diamonds); RD then 3D to show the minor. Clean."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "70",
+   "deal_hash": "961e1f1c7b463e3a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart, 10 HCP; RD then raise to 3S with the fit, NS make 3S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "71",
+   "deal_hash": "06a124ad32029ba8",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade 1-4-4-4, textbook shape, 7 HCP (KQ diamonds); EW play 3S making."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "72",
+   "deal_hash": "c66fcd869770d06f",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade 1-4-4-4, 8 HCP with the club ace; ideal RD shape and competitive values."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "73",
+   "deal_hash": "1169dd25a6eceeec",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1S, S singleton spade 1-4-4-4, textbook shape; 7 HCP but strong (AK hearts). EW play 3S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "74",
+   "deal_hash": "e58e373b479f1229",
    "auction_class": "intended",
    "difficulty": 3,
    "bidding": {
     "tier": "standard",
     "also_ok": [],
-    "note": "H4/D4/C4 over 1S, correct shape but 7 HCP: light. RHO jumps 4S."
+    "themes": [
+     "responsive_double",
+     "sacrifice"
+    ],
+    "note": "vs 1H, S 4-1-4-4 (two aces, 9 HCP), textbook RD; NS push to 4S-1 (-50), a fair save vs vul 4H."
    },
    "declarer": {
     "tier": "reject",
@@ -744,19 +1781,20 @@
     "tier": "reject",
     "themes": [],
     "note": ""
-   },
-   "matched_intended_auction": true,
-   "dd_class": "ok"
+   }
   },
   {
-   "board": "497",
-   "deal_hash": "229be1d64ed120fe",
-   "auction_class": "bba-disagreed",
-   "difficulty": 4,
+   "board": "75",
+   "deal_hash": "c6c017e9b1aeeebe",
+   "auction_class": "intended",
+   "difficulty": 2,
    "bidding": {
-    "tier": "reject",
+    "tier": "textbook",
     "also_ok": [],
-    "note": "Partner overcalled 1NT, not a takeout X. South's X of 2S is penalty/competitive, NOT a responsive double. Off-convention."
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart, 8 HCP (KJ diamonds, A clubs); clean RD, both majors/minors covered."
    },
    "declarer": {
     "tier": "reject",
@@ -767,9 +1805,466 @@
     "tier": "reject",
     "themes": [],
     "note": ""
+   }
+  },
+  {
+   "board": "76",
+   "deal_hash": "c15590481a1a3421",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive_double"
+    ],
+    "note": "vs 1H, S 4-1-4-4 singleton heart, 9 HCP (AK clubs); RD then 3D to show diamonds. Clean."
    },
-   "matched_intended_auction": true,
-   "dd_class": "down_both"
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "77",
+   "deal_hash": "8e78e75142925e13",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "both-majors-vs-minor-not"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 7 HCP, stiff spade, 4 hearts + both minors. Clean responsive X; NS defend 3S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "78",
+   "deal_hash": "d4f7a0ffe4af1ee3",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 7 HCP, stiff heart, 4 spades + both minors. Textbook responsive X; defends 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "79",
+   "deal_hash": "29a544405e435d51",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 10 HCP (AK spades), stiff heart, 4 spades + both minors. Ideal responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "80",
+   "deal_hash": "5c6c32dc7f1bf7c8",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 9 HCP (KQJ hearts), stiff spade, 4 hearts + both minors. Textbook responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "81",
+   "deal_hash": "23165a9286d42a65",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H South 4=1=4=4, 7 HCP, stiff heart, clean responsive X. Wrinkle: North's 2NT then back to 3H is awkward."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "82",
+   "deal_hash": "1ce935d6f5ea182a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 9 HCP (AQ hearts), stiff spade, 4 hearts + both minors. West jumps to 4S making."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "83",
+   "deal_hash": "d5e0b020abc55404",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 8 HCP, stiff heart, 4 spades + both minors. Textbook responsive X; defends 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "84",
+   "deal_hash": "338e64a2dd84198a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 9 HCP (AKQ spades), stiff heart, 4 spades + both minors. Ideal responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "85",
+   "deal_hash": "1816b3eb76f9a2d2",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 7 HCP, stiff heart, 4 spades + both minors. Clean responsive X; NS beat 3H two."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "86",
+   "deal_hash": "d9dd982c139cd6a3",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 7 HCP, stiff heart, 4 spades + both minors. Textbook responsive X; defends 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "87",
+   "deal_hash": "ee02ee619e3ad756",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 9 HCP (AQJ clubs), stiff spade, 4 hearts + both minors. Textbook; opps make 4S."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "88",
+   "deal_hash": "d13014036e7c2080",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 9 HCP, stiff spade, 4 hearts + both minors (AQ clubs). Textbook responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "89",
+   "deal_hash": "1b3eced120ec31b4",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 8 HCP (AQ diamonds), stiff spade, 4 hearts + both minors. Clean responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "90",
+   "deal_hash": "75c3a58dea9aeb07",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1H: South 4=1=4=4, 8 HCP, stiff heart, 4 spades + both minors. Textbook responsive X; defends 3H."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "91",
+   "deal_hash": "86cf61a9db40e81a",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 7 HCP, stiff spade, 4 hearts + both minors (KJ clubs). Clean responsive X."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "92",
+   "deal_hash": "3dbcc0bd8bcc1e66",
+   "auction_class": "intended",
+   "difficulty": 2,
+   "bidding": {
+    "tier": "textbook",
+    "also_ok": [],
+    "themes": [
+     "responsive-double"
+    ],
+    "note": "Vs 1S: South 1=4=4=4, 9 HCP, stiff spade, 4 hearts + both minors. Textbook; NS push 4S down 1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "93",
+   "deal_hash": "3574ed3eb08b3a4d",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "competitive-push"
+    ],
+    "note": "Vs 1S South 1=4=4=4, 10 HCP, stiff spade, textbook responsive X. Then 4H push (7+ heart fit); North Xs 4S down 1."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
+  },
+  {
+   "board": "94",
+   "deal_hash": "9a6c112e0b0380e1",
+   "auction_class": "intended",
+   "difficulty": 3,
+   "bidding": {
+    "tier": "standard",
+    "also_ok": [],
+    "themes": [
+     "responsive-double",
+     "competitive-push"
+    ],
+    "note": "Vs 1S South 1=4=4=4, 8 HCP, stiff spade, textbook responsive X. 4H well-judged on 8-card heart fit; 4S down 2."
+   },
+   "declarer": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   },
+   "defense": {
+    "tier": "reject",
+    "themes": [],
+    "note": ""
+   }
   }
  ]
 }
