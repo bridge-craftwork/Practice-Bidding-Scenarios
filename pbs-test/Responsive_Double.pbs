@@ -113,11 +113,11 @@ oC = not (oS or oH or oD)
 westSuit = (oS or oH or oD or oC)
 
 # Define East's raise. Support thresholds for EPBot to raise after the takeout double:
-#   MAJOR: 4+ (>3) — raises to 2M, or JUMPS to 3M (both are responsive-double auctions for South).
-#   MINOR: 5+ (>4, see eD/eC) — raises to 2m with 5, JUMPS to 3m with 6+.
-# Both raise levels are captured by the auction-filter, so accept the full support band here.
-eS = oS and spades(east)  >3  and hcp(east,spades)  >1                                       and spades(north)<3
-eH = oH and hearts(east)  >3  and hcp(east,hearts)  >1                                       and hearts(north)<3
+#   MAJOR: 3+ (>2) — a 3-card single raise to 2M is common; 4+ can also jump to 3M. Both raise
+#          levels are responsive-double auctions for South and are captured by the auction-filter.
+#   MINOR: 5+ (>4, see eD/eC) — raises to 2m with 5, JUMPS to 3m with 6+ (EPBot won't raise on 3-4).
+eS = oS and spades(east)  >2  and hcp(east,spades)  >1                                       and spades(north)<3
+eH = oH and hearts(east)  >2  and hcp(east,hearts)  >1                                       and hearts(north)<3
 # Minor raise: East needs 5+ support to raise a minor after the double — EPBot passes/bids a major
 # with 3-4, raises to 2m with exactly 5, and JUMPS to 3m with 6+. Both (1m) X 2m X and (1m) X 3m X
 # are responsive-double auctions, so accept 5+ here and let the filter take both raise levels.
