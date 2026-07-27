@@ -118,8 +118,10 @@ westSuit = (oS or oH or oD or oC)
 # more matching auctions (BBA raises reliably on 4 trumps) at no coverage loss.
 eS = oS and spades(east)  >2  and hcp(east,spades)  >1                                       and spades(north)<3
 eH = oH and hearts(east)  >2  and hcp(east,hearts)  >1                                       and hearts(north)<3
-eD = oD and diamonds(east)==4 and hcp(east,diamonds)>2 and spades(east)<4 and hearts(east)<4 and diamonds(north)<3
-eC = oC and clubs(east)   ==4 and hcp(east,clubs)   >3 and spades(east)<4 and hearts(east)<4 and clubs(north)<3
+# Minor raise: East needs 5-card support to raise a minor to 2 (EPBot passes/bids a major with 3-4,
+# and JUMPS to 3m with 6+). Empirically only 5-card support yields the (1m) X 2m auction.
+eD = oD and diamonds(east)==5 and hcp(east,diamonds)>2 and spades(east)<4 and hearts(east)<4 and diamonds(north)<3
+eC = oC and clubs(east)   ==5 and hcp(east,clubs)   >3 and spades(east)<4 and hearts(east)<4 and clubs(north)<3
 
 # East raises
 eastRaises = (eS or eH or eD or eC) and hcp(east)>5 and tpEast<10
