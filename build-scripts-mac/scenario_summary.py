@@ -279,7 +279,7 @@ def generate_summary(pattern: str = "*"):
     h.append('    .summary-card h3 { margin: 0 0 10px 0; font-size: 14px; color: #333; }')
     h.append('    table { border-collapse: collapse; width: 100%; }')
     h.append('    .main-table { background: #fff; border-radius: 8px; padding: 15px;')
-    h.append('                  box-shadow: 0 2px 4px rgba(0,0,0,0.08); overflow-x: auto; }')
+    h.append('                  box-shadow: 0 2px 4px rgba(0,0,0,0.08); }')
     h.append('    th { background: #f0f0f0; font-weight: 600; text-align: right; padding: 6px 8px;')
     h.append('         border-bottom: 2px solid #ddd; font-size: 12px; white-space: nowrap; }')
     h.append('    th:first-child { text-align: left; }')
@@ -293,6 +293,9 @@ def generate_summary(pattern: str = "*"):
     h.append('    .main-table .col-highlighted { background: #d0e8f7 !important; }')
     h.append('    .main-table tr.highlighted .col-highlighted { background: #d4e9c7 !important; }')
     h.append('    .totals td { font-weight: bold; border-top: 2px solid #ddd; text-align: center; }')
+    h.append('    .main-table thead th, .main-table thead td { position: sticky; z-index: 3; }')
+    h.append('    .main-table thead tr:first-child th { top: 0; z-index: 4; }')
+    h.append('    .main-table thead tr.totals td { background: #fff; }')
     h.append('    .summary-card td, .summary-card th { font-size: 12px; }')
     h.append('    .summary-card th { background: transparent; border-bottom: 1px solid #ddd; }')
     h.append('    .has-tip { position: relative; cursor: help; border-bottom: 1px dotted #999; }')
@@ -366,6 +369,7 @@ def generate_summary(pattern: str = "*"):
     op_headers = [hdr for _, hdr in OP_COLUMNS]
     h.append('  <div class="main-table">')
     h.append('    <table>')
+    h.append('      <thead>')
     h.append('      <tr>')
     h.append('        <th>Scenario</th><th>Deals</th><th>Filtered</th><th>Flt-Out</th>')
     for hdr in op_headers:
@@ -397,6 +401,8 @@ def generate_summary(pattern: str = "*"):
         h.append(f'        <td>{pct:.1f}%</td>' if ct > 0 else '        <td>-</td>')
     h.append('        <td>100%</td>')
     h.append('      </tr>')
+    h.append('      </thead>')
+    h.append('      <tbody>')
 
     # Data rows
     for row in rows:
@@ -411,28 +417,7 @@ def generate_summary(pattern: str = "*"):
         h.append(f'        <td>{row["total_et"]}</td>')
         h.append('      </tr>')
 
-    # Repeat totals at bottom
-    h.append('      <tr class="totals">')
-    h.append(f'        <td>Total</td><td>{total_deals}</td><td>{total_filtered}</td><td>{total_filtered_out}</td>')
-    for ct in col_totals:
-        h.append(f'        <td>{format_et(ct) if ct > 0 else "-"}</td>')
-    h.append(f'        <td>{format_et(grand_total) if grand_total > 0 else "-"}</td>')
-    h.append('      </tr>')
-    h.append('      <tr class="totals">')
-    h.append(f'        <td>%</td><td></td><td>{filt_pct_str}</td><td>{fout_pct_str}</td>')
-    for ct in col_totals:
-        pct = (ct / grand_total * 100) if grand_total > 0 else 0
-        h.append(f'        <td>{pct:.1f}%</td>' if ct > 0 else '        <td>-</td>')
-    h.append('        <td>100%</td>')
-    h.append('      </tr>')
-    # Repeat column headings after totals
-    h.append('      <tr>')
-    h.append('        <th></th><th>Deals</th><th>Filtered</th><th>Flt-Out</th>')
-    for hdr in op_headers:
-        h.append(f'        <th>{_esc(hdr)}</th>')
-    h.append('        <th>Total</th>')
-    h.append('      </tr>')
-
+    h.append('      </tbody>')
     h.append('    </table>')
     h.append('  </div>')
     h.append('  <script>')
@@ -440,6 +425,18 @@ def generate_summary(pattern: str = "*"):
     h.append('    var d = new Date(span.dataset.utc);')
     h.append('    span.textContent = d.toLocaleDateString() + " " + d.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit", timeZoneName: "short"});')
     h.append('    var table = document.querySelector(".main-table table");')
+    h.append('    var thead = table.tHead;')
+    h.append('    function setStickyTops() {')
+    h.append('      if (!thead) return;')
+    h.append('      var off = 0;')
+    h.append('      for (var r = 0; r < thead.rows.length; r++) {')
+    h.append('        var cells = thead.rows[r].cells;')
+    h.append('        for (var c = 0; c < cells.length; c++) cells[c].style.top = off + "px";')
+    h.append('        off += thead.rows[r].getBoundingClientRect().height;')
+    h.append('      }')
+    h.append('    }')
+    h.append('    setStickyTops();')
+    h.append('    window.addEventListener("resize", setStickyTops);')
     h.append('    var hCol = -1;')
     h.append('    function clearCol() {')
     h.append('      table.querySelectorAll(".col-highlighted").forEach(function(c) {')
