@@ -2,7 +2,7 @@
 # button-text: Responsive Double
 # gib-works: false
 # bba-works: true
-# auction-filter: Auction.....\n(1C +X +2C|1D +X +2D|1H +X +2H|1S +X +2S) +X
+# auction-filter: Note....Responsive
 # curate: kind=bidding
 # convention-card-ns: 21GF-GIB
 # convention-card-ew: 21GF-GIB
@@ -35,14 +35,17 @@ oD = not (oS or oH) and ((d>3 and d>=c) or c<3)
 oC = not (oS or oH or oD)
 westSuit = (oS or oH or oD or oC)
 
-# Define East's simple raise  --- 3+ support (3 or 4)   ------ avoid negative double          --- north Takeout X
-# East 3-or-4 (was ==3): a superset that keeps every 3-card-raise deal AND adds the 4-card ones.
-# The 4-card hands are far easier to deal, so the pool hits its produce target ~5x faster with
-# more matching auctions (BBA raises reliably on 4 trumps) at no coverage loss.
+# Define East's raise. Support thresholds for EPBot to raise after the takeout double:
+#   MAJOR: 3+ (>2) — a 3-card single raise to 2M is common; 4+ can also jump to 3M. Both raise
+#          levels are responsive-double auctions for South and are captured by the auction-filter.
+#   MINOR: 5+ (>4, see eD/eC) — raises to 2m with 5, JUMPS to 3m with 6+ (EPBot won't raise on 3-4).
 eS = oS and spades(east)  >2  and hcp(east,spades)  >1                                       and spades(north)<3
 eH = oH and hearts(east)  >2  and hcp(east,hearts)  >1                                       and hearts(north)<3
-eD = oD and diamonds(east)==4 and hcp(east,diamonds)>2 and spades(east)<4 and hearts(east)<4 and diamonds(north)<3
-eC = oC and clubs(east)   ==4 and hcp(east,clubs)   >3 and spades(east)<4 and hearts(east)<4 and clubs(north)<3
+# Minor raise: East needs 5+ support to raise a minor after the double — EPBot passes/bids a major
+# with 3-4, raises to 2m with exactly 5, and JUMPS to 3m with 6+. Both (1m) X 2m X and (1m) X 3m X
+# are responsive-double auctions, so accept 5+ here and let the filter take both raise levels.
+eD = oD and diamonds(east)>4 and hcp(east,diamonds)>2 and spades(east)<4 and hearts(east)<4 and diamonds(north)<3
+eC = oC and clubs(east)   >4 and hcp(east,clubs)   >3 and spades(east)<4 and hearts(east)<4 and clubs(north)<3
 
 # East raises
 eastRaises = (eS or eH or eD or eC) and hcp(east)>5 and tpEast<10
@@ -51,10 +54,13 @@ eastRaises = (eS or eH or eD or eC) and hcp(east)>5 and tpEast<10
 # Require South SHORT (singleton/void) in opener's suit: that shortness both makes the responsive
 # double clear bridge and is what BBA/EPBot needs to actually make the double (a doubleton in
 # opener's suit and it passes and waits for partner to reopen).
-dS = oS and spades(north)<3   and hearts(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,spades)==0   and spades(south)<2
-dH = oH and hearts(north)<3   and spades(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,hearts)==0   and hearts(south)<2
-dD = oD and diamonds(north)<3 and spades(south)==4 and hearts(south)==4  and clubs(south)>2    and hcp(south,diamonds)==0 and diamonds(south)<2
-dC = oC and clubs(north)<3    and spades(south)==4 and hearts(south)==4  and diamonds(south)>2 and hcp(south,clubs)==0     and clubs(south)<2
+# North EXACTLY 2 in opener's suit (was <3): the textbook takeout-double doubleton. Since South is
+# forced singleton (above) and E/W fit = 13 - North - South, pinning North to 2 makes every E/W fit
+# a clean 10 and removes the 11-card fits that North's 0-1 lengths produced (yield unchanged, ~95).
+dS = oS and spades(north)==2   and hearts(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,spades)==0   and spades(south)<2
+dH = oH and hearts(north)==2   and spades(south)==4 and diamonds(south)>2 and clubs(south)>2    and hcp(south,hearts)==0   and hearts(south)<2
+dD = oD and diamonds(north)==2 and spades(south)==4 and hearts(south)==4  and clubs(south)>2    and hcp(south,diamonds)==0 and diamonds(south)<2
+dC = oC and clubs(north)==2    and spades(south)==4 and hearts(south)==4  and diamonds(south)>2 and hcp(south,clubs)==0     and clubs(south)<2
 southSuits = dS or dH or dD or dC
 
 # NOTE: do NOT cap West's suit length. West's long suit is what creates South's shortness in
