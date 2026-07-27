@@ -23,6 +23,7 @@
     th:first-child { text-align: right; cursor: default; }
     th:not(:first-child) { cursor: pointer; }
     .main-table th { position: sticky; top: 0; z-index: 3; }
+    .main-table tr.sysrow td { position: sticky; z-index: 2; background: #eef3f8; font-weight: 600; }
     td { padding: 3px 4px; border-bottom: 1px solid #eee; text-align: center;
          font-size: 12px; }
     td:first-child { text-align: right; white-space: nowrap; }
@@ -51,7 +52,7 @@
 </head>
 <body>
   <h1>Convention Card Summary</h1>
-  <p class="subtitle">18 convention cards &mdash; Generated <span id="gen-time" data-utc="2026-07-27T20:18:21Z"></span>
+  <p class="subtitle">18 convention cards &mdash; Generated <span id="gen-time" data-utc="2026-07-27T20:24:02Z"></span>
     &mdash; <a class="nav-btn" href="./">Dashboard</a>
     <a class="nav-btn" href="Scenario_Summary.html">Scenario Summary</a>
     <a class="nav-btn nav-btn-active" href="Convention_Card_Summary.html">Convention Cards</a></p>
@@ -96,7 +97,7 @@
         <th><div class="rotate-header">Precision-14-16</div>
             <div class="scenario-count">1 NS</div></th>
       </tr>
-      <tr>
+      <tr class="sysrow">
         <td>System type</td>
         <td data-v="0">2/1GF</td>
         <td data-v="0">2/1GF</td>
@@ -3694,6 +3695,13 @@
     var d = new Date(span.dataset.utc);
     span.textContent = d.toLocaleDateString() + " " + d.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit", timeZoneName: "short"});
     var table = document.querySelector("table");
+    var sysCells = table.querySelectorAll("tr.sysrow td");
+    function setSysTop() {
+      var hh = table.rows[0].getBoundingClientRect().height;
+      for (var i = 0; i < sysCells.length; i++) sysCells[i].style.top = hh + "px";
+    }
+    setSysTop();
+    window.addEventListener("resize", setSysTop);
     var col1 = -1, col2 = -1;
     function clearAll() {
       table.querySelectorAll(".col-highlighted,.col-selected,.diff,.col-hidden").forEach(function(c) {

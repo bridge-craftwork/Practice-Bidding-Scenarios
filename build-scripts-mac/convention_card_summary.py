@@ -144,6 +144,7 @@ def generate_summary():
     h.append('    th:first-child { text-align: right; cursor: default; }')
     h.append('    th:not(:first-child) { cursor: pointer; }')
     h.append('    .main-table th { position: sticky; top: 0; z-index: 3; }')
+    h.append('    .main-table tr.sysrow td { position: sticky; z-index: 2; background: #eef3f8; font-weight: 600; }')
     h.append('    td { padding: 3px 4px; border-bottom: 1px solid #eee; text-align: center;')
     h.append('         font-size: 12px; }')
     h.append('    td:first-child { text-align: right; white-space: nowrap; }')
@@ -210,7 +211,12 @@ def generate_summary():
     # Data rows
     for key in canonical_keys:
         used = any(cards[name].get(key, "0") != "0" for name in ordered)
-        row_class = '' if used else ' class="unused"'
+        classes = []
+        if not used:
+            classes.append("unused")
+        if key == "System type":
+            classes.append("sysrow")
+        row_class = f' class="{" ".join(classes)}"' if classes else ''
         h.append(f'      <tr{row_class}>')
         h.append(f'        <td>{_esc(key)}</td>')
         for name in ordered:
@@ -233,6 +239,13 @@ def generate_summary():
     h.append('    var d = new Date(span.dataset.utc);')
     h.append('    span.textContent = d.toLocaleDateString() + " " + d.toLocaleTimeString([], {hour: "2-digit", minute: "2-digit", timeZoneName: "short"});')
     h.append('    var table = document.querySelector("table");')
+    h.append('    var sysCells = table.querySelectorAll("tr.sysrow td");')
+    h.append('    function setSysTop() {')
+    h.append('      var hh = table.rows[0].getBoundingClientRect().height;')
+    h.append('      for (var i = 0; i < sysCells.length; i++) sysCells[i].style.top = hh + "px";')
+    h.append('    }')
+    h.append('    setSysTop();')
+    h.append('    window.addEventListener("resize", setSysTop);')
     h.append('    var col1 = -1, col2 = -1;')
     h.append('    function clearAll() {')
     h.append('      table.querySelectorAll(".col-highlighted,.col-selected,.diff,.col-hidden").forEach(function(c) {')
