@@ -15,13 +15,14 @@
     .nav-btn:hover { background: #005f8a; }
     .nav-btn-active { background: #333; pointer-events: none; }
     .main-table { background: #fff; border-radius: 8px; padding: 15px;
-                  box-shadow: 0 2px 4px rgba(0,0,0,0.08); overflow-x: auto; }
+                  box-shadow: 0 2px 4px rgba(0,0,0,0.08); }
     table { border-collapse: collapse; width: 100%; }
     th { background: #f0f0f0; font-weight: 600; text-align: center; padding: 6px 4px;
          border-bottom: 2px solid #ddd; font-size: 11px; white-space: nowrap;
          vertical-align: bottom; }
     th:first-child { text-align: right; cursor: default; }
     th:not(:first-child) { cursor: pointer; }
+    .main-table th { position: sticky; top: 0; z-index: 3; }
     td { padding: 3px 4px; border-bottom: 1px solid #eee; text-align: center;
          font-size: 12px; }
     td:first-child { text-align: right; white-space: nowrap; }
@@ -50,7 +51,7 @@
 </head>
 <body>
   <h1>Convention Card Summary</h1>
-  <p class="subtitle">18 convention cards &mdash; Generated <span id="gen-time" data-utc="2026-07-27T17:12:07Z"></span>
+  <p class="subtitle">18 convention cards &mdash; Generated <span id="gen-time" data-utc="2026-07-27T20:18:21Z"></span>
     &mdash; <a class="nav-btn" href="./">Dashboard</a>
     <a class="nav-btn" href="Scenario_Summary.html">Scenario Summary</a>
     <a class="nav-btn nav-btn-active" href="Convention_Card_Summary.html">Convention Cards</a></p>
