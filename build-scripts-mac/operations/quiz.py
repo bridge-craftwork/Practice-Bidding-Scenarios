@@ -55,26 +55,32 @@ REQUIREMENTS:
    - Display 6 hands with suit symbols
    - Show correct answer and full auction for each hand
 """
+import copy
+import json
 import os
 import re
 import subprocess
 import sys
 from collections import defaultdict
+from datetime import date
 from typing import Dict, List, Tuple, Optional
 
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config import FOLDERS, MAC_TOOLS, PROJECT_ROOT
+from config import FOLDERS, MAC_TOOLS, PIPELINE_VERSION, PROJECT_ROOT
 
 
 class Hand:
     """Represents a bridge hand with cards and auction."""
-    def __init__(self, board_num: int, dealer: str, hands: Dict[str, str], auction: List[str]):
+    def __init__(self, board_num: int, dealer: str, hands: Dict[str, str], auction: List[str],
+                 vulnerable: str = 'None', board_token: Optional[str] = None):
         self.board_num = board_num
         self.dealer = dealer  # N, E, S, W
         self.hands = hands    # {'N': 'xxx.xxx.xxx.xxx', 'S': '...', etc}
         self.auction = auction  # ['1N', 'Pass', '2C', 'Pass', '2D', ...]
+        self.vulnerable = vulnerable    # PBN [Vulnerable]: None, NS, EW, All
+        self.board_token = board_token  # rotation-independent board-version token (ADR-0001)
 
     def get_auction_at_level(self, level: int) -> List[str]:
         """Get auction up to and including the specified bid level (0-indexed)."""
@@ -109,6 +115,15 @@ def parse_pbn_file(pbn_path: str) -> List[Hand]:
             # Extract dealer
             dealer_match = re.search(r'\[Dealer "([NESW])"\]', board_text)
             dealer = dealer_match.group(1) if dealer_match else 'S'
+
+            # Extract vulnerability
+            vul_match = re.search(r'\[Vulnerable "([^"]*)"\]', board_text)
+            vulnerable = vul_match.group(1) if vul_match else 'None'
+
+            # Extract the board-version token bba-cli stamps as a bare % comment
+            # right after [Board]. Opaque, rotation-independent (ADR-0001).
+            token_match = re.search(r'^%\s*([0-9A-F]{16,})\s*$', board_text, re.MULTILINE)
+            board_token = token_match.group(1) if token_match else None
 
             # Extract deal
             deal_match = re.search(r'\[Deal "([^"]+)"\]', board_text)
@@ -150,7 +165,8 @@ def parse_pbn_file(pbn_path: str) -> List[Hand]:
                     auction.append(bid)
 
             if auction:
-                hands.append(Hand(board_num, dealer, hands_dict, auction))
+                hands.append(Hand(board_num, dealer, hands_dict, auction,
+                                  vulnerable=vulnerable, board_token=board_token))
 
         except Exception as e:
             # Skip malformed boards
@@ -159,27 +175,52 @@ def parse_pbn_file(pbn_path: str) -> List[Hand]:
     return hands
 
 
-def get_bidder_at_level(dealer: str, level: int) -> str:
-    """
-    Determine who is bidding at a given level.
-    Level 0 = dealer, level 1 = LHO, level 2 = partner, level 3 = RHO, etc.
-    Returns 'opener', 'responder', 'lho', or 'rho'.
-    """
-    # For simplicity, assume dealer is always the opener (South in our scenarios)
-    # Level 0, 4, 8, ... = opener
-    # Level 1, 5, 9, ... = LHO (opponent)
-    # Level 2, 6, 10, ... = responder (partner)
-    # Level 3, 7, 11, ... = RHO (opponent)
+SEAT_ORDER = ['N', 'E', 'S', 'W']
+OUR_SIDE = ('N', 'S')
 
-    position = level % 4
-    if position == 0:
-        return 'opener'
-    elif position == 1:
-        return 'lho'
-    elif position == 2:
-        return 'responder'
-    else:
-        return 'rho'
+# The student's hand is always rendered in the South position, so display-space
+# seats are keyed off South regardless of where the hand really sits.
+STUDENT_DISPLAY_SEAT = 'S'
+
+
+def seat_at_level(dealer: str, level: int) -> str:
+    """
+    The seat that makes the call at `level` of the auction.
+
+    Level 0 is the dealer and play proceeds clockwise. Scenario files deal from
+    every seat - 1C_WalshStyle deals N, Basic_Overcall deals E - so the seat has
+    to be derived from the board's own dealer rather than assumed to be South.
+    """
+    if dealer not in SEAT_ORDER:
+        dealer = 'S'
+    return SEAT_ORDER[(SEAT_ORDER.index(dealer) + level) % 4]
+
+
+def partner_of(seat: str) -> str:
+    return SEAT_ORDER[(SEAT_ORDER.index(seat) + 2) % 4]
+
+
+def relative_role(quizzed_seat: str, seat: str) -> str:
+    """Describe `seat` from the quizzed seat's point of view."""
+    offset = (SEAT_ORDER.index(seat) - SEAT_ORDER.index(quizzed_seat)) % 4
+    return ('you', 'lho', 'partner', 'rho')[offset]
+
+
+def is_our_decision(dealer: str, level: int) -> bool:
+    """Whether the call at `level` belongs to the student's side (North-South)."""
+    return seat_at_level(dealer, level) in OUR_SIDE
+
+
+def display_dealer_for_level(level: int) -> str:
+    """
+    The [Dealer] seat to write in display space for a decision at `level`.
+
+    The quizzed hand is always shown as South, so the seat that opened the
+    auction lands the same number of steps before South as it does before the
+    quizzed seat. That offset is `-level`, which makes the display dealer depend
+    only on the level - not on where the board was actually dealt from.
+    """
+    return SEAT_ORDER[(SEAT_ORDER.index(STUDENT_DISPLAY_SEAT) - level) % 4]
 
 
 def analyze_auction_tree(hands: List[Hand], min_frequency: float = 0.05) -> Dict:
@@ -187,12 +228,18 @@ def analyze_auction_tree(hands: List[Hand], min_frequency: float = 0.05) -> Dict
     Build an auction tree with frequency analysis at each level.
 
     Returns a nested structure showing bid frequencies at each decision point.
+
+    Only the student's side (North-South) is recorded - we never quiz a call the
+    opponents made. Which levels those are depends on each board's own dealer,
+    so the test is applied per hand.
     """
     # Build frequency counts at each level, grouped by prefix
     level_data = defaultdict(lambda: defaultdict(list))
 
     for hand in hands:
         for level in range(len(hand.auction)):
+            if not is_our_decision(hand.dealer, level):
+                continue
             prefix = tuple(hand.auction[:level])
             bid = hand.auction[level]
             level_data[prefix][bid].append(hand)
@@ -227,61 +274,71 @@ def format_auction_prefix(auction: List[str]) -> str:
     return ' - '.join(formatted)
 
 
-def generate_quiz_prompt(bidder: str, auction_prefix: List[str], dealer: str = 'S') -> str:
-    """Generate the quiz prompt for a given bidding situation."""
+WHO_LABEL = {'you': 'you', 'partner': 'partner', 'lho': 'LHO', 'rho': 'RHO'}
 
-    if not auction_prefix:
-        if bidder == 'opener':
-            return "What do you open with each of these hands?"
-        else:
-            return "Partner opens. What do you respond with each of these hands?"
 
-    # Build the narrative
-    formatted_auction = []
+def _call_phrase(who: str, bid: str, verb: str) -> str:
+    """Render one call as prose from the quizzed seat's point of view."""
+    subject = WHO_LABEL[who]
+    if bid == 'X':
+        return f"{subject} {'double' if who == 'you' else 'doubles'}"
+    if bid == 'XX':
+        return f"{subject} {'redouble' if who == 'you' else 'redoubles'}"
+    if who != 'you' and verb in ('open', 'bid', 'respond'):
+        verb = {'open': 'opens', 'bid': 'bids', 'respond': 'responds'}[verb]
+    return f"{subject} {verb} {bid}"
+
+
+def generate_quiz_prompt(dealer: str, level: int, auction_prefix: List[str]) -> str:
+    """
+    Generate the quiz prompt for a bidding situation, narrated from the
+    quizzed seat's point of view.
+
+    Works for any dealer: the seat facing the decision may be the opener, the
+    responder, or - when the opponents dealt and opened - an overcaller or
+    advancer, and the prose names LHO and RHO accordingly.
+    """
+    quizzed_seat = seat_at_level(dealer, level)
+
+    parts = []
+    opened = False
+    partner_calls = 0
     for i, bid in enumerate(auction_prefix):
+        who = relative_role(quizzed_seat, seat_at_level(dealer, i))
         bid_display = bid.replace('N', 'NT')
-        who = get_bidder_at_level(dealer, i)
-        formatted_auction.append((who, bid_display))
 
-    if bidder == 'opener':
-        # Opener's rebid situation
-        parts = []
-        for who, bid in formatted_auction:
-            if who == 'opener':
-                if bid == 'Pass':
-                    parts.append("You initially pass")
-                else:
-                    parts.append(f"You open {bid}")
-            elif who == 'responder':
-                parts.append(f"partner responds {bid}")
-            elif who in ('lho', 'rho'):
-                if bid != 'Pass':
-                    parts.append(f"opponent bids {bid}")
+        if bid == 'Pass':
+            # Opponent passes carry no information worth narrating; ours do.
+            if who == 'you':
+                parts.append("you pass")
+            elif who == 'partner':
+                parts.append("partner passes")
+            continue
 
-        prompt = ', '.join(parts) + ". What do you bid with each of these hands?"
+        if not opened:
+            opened = True
+            parts.append(_call_phrase(who, bid_display, 'open'))
+            continue
 
-    else:  # responder
-        parts = []
-        for who, bid in formatted_auction:
-            if who == 'opener':
-                if bid == 'Pass':
-                    parts.append("Partner initially passes")
-                else:
-                    parts.append(f"Partner opens {bid}")
-            elif who == 'responder':
-                parts.append(f"you respond {bid}")
-            elif who in ('lho', 'rho'):
-                if bid != 'Pass':
-                    parts.append(f"opponent bids {bid}")
+        if who == 'partner':
+            partner_calls += 1
+            # Partner's first call over our opening is a response.
+            verb = 'respond' if partner_calls == 1 and parts[0].startswith('you open') else 'bid'
+            parts.append(_call_phrase(who, bid_display, verb))
+        else:
+            parts.append(_call_phrase(who, bid_display, 'bid'))
 
-        prompt = ', '.join(parts) + ". What do you bid with each of these hands?"
+    if not parts:
+        return "What do you open with each of these hands?"
 
-    return prompt
+    narrative = ', '.join(parts)
+    narrative = narrative[0].upper() + narrative[1:]
+    return narrative + ". What do you bid with each of these hands?"
 
 
 def select_quiz_hands(hands_by_bid: Dict[str, List[Hand]],
                       num_hands: int = 6,
-                      bidder: str = 'opener') -> List[Tuple[Hand, str]]:
+                      kind: str = 'opener') -> List[Tuple[Hand, str]]:
     """
     Select hands for a quiz with good variety.
 
@@ -439,24 +496,21 @@ def generate_quizzes(hands: List[Hand],
     rounds_data = defaultdict(lambda: {'hands_by_bid': defaultdict(list), 'prefixes': set()})
 
     for prefix, bids_dict in level_data.items():
+        # analyze_auction_tree only records our side's decisions, so every
+        # prefix reaching here is a call North or South has to make.
         level = len(prefix)
-        bidder = get_bidder_at_level('S', level)
-
-        # Skip opponent bids
-        if bidder in ('lho', 'rho'):
-            continue
-
         round_num = get_bidding_round(level)
 
         # For rounds 1-2, use exact prefix as key
-        # For rounds 3+, group all prefixes at that level together
+        # For rounds 3+, group all prefixes at that level together.
+        # Level is part of the key either way: a file dealt from more than one
+        # seat puts our decisions at different levels within the same round.
         if round_num <= 2:
-            round_key = (round_num, prefix)
+            round_key = (round_num, level, prefix)
         else:
-            round_key = (round_num, None)  # Group all at this round
+            round_key = (round_num, level, None)  # Group all at this round
 
         rounds_data[round_key]['prefixes'].add(prefix)
-        rounds_data[round_key]['bidder'] = bidder
         rounds_data[round_key]['level'] = level
         rounds_data[round_key]['round'] = round_num
 
@@ -467,7 +521,6 @@ def generate_quizzes(hands: List[Hand],
     for round_key in sorted(rounds_data.keys()):
         data = rounds_data[round_key]
         round_num = data['round']
-        bidder = data['bidder']
         level = data['level']
         hands_by_bid = data['hands_by_bid']
         prefixes = data['prefixes']
@@ -513,26 +566,34 @@ def generate_quizzes(hands: List[Hand],
         if not non_pass_bids and 'Pass' in significant_bids:
             continue
 
-        # Get a representative prefix for rounds 1-2
-        prefix = list(list(prefixes)[0]) if prefixes else []
+        # Get a representative prefix for rounds 1-2. Rounds 3+ bucket many
+        # prefixes together, and a set's iteration order moves with Python's
+        # per-process hash seed - sort so the same input always yields the same
+        # title and prompt, and re-running the pipeline produces no diff.
+        prefix = list(sorted(prefixes)[0]) if prefixes else []
 
         # Determine if auctions vary (for display purposes)
         auctions_vary = len(prefixes) > 1
 
+        # Every hand in a bucket sits at the same level, so one hand's dealer
+        # fixes the seat geometry for the whole quiz.
+        dealer = next(iter(significant_bids.values()))[0].dealer
+        kind = classify_situation(dealer, level, prefix)
+
         # Generate prompt based on round
-        if round_num == 1:
-            prompt = generate_quiz_prompt(bidder, prefix)
-        elif round_num == 2:
-            prompt = generate_quiz_prompt(bidder, prefix)
+        if round_num <= 2:
+            prompt = generate_quiz_prompt(dealer, level, prefix)
         else:
-            # Simpler prompts for later rounds
-            if bidder == 'responder':
+            # Auctions vary too much by this point to narrate one of them
+            if kind == 'responder':
                 prompt = "As responder, what will you rebid with each of these hands?"
-            else:
+            elif kind == 'opener':
                 prompt = "As opener, what will you rebid with each of these hands?"
+            else:
+                prompt = "In a competitive auction, what will you bid with each of these hands?"
 
         # Select hands
-        quiz_hands = select_quiz_hands(significant_bids, num_per_quiz, bidder)
+        quiz_hands = select_quiz_hands(significant_bids, num_per_quiz, kind)
 
         if len(quiz_hands) < 2:
             continue
@@ -545,7 +606,8 @@ def generate_quizzes(hands: List[Hand],
             'prefix': prefix,
             'prefixes': prefixes,  # All prefixes if they vary
             'auctions_vary': auctions_vary,
-            'bidder': bidder,
+            'dealer': dealer,
+            'kind': kind,
             'prompt': prompt,
             'hands': quiz_hands,
             'bid_distribution': bid_distribution,
@@ -559,7 +621,7 @@ def generate_quizzes(hands: List[Hand],
 def display_quiz(quiz: Dict, quiz_num: int):
     """Display a quiz to console."""
     print(f"\n{'='*70}")
-    print(f"QUIZ {quiz_num}: {quiz['bidder'].upper()}'S DECISION")
+    print(f"QUIZ {quiz_num}: {seat_at_level(quiz['dealer'], quiz['level'])}'S DECISION ({quiz['kind']})")
     print(f"{'='*70}")
 
     prefix_str = format_auction_prefix(quiz['prefix'])
@@ -580,11 +642,8 @@ def display_quiz(quiz: Dict, quiz_num: int):
     print("Quiz Hands:")
     print(f"{'─'*70}\n")
 
-    # Determine which seat to show based on bidder
-    show_seat = 'S' if quiz['bidder'] == 'opener' else 'N'
-
     for i, (hand, correct_bid) in enumerate(quiz['hands'], 1):
-        hand_str = hand.hands.get(show_seat, '')
+        hand_str = hand.hands.get(seat_at_level(hand.dealer, quiz['level']), '')
         formatted = format_hand_for_display(hand_str)
         correct_display = correct_bid.replace('N', 'NT')
 
@@ -610,13 +669,14 @@ def convert_suits_for_pbn(text: str) -> str:
     return result
 
 
-def has_interference(prefix: List[str]) -> bool:
-    """Check if the auction prefix contains any non-pass opponent bids."""
-    for i, bid in enumerate(prefix):
-        bidder = get_bidder_at_level('S', i)
-        if bidder in ('lho', 'rho') and bid != 'Pass':
-            return True
-    return False
+def has_interference(prefix: List[str], level: int) -> bool:
+    """
+    Check if the auction prefix contains any non-pass opponent bids.
+
+    Calls alternate sides, so a call is an opponent's exactly when its index has
+    the opposite parity to the level being quizzed - true whoever dealt.
+    """
+    return any(bid != 'Pass' for i, bid in enumerate(prefix) if (level - i) % 2)
 
 
 def generate_pbn_header(scenario: str, use_two_col: bool = True) -> str:
@@ -679,44 +739,119 @@ def number_to_word(n: int) -> str:
     return str(n)
 
 
-def generate_exercise_title(quiz: Dict, scenario: str) -> str:
-    """Generate a descriptive exercise title based on the auction context."""
-    bidder = quiz['bidder']
+SUIT_GLYPHS = {'S': '♠', 'H': '♥', 'D': '♦', 'C': '♣'}
+
+
+def convert_suits_to_glyphs(text: str) -> str:
+    """Convert suit bids in text to Unicode suit glyphs (the quiz-JSON convention)."""
+    return re.sub(
+        r'\b(\d)(NT|[SHDC])\b',
+        lambda m: m.group(1) + (m.group(2) if m.group(2) == 'NT' else SUIT_GLYPHS[m.group(2)]),
+        text,
+    )
+
+
+def classify_situation(dealer: str, level: int, prefix: List[str]) -> str:
+    """
+    Name the quizzed seat's situation: 'open', 'opener', 'responder' or 'competitive'.
+
+    Determined by who made the auction's first real call - us, our partner, or
+    an opponent. The last case covers every scenario where the opponents dealt
+    and opened, which is where overcalls and takeout doubles live.
+    """
+    quizzed_seat = seat_at_level(dealer, level)
+    for i, bid in enumerate(prefix):
+        if bid == 'Pass':
+            continue
+        seat = seat_at_level(dealer, i)
+        if seat == quizzed_seat:
+            return 'opener'
+        if seat == partner_of(quizzed_seat):
+            return 'responder'
+        return 'competitive'
+    return 'open'
+
+
+def _first_real_call(dealer: str, prefix: List[str], seats) -> Optional[str]:
+    """First non-pass call in `prefix` made by one of `seats`, in display form."""
+    for i, bid in enumerate(prefix):
+        if bid != 'Pass' and seat_at_level(dealer, i) in seats:
+            return bid.replace('N', 'NT')
+    return None
+
+
+def _last_real_call(dealer: str, prefix: List[str], seats) -> Optional[str]:
+    """Last non-pass call in `prefix` made by one of `seats`, in display form."""
+    for i in range(len(prefix) - 1, -1, -1):
+        if prefix[i] != 'Pass' and seat_at_level(dealer, i) in seats:
+            return prefix[i].replace('N', 'NT')
+    return None
+
+
+def generate_exercise_title(quiz: Dict, scenario: str, suit_style: str = 'pbn') -> str:
+    """
+    Generate a descriptive exercise title based on the auction context.
+
+    suit_style: 'pbn' for PBN suit escapes (\\S, \\H, …), 'glyph' for Unicode pips.
+    """
     prefix = quiz['prefix']
-    round_num = quiz.get('round', 0)
+    level = quiz['level']
+    dealer = quiz.get('dealer', 'S')
 
-    if not prefix:
-        if bidder == 'opener':
-            return "Opening Bids"
-        else:
-            return "Responding to Partner's Opening"
+    quizzed_seat = seat_at_level(dealer, level)
+    partner = partner_of(quizzed_seat)
+    opponents = tuple(s for s in SEAT_ORDER if s not in (quizzed_seat, partner))
 
-    # Build title based on round number
-    prefix_display = [b.replace('N', 'NT') for b in prefix]
+    # How many calls each of us has already made: our turns come every fourth
+    # call, so both counts fall straight out of the level.
+    my_calls = level // 4
+    partner_calls = (level + 2) // 4
 
-    if round_num == 1:  # First response
-        opening = prefix_display[0]
-        title = f"Responding to {opening}"
-    elif round_num == 2:  # Opener's rebid
-        response = prefix_display[2] if len(prefix_display) > 2 else "response"
-        title = f"Opener's Rebid after {response}"
-    elif round_num == 3:  # Responder's rebid
-        title = "Responder's Rebid"
-    elif round_num == 4:  # Opener's second rebid
-        title = "Opener's Second Rebid"
-    elif round_num == 5:  # Responder's third bid
-        title = "Responder's Third Bid"
-    elif round_num >= 6:
-        if bidder == 'opener':
-            title = "Opener's Continuation"
+    kind = classify_situation(dealer, level, prefix)
+
+    if kind == 'open':
+        title = "Opening Bids"
+
+    elif kind == 'responder':
+        partner_opening = _first_real_call(dealer, prefix, (partner,))
+        if my_calls == 0:
+            title = f"Responding to {partner_opening}" if partner_opening \
+                else "Responding to Partner's Opening"
+        elif my_calls == 1:
+            title = "Responder's Rebid"
+        elif my_calls == 2:
+            title = "Responder's Third Bid"
         else:
             title = "Responder's Continuation"
-    else:
-        title = f"{scenario} Bidding"
+
+    elif kind == 'opener':
+        partner_last = _last_real_call(dealer, prefix, (partner,))
+        if my_calls <= 1:
+            title = f"Opener's Rebid after {partner_last}" if partner_last \
+                else "Opener's Rebid"
+        elif my_calls == 2:
+            title = "Opener's Second Rebid"
+        else:
+            title = "Opener's Continuation"
+
+    else:  # competitive - the opponents opened
+        their_opening = _first_real_call(dealer, prefix, opponents)
+        partner_first = _first_real_call(dealer, prefix, (partner,))
+        if my_calls == 0 and partner_calls == 0:
+            title = f"Action over {their_opening}" if their_opening \
+                else "Action over the Opponents"
+        elif my_calls == 0:
+            title = f"Advancing Partner's {partner_first}" if partner_first \
+                else "Advancing Partner"
+        elif my_calls == 1:
+            title = "Your Rebid in Competition"
+        else:
+            title = "Your Continuation in Competition"
 
     # Apply suit symbols to the title
-    title = convert_suits_for_pbn(title)
-    return title
+    if suit_style == 'glyph':
+        return convert_suits_to_glyphs(title)
+    return convert_suits_for_pbn(title)
 
 
 def add_column_break(lines: List[str], num_lines: int = 8):
@@ -752,7 +887,7 @@ def add_spacer(lines: List[str], num_lines: int = 15):
 def generate_quiz_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
     """Generate PBN boards for a single quiz (header + hands)."""
     lines = []
-    bidder = quiz['bidder']
+    level = quiz['level']
     prefix = quiz['prefix']
     prompt = quiz['prompt']
     auctions_vary = quiz.get('auctions_vary', False)
@@ -765,17 +900,16 @@ def generate_quiz_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
     # Convert suit symbols in prompt
     prompt_pbn = convert_suits_for_pbn(prompt)
 
-    # Determine which seat's hand to get (opener=S, responder=N)
-    # but always display it as South so user sees their hand in the South position
-    source_seat = 'S' if bidder == 'opener' else 'N'
+    # The hand is always displayed in the South position so the student sees it
+    # there; which seat it is *read from* depends on the board's dealer, so it is
+    # resolved per hand below via seat_at_level().
     hidden = 'NEW'  # Always hide N, E, W - show only South
 
-    # Dealer seat: for opener quizzes, South deals; for responder quizzes, North deals
-    # (because we rotate the deal so responder appears in South position)
-    dealer_seat = 'S' if bidder == 'opener' else 'N'
+    # Dealer seat in display space, where the quizzed hand sits South
+    dealer_seat = display_dealer_for_level(level)
 
     # Show auction if there's interference OR if auctions vary between hands
-    show_header_auction = prefix and has_interference(prefix) and not auctions_vary
+    show_header_auction = prefix and has_interference(prefix, level) and not auctions_vary
     show_hand_auctions = auctions_vary or round_num >= 3
 
     # Quiz header board with title and description
@@ -810,9 +944,9 @@ def generate_quiz_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
     for hand_num, (hand, correct_bid) in enumerate(quiz['hands'], 1):
         board_id = f"{quiz_num}-{hand_num}"
 
-        # Get the hand string from the source seat (S for opener, N for responder)
+        # Read the hand from the seat that actually faces the decision,
         # but always display it in the South position
-        hand_str = hand.hands.get(source_seat, '...')
+        hand_str = hand.hands.get(seat_at_level(hand.dealer, level), '...')
         deal_str = f'S:{hand_str} ... ... ...'
 
         # Format the answer with suit symbol
@@ -822,7 +956,6 @@ def generate_quiz_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
         # For varying auctions, get this hand's auction prefix
         if show_hand_auctions:
             # Get auction up to the decision point
-            level = quiz['level']
             hand_prefix = hand.auction[:level]
             hand_prefix_pbn = format_auction_for_pbn(hand_prefix)
 
@@ -858,10 +991,9 @@ def generate_quiz_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
 def generate_answer_boards(quiz: Dict, quiz_num: int, scenario: str) -> List[str]:
     """Generate PBN boards for answer sheet."""
     lines = []
-    bidder = quiz['bidder']
 
-    # Dealer seat: for opener quizzes, South deals; for responder quizzes, North deals
-    dealer_seat = 'S' if bidder == 'opener' else 'N'
+    # Dealer seat in display space, where the quizzed hand sits South
+    dealer_seat = display_dealer_for_level(quiz['level'])
 
     # Generate exercise title for answers
     exercise_title = generate_exercise_title(quiz, scenario)
@@ -960,6 +1092,231 @@ def generate_quiz_pbn(quizzes: List[Dict], scenario: str) -> str:
     return '\n'.join(lines)
 
 
+# ---------------------------------------------------------------------------
+# quiz-lesson/v1 JSON emission
+#
+# One file per lesson (scenario), mirroring the hierarchy the generator already
+# works in:
+#
+#     lesson  ->  exercise (a shared prompt)  ->  question (hand + answer)
+#
+# The generator groups hands under a common prompt because they pose the same
+# bidding problem, so the JSON keeps that grouping rather than flattening it.
+# lesson-studio reads a lesson file, curates a handful of questions under a
+# prompt, and saves that group into the lesson document.
+#
+# The question shape is Contract 3's `bidding` item unchanged (lesson-studio
+# documentation/contracts/quiz-json-schema.md); what changed is the envelope
+# around it. The JSON still carries no pagination and no answer placement -
+# those are the renderer's decisions - so a question holds its answer alongside
+# it as plain data.
+# ---------------------------------------------------------------------------
+
+QUIZ_LESSON_SCHEMA = "quiz-lesson/v1"
+QUIZ_INDEX_SCHEMA = "quiz-index/v1"
+QUIZ_SOURCE = "Practice-Bidding-Scenarios"
+
+# PBN [Vulnerable] values -> the contract's enum.
+VULNERABILITY_MAP = {
+    'None': 'None', '-': 'None', 'Love': 'None', 'Nil': 'None',
+    'NS': 'NS', 'EW': 'EW',
+    'All': 'Both', 'Both': 'Both',
+}
+
+
+def to_contract_call(bid: str) -> str:
+    """Convert an internal bid token to quiz-JSON Call notation ('1N' -> '1NT', 'Pass' -> 'P')."""
+    if bid == 'Pass':
+        return 'P'
+    if bid in ('X', 'XX'):
+        return bid
+    return bid.replace('N', 'NT')
+
+
+def hand_to_object(holding: str) -> Dict[str, str]:
+    """Convert a PBN holding ('AQ.A5.8743.QJT95') to the canonical Hand object."""
+    suits = holding.split('.')
+    suits += [''] * (4 - len(suits))
+    return {
+        'spades': suits[0],
+        'hearts': suits[1],
+        'diamonds': suits[2],
+        'clubs': suits[3],
+    }
+
+
+def build_question(quiz: Dict, hand: Hand, correct_bid: str, scenario: str) -> Dict:
+    """Build one question - a hand, the auction it faces, and the expected call."""
+    level = quiz['level']
+    seat = seat_at_level(hand.dealer, level)
+
+    question = {
+        'hand': hand_to_object(hand.hands.get(seat, '')),
+        'seat': seat,
+        'dealer': hand.dealer,
+        'vulnerability': VULNERABILITY_MAP.get(hand.vulnerable, 'None'),
+    }
+
+    # Calls made before it is this seat's turn, dealer-first.
+    context_calls = [to_contract_call(b) for b in hand.auction[:level]]
+    if context_calls:
+        question['context'] = {'dealer': hand.dealer, 'calls': context_calls}
+
+    question['answer'] = to_contract_call(correct_bid)
+
+    if hand.board_token:
+        question['board'] = {
+            'repo': QUIZ_SOURCE,
+            'id': hand.board_token,
+            'event': scenario,
+            'board': hand.board_num,
+        }
+
+    return question
+
+
+def build_exercise(quiz: Dict, quiz_num: int, scenario: str) -> Dict:
+    """Build one exercise: a shared prompt plus the questions posed under it."""
+    return {
+        'id': f"{scenario}-{quiz_num}",
+        'type': 'bidding',
+        'title': f"Exercise {number_to_word(quiz_num)} — "
+                 f"{generate_exercise_title(quiz, scenario, suit_style='glyph')}",
+        'prompt': convert_suits_to_glyphs(quiz['prompt']),
+        'questions': [build_question(quiz, hand, bid, scenario)
+                      for hand, bid in quiz['hands']],
+    }
+
+
+def build_lesson_json(quizzes: List[Dict], scenario: str, generated: str,
+                      skill_paths: Optional[List[str]] = None,
+                      title: Optional[str] = None) -> Dict:
+    """Build the whole lesson: every exercise the scenario produced, in order."""
+    lesson = {
+        'schema': QUIZ_LESSON_SCHEMA,
+        'id': scenario,
+        'title': title or scenario.replace('_', ' '),
+    }
+    if skill_paths:
+        lesson['skill_paths'] = skill_paths
+    lesson['provenance'] = {
+        'source': QUIZ_SOURCE,
+        'pipeline_version': PIPELINE_VERSION,
+        'generated': generated,
+        'source_quiz': scenario,
+    }
+    lesson['exercises'] = [build_exercise(q, n, scenario)
+                           for n, q in enumerate(quizzes, 1)]
+    return lesson
+
+
+def _write_json_stable(path: str, obj: Dict, date_path: Tuple[str, ...]) -> bool:
+    """
+    Write `obj` as JSON, preserving the existing generation date when nothing else changed.
+
+    These artifacts are committed, so re-running the pipeline must not churn the
+    repo with date-only diffs. Returns True if the file was written.
+    """
+    existing = None
+    if os.path.exists(path):
+        try:
+            with open(path, 'r', encoding='utf-8') as f:
+                existing = json.load(f)
+        except (ValueError, OSError):
+            existing = None
+
+    if existing is not None:
+        probe = copy.deepcopy(obj)
+        node, old = probe, existing
+        for key in date_path[:-1]:
+            node = node.get(key, {}) if isinstance(node, dict) else {}
+            old = old.get(key, {}) if isinstance(old, dict) else {}
+        if isinstance(node, dict) and isinstance(old, dict) and date_path[-1] in old:
+            node[date_path[-1]] = old[date_path[-1]]
+        if probe == existing:
+            return False
+
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(obj, f, ensure_ascii=False, indent=2)
+        f.write('\n')
+    return True
+
+
+def _index_entry(lesson: Dict, filename: str) -> Dict:
+    """Project a lesson envelope into its index.json entry."""
+    entry = {
+        'id': lesson['id'],
+        'title': lesson['title'],
+        'exercise_count': len(lesson['exercises']),
+        'question_count': sum(len(e['questions']) for e in lesson['exercises']),
+    }
+    if lesson.get('skill_paths'):
+        entry['skill_paths'] = lesson['skill_paths']
+    entry['file'] = filename
+    return entry
+
+
+def update_quiz_index(quiz_folder: str, entry: Dict, generated: str) -> None:
+    """
+    Merge this lesson's entry into quiz/index.json.
+
+    The index spans every lesson but the quiz operation runs one at a time, so
+    the existing index is read and only this lesson's row is replaced.
+    """
+    index_path = os.path.join(quiz_folder, "index.json")
+
+    lessons = []
+    if os.path.exists(index_path):
+        try:
+            with open(index_path, 'r', encoding='utf-8') as f:
+                lessons = json.load(f).get('lessons', [])
+        except (ValueError, OSError):
+            lessons = []
+
+    lessons = [l for l in lessons if l.get('id') != entry['id']]
+    lessons.append(entry)
+    lessons.sort(key=lambda l: l.get('id', ''))
+
+    index = {
+        'schema': QUIZ_INDEX_SCHEMA,
+        'generated': generated,
+        'pipeline_version': PIPELINE_VERSION,
+        'lessons': lessons,
+    }
+    _write_json_stable(index_path, index, ('generated',))
+
+
+def write_quiz_json(quizzes: List[Dict], scenario: str, quiz_folder: str,
+                    verbose: bool = False) -> str:
+    """
+    Emit the scenario's lesson JSON and refresh index.json.
+
+    Returns the path written.
+    """
+    from utils.properties import fetch_property, get_button_text
+
+    generated = date.today().isoformat()
+
+    raw_paths = fetch_property(scenario, "skill-path")
+    skill_paths = [p.strip() for p in raw_paths.split(',') if p.strip()] if raw_paths else None
+
+    # The .btn button text is the human name for the scenario everywhere else
+    # in the pipeline, so use it as the lesson title too.
+    title = get_button_text(scenario)
+
+    lesson = build_lesson_json(quizzes, scenario, generated, skill_paths, title)
+    path = os.path.join(quiz_folder, f"{scenario}.json")
+    _write_json_stable(path, lesson, ('provenance', 'generated'))
+
+    update_quiz_index(quiz_folder, _index_entry(lesson, f"{scenario}.json"), generated)
+
+    if verbose:
+        print(f"  Created: {path} "
+              f"({len(lesson['exercises'])} exercises) + index.json")
+
+    return path
+
+
 def run_quiz(scenario: str, num_per_quiz: int = 6, verbose: bool = False, debug: bool = False) -> bool:
     """
     Generate quizzes for a scenario.
@@ -1032,6 +1389,9 @@ def run_quiz(scenario: str, num_per_quiz: int = 6, verbose: bool = False, debug:
 
     if verbose:
         print(f"\n  Created: {pbn_path}")
+
+    # Emit the quiz/v1 JSON objects + index alongside the PBN
+    write_quiz_json(quizzes, scenario, quiz_folder, verbose=verbose)
 
     # Generate PDF using bridge-wrangler
     bridge_wrangler = MAC_TOOLS.get("bridge_wrangler")

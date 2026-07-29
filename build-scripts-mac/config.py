@@ -6,6 +6,11 @@ import os
 # Project root directory (parent of build-scripts-mac)
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# Version stamped into generated artifacts that carry provenance (currently the
+# quiz/v1 JSON emitted by the quiz operation). Bump when a pipeline change alters
+# the content of those artifacts, so consumers can detect stale snapshots.
+PIPELINE_VERSION = "1.0.0"
+
 # Windows VM SSH configuration
 # Set these environment variables in your ~/.zshrc:
 #   export WINDOWS_HOST="your-windows-ip"
