@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Trap_Pass_Maybe"
   },
   "exercises": [
@@ -178,7 +178,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "688C35B08E79C17A863D065359E8",
             "event": "Trap_Pass_Maybe",
-            "board": 30
+            "board": 31
           }
         },
         {
@@ -203,7 +203,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "EA0471BD8A4EEDF1977217880978",
             "event": "Trap_Pass_Maybe",
-            "board": 74
+            "board": 75
           }
         },
         {
@@ -228,7 +228,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "EB7C893E3540FF8C0A3992E51241",
             "event": "Trap_Pass_Maybe",
-            "board": 71
+            "board": 72
           }
         }
       ]
@@ -261,7 +261,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "DBE029FB8E4D03D1D614ED7F41D4",
             "event": "Trap_Pass_Maybe",
-            "board": 67
+            "board": 68
           }
         },
         {
@@ -286,7 +286,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "DAE4E17E0F93585555DD25CB0CF8",
             "event": "Trap_Pass_Maybe",
-            "board": 68
+            "board": 69
           }
         }
       ]
@@ -344,7 +344,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "FBBC8B7E883673E8603D4D5E8306",
             "event": "Trap_Pass_Maybe",
-            "board": 77
+            "board": 78
           }
         },
         {
@@ -369,7 +369,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "19883E7DA74C324A4B5932C9B7B4",
             "event": "Trap_Pass_Maybe",
-            "board": 84
+            "board": 85
           }
         },
         {
@@ -402,7 +402,65 @@
     {
       "id": "Trap_Pass_Maybe-5",
       "type": "bidding",
-      "title": "Exercise Five — Opener's Rebid",
+      "title": "Exercise Five — Responding to 1♥",
+      "prompt": "Partner opens 1♥, RHO bids 1NT. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "94",
+            "hearts": "K2",
+            "diamonds": "A954",
+            "clubs": "QJT84"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "1NT"
+            ]
+          },
+          "answer": "X",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "59A04CBFEB9B20B774E462135A4D",
+            "event": "Trap_Pass_Maybe",
+            "board": 27
+          }
+        },
+        {
+          "hand": {
+            "spades": "A8652",
+            "hearts": "J6",
+            "diamonds": "T76",
+            "clubs": "K86"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "1NT"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "7830A7BC4DD9DE2F690B10746D24",
+            "event": "Trap_Pass_Maybe",
+            "board": 37
+          }
+        }
+      ]
+    },
+    {
+      "id": "Trap_Pass_Maybe-6",
+      "type": "bidding",
+      "title": "Exercise Six — Opener's Rebid",
       "prompt": "You open 1♣, LHO bids 1♦, partner passes. What do you bid with each of these hands?",
       "questions": [
         {
@@ -456,7 +514,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "09A0CDBC2E10419E21EF575D4279",
             "event": "Trap_Pass_Maybe",
-            "board": 82
+            "board": 83
           }
         },
         {
@@ -510,15 +568,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "F894E5BA19542F89746D8A6706D9",
             "event": "Trap_Pass_Maybe",
-            "board": 79
+            "board": 80
           }
         }
       ]
     },
     {
-      "id": "Trap_Pass_Maybe-6",
+      "id": "Trap_Pass_Maybe-7",
       "type": "bidding",
-      "title": "Exercise Six — Opener's Rebid",
+      "title": "Exercise Seven — Opener's Rebid",
       "prompt": "You open 1♦, LHO bids 1♥, partner passes. What do you bid with each of these hands?",
       "questions": [
         {
@@ -572,7 +630,395 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "FBBC8B7E883673E8603D4D5E8306",
             "event": "Trap_Pass_Maybe",
-            "board": 77
+            "board": 78
+          }
+        }
+      ]
+    },
+    {
+      "id": "Trap_Pass_Maybe-8",
+      "type": "bidding",
+      "title": "Exercise Eight — Responder's Rebid",
+      "prompt": "As responder, what will you rebid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "J",
+            "hearts": "KJ865",
+            "diamonds": "QJ2",
+            "clubs": "K942"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2H",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0AB4837C0DD55742B989CAFBB26F",
+            "event": "Trap_Pass_Maybe",
+            "board": 1
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q8",
+            "hearts": "A975",
+            "diamonds": "QJT86",
+            "clubs": "54"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1C",
+              "1D",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "198C5D31A1914E30C9A04FD75C66",
+            "event": "Trap_Pass_Maybe",
+            "board": 6
+          }
+        },
+        {
+          "hand": {
+            "spades": "83",
+            "hearts": "AT973",
+            "diamonds": "62",
+            "clubs": "QT75"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2H",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "5A84B277D64BC93A87FD7BA209BC",
+            "event": "Trap_Pass_Maybe",
+            "board": 29
+          }
+        },
+        {
+          "hand": {
+            "spades": "KT",
+            "hearts": "T82",
+            "diamonds": "QJT8",
+            "clubs": "JT75"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "EAB4207E9F0F95CCFB7AAB6694C8",
+            "event": "Trap_Pass_Maybe",
+            "board": 132
+          }
+        },
+        {
+          "hand": {
+            "spades": "9",
+            "hearts": "KJ863",
+            "diamonds": "J542",
+            "clubs": "985"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "F9A4CD78C2742B87DE88A3924460",
+            "event": "Trap_Pass_Maybe",
+            "board": 81
+          }
+        },
+        {
+          "hand": {
+            "spades": "K63",
+            "hearts": "87",
+            "diamonds": "JT962",
+            "clubs": "K76"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2D",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "2BB02BB9A5D695484B2778522E64",
+            "event": "Trap_Pass_Maybe",
+            "board": 91
+          }
+        }
+      ]
+    },
+    {
+      "id": "Trap_Pass_Maybe-9",
+      "type": "bidding",
+      "title": "Exercise Nine — Responder's Third Bid",
+      "prompt": "As responder, what will you rebid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "JT53",
+            "hearts": "T9642",
+            "diamonds": "Q",
+            "clubs": "KJ8"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1D",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P",
+              "2H",
+              "P",
+              "P",
+              "3C"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0AA0637C2B0A4257E68438C91484",
+            "event": "Trap_Pass_Maybe",
+            "board": 5
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q8",
+            "hearts": "A975",
+            "diamonds": "QJT86",
+            "clubs": "54"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1C",
+              "1D",
+              "P",
+              "P",
+              "X",
+              "P",
+              "P",
+              "1S",
+              "P",
+              "1NT"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "198C5D31A1914E30C9A04FD75C66",
+            "event": "Trap_Pass_Maybe",
+            "board": 6
+          }
+        },
+        {
+          "hand": {
+            "spades": "76",
+            "hearts": "KJT864",
+            "diamonds": "J",
+            "clubs": "9654"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1D",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P",
+              "2H",
+              "P",
+              "P",
+              "3C"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "8BACCA78464D5FC020036BCF90AC",
+            "event": "Trap_Pass_Maybe",
+            "board": 117
+          }
+        },
+        {
+          "hand": {
+            "spades": "K96",
+            "hearts": "JT93",
+            "diamonds": "762",
+            "clubs": "Q94"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1C",
+              "1S",
+              "X",
+              "P",
+              "2H",
+              "2S",
+              "P",
+              "P",
+              "X",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "DBE029FB8E4D03D1D614ED7F41D4",
+            "event": "Trap_Pass_Maybe",
+            "board": 68
+          }
+        },
+        {
+          "hand": {
+            "spades": "KJ853",
+            "hearts": "75",
+            "diamonds": "J63",
+            "clubs": "Q76"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P",
+              "2S",
+              "3C",
+              "P",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "A89034B329E2661C8FEB005E287C",
+            "event": "Trap_Pass_Maybe",
+            "board": 48
+          }
+        },
+        {
+          "hand": {
+            "spades": "KQJ742",
+            "hearts": "J",
+            "diamonds": "T95",
+            "clubs": "754"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2C",
+              "P",
+              "P",
+              "X",
+              "P",
+              "2S",
+              "3C",
+              "P",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "8BAC1A380CA4569A2F5D6723F238",
+            "event": "Trap_Pass_Maybe",
+            "board": 115
           }
         }
       ]

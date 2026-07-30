@@ -1,0 +1,45 @@
+# alias: WeOvercall1NT
+# button-text: We Overcall 1N
+# scenario-title: --- We Overcall 1NT
+# gib-works: true
+# bba-works: true
+# auction-filter: 1. +1NT?
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- We Overcall 1NT
+@chat*/
+
+# We Overcall 1NT
+dealer east
+
+# Predict East's opening suit
+s = spades(east)
+h = hearts(east)
+d = diamonds(east)
+c = clubs(east)
+eS = s>4 and s>=h and s>=d and s>=c
+eH = not eS and h>4 and h>=d and h>=c
+eD = not eS and not eH and ((d>3 and d>=c) or c<3)
+eC = not eS and not eH and not eD
+
+# Avoid opening 1N
+ntShape = shape(east, any 4333 +any 4432 +any 5332 +any 5422 -5xxx-x5xx)
+notEastNT = not (hcp(east)>14 and hcp(east)<18 and ntShape)
+
+# South has a stop in East's opening suit -- at least Axx, Kxx or QJx
+eSws = eS and hcp(south,spades)>2 and spades(south)>2
+eHws = eH and hcp(south,hearts)>2 and hearts(south)>2
+eDws = eD and hcp(south,diamonds)>2 and diamonds(south)>2
+eCws = eC and hcp(south,clubs)>2 and clubs(south)>2
+
+# East opens 1 of a suit & South has stop
+notEastNT
+and (eSws or eHws or eDws or eCws)
+and hcp(east)>11 and hcp(east)<20
+
+# South bids 1N
+and shape(south, any 4333 +any 4432 +any 5332 - 5xxx - x5xx)
+and hcp(south)>14 && hcp(south)<19
+action printoneline,
