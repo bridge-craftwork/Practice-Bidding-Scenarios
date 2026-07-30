@@ -26,8 +26,10 @@
 [Auction "N"]
 1S    Pass  1N =1=    Pass
 2H    Pass  3H    Pass
-4H    Pass  Pass  Pass
+3S =2=    Pass  4H    Pass
+Pass  Pass
 [Note "1:forcing 1NT"]
+[Note "2:Cue bid, a !S stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -608,14 +610,14 @@ Pass  Pass
 {HCP 8 9 15 8}
 {Losers 8 7 6 9}
 [Declarer "S"]
-[Contract "3H"]
+[Contract "4H"]
 [Result "10"]
-[Score "NS 170"]
+[Score "NS 420"]
 [Scoring "MP"]
 [Auction "S"]
-1S    Pass  1N =1=    2C
-2H    3C    3H    Pass
-Pass  Pass
+1S    Pass  1N =1=    Pass
+2H    Pass  3H    Pass
+4H    Pass  Pass  Pass
 [Note "1:forcing 1NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -806,14 +808,15 @@ Pass  Pass
 {HCP 7 14 13 6}
 {Losers 9 6 5 8}
 [Declarer "N"]
-[Contract "3D"]
+[Contract "4DX"]
 [Result "8"]
-[Score "EW 50"]
+[Score "EW 300"]
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  1N =1=    2D
-2H    Pass  2S    3D
-Pass  Pass  Pass
+2H    Pass  Pass  3D
+3H    Pass  Pass  4D
+X     Pass  Pass  Pass
 [Note "1:forcing 1NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -867,7 +870,7 @@ Pass  Pass
 [Score "NS 140"]
 [Scoring "MP"]
 [Auction "N"]
-1S    Pass  1N =1=    2D
+1S    Pass  1N =1=    Pass
 3S    Pass  Pass  Pass
 [Note "1:forcing 1NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -917,13 +920,13 @@ Pass  Pass
 {HCP 6 11 17 6}
 {Losers 7 6 5 9}
 [Declarer "N"]
-[Contract "2S"]
+[Contract "2SX"]
 [Result "8"]
-[Score "EW -110"]
+[Score "EW -670"]
 [Scoring "MP"]
 [Auction "E"]
 1H    Pass  1N =1=    2S
-Pass  Pass  Pass
+X     Pass  Pass  Pass
 [Note "1:forcing 1NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -1193,20 +1196,21 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:KQ3.KQT972.T.AK9 J65.863.AK6.T832 A9.54.9854.QJ654 T8742.AJ.QJ732.7"]
+[Dealer "W"]
+[Vulnerable "EW"]
+[Deal "W:KQ3.KQT972.T.AK9 J65.863.AK6.T832 A9.54.9854.QJ654 T8742.AJ.QJ732.7"]
 {Shape 2245 5251 3613 3334}
 {HCP 7 8 17 8}
 {Losers 8 7 4 10}
 [Declarer "N"]
-[Contract "3H"]
-[Result "11"]
-[Score "NS 200"]
+[Contract "3SX"]
+[Result "8"]
+[Score "EW 100"]
 [Scoring "MP"]
-[Auction "N"]
+[Auction "W"]
 1H    Pass  1N =1=    2H =2=
-3H    Pass  Pass  Pass
+3H    3S    Pass  Pass
+X     Pass  Pass  Pass
 [Note "1:forcing 1NT"]
 [Note "2:Michaels Cuebid"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
