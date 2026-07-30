@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Losing_Trick_Count"
   },
   "exercises": [
@@ -1800,31 +1800,6 @@
             "event": "Losing_Trick_Count",
             "board": 307
           }
-        },
-        {
-          "hand": {
-            "spades": "J73",
-            "hearts": "53",
-            "diamonds": "AQ8",
-            "clubs": "QJ983"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "X"
-            ]
-          },
-          "answer": "XX",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "B8F8EDAB17FDD75B2C90456D0762",
-            "event": "Losing_Trick_Count",
-            "board": 440
-          }
         }
       ]
     },
@@ -2017,7 +1992,7 @@
               "2NT"
             ]
           },
-          "answer": "3S",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "882496BF3D896C209F442497CD4A",
@@ -4000,33 +3975,6 @@
         },
         {
           "hand": {
-            "spades": "Q765",
-            "hearts": "AJ864",
-            "diamonds": "9",
-            "clubs": "K84"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "P",
-              "1NT",
-              "P"
-            ]
-          },
-          "answer": "2C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "1A6E19BF6850C4618BAFBAED70CF",
-            "event": "Losing_Trick_Count",
-            "board": 287
-          }
-        },
-        {
-          "hand": {
             "spades": "AQ65",
             "hearts": "KJ984",
             "diamonds": "87",
@@ -4146,7 +4094,69 @@
     {
       "id": "Losing_Trick_Count-40",
       "type": "bidding",
-      "title": "Exercise 40 — Opener's Rebid after 2♣",
+      "title": "Exercise 40 — Opener's Rebid after 1♠",
+      "prompt": "You open 1♥, partner responds 1♠. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "52",
+            "hearts": "Q9632",
+            "diamonds": "KQ63",
+            "clubs": "A9"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "P",
+              "1S",
+              "P"
+            ]
+          },
+          "answer": "2D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "BB194CEF1616650874EE9678EEAB",
+            "event": "Losing_Trick_Count",
+            "board": 439
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q93",
+            "hearts": "K9763",
+            "diamonds": "K6",
+            "clubs": "K84"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "P",
+              "1S",
+              "P"
+            ]
+          },
+          "answer": "1NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "D85AE1B836CFAF3D66200779A45A",
+            "event": "Losing_Trick_Count",
+            "board": 465
+          }
+        }
+      ]
+    },
+    {
+      "id": "Losing_Trick_Count-41",
+      "type": "bidding",
+      "title": "Exercise 41 — Opener's Rebid after 2♣",
       "prompt": "You open 1♥, partner responds 2♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4206,9 +4216,71 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-41",
+      "id": "Losing_Trick_Count-42",
       "type": "bidding",
-      "title": "Exercise 41 — Opener's Rebid after 1NT",
+      "title": "Exercise 42 — Opener's Rebid after 1NT",
+      "prompt": "You open 1♠, partner responds 1NT, RHO bids 2♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "QT764",
+            "hearts": "Q92",
+            "diamonds": "KJ92",
+            "clubs": "K"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2C"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "891ED9AE4BBF2AC386BCF0B7462A",
+            "event": "Losing_Trick_Count",
+            "board": 400
+          }
+        },
+        {
+          "hand": {
+            "spades": "KJ742",
+            "hearts": "KQ54",
+            "diamonds": "Q8",
+            "clubs": "54"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2C"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "981AAF62B6F738C297DB25AD4796",
+            "event": "Losing_Trick_Count",
+            "board": 408
+          }
+        }
+      ]
+    },
+    {
+      "id": "Losing_Trick_Count-43",
+      "type": "bidding",
+      "title": "Exercise 43 — Opener's Rebid after 1NT",
       "prompt": "You open 1♠, partner responds 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4349,9 +4421,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-42",
+      "id": "Losing_Trick_Count-44",
       "type": "bidding",
-      "title": "Exercise 42 — Opener's Rebid after 2♦",
+      "title": "Exercise 44 — Opener's Rebid after 2♦",
       "prompt": "You open 1♠, partner responds 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4465,9 +4537,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-43",
+      "id": "Losing_Trick_Count-45",
       "type": "bidding",
-      "title": "Exercise 43 — Your Rebid in Competition",
+      "title": "Exercise 45 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♣, partner bids 1♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4527,9 +4599,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-44",
+      "id": "Losing_Trick_Count-46",
       "type": "bidding",
-      "title": "Exercise 44 — Your Rebid in Competition",
+      "title": "Exercise 46 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♣, partner passes, RHO bids 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4670,9 +4742,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-45",
+      "id": "Losing_Trick_Count-47",
       "type": "bidding",
-      "title": "Exercise 45 — Your Rebid in Competition",
+      "title": "Exercise 47 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♣, partner passes, RHO bids 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4704,6 +4776,33 @@
         },
         {
           "hand": {
+            "spades": "J432",
+            "hearts": "KQT8",
+            "diamonds": "A9542",
+            "clubs": ""
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "P",
+              "1C",
+              "P",
+              "1S"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "195BEC64B06C5A27D3305B8BBF8A",
+            "event": "Losing_Trick_Count",
+            "board": 22
+          }
+        },
+        {
+          "hand": {
             "spades": "T973",
             "hearts": "KQ986",
             "diamonds": "82",
@@ -4727,33 +4826,6 @@
             "id": "1BC4296A7192A46CB0207777830C",
             "event": "Losing_Trick_Count",
             "board": 23
-          }
-        },
-        {
-          "hand": {
-            "spades": "J432",
-            "hearts": "KQT8",
-            "diamonds": "A9542",
-            "clubs": ""
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "P",
-              "1C",
-              "P",
-              "1S"
-            ]
-          },
-          "answer": "X",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "195BEC64B06C5A27D3305B8BBF8A",
-            "event": "Losing_Trick_Count",
-            "board": 22
           }
         },
         {
@@ -4786,9 +4858,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-46",
+      "id": "Losing_Trick_Count-48",
       "type": "bidding",
-      "title": "Exercise 46 — Your Rebid in Competition",
+      "title": "Exercise 48 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♦, partner bids 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4848,9 +4920,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-47",
+      "id": "Losing_Trick_Count-49",
       "type": "bidding",
-      "title": "Exercise 47 — Your Rebid in Competition",
+      "title": "Exercise 49 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♦, partner bids 1♠, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4937,9 +5009,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-48",
+      "id": "Losing_Trick_Count-50",
       "type": "bidding",
-      "title": "Exercise 48 — Your Rebid in Competition",
+      "title": "Exercise 50 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♦, partner passes, RHO bids 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5080,9 +5152,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-49",
+      "id": "Losing_Trick_Count-51",
       "type": "bidding",
-      "title": "Exercise 49 — Your Rebid in Competition",
+      "title": "Exercise 51 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♦, partner passes, RHO bids 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5223,9 +5295,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-50",
+      "id": "Losing_Trick_Count-52",
       "type": "bidding",
-      "title": "Exercise 50 — Your Rebid in Competition",
+      "title": "Exercise 52 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♥, partner bids 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5312,9 +5384,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-51",
+      "id": "Losing_Trick_Count-53",
       "type": "bidding",
-      "title": "Exercise 51 — Your Rebid in Competition",
+      "title": "Exercise 53 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♥, partner passes, RHO bids 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5428,9 +5500,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-52",
+      "id": "Losing_Trick_Count-54",
       "type": "bidding",
-      "title": "Exercise 52 — Your Rebid in Competition",
+      "title": "Exercise 54 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1NT, partner passes, RHO bids 2♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5544,9 +5616,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-53",
+      "id": "Losing_Trick_Count-55",
       "type": "bidding",
-      "title": "Exercise 53 — Your Rebid in Competition",
+      "title": "Exercise 55 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 1♠, partner doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5606,9 +5678,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-54",
+      "id": "Losing_Trick_Count-56",
       "type": "bidding",
-      "title": "Exercise 54 — Your Rebid in Competition",
+      "title": "Exercise 56 — Your Rebid in Competition",
       "prompt": "You pass, LHO opens 2♠, partner passes. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5722,9 +5794,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-55",
+      "id": "Losing_Trick_Count-57",
       "type": "bidding",
-      "title": "Exercise 55 — Responder's Rebid",
+      "title": "Exercise 57 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣, RHO bids 1♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5865,9 +5937,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-56",
+      "id": "Losing_Trick_Count-58",
       "type": "bidding",
-      "title": "Exercise 56 — Responder's Rebid",
+      "title": "Exercise 58 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣, RHO bids 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5927,9 +5999,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-57",
+      "id": "Losing_Trick_Count-59",
       "type": "bidding",
-      "title": "Exercise 57 — Responder's Rebid",
+      "title": "Exercise 59 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6043,9 +6115,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-58",
+      "id": "Losing_Trick_Count-60",
       "type": "bidding",
-      "title": "Exercise 58 — Responder's Rebid",
+      "title": "Exercise 60 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6202,7 +6274,7 @@
               "P"
             ]
           },
-          "answer": "2C",
+          "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "E8EBBEE9580524DDC84DB2965009",
@@ -6213,9 +6285,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-59",
+      "id": "Losing_Trick_Count-61",
       "type": "bidding",
-      "title": "Exercise 59 — Responder's Rebid",
+      "title": "Exercise 61 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♥, RHO bids 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6302,9 +6374,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-60",
+      "id": "Losing_Trick_Count-62",
       "type": "bidding",
-      "title": "Exercise 60 — Responder's Rebid",
+      "title": "Exercise 62 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6445,9 +6517,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-61",
+      "id": "Losing_Trick_Count-63",
       "type": "bidding",
-      "title": "Exercise 61 — Responder's Rebid",
+      "title": "Exercise 63 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♥, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6469,7 +6541,7 @@
               "X"
             ]
           },
-          "answer": "4D",
+          "answer": "4H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "09862E8640BC5B22EDA4E33CC545",
@@ -6507,9 +6579,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-62",
+      "id": "Losing_Trick_Count-64",
       "type": "bidding",
-      "title": "Exercise 62 — Responder's Rebid",
+      "title": "Exercise 64 — Responder's Rebid",
       "prompt": "You pass, partner opens 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6677,9 +6749,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-63",
+      "id": "Losing_Trick_Count-65",
       "type": "bidding",
-      "title": "Exercise 63 — Responder's Rebid",
+      "title": "Exercise 65 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6707,6 +6779,33 @@
             "id": "4A36CD63C904EB6A56BC3D1839E1",
             "event": "Losing_Trick_Count",
             "board": 69
+          }
+        },
+        {
+          "hand": {
+            "spades": "T9",
+            "hearts": "KQ763",
+            "diamonds": "T4",
+            "clubs": "AT53"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "P",
+              "P",
+              "1S",
+              "P"
+            ]
+          },
+          "answer": "1NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "990D236C168997FF26ECF5482176",
+            "event": "Losing_Trick_Count",
+            "board": 147
           }
         },
         {
@@ -6792,33 +6891,6 @@
         },
         {
           "hand": {
-            "spades": "6",
-            "hearts": "K9754",
-            "diamonds": "KQJ8",
-            "clubs": "J54"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "P",
-              "P",
-              "1S",
-              "P"
-            ]
-          },
-          "answer": "2H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "4A1CE6C6F502E3376E9329291872",
-            "event": "Losing_Trick_Count",
-            "board": 325
-          }
-        },
-        {
-          "hand": {
             "spades": "86",
             "hearts": "KQT5",
             "diamonds": "J8",
@@ -6847,9 +6919,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-64",
+      "id": "Losing_Trick_Count-66",
       "type": "bidding",
-      "title": "Exercise 64 — Your Rebid in Competition",
+      "title": "Exercise 66 — Your Rebid in Competition",
       "prompt": "You pass, partner passes, RHO opens 1♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -6990,9 +7062,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-65",
+      "id": "Losing_Trick_Count-67",
       "type": "bidding",
-      "title": "Exercise 65 — Your Rebid in Competition",
+      "title": "Exercise 67 — Your Rebid in Competition",
       "prompt": "You pass, partner passes, RHO opens 1♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7160,9 +7232,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-66",
+      "id": "Losing_Trick_Count-68",
       "type": "bidding",
-      "title": "Exercise 66 — Your Rebid in Competition",
+      "title": "Exercise 68 — Your Rebid in Competition",
       "prompt": "You pass, partner passes, RHO opens 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7276,9 +7348,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-67",
+      "id": "Losing_Trick_Count-69",
       "type": "bidding",
-      "title": "Exercise 67 — Your Rebid in Competition",
+      "title": "Exercise 69 — Your Rebid in Competition",
       "prompt": "You pass, partner passes, RHO opens 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7392,9 +7464,9 @@
       ]
     },
     {
-      "id": "Losing_Trick_Count-68",
+      "id": "Losing_Trick_Count-70",
       "type": "bidding",
-      "title": "Exercise 68 — Your Rebid in Competition",
+      "title": "Exercise 70 — Your Rebid in Competition",
       "prompt": "You pass, partner passes, RHO opens 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7470,7 +7542,7 @@
               "1S"
             ]
           },
-          "answer": "2S",
+          "answer": "2C",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "485966482DF3CD0526BA6DF44C29",
