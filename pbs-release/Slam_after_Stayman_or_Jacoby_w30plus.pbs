@@ -20,6 +20,12 @@ convention-card-ns: 21GF-DEFAULT
 convention-card-ew: 21GF-GIB
 auction-filter: Auction.....\n1N +Pass +2[CDH]
 */
+# curate: kind=bidding
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+
+dealer south
 produce 1000
 
 ### Imported: Define 1 Notrump Opening ###
@@ -130,4 +136,9 @@ Script
 Button,Sta/Jac w/30+ (Lev),\n\
 --- Slam after Stayman/Jacoby w/30+\n\
 Leveled for Stayman/Jacoby，Fit/NoFit，and NT Range.\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
 %SlamAfterStaymanOrJacoby%
