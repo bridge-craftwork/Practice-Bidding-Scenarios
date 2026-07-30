@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Weak_NT_14-15"
   },
   "exercises": [
@@ -265,7 +265,7 @@
               "2D"
             ]
           },
-          "answer": "3D",
+          "answer": "X",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "A82996F2F22895DE3BDBBA30512A",
@@ -466,6 +466,31 @@
         },
         {
           "hand": {
+            "spades": "A3",
+            "hearts": "J8753",
+            "diamonds": "9642",
+            "clubs": "43"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "2S"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "AB2ED8BDC95E968A8EE4CA6703F6",
+            "event": "Weak_NT_14-15",
+            "board": 115
+          }
+        },
+        {
+          "hand": {
             "spades": "AT",
             "hearts": "A84",
             "diamonds": "JT943",
@@ -481,7 +506,7 @@
               "2S"
             ]
           },
-          "answer": "P",
+          "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "5B0EE0FDA524D748F1915EC7B750",
@@ -1600,7 +1625,123 @@
     {
       "id": "Weak_NT_14-15-12",
       "type": "bidding",
-      "title": "Exercise Twelve — Opener's Rebid",
+      "title": "Exercise Twelve — Opener's Rebid after 2NT",
+      "prompt": "You open 1NT, partner responds 2NT. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "J2",
+            "hearts": "AQ53",
+            "diamonds": "AQ2",
+            "clubs": "Q983"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2NT",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "3823F4619B174DD55FDF68D82580",
+            "event": "Weak_NT_14-15",
+            "board": 41
+          }
+        },
+        {
+          "hand": {
+            "spades": "A92",
+            "hearts": "KJ94",
+            "diamonds": "A7",
+            "clubs": "K872"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2NT",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "7BBF61572858A2F13DF7C3247395",
+            "event": "Weak_NT_14-15",
+            "board": 80
+          }
+        },
+        {
+          "hand": {
+            "spades": "AK6",
+            "hearts": "KQ32",
+            "diamonds": "K764",
+            "clubs": "92"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2NT",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "D994AB22D73771F3CA885FFAEE25",
+            "event": "Weak_NT_14-15",
+            "board": 150
+          }
+        },
+        {
+          "hand": {
+            "spades": "A53",
+            "hearts": "AQ4",
+            "diamonds": "T7",
+            "clubs": "AJT54"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2NT",
+              "P"
+            ]
+          },
+          "answer": "3NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "AAADDC6E79F57B7F14028D698032",
+            "event": "Weak_NT_14-15",
+            "board": 279
+          }
+        }
+      ]
+    },
+    {
+      "id": "Weak_NT_14-15-13",
+      "type": "bidding",
+      "title": "Exercise Thirteen — Opener's Rebid",
       "prompt": "You open 1NT, partner passes, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1741,9 +1882,9 @@
       ]
     },
     {
-      "id": "Weak_NT_14-15-13",
+      "id": "Weak_NT_14-15-14",
       "type": "bidding",
-      "title": "Exercise Thirteen — Opener's Rebid",
+      "title": "Exercise Fourteen — Opener's Rebid",
       "prompt": "You open 1NT, LHO doubles, partner passes. What do you bid with each of these hands?",
       "questions": [
         {
