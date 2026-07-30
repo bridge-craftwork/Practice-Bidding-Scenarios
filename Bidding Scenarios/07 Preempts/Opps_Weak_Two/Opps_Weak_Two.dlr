@@ -1,0 +1,24 @@
+# alias: OppsWeakTwoBid
+# button-text: Opps Weak2
+# scenario-title: --- Opponent's Weak Two Bid
+# gib-works: true
+# bba-works: true
+# auction-filter: 2[DHS]
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Opponent's Weak Two Bid
+@chat*/
+
+# Opponents Weak Two
+dealer east
+
+# Define East weak 2 bids
+w2S = spades(east)==6 and (top5(east,spades)>2 or top3(east,spades)>1) and hearts(east)<4
+w2H = hearts(east)==6 and (top5(east,hearts)>2 or top3(east,hearts)>1) and spades(east)<4
+w2D = diamonds(east)==6 and (top5(east,diamonds)>2 or top3(east,diamonds)>1) and spades(east)<4 and hearts(east)<4
+eOpensWeak2 = (w2S or w2H or w2D) and hcp(east)>5 and hcp(east)<11 and shape(east,any 6430 +any 6421 +any 6331 +any 6322)
+
+eOpensWeak2
+action printoneline,

@@ -1,0 +1,28 @@
+# alias: OppsPreempt
+# button-text: Opps Preempt
+# scenario-title: --- Opponents Preempt
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n[234567][CDHS] +
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Opponents Preempt
+@chat*/
+
+# Opps Preempt
+dealer east
+
+hcp(east)>5 and hcp(east)<11
+and
+(
+(top5(east,spades)>1 and spades(east)>6)
+or
+(top5(east,hearts)>1 and hearts(east)>6)
+or
+(top5(east,diamonds)>1 and diamonds(east)>6)
+or
+(top5(east,clubs)>1 and clubs(east)>6)
+)
+action printoneline,

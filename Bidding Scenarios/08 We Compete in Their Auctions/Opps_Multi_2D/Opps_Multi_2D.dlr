@@ -1,0 +1,32 @@
+# alias: OppsMulti2D
+# button-text: Opps Multi 2D
+# scenario-title: --- Opponents Multi 2!D
+# gib-works: false
+# bba-works: true
+# auction-filter: Auction.....\n2D +
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-Multi
+
+/*@chat
+--- Opponents Multi 2!D
+A Multi 2!D bid shows either a weak two in !H or !S or a 17-24 HCP 4441 hand.
+See Bridge Bum's Defense to Multi 2!D:
+https://www.bridgebum.com/defense_to_multi_2d_b.php
+@chat*/
+
+# Opps Multi 2D
+dealer east
+
+# Define East weak 2 bids
+w2S = spades(east)==6 and top5(east,spades)>2 and hcp(east,spades)>4 and hearts(east)<4
+w2H = hearts(east)==6 and top5(east,hearts)>2 and hcp(east,hearts)>4 and spades(east)<4
+
+(
+# Weak Two Bid
+hcp(east)>5 and hcp(east)<11
+and (w2S or w2H)
+)or(
+# 17-24 HCP with 4441
+hcp(east)>16 and hcp(east)<25 and shape(east, any 4441)
+)
+action printoneline,

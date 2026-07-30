@@ -1,0 +1,40 @@
+# alias: PreemptKeycard
+# button-text: Preempt Keycard
+# scenario-title: --- Keycard after Preempts
+# gib-works: false
+# bba-works: false
+# auction-filter: Auction.....\n(2[DHS] +Pass +2NT|3[CDHS] +Pass +4NT)
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Keycard after Preempts
+After a preemptive opening, 4!C is keycard-ask. EXCEPTION: After 3!C opening, 4!D is keycard-ask.
+The responses are 0, 1-without, 1-with, 2-without, 2-with.
+After a weak two 4!C Keycard-Ask may be used after a feature-ask sequence such as 2!H - 2N - 3!D - 4!C.
+https://www.advinbridge.com/this-week-in-bridge/578
+@chat*/
+
+# Keycard ask after Preempt
+dealer south 
+
+range = hcp(south)>5 and hcp(south)<10
+
+o2S = top5(south,spades)>1   and spades(south)==6   and spades(north)>2
+o2H = top5(south,hearts)>1   and hearts(south)==6   and hearts(north)>2
+o2D = top5(south,diamonds)>1 and diamonds(south)==6 and diamonds(north)>2
+o2  = o2S or o2H or o2D
+
+o3S = top5(south,spades)>1   and spades(south)>6   and spades(north)>1
+o3H = top5(south,hearts)>1   and hearts(south)>6   and hearts(north)>1
+o3D = top5(south,diamonds)>1 and diamonds(south)>6 and diamonds(north)>1
+o3C = top5(south,clubs)>1    and clubs(south)>6    and clubs(north)>1
+o3  = o3S or o3H or o3D or o3C
+
+((o2 and controls(north)>8) or (o3 and controls(north)>7)) and range
+
+action printoneline,
+average "hcp south    " hcp(south),
+average "hcp north    " hcp(north),
+average "losers South " losers(south),
+average "losers North " losers(north),
