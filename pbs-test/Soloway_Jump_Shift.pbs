@@ -1,0 +1,120 @@
+Script,SolowayJumpShift
+window.currentPBSScenario = 'SolowayJumpShift';
+window.currentPBSScenarioFilename = 'Soloway_Jump_Shift';
+console.log('PBS: Logging scenario selection for SolowayJumpShift');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'SolowayJumpShift',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: 21GF-SPECIALS2
+convention-card-ew: 21GF-GIB
+auction-filter: Auction.....\n(1C +Pass +2[DHS]|1D +Pass +2[HS]|1H +Pass +2S)
+*/
+# curate: kind=bidding
+# convention-card-ns: 21GF-SPECIALS2
+# convention-card-ew: 21GF-GIB
+
+
+# Soloway Jump Shift
+dealer south
+
+# Calculate Total Points for North (tp) for North
+v1 = shape(north, any 0xxx) ? 5 : 0
+s1 = shape(north, any 1xxx) ? 3 : 0
+d1 = shape(north, any 2xxx) ? 1 : 0 // allow for 3 doubletons
+d2 = shape(north, any 22xx) ? 1 : 0
+d3 = shape(north, any 222x) ? 1 : 0
+tp = v1+s1+d1+d2+d3 + hcp(north)
+
+# Define openers
+sOpener = spades(south) >= hearts(south) and spades(south) >=5 and spades(south) >= diamonds(south) and spades(south) >= clubs(south)
+hOpener = not sOpener and hearts(south) >=5 and hearts(south) >= diamonds(south) and hearts(south) >= clubs(south)
+MOpener = sOpener or hOpener
+mOpener = not (sOpener or hOpener)
+dOpener = mOpener and (diamonds(south) >= clubs(south) or shape(south, xx32))
+cOpener = mOpener and not dOpener
+
+
+# Define strong rebiddable suit    GIB defines rebiddable as (5 cards or (4 cards with 3 of the top 5 and more than 4 8421 points)) + 1 card
+Gs = spades(north)>5 and top5(north,spades)>3 and not sOpener
+Gh = hearts(north)>5 and top5(north,hearts)>3 and (dOpener or cOpener)
+Gd = diamonds(north)>5 and top5(north,diamonds)>3 and cOpener
+strongRebiddableSuit = (Gs or Gh or Gd) and hcp(north)>16 and shape(north, xxxx -any 5xxx -any 4xxx)    // no 4-card side suit
+
+# Define solid suits
+Ss = spades(north)>5 and top4(north,spades)==4 and not sOpener
+Sh = hearts(north)>5 and top4(north,hearts)==4 and (dOpener or cOpener)
+Sd = diamonds(north)>5 and top4(north,diamonds)==4 and cOpener
+solidSuit = (Ss or Sh or Sd) and hcp(north)>16
+
+# Define hasFit
+Fs = sOpener and spades(north)>3
+Fh = hOpener and hearts(north)>3
+Fd = dOpener and diamonds(north)>3
+Fc = cOpener and clubs(north)>3
+hasFit = (Fs or Fh or Fd or Fc)
+
+# Define rebidbidable suits
+Rs = spades(north)>4 and top4(north,spades)>2 and not sOpener
+Rh = hearts(north)>4 and top4(north,hearts)>2 and (dOpener or cOpener)
+Rd = diamonds(north)>4 and top4(north,diamonds)>2 and cOpener
+rebiddableSuit = (Rs or Rh or Rd) and not strongRebiddableSuit
+
+rebidAndShape = rebiddableSuit and not hasFit and shape(north, any 5332 +any 6322) and hcp(north)>18
+rebidAndFit = rebiddableSuit and hasFit and tp>17
+
+# These are possible Soloway Jump Shifts
+# 1C - 2D
+# 1C - 2H
+# 1C - 2S
+# 1D - 2H
+# 1D - 2S
+# 1H - 2S
+
+southOpens = hcp(south)>11 and hcp(south)<15 and spades(south)<5
+westPasses = hcp(west)<8 and shape(west, xxxx -any 7xxx -any 6xxx -any 5xxx) 
+
+# North has a Soloway Jump Shift
+type_1 = strongRebiddableSuit and not solidSuit not hasFit and shape(north, xxxx -any 4xxx)
+type_2 = solidSuit and not hasFit
+type_3 = rebidAndShape and hcp(north)>17
+type_4 = rebidAndFit and hcp(north)>16 and hasFit
+solowayJumpShift = (type_1 or type_2 or type_3 or type_4) and controls(north)>3
+
+southOpens and westPasses and solowayJumpShift
+
+// condition type_1 || type_2 || type_3 || type_4
+
+action printoneline,
+average "Type 1" 100 * type_1,
+average "Type 2" 100 * type_2,
+average "Type 3" 100 * type_3,
+average "Type 4" 100 * type_4,
+average "Type 1 & 2" 100 * ( type_1 && type_2 ),
+average "Type 1 & 3" 100 * ( type_1 && type_3 ),
+average "Type 1 & 4" 100 * ( type_1 && type_4 ),
+`, "S", true)
+Script
+Button,Soloway Jump Shift,\n\
+--- Soloway Jump Shift\n\
+1. Strong rebiddable suit w/17+ HCP and 4+ controls and no side 4-card suit\n\
+2. Solid suit w/17+ HCP and 4+ controls and may have a 4-card side suit\n\
+3. Rebiddable suit w/18+ HCP and 4+ controls and 5332 or 6322 shape\n\
+4. Rebiddable suit w/17+ TP and 4+ controls and 4-card support for openers suit\n\
+https://www.bridgebase.com/doc/gib_system_notes.php#Soloway_Jump_Shift\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
+%SolowayJumpShift%
