@@ -382,12 +382,13 @@ Pass  Pass
 [Auction "N"]
 1D    Pass  2S =1=    Pass
 3S =2=    Pass  5H =3=    Pass
-5N =4=    Pass  7S    Pass
+5N =4=    Pass  7S =5=    Pass
 Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:artificial"]
 [Note "3:Exclusion, for !S"]
 [Note "4:1 out of 4"]
+[Note "5:1+ or 2 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1058,19 +1059,21 @@ Pass  Pass
 {HCP 17 10 13 0}
 {Losers 4 8 5 10}
 [Declarer "N"]
-[Contract "5S"]
+[Contract "6SX"]
 [Result "11"]
-[Score "NS 450"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "S"]
 1H    Pass  2S =1=    Pass
 3H =2=    Pass  3S    Pass
-4H    Pass  4N =3=    Pass
-5S =4=    Pass  Pass  Pass
+3N    Pass  4S    Pass
+4N =3=    Pass  5D =4=    Pass
+5S    Pass  6S    X
+Pass  Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:bidable suit"]
-[Note "3:Blackwood 1430, for !H"]
-[Note "4:A=2/5 or 5/5, Q(H)=1"]
+[Note "3:Blackwood 1430, for !S"]
+[Note "4:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1586,12 +1589,13 @@ Pass  Pass
 [Auction "S"]
 1D    Pass  2S =1=    Pass
 3S =2=    Pass  5D =3=    Pass
-5N =4=    Pass  6S    Pass
+5N =4=    Pass  6S =5=    Pass
 Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:artificial"]
 [Note "3:Exclusion, for !S"]
 [Note "4:2 out of 4"]
+[Note "5:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1611,15 +1615,19 @@ Pass  Pass
 {HCP 17 11 12 0}
 {Losers 5 6 7 11}
 [Declarer "S"]
-[Contract "4H"]
+[Contract "6H"]
 [Result "12"]
-[Score "NS 680"]
+[Score "NS 1430"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2H =1=    2N =2=
-3N    Pass  4H    Pass
+X     3C    3H    Pass
+4H    Pass  4N =3=    Pass
+5C =4=    Pass  6H    Pass
 Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:Unusual 2NT"]
+[Note "3:Blackwood 1430, for !H"]
+[Note "4:A=1/5 or 4/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]

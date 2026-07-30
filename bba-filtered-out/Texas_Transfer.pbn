@@ -1180,10 +1180,11 @@ Pass  Pass
 2H    Pass  4H    Pass
 4N =1=    Pass  5C =2=    Pass
 5D    Pass  5N =3=    Pass
-6H    Pass  Pass  Pass
+6H =4=    Pass  Pass  Pass
 [Note "1:Blackwood 1430, for !H"]
 [Note "2:A=1/5 or 4/5"]
 [Note "3:!H queen no !S king no !C king no !D king"]
+[Note "4:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1741,14 +1742,14 @@ Pass  Pass
 {Shape 6322 1543 2353 4225}
 {HCP 8 14 15 3}
 {Losers 8 5 7 9}
-[Declarer "N"]
+[Declarer "S"]
 [Contract "3S"]
 [Result "10"]
 [Score "NS 170"]
 [Scoring "MP"]
 [Auction "S"]
-1N    Pass  2H    3H
-Pass  Pass  3S    Pass
+1N    Pass  2H    Pass
+2S    Pass  3S    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -2820,10 +2821,12 @@ Pass  Pass
 1N    Pass  2H    Pass
 2N =1=    Pass  3C =2=    Pass
 3D =3=    Pass  3S    Pass
-4S    Pass  Pass  Pass
+4H =4=    Pass  4S    Pass
+Pass  Pass
 [Note "1:Extended acceptance after NT"]
 [Note "2:Cue bid, a !C stopper"]
 [Note "3:Cue bid, a !D stopper"]
+[Note "4:Cue bid, a !H stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -3557,6 +3560,32 @@ Pass  Pass
 [Event "Texas_Transfer"]
 [Site ""]
 [Board "132"]
+% ABB56F4F480E3882DC6959FE8006
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:T92.QJT832.A2.KQ KQJ65.75.83.T842 A83.K6.KQT74.A65 74.A94.J965.J973"]
+{Shape 3622 5224 3253 2344}
+{HCP 12 6 16 6}
+{Losers 7 8 6 10}
+[Declarer "S"]
+[Contract "4H"]
+[Result "12"]
+[Score "NS 680"]
+[Scoring "MP"]
+[Auction "S"]
+1N    Pass  2D    Pass
+2H    Pass  4H    Pass
+Pass  Pass
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Texas_Transfer"]
+[Site ""]
+[Board "133"]
 % AB818A2C0F976C62FC007E42C8F5
 [North "EPBot"]
 [East "EPBot"]
@@ -3582,7 +3611,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "133"]
+[Board "134"]
 % AB4D638665CE7AF52948C2A8D486
 [North "EPBot"]
 [East "EPBot"]
@@ -3609,7 +3638,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "134"]
+[Board "135"]
 % B92219B4991C3177BD060C60D688
 [North "EPBot"]
 [East "EPBot"]
@@ -3622,28 +3651,26 @@ Pass  Pass
 {HCP 11 10 15 4}
 {Losers 7 8 7 8}
 [Declarer "N"]
-[Contract "6S"]
+[Contract "4S"]
 [Result "11"]
-[Score "NS -50"]
+[Score "NS 450"]
 [Scoring "MP"]
 [Auction "S"]
 1N    Pass  2H    Pass
 2N =1=    Pass  3C =2=    Pass
 3D =3=    Pass  3S    Pass
-4S    Pass  4N =4=    Pass
-5C =5=    Pass  6S    Pass
+4C =4=    Pass  4S    Pass
 Pass  Pass
 [Note "1:Extended acceptance after NT"]
 [Note "2:Cue bid, a !C stopper"]
 [Note "3:Cue bid, a !D stopper"]
-[Note "4:Blackwood 1430, for !S"]
-[Note "5:A=1/5 or 4/5"]
+[Note "4:Cue bid, a !C stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "135"]
+[Board "136"]
 % BB24913D5515D1EEF018A43722F3
 [North "EPBot"]
 [East "EPBot"]
@@ -3671,7 +3698,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "136"]
+[Board "137"]
 % C820B13E1FF5D5170F94D2BE6903
 [North "EPBot"]
 [East "EPBot"]
@@ -3697,7 +3724,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "137"]
+[Board "138"]
 % C8191192ED3947F627E6AC5F350C
 [North "EPBot"]
 [East "EPBot"]
@@ -3723,7 +3750,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "138"]
+[Board "139"]
 % C985C52D45FC4A145C6BC8C3A7D1
 [North "EPBot"]
 [East "EPBot"]
@@ -3749,7 +3776,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "139"]
+[Board "140"]
 % D888A1470E92FF24C41DF68E6148
 [North "EPBot"]
 [East "EPBot"]
@@ -3775,7 +3802,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "140"]
+[Board "141"]
 % D9AA46820BB5D2E461C4DFB28CCD
 [North "EPBot"]
 [East "EPBot"]
@@ -3801,7 +3828,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "141"]
+[Board "142"]
 % D8618F6B064E7DE9F446C892B005
 [North "EPBot"]
 [East "EPBot"]
@@ -3830,7 +3857,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "142"]
+[Board "143"]
 % DAE64DC127C83349665A23C1B888
 [North "EPBot"]
 [East "EPBot"]
@@ -3857,7 +3884,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "143"]
+[Board "144"]
 % E8B21109CC24ACE43F179623EE5A
 [North "EPBot"]
 [East "EPBot"]
@@ -3883,7 +3910,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "144"]
+[Board "145"]
 % E9AB151005276EC40DD51BBDF49C
 [North "EPBot"]
 [East "EPBot"]
@@ -3909,7 +3936,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "145"]
+[Board "146"]
 % E905C9E57A024799346BFC8E64CF
 [North "EPBot"]
 [East "EPBot"]
@@ -3943,7 +3970,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "146"]
+[Board "147"]
 % E98D8BD46A06B28931E47E40F748
 [North "EPBot"]
 [East "EPBot"]
@@ -3969,7 +3996,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "147"]
+[Board "148"]
 % EB6DC3C5E84E0BC2913A4CB3BD32
 [North "EPBot"]
 [East "EPBot"]
@@ -3995,7 +4022,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "148"]
+[Board "149"]
 % E8A218010E29D46AE436843C9F9D
 [North "EPBot"]
 [East "EPBot"]
@@ -4016,20 +4043,21 @@ Pass  Pass
 1N    Pass  2H    Pass
 2N =1=    Pass  3C =2=    Pass
 3D =3=    Pass  3S    Pass
-4S    Pass  4N =4=    Pass
-5D =5=    Pass  6S    Pass
+4H =4=    Pass  4N =5=    Pass
+5D =6=    Pass  6S    Pass
 Pass  Pass
 [Note "1:Extended acceptance after NT"]
 [Note "2:Cue bid, a !C stopper"]
 [Note "3:Cue bid, a !D stopper"]
-[Note "4:Blackwood 1430, for !S"]
-[Note "5:A=0/5 or 3/5"]
+[Note "4:Cue bid, a !H stopper"]
+[Note "5:Blackwood 1430, for !S"]
+[Note "6:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "149"]
+[Board "150"]
 % EA056AA13F36727E931820980184
 [North "EPBot"]
 [East "EPBot"]
@@ -4058,7 +4086,7 @@ Pass  Pass
 
 [Event "Texas_Transfer"]
 [Site ""]
-[Board "150"]
+[Board "151"]
 % F861C805918A0646ED3C5C80B77F
 [North "EPBot"]
 [East "EPBot"]

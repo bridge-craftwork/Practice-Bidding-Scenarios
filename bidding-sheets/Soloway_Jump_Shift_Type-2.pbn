@@ -194,10 +194,12 @@ Pass  Pass
 [Auction "S"]
 1D    Pass  2S =1=    Pass
 3D =2=    Pass  3S    Pass
-3N    Pass  5N    Pass
-6N    Pass  Pass  Pass
+3N    Pass  5N =3=    Pass
+6N =4=    Pass  Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:bidable suit"]
+[Note "3:5NT pick a slam"]
+[Note "4:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -427,12 +429,13 @@ Pass  Pass
 3D =2=    Pass  3S    Pass
 4N =3=    Pass  5C =4=    Pass
 5D    Pass  5N =5=    Pass
-6N    Pass  Pass  Pass
+6N =6=    Pass  Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:bidable suit"]
 [Note "3:Blackwood 1430, for !S"]
 [Note "4:A=1/5 or 4/5"]
 [Note "5:!S queen no !H king no !C king no !D king"]
+[Note "6:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -453,8 +456,8 @@ Pass  Pass
 {Losers 4 9 7 10}
 [Declarer "S"]
 [Contract "6S"]
-[Result "13"]
-[Score "NS 1460"]
+[Result "12"]
+[Score "NS 1430"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2S =1=    Pass
@@ -984,12 +987,14 @@ Pass  Pass
 [Auction "N"]
 1H    Pass  2S =1=    Pass
 2N =2=    Pass  3C    Pass
-4N =3=    Pass  5H =4=    Pass
+3D =3=    Pass  3H    Pass
+4N =4=    Pass  5H =5=    Pass
 6H    Pass  Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:artificial"]
-[Note "3:Blackwood 1430, for !H"]
-[Note "4:A=2/5 or 5/5, Q(H)=0"]
+[Note "3:Cue bid, a !D stopper"]
+[Note "4:Blackwood 1430, for !H"]
+[Note "5:A=2/5 or 5/5, Q(H)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1132,29 +1137,23 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "None"]
-[Deal "N:4.A93.63.AKJ9643 T83.75.J9542.QT2 AKQJ97.J4.AQ87.7 652.KQT862.KT.85"]
+[Deal "S:4.A93.63.AKJ9643 T83.75.J9542.QT2 AKQJ97.J4.AQ87.7 652.KQT862.KT.85"]
 {Shape 6241 3622 1327 3253}
 {HCP 17 8 12 3}
 {Losers 4 7 6 10}
 [Declarer "S"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 980"]
+[Contract "3N"]
+[Result "11"]
+[Score "NS 460"]
 [Scoring "MP"]
-[Auction "N"]
+[Auction "S"]
 1C    Pass  2S =1=    Pass
 3C =2=    Pass  3S    Pass
-4C    Pass  4S    Pass
-4N =3=    Pass  5D =4=    Pass
-5H    Pass  5N =5=    Pass
-6S    Pass  Pass  Pass
+3N    Pass  Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:bidable suit"]
-[Note "3:Blackwood 1430, for !S"]
-[Note "4:A=0/5 or 3/5"]
-[Note "5:!S queen no !C king no !D king no !H king"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1460,21 +1459,21 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "S"]
+[Dealer "N"]
 [Vulnerable "All"]
-[Deal "S:AJ.2.JT954.AQ752 T8.754.7632.KJ64 K42.AKQJT93.KQ.T Q97653.86.A8.983"]
+[Deal "N:AJ.2.JT954.AQ752 T8.754.7632.KJ64 K42.AKQJT93.KQ.T Q97653.86.A8.983"]
 {Shape 3721 6223 2155 2344}
 {HCP 18 6 12 4}
 {Losers 4 8 6 10}
 [Declarer "S"]
-[Contract "6N"]
-[Result "11"]
-[Score "NS -100"]
+[Contract "6H"]
+[Result "12"]
+[Score "NS 1430"]
 [Scoring "MP"]
-[Auction "S"]
+[Auction "N"]
 1D    Pass  2H =1=    Pass
 3D =2=    Pass  3H    Pass
-3N    Pass  6N    Pass
+3N    Pass  6H    Pass
 Pass  Pass
 [Note "1:Soloway Jump Shifts"]
 [Note "2:bidable suit"]

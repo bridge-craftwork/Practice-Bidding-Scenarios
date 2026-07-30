@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Texas_or_Jacoby"
   },
   "exercises": [
@@ -229,6 +229,33 @@
         },
         {
           "hand": {
+            "spades": "KT2",
+            "hearts": "A4",
+            "diamonds": "KQ63",
+            "clubs": "AT76"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2D",
+              "2H"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0961BA4AD2B1C0CC413956600ABC",
+            "event": "Texas_or_Jacoby",
+            "board": 250
+          }
+        },
+        {
+          "hand": {
             "spades": "KT92",
             "hearts": "QJ5",
             "diamonds": "A842",
@@ -246,7 +273,7 @@
               "2H"
             ]
           },
-          "answer": "3H",
+          "answer": "X",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "F949B56E638EB7CA403463CAFEBB",
@@ -289,60 +316,6 @@
       "title": "Exercise Three — Opener's Rebid after 2♦",
       "prompt": "You open 1NT, partner responds 2♦, RHO bids 3♦. What do you bid with each of these hands?",
       "questions": [
-        {
-          "hand": {
-            "spades": "KQ852",
-            "hearts": "AK8",
-            "diamonds": "K6",
-            "clubs": "965"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2D",
-              "3D"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "4A6BA69FC84EF9AB703581CA3C82",
-            "event": "Texas_or_Jacoby",
-            "board": 75
-          }
-        },
-        {
-          "hand": {
-            "spades": "AKJ",
-            "hearts": "984",
-            "diamonds": "AQ3",
-            "clubs": "JT87"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2D",
-              "3D"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "D98B964AB50124EDC50ECC675BFC",
-            "event": "Texas_or_Jacoby",
-            "board": 198
-          }
-        },
         {
           "hand": {
             "spades": "AK764",
@@ -631,41 +604,14 @@
         },
         {
           "hand": {
-            "spades": "AJ2",
-            "hearts": "AQ",
-            "diamonds": "KJ98",
-            "clubs": "8432"
+            "spades": "KQ852",
+            "hearts": "AK8",
+            "diamonds": "K6",
+            "clubs": "965"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2D",
-              "X"
-            ]
-          },
-          "answer": "3C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "78AF1224B2FE43717A0FCCFDC589",
-            "event": "Texas_or_Jacoby",
-            "board": 360
-          }
-        },
-        {
-          "hand": {
-            "spades": "QJ6",
-            "hearts": "Q4",
-            "diamonds": "AQ742",
-            "clubs": "AQT"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -678,9 +624,9 @@
           "answer": "2H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "6B0DC2AD937138D8FE83736F03CC",
+            "id": "4A6BA69FC84EF9AB703581CA3C82",
             "event": "Texas_or_Jacoby",
-            "board": 95
+            "board": 75
           }
         },
         {
@@ -712,6 +658,33 @@
         },
         {
           "hand": {
+            "spades": "QJ6",
+            "hearts": "Q4",
+            "diamonds": "AQ742",
+            "clubs": "AQT"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2D",
+              "X"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6B0DC2AD937138D8FE83736F03CC",
+            "event": "Texas_or_Jacoby",
+            "board": 95
+          }
+        },
+        {
+          "hand": {
             "spades": "AQ742",
             "hearts": "AQ",
             "diamonds": "K97",
@@ -729,7 +702,7 @@
               "X"
             ]
           },
-          "answer": "2H",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "7AA817A2C84D4540B643FE883BB9",
@@ -859,122 +832,6 @@
       "id": "Texas_or_Jacoby-7",
       "type": "bidding",
       "title": "Exercise Seven — Opener's Rebid after 2♥",
-      "prompt": "You open 1NT, partner responds 2♥, RHO bids 3♥. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "KQ92",
-            "hearts": "A8",
-            "diamonds": "QJ93",
-            "clubs": "K42"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "3H"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "1BE2959C3E389F2712C07401DC89",
-            "event": "Texas_or_Jacoby",
-            "board": 29
-          }
-        },
-        {
-          "hand": {
-            "spades": "T42",
-            "hearts": "AT",
-            "diamonds": "AQT7",
-            "clubs": "KQT2"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "3H"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "3B6F111DC7AD3818DC13D6984AB5",
-            "event": "Texas_or_Jacoby",
-            "board": 53
-          }
-        },
-        {
-          "hand": {
-            "spades": "A64",
-            "hearts": "A93",
-            "diamonds": "Q965",
-            "clubs": "KQJ"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "3H"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "39A755193D1EE8C473883B92EC17",
-            "event": "Texas_or_Jacoby",
-            "board": 52
-          }
-        },
-        {
-          "hand": {
-            "spades": "KJ62",
-            "hearts": "Q98",
-            "diamonds": "KQT",
-            "clubs": "AQ4"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "3H"
-            ]
-          },
-          "answer": "3S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "A87D92219410E42B0ABFFF551797",
-            "event": "Texas_or_Jacoby",
-            "board": 413
-          }
-        }
-      ]
-    },
-    {
-      "id": "Texas_or_Jacoby-8",
-      "type": "bidding",
-      "title": "Exercise Eight — Opener's Rebid after 2♥",
       "prompt": "You open 1NT, partner responds 2♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1142,9 +999,9 @@
       ]
     },
     {
-      "id": "Texas_or_Jacoby-9",
+      "id": "Texas_or_Jacoby-8",
       "type": "bidding",
-      "title": "Exercise Nine — Opener's Rebid after 2♥",
+      "title": "Exercise Eight — Opener's Rebid after 2♥",
       "prompt": "You open 1NT, partner responds 2♥, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1203,6 +1060,33 @@
         },
         {
           "hand": {
+            "spades": "KQ92",
+            "hearts": "A8",
+            "diamonds": "QJ93",
+            "clubs": "K42"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "X"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1BE2959C3E389F2712C07401DC89",
+            "event": "Texas_or_Jacoby",
+            "board": 29
+          }
+        },
+        {
+          "hand": {
             "spades": "KT74",
             "hearts": "Q95",
             "diamonds": "A62",
@@ -1226,33 +1110,6 @@
             "id": "2A158B2DD0B2EDDAB33668931B37",
             "event": "Texas_or_Jacoby",
             "board": 34
-          }
-        },
-        {
-          "hand": {
-            "spades": "AK2",
-            "hearts": "QT7",
-            "diamonds": "A5",
-            "clubs": "QT964"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "X"
-            ]
-          },
-          "answer": "2S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "2A869E213BE95D502C1914FDF382",
-            "event": "Texas_or_Jacoby",
-            "board": 45
           }
         },
         {
