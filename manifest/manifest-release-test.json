@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release-test",
-  "generatedAtCommit": "436d749d82275c7af874c180efb68cf30c2c688e",
+  "generatedAtCommit": "348e8c4d593108828d835a4e7a8b6f3ac12eb69d",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -17561,70 +17561,20 @@
   },
   "deltas": {
     "missing": [],
-    "orphans": []
+    "orphans": [
+      "Bust_Over_Strong_2C",
+      "Found_Endplay",
+      "Found_Rabbis_Rule",
+      "Reversed_Splinters_By_Opener",
+      "TEST"
+    ]
   },
   "counts": {
     "referenced": 340,
     "scenarios": 340,
     "missing": 0,
-    "orphans": 0,
-    "testOnly": 5
+    "orphans": 5,
+    "testOnly": 0
   },
-  "testScenarios": [
-    {
-      "buttonText": "Bust Over Strong 2C",
-      "chat": "\\n--- Responding to a Strong 2C with a Bust\\nPartner opens a game-forcing 2!C (22+ HCP) and you hold a near-worthless hand:\\n3-1-3-6 with only the !SJ and the !CT，1 HCP and no other honors.\\nEven opposite 22+ the partnership is rarely making game，but 2!C is forcing to\\nat least 3 of a major (or game)，so you cannot pass. Bid the waiting 2!D，then\\nmake your second negative on the next round to warn partner the hand is dead.\\nhttps://www.bridgebum.com/strong_2c.php\\n",
-      "alias": "BustOver2C",
-      "gibWorks": true,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false,
-      "name": "Bust_Over_Strong_2C"
-    },
-    {
-      "buttonText": "Found Endplay",
-      "chat": "\\n--- Found Endplays (4!H / 4!S) — curated strip-and-endplay candidates\\n\\nThese hands are scanned from all bba/*.pbn files by\\n[find_endplay_candidates.py]: South declares a 4-of-major contract，and\\ndeclarer's side holds an AJ tenace in one side suit (with East likely\\nholding the Q) plus solid honors (AK or AKQ) in another side suit so a\\nstrip is feasible.\\n\\nThe teaching pattern: strip the side suits where you have winners，then\\nthrow East in (typically with a heart or club) and force East to lead\\ninto your tenace. This converts a 50% finesse into a 100% endplay.\\n\\nThings to think about:\\n• Count your losers; if a finesse can be avoided，look for a throw-in.\\n• Strip the safe exits BEFORE the throw-in. Once East is in，every lead\\n  helps you.\\n• The thrown-in opponent should be the one holding the Q of your tenace\\n  suit.\\n\\nReference: https://www.bridgebum.com/endplay.php\\n",
-      "alias": "FoundEndplay",
-      "gibWorks": false,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false,
-      "name": "Found_Endplay"
-    },
-    {
-      "buttonText": "Found Rabbi\\'s Rule",
-      "chat": "\\n--- Found Rabbi's Rule (4!S) — curated hands where the safety play applies\\n\\nThese hands are extracted from Rabbis_Rule.pbn by [find_rabbis_rule_makers.py]:\\ncontract = 4!S，declarer = South，result >= 10 tricks (declarer made the\\ncontract). Each hand demonstrates Rabbi's Rule —\\n\\n  \"When the King is singleton，play the Ace.\"\\n\\nWest holds the singleton !D K. East holds the !H KQ threat. To make\\n4!S，declarer must drop West's bare K rather than finesse for it.\\n\\nThings to think about:\\n• Count your tricks before touching the trump suit.\\n• If you have 10 top tricks on the safety play，take them — don't\\n  finesse for an 11th and risk going down.\\n• The safety play here is dropping the singleton King.\\n\\nReference: https://www.bridgebum.com/safety-plays.php\\n",
-      "alias": "FoundRabbisRule",
-      "gibWorks": false,
-      "bbaWorks": true,
-      "conventionCardNS": "Basic-Bridge",
-      "conventionCardEW": "Basic-Bridge",
-      "missing": false,
-      "name": "Found_Rabbis_Rule"
-    },
-    {
-      "buttonText": "Reversed Splinter by Opener",
-      "chat": "\\n--- Reversed Splinter by Opener\\nIn a reversed splinter，the jump shows shortness in a suit OTHER than the one bid.\\nThe advantage: opponents can't double the splinter to direct a lead or suggest a sacrifice.\\nCreated by Dutch expert Anton Maas.\\n\\nAfter 1!C-1!H: 3!D = !S shortness，3!S = !D shortness\\nAfter 1!C-1!S: 3!D = !H shortness，3!H = !D shortness\\nAfter 1!D-1!H: 3!S = !C shortness，4!C = !S shortness\\nAfter 1!D-1!S: 3!H = !C shortness，4!C = !H shortness\\nAfter 1!H-1!S: 4!C = !D shortness，4!D = !C shortness\\n\\n3-level jumps below responder's suit (jump reverses) are invitational.\\n4-level jumps (double jump shifts) are game-forcing.\\nNOTE: The Robots do NOT play reversed splinters.\\n",
-      "alias": "ReversedSplinterByOpener",
-      "gibWorks": false,
-      "bbaWorks": false,
-      "conventionCardNS": "21GF-DEFAULT",
-      "conventionCardEW": "21GF-GIB",
-      "missing": false,
-      "name": "Reversed_Splinters_By_Opener"
-    },
-    {
-      "buttonText": "TEST",
-      "chat": "\\n--- Puppet Stayman after 1NT (15-17)\\nAfter a 1NT opening，responder uses 3!C to ask about opener's major suits.\\n(In contrast to standard Stayman which uses 2!C and asks for 4-card majors only.)\\n\\nOpener's responses:\\n• 3!D - No 5-card major，but has at least one 4-card major\\n• 3!H - 5-card heart suit\\n• 3!S - 5-card spade suit\\n• 3NT - No 4-card or 5-card major\\n\\nResponder's follow-ups after 3!D (one or both 4-card majors):\\n• Bid the major you DO NOT hold (with one 4-card major)\\n  This lets the strong hand (opener) declare if a fit exists.\\n• 4!D - both 4-card majors，no slam interest; opener picks\\n• 4!C - both 4-card majors WITH slam interest\\n\\nAfter 3!H or 3!S (opener shows 5-card major):\\n• 3NT - denies a fit\\n• Bid the OTHER major - slam try agreeing opener's suit\\n• Raise to game/slam - standard\\n\\nAfter 3NT (no majors): natural minor-suit slam investigation.\\n\\nBid Puppet 3!C with a Game-forcing hand (10+ HCP) and at least one of the following:\\n• Any 4-card major (looking for 4-4 fit)\\n• 3-card support for one or both majors (looking for 5-3 fit)\\nPuppet 3!C is a stayman system -- on in competition.\\n\\nReference: https://www.bridgebum.com/puppet_stayman.php\\n",
-      "alias": "PuppetStayman1N",
-      "gibWorks": false,
-      "bbaWorks": true,
-      "conventionCardNS": "21GF-Puppet",
-      "conventionCardEW": "21GF-SPECIALS2",
-      "missing": false,
-      "name": "TEST"
-    }
-  ]
+  "testScenarios": []
 }
