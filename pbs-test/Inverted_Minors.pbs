@@ -1,0 +1,99 @@
+Script,InvertedMinors
+window.currentPBSScenario = 'InvertedMinors';
+window.currentPBSScenarioFilename = 'Inverted_Minors';
+console.log('PBS: Logging scenario selection for InvertedMinors');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'InvertedMinors',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: 21GF-DEFAULT
+convention-card-ew: 21GF-GIB
+auction-filter: Auction.....\n((1C +Pass +[23]C)|(1D +Pass +[23]D))
+*/
+# curate: kind=bidding
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+
+dealer south
+
+# Inverted Minors
+
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+# Defines calmOpps
+
+# Exclude NT hands for South and North
+southNT = shape(south, any 4333 +any 4432 +any 5332 +any 5422 -5xxx -x5xx) and hcp(south)>14 and hcp(south)<18
+northNT = shape(north, any 4333 +any 4432 +any 5332 +any 5422) and hcp(north)>5 and hcp(north)<11
+noNT = not(southNT or northNT)
+
+# Predict South's Opening Suit
+s = spades(south)
+h = hearts(south)
+d = diamonds(south)
+c = clubs(south)
+oS = s>4 and s>=h and s>=d and s>=c
+oH = not oS and h>4 and h>=d and h>=c
+oD = not (oS or oH) and ((d>3 and d>=c) or c<3)
+oC = not (oS or oH or oD)
+
+# North has no major and has support for opener's minor
+noMajor = spades(north)<4 and hearts(north)<4
+cFit = oC and clubs(north)>4
+dFit = oD and diamonds(north)>3
+minorRaise = (cFit or dFit) and noMajor and noNT 
+
+# South opens 1m and North raises
+
+minorRaise and hcp(south)>11 and hcp(south)<20 and hcp(north)>5 and hcp(north)<13 and calmOpps
+action printoneline,
+`, "S", true)
+Script
+Button,Inverted Minors,\n\
+--- Inverted Minors\n\
+NOTE:  Any minor suit raise denies a 4-card major suit.  The normal approach to raising partner's minor suit\n\
+is to raise to 3 with a game invitational hand and to raise to 2 with a fit and less than game invitation.\n\
+Inverted minors merely reverse these responses.  After an inverted raise to 2，opener should show both\n\
+majors stopped by bidding 2N.  With only one stopped，bid the stopped suit.  If you intend to continue to\n\
+3N，it's OK to deny a stop in one of the suits -- no specific agreement -- keep 'em guessing.\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
+%InvertedMinors%
