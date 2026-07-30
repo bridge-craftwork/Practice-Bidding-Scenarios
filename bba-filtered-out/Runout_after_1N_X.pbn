@@ -1038,17 +1038,13 @@ Pass  Pass  Pass
 {HCP 4 5 15 16}
 {Losers 9 9 6 5}
 [Declarer "E"]
-[Contract "5HX"]
+[Contract "2H"]
 [Result "10"]
-[Score "NS 200"]
+[Score "NS -170"]
 [Scoring "MP"]
 [Auction "S"]
 1N    2D =1=    Pass  2H
-Pass  Pass  X     Pass
-3C    Pass  Pass  3H
-Pass  4H    5C    Pass
-Pass  5H    Pass  Pass
-X     Pass  Pass  Pass
+Pass  Pass  Pass
 [Note "1:Cappelletti, both majors"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -1730,12 +1726,13 @@ Pass  Pass  Pass
 1N    2D =1=    Pass  4H
 Pass  4N =2=    Pass  5D =3=
 Pass  5S    Pass  5N =4=
-Pass  7H    Pass  Pass
+Pass  7H =5=    Pass  Pass
 X     Pass  Pass  Pass
 [Note "1:Cappelletti, both majors"]
 [Note "2:Blackwood 1430, for !H"]
 [Note "3:A=0/5 or 3/5"]
 [Note "4:!H queen no !C king no !D king"]
+[Note "5:1+ or 2 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -3024,14 +3021,14 @@ Pass
 {Shape 3253 5314 2335 3541}
 {HCP 2 4 17 17}
 {Losers 11 9 7 5}
-[Declarer "W"]
-[Contract "2H"]
-[Result "10"]
-[Score "NS -170"]
+[Declarer "S"]
+[Contract "3C"]
+[Result "8"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "S"]
 1N    2H =1=    Pass  Pass
-Pass
+3C    Pass  Pass  Pass
 [Note "1:Cappelletti, 5M-4m"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -3050,15 +3047,15 @@ Pass
 {Shape 3226 2632 5323 3262}
 {HCP 5 3 16 16}
 {Losers 9 9 7 6}
-[Declarer "W"]
-[Contract "3D"]
+[Declarer "S"]
+[Contract "4C"]
 [Result "9"]
-[Score "NS -110"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "S"]
 1N    2C =1=    2S =2=    Pass
 3C =3=    3D    Pass  Pass
-Pass
+4C    Pass  Pass  Pass
 [Note "1:Cappelletti, any 6+suit"]
 [Note "2:1N-2S transfer to clubs"]
 [Note "3:automat"]
@@ -3407,8 +3404,8 @@ X     Pass  Pass  Pass
 {Losers 10 8 7 4}
 [Declarer "S"]
 [Contract "1N"]
-[Result "6"]
-[Score "NS -100"]
+[Result "5"]
+[Score "NS -200"]
 [Scoring "MP"]
 [Auction "S"]
 1N    Pass  Pass  Pass
@@ -4076,13 +4073,12 @@ Pass  Pass  Pass
 {HCP 0 8 16 16}
 {Losers 10 9 6 5}
 [Declarer "W"]
-[Contract "4H"]
+[Contract "2H"]
 [Result "10"]
-[Score "NS -420"]
+[Score "NS -170"]
 [Scoring "MP"]
 [Auction "S"]
-1N    2H =1=    Pass  3H
-Pass  4H    Pass  Pass
+1N    2H =1=    Pass  Pass
 Pass
 [Note "1:Cappelletti, 5M-4m"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -4108,9 +4104,12 @@ Pass
 [Score "NS -620"]
 [Scoring "MP"]
 [Auction "S"]
-1C    X     Pass  3H
-Pass  4S    Pass  Pass
-Pass
+1C    X     Pass  1H
+Pass  3S    Pass  4C =1=
+X     XX =2=    Pass  4S
+Pass  Pass  Pass
+[Note "1:limit raise or better in !S"]
+[Note "2:Cue bid, a !C stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -4426,14 +4425,14 @@ Pass
 {HCP 5 4 15 16}
 {Losers 9 9 7 5}
 [Declarer "E"]
-[Contract "3DX"]
+[Contract "3D"]
 [Result "9"]
-[Score "NS -670"]
+[Score "NS -110"]
 [Scoring "MP"]
 [Auction "S"]
 1N    2C =1=    Pass  2D =2=
-Pass  3D    X     Pass
-Pass  Pass
+Pass  3D    Pass  Pass
+Pass
 [Note "1:Cappelletti, any 6+suit"]
 [Note "2:automat"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -4809,7 +4808,6 @@ Pass
 [Scoring "MP"]
 [Auction "S"]
 1D    X     Pass  1H
-Pass  1S    Pass  1N
 Pass  2S    Pass  3S
 Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
