@@ -20,6 +20,11 @@ convention-card-ns: 21GF-DEFAULT
 convention-card-ew: 21GF-GIB
 auction-filter: Auction.....\n1[HS]
 */
+# curate: kind=bidding
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+
 # North opens 1 Major
 dealer north
 
@@ -139,4 +144,19 @@ action printoneline,
 Script
 Button,Major Opener,\n\
 --- Major Opener\n\
+Partner opens 1 Heart or 1 Spade. Choose your response by fit and strength:\n\
+• Simple raise 2M: 6-10 support points，3+ trumps\n\
+• Forcing 1NT: 6-12，forcing one round，neither promises nor denies a fit\n\
+• New suit: your own suit，forcing (1-level shows 4+，2-level is game-forcing)\n\
+• Limit raise 3M: 11-12 support points，4 trumps\n\
+• Jacoby 2NT: game-forcing raise，4+ trumps\n\
+• Splinter: game-forcing raise with a singleton or void\n\
+• Preemptive 4M: weak and shapely，5+ trumps\n\
+• Pass: fewer than 6 points\n\
+Opener then rebids to describe the hand. Practice from both chairs.\n\
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed，or quantitative (inviting 6NT) in a notrump auction. Keycard responses:\n\
+  • 5!C = 1 or 4 keycards\n\
+  • 5!D = 0 or 3\n\
+  • 5!H = 2 without the trump queen\n\
+  • 5!S = 2 with the trump queen\n\
 %MajorOpener%
