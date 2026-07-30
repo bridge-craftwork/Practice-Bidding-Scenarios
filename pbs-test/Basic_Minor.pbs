@@ -1,0 +1,69 @@
+Script,BasicMinor
+window.currentPBSScenario = 'BasicMinor';
+window.currentPBSScenarioFilename = 'Basic_Minor';
+console.log('PBS: Logging scenario selection for BasicMinor');
+fetch('https://bba.harmonicsystems.com/api/scenario/select', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+        'X-Client-Version': '1.0.0'
+    },
+    body: JSON.stringify({
+        scenario: 'BasicMinor',
+        user: whoAmI() || 'anonymous'
+    })
+}).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
+setDealerCode(`
+
+/*
+convention-card-ns: Basic-Bridge
+convention-card-ew: Basic-Bridge
+auction-filter: Auction.....\n1[CD] +Pass +(1[DHSN]|2N|[2345][CD])
+*/
+# curate: kind=bidding
+# convention-card-ns: Basic-Bridge
+# convention-card-ew: Basic-Bridge
+
+
+dealer south
+
+sHcp        = hcp(south) > 11 and hcp(south) < 22
+sMinor      = clubs(south) > 2 or diamonds(south) > 3
+# Exclude 1NT opener: balanced 15-17 HCP
+sNotNT      = not (shape(south, any 4333 + any 4432 + any 5332) and hcp(south) > 14 and hcp(south) < 18)
+# Exclude 1M opener: no 5+ card major
+sNoLongMaj  = spades(south) < 5 and hearts(south) < 5
+southHand   = sHcp and sMinor and sNotNT and sNoLongMaj
+
+nHcp     = hcp(north) > 5 and hcp(north) < 13
+northHand = nHcp
+
+eHcp = hcp(east) < 11
+wHcp = hcp(west) < 11
+
+southHand and northHand and eHcp and wHcp
+action printoneline,
+`, "S", true)
+Script
+Button,Basic 1m (Minor),\n\
+--- Basic 1m Opening (beginner)\n\
+South opens 1!C or 1!D (12-21 HCP，3+ clubs or 4+ diamonds). This scenario\n\
+practices the natural responses without conventions like Inverted Minors.\n\
+\n\
+North's responses:\n\
+• 1!D — 6+ HCP，4+ diamonds (only over 1!C)\n\
+• 1!H / 1!S — 6+ HCP，4+ in that major\n\
+• 1NT — 6-10 HCP，balanced，no 4-card major\n\
+• 2NT — 11-12 HCP，balanced，no 4-card major\n\
+• Simple raise (2!C / 2!D) — 6-9 HCP with 4+ support\n\
+• Limit raise (3!C / 3!D) — 10-12 HCP with 4+ support\n\
+• 4 or 5 of opener's minor — preemptive\n\
+\n\
+Reference: https://www.bridgebum.com/responses_to_one_of_a_minor.php\n\
+4NT is Blackwood，asking for aces，or quantitative (inviting 6NT) after a natural notrump bid. Responses:\n\
+  • 5!C = 0 or 4 aces\n\
+  • 5!D = 1 ace\n\
+  • 5!H = 2 aces\n\
+  • 5!S = 3 aces\n\
+  • 5NT then asks for kings the same way\n\
+%BasicMinor%
