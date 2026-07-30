@@ -1,0 +1,31 @@
+# alias: NedWeakTwoBid
+# button-text: Ned’s Weak Two
+# scenario-title: --- Ned’s Weak Two
+# gib-works: false
+# bba-works: true
+# auction-filter: .
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Ned’s Weak Two
+https://rb.gy/kaqcb
+@chat*/
+
+# Ned's Weak Two
+dealer south
+
+
+# 5- chunky or any 6-card suit & 8-11 HCP
+# Raise is invitational
+# New suit is not forcing
+# 2N is Game Force and asks about shape
+
+# Define South weak 2 bids
+w2S = spades(south)>4 and spades(south)<7 and top5(south,spades)>2 and hcp(south,spades)>4
+w2H = hearts(south)>4 and hearts(south)<7 and top5(south,hearts)>2 and hcp(south,hearts)>4
+w2D = diamonds(south)>4 and diamonds(south)<7 and top5(south,diamonds)>2 and hcp(south,diamonds)>4
+sOpensWeak2 = (w2S or w2H or w2D) and hcp(south)>7 and hcp(south)<12 and shape(south,any 6430 +any 6421 +any 6331 +any 6322 +any 5431 +any 5422)
+
+sOpensWeak2 and hcp(north)>9
+action printoneline,

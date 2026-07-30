@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Ned_Weak_Two"
   },
   "exercises": [
@@ -2117,7 +2117,7 @@
               "3H"
             ]
           },
-          "answer": "4H",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "E8EBEC8F48E940F9620E6CE33C9C",
@@ -2725,14 +2725,14 @@
         },
         {
           "hand": {
-            "spades": "K",
-            "hearts": "A7",
-            "diamonds": "AQT9732",
-            "clubs": "QJ7"
+            "spades": "J74",
+            "hearts": "Q8",
+            "diamonds": "A654",
+            "clubs": "AT98"
           },
           "seat": "N",
           "dealer": "S",
-          "vulnerability": "None",
+          "vulnerability": "EW",
           "context": {
             "dealer": "S",
             "calls": [
@@ -2740,49 +2740,24 @@
               "P"
             ]
           },
-          "answer": "3D",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "188A3D5BB3AABA90CBF294DCE859",
+            "id": "59B3DD86169B9B4F1690E030BDED",
             "event": "Ned_Weak_Two",
-            "board": 30
+            "board": 86
           }
         },
         {
           "hand": {
-            "spades": "4",
-            "hearts": "A75",
-            "diamonds": "A92",
-            "clubs": "AKQT96"
+            "spades": "A4",
+            "hearts": "AQT98532",
+            "diamonds": "AK",
+            "clubs": "2"
           },
           "seat": "N",
           "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "2S",
-              "P"
-            ]
-          },
-          "answer": "3C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "6B87DFFB90B3976C4193C0209DF4",
-            "event": "Ned_Weak_Two",
-            "board": 103
-          }
-        },
-        {
-          "hand": {
-            "spades": "T9",
-            "hearts": "AKJ94",
-            "diamonds": "K963",
-            "clubs": "K3"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "Both",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -2793,9 +2768,34 @@
           "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "9BCA87A28E39045ABCF59E8AF75E",
+            "id": "9A0C9D80A280C848F4E98A158A4B",
             "event": "Ned_Weak_Two",
-            "board": 148
+            "board": 159
+          }
+        },
+        {
+          "hand": {
+            "spades": "",
+            "hearts": "AKT72",
+            "diamonds": "AK4",
+            "clubs": "A8764"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "DA8FCEBAB6C2E8FB8367A9DFB648",
+            "event": "Ned_Weak_Two",
+            "board": 210
           }
         }
       ]
@@ -2931,37 +2931,12 @@
               "1C"
             ]
           },
-          "answer": "1H",
+          "answer": "2H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "398EC48C8B96F4DCA9C7433A255B",
             "event": "Ned_Weak_Two",
             "board": 57
-          }
-        },
-        {
-          "hand": {
-            "spades": "K742",
-            "hearts": "KQT94",
-            "diamonds": "2",
-            "clubs": "Q76"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "P",
-              "1C"
-            ]
-          },
-          "answer": "1H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "CAF4064B554481682B63E202943C",
-            "event": "Ned_Weak_Two",
-            "board": 197
           }
         },
         {
@@ -3012,6 +2987,31 @@
             "id": "BAEFBCBC7AA727DEAE781558C88C",
             "event": "Ned_Weak_Two",
             "board": 178
+          }
+        },
+        {
+          "hand": {
+            "spades": "K742",
+            "hearts": "KQT94",
+            "diamonds": "2",
+            "clubs": "Q76"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "P",
+              "1C"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "CAF4064B554481682B63E202943C",
+            "event": "Ned_Weak_Two",
+            "board": 197
           }
         }
       ]
@@ -4368,96 +4368,7 @@
     {
       "id": "Ned_Weak_Two-40",
       "type": "bidding",
-      "title": "Exercise 40 — Opener's Rebid after 2♦",
-      "prompt": "You open 1♥, LHO bids 1♠, partner responds 2♦. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "J6",
-            "hearts": "AKJT7",
-            "diamonds": "QT",
-            "clubs": "T976"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "1S",
-              "2D",
-              "P"
-            ]
-          },
-          "answer": "3C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "78E8EB13AC2115C8ED997AFE1657",
-            "event": "Ned_Weak_Two",
-            "board": 113
-          }
-        },
-        {
-          "hand": {
-            "spades": "KJ",
-            "hearts": "AQJT65",
-            "diamonds": "4",
-            "clubs": "9853"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "1S",
-              "2D",
-              "P"
-            ]
-          },
-          "answer": "2H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "CBE48364A3EBD5F910E2215F7514",
-            "event": "Ned_Weak_Two",
-            "board": 202
-          }
-        },
-        {
-          "hand": {
-            "spades": "A632",
-            "hearts": "AQT964",
-            "diamonds": "5",
-            "clubs": "87"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "1S",
-              "2D",
-              "P"
-            ]
-          },
-          "answer": "2H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "39A0C72614EF22D1DDA458EE9083",
-            "event": "Ned_Weak_Two",
-            "board": 310
-          }
-        }
-      ]
-    },
-    {
-      "id": "Ned_Weak_Two-41",
-      "type": "bidding",
-      "title": "Exercise 41 — Opener's Rebid after 2♠",
+      "title": "Exercise 40 — Opener's Rebid after 2♠",
       "prompt": "You open 1♥, LHO bids 1♠, partner responds 2♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4544,9 +4455,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-42",
+      "id": "Ned_Weak_Two-41",
       "type": "bidding",
-      "title": "Exercise 42 — Opener's Rebid after 3♦",
+      "title": "Exercise 41 — Opener's Rebid after 3♦",
       "prompt": "You open 1♥, LHO bids 2♦, partner responds 3♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4606,9 +4517,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-43",
+      "id": "Ned_Weak_Two-42",
       "type": "bidding",
-      "title": "Exercise 43 — Opener's Rebid after 3♣",
+      "title": "Exercise 42 — Opener's Rebid after 3♣",
       "prompt": "You open 1♥, LHO bids 2NT, partner responds 3♣, RHO bids 3♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4668,9 +4579,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-44",
+      "id": "Ned_Weak_Two-43",
       "type": "bidding",
-      "title": "Exercise 44 — Opener's Rebid",
+      "title": "Exercise 43 — Opener's Rebid",
       "prompt": "You open 1♥, LHO bids 2♠, partner passes. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4730,9 +4641,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-45",
+      "id": "Ned_Weak_Two-44",
       "type": "bidding",
-      "title": "Exercise 45 — Opener's Rebid after 1NT",
+      "title": "Exercise 44 — Opener's Rebid after 1NT",
       "prompt": "You open 1♥, partner responds 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -4873,9 +4784,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-46",
+      "id": "Ned_Weak_Two-45",
       "type": "bidding",
-      "title": "Exercise 46 — Opener's Rebid after 1♠",
+      "title": "Exercise 45 — Opener's Rebid after 1♠",
       "prompt": "You open 1♥, partner responds 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5016,9 +4927,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-47",
+      "id": "Ned_Weak_Two-46",
       "type": "bidding",
-      "title": "Exercise 47 — Opener's Rebid after 2♣",
+      "title": "Exercise 46 — Opener's Rebid after 2♣",
       "prompt": "You open 1♥, partner responds 2♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5132,9 +5043,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-48",
+      "id": "Ned_Weak_Two-47",
       "type": "bidding",
-      "title": "Exercise 48 — Opener's Rebid after 2♦",
+      "title": "Exercise 47 — Opener's Rebid after 2♦",
       "prompt": "You open 1♥, partner responds 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5275,9 +5186,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-49",
+      "id": "Ned_Weak_Two-48",
       "type": "bidding",
-      "title": "Exercise 49 — Opener's Rebid after 2NT",
+      "title": "Exercise 48 — Opener's Rebid after 2NT",
       "prompt": "You open 1♥, partner responds 2NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5391,9 +5302,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-50",
+      "id": "Ned_Weak_Two-49",
       "type": "bidding",
-      "title": "Exercise 50 — Opener's Rebid after 3♣",
+      "title": "Exercise 49 — Opener's Rebid after 3♣",
       "prompt": "You open 1♠, LHO bids 2♣, partner responds 3♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5480,9 +5391,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-51",
+      "id": "Ned_Weak_Two-50",
       "type": "bidding",
-      "title": "Exercise 51 — Opener's Rebid after 1NT",
+      "title": "Exercise 50 — Opener's Rebid after 1NT",
       "prompt": "You open 1♠, partner responds 1NT, RHO bids 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -5537,6 +5448,122 @@
             "id": "781EBF818281BECCE83B34779FEE",
             "event": "Ned_Weak_Two",
             "board": 369
+          }
+        }
+      ]
+    },
+    {
+      "id": "Ned_Weak_Two-51",
+      "type": "bidding",
+      "title": "Exercise 51 — Opener's Rebid after 1NT",
+      "prompt": "You open 1♠, partner responds 1NT, RHO bids 2♥. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AKJT98",
+            "hearts": "Q42",
+            "diamonds": "6",
+            "clubs": "765"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2H"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0B93BB23969A97B015FD15E87464",
+            "event": "Ned_Weak_Two",
+            "board": 10
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKQ854",
+            "hearts": "4",
+            "diamonds": "JT63",
+            "clubs": "T5"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2H"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "088C8C9812D15698CFF285AB1004",
+            "event": "Ned_Weak_Two",
+            "board": 270
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQT764",
+            "hearts": "A64",
+            "diamonds": "T",
+            "clubs": "853"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2H"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "DAA3DB8A1EB7F05D9CA01DAE317E",
+            "event": "Ned_Weak_Two",
+            "board": 476
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKQT4",
+            "hearts": "J3",
+            "diamonds": "8632",
+            "clubs": "J2"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "1NT",
+              "2H"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6B90938729B8D6FED63F40932FFD",
+            "event": "Ned_Weak_Two",
+            "board": 362
           }
         }
       ]
@@ -5742,33 +5769,6 @@
             "id": "1A46939FB8E28E2C98E52458403F",
             "event": "Ned_Weak_Two",
             "board": 287
-          }
-        },
-        {
-          "hand": {
-            "spades": "AKQT4",
-            "hearts": "J3",
-            "diamonds": "8632",
-            "clubs": "J2"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "P",
-              "1NT",
-              "X"
-            ]
-          },
-          "answer": "2D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "6B90938729B8D6FED63F40932FFD",
-            "event": "Ned_Weak_Two",
-            "board": 362
           }
         },
         {
@@ -6461,6 +6461,60 @@
         },
         {
           "hand": {
+            "spades": "T9",
+            "hearts": "954",
+            "diamonds": "KQJT83",
+            "clubs": "Q2"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2D",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "3ACBD7454496AE043F48E068D4DD",
+            "event": "Ned_Weak_Two",
+            "board": 309
+          }
+        },
+        {
+          "hand": {
+            "spades": "87",
+            "hearts": "T87",
+            "diamonds": "KQT542",
+            "clubs": "A4"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2D",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "BA1DF617CC644AA8A20C1475C244",
+            "event": "Ned_Weak_Two",
+            "board": 434
+          }
+        },
+        {
+          "hand": {
             "spades": "T73",
             "hearts": "Q",
             "diamonds": "AKT962",
@@ -6523,10 +6577,10 @@
         },
         {
           "hand": {
-            "spades": "T6",
-            "hearts": "752",
-            "diamonds": "AKT643",
-            "clubs": "Q4"
+            "spades": "4",
+            "hearts": "643",
+            "diamonds": "AKJT53",
+            "clubs": "T42"
           },
           "seat": "S",
           "dealer": "S",
@@ -6543,9 +6597,9 @@
           "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "99087B5DD3B85632EF9823594BEC",
+            "id": "49CB4BFE4A593457FF20DAA1680D",
             "event": "Ned_Weak_Two",
-            "board": 153
+            "board": 329
           }
         },
         {
@@ -6577,14 +6631,14 @@
         },
         {
           "hand": {
-            "spades": "62",
-            "hearts": "K7",
-            "diamonds": "AQJT75",
-            "clubs": "T94"
+            "spades": "743",
+            "hearts": "Q83",
+            "diamonds": "KQJT43",
+            "clubs": "Q"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "NS",
+          "vulnerability": "None",
           "context": {
             "dealer": "S",
             "calls": [
@@ -6597,9 +6651,9 @@
           "answer": "3H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "5A1760C7C775095CE7BED6C93292",
+            "id": "783F1221C3500CE49A5ADCB3A004",
             "event": "Ned_Weak_Two",
-            "board": 85
+            "board": 123
           }
         },
         {
@@ -6871,60 +6925,6 @@
       "questions": [
         {
           "hand": {
-            "spades": "KQJ754",
-            "hearts": "Q",
-            "diamonds": "J752",
-            "clubs": "T6"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "2S",
-              "P",
-              "2NT",
-              "P"
-            ]
-          },
-          "answer": "3NT",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "9BCA87A28E39045ABCF59E8AF75E",
-            "event": "Ned_Weak_Two",
-            "board": 148
-          }
-        },
-        {
-          "hand": {
-            "spades": "AQJ753",
-            "hearts": "965",
-            "diamonds": "J63",
-            "clubs": "5"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "2S",
-              "P",
-              "2NT",
-              "P"
-            ]
-          },
-          "answer": "3NT",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "DA8FCEBAB6C2E8FB8367A9DFB648",
-            "event": "Ned_Weak_Two",
-            "board": 210
-          }
-        },
-        {
-          "hand": {
             "spades": "KQJT53",
             "hearts": "J6",
             "diamonds": "74",
@@ -6979,10 +6979,10 @@
         },
         {
           "hand": {
-            "spades": "AJT852",
-            "hearts": "943",
-            "diamonds": "QJ3",
-            "clubs": "9"
+            "spades": "KQJT73",
+            "hearts": "8",
+            "diamonds": "Q42",
+            "clubs": "J42"
           },
           "seat": "S",
           "dealer": "S",
@@ -6999,52 +6999,17 @@
           "answer": "3D",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "CA9E4F7784B8698F40F2832266B8",
+            "id": "7ACF93949DB34C6A8BCF72759075",
             "event": "Ned_Weak_Two",
-            "board": 204
+            "board": 370
           }
         },
         {
           "hand": {
-            "spades": "KQJ852",
-            "hearts": "AT7",
-            "diamonds": "93",
-            "clubs": "87"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "2S",
-              "P",
-              "2NT",
-              "P"
-            ]
-          },
-          "answer": "3H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "7B208383B824FEB561D68A0A7E8A",
-            "event": "Ned_Weak_Two",
-            "board": 372
-          }
-        }
-      ]
-    },
-    {
-      "id": "Ned_Weak_Two-63",
-      "type": "bidding",
-      "title": "Exercise 63 — Opener's Rebid after 3♦",
-      "prompt": "You open 2♠, partner responds 3♦. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "AJT985",
-            "hearts": "T3",
-            "diamonds": "J86",
-            "clubs": "K2"
+            "spades": "AQT864",
+            "hearts": "K",
+            "diamonds": "T76",
+            "clubs": "J83"
           },
           "seat": "S",
           "dealer": "S",
@@ -7054,43 +7019,105 @@
             "calls": [
               "2S",
               "P",
-              "3D",
+              "2NT",
               "P"
             ]
           },
           "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "188A3D5BB3AABA90CBF294DCE859",
+            "id": "788A28B87D83FE9DD0B048BA450E",
             "event": "Ned_Weak_Two",
-            "board": 30
+            "board": 376
           }
         },
         {
           "hand": {
-            "spades": "KQT765",
-            "hearts": "Q76",
-            "diamonds": "J4",
-            "clubs": "94"
+            "spades": "AQT862",
+            "hearts": "976",
+            "diamonds": "J2",
+            "clubs": "J8"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "Both",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
               "2S",
               "P",
-              "3D",
+              "2NT",
               "P"
             ]
           },
-          "answer": "4D",
+          "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "ABC6B7A0FF90C556A4A49A7D1846",
+            "id": "9A8F4283D5BA6B99E0AEFC3E5384",
             "event": "Ned_Weak_Two",
-            "board": 167
+            "board": 415
+          }
+        }
+      ]
+    },
+    {
+      "id": "Ned_Weak_Two-63",
+      "type": "bidding",
+      "title": "Exercise 63 — Opener's Rebid after 3♥",
+      "prompt": "You open 2♠, partner responds 3♥. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AQJ753",
+            "hearts": "965",
+            "diamonds": "J63",
+            "clubs": "5"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2S",
+              "P",
+              "3H",
+              "P"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "DA8FCEBAB6C2E8FB8367A9DFB648",
+            "event": "Ned_Weak_Two",
+            "board": 210
+          }
+        },
+        {
+          "hand": {
+            "spades": "KQJT97",
+            "hearts": "7",
+            "diamonds": "42",
+            "clubs": "Q984"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2S",
+              "P",
+              "3H",
+              "P"
+            ]
+          },
+          "answer": "3NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "287BB4BD8A8C8DC5AACCCC417E02",
+            "event": "Ned_Weak_Two",
+            "board": 289
           }
         }
       ]
@@ -7606,6 +7633,68 @@
       "id": "Ned_Weak_Two-70",
       "type": "bidding",
       "title": "Exercise 70 — Responder's Rebid",
+      "prompt": "You pass, partner opens 1♣, RHO bids 1♠. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "K5",
+            "hearts": "42",
+            "diamonds": "AJT92",
+            "clubs": "8762"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "P",
+              "P",
+              "1C",
+              "1S"
+            ]
+          },
+          "answer": "1NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "690B9FD67A4BFBCD755D80237C69",
+            "event": "Ned_Weak_Two",
+            "board": 102
+          }
+        },
+        {
+          "hand": {
+            "spades": "5",
+            "hearts": "T76",
+            "diamonds": "AKJ64",
+            "clubs": "J953"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "P",
+              "P",
+              "1C",
+              "1S"
+            ]
+          },
+          "answer": "2C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1833D20E71E80D4CEB62B9C35574",
+            "event": "Ned_Weak_Two",
+            "board": 286
+          }
+        }
+      ]
+    },
+    {
+      "id": "Ned_Weak_Two-71",
+      "type": "bidding",
+      "title": "Exercise 71 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣, RHO bids 2♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7665,9 +7754,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-71",
+      "id": "Ned_Weak_Two-72",
       "type": "bidding",
-      "title": "Exercise 71 — Responder's Rebid",
+      "title": "Exercise 72 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7835,9 +7924,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-72",
+      "id": "Ned_Weak_Two-73",
       "type": "bidding",
-      "title": "Exercise 72 — Responder's Rebid",
+      "title": "Exercise 73 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♣, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7897,9 +7986,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-73",
+      "id": "Ned_Weak_Two-74",
       "type": "bidding",
-      "title": "Exercise 73 — Responder's Rebid",
+      "title": "Exercise 74 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♦, RHO bids 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -7959,9 +8048,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-74",
+      "id": "Ned_Weak_Two-75",
       "type": "bidding",
-      "title": "Exercise 74 — Responder's Rebid",
+      "title": "Exercise 75 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -8129,9 +8218,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-75",
+      "id": "Ned_Weak_Two-76",
       "type": "bidding",
-      "title": "Exercise 75 — Responder's Rebid",
+      "title": "Exercise 76 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -8288,7 +8377,7 @@
               "P"
             ]
           },
-          "answer": "2D",
+          "answer": "1NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "78DF43C1B1217643CAC8BCDF356E",
@@ -8299,9 +8388,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-76",
+      "id": "Ned_Weak_Two-77",
       "type": "bidding",
-      "title": "Exercise 76 — Responder's Rebid",
+      "title": "Exercise 77 — Responder's Rebid",
       "prompt": "You pass, partner opens 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -8415,9 +8504,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-77",
+      "id": "Ned_Weak_Two-78",
       "type": "bidding",
-      "title": "Exercise 77 — Responder's Rebid",
+      "title": "Exercise 78 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -8520,7 +8609,7 @@
               "P"
             ]
           },
-          "answer": "2D",
+          "answer": "1NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "F817C1E217B0E8A20C152C53185C",
@@ -8558,9 +8647,9 @@
       ]
     },
     {
-      "id": "Ned_Weak_Two-78",
+      "id": "Ned_Weak_Two-79",
       "type": "bidding",
-      "title": "Exercise 78 — Responder's Rebid",
+      "title": "Exercise 79 — Responder's Rebid",
       "prompt": "You pass, partner opens 1♠, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {

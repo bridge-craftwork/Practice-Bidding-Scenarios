@@ -194,14 +194,13 @@ Pass  Pass
 {HCP 11 14 9 6}
 {Losers 7 7 8 9}
 [Declarer "N"]
-[Contract "3H"]
+[Contract "2H"]
 [Result "8"]
-[Score "NS -100"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    2H
-Pass  3H    Pass  Pass
-Pass
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -269,14 +268,14 @@ Pass  Pass
 {Shape 2632 4243 4324 3244}
 {HCP 10 14 7 9}
 {Losers 7 8 9 8}
-[Declarer "E"]
-[Contract "3D"]
+[Declarer "N"]
+[Contract "2H"]
 [Result "8"]
-[Score "NS 100"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  1N    2H
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -319,14 +318,15 @@ Pass  Pass
 {Shape 3613 4342 3442 3046}
 {HCP 9 12 10 9}
 {Losers 8 7 8 6}
-[Declarer "E"]
-[Contract "3D"]
-[Result "10"]
-[Score "NS -130"]
+[Declarer "N"]
+[Contract "2H"]
+[Result "8"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  1H
+1S    2H    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -425,8 +425,10 @@ Pass  Pass
 [Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  1H
+1S    Pass  2D    2H
+Pass  Pass  3C    Pass
+3D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -476,9 +478,7 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  2S    Pass
-4C =1=    Pass  4S    Pass
-Pass  Pass
-[Note "1:Splinter"]
+4S    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -596,14 +596,15 @@ Pass  Pass
 {Shape 2326 4432 4342 3343}
 {HCP 11 12 11 6}
 {Losers 7 7 8 10}
-[Declarer "N"]
-[Contract "2C"]
-[Result "9"]
-[Score "NS 110"]
+[Declarer "S"]
+[Contract "2N"]
+[Result "7"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    2C
-Pass  Pass  Pass
+Pass  2N    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -621,15 +622,14 @@ Pass  Pass  Pass
 {Shape 3532 4423 3343 3145}
 {HCP 10 14 10 6}
 {Losers 8 7 9 8}
-[Declarer "N"]
-[Contract "2H"]
-[Result "8"]
-[Score "NS 110"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "9"]
+[Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  Pass  1H
-1S    2H    Pass  Pass
-Pass
+1C    Pass  3C    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -761,31 +761,6 @@ Pass  Pass
 [Event "OBAR_BIDS"]
 [Site ""]
 [Board "31"]
-% 3650DC23F59C416B22C9F0195AB6
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "E"]
-[Vulnerable "NS"]
-[Deal "N:Q74.96.AQ975.732 A983.AKT43.J2.Q8 T2.Q87.8643.AKT5 KJ65.J52.KT.J964"]
-{Shape 3253 4522 2344 4324}
-{HCP 8 14 9 9}
-{Losers 8 7 8 9}
-[Declarer "E"]
-[Contract "4H"]
-[Result "9"]
-[Score "NS 50"]
-[Scoring "MP"]
-[Auction "E"]
-1H    Pass  3H    Pass
-4H    Pass  Pass  Pass
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "OBAR_BIDS"]
-[Site ""]
-[Board "32"]
 % 376D01D29C37E58C3FB24CA6DB06
 [North "EPBot"]
 [East "EPBot"]
@@ -810,7 +785,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "33"]
+[Board "32"]
 % 3645CB047C518D9064EB4A6D31CA
 [North "EPBot"]
 [East "EPBot"]
@@ -835,7 +810,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "34"]
+[Board "33"]
 % 3583017C2953DA34A2E8B259CC0E
 [North "EPBot"]
 [East "EPBot"]
@@ -860,7 +835,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "35"]
+[Board "34"]
 % 4476CB6AC27F6AB521851A2964FC
 [North "EPBot"]
 [East "EPBot"]
@@ -885,7 +860,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "36"]
+[Board "35"]
 % 465E86AF3578EA6CF36A303AD25F
 [North "EPBot"]
 [East "EPBot"]
@@ -910,7 +885,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "37"]
+[Board "36"]
 % 4762DC154E67367103883EE1E78C
 [North "EPBot"]
 [East "EPBot"]
@@ -935,7 +910,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "38"]
+[Board "37"]
 % 459272CD0D004E91F9A088DB201A
 [North "EPBot"]
 [East "EPBot"]
@@ -948,21 +923,22 @@ Pass  Pass
 {HCP 11 14 7 8}
 {Losers 6 5 9 8}
 [Declarer "E"]
-[Contract "3D"]
+[Contract "3DX"]
 [Result "11"]
-[Score "NS -150"]
+[Score "NS -1070"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    Pass
 2D    Pass  Pass  X
 Pass  2S    3D    Pass
-Pass  Pass
+Pass  X     Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "39"]
+[Board "38"]
 % 44FA6654386AB3EF6DFA35458A82
 [North "EPBot"]
 [East "EPBot"]
@@ -987,7 +963,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "40"]
+[Board "39"]
 % 472F3CCCC1691EF38015A6176BB6
 [North "EPBot"]
 [East "EPBot"]
@@ -1012,7 +988,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "41"]
+[Board "40"]
 % 4673E0704BE353AE453C2E8FBED8
 [North "EPBot"]
 [East "EPBot"]
@@ -1037,7 +1013,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "42"]
+[Board "41"]
 % 471CCC256B0551D3552E32803EB4
 [North "EPBot"]
 [East "EPBot"]
@@ -1050,20 +1026,19 @@ Pass  Pass
 {HCP 10 13 10 7}
 {Losers 7 8 8 8}
 [Declarer "N"]
-[Contract "3S"]
+[Contract "2S"]
 [Result "9"]
 [Score "NS 140"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    2S
-Pass  3S    Pass  Pass
-Pass
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "43"]
+[Board "42"]
 % 46E39F92BE123DE05168DE17E834
 [North "EPBot"]
 [East "EPBot"]
@@ -1088,7 +1063,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "44"]
+[Board "43"]
 % 564C456A15C1E2BC05688F94CE95
 [North "EPBot"]
 [East "EPBot"]
@@ -1114,7 +1089,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "45"]
+[Board "44"]
 % 550318A9D37288EABFCE3F412D96
 [North "EPBot"]
 [East "EPBot"]
@@ -1141,7 +1116,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "46"]
+[Board "45"]
 % 57DCAE07C15C7E0535AE7F22C4A2
 [North "EPBot"]
 [East "EPBot"]
@@ -1166,7 +1141,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "47"]
+[Board "46"]
 % 56602D567FB969D48681F06EC046
 [North "EPBot"]
 [East "EPBot"]
@@ -1191,7 +1166,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "48"]
+[Board "47"]
 % 574CCC45B261A7CB8C6F3E05F326
 [North "EPBot"]
 [East "EPBot"]
@@ -1217,7 +1192,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "49"]
+[Board "48"]
 % 5446DBE583AEED7D4EB890415227
 [North "EPBot"]
 [East "EPBot"]
@@ -1242,7 +1217,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "50"]
+[Board "49"]
 % 56DE6B10091FE2FFFB129896DCB0
 [North "EPBot"]
 [East "EPBot"]
@@ -1267,7 +1242,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "51"]
+[Board "50"]
 % 5556999ECB77B476410CE8AC4AF3
 [North "EPBot"]
 [East "EPBot"]
@@ -1292,7 +1267,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "52"]
+[Board "51"]
 % 66DB30C394D437DD25BAA1225EEA
 [North "EPBot"]
 [East "EPBot"]
@@ -1317,7 +1292,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "53"]
+[Board "52"]
 % 674C049DDCC14DAA246797C10972
 [North "EPBot"]
 [East "EPBot"]
@@ -1343,7 +1318,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "54"]
+[Board "53"]
 % 66419BFB305443152D3D8C61A48E
 [North "EPBot"]
 [East "EPBot"]
@@ -1368,7 +1343,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "55"]
+[Board "54"]
 % 67727E626DDC3428F3A93E827ADD
 [North "EPBot"]
 [East "EPBot"]
@@ -1393,7 +1368,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "56"]
+[Board "55"]
 % 6466DA10F0597A2E688CC23791AD
 [North "EPBot"]
 [East "EPBot"]
@@ -1418,7 +1393,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "57"]
+[Board "56"]
 % 672ED452523D86FC68CDA1570AB4
 [North "EPBot"]
 [East "EPBot"]
@@ -1443,7 +1418,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "58"]
+[Board "57"]
 % 64498CE873991627F9C34F8621A2
 [North "EPBot"]
 [East "EPBot"]
@@ -1468,7 +1443,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "59"]
+[Board "58"]
 % 66454CE016756D87E0BE2A844FC9
 [North "EPBot"]
 [East "EPBot"]
@@ -1493,7 +1468,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "60"]
+[Board "59"]
 % 67DBEB607902973514A8529D16B6
 [North "EPBot"]
 [East "EPBot"]
@@ -1518,7 +1493,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "61"]
+[Board "60"]
 % 649D8B69C47691F1324CDA5C648E
 [North "EPBot"]
 [East "EPBot"]
@@ -1543,7 +1518,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "62"]
+[Board "61"]
 % 66245F0ABD26F90C998745C6E46E
 [North "EPBot"]
 [East "EPBot"]
@@ -1568,7 +1543,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "63"]
+[Board "62"]
 % 653764E3798CE51F5DB6EE8B4B76
 [North "EPBot"]
 [East "EPBot"]
@@ -1593,7 +1568,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "64"]
+[Board "63"]
 % 768F4FC668BD5BC35E2E7CA0FB00
 [North "EPBot"]
 [East "EPBot"]
@@ -1618,7 +1593,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "65"]
+[Board "64"]
 % 757A5FAEA5ED7A244B4B02D8D6BF
 [North "EPBot"]
 [East "EPBot"]
@@ -1643,7 +1618,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "66"]
+[Board "65"]
 % 7659C2DB8762318A625CE57DBF88
 [North "EPBot"]
 [East "EPBot"]
@@ -1668,7 +1643,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "67"]
+[Board "66"]
 % 754469D71CAF445549DAEC36BB6A
 [North "EPBot"]
 [East "EPBot"]
@@ -1693,7 +1668,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "68"]
+[Board "67"]
 % 745EE67750892E62D0A33386CD55
 [North "EPBot"]
 [East "EPBot"]
@@ -1718,7 +1693,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "69"]
+[Board "68"]
 % 74BE50D80B7EE62525D19B1EE7FC
 [North "EPBot"]
 [East "EPBot"]
@@ -1743,7 +1718,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "70"]
+[Board "69"]
 % 7651A137645BFFA1819AEF05CA30
 [North "EPBot"]
 [East "EPBot"]
@@ -1768,7 +1743,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "71"]
+[Board "70"]
 % 776D487149AF55A6F40AD2A648D3
 [North "EPBot"]
 [East "EPBot"]
@@ -1793,7 +1768,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "72"]
+[Board "71"]
 % 76466D8827024FE1F4E1754887BC
 [North "EPBot"]
 [East "EPBot"]
@@ -1818,7 +1793,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "73"]
+[Board "72"]
 % 756E491132023E68F0A341C8D8AE
 [North "EPBot"]
 [East "EPBot"]
@@ -1836,14 +1811,16 @@ Pass  Pass
 [Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
+1D    Pass  1N    Pass
+2D    Pass  Pass  X
+Pass  2H    3D    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "74"]
+[Board "73"]
 % 844BC005E42279655B20CCB2994E
 [North "EPBot"]
 [East "EPBot"]
@@ -1868,7 +1845,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "75"]
+[Board "74"]
 % 864B4D8ADFC475B6E11C2A6F2184
 [North "EPBot"]
 [East "EPBot"]
@@ -1880,20 +1857,20 @@ Pass  Pass
 {Shape 3523 4243 3433 3244}
 {HCP 11 13 8 8}
 {Losers 7 8 9 9}
-[Declarer "W"]
-[Contract "1N"]
-[Result "6"]
-[Score "NS 50"]
+[Declarer "N"]
+[Contract "2H"]
+[Result "8"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  1N    Pass
-Pass  Pass
+1D    Pass  1N    2H
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "76"]
+[Board "75"]
 % 875AE3FE7949E169148342846D72
 [North "EPBot"]
 [East "EPBot"]
@@ -1918,7 +1895,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "77"]
+[Board "76"]
 % 8769296F67C8119B803CFF9985FA
 [North "EPBot"]
 [East "EPBot"]
@@ -1930,20 +1907,20 @@ Pass  Pass
 {Shape 3361 3334 4423 3325}
 {HCP 10 12 10 8}
 {Losers 7 8 8 9}
-[Declarer "E"]
-[Contract "3C"]
-[Result "8"]
-[Score "NS 100"]
+[Declarer "N"]
+[Contract "3D"]
+[Result "9"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  3C    Pass
-Pass  Pass
+1C    Pass  3C    3D
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "78"]
+[Board "77"]
 % 8443AD467B464CEF3903A865F2F4
 [North "EPBot"]
 [East "EPBot"]
@@ -1968,7 +1945,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "79"]
+[Board "78"]
 % 85182F41812028BDB15256B62BC9
 [North "EPBot"]
 [East "EPBot"]
@@ -1994,7 +1971,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "80"]
+[Board "79"]
 % 8690C177B7D5E0D83AD09D630A81
 [North "EPBot"]
 [East "EPBot"]
@@ -2019,7 +1996,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "81"]
+[Board "80"]
 % 845FB06CE26CCD53D44E91AD0673
 [North "EPBot"]
 [East "EPBot"]
@@ -2038,15 +2015,13 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  2S    Pass
-4D =1=    Pass  4S    Pass
-Pass  Pass
-[Note "1:Splinter"]
+4S    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "82"]
+[Board "81"]
 % 85409DC27AA1036F442BE50DB98B
 [North "EPBot"]
 [East "EPBot"]
@@ -2059,22 +2034,19 @@ Pass  Pass
 {HCP 9 14 10 7}
 {Losers 8 7 8 9}
 [Declarer "E"]
-[Contract "5C"]
+[Contract "2C"]
 [Result "9"]
-[Score "NS 200"]
+[Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  1N    2H
-3C    3D =1=    4C    Pass
-Pass  4H    5C    Pass
-Pass  Pass
-[Note "1:limit raise or better in !H"]
+1D    Pass  1N    Pass
+2C    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "83"]
+[Board "82"]
 % 94663B427042DAA67CE14C34ADDB
 [North "EPBot"]
 [East "EPBot"]
@@ -2099,7 +2071,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "84"]
+[Board "83"]
 % 95556598A2E33F95B90DF6D74E64
 [North "EPBot"]
 [East "EPBot"]
@@ -2124,7 +2096,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "85"]
+[Board "84"]
 % 97684FF9F254DE82456E217C89B8
 [North "EPBot"]
 [East "EPBot"]
@@ -2149,7 +2121,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "86"]
+[Board "85"]
 % 9540BBC48150ADC109276AFF8A54
 [North "EPBot"]
 [East "EPBot"]
@@ -2161,21 +2133,20 @@ Pass  Pass
 {Shape 2632 4243 4324 3244}
 {HCP 9 12 10 9}
 {Losers 7 8 8 8}
-[Declarer "N"]
-[Contract "3H"]
-[Result "9"]
-[Score "NS 140"]
+[Declarer "W"]
+[Contract "1N"]
+[Result "7"]
+[Score "NS -90"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  1N    2H
-Pass  3H    Pass  Pass
-Pass
+1D    Pass  1N    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "87"]
+[Board "86"]
 % 97142E7D63F5DC82CE2E877305A8
 [North "EPBot"]
 [East "EPBot"]
@@ -2200,7 +2171,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "88"]
+[Board "87"]
 % 9489480973E8019A96AD1A22E8F0
 [North "EPBot"]
 [East "EPBot"]
@@ -2225,7 +2196,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "89"]
+[Board "88"]
 % 964FA056EC63AD80129DC9DD467A
 [North "EPBot"]
 [East "EPBot"]
@@ -2250,7 +2221,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "90"]
+[Board "89"]
 % 97444158AB34EFC3951948A11937
 [North "EPBot"]
 [East "EPBot"]
@@ -2275,7 +2246,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "91"]
+[Board "90"]
 % 9440634244D9478C9F6EB1C732F4
 [North "EPBot"]
 [East "EPBot"]
@@ -2300,7 +2271,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "92"]
+[Board "91"]
 % 96E686741DB85675F2E2600C698F
 [North "EPBot"]
 [East "EPBot"]
@@ -2325,7 +2296,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "93"]
+[Board "92"]
 % 95444159EDC88AA93C770352CCA2
 [North "EPBot"]
 [East "EPBot"]
@@ -2350,7 +2321,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "94"]
+[Board "93"]
 % A4522278174C3DF84CABEA64F2B2
 [North "EPBot"]
 [East "EPBot"]
@@ -2375,7 +2346,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "95"]
+[Board "94"]
 % A68C5FC44415A19A0D96492D61F0
 [North "EPBot"]
 [East "EPBot"]
@@ -2388,19 +2359,18 @@ Pass  Pass
 {HCP 7 13 11 9}
 {Losers 9 7 8 7}
 [Declarer "E"]
-[Contract "3D"]
+[Contract "1D"]
 [Result "10"]
 [Score "NS -130"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "96"]
+[Board "95"]
 % A5D5445C6AB53093F49E2A4D4BE5
 [North "EPBot"]
 [East "EPBot"]
@@ -2425,7 +2395,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "97"]
+[Board "96"]
 % A75172049858E087B585DB5EE64A
 [North "EPBot"]
 [East "EPBot"]
@@ -2438,19 +2408,19 @@ Pass  Pass
 {HCP 8 12 11 9}
 {Losers 8 6 8 8}
 [Declarer "E"]
-[Contract "4S"]
+[Contract "2S"]
 [Result "10"]
-[Score "NS -620"]
+[Score "NS -170"]
 [Scoring "MP"]
 [Auction "E"]
-1S    Pass  3S    Pass
-4S    Pass  Pass  Pass
+1S    Pass  2S    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "98"]
+[Board "97"]
 % A6614BD14ABE78CC6D84F452614A
 [North "EPBot"]
 [East "EPBot"]
@@ -2475,7 +2445,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "99"]
+[Board "98"]
 % A5655658FA4CFE45148F2551F1AC
 [North "EPBot"]
 [East "EPBot"]
@@ -2500,7 +2470,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "100"]
+[Board "99"]
 % A4299AB841E301D7AC48523AF604
 [North "EPBot"]
 [East "EPBot"]
@@ -2525,7 +2495,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "101"]
+[Board "100"]
 % A55EB8C77278E56C37C942A6608B
 [North "EPBot"]
 [East "EPBot"]
@@ -2538,19 +2508,19 @@ Pass  Pass
 {HCP 9 12 10 9}
 {Losers 7 7 8 8}
 [Declarer "E"]
-[Contract "4S"]
+[Contract "2S"]
 [Result "9"]
-[Score "NS 100"]
+[Score "NS -140"]
 [Scoring "MP"]
 [Auction "E"]
-1S    Pass  3S    Pass
-4S    Pass  Pass  Pass
+1S    Pass  2S    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "102"]
+[Board "101"]
 % A65A7ED06C77896EBE3968D2C016
 [North "EPBot"]
 [East "EPBot"]
@@ -2581,7 +2551,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "103"]
+[Board "102"]
 % A466F31A4FD3553022618C9466C2
 [North "EPBot"]
 [East "EPBot"]
@@ -2606,7 +2576,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "104"]
+[Board "103"]
 % A5DEE76298655D520888F90E76BF
 [North "EPBot"]
 [East "EPBot"]
@@ -2631,7 +2601,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "105"]
+[Board "104"]
 % B684D64D288383CCFB36607D6F85
 [North "EPBot"]
 [East "EPBot"]
@@ -2657,7 +2627,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "106"]
+[Board "105"]
 % B5E15E221186159FF63469A990FF
 [North "EPBot"]
 [East "EPBot"]
@@ -2682,7 +2652,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "107"]
+[Board "106"]
 % B7966F02F562FB45927403BF68EA
 [North "EPBot"]
 [East "EPBot"]
@@ -2707,7 +2677,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "108"]
+[Board "107"]
 % B62F8F14A612C72974F699BCC01D
 [North "EPBot"]
 [East "EPBot"]
@@ -2732,7 +2702,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "109"]
+[Board "108"]
 % B5834128EC08C245747EFFA5495F
 [North "EPBot"]
 [East "EPBot"]
@@ -2757,7 +2727,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "110"]
+[Board "109"]
 % B7DBEB2CAB314C1B85C75D31A500
 [North "EPBot"]
 [East "EPBot"]
@@ -2782,7 +2752,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "111"]
+[Board "110"]
 % B71C65015C1264A1CD0BAEF41976
 [North "EPBot"]
 [East "EPBot"]
@@ -2807,7 +2777,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "112"]
+[Board "111"]
 % B666B6EE5FC8301EF31196A845AD
 [North "EPBot"]
 [East "EPBot"]
@@ -2832,7 +2802,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "113"]
+[Board "112"]
 % B54BCC5028B97E92032D2DBAC6D3
 [North "EPBot"]
 [East "EPBot"]
@@ -2857,7 +2827,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "114"]
+[Board "113"]
 % C410178315CEA739F169182C416C
 [North "EPBot"]
 [East "EPBot"]
@@ -2869,20 +2839,20 @@ Pass  Pass
 {Shape 6331 3433 2434 2245}
 {HCP 10 13 10 7}
 {Losers 7 8 9 8}
-[Declarer "N"]
-[Contract "3S"]
-[Result "9"]
-[Score "NS 140"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "8"]
+[Score "NS 50"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  3C    3S
-Pass  Pass  Pass
+1C    Pass  3C    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "115"]
+[Board "114"]
 % C5D7AED73DB7E05580CC1DF2D621
 [North "EPBot"]
 [East "EPBot"]
@@ -2907,7 +2877,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "116"]
+[Board "115"]
 % C77BA953A246E5E93052544BC93C
 [North "EPBot"]
 [East "EPBot"]
@@ -2932,7 +2902,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "117"]
+[Board "116"]
 % C57F453E4CC9875650EBB06AF4BE
 [North "EPBot"]
 [East "EPBot"]
@@ -2945,19 +2915,19 @@ Pass  Pass
 {HCP 11 12 8 9}
 {Losers 7 7 9 8}
 [Declarer "E"]
-[Contract "4S"]
+[Contract "2S"]
 [Result "11"]
-[Score "NS -650"]
+[Score "NS -200"]
 [Scoring "MP"]
 [Auction "E"]
-1S    Pass  3S    Pass
-4S    Pass  Pass  Pass
+1S    Pass  2S    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "118"]
+[Board "117"]
 % C7729A672CE15071FE1EBC8AC945
 [North "EPBot"]
 [East "EPBot"]
@@ -2983,7 +2953,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "119"]
+[Board "118"]
 % C4204BBB096D4F40B02D3DE7D59C
 [North "EPBot"]
 [East "EPBot"]
@@ -3008,7 +2978,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "120"]
+[Board "119"]
 % C74C2CFAFF018D12675517A4C2B2
 [North "EPBot"]
 [East "EPBot"]
@@ -3033,7 +3003,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "121"]
+[Board "120"]
 % C47C554C55E12DD73DCCA6538F10
 [North "EPBot"]
 [East "EPBot"]
@@ -3058,7 +3028,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "122"]
+[Board "121"]
 % C6145909A1035308F6EC7583FD68
 [North "EPBot"]
 [East "EPBot"]
@@ -3070,20 +3040,20 @@ Pass  Pass
 {Shape 4441 4333 2344 3325}
 {HCP 9 14 11 6}
 {Losers 7 8 8 9}
-[Declarer "W"]
-[Contract "1N"]
-[Result "7"]
-[Score "NS -90"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "9"]
+[Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  1N    Pass
+1C    Pass  3C    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "123"]
+[Board "122"]
 % C66AF655E015716803EC198ABE5E
 [North "EPBot"]
 [East "EPBot"]
@@ -3108,7 +3078,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "124"]
+[Board "123"]
 % C54D6A77664FE7BC8375AE7ACBF4
 [North "EPBot"]
 [East "EPBot"]
@@ -3133,7 +3103,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "125"]
+[Board "124"]
 % D63393E5691C94D1E211BBD62ABE
 [North "EPBot"]
 [East "EPBot"]
@@ -3158,7 +3128,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "126"]
+[Board "125"]
 % D55A32AD60567C873872C56FF8CE
 [North "EPBot"]
 [East "EPBot"]
@@ -3183,7 +3153,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "127"]
+[Board "126"]
 % D742E75869F544B472888FD27E2B
 [North "EPBot"]
 [East "EPBot"]
@@ -3208,7 +3178,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "128"]
+[Board "127"]
 % D6073BF4A90D0A7F6D1D215398A3
 [North "EPBot"]
 [East "EPBot"]
@@ -3233,7 +3203,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "129"]
+[Board "128"]
 % D5A772C0D1A9155DA7880F3518CF
 [North "EPBot"]
 [East "EPBot"]
@@ -3258,7 +3228,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "130"]
+[Board "129"]
 % D79B3857A9EA2E55F2844B71C07C
 [North "EPBot"]
 [East "EPBot"]
@@ -3283,7 +3253,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "131"]
+[Board "130"]
 % D4CA57E0367763B372BC8F5DCC86
 [North "EPBot"]
 [East "EPBot"]
@@ -3308,7 +3278,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "132"]
+[Board "131"]
 % D45CC2637CB4D442B36712BECD47
 [North "EPBot"]
 [East "EPBot"]
@@ -3333,7 +3303,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "133"]
+[Board "132"]
 % D438196FEE7518029BA6800174D1
 [North "EPBot"]
 [East "EPBot"]
@@ -3358,7 +3328,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "134"]
+[Board "133"]
 % D62576252ACCFA9E34AF4385CC97
 [North "EPBot"]
 [East "EPBot"]
@@ -3383,7 +3353,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "135"]
+[Board "134"]
 % D51FA94278825AA1D10DF82F463C
 [North "EPBot"]
 [East "EPBot"]
@@ -3408,7 +3378,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "136"]
+[Board "135"]
 % E48D58607EE293474C8FA2F0F67A
 [North "EPBot"]
 [East "EPBot"]
@@ -3433,7 +3403,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "137"]
+[Board "136"]
 % E625454AE44405DE5EBAEC3D881B
 [North "EPBot"]
 [East "EPBot"]
@@ -3458,7 +3428,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "138"]
+[Board "137"]
 % E5695647BE7C7590B5D1BEC082CE
 [North "EPBot"]
 [East "EPBot"]
@@ -3483,7 +3453,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "139"]
+[Board "138"]
 % E691D3DB22C60858ABFDC8D7B2F3
 [North "EPBot"]
 [East "EPBot"]
@@ -3509,7 +3479,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "140"]
+[Board "139"]
 % E79B6549B2E40B7E506CC2B94EF4
 [North "EPBot"]
 [East "EPBot"]
@@ -3534,7 +3504,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "141"]
+[Board "140"]
 % E45AC08664B1EC7A363EB9594BEC
 [North "EPBot"]
 [East "EPBot"]
@@ -3559,7 +3529,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "142"]
+[Board "141"]
 % E5BE9372CAAA204D99C5744454FF
 [North "EPBot"]
 [East "EPBot"]
@@ -3584,7 +3554,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "143"]
+[Board "142"]
 % E45DD42D9FD62CBFF8CE2269B7D3
 [North "EPBot"]
 [East "EPBot"]
@@ -3609,7 +3579,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "144"]
+[Board "143"]
 % E71BD3F8F28BA104D19D7F288BD9
 [North "EPBot"]
 [East "EPBot"]
@@ -3638,7 +3608,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "145"]
+[Board "144"]
 % E64BCE58FECD8964B3614B142134
 [North "EPBot"]
 [East "EPBot"]
@@ -3663,7 +3633,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "146"]
+[Board "145"]
 % E58E5B7E2B7A5EA46DF4B6C0F103
 [North "EPBot"]
 [East "EPBot"]
@@ -3688,7 +3658,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "147"]
+[Board "146"]
 % F69A4F61C3F171A44975C63A98A6
 [North "EPBot"]
 [East "EPBot"]
@@ -3713,7 +3683,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "148"]
+[Board "147"]
 % F57457FECC05DDD0D5279CA26B3A
 [North "EPBot"]
 [East "EPBot"]
@@ -3738,7 +3708,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "149"]
+[Board "148"]
 % F4755E4443966BAF72F1CE9CB4C2
 [North "EPBot"]
 [East "EPBot"]
@@ -3763,7 +3733,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "150"]
+[Board "149"]
 % F5927D8218355B402A89F3ADCC1E
 [North "EPBot"]
 [East "EPBot"]
@@ -3788,7 +3758,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "151"]
+[Board "150"]
 % F717933AE2A618C5B7238D5D2D3C
 [North "EPBot"]
 [East "EPBot"]
@@ -3801,20 +3771,20 @@ Pass  Pass
 {HCP 11 14 8 7}
 {Losers 7 6 9 9}
 [Declarer "N"]
-[Contract "4SX"]
+[Contract "3S"]
 [Result "8"]
-[Score "NS -500"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    2S
-3C    4S    X     Pass
-Pass  Pass
+3C    3S    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "152"]
+[Board "151"]
 % F418B51A6384E271093C155E6523
 [North "EPBot"]
 [East "EPBot"]
@@ -3841,7 +3811,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "153"]
+[Board "152"]
 % F75B24C96DB03F6D83E81455C10A
 [North "EPBot"]
 [East "EPBot"]
@@ -3866,7 +3836,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "154"]
+[Board "153"]
 % F610E7197F06A095FD0CF6238B6C
 [North "EPBot"]
 [East "EPBot"]
@@ -3892,7 +3862,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "155"]
+[Board "154"]
 % F503BB1C396D1C839D19A6CAF693
 [North "EPBot"]
 [East "EPBot"]
@@ -3917,7 +3887,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "156"]
+[Board "155"]
 % 049D19EF18F589EE76DCBF1FE440
 [North "EPBot"]
 [East "EPBot"]
@@ -3942,7 +3912,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "157"]
+[Board "156"]
 % 064B1CC1EF494EAC5EB548760BE0
 [North "EPBot"]
 [East "EPBot"]
@@ -3967,7 +3937,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "158"]
+[Board "157"]
 % 076DCC42B69CC4697159FA82BC1B
 [North "EPBot"]
 [East "EPBot"]
@@ -3992,7 +3962,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "159"]
+[Board "158"]
 % 05332C9B011CD9F6D3688A312C82
 [North "EPBot"]
 [East "EPBot"]
@@ -4018,7 +3988,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "160"]
+[Board "159"]
 % 07441D8CD7844D89C952EE23A479
 [North "EPBot"]
 [East "EPBot"]
@@ -4030,20 +4000,21 @@ Pass
 {Shape 2632 4342 4324 3145}
 {HCP 9 14 8 9}
 {Losers 7 7 8 8}
-[Declarer "E"]
-[Contract "3D"]
-[Result "10"]
-[Score "NS -130"]
+[Declarer "N"]
+[Contract "2H"]
+[Result "9"]
+[Score "NS 140"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  1H
+1S    2H    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "161"]
+[Board "160"]
 % 045DB82CDD18137EE58C91F766CA
 [North "EPBot"]
 [East "EPBot"]
@@ -4068,7 +4039,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "162"]
+[Board "161"]
 % 041693D15E271DBF62F4E4BED01A
 [North "EPBot"]
 [East "EPBot"]
@@ -4093,7 +4064,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "163"]
+[Board "162"]
 % 040919A8D5233BCFA5DC22039265
 [North "EPBot"]
 [East "EPBot"]
@@ -4105,20 +4076,22 @@ Pass  Pass
 {Shape 6322 1444 3532 3145}
 {HCP 11 13 7 9}
 {Losers 7 6 9 8}
-[Declarer "E"]
-[Contract "4D"]
-[Result "11"]
-[Score "NS -150"]
+[Declarer "N"]
+[Contract "2S"]
+[Result "8"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    3S
-4D    Pass  Pass  Pass
+1D    Pass  Pass  1S
+X     Pass  2C    Pass
+Pass  2S    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "164"]
+[Board "163"]
 % 0690F65033C324ED51B58029994F
 [North "EPBot"]
 [East "EPBot"]
@@ -4130,20 +4103,20 @@ Pass  Pass
 {Shape 3361 3433 4324 3325}
 {HCP 11 12 10 7}
 {Losers 8 8 8 9}
-[Declarer "E"]
-[Contract "3C"]
-[Result "8"]
-[Score "NS 50"]
+[Declarer "N"]
+[Contract "3D"]
+[Result "9"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  3C    Pass
-Pass  Pass
+1C    Pass  3C    3D
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "165"]
+[Board "164"]
 % 05659FCA91A5F076F54EA34C314E
 [North "EPBot"]
 [East "EPBot"]
@@ -4168,7 +4141,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "166"]
+[Board "165"]
 % 16AF4BC2C7A0765CD5B14A79A03E
 [North "EPBot"]
 [East "EPBot"]
@@ -4193,7 +4166,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "167"]
+[Board "166"]
 % 159B0D6662779C8140F5F88E76EB
 [North "EPBot"]
 [East "EPBot"]
@@ -4218,7 +4191,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "168"]
+[Board "167"]
 % 1740554409DD465D8E18A8F1E7A2
 [North "EPBot"]
 [East "EPBot"]
@@ -4243,7 +4216,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "169"]
+[Board "168"]
 % 17987B72D8A53B437DC156CC28B2
 [North "EPBot"]
 [East "EPBot"]
@@ -4268,7 +4241,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "170"]
+[Board "169"]
 % 14A95EC7FE8F6D80C03662A95157
 [North "EPBot"]
 [East "EPBot"]
@@ -4293,7 +4266,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "171"]
+[Board "170"]
 % 171FB2854DAECD1CE7144AB16126
 [North "EPBot"]
 [East "EPBot"]
@@ -4319,7 +4292,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "172"]
+[Board "171"]
 % 149FFD5E642FC995F89CCAFA9C21
 [North "EPBot"]
 [East "EPBot"]
@@ -4344,7 +4317,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "173"]
+[Board "172"]
 % 1503788FE441D94AA5A5821872DC
 [North "EPBot"]
 [East "EPBot"]
@@ -4369,7 +4342,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "174"]
+[Board "173"]
 % 2425571D11F06CE54FC987103AAA
 [North "EPBot"]
 [East "EPBot"]
@@ -4394,7 +4367,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "175"]
+[Board "174"]
 % 26967E912AE423CA7D48079D5EE9
 [North "EPBot"]
 [East "EPBot"]
@@ -4419,7 +4392,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "176"]
+[Board "175"]
 % 2511182C663449AC12DD4933B94F
 [North "EPBot"]
 [East "EPBot"]
@@ -4445,7 +4418,7 @@ Pass  Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "177"]
+[Board "176"]
 % 27C76843BC2DF1A669C63C487F42
 [North "EPBot"]
 [East "EPBot"]
@@ -4470,7 +4443,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "178"]
+[Board "177"]
 % 2592217A28E1FB9F830E600E39CF
 [North "EPBot"]
 [East "EPBot"]
@@ -4498,7 +4471,7 @@ Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "179"]
+[Board "178"]
 % 276B74193BD06BA16FF2499508C1
 [North "EPBot"]
 [East "EPBot"]
@@ -4511,19 +4484,19 @@ Pass
 {HCP 10 14 7 9}
 {Losers 7 6 9 8}
 [Declarer "E"]
-[Contract "4S"]
+[Contract "2S"]
 [Result "9"]
-[Score "NS 100"]
+[Score "NS -140"]
 [Scoring "MP"]
 [Auction "E"]
-1S    Pass  3S    Pass
-4S    Pass  Pass  Pass
+1S    Pass  2S    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "180"]
+[Board "179"]
 % 251F2AD1319E26B7AB578B09ED6D
 [North "EPBot"]
 [East "EPBot"]
@@ -4548,7 +4521,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "181"]
+[Board "180"]
 % 24436CED1A85DF103901A34C9164
 [North "EPBot"]
 [East "EPBot"]
@@ -4573,7 +4546,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "182"]
+[Board "181"]
 % 270C513D7E972CC8041972E7A325
 [North "EPBot"]
 [East "EPBot"]
@@ -4598,7 +4571,7 @@ Pass  Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "183"]
+[Board "182"]
 % 246BB2CE52AF65FC2EC873837088
 [North "EPBot"]
 [East "EPBot"]
@@ -4623,7 +4596,7 @@ Pass  Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "184"]
+[Board "183"]
 % 2650EB4D40259D28840FD19D336E
 [North "EPBot"]
 [East "EPBot"]
@@ -4648,7 +4621,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "185"]
+[Board "184"]
 % 344F7441852949A6C26DF668DB3C
 [North "EPBot"]
 [East "EPBot"]
@@ -4673,7 +4646,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "186"]
+[Board "185"]
 % 368B1F4931041DE120B064DD4B9F
 [North "EPBot"]
 [East "EPBot"]
@@ -4698,7 +4671,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "187"]
+[Board "186"]
 % 36E37A53217CB84FE4AB12C25C3D
 [North "EPBot"]
 [East "EPBot"]
@@ -4723,7 +4696,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "188"]
+[Board "187"]
 % 35C384EF71399B344C81045AE2AB
 [North "EPBot"]
 [East "EPBot"]
@@ -4748,7 +4721,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "189"]
+[Board "188"]
 % 378F15CE6005936975938EE5C89A
 [North "EPBot"]
 [East "EPBot"]
@@ -4773,7 +4746,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "190"]
+[Board "189"]
 % 349C1BE1D2A1052D587D07C744BF
 [North "EPBot"]
 [East "EPBot"]
@@ -4798,7 +4771,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "191"]
+[Board "190"]
 % 3510CEFB62E9A91187BE184C3E43
 [North "EPBot"]
 [East "EPBot"]
@@ -4823,7 +4796,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "192"]
+[Board "191"]
 % 341BA12D0D113562628879154498
 [North "EPBot"]
 [East "EPBot"]
@@ -4835,20 +4808,20 @@ Pass  Pass
 {Shape 6322 4441 3433 0247}
 {HCP 11 12 8 9}
 {Losers 8 7 9 5}
-[Declarer "E"]
-[Contract "3D"]
+[Declarer "W"]
+[Contract "6C"]
 [Result "11"]
-[Score "NS -150"]
+[Score "NS 50"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
+1D    Pass  6C    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "193"]
+[Board "192"]
 % 36458369CCD968758F73061EA0FA
 [North "EPBot"]
 [East "EPBot"]
@@ -4873,7 +4846,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "194"]
+[Board "193"]
 % 35914A22B02F5E8B01118DF868F6
 [North "EPBot"]
 [East "EPBot"]
@@ -4899,7 +4872,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "195"]
+[Board "194"]
 % 444710DCE5F54A817EAE5D40B69B
 [North "EPBot"]
 [East "EPBot"]
@@ -4924,7 +4897,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "196"]
+[Board "195"]
 % 4687B72DFA1AD92D845CE9934E06
 [North "EPBot"]
 [East "EPBot"]
@@ -4949,7 +4922,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "197"]
+[Board "196"]
 % 4596C369BB64464FA9F87E42E034
 [North "EPBot"]
 [East "EPBot"]
@@ -4974,7 +4947,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "198"]
+[Board "197"]
 % 4729BB5FDFD019C1F63188926CEA
 [North "EPBot"]
 [East "EPBot"]
@@ -4999,7 +4972,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "199"]
+[Board "198"]
 % 467A1C5A4CAC9A7DEAE163423ED7
 [North "EPBot"]
 [East "EPBot"]
@@ -5024,7 +4997,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "200"]
+[Board "199"]
 % 45752750BF1EE1866585EB385CC1
 [North "EPBot"]
 [East "EPBot"]
@@ -5049,7 +5022,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "201"]
+[Board "200"]
 % 47996B3D1D92D9E1B9F0178AA24F
 [North "EPBot"]
 [East "EPBot"]
@@ -5074,7 +5047,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "202"]
+[Board "201"]
 % 44835AA5C678B90226D71009F02B
 [North "EPBot"]
 [East "EPBot"]
@@ -5099,7 +5072,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "203"]
+[Board "202"]
 % 466ED6A59BB236042DC70DDF49A8
 [North "EPBot"]
 [East "EPBot"]
@@ -5125,7 +5098,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "204"]
+[Board "203"]
 % 54FA945ACAA920B51955F08E5EC6
 [North "EPBot"]
 [East "EPBot"]
@@ -5150,7 +5123,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "205"]
+[Board "204"]
 % 555ABEC75C0ADF73A8C525AE7269
 [North "EPBot"]
 [East "EPBot"]
@@ -5175,7 +5148,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "206"]
+[Board "205"]
 % 56DAD72A71E2EC1A10BA779FCEAF
 [North "EPBot"]
 [East "EPBot"]
@@ -5200,7 +5173,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "207"]
+[Board "206"]
 % 5643AD4B7AEE204E8CDF23C9745C
 [North "EPBot"]
 [East "EPBot"]
@@ -5225,7 +5198,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "208"]
+[Board "207"]
 % 576EB2D7D7B9DF962882164334E2
 [North "EPBot"]
 [East "EPBot"]
@@ -5250,7 +5223,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "209"]
+[Board "208"]
 % 552910631A4B7EA578140D8DB5E3
 [North "EPBot"]
 [East "EPBot"]
@@ -5275,7 +5248,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "210"]
+[Board "209"]
 % 654861CF1762B9E9820C432D89B2
 [North "EPBot"]
 [East "EPBot"]
@@ -5293,14 +5266,15 @@ Pass  Pass
 [Score "NS -130"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
+1D    Pass  1N    Pass
+2D    Pass  3D    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "211"]
+[Board "210"]
 % 669113DCDB39F216AB79E180638F
 [North "EPBot"]
 [East "EPBot"]
@@ -5325,7 +5299,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "212"]
+[Board "211"]
 % 654B1089E6528961C19924CD4C2F
 [North "EPBot"]
 [East "EPBot"]
@@ -5337,20 +5311,21 @@ Pass  Pass
 {Shape 3622 4342 3433 3046}
 {HCP 11 14 6 9}
 {Losers 7 7 10 6}
-[Declarer "E"]
-[Contract "3D"]
-[Result "9"]
-[Score "NS -110"]
+[Declarer "N"]
+[Contract "2H"]
+[Result "8"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  1H
+1S    2H    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "213"]
+[Board "212"]
 % 644BE5BEC8EA598D426DBD7E64B8
 [North "EPBot"]
 [East "EPBot"]
@@ -5375,7 +5350,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "214"]
+[Board "213"]
 % 66E372DB18C8F61E88A5A117F3D1
 [North "EPBot"]
 [East "EPBot"]
@@ -5400,7 +5375,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "215"]
+[Board "214"]
 % 65665A7DBC9CEAC961837787CD16
 [North "EPBot"]
 [East "EPBot"]
@@ -5425,7 +5400,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "216"]
+[Board "215"]
 % 7592ED1A424BF1A4913E28E28954
 [North "EPBot"]
 [East "EPBot"]
@@ -5450,7 +5425,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "217"]
+[Board "216"]
 % 775AB366C06AFFBA847FE9454CB2
 [North "EPBot"]
 [East "EPBot"]
@@ -5475,7 +5450,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "218"]
+[Board "217"]
 % 76185D0B832D35E4792CD21443B9
 [North "EPBot"]
 [East "EPBot"]
@@ -5487,21 +5462,20 @@ Pass  Pass
 {Shape 6331 3433 2344 2335}
 {HCP 10 13 11 6}
 {Losers 7 8 8 9}
-[Declarer "N"]
-[Contract "4SX"]
-[Result "9"]
-[Score "NS -200"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "8"]
+[Score "NS 50"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  1N    2S
-Pass  4S    Pass  Pass
-X     Pass  Pass  Pass
+1C    Pass  3C    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "219"]
+[Board "218"]
 % 741AB5DB25837B60B68D4221C618
 [North "EPBot"]
 [East "EPBot"]
@@ -5526,7 +5500,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "220"]
+[Board "219"]
 % 77C49F404DE37A35A6CC794B12A1
 [North "EPBot"]
 [East "EPBot"]
@@ -5551,7 +5525,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "221"]
+[Board "220"]
 % 777DA21B113EED59D1F41AAB8264
 [North "EPBot"]
 [East "EPBot"]
@@ -5576,7 +5550,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "222"]
+[Board "221"]
 % 748D5354ED761E5985A583EAF24C
 [North "EPBot"]
 [East "EPBot"]
@@ -5601,7 +5575,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "223"]
+[Board "222"]
 % 7649709567427166FAC9EEB1AB04
 [North "EPBot"]
 [East "EPBot"]
@@ -5626,7 +5600,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "224"]
+[Board "223"]
 % 84EF455D1FA147DD3334B6CDA89F
 [North "EPBot"]
 [East "EPBot"]
@@ -5651,7 +5625,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "225"]
+[Board "224"]
 % 8617B039390D66E90F545C248EDA
 [North "EPBot"]
 [East "EPBot"]
@@ -5664,21 +5638,20 @@ Pass  Pass
 {HCP 10 12 9 9}
 {Losers 8 8 8 8}
 [Declarer "E"]
-[Contract "4D"]
-[Result "8"]
+[Contract "3H"]
+[Result "7"]
 [Score "NS 100"]
 [Scoring "MP"]
 [Auction "E"]
 1D    Pass  1N    2S
 Pass  Pass  X     Pass
-3H    3S    4D    Pass
-Pass  Pass
+3H    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "226"]
+[Board "225"]
 % 851FE81145BF99A542240A6C7119
 [North "EPBot"]
 [East "EPBot"]
@@ -5691,19 +5664,18 @@ Pass  Pass
 {HCP 8 13 10 9}
 {Losers 9 7 9 7}
 [Declarer "E"]
-[Contract "3D"]
+[Contract "1D"]
 [Result "8"]
-[Score "NS 100"]
+[Score "NS -90"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "227"]
+[Board "226"]
 % 872D13FA97056FADCF8630ACD43A
 [North "EPBot"]
 [East "EPBot"]
@@ -5729,7 +5701,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "228"]
+[Board "227"]
 % 844A62B7F37A0D68A866F0751CCE
 [North "EPBot"]
 [East "EPBot"]
@@ -5754,7 +5726,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "229"]
+[Board "228"]
 % 85C05CC55F8162A59A3C4A4831E5
 [North "EPBot"]
 [East "EPBot"]
@@ -5768,8 +5740,8 @@ Pass  Pass
 {Losers 8 7 9 8}
 [Declarer "E"]
 [Contract "2S"]
-[Result "10"]
-[Score "NS -170"]
+[Result "9"]
+[Score "NS -140"]
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  2S    Pass
@@ -5779,7 +5751,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "230"]
+[Board "229"]
 % 876ED11604417D0DE6AC4A3493B3
 [North "EPBot"]
 [East "EPBot"]
@@ -5804,7 +5776,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "231"]
+[Board "230"]
 % 864572A8BB5A4DA912B175E7C2C4
 [North "EPBot"]
 [East "EPBot"]
@@ -5829,7 +5801,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "232"]
+[Board "231"]
 % 8795036B11C0399878CE77A51D40
 [North "EPBot"]
 [East "EPBot"]
@@ -5854,7 +5826,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "233"]
+[Board "232"]
 % 84454762FADC6C82B07CBF9146DA
 [North "EPBot"]
 [East "EPBot"]
@@ -5879,7 +5851,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "234"]
+[Board "233"]
 % 85C4514FED098334AA70A92BC693
 [North "EPBot"]
 [East "EPBot"]
@@ -5904,7 +5876,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "235"]
+[Board "234"]
 % 963F0467A525901C9DF60AD18D2B
 [North "EPBot"]
 [East "EPBot"]
@@ -5917,19 +5889,21 @@ Pass  Pass
 {HCP 10 14 7 9}
 {Losers 7 6 9 8}
 [Declarer "E"]
-[Contract "3D"]
+[Contract "4D"]
 [Result "11"]
 [Score "NS -150"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
+1D    Pass  1N    2S
+X     Pass  3C    Pass
+Pass  3S    4D    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "236"]
+[Board "235"]
 % 959D456759392FC487F9802C500B
 [North "EPBot"]
 [East "EPBot"]
@@ -5954,7 +5928,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "237"]
+[Board "236"]
 % 978F148CFDA0D767F244895D092A
 [North "EPBot"]
 [East "EPBot"]
@@ -5979,7 +5953,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "238"]
+[Board "237"]
 % 96817760D1F19D8DE73A67285A82
 [North "EPBot"]
 [East "EPBot"]
@@ -6004,7 +5978,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "239"]
+[Board "238"]
 % 971E91847BAF5534280751A5C948
 [North "EPBot"]
 [East "EPBot"]
@@ -6016,21 +5990,20 @@ Pass  Pass
 {Shape 4441 4423 4324 1255}
 {HCP 11 13 10 6}
 {Losers 7 8 7 7}
-[Declarer "N"]
-[Contract "2S"]
-[Result "9"]
-[Score "NS 140"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "8"]
+[Score "NS 100"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  Pass  X
-1H    X     2C    2S
-Pass  Pass  Pass
+1C    Pass  3C    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "240"]
+[Board "239"]
 % 940B8163777ECF942CE081456AFA
 [North "EPBot"]
 [East "EPBot"]
@@ -6055,7 +6028,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "241"]
+[Board "240"]
 % 944985D886D673E571BC625E1F8C
 [North "EPBot"]
 [East "EPBot"]
@@ -6080,7 +6053,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "242"]
+[Board "241"]
 % 94445D4D719919C6C668A7CD21AA
 [North "EPBot"]
 [East "EPBot"]
@@ -6105,7 +6078,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "243"]
+[Board "242"]
 % 95D6BFD254488DBBF4DD2C4A57CE
 [North "EPBot"]
 [East "EPBot"]
@@ -6130,7 +6103,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "244"]
+[Board "243"]
 % A4BA63622F9DC7D682D45472319E
 [North "EPBot"]
 [East "EPBot"]
@@ -6155,7 +6128,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "245"]
+[Board "244"]
 % A65EA05E65CDB67712EAADB4C608
 [North "EPBot"]
 [East "EPBot"]
@@ -6180,7 +6153,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "246"]
+[Board "245"]
 % A51F69341BD523BA94BA64CA9F6A
 [North "EPBot"]
 [East "EPBot"]
@@ -6205,7 +6178,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "247"]
+[Board "246"]
 % A6B614799E2901A7DA0E6D474CF8
 [North "EPBot"]
 [East "EPBot"]
@@ -6230,7 +6203,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "248"]
+[Board "247"]
 % A52B7F467DC860B0858ADAE7645A
 [North "EPBot"]
 [East "EPBot"]
@@ -6255,7 +6228,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "249"]
+[Board "248"]
 % A4371A91A9CA2B610A42C4A994F2
 [North "EPBot"]
 [East "EPBot"]
@@ -6281,7 +6254,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "250"]
+[Board "249"]
 % A74310C5BB8875AF18815DE73912
 [North "EPBot"]
 [East "EPBot"]
@@ -6306,7 +6279,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "251"]
+[Board "250"]
 % A6DA3466D7388905768E4DAD284F
 [North "EPBot"]
 [East "EPBot"]
@@ -6332,7 +6305,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "252"]
+[Board "251"]
 % A4ED9B4C145E5DBE2087F1D24475
 [North "EPBot"]
 [East "EPBot"]
@@ -6357,7 +6330,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "253"]
+[Board "252"]
 % A5101D78BAA623055BADF0D6194C
 [North "EPBot"]
 [East "EPBot"]
@@ -6382,7 +6355,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "254"]
+[Board "253"]
 % B41A29B4F75349AEA00ED128C315
 [North "EPBot"]
 [East "EPBot"]
@@ -6407,7 +6380,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "255"]
+[Board "254"]
 % B54F48BD43FC749709FD508A22E6
 [North "EPBot"]
 [East "EPBot"]
@@ -6432,7 +6405,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "256"]
+[Board "255"]
 % B7438DE9AE4D900513D5C6284497
 [North "EPBot"]
 [East "EPBot"]
@@ -6457,7 +6430,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "257"]
+[Board "256"]
 % B6905D62F34BA8EEF410718F4D1A
 [North "EPBot"]
 [East "EPBot"]
@@ -6482,7 +6455,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "258"]
+[Board "257"]
 % B4BA1658F999AB460510C2A0FE62
 [North "EPBot"]
 [East "EPBot"]
@@ -6508,7 +6481,7 @@ X     Pass  2D    Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "259"]
+[Board "258"]
 % B54183290855D5BF26AFDDEB940B
 [North "EPBot"]
 [East "EPBot"]
@@ -6533,7 +6506,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "260"]
+[Board "259"]
 % B70D64C35BB8B802C3ADF9111D54
 [North "EPBot"]
 [East "EPBot"]
@@ -6558,7 +6531,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "261"]
+[Board "260"]
 % B687895D4D9EE107709B381D6030
 [North "EPBot"]
 [East "EPBot"]
@@ -6583,7 +6556,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "262"]
+[Board "261"]
 % B4632A893AE9C78AA23BBD14D040
 [North "EPBot"]
 [East "EPBot"]
@@ -6608,7 +6581,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "263"]
+[Board "262"]
 % B6516389316ABAC4F9F6A3407514
 [North "EPBot"]
 [East "EPBot"]
@@ -6633,7 +6606,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "264"]
+[Board "263"]
 % B5457F9459A4DC1F14F9CEFE8755
 [North "EPBot"]
 [East "EPBot"]
@@ -6661,7 +6634,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "265"]
+[Board "264"]
 % C61F3B4CA6320455AE2461C5DCF8
 [North "EPBot"]
 [East "EPBot"]
@@ -6674,19 +6647,19 @@ Pass  Pass
 {HCP 10 14 7 9}
 {Losers 8 7 8 9}
 [Declarer "E"]
-[Contract "3D"]
+[Contract "2D"]
 [Result "9"]
 [Score "NS -110"]
 [Scoring "MP"]
 [Auction "E"]
-1D    Pass  3D    Pass
-Pass  Pass
+1D    Pass  1N    Pass
+2D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "266"]
+[Board "265"]
 % C7BB58CBB5286560DFE24C397216
 [North "EPBot"]
 [East "EPBot"]
@@ -6711,7 +6684,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "267"]
+[Board "266"]
 % C79B79A96451BFA8F4E701190E4B
 [North "EPBot"]
 [East "EPBot"]
@@ -6736,7 +6709,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "268"]
+[Board "267"]
 % C47A08752388AB45A1D2D60702F7
 [North "EPBot"]
 [East "EPBot"]
@@ -6756,14 +6729,14 @@ Pass  Pass
 [Auction "E"]
 1D    Pass  1N    Pass
 2C    Pass  2D    X
-Pass  2H    3D    Pass
+Pass  2S    3D    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "269"]
+[Board "268"]
 % C5112B1C0963A75D75D84A3C85AA
 [North "EPBot"]
 [East "EPBot"]
@@ -6788,7 +6761,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "270"]
+[Board "269"]
 % C6B370E706A865A751F94E7900F2
 [North "EPBot"]
 [East "EPBot"]
@@ -6813,7 +6786,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "271"]
+[Board "270"]
 % C758617AF99EC8713B2069B412DF
 [North "EPBot"]
 [East "EPBot"]
@@ -6838,7 +6811,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "272"]
+[Board "271"]
 % C6DA666DC79D2ECB6B42BC30BA5E
 [North "EPBot"]
 [East "EPBot"]
@@ -6863,7 +6836,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "273"]
+[Board "272"]
 % D6762E98D5356A4673E2888F69F1
 [North "EPBot"]
 [East "EPBot"]
@@ -6888,7 +6861,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "274"]
+[Board "273"]
 % D787419E61C22ABDC437474768EC
 [North "EPBot"]
 [East "EPBot"]
@@ -6913,7 +6886,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "275"]
+[Board "274"]
 % D44CF7965F4F657287EDB2C1A05E
 [North "EPBot"]
 [East "EPBot"]
@@ -6938,7 +6911,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "276"]
+[Board "275"]
 % D5417F058CD67182A97C64DACF18
 [North "EPBot"]
 [East "EPBot"]
@@ -6963,7 +6936,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "277"]
+[Board "276"]
 % D76BBEEBC91B7C327C55A06108C5
 [North "EPBot"]
 [East "EPBot"]
@@ -6988,7 +6961,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "278"]
+[Board "277"]
 % D7CF41286746BBB73C32CE64E04D
 [North "EPBot"]
 [East "EPBot"]
@@ -7013,7 +6986,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "279"]
+[Board "278"]
 % D492DABE574A3121E4B2266D935C
 [North "EPBot"]
 [East "EPBot"]
@@ -7038,7 +7011,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "280"]
+[Board "279"]
 % D6366C56D9D9EE05680D604A6E9E
 [North "EPBot"]
 [East "EPBot"]
@@ -7063,7 +7036,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "281"]
+[Board "280"]
 % D572DCA675916C22412A4688D9FF
 [North "EPBot"]
 [East "EPBot"]
@@ -7088,7 +7061,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "282"]
+[Board "281"]
 % E6B61699BDC46D04660FF8459E20
 [North "EPBot"]
 [East "EPBot"]
@@ -7114,7 +7087,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "283"]
+[Board "282"]
 % E59F4845C764EABCFB4ABE365B6F
 [North "EPBot"]
 [East "EPBot"]
@@ -7133,15 +7106,13 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  2S    Pass
-4D =1=    Pass  4S    Pass
-Pass  Pass
-[Note "1:Splinter"]
+4S    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "284"]
+[Board "283"]
 % E4EA6A518CBA2785354100FB1A60
 [North "EPBot"]
 [East "EPBot"]
@@ -7167,7 +7138,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "285"]
+[Board "284"]
 % E562F2643FE973A800C6793E825C
 [North "EPBot"]
 [East "EPBot"]
@@ -7192,7 +7163,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "286"]
+[Board "285"]
 % E74EE7727876EE94A9879173EE0A
 [North "EPBot"]
 [East "EPBot"]
@@ -7217,7 +7188,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "287"]
+[Board "286"]
 % E483D88344F9A7057C4E36E3794C
 [North "EPBot"]
 [East "EPBot"]
@@ -7242,7 +7213,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "288"]
+[Board "287"]
 % E76C7AC796736648A6497AD1C460
 [North "EPBot"]
 [East "EPBot"]
@@ -7261,15 +7232,13 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "E"]
 1S    Pass  2S    Pass
-4D =1=    Pass  4S    Pass
-Pass  Pass
-[Note "1:Splinter"]
+4S    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "289"]
+[Board "288"]
 % E597E174B0D7869D6D29F7021A6D
 [North "EPBot"]
 [East "EPBot"]
@@ -7294,7 +7263,7 @@ Pass  Pass
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "290"]
+[Board "289"]
 % F4459A0791CA40E3148DBD6D1374
 [North "EPBot"]
 [East "EPBot"]
@@ -7306,20 +7275,20 @@ Pass  Pass
 {Shape 3532 4423 4243 2245}
 {HCP 11 13 10 6}
 {Losers 7 7 8 9}
-[Declarer "W"]
-[Contract "1N"]
-[Result "6"]
+[Declarer "E"]
+[Contract "3C"]
+[Result "8"]
 [Score "NS 50"]
 [Scoring "MP"]
 [Auction "E"]
-1C    Pass  1N    Pass
+1C    Pass  3C    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "OBAR_BIDS"]
 [Site ""]
-[Board "291"]
+[Board "290"]
 % F67E275A30CC7E54C99622E4A16D
 [North "EPBot"]
 [East "EPBot"]
