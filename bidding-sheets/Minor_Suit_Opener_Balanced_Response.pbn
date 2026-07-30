@@ -607,8 +607,15 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "N"]
 1C    Pass  1S    Pass
-2S    Pass  4S    Pass
-Pass  Pass
+2S    Pass  3C =1=    Pass
+3D =2=    Pass  3H =3=    Pass
+3N =4=    Pass  4H =5=    Pass
+4S    Pass  Pass  Pass
+[Note "1:Cue bid, a !C stopper"]
+[Note "2:Cue bid, a !D stopper"]
+[Note "3:Cue bid, a !H stopper"]
+[Note "4:surplus"]
+[Note "5:surplus"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -793,14 +800,14 @@ Pass  Pass
 {HCP 11 9 13 7}
 {Losers 8 10 8 9}
 [Declarer "N"]
-[Contract "2N"]
-[Result "8"]
-[Score "NS 120"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 400"]
 [Scoring "MP"]
 [Auction "S"]
 1C    Pass  1H    Pass
 1S    Pass  2N    Pass
-Pass  Pass
+3N    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1216,14 +1223,14 @@ Pass  Pass
 {HCP 18 5 13 4}
 {Losers 7 10 7 10}
 [Declarer "S"]
-[Contract "6N"]
+[Contract "3N"]
 [Result "11"]
-[Score "NS -100"]
+[Score "NS 660"]
 [Scoring "MP"]
 [Auction "S"]
 1C    Pass  1D    Pass
 1S    Pass  2H =1=    Pass
-2N    Pass  6N    Pass
+2N    Pass  3N    Pass
 Pass  Pass
 [Note "1:Fourth suit game force"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -1238,9 +1245,9 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "EW"]
-[Deal "N:K52.J5.KQ54.AJ73 JT9.Q872.T7.KT94 AQ73.AK4.A83.Q65 864.T963.J962.82"]
+[Deal "S:K52.J5.KQ54.AJ73 JT9.Q872.T7.KT94 AQ73.AK4.A83.Q65 864.T963.J962.82"]
 {Shape 4333 3442 3244 3424}
 {HCP 19 1 14 6}
 {Losers 6 11 7 9}
@@ -1249,11 +1256,15 @@ Pass  Pass
 [Result "13"]
 [Score "NS 1020"]
 [Scoring "MP"]
-[Auction "N"]
+[Auction "S"]
 1D    Pass  1S    Pass
-1N    Pass  4N =1=    Pass
-6N    Pass  Pass  Pass
-[Note "1:Quantitative 4NT"]
+2C    Pass  2H =1=    Pass
+3S    Pass  4N =2=    Pass
+5H =3=    Pass  6N    Pass
+Pass  Pass
+[Note "1:Fourth suit game force"]
+[Note "2:Blackwood 1430, for !S"]
+[Note "3:A=2/5 or 5/5, Q(S)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 

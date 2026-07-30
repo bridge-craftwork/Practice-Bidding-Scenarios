@@ -1,0 +1,27 @@
+# alias: MuiderbergTwoBids
+# button-text: Muiderberg 2 Bids
+# scenario-title: --- Muiderberg Two Bids
+# gib-works: false
+# bba-works: true
+# auction-filter: Auction.....\n2[HS]
+# convention-card-ns: 21GF-PolishTwoSuiters
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Muiderberg Two Bids
+2!H shows 5-10 HCP with 5 Hearts and an unspecified minor.
+2!S shows 5-10 HCP with 5 Spades and an unspecified minor.
+At unfavorable vulnerability the minor should be 5+ cards.
+https://www.bridgebum.com/muiderberg_two_bids.php
+@chat*/
+
+# Muiderberg Two Bids
+dealer south
+
+sS = spades(south)==5 and hcp(south,spades)>2
+hS = hearts(south)==5 and hcp(south,hearts)>2
+dS = diamonds(south)>3 and hcp(south,diamonds)>1
+cS = clubs(south)>3 and hcp(south,clubs)>1
+
+(sS or hS) and (dS or cS) and hcp(south)>4 and hcp(south)<11 and shape(south,xxxx-any 5440)
+action printoneline,
