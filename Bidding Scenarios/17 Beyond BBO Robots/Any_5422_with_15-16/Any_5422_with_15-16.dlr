@@ -1,0 +1,38 @@
+# alias: Any5422w15
+# button-text: Any 5422 w/15-16
+# scenario-title: ---  15-16 Opening with any 5422 Distribution
+# gib-works: true
+# bba-works: true
+# auction-filter: Shape .... .... (54..|5.4.|5..4|45..|4.5.|4..5|.54.|.5.4|.45.|.4.5|..54|..45)
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+---  15-16 Opening with any 5422 Distribution
+@chat*/
+
+dealer south
+
+# any 5422 w/15-16 HCP
+
+hcp(south)>14 and hcp(south)<17 and shape(south,any 5422)
+
+produce 5000
+action printoneline,
+average "hcp   " hcp(south),
+average "5 Spades  " 100 * shape(south,5xxx),
+average "   5422       " 100 * shape(south,5422),
+average "   5242       " 100 * shape(south,5242),
+average "   5224       " 100 * shape(south,5224),
+average "5 Hearts  " 100 * shape(south,x5xx),
+average "   4522       " 100 * shape(south,4522),
+average "   2542       " 100 * shape(south,2542),
+average "   2524       " 100 * shape(south,2524),
+average "5 Diamonds" 100 * shape(south,xx5x),
+average "   4252       " 100 * shape(south,4252),
+average "   2452       " 100 * shape(south,2452),
+average "   2254       " 100 * shape(south,2254),
+average "5 Clubs   " 100 * shape(south,xxx5),
+average "   4225       " 100 * shape(south,4225),
+average "   2425       " 100 * shape(south,2425),
+average "   2245       " 100 * shape(south,2245),
