@@ -1,0 +1,44 @@
+# alias: NotrumpWith1
+# button-text: 1N w/Singleton
+# scenario-title: ---  1 Notrump With Singleton
+# gib-works: false
+# bba-works: true
+# auction-filter: Auction.....\n1N
+# convention-card-ns: 21GF-SPECIALS2
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+---  1 Notrump With Singleton
+South has (3451+4351+3415+4315 or any 4441) with a singleton A, K, or Q.
+HCP adjusted +1 for 5-card suit.
+@chat*/
+
+dealer south
+
+# 1 Notrump Opening with a singleton honor
+
+# Singleton A, K, or Q
+oneS = spades(south)==1 and top3(south,spades)==1
+oneH = hearts(south)==1 and top3(south,hearts)==1
+oneD = diamonds(south)==1 and top3(south,diamonds)==1
+oneC = clubs(south)==1 and top3(south,clubs)==1
+
+# Define lengthPoints
+//lengthPoints = shape(south, any 5xxx) ? 1 : 0
+
+# Define NT downgrade for singleton K or Q
+ntDownGrade = ((oneS and not hascard(south,AS)) or (oneH and hascard(south,AH)) or (oneD and hascard(south,AD)) or (oneC and hascard(south,AC))) 
+
+# Define notrump points for south -- deduct 1 for singleton honor
+ntPoints =  hcp(south) - ntDownGrade // + lengthPoints
+
+# Open 1NT with a singleton
+ntShape = shape(south,any 4441) and (oneS or oneH or oneD or oneC)     // one singleton honor
+
+ntShape and ntPoints>14 and ntPoints<18
+
+action printoneline,
+average "HCP         " hcp(south),
+// average "lengthPoints" lengthPoints,
+average "ntDownGrade " ntDownGrade,
+average "ntPoints    " ntPoints,
