@@ -211,13 +211,14 @@ Pass  Pass
 {HCP 11 4 13 12}
 {Losers 7 10 6 6}
 [Declarer "S"]
-[Contract "3D"]
+[Contract "5D"]
 [Result "11"]
-[Score "NS 150"]
+[Score "NS 400"]
 [Scoring "MP"]
 [Auction "S"]
 1D    X     XX    1H
-3D    Pass  Pass  Pass
+3D    Pass  5D    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -351,11 +352,8 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "N"]
 1C    X     XX    1H
-1S    Pass  3H =1=    Pass
-3N =2=    Pass  4S    Pass
+1S    Pass  4S    Pass
 Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Cue bid, a !H stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -402,13 +400,13 @@ Pass  Pass
 {HCP 12 4 12 12}
 {Losers 7 10 6 7}
 [Declarer "N"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
+[Contract "2N"]
+[Result "8"]
+[Score "NS 120"]
 [Scoring "MP"]
 [Auction "S"]
 1D    X     XX    2C
-3D    Pass  3N    Pass
+2D    Pass  2N    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -699,14 +697,16 @@ Pass  Pass  2S    Pass
 {HCP 11 4 13 12}
 {Losers 8 9 6 7}
 [Declarer "S"]
-[Contract "3C"]
-[Result "10"]
-[Score "NS 130"]
+[Contract "3N"]
+[Result "9"]
+[Score "NS 600"]
 [Scoring "MP"]
 [Auction "N"]
 1D    X     XX    1S
 Pass  Pass  2C    Pass
-3C    Pass  Pass  Pass
+2S =1=    Pass  3N    Pass
+Pass  Pass
+[Note "1:limit raise or better in !C"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -753,8 +753,8 @@ Pass  Pass  2C    Pass
 {Losers 7 11 6 7}
 [Declarer "S"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
+[Result "10"]
+[Score "NS 630"]
 [Scoring "MP"]
 [Auction "N"]
 1D    X     XX    1S
@@ -832,13 +832,13 @@ Pass  Pass  2S    Pass
 {HCP 11 4 12 13}
 {Losers 8 10 7 7}
 [Declarer "N"]
-[Contract "3N"]
+[Contract "2N"]
 [Result "8"]
-[Score "NS -100"]
+[Score "NS 120"]
 [Scoring "MP"]
 [Auction "S"]
 1D    X     XX    1H
-3D    Pass  3N    Pass
+2D    Pass  2N    Pass
 Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -887,8 +887,8 @@ Pass  Pass  2S    Pass
 {Losers 8 9 8 8}
 [Declarer "N"]
 [Contract "2N"]
-[Result "8"]
-[Score "NS 120"]
+[Result "9"]
+[Score "NS 150"]
 [Scoring "MP"]
 [Auction "N"]
 1D    X     XX    1H
@@ -1046,13 +1046,13 @@ Pass  Pass
 {HCP 10 6 12 12}
 {Losers 8 10 7 7}
 [Declarer "N"]
-[Contract "3C"]
+[Contract "2C"]
 [Result "9"]
 [Score "NS 110"]
 [Scoring "MP"]
 [Auction "N"]
 1C    X     XX    1D
-3C    Pass  Pass  Pass
+2C    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1093,21 +1093,22 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "E"]
-[Vulnerable "EW"]
-[Deal "E:2.A86.K63.AJ9752 KQT5.KT72.Q72.K6 AJ9876.954.A.QT8 43.QJ3.JT9854.43"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:2.A86.K63.AJ9752 KQT5.KT72.Q72.K6 AJ9876.954.A.QT8 43.QJ3.JT9854.43"]
 {Shape 6313 2362 1336 4432}
 {HCP 11 4 12 13}
 {Losers 7 9 7 6}
 [Declarer "N"]
-[Contract "5DX"]
-[Result "8"]
-[Score "EW 500"]
+[Contract "4C"]
+[Result "11"]
+[Score "NS 150"]
 [Scoring "MP"]
-[Auction "E"]
+[Auction "N"]
 1C    X     XX    1D
-3C    Pass  5C    5D
-X     Pass  Pass  Pass
+2C    Pass  2S    3D
+X     Pass  4C    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 

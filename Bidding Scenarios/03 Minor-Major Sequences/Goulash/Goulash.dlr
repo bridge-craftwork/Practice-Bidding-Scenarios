@@ -1,0 +1,27 @@
+# alias: Goulash
+# button-text: Goulash
+# scenario-title: --- Goulash hands hands have wild distribution.
+# gib-works: true
+# bba-works: true
+# auction-filter: .
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Goulash hands hands have wild distribution.
+I have no idea how these deals fit the idea of Goulash.
+I'd like your feedback.
+@chat*/
+
+dealer south
+
+# Goulash
+
+sShape = shape(south,any 9xxx+any 8xxx + any 74xx + any 73xx+ any 66xx+ any 65xx+any 55xx)
+nShape = shape(north,any 9xxx+any 8xxx + any 74xx + any 73xx+ any 66xx+ any 65xx+any 55xx)
+wShape = shape(west ,any 9xxx+any 8xxx + any 74xx + any 73xx+ any 66xx+ any 65xx+any 55xx)
+eShape = shape(east ,any 9xxx+any 8xxx + any 74xx + any 73xx+ any 66xx+ any 65xx+any 55xx)
+
+Goulash = sShape and wShape and nShape and eShape
+Goulash
+action printoneline,
