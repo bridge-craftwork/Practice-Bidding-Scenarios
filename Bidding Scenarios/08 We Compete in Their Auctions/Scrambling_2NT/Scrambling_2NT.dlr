@@ -1,0 +1,50 @@
+# alias: Scrambling
+# button-text: Scrambling 2NT
+# scenario-title: --- Scrambling 2NT.  In a competitive auction, when your'e forced to bid, 2NT is Scrambling.
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n(1H +Pass +2H|1S +Pass +2S) +X\nPass.
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Scrambling 2NT.  In a competitive auction, when your'e forced to bid, 2NT is Scrambling.
+Two NT in competition may be Good/Bad or Scrambling.  If you make a free bid, it's Good/Bad.
+Check the link below for more information.  After (1x) P (2x) X; (P), you must act.
+https://tinyurl.com/Scrambling-vs-Good-Bad-2N
+@chat*/
+
+# Scrambling 2NT
+dealer west
+
+# West has 1 Major suit
+wS = spades(west)>4 and spades(west)>=hearts(west) and spades(west)>=diamonds(west) and spades(west)>=clubs(west)
+wH = hearts(west)>4 and hearts(west)>spades(west)  and hearts(west)>=diamonds(west) and hearts(west)>=clubs(west)
+
+# West has a fit w/3 and 8-9 HCP or w/4 and 6-7 HCP
+s3Fit = wS and spades(east)==3
+h3Fit = wH and hearts(east)==3
+ew3Fit = (s3Fit or h3Fit) and hcp(east)>7 and hcp(east)<10
+
+s4Fit = wS and spades(east)==4
+h4Fit = wH and hearts(east)==4
+ew4Fit = (s4Fit or h4Fit) and hcp(east)>5 and hcp(east)<8
+
+OBAR = hcp(west)>11 and hcp(west)<15 and (ew3Fit or ew4Fit)
+
+# South makes a take-out double
+sShape = wS ? shape(south,2434+2443+1444+0454+0445) : shape(south,4234+4243+4144+4054+4045)
+hcpBoost = shape(south,any 4432) ? 1 : 0
+sTOX = sShape and hcp(south)>(12 + hcpBoost)  // require an extra hcp for 4432
+
+# North has a flatish hand with 2-suits
+nMajor    = spades(north)>3 or hearts(north)>3   // with a Major, North has option of free-bid or scramble & bid
+twoSuits  = shape(north,any 54xx + any 44xx)
+nFreeBid  = (nMajor and hcp(north)>9) or not twoSuits
+nScramble = ((not nMajor and shape(north,xx45 + xx54 + xx44)) or (nMajor and hcp(north)<10)) and not nFreeBid
+
+OBAR and sTOX and (nFreeBid or nScramble)
+
+action printoneline,
+average "Free Bid" 100 * nFreeBid,
+average "Scramble" 100 * nScramble,

@@ -1,0 +1,20 @@
+# alias: StrongAfterNT
+# button-text: Slam after NT
+# scenario-title: --- Slam after Notrump
+# gib-works: true
+# bba-works: true
+# auction-filter: Contract..([5-7][CDHSN])
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Slam after Notrump
+@chat*/
+
+# Slam after Notrump
+dealer south
+
+hcp(south)>14 and hcp(south)<18 and shape(south,any 4333 +any 4432 +any 5332)
+and
+hcp(north)>15 and shape(north,6xxx+x6xx+5xxx+x5xx +any 4333 +any 4432 +any 5332)
+action printoneline,

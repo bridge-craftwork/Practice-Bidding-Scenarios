@@ -119,10 +119,15 @@ Pass  Pass
 [Auction "S"]
 1S    Pass  2C    Pass
 3C    Pass  3S    Pass
-4N =1=    Pass  5S =2=    Pass
-6S    Pass  Pass  Pass
-[Note "1:Blackwood 1430, for !S"]
-[Note "2:A=2/5 or 5/5, Q(S)=1"]
+3N =1=    Pass  4C =2=    Pass
+4D =3=    Pass  4N =4=    Pass
+5H =5=    Pass  6S    Pass
+Pass  Pass
+[Note "1:surplus"]
+[Note "2:Cue bid, a !C stopper"]
+[Note "3:Cue bid, a !D stopper"]
+[Note "4:Blackwood 1430, for !S"]
+[Note "5:A=2/5 or 5/5, Q(S)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -663,12 +668,13 @@ Pass  Pass
 3S =1=    Pass  3N =2=    Pass
 4N =3=    Pass  5D =4=    Pass
 5S    Pass  5N =5=    Pass
-6H    Pass  Pass  Pass
+6H =6=    Pass  Pass  Pass
 [Note "1:Cue bid, a !S stopper"]
 [Note "2:surplus"]
 [Note "3:Blackwood 1430, for !H"]
 [Note "4:A=0/5 or 3/5"]
 [Note "5:!H queen no !C king no !D king"]
+[Note "6:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -725,22 +731,25 @@ Pass  Pass
 {HCP 15 1 19 5}
 {Losers 6 10 6 9}
 [Declarer "N"]
-[Contract "7S"]
+[Contract "6S"]
 [Result "12"]
-[Score "NS -50"]
+[Score "NS 980"]
 [Scoring "MP"]
 [Auction "N"]
 1S    Pass  2D    Pass
 3D    Pass  3S    Pass
-3N =1=    Pass  4N =2=    Pass
-5S =3=    Pass  5N =4=    Pass
-6D =5=    Pass  7S    Pass
+3N =1=    Pass  4C =2=    Pass
+4H =3=    Pass  4N =4=    Pass
+5S =5=    Pass  5N =6=    Pass
+6D =7=    Pass  6S    Pass
 Pass  Pass
 [Note "1:surplus"]
-[Note "2:Blackwood 1430, for !S"]
-[Note "3:A=2/5 or 5/5, Q(S)=1"]
-[Note "4:King ask by 5NT"]
-[Note "5:K=1"]
+[Note "2:Cue bid, a !C stopper"]
+[Note "3:Cue bid, a !H stopper"]
+[Note "4:Blackwood 1430, for !S"]
+[Note "5:A=2/5 or 5/5, Q(S)=1"]
+[Note "6:King ask by 5NT"]
+[Note "7:K=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -866,21 +875,18 @@ Pass  Pass
 {HCP 12 4 20 4}
 {Losers 8 9 6 10}
 [Declarer "N"]
-[Contract "5C"]
+[Contract "6C"]
 [Result "12"]
-[Score "NS 620"]
+[Score "NS 1370"]
 [Scoring "MP"]
 [Auction "S"]
 1D    Pass  2C    Pass
 3C    Pass  4C    Pass
 4D =1=    Pass  4H =2=    Pass
-4S =3=    Pass  4N =4=    Pass
-5C =5=    Pass  Pass  Pass
+5C    Pass  6C    Pass
+Pass  Pass
 [Note "1:Cue bid, a !D stopper"]
 [Note "2:Cue bid, a !H stopper"]
-[Note "3:Cue bid, a !S stopper"]
-[Note "4:Blackwood 1430, for !C"]
-[Note "5:A=1/5 or 4/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -943,11 +949,13 @@ Pass  Pass
 [Auction "N"]
 1H    Pass  2C    Pass
 2N    Pass  3H    Pass
-4H    Pass  4N =1=    Pass
-5H =2=    Pass  6H    Pass
-Pass  Pass
-[Note "1:Blackwood 1430, for !H"]
-[Note "2:A=2/5 or 5/5, Q(H)=0"]
+3S =1=    Pass  3N =2=    Pass
+4N =3=    Pass  5S =4=    Pass
+6H    Pass  Pass  Pass
+[Note "1:Cue bid, a !S stopper"]
+[Note "2:surplus"]
+[Note "3:Blackwood 1430, for !H"]
+[Note "4:A=2/5 or 5/5, Q(H)=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1043,7 +1051,6 @@ Pass  Pass
 1D    Pass  2C    Pass
 2D    Pass  2H    Pass
 3C    Pass  3D    Pass
-4C    Pass  4D    Pass
 5D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
@@ -1185,26 +1192,28 @@ Pass  Pass
 [East "EPBot"]
 [South "EPBot"]
 [West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "NS"]
-[Deal "N:QJ632.K62.A52.A5 985.J9.T973.QJ82 AKT.AT843.KQ.K76 74.Q75.J864.T943"]
+[Deal "S:QJ632.K62.A52.A5 985.J9.T973.QJ82 AKT.AT843.KQ.K76 74.Q75.J864.T943"]
 {Shape 5332 3244 3523 2344}
 {HCP 14 4 19 3}
 {Losers 7 10 6 10}
 [Declarer "N"]
-[Contract "7S"]
+[Contract "5H"]
 [Result "12"]
-[Score "NS -100"]
+[Score "NS 680"]
 [Scoring "MP"]
-[Auction "N"]
+[Auction "S"]
 1S    Pass  2H    Pass
-3H    Pass  4N =1=    Pass
-5D =2=    Pass  5S    Pass
-6H =3=    Pass  7S    Pass
+3H    Pass  3N =1=    Pass
+4C =2=    Pass  4D =3=    Pass
+4N =4=    Pass  5H =5=    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !H"]
-[Note "2:A=0/5 or 3/5"]
-[Note "3:no !H queen"]
+[Note "1:surplus"]
+[Note "2:Cue bid, a !C stopper"]
+[Note "3:Cue bid, a !D stopper"]
+[Note "4:Blackwood 1430, for !H"]
+[Note "5:A=2/5 or 5/5, Q(H)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1395,12 +1404,13 @@ Pass  Pass
 2N    Pass  3H    Pass
 3N =1=    Pass  4N =2=    Pass
 5D =3=    Pass  5S    Pass
-5N =4=    Pass  7H    Pass
+5N =4=    Pass  7H =5=    Pass
 Pass  Pass
 [Note "1:surplus"]
 [Note "2:Blackwood 1430, for !H"]
 [Note "3:A=0/5 or 3/5"]
 [Note "4:!H queen no !C king no !D king"]
+[Note "5:1+ or 2 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 

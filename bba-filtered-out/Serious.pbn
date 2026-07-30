@@ -140,11 +140,8 @@ Pass  Pass
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2S    Pass
-2N    Pass  4N =1=    Pass
-5S =2=    Pass  6N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=2/5 or 5/5, Q(D)=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -190,15 +187,16 @@ Pass  Pass
 {HCP 12 9 18 1}
 {Losers 7 9 6 11}
 [Declarer "S"]
-[Contract "4C"]
+[Contract "5C"]
 [Result "11"]
-[Score "NS 150"]
+[Score "NS 600"]
 [Scoring "MP"]
 [Auction "N"]
 1D    1H    2C =1=    Pass
-3C    Pass  3S    Pass
-4C    Pass  Pass  Pass
+3C    Pass  3H =2=    Pass
+5C    Pass  Pass  Pass
 [Note "1:1X-(Y)-2Z forcing"]
+[Note "2:asks a stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -542,16 +540,19 @@ Pass  Pass
 {HCP 14 2 15 9}
 {Losers 6 11 8 8}
 [Declarer "S"]
-[Contract "5D"]
+[Contract "6D"]
 [Result "11"]
-[Score "NS 400"]
+[Score "NS -50"]
 [Scoring "MP"]
 [Auction "N"]
 1H    Pass  2D    3C
-4C =1=    Pass  4S =2=    Pass
-5D    Pass  Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Cue bid, a !S stopper"]
+4C =1=    Pass  4N =2=    Pass
+5C =3=    Pass  5H    Pass
+6D =4=    Pass  Pass  Pass
+[Note "1:limit raise or better in !D"]
+[Note "2:Blackwood 1430, for !D"]
+[Note "3:A=1/5 or 4/5"]
+[Note "4:no !D queen"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -814,15 +815,18 @@ Pass
 [Auction "N"]
 1S    Pass  2D    Pass
 2H    Pass  3H    Pass
-3N =1=    Pass  4N =2=    Pass
-5S =3=    Pass  5N =4=    Pass
-6D =5=    Pass  7H    Pass
+3N =1=    Pass  4C =2=    Pass
+4D =3=    Pass  4N =4=    Pass
+5S =5=    Pass  5N =6=    Pass
+6D =7=    Pass  7H    Pass
 Pass  Pass
 [Note "1:surplus"]
-[Note "2:Blackwood 1430, for !H"]
-[Note "3:A=2/5 or 5/5, Q(H)=1"]
-[Note "4:King ask by 5NT"]
-[Note "5:K=1"]
+[Note "2:Cue bid, a !C stopper"]
+[Note "3:Cue bid, a !D stopper"]
+[Note "4:Blackwood 1430, for !H"]
+[Note "5:A=2/5 or 5/5, Q(H)=1"]
+[Note "6:King ask by 5NT"]
+[Note "7:K=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -850,11 +854,12 @@ Pass  Pass
 2H    Pass  3H    Pass
 4H    Pass  4N =1=    Pass
 5C =2=    Pass  5D    Pass
-5N =3=    Pass  6H    Pass
+5N =3=    Pass  6H =4=    Pass
 Pass  Pass
 [Note "1:Blackwood 1430, for !H"]
 [Note "2:A=1/5 or 4/5"]
 [Note "3:!H queen no !S king no !C king no !D king"]
+[Note "4:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -982,8 +987,8 @@ Pass  Pass
 {Losers 7 9 7 9}
 [Declarer "N"]
 [Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
+[Result "11"]
+[Score "NS 660"]
 [Scoring "MP"]
 [Auction "N"]
 1N    Pass  3N    Pass
@@ -1377,14 +1382,17 @@ Pass  Pass
 [Auction "N"]
 1S    Pass  2C    Pass
 2H    Pass  3H    Pass
-3S =1=    Pass  4N =2=    Pass
-5D =3=    Pass  5S    Pass
-6C =4=    Pass  7H    Pass
+3S =1=    Pass  3N =2=    Pass
+4C =3=    Pass  4N =4=    Pass
+5D =5=    Pass  5S    Pass
+6C =6=    Pass  7H    Pass
 Pass  Pass
 [Note "1:Cue bid, a !S stopper"]
-[Note "2:Blackwood 1430, for !H"]
-[Note "3:A=0/5 or 3/5"]
-[Note "4:!H queen and !C king"]
+[Note "2:surplus"]
+[Note "3:Cue bid, a !C stopper"]
+[Note "4:Blackwood 1430, for !H"]
+[Note "5:A=0/5 or 3/5"]
+[Note "6:!H queen and !C king"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1508,18 +1516,17 @@ Pass  Pass
 {Shape 3253 4522 4315 2353}
 {HCP 14 0 19 7}
 {Losers 6 10 5 9}
-[Declarer "S"]
-[Contract "5C"]
-[Result "13"]
-[Score "NS 640"]
+[Declarer "N"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 1440"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2S    Pass
 2N    Pass  4N =1=    Pass
-5C =2=    Pass  Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=1/5 or 4/5"]
+6N    Pass  Pass  Pass
+[Note "1:Quantitative 4NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1847,11 +1854,12 @@ Pass  Pass
 1S    Pass  2D    Pass
 3S    Pass  4N =1=    Pass
 5D =2=    Pass  5H    Pass
-5N =3=    Pass  6N    Pass
+5N =3=    Pass  6N =4=    Pass
 Pass  Pass
 [Note "1:Blackwood 1430, for !S"]
 [Note "2:A=0/5 or 3/5"]
 [Note "3:!S queen no !C king no !D king no !H king"]
+[Note "4:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1984,18 +1992,15 @@ Pass  Pass
 {HCP 13 6 21 0}
 {Losers 8 8 4 11}
 [Declarer "N"]
-[Contract "7N"]
+[Contract "6N"]
 [Result "12"]
-[Score "NS -50"]
+[Score "NS 990"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2S    Pass
-2N    Pass  4N =1=    Pass
-5H =2=    Pass  7N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=2/5 or 5/5, Q(D)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -2534,13 +2539,8 @@ Pass  Pass
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2H    Pass
-2N    Pass  4N =1=    Pass
-5C =2=    Pass  5H    Pass
-6D =3=    Pass  6N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=1/5 or 4/5"]
-[Note "3:no !D queen"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -2783,11 +2783,14 @@ Pass  Pass
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  3D    Pass
-3H    Pass  4N =1=    Pass
-5D =2=    Pass  6D    Pass
+3H    Pass  4C =1=    Pass
+4H =2=    Pass  4N =3=    Pass
+5D =4=    Pass  6D    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=0/5 or 3/5"]
+[Note "1:Cue bid, a !C stopper"]
+[Note "2:Cue bid, a !H stopper"]
+[Note "3:Blackwood 1430, for !D"]
+[Note "4:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -2990,14 +2993,17 @@ Pass  Pass
 {HCP 13 7 13 7}
 {Losers 6 7 6 8}
 [Declarer "N"]
-[Contract "4H"]
+[Contract "5H"]
 [Result "12"]
 [Score "NS 480"]
 [Scoring "MP"]
 [Auction "N"]
 1H    2S    3S =1=    Pass
-4H    Pass  Pass  Pass
+4N =2=    Pass  5H =3=    Pass
+Pass  Pass
 [Note "1:limit raise or better in !H"]
+[Note "2:Blackwood 1430, for !H"]
+[Note "3:A=2/5 or 5/5, Q(H)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -3234,8 +3240,8 @@ Pass  Pass
 {Losers 7 10 6 6}
 [Declarer "N"]
 [Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
+[Result "11"]
+[Score "NS 660"]
 [Scoring "MP"]
 [Auction "N"]
 1N    Pass  3N    Pass
@@ -4081,18 +4087,14 @@ Pass  Pass
 {HCP 12 9 13 6}
 {Losers 5 9 6 7}
 [Declarer "N"]
-[Contract "5H"]
+[Contract "4H"]
 [Result "11"]
 [Score "NS 650"]
 [Scoring "MP"]
 [Auction "N"]
 1H    Pass  2D    Pass
-2H    Pass  4C =1=    Pass
-4N =2=    Pass  5H =3=    Pass
+2H    Pass  4H    Pass
 Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Blackwood 1430, for !H"]
-[Note "3:A=2/5 or 5/5, Q(H)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -4369,10 +4371,16 @@ Pass  Pass
 [Auction "N"]
 1S    Pass  2C    Pass
 2H    Pass  3H    Pass
-4N =1=    Pass  5S =2=    Pass
+3S =1=    Pass  3N =2=    Pass
+4N =3=    Pass  5S =4=    Pass
+5N =5=    Pass  6D =6=    Pass
 6H    Pass  Pass  Pass
-[Note "1:Blackwood 1430, for !H"]
-[Note "2:A=2/5 or 5/5, Q(H)=1"]
+[Note "1:Cue bid, a !S stopper"]
+[Note "2:surplus"]
+[Note "3:Blackwood 1430, for !H"]
+[Note "4:A=2/5 or 5/5, Q(H)=1"]
+[Note "5:King ask by 5NT"]
+[Note "6:K=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -4671,11 +4679,8 @@ Pass  Pass
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2S    Pass
-2N    Pass  4N =1=    Pass
-5D =2=    Pass  6N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -4694,18 +4699,16 @@ Pass  Pass
 {HCP 12 4 20 4}
 {Losers 9 9 4 10}
 [Declarer "N"]
-[Contract "6D"]
-[Result "11"]
-[Score "NS -100"]
+[Contract "6N"]
+[Result "12"]
+[Score "NS 1440"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2H    Pass
 3N    Pass  4N =1=    Pass
-5H =2=    Pass  6D    Pass
-Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=2/5 or 5/5, Q(D)=0"]
+6N    Pass  Pass  Pass
+[Note "1:Quantitative 4NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -4903,10 +4906,13 @@ Pass  Pass
 [Auction "N"]
 1S    Pass  2C    Pass
 2H    Pass  3H    Pass
-4N =1=    Pass  5H =2=    Pass
+3S =1=    Pass  3N =2=    Pass
+4N =3=    Pass  5H =4=    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !H"]
-[Note "2:A=2/5 or 5/5, Q(H)=0"]
+[Note "1:Cue bid, a !S stopper"]
+[Note "2:surplus"]
+[Note "3:Blackwood 1430, for !H"]
+[Note "4:A=2/5 or 5/5, Q(H)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -5096,21 +5102,21 @@ Pass  Pass
 {HCP 15 4 17 4}
 {Losers 5 9 6 8}
 [Declarer "N"]
-[Contract "6S"]
+[Contract "7S"]
 [Result "13"]
-[Score "NS 1010"]
+[Score "NS 1510"]
 [Scoring "MP"]
 [Auction "N"]
 1S    Pass  2C    3D
-4D =1=    Pass  4H =2=    Pass
-4S =3=    Pass  4N =4=    Pass
-5S =5=    Pass  6S    Pass
+4D =1=    Pass  4N =2=    Pass
+5S =3=    Pass  5N =4=    Pass
+6D =5=    Pass  7S    Pass
 Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Cue bid, a !H stopper"]
-[Note "3:Cue bid, a !S stopper"]
-[Note "4:Blackwood 1430, for !C"]
-[Note "5:A=2/5 or 5/5, Q(C)=1"]
+[Note "1:limit raise or better in !C"]
+[Note "2:Blackwood 1430, for !C"]
+[Note "3:A=2/5 or 5/5, Q(C)=1"]
+[Note "4:King ask by 5NT"]
+[Note "5:K=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -5214,20 +5220,15 @@ Pass  Pass
 {HCP 13 4 20 3}
 {Losers 8 10 5 10}
 [Declarer "N"]
-[Contract "7N"]
+[Contract "6N"]
 [Result "12"]
-[Score "NS -50"]
+[Score "NS 990"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2H    Pass
-2N    Pass  4N =1=    Pass
-5C =2=    Pass  5H    Pass
-6D =3=    Pass  7N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=1/5 or 4/5"]
-[Note "3:no !D queen"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -5246,18 +5247,15 @@ Pass  Pass
 {HCP 14 5 20 1}
 {Losers 6 9 4 11}
 [Declarer "N"]
-[Contract "7N"]
+[Contract "6N"]
 [Result "13"]
-[Score "NS 2220"]
+[Score "NS 1470"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2S    Pass
-2N    Pass  4N =1=    Pass
-5S =2=    Pass  7N    Pass
+2N    Pass  6N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=2/5 or 5/5, Q(D)=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -6977,9 +6975,7 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "N"]
 1S    Pass  2H    Pass
-4D =1=    Pass  4H    Pass
-Pass  Pass
-[Note "1:Splinter"]
+4H    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -7123,12 +7119,14 @@ Pass  Pass
 1N    Pass  2C =1=    Pass
 2S =2=    Pass  3C =3=    Pass
 3D =4=    Pass  3H =5=    Pass
-4S    Pass  Pass  Pass
+4C =6=    Pass  4S    Pass
+Pass  Pass
 [Note "1:New Minor Forcing"]
 [Note "2:3 !S"]
 [Note "3:Cue bid, a !C stopper"]
 [Note "4:Cue bid, a !D stopper"]
 [Note "5:Cue bid, a !H stopper"]
+[Note "6:Cue bid, a !C stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -7429,18 +7427,15 @@ Pass  Pass
 {HCP 13 4 18 5}
 {Losers 8 8 5 9}
 [Declarer "N"]
-[Contract "6N"]
+[Contract "3N"]
 [Result "11"]
-[Score "NS -50"]
+[Score "NS 460"]
 [Scoring "MP"]
 [Auction "N"]
 1D    Pass  2C    Pass
 2D    Pass  2H    Pass
-2N    Pass  4N =1=    Pass
-5H =2=    Pass  6N    Pass
+2N    Pass  3N    Pass
 Pass  Pass
-[Note "1:Blackwood 1430, for !D"]
-[Note "2:A=2/5 or 5/5, Q(D)=0"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -7546,12 +7541,13 @@ Pass  Pass
 4C =1=    Pass  4D =2=    Pass
 4N =3=    Pass  5D =4=    Pass
 5S    Pass  5N =5=    Pass
-6H    Pass  Pass  Pass
+6H =6=    Pass  Pass  Pass
 [Note "1:Splinter"]
 [Note "2:surplus"]
 [Note "3:Blackwood 1430, for !H"]
 [Note "4:A=0/5 or 3/5"]
 [Note "5:!H queen no !C king no !D king"]
+[Note "6:0 or 1 trump keys"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -7867,42 +7863,6 @@ Pass  Pass
 [Event "Serious"]
 [Site ""]
 [Board "283"]
-% C22F970E9474CE385FDEB61CD631
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:AQ842.Q9.KJT53.2 T7.KJ7643.2.JT84 KJ5.A.AQ9764.AK7 963.T852.8.Q9653"]
-{Shape 5251 2614 3163 3415}
-{HCP 12 5 21 2}
-{Losers 6 8 4 9}
-[Declarer "N"]
-[Contract "7S"]
-[Result "13"]
-[Score "NS 2210"]
-[Scoring "MP"]
-[Auction "N"]
-1S    Pass  2D    Pass
-4C =1=    Pass  4H =2=    Pass
-4S =3=    Pass  4N =4=    Pass
-5H =5=    Pass  5N =6=    Pass
-6C =7=    Pass  7S    Pass
-Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Cue bid, a !H stopper"]
-[Note "3:Cue bid, a !S stopper"]
-[Note "4:Blackwood 1430, for !D"]
-[Note "5:A=2/5 or 5/5, Q(D)=0"]
-[Note "6:King ask by 5NT"]
-[Note "7:K=0"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Serious"]
-[Site ""]
-[Board "284"]
 % C1D82123C0E24B554B8494B60CFE
 [North "EPBot"]
 [East "EPBot"]
@@ -7927,7 +7887,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "285"]
+[Board "284"]
 % C30747D3ADBB43DA1021FFDD6E5A
 [North "EPBot"]
 [East "EPBot"]
@@ -7953,7 +7913,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "286"]
+[Board "285"]
 % C3292B37A7C08E2B52CA7C81125A
 [North "EPBot"]
 [East "EPBot"]
@@ -7987,7 +7947,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "287"]
+[Board "286"]
 % C089CF88475EF6E57F8527D16A06
 [North "EPBot"]
 [East "EPBot"]
@@ -8018,7 +7978,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "288"]
+[Board "287"]
 % C388CF8463F7CE18F619FDE449AA
 [North "EPBot"]
 [East "EPBot"]
@@ -8044,7 +8004,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "289"]
+[Board "288"]
 % C227AF193EB23D3E2450503E3296
 [North "EPBot"]
 [East "EPBot"]
@@ -8074,7 +8034,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "290"]
+[Board "289"]
 % D08B65028F2AE6F573D34A485276
 [North "EPBot"]
 [East "EPBot"]
@@ -8100,7 +8060,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "291"]
+[Board "290"]
 % D22C24C8934EE1A919C0DB1D3EB2
 [North "EPBot"]
 [East "EPBot"]
@@ -8126,7 +8086,7 @@ Pass  Pass  3S    Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "292"]
+[Board "291"]
 % D1CB922D8C42CBCCE862DDB002FE
 [North "EPBot"]
 [East "EPBot"]
@@ -8153,7 +8113,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "293"]
+[Board "292"]
 % D267877C2D4342C2E684CDBA5E72
 [North "EPBot"]
 [East "EPBot"]
@@ -8185,7 +8145,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "294"]
+[Board "293"]
 % D120118665466AD3ED110434BCAE
 [North "EPBot"]
 [East "EPBot"]
@@ -8215,7 +8175,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "295"]
+[Board "294"]
 % D3AE6B0DF18318F7DA78A62B0A0A
 [North "EPBot"]
 [East "EPBot"]
@@ -8241,7 +8201,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "296"]
+[Board "295"]
 % D0E08B30D96A51969ADE03172E36
 [North "EPBot"]
 [East "EPBot"]
@@ -8266,7 +8226,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "297"]
+[Board "296"]
 % D2AB0F07F95FD45F9A5671C8A6D5
 [North "EPBot"]
 [East "EPBot"]
@@ -8300,7 +8260,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "298"]
+[Board "297"]
 % D325266E8454BCF842D0838DD245
 [North "EPBot"]
 [East "EPBot"]
@@ -8332,7 +8292,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "299"]
+[Board "298"]
 % D015AB10BDF0F77BAB150C730ED6
 [North "EPBot"]
 [East "EPBot"]
@@ -8358,7 +8318,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "300"]
+[Board "299"]
 % D127B83F0AC5DA421DE32CAF9EDE
 [North "EPBot"]
 [East "EPBot"]
@@ -8384,7 +8344,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "301"]
+[Board "300"]
 % E01B3B1581F4723C102FED987AA6
 [North "EPBot"]
 [East "EPBot"]
@@ -8413,7 +8373,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "302"]
+[Board "301"]
 % E10320AE0BF02970CE6EB40C96FD
 [North "EPBot"]
 [East "EPBot"]
@@ -8447,7 +8407,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "303"]
+[Board "302"]
 % E3AD10371B31B31CE34CE6B93B5A
 [North "EPBot"]
 [East "EPBot"]
@@ -8476,7 +8436,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "304"]
+[Board "303"]
 % E12127272C0C0D3E97C596F0ACDE
 [North "EPBot"]
 [East "EPBot"]
@@ -8509,38 +8469,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "305"]
-% E38127A53A7A4309F21B60538A1F
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:KJ862.A983.2.AQ8 T954.642.JT863.5 AQ3.KQ5.KQ.K9642 7.JT7.A9754.JT73"]
-{Shape 5413 4351 3325 1354}
-{HCP 14 1 19 6}
-{Losers 6 10 5 9}
-[Declarer "N"]
-[Contract "6S"]
-[Result "12"]
-[Score "NS 1430"]
-[Scoring "MP"]
-[Auction "N"]
-1S    Pass  2C    Pass
-2H    Pass  2S    Pass
-4N =1=    Pass  5C =2=    Pass
-5D    Pass  5H =3=    Pass
-6S    Pass  Pass  Pass
-[Note "1:Blackwood 1430, for !S"]
-[Note "2:A=1/5 or 4/5"]
-[Note "3:!S queen and !H king"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "2/1GF - 2/1 Game Force"]
-
-[Event "Serious"]
-[Site ""]
-[Board "306"]
+[Board "304"]
 % E01323A8E7551F45B8FFCD4A72D2
 [North "EPBot"]
 [East "EPBot"]
@@ -8566,7 +8495,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "307"]
+[Board "305"]
 % E133273B71A6101DA85FB539D65E
 [North "EPBot"]
 [East "EPBot"]
@@ -8596,7 +8525,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "308"]
+[Board "306"]
 % E3292BEA06A8D7DED2AE430A198A
 [North "EPBot"]
 [East "EPBot"]
@@ -8622,7 +8551,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "309"]
+[Board "307"]
 % E02D6B89165696CE229F63E61206
 [North "EPBot"]
 [East "EPBot"]
@@ -8647,7 +8576,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "310"]
+[Board "308"]
 % E24F466D864B6AE4007DD4BCFE82
 [North "EPBot"]
 [East "EPBot"]
@@ -8679,7 +8608,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "311"]
+[Board "309"]
 % E10A835FEFEE35046295211D9EFE
 [North "EPBot"]
 [East "EPBot"]
@@ -8707,7 +8636,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "312"]
+[Board "310"]
 % F20C43D7AFECDD759A6200CEF602
 [North "EPBot"]
 [East "EPBot"]
@@ -8733,7 +8662,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "313"]
+[Board "311"]
 % F1A20528383321EFE48AD4FC9C4E
 [North "EPBot"]
 [East "EPBot"]
@@ -8759,7 +8688,7 @@ Pass  Pass
 
 [Event "Serious"]
 [Site ""]
-[Board "314"]
+[Board "312"]
 % F317AD1C346CA0B2D6422449C22A
 [North "EPBot"]
 [East "EPBot"]
