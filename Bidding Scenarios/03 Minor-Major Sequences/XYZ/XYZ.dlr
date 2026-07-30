@@ -1,0 +1,51 @@
+# alias: XYZ
+# button-text: XYZ
+# scenario-title: ---  XYZ.  After 1X, 1Y, 1Z, responder may bid
+# gib-works: true
+# bba-works: true
+# auction-filter: 1[CDH] Pass 1[DHS]
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+---  XYZ.  After 1X, 1Y, 1Z, responder may bid
+  • 2!C request opener bid 2!D. Responder may pass or continue with an invitational bid.
+  • 2!D which is artificial and Game Forcing.
+  • 2!H, 2!S or 3!C which are sign-offs.
+  • 2N which is invitational to 3N.
+@chat*/
+
+dealer south
+
+# Open 1C and rebid...
+oneCrHorSorN = spades(south)<5 and hearts(south)<4 and clubs(south)>diamonds(south)
+oneCrSorN = spades(south)<5 and hearts(south)<4 and clubs(south)>diamonds(south)
+oneCrN = spades(south)<4 and hearts(south)<4 and clubs(south)>diamonds(south)
+
+# Open 1D and rebid...
+oneDrSorN = spades(south)<5 and hearts(south)<4 and clubs(south)<diamonds(south)
+oneDrN = spades(south)<4 and hearts(south)<4 and clubs(south)<diamonds(south)
+
+# Open 1H and rebid 1N
+oneHrN = spades(south)<4 and hearts(south)==5
+
+# Responses
+oneDn = spades(north)<4 and hearts(north)<4 and diamonds(north)>4
+oneHn = spades(north)<5 and hearts(north)==4 and diamonds(north)<4
+oneSn = spades(north)>3
+oneSnw2H = spades(north)>3 and hearts(north)==2
+
+c1 = oneCrHorSorN and oneDn
+c2 = oneCrSorN and oneHn
+c3 = oneCrN and oneSn
+c4 = oneDrSorN and oneHn
+c5 = oneDrN and oneSn
+c6 = oneHrN and oneSnw2H
+
+(c1 or c2 or c3 or c4 or c5 or c6)
+and shape(south, xxxx -any 0xxx -any 1xxx)
+and hcp(south)>11 and hcp(south)<15
+and hcp(north)>5 and hcp(north)<12
+and hcp(east)<10 and hcp(west)<10
+and shape(east, xxxx -any 8xxx -any 7xxx -any 6xxx) and shape(west, xxxx -any 8xxx -any 7xxx -any 6xxx)
+action printoneline,
