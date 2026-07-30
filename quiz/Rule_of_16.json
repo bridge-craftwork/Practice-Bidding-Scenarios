@@ -5,14 +5,72 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-07-30",
     "source_quiz": "Rule_of_16"
   },
   "exercises": [
     {
       "id": "Rule_of_16-1",
       "type": "bidding",
-      "title": "Exercise One — Responding to 1NT",
+      "title": "Exercise One — Responding to 1♣",
+      "prompt": "Partner opens 1♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AT32",
+            "hearts": "J63",
+            "diamonds": "AT62",
+            "clubs": "T3"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "708936D1E48B4D1EC468D25DAFB9",
+            "event": "Rule_of_16",
+            "board": 371
+          }
+        },
+        {
+          "hand": {
+            "spades": "KQJ",
+            "hearts": "QJ4",
+            "diamonds": "972",
+            "clubs": "8543"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "C04DB0A1A5F4DA1F4932F763D779",
+            "event": "Rule_of_16",
+            "board": 441
+          }
+        }
+      ]
+    },
+    {
+      "id": "Rule_of_16-2",
+      "type": "bidding",
+      "title": "Exercise Two — Responding to 1NT",
       "prompt": "Partner opens 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -67,31 +125,6 @@
         },
         {
           "hand": {
-            "spades": "53",
-            "hearts": "QT8",
-            "diamonds": "J43",
-            "clubs": "KQ832"
-          },
-          "seat": "S",
-          "dealer": "N",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1NT",
-              "P"
-            ]
-          },
-          "answer": "2NT",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "43CD33EBD569FA6FD8C09C05B77F",
-            "event": "Rule_of_16",
-            "board": 74
-          }
-        },
-        {
-          "hand": {
             "spades": "KT85",
             "hearts": "K8",
             "diamonds": "JT92",
@@ -142,14 +175,14 @@
         },
         {
           "hand": {
-            "spades": "T74",
-            "hearts": "AJ83",
-            "diamonds": "Q2",
-            "clubs": "J753"
+            "spades": "T32",
+            "hearts": "KT5",
+            "diamonds": "AQ97",
+            "clubs": "T42"
           },
           "seat": "S",
           "dealer": "N",
-          "vulnerability": "NS",
+          "vulnerability": "None",
           "context": {
             "dealer": "N",
             "calls": [
@@ -157,20 +190,45 @@
               "P"
             ]
           },
-          "answer": "2C",
+          "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "122AF50D6B98186A9B144395EBCC",
+            "id": "2049E148F6A7D9F0194E62179DBF",
             "event": "Rule_of_16",
-            "board": 31
+            "board": 33
+          }
+        },
+        {
+          "hand": {
+            "spades": "JT8",
+            "hearts": "KT6",
+            "diamonds": "Q86",
+            "clubs": "K974"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "3NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "31C9673285ADDFB04BE1365FDC38",
+            "event": "Rule_of_16",
+            "board": 51
           }
         }
       ]
     },
     {
-      "id": "Rule_of_16-2",
+      "id": "Rule_of_16-3",
       "type": "bidding",
-      "title": "Exercise Two — Opener's Rebid after 2♣",
+      "title": "Exercise Three — Opener's Rebid after 2♣",
       "prompt": "You open 1NT, partner responds 2♣, RHO bids 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -198,33 +256,6 @@
             "id": "122AF50D6B98186A9B144395EBCC",
             "event": "Rule_of_16",
             "board": 31
-          }
-        },
-        {
-          "hand": {
-            "spades": "KQJ",
-            "hearts": "AQJT",
-            "diamonds": "Q73",
-            "clubs": "QT4"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1NT",
-              "P",
-              "2C",
-              "2D"
-            ]
-          },
-          "answer": "2NT",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "B2CB2A050BC9A05C64D298BD669B",
-            "event": "Rule_of_16",
-            "board": 426
           }
         },
         {
@@ -307,13 +338,40 @@
             "event": "Rule_of_16",
             "board": 288
           }
+        },
+        {
+          "hand": {
+            "spades": "KQJ",
+            "hearts": "AQJT",
+            "diamonds": "Q73",
+            "clubs": "QT4"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "2D"
+            ]
+          },
+          "answer": "3NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "B2CB2A050BC9A05C64D298BD669B",
+            "event": "Rule_of_16",
+            "board": 426
+          }
         }
       ]
     },
     {
-      "id": "Rule_of_16-3",
+      "id": "Rule_of_16-4",
       "type": "bidding",
-      "title": "Exercise Three — Opener's Rebid after 2♣",
+      "title": "Exercise Four — Opener's Rebid after 2♣",
       "prompt": "You open 1NT, partner responds 2♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -481,9 +539,9 @@
       ]
     },
     {
-      "id": "Rule_of_16-4",
+      "id": "Rule_of_16-5",
       "type": "bidding",
-      "title": "Exercise Four — Opener's Rebid after 2♣",
+      "title": "Exercise Five — Opener's Rebid after 2♣",
       "prompt": "You open 1NT, partner responds 2♣, RHO doubles. What do you bid with each of these hands?",
       "questions": [
         {
@@ -646,68 +704,6 @@
             "id": "A019224EEF1A427CE59395895EB7",
             "event": "Rule_of_16",
             "board": 409
-          }
-        }
-      ]
-    },
-    {
-      "id": "Rule_of_16-5",
-      "type": "bidding",
-      "title": "Exercise Five — Opener's Rebid after 2NT",
-      "prompt": "You open 1NT, partner responds 2NT, RHO bids 3♦. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "AKJ7",
-            "hearts": "KQ8",
-            "diamonds": "A3",
-            "clubs": "T962"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1NT",
-              "P",
-              "2NT",
-              "3D"
-            ]
-          },
-          "answer": "3NT",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "C0320A8F2FD5AD4F147D587FB359",
-            "event": "Rule_of_16",
-            "board": 197
-          }
-        },
-        {
-          "hand": {
-            "spades": "876",
-            "hearts": "AKQ8",
-            "diamonds": "J32",
-            "clubs": "KQ9"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1NT",
-              "P",
-              "2NT",
-              "3D"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "D08CCD8D635B690F3C165E7FD0A3",
-            "event": "Rule_of_16",
-            "board": 466
           }
         }
       ]
@@ -944,14 +940,14 @@
         },
         {
           "hand": {
-            "spades": "QJ7",
-            "hearts": "AT9",
-            "diamonds": "AK93",
-            "clubs": "K43"
+            "spades": "A743",
+            "hearts": "KT3",
+            "diamonds": "AKQT",
+            "clubs": "94"
           },
           "seat": "N",
           "dealer": "N",
-          "vulnerability": "Both",
+          "vulnerability": "EW",
           "context": {
             "dealer": "N",
             "calls": [
@@ -964,9 +960,9 @@
           "answer": "3NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "43CFED1A37884CFA14F370A9AD77",
+            "id": "313B4B5A57C8B5E314B0AC350FD2",
             "event": "Rule_of_16",
-            "board": 77
+            "board": 57
           }
         }
       ]

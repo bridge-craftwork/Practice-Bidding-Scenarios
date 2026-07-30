@@ -70,14 +70,14 @@ Pass  Pass  Pass
 {Shape 5521 1075 3523 4324}
 {HCP 6 7 12 15}
 {Losers 8 5 8 7}
-[Declarer "E"]
-[Contract "5D"]
-[Result "10"]
-[Score "NS 100"]
+[Declarer "S"]
+[Contract "4H"]
+[Result "8"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "S"]
-1H    1N    4H    5D
-Pass  Pass  Pass
+1H    1N    4H    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -223,13 +223,13 @@ Pass  Pass
 {HCP 4 6 14 16}
 {Losers 9 6 6 7}
 [Declarer "E"]
-[Contract "5D"]
+[Contract "5DX"]
 [Result "10"]
-[Score "NS 100"]
+[Score "NS 200"]
 [Scoring "MP"]
 [Auction "S"]
-1H    X     4H    5D
-Pass  Pass  Pass
+1H    1N    4H    5D
+X     Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -349,14 +349,15 @@ Pass  Pass
 {Shape 3622 6151 1534 3136}
 {HCP 4 14 15 7}
 {Losers 9 4 5 9}
-[Declarer "E"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS -650"]
+[Declarer "S"]
+[Contract "5H"]
+[Result "9"]
+[Score "NS -100"]
 [Scoring "MP"]
 [Auction "S"]
 1H    Pass  4H    4S
-Pass  Pass  Pass
+Pass  Pass  5H    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -614,9 +615,11 @@ Pass  Pass  Pass
 [Auction "S"]
 2C =1=    Pass  2D =2=    Pass
 2H    Pass  3H    Pass
-4H    Pass  Pass  Pass
+3S =3=    Pass  4H    Pass
+Pass  Pass
 [Note "1:strong"]
 [Note "2:waiting"]
+[Note "3:Cue bid, a !S stopper"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1382,14 +1385,14 @@ Pass  Pass
 {HCP 4 5 12 19}
 {Losers 9 8 6 4}
 [Declarer "W"]
-[Contract "5C"]
+[Contract "4C"]
 [Result "11"]
-[Score "NS -600"]
+[Score "NS -150"]
 [Scoring "MP"]
 [Auction "S"]
 1H    X     3H    Pass
-Pass  4C    Pass  5C
-Pass  Pass  Pass
+Pass  4C    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -1435,8 +1438,8 @@ Pass  Pass
 {Losers 8 5 6 8}
 [Declarer "S"]
 [Contract "4H"]
-[Result "10"]
-[Score "NS 420"]
+[Result "9"]
+[Score "NS -50"]
 [Scoring "MP"]
 [Auction "S"]
 1H    Pass  4H    Pass
@@ -1948,6 +1951,32 @@ Pass
 [Event "Preemptive_Raise"]
 [Site ""]
 [Board "76"]
+% 8BB8691E4BA4189A0128B356953F
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:Q9762.J7.T43.J52 KJ4.Q9843.75.Q84 AT853.KT6.Q2.K73 .A52.AKJ986.AT96"]
+{Shape 5233 3523 5323 0364}
+{HCP 4 8 12 16}
+{Losers 10 8 8 5}
+[Declarer "W"]
+[Contract "3D"]
+[Result "11"]
+[Score "NS -150"]
+[Scoring "MP"]
+[Auction "S"]
+1S    2D    2S    Pass
+Pass  3C    Pass  3D
+Pass  Pass  Pass
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Preemptive_Raise"]
+[Site ""]
+[Board "77"]
 % 886559D2210C66E0C870CE872F48
 [North "EPBot"]
 [East "EPBot"]
@@ -1974,7 +2003,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "77"]
+[Board "78"]
 % 8A81E9BA54B8181FBB010971A31C
 [North "EPBot"]
 [East "EPBot"]
@@ -1998,7 +2027,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "78"]
+[Board "79"]
 % 9965E0EF2E4AFC8F815C278E4625
 [North "EPBot"]
 [East "EPBot"]
@@ -2024,7 +2053,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "79"]
+[Board "80"]
 % 9BE939EEE1400B31C3AC01C622D2
 [North "EPBot"]
 [East "EPBot"]
@@ -2050,7 +2079,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "80"]
+[Board "81"]
 % 9929BEB44F5C162A90092EB7B04F
 [North "EPBot"]
 [East "EPBot"]
@@ -2077,7 +2106,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "81"]
+[Board "82"]
 % 9B5A296AA98A80201718F389279A
 [North "EPBot"]
 [East "EPBot"]
@@ -2102,7 +2131,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "82"]
+[Board "83"]
 % 98BD25EEFACCCFD30040AECF6228
 [North "EPBot"]
 [East "EPBot"]
@@ -2128,7 +2157,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "83"]
+[Board "84"]
 % 9861F085CEEF2A7A8AC8886AE056
 [North "EPBot"]
 [East "EPBot"]
@@ -2154,7 +2183,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "84"]
+[Board "85"]
 % 9AE3E1E901CF9442AACF7E5C49E6
 [North "EPBot"]
 [East "EPBot"]
@@ -2180,7 +2209,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "85"]
+[Board "86"]
 % ABE2E12264312A6841493DC9C304
 [North "EPBot"]
 [East "EPBot"]
@@ -2205,7 +2234,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "86"]
+[Board "87"]
 % AAE5016892CB03100096EE8A64EE
 [North "EPBot"]
 [East "EPBot"]
@@ -2230,7 +2259,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "87"]
+[Board "88"]
 % A9B6BA246266D30C30BD19148C8B
 [North "EPBot"]
 [East "EPBot"]
@@ -2256,7 +2285,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "88"]
+[Board "89"]
 % ABEE1C8C80648AE6E4E35EFA4506
 [North "EPBot"]
 [East "EPBot"]
@@ -2281,7 +2310,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "89"]
+[Board "90"]
 % A8E2EA408E472AC0D4BA8DA61826
 [North "EPBot"]
 [East "EPBot"]
@@ -2308,7 +2337,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "90"]
+[Board "91"]
 % AB6568EA625F88C40DC4D3417BA5
 [North "EPBot"]
 [East "EPBot"]
@@ -2333,7 +2362,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "91"]
+[Board "92"]
 % AA64FCA2B3044B464BEAE46CAE02
 [North "EPBot"]
 [East "EPBot"]
@@ -2360,7 +2389,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "92"]
+[Board "93"]
 % A886E4A6D3C44E09602C2D2F46BA
 [North "EPBot"]
 [East "EPBot"]
@@ -2387,7 +2416,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "93"]
+[Board "94"]
 % B8AEAD4B7E020CE6E621FC8938CC
 [North "EPBot"]
 [East "EPBot"]
@@ -2399,15 +2428,15 @@ Pass  Pass
 {Shape 4531 2065 3523 4324}
 {HCP 6 16 17 1}
 {Losers 8 5 6 11}
-[Declarer "S"]
-[Contract "5H"]
+[Declarer "W"]
+[Contract "5C"]
 [Result "10"]
-[Score "NS -50"]
+[Score "NS 50"]
 [Scoring "MP"]
 [Auction "S"]
 1N    Pass  2D    4N =1=
 Pass  5C    Pass  Pass =2=
-5H    Pass  Pass  Pass
+Pass
 [Note "1:Unusual 4NT"]
 [Note "2:bidable suit"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -2415,7 +2444,7 @@ Pass  5C    Pass  Pass =2=
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "94"]
+[Board "95"]
 % BA6BE4624E0340B082820DA85426
 [North "EPBot"]
 [East "EPBot"]
@@ -2427,13 +2456,14 @@ Pass  5C    Pass  Pass =2=
 {Shape 3622 5125 4531 1165}
 {HCP 6 14 12 8}
 {Losers 9 5 6 6}
-[Declarer "E"]
-[Contract "5C"]
-[Result "10"]
-[Score "NS 50"]
+[Declarer "S"]
+[Contract "5HX"]
+[Result "9"]
+[Score "NS -500"]
 [Scoring "MP"]
 [Auction "S"]
 1H    2N =1=    3H    5C
+Pass  Pass  5H    X
 Pass  Pass  Pass
 [Note "1:Unusual 2NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -2441,7 +2471,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "95"]
+[Board "96"]
 % B96A397CAA4D03E147E872264ECC
 [North "EPBot"]
 [East "EPBot"]
@@ -2468,7 +2498,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "96"]
+[Board "97"]
 % B8AC2655CA04B60D299608826CE6
 [North "EPBot"]
 [East "EPBot"]
@@ -2481,19 +2511,19 @@ Pass  Pass  Pass
 {HCP 5 12 13 10}
 {Losers 8 8 6 6}
 [Declarer "S"]
-[Contract "4HX"]
+[Contract "4H"]
 [Result "11"]
-[Score "NS 690"]
+[Score "NS 450"]
 [Scoring "MP"]
 [Auction "S"]
-1H    2D    4H    X
-Pass  Pass  Pass
+1H    2D    4H    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "97"]
+[Board "98"]
 % BBEA69C22B20D44E06637DCD7B89
 [North "EPBot"]
 [East "EPBot"]
@@ -2523,7 +2553,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "98"]
+[Board "99"]
 % B8629E27C5C88E88EE6A448CE930
 [North "EPBot"]
 [East "EPBot"]
@@ -2548,7 +2578,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "99"]
+[Board "100"]
 % C965EA4230C245EFC4E504FB88A6
 [North "EPBot"]
 [East "EPBot"]
@@ -2573,7 +2603,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "100"]
+[Board "101"]
 % CBFEA5DC63066265CBE800788145
 [North "EPBot"]
 [East "EPBot"]
@@ -2598,7 +2628,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "101"]
+[Board "102"]
 % CA6688E8C01362402246E78F456C
 [North "EPBot"]
 [East "EPBot"]
@@ -2624,7 +2654,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "102"]
+[Board "103"]
 % C9AE99C6E3C5C72584670AFFFFE6
 [North "EPBot"]
 [East "EPBot"]
@@ -2649,7 +2679,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "103"]
+[Board "104"]
 % C8AD15F4096BEE47426962F48648
 [North "EPBot"]
 [East "EPBot"]
@@ -2674,7 +2704,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "104"]
+[Board "105"]
 % C9E0E9E86A5E4DC711C3827544E0
 [North "EPBot"]
 [East "EPBot"]
@@ -2699,7 +2729,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "105"]
+[Board "106"]
 % CB912010A8A094070BBA6410CEA0
 [North "EPBot"]
 [East "EPBot"]
@@ -2724,7 +2754,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "106"]
+[Board "107"]
 % C8E66500768A0B1064645185264A
 [North "EPBot"]
 [East "EPBot"]
@@ -2749,7 +2779,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "107"]
+[Board "108"]
 % CA62A0C6022854078E5AF723E141
 [North "EPBot"]
 [East "EPBot"]
@@ -2775,7 +2805,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "108"]
+[Board "109"]
 % CBD0AE4F6B39094B68CEE3214C54
 [North "EPBot"]
 [East "EPBot"]
@@ -2800,7 +2830,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "109"]
+[Board "110"]
 % C8E26F9CAF04034472BF64850C68
 [North "EPBot"]
 [East "EPBot"]
@@ -2825,7 +2855,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "110"]
+[Board "111"]
 % CA8452E2248E20C90175082BEA7E
 [North "EPBot"]
 [East "EPBot"]
@@ -2850,7 +2880,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "111"]
+[Board "112"]
 % C9AFEE2EAD52EB880A04778E47FE
 [North "EPBot"]
 [East "EPBot"]
@@ -2875,7 +2905,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "112"]
+[Board "113"]
 % D89F74A524D908C04F68AECF4DAC
 [North "EPBot"]
 [East "EPBot"]
@@ -2901,7 +2931,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "113"]
+[Board "114"]
 % DA46A8A35A47E1CC38746D4C41EF
 [North "EPBot"]
 [East "EPBot"]
@@ -2913,20 +2943,21 @@ Pass
 {Shape 1543 7132 2533 3235}
 {HCP 6 15 14 5}
 {Losers 8 6 7 9}
-[Declarer "E"]
-[Contract "4S"]
-[Result "10"]
-[Score "NS -420"]
+[Declarer "S"]
+[Contract "5H"]
+[Result "9"]
+[Score "NS -200"]
 [Scoring "MP"]
 [Auction "S"]
 1H    Pass  4H    4S
-Pass  Pass  Pass
+Pass  Pass  5H    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "114"]
+[Board "115"]
 % D918B66DA5021C478408DE39BF90
 [North "EPBot"]
 [East "EPBot"]
@@ -2952,7 +2983,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "115"]
+[Board "116"]
 % D8E026F78461C20ACFCD980E6C6D
 [North "EPBot"]
 [East "EPBot"]
@@ -2978,7 +3009,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "116"]
+[Board "117"]
 % DA69FC8126D947C266F36FAC400A
 [North "EPBot"]
 [East "EPBot"]
@@ -3004,7 +3035,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "117"]
+[Board "118"]
 % D8663D85AA0AA4FECFEC405BA547
 [North "EPBot"]
 [East "EPBot"]
@@ -3029,7 +3060,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "118"]
+[Board "119"]
 % DAB224BD9E9F3A3CB9A99CFE3A3E
 [North "EPBot"]
 [East "EPBot"]
@@ -3057,7 +3088,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "119"]
+[Board "120"]
 % D9B5A0EFF5C8E7A74FC6C5436846
 [North "EPBot"]
 [East "EPBot"]
@@ -3085,7 +3116,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "120"]
+[Board "121"]
 % E864AD4DC48F6A55CD58C0EBAFC7
 [North "EPBot"]
 [East "EPBot"]
@@ -3097,21 +3128,21 @@ Pass  Pass
 {Shape 0634 5251 3514 5044}
 {HCP 3 11 15 11}
 {Losers 8 5 5 7}
-[Declarer "S"]
-[Contract "5HX"]
-[Result "11"]
-[Score "NS 650"]
+[Declarer "W"]
+[Contract "5SX"]
+[Result "12"]
+[Score "NS -750"]
 [Scoring "MP"]
 [Auction "S"]
 1H    1S    4H    4S
-5H    Pass  Pass  X
-Pass  Pass  Pass
+5H    5S    Pass  Pass
+X     Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "121"]
+[Board "122"]
 % E97B59DDE426C5CAE04C0243A8E7
 [North "EPBot"]
 [East "EPBot"]
@@ -3137,7 +3168,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "122"]
+[Board "123"]
 % EB91B03EF522CB965FB6082510A8
 [North "EPBot"]
 [East "EPBot"]
@@ -3163,7 +3194,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "123"]
+[Board "124"]
 % E9A44C986A0E82E05046C0AB3FEA
 [North "EPBot"]
 [East "EPBot"]
@@ -3188,7 +3219,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "124"]
+[Board "125"]
 % EB69646CCC7A4B6ED5CB22010920
 [North "EPBot"]
 [East "EPBot"]
@@ -3214,7 +3245,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "125"]
+[Board "126"]
 % E8B56A85E62E0F45E006247E11CA
 [North "EPBot"]
 [East "EPBot"]
@@ -3239,7 +3270,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "126"]
+[Board "127"]
 % EA22B1B6B21181399F48D4DB2E0E
 [North "EPBot"]
 [East "EPBot"]
@@ -3264,7 +3295,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "127"]
+[Board "128"]
 % EBE0A866860150CFC4EE03EAFE9F
 [North "EPBot"]
 [East "EPBot"]
@@ -3277,20 +3308,20 @@ Pass  Pass
 {HCP 4 9 13 14}
 {Losers 10 8 6 5}
 [Declarer "W"]
-[Contract "2S"]
+[Contract "3S"]
 [Result "10"]
 [Score "NS -170"]
 [Scoring "MP"]
 [Auction "S"]
 1H    1S    2H    Pass
-Pass  2S    Pass  Pass
-Pass
+Pass  2S    3H    3S
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "128"]
+[Board "129"]
 % E86640A74D4C404F95E72AA4BBD8
 [North "EPBot"]
 [East "EPBot"]
@@ -3316,7 +3347,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "129"]
+[Board "130"]
 % E919965CBEB76A3C92CD32AF2F0B
 [North "EPBot"]
 [East "EPBot"]
@@ -3342,7 +3373,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "130"]
+[Board "131"]
 % FAAA2CD254CBA3F9826207E4C70A
 [North "EPBot"]
 [East "EPBot"]
@@ -3370,7 +3401,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "131"]
+[Board "132"]
 % FBEAEFBBD48D86CB1AEEEE400222
 [North "EPBot"]
 [East "EPBot"]
@@ -3396,7 +3427,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "132"]
+[Board "133"]
 % FA60618ECAE119CEB20E676FB041
 [North "EPBot"]
 [East "EPBot"]
@@ -3421,7 +3452,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "133"]
+[Board "134"]
 % FBDC45EEA9C362D7B400A80AA200
 [North "EPBot"]
 [East "EPBot"]
@@ -3446,7 +3477,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "134"]
+[Board "135"]
 % FB7AAEE31A8A4D4ECAA327EA8834
 [North "EPBot"]
 [East "EPBot"]
@@ -3471,7 +3502,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "135"]
+[Board "136"]
 % F8EEE94E84C6286D4789BE14A726
 [North "EPBot"]
 [East "EPBot"]
@@ -3496,7 +3527,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "136"]
+[Board "137"]
 % FB99AA34A2492449C02AC461C693
 [North "EPBot"]
 [East "EPBot"]
@@ -3521,7 +3552,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "137"]
+[Board "138"]
 % F899E6602646262A9D448B8EC8E4
 [North "EPBot"]
 [East "EPBot"]
@@ -3546,7 +3577,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "138"]
+[Board "139"]
 % FA25E2FDF20EAA42BBCB00446EA6
 [North "EPBot"]
 [East "EPBot"]
@@ -3573,7 +3604,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "139"]
+[Board "140"]
 % 09EAE44CEF044745E36CA2B3C955
 [North "EPBot"]
 [East "EPBot"]
@@ -3599,7 +3630,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "140"]
+[Board "141"]
 % 0BCD68E8C6802CD206B1C66756A9
 [North "EPBot"]
 [East "EPBot"]
@@ -3624,7 +3655,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "141"]
+[Board "142"]
 % 0AE4696E636383C77CB8035A86C4
 [North "EPBot"]
 [East "EPBot"]
@@ -3649,7 +3680,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "142"]
+[Board "143"]
 % 0BA551DACFA6268AF6C066C844A9
 [North "EPBot"]
 [East "EPBot"]
@@ -3674,7 +3705,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "143"]
+[Board "144"]
 % 08ACD1CD2A8CC5E7257EC6AE0E07
 [North "EPBot"]
 [East "EPBot"]
@@ -3700,7 +3731,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "144"]
+[Board "145"]
 % 0A516B84E924E0EBD68F5DCECC42
 [North "EPBot"]
 [East "EPBot"]
@@ -3725,7 +3756,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "145"]
+[Board "146"]
 % 0BE0B9CE05424FA2E36BE0C44FF1
 [North "EPBot"]
 [East "EPBot"]
@@ -3750,7 +3781,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "146"]
+[Board "147"]
 % 088E60F429096EC1E61D77AC0A44
 [North "EPBot"]
 [East "EPBot"]
@@ -3775,7 +3806,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "147"]
+[Board "148"]
 % 0AAB6988F8E86B25FF3B88CC4886
 [North "EPBot"]
 [East "EPBot"]
@@ -3801,7 +3832,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "148"]
+[Board "149"]
 % 098C9E68E06D4FBF4C274126E542
 [North "EPBot"]
 [East "EPBot"]
@@ -3826,7 +3857,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "149"]
+[Board "150"]
 % 18E2415EBE4DCBCACA23E0D8E4A8
 [North "EPBot"]
 [East "EPBot"]
@@ -3851,7 +3882,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "150"]
+[Board "151"]
 % 1A51BE9936AE23B334420F7AA630
 [North "EPBot"]
 [East "EPBot"]
@@ -3879,7 +3910,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "151"]
+[Board "152"]
 % 196EE56FC20AEBFDC47583015EE5
 [North "EPBot"]
 [East "EPBot"]
@@ -3904,7 +3935,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "152"]
+[Board "153"]
 % 1BA65E1A680889F92368CC6D0206
 [North "EPBot"]
 [East "EPBot"]
@@ -3929,7 +3960,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "153"]
+[Board "154"]
 % 1964A9CE85C0F68E2F4855E4270F
 [North "EPBot"]
 [East "EPBot"]
@@ -3954,7 +3985,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "154"]
+[Board "155"]
 % 1961A62C9E87EF186224C84DCC47
 [North "EPBot"]
 [East "EPBot"]
@@ -3979,7 +4010,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "155"]
+[Board "156"]
 % 1BBD1CD0B12619047EBB9367B000
 [North "EPBot"]
 [East "EPBot"]
@@ -4005,7 +4036,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "156"]
+[Board "157"]
 % 1A86E162288C00A4080A6239EB48
 [North "EPBot"]
 [East "EPBot"]
@@ -4030,7 +4061,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "157"]
+[Board "158"]
 % 2A59E66CEC2B42DBA7893D80C2C2
 [North "EPBot"]
 [East "EPBot"]
@@ -4058,7 +4089,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "158"]
+[Board "159"]
 % 2AF6E66B13E0CBC7A6EC48CF8A66
 [North "EPBot"]
 [East "EPBot"]
@@ -4084,7 +4115,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "159"]
+[Board "160"]
 % 29E25EA4ABCD1A402E83FECA8F6E
 [North "EPBot"]
 [East "EPBot"]
@@ -4110,7 +4141,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "160"]
+[Board "161"]
 % 2B416C90433BA2188C43C4E421A8
 [North "EPBot"]
 [East "EPBot"]
@@ -4135,7 +4166,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "161"]
+[Board "162"]
 % 299DBD26B7B3302DD432129A7B24
 [North "EPBot"]
 [East "EPBot"]
@@ -4147,25 +4178,23 @@ Pass  Pass  Pass
 {Shape 6043 1444 5323 1633}
 {HCP 3 9 17 11}
 {Losers 8 7 6 7}
-[Declarer "N"]
+[Declarer "S"]
 [Contract "4S"]
 [Result "11"]
 [Score "NS 450"]
 [Scoring "MP"]
 [Auction "S"]
 1N    2C =1=    Pass  2D =2=
-Pass  2H    2S    3H
-4H =3=    Pass  4S    Pass
+2S    Pass  4S    Pass
 Pass  Pass
 [Note "1:Cappelletti, any 6+suit"]
 [Note "2:automat"]
-[Note "3:limit raise or better in !S"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "162"]
+[Board "163"]
 % 2B69C6A1715A25E3C3CE04788FEA
 [North "EPBot"]
 [East "EPBot"]
@@ -4190,7 +4219,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "163"]
+[Board "164"]
 % 2864BD2FC44763A73FFE858E224C
 [North "EPBot"]
 [East "EPBot"]
@@ -4217,7 +4246,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "164"]
+[Board "165"]
 % 2A9A9619ACC233B65CBD08713C05
 [North "EPBot"]
 [East "EPBot"]
@@ -4243,7 +4272,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "165"]
+[Board "166"]
 % 2B657C68EC0CAC5400520A4629C5
 [North "EPBot"]
 [East "EPBot"]
@@ -4268,7 +4297,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "166"]
+[Board "167"]
 % 295869DF626F0CCC4EF74325AA88
 [North "EPBot"]
 [East "EPBot"]
@@ -4294,7 +4323,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "167"]
+[Board "168"]
 % 3AA4386AB0AAA743EF06460800FA
 [North "EPBot"]
 [East "EPBot"]
@@ -4320,7 +4349,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "168"]
+[Board "169"]
 % 3BA138AA094237A23E549C08B7DE
 [North "EPBot"]
 [East "EPBot"]
@@ -4347,7 +4376,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "169"]
+[Board "170"]
 % 3A41A028E4A32F40489687481CDA
 [North "EPBot"]
 [East "EPBot"]
@@ -4374,7 +4403,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "170"]
+[Board "171"]
 % 3944A6AD82821E3C0C61EECB6AF2
 [North "EPBot"]
 [East "EPBot"]
@@ -4399,7 +4428,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "171"]
+[Board "172"]
 % 38C0EEE7A06CAA4A7689CFA7C81E
 [North "EPBot"]
 [East "EPBot"]
@@ -4425,7 +4454,7 @@ Pass  4S    Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "172"]
+[Board "173"]
 % 3B68ADC6665E0B0CDDC350CBEC6B
 [North "EPBot"]
 [East "EPBot"]
@@ -4450,7 +4479,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "173"]
+[Board "174"]
 % 3AA1C46A7FE145CCC96EF24AEE07
 [North "EPBot"]
 [East "EPBot"]
@@ -4475,7 +4504,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "174"]
+[Board "175"]
 % 39648DA9D2629F2FC0FA6284C044
 [North "EPBot"]
 [East "EPBot"]
@@ -4500,7 +4529,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "175"]
+[Board "176"]
 % 486364E2425643240CEE37CF87B1
 [North "EPBot"]
 [East "EPBot"]
@@ -4525,7 +4554,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "176"]
+[Board "177"]
 % 4A7AABA440F7C2280E4B82ED16E1
 [North "EPBot"]
 [East "EPBot"]
@@ -4553,7 +4582,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "177"]
+[Board "178"]
 % 4AE0AD7A60A008C9B8084EAB0617
 [North "EPBot"]
 [East "EPBot"]
@@ -4578,7 +4607,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "178"]
+[Board "179"]
 % 486C6D9BEDC2F449EE308A034426
 [North "EPBot"]
 [East "EPBot"]
@@ -4606,7 +4635,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "179"]
+[Board "180"]
 % 4B81B1629ABB2400643ADF9C3F33
 [North "EPBot"]
 [East "EPBot"]
@@ -4631,7 +4660,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "180"]
+[Board "181"]
 % 4A64C96B48A0FE14EA2E3189800E
 [North "EPBot"]
 [East "EPBot"]
@@ -4656,7 +4685,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "181"]
+[Board "182"]
 % 5866B6B10B832617541AE69826B2
 [North "EPBot"]
 [East "EPBot"]
@@ -4681,7 +4710,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "182"]
+[Board "183"]
 % 5A67E4EA8410720FF18A43496FA8
 [North "EPBot"]
 [East "EPBot"]
@@ -4706,7 +4735,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "183"]
+[Board "184"]
 % 5925ECBE6C6C87A302EF97448846
 [North "EPBot"]
 [East "EPBot"]
@@ -4732,7 +4761,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "184"]
+[Board "185"]
 % 5BE22121988E8B0F56F6CAE0E48A
 [North "EPBot"]
 [East "EPBot"]
@@ -4758,7 +4787,7 @@ X     Pass  3H    Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "185"]
+[Board "186"]
 % 59E5EF8C64DD060C89CFE286A716
 [North "EPBot"]
 [East "EPBot"]
@@ -4784,7 +4813,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "186"]
+[Board "187"]
 % 5BCEE121F8C100B124B740A34A22
 [North "EPBot"]
 [East "EPBot"]
@@ -4810,7 +4839,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "187"]
+[Board "188"]
 % 586224E7C6422A9C0C73691045C0
 [North "EPBot"]
 [East "EPBot"]
@@ -4836,7 +4865,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "188"]
+[Board "189"]
 % 59E54D6B85F4CFE73E5D86268C23
 [North "EPBot"]
 [East "EPBot"]
@@ -4861,7 +4890,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "189"]
+[Board "190"]
 % 5B64E968CF24D781988101207042
 [North "EPBot"]
 [East "EPBot"]
@@ -4888,7 +4917,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "190"]
+[Board "191"]
 % 589DAAA6D78639BE4F1738F5102D
 [North "EPBot"]
 [East "EPBot"]
@@ -4914,7 +4943,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "191"]
+[Board "192"]
 % 5AC169561DA773E8C8822B21C808
 [North "EPBot"]
 [East "EPBot"]
@@ -4941,7 +4970,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "192"]
+[Board "193"]
 % 68A0C5D401E6270E9648CA8EAF6C
 [North "EPBot"]
 [East "EPBot"]
@@ -4967,7 +4996,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "193"]
+[Board "194"]
 % 6A6460A77B60C797CB40C89B6D02
 [North "EPBot"]
 [East "EPBot"]
@@ -4993,7 +5022,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "194"]
+[Board "195"]
 % 6A21F0A81EE24349256CDE804606
 [North "EPBot"]
 [East "EPBot"]
@@ -5019,7 +5048,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "195"]
+[Board "196"]
 % 69ECBDCA41CEC6656B9F0471E367
 [North "EPBot"]
 [East "EPBot"]
@@ -5045,7 +5074,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "196"]
+[Board "197"]
 % 6B60A3885472496C0BCFEA24AA0E
 [North "EPBot"]
 [East "EPBot"]
@@ -5057,22 +5086,21 @@ Pass
 {Shape 3523 5134 3631 2155}
 {HCP 6 13 12 9}
 {Losers 9 7 6 6}
-[Declarer "S"]
-[Contract "4H"]
-[Result "9"]
-[Score "NS -100"]
+[Declarer "E"]
+[Contract "4C"]
+[Result "11"]
+[Score "NS -150"]
 [Scoring "MP"]
 [Auction "S"]
-1H    2N =1=    Pass  3C
-Pass  Pass  3H    4C
-4H    Pass  Pass  Pass
+1H    2N =1=    Pass  4C
+Pass  Pass  Pass
 [Note "1:Unusual 2NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "197"]
+[Board "198"]
 % 696864EBA7F8770D074D264C4068
 [North "EPBot"]
 [East "EPBot"]
@@ -5098,7 +5126,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "198"]
+[Board "199"]
 % 6B716CE626E8CF4DCB2350B0C54E
 [North "EPBot"]
 [East "EPBot"]
@@ -5125,7 +5153,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "199"]
+[Board "200"]
 % 68A5E74642CE2CFF42473022E345
 [North "EPBot"]
 [East "EPBot"]
@@ -5150,7 +5178,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "200"]
+[Board "201"]
 % 6ADAA722EC01C6CFBEC8619847EA
 [North "EPBot"]
 [East "EPBot"]
@@ -5163,21 +5191,19 @@ Pass  Pass
 {HCP 6 14 12 8}
 {Losers 10 6 7 8}
 [Declarer "W"]
-[Contract "4S"]
+[Contract "2S"]
 [Result "10"]
-[Score "NS -420"]
+[Score "NS -170"]
 [Scoring "MP"]
 [Auction "S"]
-1H    2S    Pass  2N =1=
-Pass  3D    Pass  4S
-Pass  Pass  Pass
-[Note "1:artificial"]
+1H    2S    Pass  Pass
+Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "201"]
+[Board "202"]
 % 6B988E4CE60BC26A2B245883A06C
 [North "EPBot"]
 [East "EPBot"]
@@ -5195,9 +5221,8 @@ Pass  Pass  Pass
 [Score "NS 100"]
 [Scoring "MP"]
 [Auction "S"]
-1H    2N =1=    Pass  3C
-Pass  Pass  3H    Pass
-4H    Pass  Pass  5C
+1H    2N =1=    Pass  4C
+Pass  Pass  4H    5C
 Pass  Pass  Pass
 [Note "1:Unusual 2NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -5205,7 +5230,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "202"]
+[Board "203"]
 % 684DAEE5EB2A08ECBD5C8586087C
 [North "EPBot"]
 [East "EPBot"]
@@ -5232,7 +5257,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "203"]
+[Board "204"]
 % 6A68B5D31CC2632F61CBC9E24989
 [North "EPBot"]
 [East "EPBot"]
@@ -5258,7 +5283,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "204"]
+[Board "205"]
 % 694DEAE4F387476F680F4575AEEF
 [North "EPBot"]
 [East "EPBot"]
@@ -5283,7 +5308,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "205"]
+[Board "206"]
 % 7B8952A080F4CD6BA75A2A29C204
 [North "EPBot"]
 [East "EPBot"]
@@ -5308,7 +5333,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "206"]
+[Board "207"]
 % 7AB5E24BB76B4072AC4840E90B2D
 [North "EPBot"]
 [East "EPBot"]
@@ -5336,7 +5361,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "207"]
+[Board "208"]
 % 78B6A5C8EE8A062E6FF10A254DFC
 [North "EPBot"]
 [East "EPBot"]
@@ -5361,7 +5386,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "208"]
+[Board "209"]
 % 7AE846666C51A720800E84C35E10
 [North "EPBot"]
 [East "EPBot"]
@@ -5388,7 +5413,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "209"]
+[Board "210"]
 % 7AD4754DC92CC221A853086E47E8
 [North "EPBot"]
 [East "EPBot"]
@@ -5413,7 +5438,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "210"]
+[Board "211"]
 % 792A6879704F663AE0C14348E48E
 [North "EPBot"]
 [East "EPBot"]
@@ -5438,7 +5463,7 @@ X     Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "211"]
+[Board "212"]
 % 88AC8EA4A52B45DF3CCECFC03E63
 [North "EPBot"]
 [East "EPBot"]
@@ -5463,7 +5488,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "212"]
+[Board "213"]
 % 8AAAB414B3C39B0CAA791B11EE34
 [North "EPBot"]
 [East "EPBot"]
@@ -5490,7 +5515,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "213"]
+[Board "214"]
 % 8955ED8E025288878C2DF0E02E66
 [North "EPBot"]
 [East "EPBot"]
@@ -5515,7 +5540,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "214"]
+[Board "215"]
 % 8B6EA2F429D140C84D07FB628564
 [North "EPBot"]
 [East "EPBot"]
@@ -5542,7 +5567,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "215"]
+[Board "216"]
 % 8ABAE4B20C072B8AD39D162276B0
 [North "EPBot"]
 [East "EPBot"]
@@ -5567,7 +5592,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "216"]
+[Board "217"]
 % 89EAA4802D4F9E077FC4722D86E5
 [North "EPBot"]
 [East "EPBot"]
@@ -5594,7 +5619,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "217"]
+[Board "218"]
 % 8BE0AC00E21905B3724AEF68018B
 [North "EPBot"]
 [East "EPBot"]
@@ -5619,7 +5644,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "218"]
+[Board "219"]
 % 88ECE689C8AE4E6B24EE9A08B1C6
 [North "EPBot"]
 [East "EPBot"]
@@ -5644,7 +5669,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "219"]
+[Board "220"]
 % 89A9D2EF5BD567E7A0C4CF8D4E0E
 [North "EPBot"]
 [East "EPBot"]
@@ -5669,7 +5694,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "220"]
+[Board "221"]
 % 8860DD0C2466101C478569AB44C2
 [North "EPBot"]
 [East "EPBot"]
@@ -5695,7 +5720,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "221"]
+[Board "222"]
 % 88AE34694CA70CC388DCE6AE2E87
 [North "EPBot"]
 [East "EPBot"]
@@ -5720,7 +5745,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "222"]
+[Board "223"]
 % 8A74A2D70A0C20E9814ACBD26D24
 [North "EPBot"]
 [East "EPBot"]
@@ -5746,7 +5771,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "223"]
+[Board "224"]
 % 98E6A62920CE479ACF548EE58726
 [North "EPBot"]
 [East "EPBot"]
@@ -5758,23 +5783,21 @@ Pass  Pass  Pass
 {Shape 3523 2236 4612 4072}
 {HCP 5 7 16 12}
 {Losers 10 8 5 5}
-[Declarer "W"]
-[Contract "5DX"]
-[Result "12"]
-[Score "NS -650"]
+[Declarer "S"]
+[Contract "5HX"]
+[Result "9"]
+[Score "NS -300"]
 [Scoring "MP"]
 [Auction "S"]
 1H    2D    2H    3D
-4D =1=    X     4H    Pass
-Pass  5D    Pass  Pass
-X     Pass  Pass  Pass
-[Note "1:Splinter"]
+4H    5D    5H    X
+Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "224"]
+[Board "225"]
 % 9BE9EA53C884D2E404A140952F82
 [North "EPBot"]
 [East "EPBot"]
@@ -5801,7 +5824,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "225"]
+[Board "226"]
 % 9AFD552AE18BEA4402A30973E2CB
 [North "EPBot"]
 [East "EPBot"]
@@ -5827,7 +5850,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "226"]
+[Board "227"]
 % 99652666097CD0C20AC9A20C2EEC
 [North "EPBot"]
 [East "EPBot"]
@@ -5852,7 +5875,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "227"]
+[Board "228"]
 % 9BEDCC6BE4E1661B1440638A4A89
 [North "EPBot"]
 [East "EPBot"]
@@ -5877,7 +5900,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "228"]
+[Board "229"]
 % 9B6CA4C2D0486D4D457CC8442722
 [North "EPBot"]
 [East "EPBot"]
@@ -5902,7 +5925,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "229"]
+[Board "230"]
 % 98E498F5A0CD678DCEEE076E4B9B
 [North "EPBot"]
 [East "EPBot"]
@@ -5928,7 +5951,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "230"]
+[Board "231"]
 % 9AEAA9C7CE310A69C79FE3CAE172
 [North "EPBot"]
 [East "EPBot"]
@@ -5953,7 +5976,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "231"]
+[Board "232"]
 % 9B69568861C713A9CC60C6897BE3
 [North "EPBot"]
 [East "EPBot"]
@@ -5978,7 +6001,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "232"]
+[Board "233"]
 % 98A62DAE86140378BF5C0FA4F519
 [North "EPBot"]
 [East "EPBot"]
@@ -6004,7 +6027,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "233"]
+[Board "234"]
 % 9A54E7C4E4501B8322614DCE6608
 [North "EPBot"]
 [East "EPBot"]
@@ -6030,7 +6053,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "234"]
+[Board "235"]
 % 996DAE083E3C06442BC5456D1E2D
 [North "EPBot"]
 [East "EPBot"]
@@ -6055,7 +6078,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "235"]
+[Board "236"]
 % A860A834F2C1AF03E65E0EC0CF2E
 [North "EPBot"]
 [East "EPBot"]
@@ -6080,7 +6103,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "236"]
+[Board "237"]
 % AA45E8526E0F05C32294E2BA44EC
 [North "EPBot"]
 [East "EPBot"]
@@ -6107,7 +6130,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "237"]
+[Board "238"]
 % A9EE8A64262E4FC4C88D51F8076B
 [North "EPBot"]
 [East "EPBot"]
@@ -6132,7 +6155,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "238"]
+[Board "239"]
 % AB68CEA23ACC4F2E22CB7A25C37D
 [North "EPBot"]
 [East "EPBot"]
@@ -6157,7 +6180,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "239"]
+[Board "240"]
 % AB9DDACBCF416FEBE20862036DFB
 [North "EPBot"]
 [East "EPBot"]
@@ -6184,7 +6207,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "240"]
+[Board "241"]
 % A8A45480C25EE62388CA7FEB2286
 [North "EPBot"]
 [East "EPBot"]
@@ -6212,7 +6235,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "241"]
+[Board "242"]
 % AAA2E0BE2B459BE633C88043492A
 [North "EPBot"]
 [East "EPBot"]
@@ -6237,7 +6260,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "242"]
+[Board "243"]
 % A86E9189EEE204C6CF1BAD44CCE8
 [North "EPBot"]
 [East "EPBot"]
@@ -6262,7 +6285,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "243"]
+[Board "244"]
 % AA65E204ACC848315C8C8A7AAE23
 [North "EPBot"]
 [East "EPBot"]
@@ -6287,7 +6310,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "244"]
+[Board "245"]
 % A9EDB2602602EA0CE405C4AF4954
 [North "EPBot"]
 [East "EPBot"]
@@ -6312,7 +6335,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "245"]
+[Board "246"]
 % B854A984C2E8655F0E20E643C79F
 [North "EPBot"]
 [East "EPBot"]
@@ -6339,7 +6362,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "246"]
+[Board "247"]
 % BB5DB00084BE2CBD462A58341A83
 [North "EPBot"]
 [East "EPBot"]
@@ -6364,7 +6387,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "247"]
+[Board "248"]
 % B869E584F65EE785404B8EEA8FEF
 [North "EPBot"]
 [East "EPBot"]
@@ -6390,7 +6413,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "248"]
+[Board "249"]
 % BBDDE1D80790E5CEE241C06C0467
 [North "EPBot"]
 [East "EPBot"]
@@ -6421,7 +6444,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "249"]
+[Board "250"]
 % BAA84A36E9A5AAFF42032448CC32
 [North "EPBot"]
 [East "EPBot"]
@@ -6447,7 +6470,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "250"]
+[Board "251"]
 % B99A66CDC10ECEFBA06AA2F62400
 [North "EPBot"]
 [East "EPBot"]
@@ -6472,7 +6495,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "251"]
+[Board "252"]
 % C8226C75D93EC445AC680D2B82CC
 [North "EPBot"]
 [East "EPBot"]
@@ -6497,7 +6520,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "252"]
+[Board "253"]
 % C9A5A2C466712C08CC8C46215FC5
 [North "EPBot"]
 [East "EPBot"]
@@ -6522,7 +6545,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "253"]
+[Board "254"]
 % C96CE5841FE289C56ECBF72E0E26
 [North "EPBot"]
 [East "EPBot"]
@@ -6548,7 +6571,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "254"]
+[Board "255"]
 % CBAFBAD951B6B416E2280C16980F
 [North "EPBot"]
 [East "EPBot"]
@@ -6572,7 +6595,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "255"]
+[Board "256"]
 % C86D21EFC6A054E8CF0C4D4B1CF1
 [North "EPBot"]
 [East "EPBot"]
@@ -6597,7 +6620,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "256"]
+[Board "257"]
 % CB63AC2AAA41764BAC86F3CBC4D1
 [North "EPBot"]
 [East "EPBot"]
@@ -6622,7 +6645,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "257"]
+[Board "258"]
 % C8A45040CA659F080C3E60C12E24
 [North "EPBot"]
 [East "EPBot"]
@@ -6647,7 +6670,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "258"]
+[Board "259"]
 % CA95600968084B207245E2D48F23
 [North "EPBot"]
 [East "EPBot"]
@@ -6674,7 +6697,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "259"]
+[Board "260"]
 % D8A5F24CCD6C776F22CF49950427
 [North "EPBot"]
 [East "EPBot"]
@@ -6699,7 +6722,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "260"]
+[Board "261"]
 % D9AD442429C168052ECC5E4AC23E
 [North "EPBot"]
 [East "EPBot"]
@@ -6724,7 +6747,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "261"]
+[Board "262"]
 % DBBCE4E653EECE350AC0A641496B
 [North "EPBot"]
 [East "EPBot"]
@@ -6750,7 +6773,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "262"]
+[Board "263"]
 % DAF9AC6C684CA18402214B324A63
 [North "EPBot"]
 [East "EPBot"]
@@ -6776,7 +6799,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "263"]
+[Board "264"]
 % DBBE3C9FBA129F5B2B317E2A37BB
 [North "EPBot"]
 [East "EPBot"]
@@ -6803,7 +6826,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "264"]
+[Board "265"]
 % D865206C20FF7F02E5C98A4CCD1C
 [North "EPBot"]
 [East "EPBot"]
@@ -6829,7 +6852,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "265"]
+[Board "266"]
 % DA6899802246C3906E038769E233
 [North "EPBot"]
 [East "EPBot"]
@@ -6854,7 +6877,7 @@ Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "266"]
+[Board "267"]
 % DBF16661D42177082B808AC94D6A
 [North "EPBot"]
 [East "EPBot"]
@@ -6880,7 +6903,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "267"]
+[Board "268"]
 % D96EC5ED82C4AD268F37C4A245C4
 [North "EPBot"]
 [East "EPBot"]
@@ -6905,7 +6928,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "268"]
+[Board "269"]
 % EA88A4EAEB5A7242C4E48C8FCD2E
 [North "EPBot"]
 [East "EPBot"]
@@ -6931,7 +6954,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "269"]
+[Board "270"]
 % E97D8EE9026DE152086CAED24C07
 [North "EPBot"]
 [East "EPBot"]
@@ -6956,7 +6979,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "270"]
+[Board "271"]
 % EBB98A7909EEC2686A05630B4FE2
 [North "EPBot"]
 [East "EPBot"]
@@ -6981,7 +7004,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "271"]
+[Board "272"]
 % EADBA0E688260BFB90874AE00826
 [North "EPBot"]
 [East "EPBot"]
@@ -7006,7 +7029,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "272"]
+[Board "273"]
 % E984EE4A68EF8C03AE1D5762F80A
 [North "EPBot"]
 [East "EPBot"]
@@ -7033,7 +7056,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "273"]
+[Board "274"]
 % E98A6EED048146E65BC22CBC63E0
 [North "EPBot"]
 [East "EPBot"]
@@ -7058,7 +7081,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "274"]
+[Board "275"]
 % EB826AE1EB8C174C6A5821200884
 [North "EPBot"]
 [East "EPBot"]
@@ -7084,7 +7107,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "275"]
+[Board "276"]
 % E8B52CE98D5F054FEC7DEACBCEE0
 [North "EPBot"]
 [East "EPBot"]
@@ -7109,7 +7132,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "276"]
+[Board "277"]
 % E9662B6CFA4C4C18896F86C0CA27
 [North "EPBot"]
 [East "EPBot"]
@@ -7134,7 +7157,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "277"]
+[Board "278"]
 % F8BEA7ED89530668CE0E3467ED84
 [North "EPBot"]
 [East "EPBot"]
@@ -7159,7 +7182,7 @@ Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "278"]
+[Board "279"]
 % FAA89CF2606906C9271BCDC2CE61
 [North "EPBot"]
 [East "EPBot"]
@@ -7185,7 +7208,7 @@ Pass  Pass  Pass
 
 [Event "Preemptive_Raise"]
 [Site ""]
-[Board "279"]
+[Board "280"]
 % FB29982262B9230B9318E89B839B
 [North "EPBot"]
 [East "EPBot"]

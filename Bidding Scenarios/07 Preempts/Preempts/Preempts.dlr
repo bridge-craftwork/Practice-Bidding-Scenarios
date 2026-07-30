@@ -1,0 +1,25 @@
+# alias: Preempts
+# button-text: Preempts
+# scenario-title: --- Preempts
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n[2345][CDHS] +
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Preempts
+@chat*/
+
+# Preempts
+dealer south 
+
+range = hcp(south)>5 and hcp(south)<11
+
+oS = top5(south,spades)>1   and spades(south)>6
+oH = top5(south,hearts)>1   and hearts(south)>6
+oD = top5(south,diamonds)>1 and diamonds(south)>6
+oC = top5(south,clubs)>1    and clubs(south)>6
+
+(oS or oH or oD or oC) and range
+action printoneline,
