@@ -98,8 +98,8 @@ Pass  Pass
 {Losers 9 11 6 7}
 [Declarer "S"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
+[Result "10"]
+[Score "NS 630"]
 [Scoring "MP"]
 [Auction "S"]
 1D    X     1S    Pass
@@ -334,14 +334,21 @@ Pass  Pass
 {HCP 5 4 17 14}
 {Losers 10 8 3 6}
 [Declarer "S"]
-[Contract "5C"]
+[Contract "6C"]
 [Result "12"]
-[Score "NS 620"]
+[Score "NS 1370"]
 [Scoring "MP"]
 [Auction "S"]
 1C    X     Pass  1D
-3C    3D    4C    4D
-5C    Pass  Pass  Pass
+3C    Pass  Pass  3D
+X     Pass  4D =1=    X
+XX =2=    Pass  4N =3=    Pass
+5S =4=    Pass  6C    Pass
+Pass  Pass
+[Note "1:limit raise or better in !C"]
+[Note "2:Cue bid, a !D stopper"]
+[Note "3:Blackwood 1430, for !C"]
+[Note "4:A=2/5 or 5/5, Q(C)=1"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -392,7 +399,7 @@ Pass  Pass
 [Score "NS -50"]
 [Scoring "MP"]
 [Auction "S"]
-1C    X     1S    Pass
+1C    Pass  1S    Pass
 2N    Pass  3H    Pass
 3N    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -471,12 +478,15 @@ Pass  Pass
 [Auction "S"]
 2C =1=    Pass  2D =2=    Pass
 2S    Pass  3S    Pass
-4N =3=    Pass  5D =4=    Pass
+4C =3=    Pass  4D =4=    Pass
+4N =5=    Pass  5D =6=    Pass
 6S    Pass  Pass  Pass
 [Note "1:strong"]
 [Note "2:waiting"]
-[Note "3:Blackwood 1430, for !S"]
-[Note "4:A=0/5 or 3/5"]
+[Note "3:Cue bid, a !C stopper"]
+[Note "4:Cue bid, a !D stopper"]
+[Note "5:Blackwood 1430, for !S"]
+[Note "6:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -609,10 +619,10 @@ Pass  Pass
 [Score "NS 650"]
 [Scoring "MP"]
 [Auction "S"]
-1S    Pass  1N =1=    Pass
-3H    Pass  3N    Pass
+2C =1=    Pass  3C    Pass
+3S    Pass  3N    Pass
 4H    Pass  Pass  Pass
-[Note "1:forcing 1NT"]
+[Note "1:strong"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
@@ -693,6 +703,32 @@ Pass  Pass
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
 [Board "27"]
+% 7BE5E9490EFB7B796F1ECF711663
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[West "EPBot"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "N:J63.QJ5.A3.T9752 Q98742.63.42.J63 .AK72.J765.AKQ84 AKT5.T984.KQT98."]
+{Shape 3325 6223 0445 4450}
+{HCP 8 3 17 12}
+{Losers 9 9 4 5}
+[Declarer "S"]
+[Contract "5C"]
+[Result "13"]
+[Score "NS 640"]
+[Scoring "MP"]
+[Auction "S"]
+1C    X     3C    Pass
+3D    Pass  4C    Pass
+5C    Pass  Pass  Pass
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "2/1GF - 2/1 Game Force"]
+
+[Event "Dealing_with_Overcalls_Strong"]
+[Site ""]
+[Board "28"]
 % 78309100B809DC42B11C5BD37E30
 [North "EPBot"]
 [East "EPBot"]
@@ -719,7 +755,7 @@ Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "28"]
+[Board "29"]
 % 8815B521F55313107AC0A6141A4A
 [North "EPBot"]
 [East "EPBot"]
@@ -745,7 +781,7 @@ Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "29"]
+[Board "30"]
 % 9B2DE8A80310E7C1F16021EB5602
 [North "EPBot"]
 [East "EPBot"]
@@ -775,7 +811,7 @@ Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "30"]
+[Board "31"]
 % 99E88AEBDC1A28D002516EE40026
 [North "EPBot"]
 [East "EPBot"]
@@ -801,7 +837,7 @@ Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "31"]
+[Board "32"]
 % AAB484362E3348DF76781835651D
 [North "EPBot"]
 [East "EPBot"]
@@ -828,7 +864,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "32"]
+[Board "33"]
 % AAA1D43D2C6C7A09D50F45707219
 [North "EPBot"]
 [East "EPBot"]
@@ -853,7 +889,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "33"]
+[Board "34"]
 % ABEDCB2EF8566587E2793031036E
 [North "EPBot"]
 [East "EPBot"]
@@ -878,7 +914,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "34"]
+[Board "35"]
 % A8852064D06D4A776EEE07EB4720
 [North "EPBot"]
 [East "EPBot"]
@@ -903,7 +939,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "35"]
+[Board "36"]
 % B8E93DF1E7391F56E537522A8C12
 [North "EPBot"]
 [East "EPBot"]
@@ -917,8 +953,8 @@ Pass  Pass
 {Losers 8 10 5 6}
 [Declarer "S"]
 [Contract "1N"]
-[Result "8"]
-[Score "NS 120"]
+[Result "9"]
+[Score "NS 150"]
 [Scoring "MP"]
 [Auction "S"]
 1C    X     1S    Pass
@@ -928,7 +964,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "36"]
+[Board "37"]
 % BA217534FB1767D1980AF9CB4722
 [North "EPBot"]
 [East "EPBot"]
@@ -953,7 +989,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "37"]
+[Board "38"]
 % B9AD0EAC70179420D00D941D97A7
 [North "EPBot"]
 [East "EPBot"]
@@ -979,7 +1015,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "38"]
+[Board "39"]
 % BBE5BFFECF49FA81144F5D16746A
 [North "EPBot"]
 [East "EPBot"]
@@ -1006,7 +1042,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "39"]
+[Board "40"]
 % B824E511624C19C3E894D34A2A54
 [North "EPBot"]
 [East "EPBot"]
@@ -1031,7 +1067,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "40"]
+[Board "41"]
 % B811F1B0C44372CE4D62D9066B37
 [North "EPBot"]
 [East "EPBot"]
@@ -1056,7 +1092,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "41"]
+[Board "42"]
 % CBBDC1B8B14244849FB6BB0CC256
 [North "EPBot"]
 [East "EPBot"]
@@ -1085,7 +1121,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "42"]
+[Board "43"]
 % C93BA8F52D4391C40D7759FED71A
 [North "EPBot"]
 [East "EPBot"]
@@ -1111,7 +1147,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "43"]
+[Board "44"]
 % C9E8E3689EF00F1D126025C5526D
 [North "EPBot"]
 [East "EPBot"]
@@ -1137,7 +1173,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "44"]
+[Board "45"]
 % DAE18D310ED86236D77799064CF6
 [North "EPBot"]
 [East "EPBot"]
@@ -1164,7 +1200,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "45"]
+[Board "46"]
 % DBE9CD21E3E24E2308495B0A9AEB
 [North "EPBot"]
 [East "EPBot"]
@@ -1178,8 +1214,8 @@ Pass  Pass
 {Losers 7 10 3 4}
 [Declarer "S"]
 [Contract "4H"]
-[Result "11"]
-[Score "NS 650"]
+[Result "12"]
+[Score "NS 680"]
 [Scoring "MP"]
 [Auction "S"]
 2C =1=    Pass  2D =2=    Pass
@@ -1193,7 +1229,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "46"]
+[Board "47"]
 % DBACB7DBE86B46AC87E356109B6A
 [North "EPBot"]
 [East "EPBot"]
@@ -1219,7 +1255,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "47"]
+[Board "48"]
 % D8C13095673AC0117E75CB6DD35B
 [North "EPBot"]
 [East "EPBot"]
@@ -1246,7 +1282,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "48"]
+[Board "49"]
 % DA35A231F7531E6E59DF2347F6E1
 [North "EPBot"]
 [East "EPBot"]
@@ -1272,7 +1308,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "49"]
+[Board "50"]
 % DB3EBC2D341104C6306F5C7C5EB3
 [North "EPBot"]
 [East "EPBot"]
@@ -1299,7 +1335,7 @@ Pass  Pass =2=    Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "50"]
+[Board "51"]
 % DAF56381C6DEC63B45017763B24A
 [North "EPBot"]
 [East "EPBot"]
@@ -1325,7 +1361,7 @@ Pass  Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "51"]
+[Board "52"]
 % D9E1A09C7EDD1EA2AC436713E067
 [North "EPBot"]
 [East "EPBot"]
@@ -1350,7 +1386,7 @@ Pass  Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "52"]
+[Board "53"]
 % E831ED24EC50291D4537D02A7E1B
 [North "EPBot"]
 [East "EPBot"]
@@ -1376,7 +1412,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "53"]
+[Board "54"]
 % E9E03929F675D317AD68E2373637
 [North "EPBot"]
 [East "EPBot"]
@@ -1402,7 +1438,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "54"]
+[Board "55"]
 % E9A80BFEF91DB3EA55C608537D42
 [North "EPBot"]
 [East "EPBot"]
@@ -1429,7 +1465,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "55"]
+[Board "56"]
 % F8ACE58787D8092EDE64686A2FE6
 [North "EPBot"]
 [East "EPBot"]
@@ -1460,7 +1496,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "56"]
+[Board "57"]
 % FAC5F7B500F3665FEE0287557C5A
 [North "EPBot"]
 [East "EPBot"]
@@ -1486,7 +1522,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "57"]
+[Board "58"]
 % F9BFB99B403B867D409D4670C9D2
 [North "EPBot"]
 [East "EPBot"]
@@ -1511,7 +1547,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "58"]
+[Board "59"]
 % FB29A088AB837972D8932693F726
 [North "EPBot"]
 [East "EPBot"]
@@ -1541,7 +1577,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "59"]
+[Board "60"]
 % F8F58982D1CD4DC08EDAB6871A14
 [North "EPBot"]
 [East "EPBot"]
@@ -1568,7 +1604,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "60"]
+[Board "61"]
 % FB8979B584C114FA9171C742CE81
 [North "EPBot"]
 [East "EPBot"]
@@ -1594,7 +1630,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "61"]
+[Board "62"]
 % F821D038BC1A4C334D1DE93C6015
 [North "EPBot"]
 [East "EPBot"]
@@ -1620,7 +1656,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "62"]
+[Board "63"]
 % 09E91DCC84D81D40057953AFD512
 [North "EPBot"]
 [East "EPBot"]
@@ -1645,7 +1681,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "63"]
+[Board "64"]
 % 08B3F17003869E5978B043CE0850
 [North "EPBot"]
 [East "EPBot"]
@@ -1672,7 +1708,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "64"]
+[Board "65"]
 % 1931E98CC55D37C5FF827A1F6B55
 [North "EPBot"]
 [East "EPBot"]
@@ -1684,20 +1720,21 @@ Pass  Pass
 {Shape 3424 4342 2236 4441}
 {HCP 11 1 16 12}
 {Losers 8 11 6 7}
-[Declarer "S"]
-[Contract "3C"]
-[Result "11"]
-[Score "NS 150"]
+[Declarer "N"]
+[Contract "3N"]
+[Result "10"]
+[Score "NS 430"]
 [Scoring "MP"]
 [Auction "S"]
 1C    X     XX    1S
-3C    Pass  Pass  Pass
+3C    Pass  3N    Pass
+Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "65"]
+[Board "66"]
 % 19C9E86034416BE60C3E422D4D66
 [North "EPBot"]
 [East "EPBot"]
@@ -1722,7 +1759,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "66"]
+[Board "67"]
 % 1BEDFE396F0AF449436FCE149176
 [North "EPBot"]
 [East "EPBot"]
@@ -1746,7 +1783,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "67"]
+[Board "68"]
 % 18A93445E2077ED2D3322DCC293E
 [North "EPBot"]
 [East "EPBot"]
@@ -1773,7 +1810,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "68"]
+[Board "69"]
 % 2A81F53B9D908E52D54A873BDDF3
 [North "EPBot"]
 [East "EPBot"]
@@ -1786,23 +1823,21 @@ Pass  Pass
 {HCP 9 3 16 12}
 {Losers 9 10 5 6}
 [Declarer "S"]
-[Contract "6C"]
-[Result "11"]
-[Score "NS -100"]
+[Contract "2S"]
+[Result "10"]
+[Score "NS 170"]
 [Scoring "MP"]
 [Auction "S"]
 1S    Pass  1N =1=    Pass
-2C    Pass  3C    Pass
-3D    Pass  3N    Pass
-4C    Pass  5C    Pass
-6C    Pass  Pass  Pass
+2C    Pass  2S    Pass
+Pass  Pass
 [Note "1:forcing 1NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "69"]
+[Board "70"]
 % 2AE5FD4414006E643A2BEE715EC7
 [North "EPBot"]
 [East "EPBot"]
@@ -1830,7 +1865,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "70"]
+[Board "71"]
 % 2BB1A8AB098AA0420631FB607106
 [North "EPBot"]
 [East "EPBot"]
@@ -1856,7 +1891,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "71"]
+[Board "72"]
 % 2939EF496CBFEE6E24C6444B0942
 [North "EPBot"]
 [East "EPBot"]
@@ -1869,25 +1904,30 @@ Pass  Pass
 {HCP 9 3 16 12}
 {Losers 7 8 5 8}
 [Declarer "S"]
-[Contract "6H"]
+[Contract "5H"]
 [Result "12"]
-[Score "NS 980"]
+[Score "NS 480"]
 [Scoring "MP"]
 [Auction "S"]
-1H    X     4D =1=    Pass
-4N =2=    Pass  5C =3=    Pass
-5D    Pass  6C =4=    Pass
-6H    Pass  Pass  Pass
-[Note "1:Splinter"]
-[Note "2:Blackwood 1430, for !H"]
-[Note "3:A=1/5 or 4/5"]
-[Note "4:!H queen and !C king"]
+1H    X     2N =1=    Pass
+3C =2=    Pass  3D =3=    Pass
+3H    Pass  3S =4=    Pass
+3N =5=    Pass  4N =6=    Pass
+5D =7=    Pass  5H    Pass
+Pass  Pass
+[Note "1:Jordan Truscott 2NT"]
+[Note "2:Cue bid, a !C stopper"]
+[Note "3:Cue bid, a !D stopper"]
+[Note "4:Cue bid, a !S stopper"]
+[Note "5:surplus"]
+[Note "6:Blackwood 1430, for !H"]
+[Note "7:A=0/5 or 3/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "72"]
+[Board "73"]
 % 2BEF7DFFB45C41DA4F4355658BFB
 [North "EPBot"]
 [East "EPBot"]
@@ -1913,7 +1953,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "73"]
+[Board "74"]
 % 28A005FC6038D61E311BEA676E01
 [North "EPBot"]
 [East "EPBot"]
@@ -1939,7 +1979,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "74"]
+[Board "75"]
 % 2AA1A3C8EB32AD1B2311DA6B4C60
 [North "EPBot"]
 [East "EPBot"]
@@ -1958,6 +1998,7 @@ Pass  Pass
 [Scoring "MP"]
 [Auction "S"]
 2C =1=    2D    X     3D
+3H    Pass  3S    4D
 4H    Pass  Pass  Pass
 [Note "1:strong"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
@@ -1965,7 +2006,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "75"]
+[Board "76"]
 % 29F93B6BD11A2E9ADDC2027CBA4F
 [North "EPBot"]
 [East "EPBot"]
@@ -1977,21 +2018,20 @@ Pass  Pass
 {Shape 4333 3406 2263 4441}
 {HCP 9 3 16 12}
 {Losers 9 8 6 7}
-[Declarer "N"]
-[Contract "3N"]
-[Result "7"]
-[Score "NS -100"]
+[Declarer "S"]
+[Contract "3D"]
+[Result "9"]
+[Score "NS 110"]
 [Scoring "MP"]
 [Auction "S"]
 1D    Pass  1S    Pass
-3D    Pass  3N    Pass
-Pass  Pass
+3D    Pass  Pass  Pass
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "76"]
+[Board "77"]
 % 38B02CC102F617E57A1E294F3DE2
 [North "EPBot"]
 [East "EPBot"]
@@ -2017,7 +2057,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "77"]
+[Board "78"]
 % 3A242171F8D82B9726514F7647CC
 [North "EPBot"]
 [East "EPBot"]
@@ -2042,7 +2082,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "78"]
+[Board "79"]
 % 3939A8346066776F21735BE3F778
 [North "EPBot"]
 [East "EPBot"]
@@ -2069,7 +2109,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "79"]
+[Board "80"]
 % 49A8B01C9B5F4663773BE7EAACC2
 [North "EPBot"]
 [East "EPBot"]
@@ -2095,7 +2135,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "80"]
+[Board "81"]
 % 4BEFECDF2A4548216CE3461832E6
 [North "EPBot"]
 [East "EPBot"]
@@ -2122,7 +2162,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "81"]
+[Board "82"]
 % 482CA52488D6DC1C6B98AD07578D
 [North "EPBot"]
 [East "EPBot"]
@@ -2135,20 +2175,22 @@ Pass  Pass
 {HCP 8 4 16 12}
 {Losers 10 8 4 4}
 [Declarer "E"]
-[Contract "5D"]
+[Contract "6DX"]
 [Result "11"]
-[Score "NS -400"]
+[Score "NS 100"]
 [Scoring "MP"]
 [Auction "S"]
 1S    2N =1=    3S    5D
-Pass  Pass  Pass
+Pass  Pass  5S    Pass
+Pass  6D    X     Pass
+Pass  Pass
 [Note "1:Unusual 2NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "82"]
+[Board "83"]
 % 49B821CBFC105AC153DB7618A779
 [North "EPBot"]
 [East "EPBot"]
@@ -2173,7 +2215,7 @@ Pass  Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "83"]
+[Board "84"]
 % 58A422E7435AC86FCBAC9764D6AF
 [North "EPBot"]
 [East "EPBot"]
@@ -2201,7 +2243,7 @@ Pass  Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "84"]
+[Board "85"]
 % 6BEC8C2A943BFE9EE30218E38E43
 [North "EPBot"]
 [East "EPBot"]
@@ -2228,7 +2270,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "85"]
+[Board "86"]
 % 68A334A8BCDF5A47D314E39A46A3
 [North "EPBot"]
 [East "EPBot"]
@@ -2255,7 +2297,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "86"]
+[Board "87"]
 % 69A1BC9C859E77C6374011044DAD
 [North "EPBot"]
 [East "EPBot"]
@@ -2275,18 +2317,21 @@ Pass  Pass
 [Auction "S"]
 2C =1=    Pass  2D =2=    Pass
 2S    Pass  3S    Pass
-4N =3=    Pass  5C =4=    Pass
+4C =3=    Pass  4D =4=    Pass
+4N =5=    Pass  5C =6=    Pass
 6S    Pass  Pass  Pass
 [Note "1:strong"]
 [Note "2:waiting"]
-[Note "3:Blackwood 1430, for !S"]
-[Note "4:A=1/5 or 4/5"]
+[Note "3:Cue bid, a !C stopper"]
+[Note "4:Cue bid, a !D stopper"]
+[Note "5:Blackwood 1430, for !S"]
+[Note "6:A=1/5 or 4/5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "2/1GF - 2/1 Game Force"]
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "87"]
+[Board "88"]
 % 7821F0CDD038664883398D5DDF7F
 [North "EPBot"]
 [East "EPBot"]
@@ -2311,7 +2356,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "88"]
+[Board "89"]
 % 7AE7752028B21E5EF316FB6DE51F
 [North "EPBot"]
 [East "EPBot"]
@@ -2336,7 +2381,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "89"]
+[Board "90"]
 % 89A0E8B3AA5CEA86C60AF007D79F
 [North "EPBot"]
 [East "EPBot"]
@@ -2363,7 +2408,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "90"]
+[Board "91"]
 % 8AAC60E79F5C322E2ECAE29EA360
 [North "EPBot"]
 [East "EPBot"]
@@ -2389,7 +2434,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "91"]
+[Board "92"]
 % 89EF792934CF224EC61ABE3AE621
 [North "EPBot"]
 [East "EPBot"]
@@ -2414,7 +2459,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "92"]
+[Board "93"]
 % 89ADEE2F30FC2B4AD6632FDA2266
 [North "EPBot"]
 [East "EPBot"]
@@ -2443,7 +2488,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "93"]
+[Board "94"]
 % 8AA83CA7A07B1EA2FF4A34462632
 [North "EPBot"]
 [East "EPBot"]
@@ -2471,7 +2516,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "94"]
+[Board "95"]
 % 9821E83870570E1581D549FE4892
 [North "EPBot"]
 [East "EPBot"]
@@ -2498,7 +2543,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "95"]
+[Board "96"]
 % 98A8E8A9753846DBEB6FBE997C8E
 [North "EPBot"]
 [East "EPBot"]
@@ -2525,7 +2570,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "96"]
+[Board "97"]
 % 9BCD64EC3C4323753E23E348D159
 [North "EPBot"]
 [East "EPBot"]
@@ -2553,7 +2598,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "97"]
+[Board "98"]
 % 99FD2901271F6455AAF3C378FE66
 [North "EPBot"]
 [East "EPBot"]
@@ -2579,7 +2624,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "98"]
+[Board "99"]
 % AAE497EC0CEADF742F628B626673
 [North "EPBot"]
 [East "EPBot"]
@@ -2605,7 +2650,7 @@ X     Pass  Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "99"]
+[Board "100"]
 % AB882DFFE63D1CE2531B3E29D332
 [North "EPBot"]
 [East "EPBot"]
@@ -2633,7 +2678,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "100"]
+[Board "101"]
 % ABED65381824026ED1C11B3B2C5E
 [North "EPBot"]
 [East "EPBot"]
@@ -2659,7 +2704,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "101"]
+[Board "102"]
 % ABAC7C289F065A6F44942A2A385F
 [North "EPBot"]
 [East "EPBot"]
@@ -2686,7 +2731,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "102"]
+[Board "103"]
 % BABDE5FA0C3F12698550C5120AF6
 [North "EPBot"]
 [East "EPBot"]
@@ -2712,7 +2757,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "103"]
+[Board "104"]
 % B8C1B53A22776658DA1CD961F92B
 [North "EPBot"]
 [East "EPBot"]
@@ -2738,7 +2783,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "104"]
+[Board "105"]
 % CAA1808A31585ECF81A83AB04FAE
 [North "EPBot"]
 [East "EPBot"]
@@ -2771,7 +2816,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "105"]
+[Board "106"]
 % CA35C164F76A31195A3D97CE2CD3
 [North "EPBot"]
 [East "EPBot"]
@@ -2797,7 +2842,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "106"]
+[Board "107"]
 % CB98A7ACBCE61E762B8A8670D7D6
 [North "EPBot"]
 [East "EPBot"]
@@ -2823,7 +2868,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "107"]
+[Board "108"]
 % D96DE080A144A4649C3F123392B6
 [North "EPBot"]
 [East "EPBot"]
@@ -2850,7 +2895,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "108"]
+[Board "109"]
 % EBFB6D8D0965C2F3CB1BBC11724E
 [North "EPBot"]
 [East "EPBot"]
@@ -2876,7 +2921,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "109"]
+[Board "110"]
 % E8A4896414FF264ACC8D7B3D1DAD
 [North "EPBot"]
 [East "EPBot"]
@@ -2903,7 +2948,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "110"]
+[Board "111"]
 % E8A7E9F57313463DE1DA3B1D5558
 [North "EPBot"]
 [East "EPBot"]
@@ -2928,7 +2973,7 @@ Pass  Pass
 
 [Event "Dealing_with_Overcalls_Strong"]
 [Site ""]
-[Board "111"]
+[Board "112"]
 % F8B08090DB36FB19F39C9A9B92CE
 [North "EPBot"]
 [East "EPBot"]
