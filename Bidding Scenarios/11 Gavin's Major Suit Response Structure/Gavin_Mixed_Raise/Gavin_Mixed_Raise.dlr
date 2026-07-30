@@ -1,0 +1,32 @@
+# alias: MixedRaise
+# button-text: Mixed 4-card Raise (8-10 TP) 3M
+# scenario-title: --- Mixed 4-card Raise (8-10 TP) 3M
+# gib-works: false
+# bba-works: true
+# auction-filter: .
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Mixed 4-card Raise (8-10 TP) 3M
+https://tinyurl.com/4dvh42e7
+@chat*/
+
+# Mixed Raise
+dealer north
+
+# Calculate Total Points for south (tp)
+v1 = shape(south, any 0xxx) ? 5 : 0
+s1 = shape(south, any 1xxx) ? 3 : 0
+d1 = shape(south, any 2xxx) ? 1 : 0 // allow for 3 doubletons
+d2 = shape(south, any 22xx) ? 1 : 0
+d3 = shape(south, any 222x) ? 1 : 0
+tp = v1+s1+d1+d2+d3 + hcp(south)
+
+# Defining Major Fit
+SpadeFit = ((spades(north)>4 and hearts(north)<5) and spades(south)==4)
+HeartFit = ((hearts(north)>4 and spades(north)<5) and hearts(south)==4)
+MajorFit = (SpadeFit or HeartFit)
+
+hcp(north)>10 and hcp(north)<15 and MajorFit and tp>7 and tp<11
+action printoneline,
