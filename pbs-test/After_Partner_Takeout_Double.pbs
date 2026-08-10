@@ -126,10 +126,11 @@ nSupD = oD or diamonds(north)>2
 nSupC = oC or clubs(north)>2
 nSupport = nSupS and nSupH and nSupD and nSupC
 
-# Pure takeout shapes only (4441 / 4432). A 5-card suit or a 15+ balanced
-# hand tempts the robot to overcall (a suit or 1NT) instead of doubling, so
-# exclude both: keep North to a minimum-strength textbook takeout double.
-nShape    = shape(north, any 4441+any 4432)
+# Takeout shapes: 4441 / 4432 / 5431 / 5440. Combined with nShort + nSupport
+# the short suit is forced to be opener's, so 5431/5440 place the 5-card suit
+# in an unbid suit. Kept to a minimum-strength range so a 15+ balanced hand
+# does not tempt the robot into a 1NT overcall instead of a double.
+nShape    = shape(north, any 4441+any 4432+any 5431+any 5440)
 nRange    = hcp(north)>11 and hcp(north)<15 and tpNorth>11
 northHand = nShort and nSupport and nShape and nRange
 
@@ -200,8 +201,8 @@ keep0  = 0
 ### End of Imported Leveling Code ###
 levS = oS and keep44
 levH = oH and keep44
-levD = oD and keep81
-levC = oC and keep81
+levD = oD and keep94
+levC = oC and keep94
 levelTheDeal = levS or levH or levD or levC
 
 ##### Now do it #####
