@@ -158,7 +158,20 @@ sNoStack = (oS and spades(south)<5)
         or (oH and hearts(south)<5)
         or (oD and diamonds(south)<5)
         or (oC and clubs(south)<5)
-southHand = sRange and sNoStack
+
+# Guarantee a healthy share of notrump-advance hands: balanced with a real
+# stopper (3+ HCP in a 3+ card holding) in opener's suit -> the 1NT/2NT/3NT
+# rungs of the advancer ladder. Accept every such hand; thin the rest with a
+# neutral coin (a low card's seat in East, independent of opener's suit and of
+# South's shape) so NT-oriented hands land on roughly a third of deals.
+sBal   = shape(south, any 4333+any 4432+any 5332)
+sStop  = (oS and spades(south)>2   and hcp(south,spades)>2)
+      or (oH and hearts(south)>2   and hcp(south,hearts)>2)
+      or (oD and diamonds(south)>2 and hcp(south,diamonds)>2)
+      or (oC and clubs(south)>2    and hcp(south,clubs)>2)
+sNT    = sBal and sStop
+sThin  = hascard(east,2S) or hascard(east,3S)
+southHand = sRange and sNoStack and (sNT or sThin)
 
 ##### Level the opening suit across the four suits #####
 # Dealt naturally this scenario skews to majors (S 40%, H 34%, D 12%, C 14%)
@@ -222,6 +235,7 @@ average "S HCP avg     "       hcp(south),
 average "S 0-8  (weak) " 100 * (hcp(south)<9),
 average "S 8-11 (inv)  " 100 * (hcp(south)>7 and hcp(south)<12),
 average "S 12+  (GF)   " 100 * (hcp(south)>11),
+average "S NT-shaped    " 100 * sNT,
 `, "W", true)
 Script
 Button,After Partner's Takeout Double,\n\
