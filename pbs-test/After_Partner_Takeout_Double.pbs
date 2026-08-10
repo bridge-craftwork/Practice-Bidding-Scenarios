@@ -127,12 +127,15 @@ nSupC = oC or clubs(north)>2
 nSupport = nSupS and nSupH and nSupD and nSupC
 
 # Takeout shapes: 4441 / 4432 / 5431 / 5440. Combined with nShort + nSupport
-# the short suit is forced to be opener's, so 5431/5440 place the 5-card suit
-# in an unbid suit. Kept to a minimum-strength range so a 15+ balanced hand
-# does not tempt the robot into a 1NT overcall instead of a double.
+# the short suit is forced to be opener's, so the 5-card suit in 5431/5440
+# lands in an unbid suit. Keep that 5-card suit a MINOR: with a 5-card major
+# the robot overcalls the major instead of doubling (a different auction), so
+# hold spades/hearts to four. Minimum-strength range so a 15+ balanced hand
+# does not tempt a 1NT overcall either.
 nShape    = shape(north, any 4441+any 4432+any 5431+any 5440)
+nNoMajor5 = spades(north)<5 and hearts(north)<5
 nRange    = hcp(north)>11 and hcp(north)<15 and tpNorth>11
-northHand = nShort and nSupport and nShape and nRange
+northHand = nShort and nSupport and nShape and nNoMajor5 and nRange
 
 ##### East passes (weak, no fit, no biddable suit) #####
 # East is responder over the double; to keep the auction 1X-X-P, deny East a
