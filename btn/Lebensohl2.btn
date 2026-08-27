@@ -1,0 +1,209 @@
+# alias: Lebensohl
+# button-text: Lebensohl
+# scenario-title: --- Lebensohl
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n1N +2[DHS].*(2[HS]|2NT|3[CDHSN])
+# convention-card-ns: 21GF-SPECIALS
+# convention-card-ew: 21GF-GIB
+/*@chat
+--- Lebensohl
+After we open 1N and RHO overcalls 2!D, 2!H, or 2!S...
+• A suit at the 2-level is natural and not forcing.
+• 2N is a relay to 3!C and after the opener's 3!C bid...
+◦ Pass to play 3!C.
+◦ A new lower-ranking suit is to play.
+◦ A cue bid is Stayman WITH A STOP.
+◦ A new higher-ranking suit is constructive.
+◦ 3N is to play WITH A STOP.
+• A new suit at the 3-level is game-forcing.
+• A cue bid is Stayman WITHOUT a stop.
+• 3N is natural, WITHOUT a STOP -- opener should pass or scramble.
+https://www.larryco.com/bridge-articles/lebensohl
+https://www.larryco.com/bridge-articles/transfer-lebensohl
+@chat*/
+
+# Lebensohl
+dealer south
+
+# South opens 1N, Robot style
+sOpens = hcp(south)>14 and hcp(south)<18 and shape(south,any 4333 +any 4432 +any 5332 -5xxx-x5xx)
+
+# Good Suits West -- QJT or better
+GSW = top4(west,spades)>1 and top5(west,spades)>2 and spades(west)>3
+GHW = top4(west,hearts)>1 and top5(west,hearts)>2 and hearts(west)>3
+GDW = top4(west,diamonds)>1 and top5(west,diamonds)>2 and diamonds(west)>3
+GCW = top4(west,clubs)>1 and top5(west,clubs)>2 and clubs(west)>3
+
+wStrong = hcp(west)>15
+w2Suit = (GSW + GHW + GDW + GCW)==2 and shape(west,any 64xx+any 55xx+any 54xx) and hcp(west)>8 and hcp(west)<16
+w1Suit = (GSW or GHW or GDW or GCW) and shape(west,any 7xxx+any 6xxx+any 5xxx) and hcp(west)>8 and hcp(west)<16 and not w2Suit
+
+wCompetes = (wStrong or w2Suit or w1Suit)
+
+# Good Suits North -- 5+ to the QJT or better
+GSN = top5(north,spades)>2 and shape(north,6xxx+5xxx+any 1xxx+any 0xxx)
+GHN = top5(north,hearts)>2 and shape(north,x6xx+x5xx+any 1xxx+any 0xxx)
+GDN = top5(north,diamonds)>2 and shape(north,xx6x+xx5x+any 1xxx+any 0xxx)
+GCN = top5(north,clubs)>2 and shape(north,xxx6+xxx5+any 1xxx+any 0xxx)
+
+n0Suit = shape(north,any 4432+any 4333+any 4441) and hcp(north)>9
+n1Suit = (GSN or GHN or GDN or GCN) and hcp(north)>8
+nForces = (n0Suit or n1Suit)
+
+# ---------------------------------------------------------------------------
+# North's Lebensohl branches -- one per bullet of the convention description.
+# NOTE ON CONSUMERS: BBA bids the direct branches but never uses 2NT as a weak
+# relay (0 of 136 tested weak auctions; in the strong pool its 2NT always runs
+# on to 3NT). The relay branches therefore serve the dealer script -- players
+# generating hands and bidding them themselves -- and are dropped downstream by
+# the auction filter, so the bba-filtered lesson/quiz pool stays honest.
+# ---------------------------------------------------------------------------
+# West's presumed overcall suit. The auction filter admits only 2D/2H/2S, so
+# clubs never appears; a 2-suiter is attributed to its longer good suit.
+wOvS = GSW and spades(west)>=hearts(west) and spades(west)>=diamonds(west)
+wOvH = GHW and not wOvS and hearts(west)>=diamonds(west)
+wOvD = GDW and not (wOvS or wOvH)
+
+# Stopper in West's suit -- GIB's definition: A, QJx, 5+ hcp, or length+hcp >= 7
+nStpD = hcp(north,diamonds)>4 or diamonds(north)+hcp(north,diamonds)>5
+nStpH = hcp(north,hearts)>4 or hearts(north)+hcp(north,hearts)>5
+nStpS = hcp(north,spades)>4 or spades(north)+hcp(north,spades)>5
+nStop = (wOvD and nStpD) or (wOvH and nStpH) or (wOvS and nStpS)
+
+# Strength bands opposite a 15-17 notrump
+nWeakHcp = hcp(north)<8
+nInvHcp = hcp(north)>7 and hcp(north)<10
+nGFHcp = hcp(north)>9
+
+nLongS = spades(north)>4
+nLongH = hearts(north)>4
+nLongD = diamonds(north)>4
+nLongC = clubs(north)>4
+
+# 1/2 -- weak with a long suit. Above the overcall it is bid naturally at the
+# 2 level; below it, the 2NT relay is the only way to reach it (a long club
+# suit is reached by passing the 3!C relay).
+nWeakAbove = nWeakHcp and ((wOvD and (nLongH or nLongS)) or (wOvH and nLongS))
+nWeakBelow = nWeakHcp and ((wOvH and nLongD) or (wOvS and (nLongD or nLongH)) or nLongC)
+
+# 3 -- invitational with a 5-card major ranking above the overcall
+nInvite = nInvHcp and ((nLongS and (wOvD or wOvH)) or (nLongH and wOvD))
+
+# 4 -- game force with a 5-card major, bid at the 3 level
+nGF5M = nGFHcp and ((nLongS and not wOvS) or (nLongH and not wOvH))
+
+# 5/6 -- Stayman: game-going with a 4-card major and no 5-card major.
+# Slow (2NT then the cue) shows a stopper, fast (direct cue) denies one.
+nStayShape = (wOvD and (hearts(north)>3 or spades(north)>3)) or (wOvH and spades(north)>3) or (wOvS and hearts(north)>3)
+nStayman = nGFHcp and nStayShape and spades(north)<5 and hearts(north)<5
+nStayStop = nStayman and nStop
+nStayNoStop = nStayman and not nStop
+
+# 7/8 -- straight to notrump: game-going, no 4-card major.
+# Slow (2NT then 3NT) shows a stopper, fast (direct 3NT) denies one.
+n3NTish = nGFHcp and spades(north)<4 and hearts(north)<4
+n3NTStop = n3NTish and nStop
+n3NTNoStop = n3NTish and not nStop
+
+nAnyBranch = (nWeakAbove or nWeakBelow or nInvite or nGF5M or nStayStop or nStayNoStop or n3NTStop or n3NTNoStop)
+
+# Imported Leveling Code
+c1 = hascard(west,2C)
+c2 = hascard(east,2D)
+c3 = hascard(west,3C)
+c4 = hascard(east,3D)
+
+keep06 = c1 and c2 // this is used later w/c3 & c4 expressions
+keep44 = c3 or c4 // this is used later w/c1 & c2 expressions
+
+keep015 = keep06 and c3
+keep03 = keep06 and keep44
+keep045 = keep06 and not c3
+# ####6 = c1 and c2
+keep11 = c1 and keep44
+keep14 = c1 and not keep44
+keep19 = c1 and not c2
+keep25 = c1
+keep30 = keep06 or c3
+keep33 = c1 or (c2 and keep44)
+# ####44 = c3 or c4
+keep47 = keep44 or keep06
+
+keep53 = not keep47
+keep56 = not keep44
+keep67 = not keep33
+keep70 = not keep30
+keep75 = not keep25
+keep81 = not keep19
+keep86 = not keep14
+keep89 = not keep11
+keep94 = not keep06
+keep955 = not keep045
+keep97 = not keep03
+keep985 = not keep015
+keep = 1
+keep0 = 0
+
+# End of Imported Leveling Code
+# Reduce West's 1-suited hands
+levStrong = wStrong and keep
+lev1Suit = w1Suit and keep03
+lev2Suit = w2Suit and keep
+levelTheDeal = (levStrong or lev2Suit or lev1Suit)
+
+# Level the eight branches. Their natural rates span 100:1 -- the weak long-suit
+# hands are common, while a game-going North holding a stopper in West's own
+# good suit is the rarest thing on the table.
+# These gates are built from South's low cards, NOT from script/Leveling's
+# keep* values. Those are built from West/East cards and are already spent on
+# West's hand types; reusing them couples the two dimensions and skews both.
+r1 = hascard(south,2C)
+r2 = hascard(south,2D)
+r3 = hascard(south,2H)
+r4 = hascard(south,2S)
+
+nk75 = not r1 // 75%
+nk32 = not (r1 or r2 or r3 or r4) // 32%
+nk25 = r1 // 25%
+nk05 = r1 and r2 and not r3 // 4.7%
+nk03 = r1 and r2 and (r3 or r4) // 2.7%
+
+// Gates chosen by measuring every branch x gate pair on the ungated pool and
+// picking, per branch, the gate landing nearest a common rate. Natural rates
+// span 116:1 (weak-below 23.3%, 3NT-with-stopper 0.20%); this brings the eight
+// branches to roughly 2:1. 3NT-with-stopper is the scarcest and so runs
+// ungated -- it sets the ceiling every other branch is levelled down to.
+levWeakAbove = nWeakAbove and nk05
+levWeakBelow = nWeakBelow and nk03
+levInvite = nInvite and nk25
+levGF5M = nGF5M and nk25
+levStayStop = nStayStop and nk75
+levStayNoStop = nStayNoStop and nk32
+lev3NTStop = n3NTStop and keep
+lev3NTNoStop = n3NTNoStop and nk32
+
+levelNorth = (levWeakAbove or levWeakBelow or levInvite or levGF5M
+or levStayStop or levStayNoStop or lev3NTStop or lev3NTNoStop)
+
+# Now do it
+sOpens and wCompetes and levelNorth
+and levelTheDeal
+
+action printoneline,
+average "South HCP " hcp(south),
+average "North HCP " hcp(north),
+average "North Balanced " 100 * n0Suit,
+average "North 1 Suit " 100 * n1Suit,
+average "West Strong " 100 * wStrong,
+average "West 2-Suited " 100 * w2Suit,
+average "West 1-Suited " 100 * w1Suit,
+average "b1 weak above " 100 * nWeakAbove,
+average "b2 weak below " 100 * nWeakBelow,
+average "b3 invitational" 100 * nInvite,
+average "b4 GF 5cM " 100 * nGF5M,
+average "b5 Stayman stop" 100 * nStayStop,
+average "b6 Stayman none" 100 * nStayNoStop,
+average "b7 3NT stop " 100 * n3NTStop,
+average "b8 3NT none " 100 * n3NTNoStop,
+average "any branch " 100 * nAnyBranch,
