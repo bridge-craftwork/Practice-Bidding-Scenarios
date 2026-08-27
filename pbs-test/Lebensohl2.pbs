@@ -1,7 +1,7 @@
-Script,Lebensohl
-window.currentPBSScenario = 'Lebensohl';
+Script,Lebensohl2
+window.currentPBSScenario = 'Lebensohl2';
 window.currentPBSScenarioFilename = 'Lebensohl2';
-console.log('PBS: Logging scenario selection for Lebensohl');
+console.log('PBS: Logging scenario selection for Lebensohl2');
 fetch('https://bba.harmonicsystems.com/api/scenario/select', {
     method: 'POST',
     headers: {
@@ -9,7 +9,7 @@ fetch('https://bba.harmonicsystems.com/api/scenario/select', {
         'X-Client-Version': '1.0.0'
     },
     body: JSON.stringify({
-        scenario: 'Lebensohl',
+        scenario: 'Lebensohl2',
         user: whoAmI() || 'anonymous'
     })
 }).then(function(r){ console.log('PBS: Server response', r.status); }).catch(function(e){ console.log('PBS: Fetch error', e); });
@@ -207,7 +207,7 @@ average "b8 3NT none " 100 * n3NTNoStop,
 average "any branch " 100 * nAnyBranch,
 `, "S", true)
 Script
-Button,Lebensohl,\n\
+Button,Lebensohl2,\n\
 --- Lebensohl\n\
 After we open 1N and RHO overcalls 2!D，2!H，or 2!S...\n\
 • A suit at the 2-level is natural and not forcing.\n\
@@ -222,4 +222,4 @@ After we open 1N and RHO overcalls 2!D，2!H，or 2!S...\n\
 • 3N is natural，WITHOUT a STOP -- opener should pass or scramble.\n\
 https://www.larryco.com/bridge-articles/lebensohl\n\
 https://www.larryco.com/bridge-articles/transfer-lebensohl\n\
-%Lebensohl%
+%Lebensohl2%
