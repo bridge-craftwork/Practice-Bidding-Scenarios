@@ -3,16 +3,36 @@
   "name": "PBS",
   "scopeName": "source.pbs",
   "patterns": [
-    { "include": "#comments" },
-    { "include": "#keywords" },
-    { "include": "#suits" },
-    { "include": "#bids" },
-    { "include": "#strings" },
-    { "include": "#variable-definition" },
-    { "include": "#numbers" },
-    { "include": "#script-variables" },
-    { "include": "#user-variables" },
-    { "include": "#operators" }
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#suits"
+    },
+    {
+      "include": "#bids"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#variable-definition"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#script-variables"
+    },
+    {
+      "include": "#user-variables"
+    },
+    {
+      "include": "#operators"
+    }
   ],
   "repository": {
     "comments": {
@@ -25,17 +45,27 @@
           "name": "comment.line.hash.section.pbs",
           "match": "(###+)\\s*(.*)$",
           "captures": {
-            "1": { "name": "punctuation.definition.comment.pbs" },
-            "2": { "name": "entity.name.section.pbs" }
+            "1": {
+              "name": "punctuation.definition.comment.pbs"
+            },
+            "2": {
+              "name": "entity.name.section.pbs"
+            }
           }
         },
         {
           "name": "comment.line.hash.metadata.pbs",
           "match": "(#)\\s*(Import|button-text|scenario-title|[a-zA-Z-]+)\\s+(.*)$",
           "captures": {
-            "1": { "name": "punctuation.definition.comment.pbs" },
-            "2": { "name": "entity.name.tag.pbs" },
-            "3": { "name": "string.unquoted.pbs" }
+            "1": {
+              "name": "punctuation.definition.comment.pbs"
+            },
+            "2": {
+              "name": "entity.name.tag.pbs"
+            },
+            "3": {
+              "name": "string.unquoted.pbs"
+            }
           }
         },
         {
@@ -51,9 +81,15 @@
               "name": "meta.directive.pbs",
               "match": "(convention-card-ns|convention-card-ew|auction-filter)(:)\\s*(.*)",
               "captures": {
-                "1": { "name": "entity.name.tag.pbs" },
-                "2": { "name": "punctuation.separator.pbs" },
-                "3": { "name": "string.unquoted.pbs" }
+                "1": {
+                  "name": "entity.name.tag.pbs"
+                },
+                "2": {
+                  "name": "punctuation.separator.pbs"
+                },
+                "3": {
+                  "name": "string.unquoted.pbs"
+                }
               }
             }
           ]
@@ -130,13 +166,11 @@
           "begin": "`",
           "end": "`",
           "patterns": [
-            { "include": "#comments" },
-            { "include": "#keywords" },
-            { "include": "#variable-definition" },
-            { "include": "#numbers" },
-            { "include": "#user-variables" },
-            { "include": "#operators" }
-          ]
+            {
+              "include": "source.dlr"
+            }
+          ],
+          "comment": "The dealer script itself, inside setDealerCode(`...`). It is the DLR language, so it is highlighted by the DLR grammar rather than by a second hand-kept copy of it here \u2014 that copy knew 13 of the parser's 50 functions, and nothing about the levelling conventions."
         }
       ]
     },
@@ -145,8 +179,12 @@
         {
           "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s*(=)",
           "captures": {
-            "1": { "name": "variable.other.definition.pbs" },
-            "2": { "name": "keyword.operator.assignment.pbs" }
+            "1": {
+              "name": "variable.other.definition.pbs"
+            },
+            "2": {
+              "name": "keyword.operator.assignment.pbs"
+            }
           }
         }
       ]
