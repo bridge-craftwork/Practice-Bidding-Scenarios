@@ -12,5 +12,38 @@
   },
   "[pbn]": {
     "editor.wordWrap": "on"
+  },
+  // The same colours the browser editor at dealer.bridge-classroom.org uses, so
+  // a scenario reads the same in both places. The scopes come from dealer3's
+  // generated grammar (vs-code/syntaxes/dlr.tmLanguage.json); the values are
+  // one-dark's own hues, and assume a dark theme — vs-code/README.md carries
+  // the light-theme set.
+  //
+  // `HandType_` and the rest are ordinary variables to the grammar, which is
+  // what lets a scenario using them still run on BBO. Without this nothing
+  // tells an author which names the levelling machinery actually reads.
+  "editor.tokenColorCustomizations": {
+    "textMateRules": [
+      {
+        "scope": "support.type.leveling.dlr",
+        "settings": { "foreground": "#dfe4ec", "fontStyle": "underline" }
+      },
+      {
+        "scope": "support.type.leveling.share.dlr",
+        "settings": { "foreground": "#dfe4ec", "fontStyle": "underline italic" }
+      },
+      {
+        "scope": "comment.line.leveling.marker.dlr",
+        "settings": { "foreground": "#93a1b5", "fontStyle": "bold" }
+      },
+      {
+        "scope": "entity.name.tag.metadata.dlr",
+        "settings": { "foreground": "#d19a66", "fontStyle": "bold" }
+      },
+      {
+        "scope": "string.unquoted.metadata.dlr",
+        "settings": { "foreground": "#98c379" }
+      }
+    ]
   }
 }
