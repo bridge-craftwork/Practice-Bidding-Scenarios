@@ -25,7 +25,12 @@ API grammar (probed 2026-08-30, service version 0.1.0+20260829):
       "analysis": [...]}   or {"message": "Bidding is over"}
       or 400 {"error": "..."}
 
-  SERVICE BUG (reported in issue #293): /bid rejects any ONE-CHARACTER ctx --
+  FIXED in build 20260831.0832: the one-character ctx bug below. The fallback is
+  retained because it is harmless when the bug is absent and the public service
+  has rolled back before, but it should no longer fire.
+
+  HISTORICAL (reported in issue #293, fixed 2026-08-31): /bid rejected any
+  ONE-CHARACTER ctx --
   "Invalid auction context 'P': unexpected character at position 0".  "1C" and
   "P-P" both parse, and the error for ctx="P-X" reads "Current auction: [P]",
   so the tokenizer handles P fine mid-string; only a length-1 context trips it.
@@ -35,6 +40,14 @@ API grammar (probed 2026-08-30, service version 0.1.0+20260829):
   often we did.  /bidold is NOT a general substitute: it ignores the auction
   context entirely (it bids 1C over an opponent's 1N), so it is used for this
   single case only.
+
+GET /autobid?deal=<PBN deal>&dealer=<seat>&board=<n> (added 2026-08-31) bids a
+whole board in ONE request and returns the auction, per-call explanations,
+contract and declarer without playing the cards.  This is the default path: it
+cuts the round trips per board from 4-12 down to 1.  `board` sets the board
+number and derives the vulnerability, which no other endpoint accepts -- without
+it Brill bids every board as non-vulnerable.  Only one deal per request (a
+repeated `deal` parameter is ignored) and there is no PBN-file endpoint yet.
 
 GET /autoplay?deal=<PBN deal>&dealer=<seat> bids AND plays a whole board in one
 request -- it takes a real dealer parameter, so it needs no relabeling and hits
@@ -198,6 +211,32 @@ def contract_of(calls, dealer):
     return f"{level}{denom}{doubled}", seat_of[last_i]
 
 
+def autobid_board(deal, dealer, board=None):
+    """One request per board via /autobid: the auction only, no card play."""
+    params = {"deal": deal, "dealer": dealer}
+    if board:
+        params["board"] = board       # also fixes the vulnerability
+    r = api("autobid", params, timeout=90)
+    if "auction" not in r:
+        raise RuntimeError(r.get("error") or str(r)[:200])
+    calls = [c.strip().upper() for c in r["auction"].split(SEP) if c.strip()]
+    # /autobid returns a structured `convention` alongside the prose `means`
+    # ("Stayman" + "Smolen: Asking for majors with 5-4"), where /bid's `details`
+    # gives only a rule trace. Keep both: the convention name is what the
+    # note-text auction-filters need, the prose is the readable part. The
+    # convention is always the text before the first " | ", empty if none.
+    # Concatenate with " | " rather than ": " -- `means` itself contains colons
+    # ("Smolen: Asking for majors with 5-4"), so a colon join is ambiguous and
+    # makes the first word of a convention-less note look like a label.
+    notes = []
+    for e in (r.get("auction_with_explanations") or []):
+        conv, means = (e.get("convention") or "").strip(), (e.get("means") or "").strip()
+        notes.append(f"{conv} | {means}" if (conv or means) else "")
+    notes += [""] * (len(calls) - len(notes))
+    return calls, notes, {"Contract": r.get("contract"),
+                          "Declarer": r.get("declarer")}
+
+
 def autoplay_board(deal, dealer):
     """One request per board via /autoplay: bids AND plays. Slow but exact."""
     r = api("autoplay", {"deal": deal, "dealer": dealer}, timeout=180)
@@ -318,9 +357,11 @@ def cmd_bid(args):
         try:
             if args.autoplay:
                 calls, notes, extra = autoplay_board(deal, dealer)
-            else:
+            elif args.per_call:
                 calls, notes = bid_board(deal, dealer, args.details, args.sleep)
                 extra = None
+            else:
+                calls, notes, extra = autobid_board(deal, dealer, tag(b, "Board"))
         except Exception as e:                        # noqa: BLE001
             print(f"  board {tag(b,'Board')}: {e}", file=sys.stderr)
             return None
@@ -411,6 +452,9 @@ def main():
     b.add_argument("--limit", type=int, default=0, help="first N boards only")
     b.add_argument("--workers", type=int, default=8, help="parallel boards")
     b.add_argument("--sleep", type=float, default=0.0, help="delay between calls")
+    b.add_argument("--per-call", action="store_true",
+                   help="drive /bid one call at a time instead of /autobid "
+                        "(slower; the only path that shows per-call `requires`)")
     b.add_argument("--autoplay", action="store_true",
                    help="use /autoplay (one request/board; also plays the hand "
                         "for contract+tricks; 30-50s/board)")
