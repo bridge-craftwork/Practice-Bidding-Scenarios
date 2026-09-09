@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release-test",
-  "generatedAtCommit": "3644c6a24f7cd9c6bce9400ecad832415157bde7",
+  "generatedAtCommit": "9c8dfd61836e4a097a7c28f51b933e11037a67bf",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "pbs": [
@@ -1473,7 +1473,21 @@
           "grouped": false
         },
         {
+          "name": "---"
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
           "name": "Opps_Preempt",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "Opps_Preempt_4M",
           "color": null,
           "width": "50%",
           "grouped": false
@@ -5058,6 +5072,16 @@
       "buttonText": "Opps Preempt",
       "chat": "\\n--- Opponents Preempt\\n",
       "alias": "OppsPreempt",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false
+    },
+    "Opps_Preempt_4M": {
+      "buttonText": "Opps Preempt 4M",
+      "chat": "\\n--- East opens a 4-level major preempt holding an 8+ card semi-solid heart or spade suit.\\nSemi-solid means two of the top three honors plus the jack or ten，with most of the\\nstrength in the long suit and fewer than 11 HCP. North and South must decide whether to\\ndouble，bid on，or pass it out.\\n",
+      "alias": "OppsPreempt4M",
       "gibWorks": true,
       "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
@@ -17589,16 +17613,15 @@
       "Bust_Over_Strong_2C",
       "Found_Endplay",
       "Found_Rabbis_Rule",
-      "Opps_Preempt_4M",
       "Reversed_Splinters_By_Opener",
       "TEST"
     ]
   },
   "counts": {
-    "referenced": 341,
-    "scenarios": 341,
+    "referenced": 342,
+    "scenarios": 342,
     "missing": 0,
-    "orphans": 6,
+    "orphans": 5,
     "testOnly": 1
   },
   "testScenarios": [
