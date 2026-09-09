@@ -70,10 +70,10 @@ eS = spades(east)>7 and top3(east,spades)>1 and top5(east,spades)>2 and hearts(e
 eH = hearts(east)>7 and top3(east,hearts)>1 and top5(east,hearts)>2 and spades(east)<4
 
 # Preemptive values -- most of the strength sits in the long suit
-sValues = eS and 2 * sp > tp
-hValues = eH and 2 * hp > tp
+#sValues = eS and 2 * sp > tp
+#hValues = eH and 2 * hp > tp
 
-ePreempts = (sValues or hValues) and hcp(east)>6 and hcp(east)<11
+ePreempts = (eS or eH) and hcp(east)>6 and hcp(east)<11
 
 # Thin out the exactly-8 card suits so the longer ones get some air
 eight = spades(east)==8 or hearts(east)==8
@@ -82,8 +82,8 @@ ePreempts and (keep44 or not eight)
 
 produce 40
 action printoneline,
-average "4S opening   " 100 * sValues,
-average "4H opening   " 100 * hValues,
+average "4S opening   " 100 * eS,
+average "4H opening   " 100 * eH,
 average "8-card suit  " 100 * eight,
 `, "E", true)
 Script
