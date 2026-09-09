@@ -73,7 +73,7 @@ eH = hearts(east)>7 and top3(east,hearts)>1 and top5(east,hearts)>2 and spades(e
 #sValues = eS and 2 * sp > tp
 #hValues = eH and 2 * hp > tp
 
-ePreempts = hcp(east)>6 and hcp(east)<11
+ePreempts = (eS or eH) and hcp(east)>6 and hcp(east)<11
 
 # Thin out the exactly-8 card suits so the longer ones get some air
 eight = spades(east)==8 or hearts(east)==8
