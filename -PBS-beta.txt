@@ -64,6 +64,12 @@ Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/d
 
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-hcp.js
 
+// UNDER TEST IN BETA. Lets BBO's Phoenix dropdowns paint above our panel -
+// without it, the name-tag menu (Show profile / BBO Store / Help / Sign out) is
+// covered by pbs-panel0 and Sign out cannot be clicked while the PBS tab shows.
+// Promote to -PBS.txt once it has run in beta.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-dropdown.js
+
 // Start BBA Auction Compare panel (called by Auction Compare button)
 Script,startBBACompare,window.startBBACompare(); R='';
 Script,toggleRotate,window.toggleRandomlyRotate(); R='';
