@@ -130,6 +130,34 @@ Script
 //Script,setBiddingTable
 var delayValue = 500;
 var t0 = Date.now();
+// BBO's create-table UI ("Phoenix") replaced the old start-table-screen. The
+// Start button now lives in bbo-sticky-bottom-create, which is a SIBLING of
+// bbo-create-table-modal, not a descendant - do not scope this under the modal.
+// This matches exactly one element and needs no translation table, unlike the
+// positional .eq(2) it replaces.
+var START_TABLE_BUTTON = "bbo-sticky-bottom-create button.primary";
+
+// The table options PBS wants, recovered from the pre-Phoenix comments in this
+// file's history (commit 2f76b1a1, 2024-03-09): a private, invisible table that
+// nobody can join or kibitz uninvited. Keyed by BBO's stable input ids, which
+// are both language-independent and order-independent - the old positional
+// .eq(0..4) silently set the wrong options once BBO inserted "Video chat" at
+// index 0. "video-chat" is deliberately absent here: it postdates PBS's
+// original intent, so we leave BBO's own default alone.
+//
+// Observed on a live table (2026-09-09): BBO does not persist
+// permission-required-to-kibitz when allow-kibitzers is false - reopening Table
+// options on the created table reads it back as false. It looks to be normalised
+// away as moot, since disallowing kibitzers already prevents kibitzing. The net
+// effect still matches the intent above, so we keep setting it for explicitness;
+// do not be surprised when it reads back false.
+var TABLE_OPTIONS = {
+    "allow-kibitzers": false,
+    "allow-kibitzers-chat": false,
+    "permission-required-to-kibitz": true,
+    "permission-required-to-play": true,
+    "invisible-table": true
+};
 console.log("[PBS] setBiddingTable START");
 Promise.resolve()
     .then(() => {
@@ -148,17 +176,11 @@ Promise.resolve()
     .then(() => delay(delayValue))
     .then(() => $("button.bbo-phx-navigation:contains('Start a bidding table')", BBOcontext()).first().click())
     .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(0).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(1).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(2).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(3).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(4).click())
-    .then(() => delay(delayValue))
-    .then(() => $("start-table-screen .buttonRowClass button", BBOcontext()).eq(2).click())
+    // Wait for BBO's create-table modal, set the options, then press Start Table.
+    .then(() => waitFor(() => $("bbo-create-table-modal", BBOcontext()).length > 0))
+    .then(() => setTableOptions())
+    .then(() => waitFor(() => $(START_TABLE_BUTTON, BBOcontext()).length > 0))
+    .then(() => clickNative(START_TABLE_BUTTON))
     .then(() => waitFor(() => $("bridge-screen .nameDisplayClass", BBOcontext()).length > 0))
     .then(() => delay(3000))
     .then(() => $("bridge-screen .nameDisplayClass", BBOcontext()).eq(0).click())
@@ -177,6 +199,28 @@ Promise.resolve()
     .then(() => delay(delayValue))
     .then(() => $("bridge-screen menu-item", BBOcontext()).eq(0).children().click())
     .then(() => console.log("[PBS] setBiddingTable DONE in " + (Date.now() - t0) + "ms"))
+    .catch((e) => console.error("[PBS] setBiddingTable FAILED after " + (Date.now() - t0) + "ms: " + ((e && e.message) || e)))
+// Set each toggle TO a state rather than blind-toggling it, so re-running is
+// idempotent and a changed BBO default cannot invert our intent. Clicking the
+// real <input> is what propagates into Angular's reactive form.
+function setTableOptions() {
+    var missing = [];
+    Object.keys(TABLE_OPTIONS).forEach(function (id) {
+        var el = BBOcontext().getElementById(id);
+        if (!el) { missing.push(id); return; }
+        if (el.checked !== TABLE_OPTIONS[id]) el.click();
+    });
+    if (missing.length) {
+        console.warn("[PBS] table option toggles not found (BBO UI change?): " + missing.join(", "));
+    }
+}
+
+function clickNative(selector) {
+    var el = $(selector, BBOcontext())[0];
+    if (!el) throw new Error("clickNative: no element for " + selector);
+    el.click();
+}
+
 function delay(duration) {
     return new Promise((resolve) => {
         setTimeout(resolve, duration);
@@ -198,6 +242,34 @@ function waitFor(test, interval, timeout) {
 //Script,setTeachingTable
 var delayValue = 500;
 var t0 = Date.now();
+// BBO's create-table UI ("Phoenix") replaced the old start-table-screen. The
+// Start button now lives in bbo-sticky-bottom-create, which is a SIBLING of
+// bbo-create-table-modal, not a descendant - do not scope this under the modal.
+// This matches exactly one element and needs no translation table, unlike the
+// positional .eq(2) it replaces.
+var START_TABLE_BUTTON = "bbo-sticky-bottom-create button.primary";
+
+// The table options PBS wants, recovered from the pre-Phoenix comments in this
+// file's history (commit 2f76b1a1, 2024-03-09): a private, invisible table that
+// nobody can join or kibitz uninvited. Keyed by BBO's stable input ids, which
+// are both language-independent and order-independent - the old positional
+// .eq(0..4) silently set the wrong options once BBO inserted "Video chat" at
+// index 0. "video-chat" is deliberately absent here: it postdates PBS's
+// original intent, so we leave BBO's own default alone.
+//
+// Observed on a live table (2026-09-09): BBO does not persist
+// permission-required-to-kibitz when allow-kibitzers is false - reopening Table
+// options on the created table reads it back as false. It looks to be normalised
+// away as moot, since disallowing kibitzers already prevents kibitzing. The net
+// effect still matches the intent above, so we keep setting it for explicitness;
+// do not be surprised when it reads back false.
+var TABLE_OPTIONS = {
+    "allow-kibitzers": false,
+    "allow-kibitzers-chat": false,
+    "permission-required-to-kibitz": true,
+    "permission-required-to-play": true,
+    "invisible-table": true
+};
 console.log("[PBS] setTeachingTable START");
 Promise.resolve()
     .then(() => {
@@ -216,17 +288,11 @@ Promise.resolve()
     .then(() => delay(delayValue))
     .then(() => $("button.bbo-phx-navigation:contains('Start a teaching table')", BBOcontext()).first().click())
     .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(0).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(1).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(2).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(3).click())
-    .then(() => delay(delayValue))
-    .then(() => $("table-options-panel .toggleDivClass ion-toggle", BBOcontext()).eq(4).click())
-    .then(() => delay(delayValue))
-    .then(() => $("start-table-screen .buttonRowClass button", BBOcontext()).eq(2).click())
+    // Wait for BBO's create-table modal, set the options, then press Start Table.
+    .then(() => waitFor(() => $("bbo-create-table-modal", BBOcontext()).length > 0))
+    .then(() => setTableOptions())
+    .then(() => waitFor(() => $(START_TABLE_BUTTON, BBOcontext()).length > 0))
+    .then(() => clickNative(START_TABLE_BUTTON))
     .then(() => waitFor(() => $("bridge-screen .nameDisplayClass", BBOcontext()).length > 0))
     .then(() => delay(3000))
     .then(() => $("bridge-screen .nameDisplayClass", BBOcontext()).eq(0).click())
@@ -245,6 +311,28 @@ Promise.resolve()
     .then(() => delay(delayValue))
     .then(() => $("bridge-screen menu-item", BBOcontext()).eq(0).children().click())
     .then(() => console.log("[PBS] setTeachingTable DONE in " + (Date.now() - t0) + "ms"))
+    .catch((e) => console.error("[PBS] setTeachingTable FAILED after " + (Date.now() - t0) + "ms: " + ((e && e.message) || e)))
+// Set each toggle TO a state rather than blind-toggling it, so re-running is
+// idempotent and a changed BBO default cannot invert our intent. Clicking the
+// real <input> is what propagates into Angular's reactive form.
+function setTableOptions() {
+    var missing = [];
+    Object.keys(TABLE_OPTIONS).forEach(function (id) {
+        var el = BBOcontext().getElementById(id);
+        if (!el) { missing.push(id); return; }
+        if (el.checked !== TABLE_OPTIONS[id]) el.click();
+    });
+    if (missing.length) {
+        console.warn("[PBS] table option toggles not found (BBO UI change?): " + missing.join(", "));
+    }
+}
+
+function clickNative(selector) {
+    var el = $(selector, BBOcontext())[0];
+    if (!el) throw new Error("clickNative: no element for " + selector);
+    el.click();
+}
+
 function delay(duration) {
     return new Promise((resolve) => {
         setTimeout(resolve, duration);
