@@ -1,113 +1,21 @@
 //BBOalert, Bidding Scenarios
-//BBOalert, Bidding Scenarios - version 4.1.11-beta
 //
-// BETA channel. This file is a mirror of -PBS.txt and is meant to stay one:
-// same records, same order, differing ONLY in the three things that make it
-// beta - it imports runtime/ from `main` instead of `release`, it loads the dev
-// paste-loader, and it reports itself as beta.
+// REDIRECT ONLY - this branch holds no content of its own.
 //
-// It imports from `main` deliberately. That is the soak: anything merged to
-// main runs in beta before it is promoted, and promotion is then a
-// main -> release merge rather than an edit to this file. Do NOT repoint these
-// at `release` just because the two branches happen to be level - the moment
-// you do, beta stops testing anything, and a runtime fix would reach nobody
-// until somebody remembered to hand-edit this file.
+// split/beta-runtime was the development branch for the runtime/ split, and
+// while that work was in flight a beta tester's PBSCache was pointed at THIS
+// branch's URL: the git branch was acting as the channel.
 //
-// So when there IS something to test, it is already here: merge it to main.
+// It does not need to any more. The channel is a property of the FILE now
+// (-PBS.txt imports runtime/ from `release`, -PBS-beta.txt from `main`), so
+// both live side by side on main and main is the only place to edit.
 //
-// PBSCache is seeded once in a user's localStorage and persists, so this file
-// must remain the entry point at this URL forever.
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/setDealerCode-polling.js
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/toggleRotate.js
-Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
-Javascript,https://github.com/bridge-craftwork/bbo-pbs/blob/master/Plugins/BBAcompare.js
-Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
-
-// Channel identity. runtime/ is shared by every channel and carries no version
-// of its own, so the data file - the one per-channel artefact - declares it.
+// The branch is kept because a PBSCache is seeded once and persists: deleting
+// it would 404 forever for anyone still pointed here, with no way to recover.
+// Keeping a COPY here instead would be worse - it would go stale the first time
+// somebody edited main and forgot this branch, which is exactly the trap that
+// bit twice during the split. A redirect cannot go stale, because it has
+// nothing to go stale.
 //
-// The two numbers below are different things and move independently:
-//
-//   pbsVersionLabel   The PBS package version - the same number as line 2 of
-//                     this file. Printed in the console banner on startup:
-//                     "PBS <label>: Initializing...". Human-facing, and the
-//                     first thing anyone reads in a bug report.
-//
-//   pbsClientVersion  The plug-in version - the same number BBAcompare.js
-//                     carries as CLIENT_VERSION. Sent as the X-Client-Version
-//                     header to bba.harmonicsystems.com/api/scenario/select on
-//                     EVERY scenario click. Machine-facing: this is what the
-//                     telemetry counts, and what tells release traffic apart
-//                     from beta and toggle.
-//
-// Keep them in step with line 2 and with BBAcompare respectively. runtime/
-// falls back to "unset" rather than to a real version, so forgetting either
-// shows up as obviously missing instead of as a wrong channel.
-Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta'; window.pbsClientVersion='1.9.26-beta'; R='';
-
-// Development loader - BETA ONLY, never add this to -PBS.txt.
-// Paste runtime JavaScript and Run it, without pushing to GitHub.
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/devLoader.js
-
-// Host-conflict guard - must load before the blocks that call it.
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/deferGuard.js
-
-// Handle BBO tabs that appear after startup (the "Tables" tab).
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/tabDelegation.js
-
-// One active table-watcher at a time when both extensions are installed.
-// This only prevents the freeze when BOTH data files import it.
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/activeWatcher.js
-
-// Display HCP for visible hands
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/displayHCP.js
-
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-hcp.js
-
-// UNDER TEST IN BETA. Lets BBO's Phoenix dropdowns paint above our panel -
-// without it, the name-tag menu (Show profile / BBO Store / Help / Sign out) is
-// covered by pbs-panel0 and Sign out cannot be clicked while the PBS tab shows.
-// Promote to -PBS.txt once it has run in beta.
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-dropdown.js
-
-// Start BBA Auction Compare panel (called by Auction Compare button)
-Script,startBBACompare,window.startBBACompare(); R='';
-Script,toggleRotate,window.toggleRandomlyRotate(); R='';
-
-// Pause
-Script,onLogin,setTimeout(setOptionsOff, 200);
-
-// Open BBOalert Shortcuts
-Script,onDataLoad,$('#bttab-buttons').click();
-
-// Open usual BBO side panel
-Script,onLogin,parent.$('.verticalClass')[0].click();
-
-// Remove the Char, Word, All backspace buttons (hide isn't enough — master toggle re-shows white buttons)
-Script,onDataLoad,$("#adpanel2 button:lt(3)").remove();
-
-// Fix button row heights - make adjacent buttons equal height
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/panelStyle.js
-
-// Redirect chat so it doesn't go to Lobby
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/chatDestination.js
-
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/startTable.js
-
-Script,setBiddingTable,localStorage.setItem('pbsLastTableType','bidding'); window.startTable('bidding'); R='';
-Script,setTeachingTable,localStorage.setItem('pbsLastTableType','teaching'); window.startTable('teaching'); R='';
-
-
-Script,reviewCurrentCode,setDealerCode("");
-
-Option,Practice Table
-
-// Dynamic Layout System v4.1
-// Fetches layout configuration and PBS metadata at runtime
-// Rebuilds buttons immediately when config changes
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/pbsDynamicLayout.js
-
-// Config change detection - rebuilds buttons when settings change
-Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-config.js
-
-Option
+// Do not add content below. Edit main.
+Import,https://github.com/bridge-craftwork/Practice-Bidding-Scenarios/blob/main/-PBS-beta.txt
