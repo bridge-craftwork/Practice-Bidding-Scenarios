@@ -53,6 +53,11 @@ Script,onDataLoad,window.pbsVersionLabel='v4.1.12-beta'; window.pbsClientVersion
 // Paste runtime JavaScript and Run it, without pushing to GitHub.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/devLoader.js
 
+// Build stamp - publishes the content hash of every runtime/ file into the page
+// so a test can prove which revision the browser actually loaded. First, so it
+// is present even if a later import fails.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/buildStamp.js
+
 // Host-conflict guard - must load before the blocks that call it.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/deferGuard.js
 
