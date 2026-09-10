@@ -1,9 +1,22 @@
 //BBOalert, Bidding Scenarios
-//BBOalert, Bidding Scenarios - version 4.1.11-beta-autostart
-// setDealerCode and the rotate toggle, from runtime/ like every other block.
-// These two were copied into runtime/ during the split but the imports below
-// were left pointing at the originals in this repo, so beta went on loading the
-// UNFIXED copies: the 5s dead wait in setDealerCode and no sticky rotate.
+//BBOalert, Bidding Scenarios - version 4.1.11-beta
+//
+// BETA channel. This file is a mirror of -PBS.txt and is meant to stay one:
+// same records, same order, differing ONLY in the three things that make it
+// beta - it imports runtime/ from `main` instead of `release`, it loads the dev
+// paste-loader, and it reports itself as beta.
+//
+// It imports from `main` deliberately. That is the soak: anything merged to
+// main runs in beta before it is promoted, and promotion is then a
+// main -> release merge rather than an edit to this file. Do NOT repoint these
+// at `release` just because the two branches happen to be level - the moment
+// you do, beta stops testing anything, and a runtime fix would reach nobody
+// until somebody remembered to hand-edit this file.
+//
+// So when there IS something to test, it is already here: merge it to main.
+//
+// PBSCache is seeded once in a user's localStorage and persists, so this file
+// must remain the entry point at this URL forever.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/setDealerCode-polling.js
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/toggleRotate.js
 Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
@@ -12,7 +25,7 @@ Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 
 // Channel identity. runtime/ is shared by both channels and carries no version
 // of its own, so the data file - the one per-channel artefact - declares it.
-Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta-autostart'; window.pbsClientVersion='1.9.26-beta'; R='';
+Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta'; window.pbsClientVersion='1.9.26-beta'; R='';
 
 // Development loader - BETA ONLY, never add this to -PBS.txt.
 // Paste runtime JavaScript and Run it, without pushing to GitHub.
@@ -25,6 +38,7 @@ Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/d
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/tabDelegation.js
 
 // One active table-watcher at a time when both extensions are installed.
+// This only prevents the freeze when BOTH data files import it.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/activeWatcher.js
 
 // Display HCP for visible hands
@@ -73,4 +87,3 @@ Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/p
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-config.js
 
 Option
-
