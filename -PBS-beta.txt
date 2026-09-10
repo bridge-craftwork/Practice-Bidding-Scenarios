@@ -10,6 +10,9 @@ Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 // Paste runtime JavaScript and Run it, without pushing to GitHub.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/devLoader.js
 
+// Host-conflict guard - must load before the blocks that call it.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/deferGuard.js
+
 // Display HCP for visible hands
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/displayHCP.js
 
