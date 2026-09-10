@@ -43,6 +43,14 @@ Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 // shows up as obviously missing instead of as a wrong channel.
 Script,onDataLoad,window.pbsVersionLabel='v4.1.12'; window.pbsClientVersion='1.9.26'; R='';
 
+// Build stamp - publishes the content hash of every runtime/ file into the page.
+// Not a feature: it exists so a stale fetch says so. runtime/ is served from a
+// CDN that caches for minutes, and the cost of that was never the wait - it was
+// hours spent chasing a bug that had already been fixed, in code the browser had
+// not picked up yet. First in the list, so the stamp is there even if a later
+// import fails.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/buildStamp.js
+
 // Host-conflict guard - must load before the blocks that call it.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/deferGuard.js
 
