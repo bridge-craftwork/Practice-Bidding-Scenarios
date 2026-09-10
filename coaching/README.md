@@ -2,7 +2,7 @@
 
 This directory holds the **coached** versions of scenario PBNs. Each file is a normal
 PBN whose boards carry a Baker-Bridge–style `{...}` tutorial block, written so the
-[Bridge Play Trainer](../Bridge%20Play%20Trainer.md) can teach the deal bid-by-bid and
+[Bridge Play Trainer](../notes/Bridge%20Play%20Trainer.md) can teach the deal bid-by-bid and
 during the play.
 
 ## How the trainer uses these files

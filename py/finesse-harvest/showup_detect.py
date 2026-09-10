@@ -42,7 +42,7 @@ trick AFTER the fall ("the seven is a winner" — the drop visibly promoted
 something). Boards with dividend=False make their point only as an avoided
 third-round guess (shipped b237's shape) — rank dividend=True first when
 authoring; the decoration mirage (honor drops, nothing gained) lives in the
-dividend=False pile. See squeeze-endplay-plan.md §5 and finesse-family-plan.md §9.
+dividend=False pile. See notes/plans/squeeze-endplay-plan.md §5 and notes/plans/finesse-family-plan.md §9.
 
 Usage: showup_detect.py bba/Pool_A.pbn [...] > scan.json
 """

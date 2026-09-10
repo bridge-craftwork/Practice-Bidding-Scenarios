@@ -12,7 +12,7 @@ Gate = DD-LINE ACID under a passive lead: the suit is led from the partner
 side toward the tenace at least TWICE, and the tenace hand wins at least one
 of those tricks with a card BELOW both missing honors. `first_lost` marks the
 teaching-gold shape (first finesse loses, second wins — the 76% justification
-made visible). See finesse-family-plan.md §9.
+made visible). See notes/plans/finesse-family-plan.md §9.
 
 Usage: double_detect.py bba/Pool_A.pbn [...] > scan.json
 """

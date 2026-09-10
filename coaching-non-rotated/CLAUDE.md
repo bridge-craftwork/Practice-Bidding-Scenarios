@@ -112,7 +112,7 @@ already excluded). Mint new paths as needed.
 - the **`report`-button flag** — a BC-side, collection-level switch;
 - the **`prerelease`** column — BC's consumer-side inverse of your `stable` flag.
 
-(An older repo doc, [`../deal-hash-identity-plan.md`](../deal-hash-identity-plan.md),
+(An older repo doc, [`../notes/plans/deal-hash-identity-plan.md`](../notes/plans/deal-hash-identity-plan.md),
 proposed a `[Collection]` tag and the names `[Ready]`/`[DealHash]`. Those are
 superseded by this contract: no `[Collection]`; `[Ready]` → `%bridge-classroom-stable:`
 + `[Stable]`; `[DealHash]` → `[BoardVersionToken]`.)

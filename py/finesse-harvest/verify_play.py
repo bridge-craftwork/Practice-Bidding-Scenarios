@@ -8,7 +8,7 @@ Usage:
 The first form prints declarer's trick count under each forced lead (use it to
 confirm a candidate makes EXACTLY under every realistic lead). The --show form
 dumps the full 13-trick DD line so you can see HOW it makes — the acid test
-that the taught finesse is genuinely taken (see finesse-family-plan.md §9).
+that the taught finesse is genuinely taken (see notes/plans/finesse-family-plan.md §9).
 Also imported by check_served.py for its trick_winner().
 """
 import sys

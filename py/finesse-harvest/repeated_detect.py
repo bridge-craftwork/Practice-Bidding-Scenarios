@@ -16,7 +16,7 @@ Gate = DD-LINE ACID under a passive lead: the suit is led from the partner
 side toward the tenace at least TWICE, the tenace wins each such trick with a
 card below the missing honor, and the missing honor NEVER wins a trick.
 Two-plus leads-toward in the DD line also PROVES the entries exist.
-See finesse-family-plan.md §9.
+See notes/plans/finesse-family-plan.md §9.
 
 Usage: repeated_detect.py bba/Pool_A.pbn [...] > scan.json
 """

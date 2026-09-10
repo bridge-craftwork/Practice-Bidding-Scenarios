@@ -16,7 +16,7 @@ wherever the honor sits), so the gate is the DD-LINE ACID: under a passive
 lead, the line must contain a trick where a sequence honor below the missing
 one is LED from the sequence hand and the short hand either RUFFS the cover or
 PITCHES (loser-on-loser). Emits JSON rows for eyeballing with verify_play.py
---show. See finesse-family-plan.md §9.
+--show. See notes/plans/finesse-family-plan.md §9.
 
 Usage: ruffing_detect.py bba/Pool_A.pbn [...] > scan.json
 """

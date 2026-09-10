@@ -6,7 +6,7 @@ suit with a card BELOW the missing honor, AND the marked honor NEVER wins a
 trick (it is trapped). This is the filter that kills most swing candidates —
 boards that "make exactly with the honor onside" but via side-suit
 establishment, honor-forced establishment, a doubleton drop (Rabbi's turf), or
-a defensive gift. See finesse-family-plan.md §9.
+a defensive gift. See notes/plans/finesse-family-plan.md §9.
 
 Usage: finesse_taken.py scan.json
 """

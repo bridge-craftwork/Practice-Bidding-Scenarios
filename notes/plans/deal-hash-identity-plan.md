@@ -35,7 +35,7 @@ contract when we swap a board.
 > were a proposal; the finalized
 > [Collection Producer Contract](https://github.com/bridge-craftwork/Bridge-Classroom/blob/main/documentation/adr/collection-producer-contract.md)
 > changed three of the four. The durable, authoritative producer rules now live in
-> the folder-scoped [`coaching-non-rotated/CLAUDE.md`](coaching-non-rotated/CLAUDE.md).
+> the folder-scoped [`coaching-non-rotated/CLAUDE.md`](../../coaching-non-rotated/CLAUDE.md).
 > The mapping:
 >
 > | This doc proposed | Accepted contract |
@@ -66,7 +66,7 @@ the tag name.
 > *rotation-**canonical*** hash (rotate deal **and auction** so the ♠A holder sits
 > North), `sha256( canonical_deal + "|" + canonical_auction )`, **lowercase hex** —
 > not the sort-invariant, deal-only `sha1[:16]` described immediately below. See
-> [`coaching-non-rotated/CLAUDE.md`](coaching-non-rotated/CLAUDE.md) §R3.
+> [`coaching-non-rotated/CLAUDE.md`](../../coaching-non-rotated/CLAUDE.md) §R3.
 
 ## The rotation-independent token (our definition)
 
@@ -89,7 +89,7 @@ the stamped token is the new canonical-form variant.
 ## Producer tasks (PBS)
 
 1. **Stamp `[DealHash]`** (rotation-independent, above) on every served board at the
-   final post-rotation stage ([`py/bridge_classroom.py`](py/bridge_classroom.py)),
+   final post-rotation stage ([`py/bridge_classroom.py`](../../py/bridge_classroom.py)),
    idempotent, closing the current gap (the `cp`-synced `Basic_*` sets — ~16% of
    `coaching-non-rotated/` boards carry no fingerprint today).
 2. **Emit `[Ready]`** — file-level default `false`, per-board override; a set is beta

@@ -1,7 +1,7 @@
 # Layer B pilot — Basic_NT grading report
 
 500 boards from `bba/Basic_NT.pbn` graded against the rubric in
-pbn-curation-plan.md. Verdicts: `bba-curated/Basic_NT-graded.json`;
+notes/plans/pbn-curation-plan.md. Verdicts: `bba-curated/Basic_NT-graded.json`;
 annotated pool: `bba-curated/Basic_NT.pbn`.
 
 **Re-graded 2026-06-05** after raising the responder HCP cap to `<20` and

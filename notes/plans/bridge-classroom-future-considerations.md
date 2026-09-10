@@ -10,7 +10,7 @@ within what BC already does. New engine ideas accumulate in the parking lot belo
 to weigh later instead of being built now.
 
 > **Rick-facing version:** the precise, cold-readable change requests for Rick live in
-> [`bridge-classroom-requests-for-rick.md`](bridge-classroom-requests-for-rick.md)
+> [`bridge-classroom-requests-for-rick.md`](../bridge-classroom-requests-for-rick.md)
 > (Part A = built-on-fork → merge; Part B = build/fix). Keep the two in sync.
 
 ---

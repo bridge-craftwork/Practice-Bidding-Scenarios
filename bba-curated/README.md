@@ -1,7 +1,7 @@
 # bba-curated/ — graded deal pools with embedded {Curate} blocks
 
 This folder holds the output of the **curate** pipeline stage (see
-[pbn-curation-plan.md](../pbn-curation-plan.md)). For each coaching
+[pbn-curation-plan.md](../notes/plans/pbn-curation-plan.md)). For each coaching
 scenario, `<scenario>.pbn` contains the **full** `bba/` pool (typically 500
 boards) with one `{Curate ...}` comment block embedded per board. Lesson
 sets are cut from these files with `py/select.py`; nothing here is

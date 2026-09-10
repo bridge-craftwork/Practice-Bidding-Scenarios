@@ -21,10 +21,10 @@ No active work on these in this session. They use `Basic-Bridge.bbsa` as the con
 | Scenario | Final Contract | Teaching Point | Status |
 |---|---|---|---|
 | Play_Top_Tricks | 2-level partial (suit or NT) | Count tricks before playing | Older; superseded by NT/Suit split |
-| [Play_Top_Tricks_NT](btn/Play_Top_Tricks_NT.btn) | 3NT | Quick tricks in NT (chain × length) | Stable. 3 paths (Pass / 2NT / 3NT) balanced via Leveling; topTricksNS enforced per path |
+| [Play_Top_Tricks_NT](../btn/Play_Top_Tricks_NT.btn) | 3NT | Quick tricks in NT (chain × length) | Stable. 3 paths (Pass / 2NT / 3NT) balanced via Leveling; topTricksNS enforced per path |
 | [Play_Top_Tricks_Suit](btn/Play_Top_Tricks_Suit.btn) | 2X / 3X / 4M | Trump-suit length + side-suit ruffs | **Active — see session work below** |
-| [Side_Suit_Ruff_Before_Trump](btn/Side_Suit_Ruff_Before_Trump.btn) | 4S | Ruff dummy's singleton before drawing trumps | Stable |
-| [Endplay_3rd_Round_Strip](btn/Endplay_3rd_Round_Strip.btn) | 4S | Strip-and-endplay (throw E in with hearts) | Stable |
+| [Side_Suit_Ruff_Before_Trump](../btn/Side_Suit_Ruff_Before_Trump.btn) | 4S | Ruff dummy's singleton before drawing trumps | Stable |
+| [Endplay_3rd_Round_Strip](../btn/Endplay_3rd_Round_Strip.btn) | 4S | Strip-and-endplay (throw E in with hearts) | Stable |
 
 Both `Play_Top_Tricks_NT` and `Play_Top_Tricks_Suit` use a shared concept of `topTricksNS` (count of sure winners) but with **different formulas** — one tuned for NT play, the other for suit play. The scripts are:
 - `script/topTricksNS` — NT version: chain × longer-hand length, requires all 4 aces

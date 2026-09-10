@@ -4,7 +4,7 @@ This directory holds **non-rotated** coached scenario PBNs: the same boards as
 [`coaching/`](../coaching/), but with the rotation pronoun tokens (`@S`, `@v(...)`, `@Your`)
 already resolved with **South as the student**, so each file reads correctly from a fixed
 seat. Each file is a normal PBN whose boards carry a Baker-Bridge–style `{...}` tutorial
-block, written so the [Bridge Play Trainer](../Bridge%20Play%20Trainer.md) can teach the
+block, written so the [Bridge Play Trainer](../notes/Bridge%20Play%20Trainer.md) can teach the
 deal bid-by-bid and during the play.
 
 ## bridge-classroom compatibility (`py/bridge_classroom.py`)

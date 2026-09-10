@@ -3,8 +3,8 @@
 Promoted from the session scratchpad 2026-07-03 after building
 To_Finesse_Or_Not with it; now also powers the Squeezes & Endplays shelf.
 The conceptual specs — what each filter means, why each exists, and the
-failure modes they catch — are **finesse-family-plan.md §9** and
-**squeeze-endplay-plan.md §5**; read those first. Requires `endplay` (DDS).
+failure modes they catch — are **notes/plans/finesse-family-plan.md §9** and
+**notes/plans/squeeze-endplay-plan.md §5**; read those first. Requires `endplay` (DDS).
 
 **`harvest_common.py` is the shared core** — parse/tricks/winner/dd_line and
 above all `book_lead()` (singleton → top of touching honors → fourth-best →

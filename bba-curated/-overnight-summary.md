@@ -80,7 +80,7 @@ Defective boards are listed in each `<scenario>-report.md`.
   completion in one go.
 - `down_both` for bidding scenarios is evidence, not a verdict (see #2).
 - New/changed files (all uncommitted): `py/curate.py`,
-  `pbn-curation-plan.md`, `bba-curated/*` (19 JSON + 19 reports + this
+  `notes/plans/pbn-curation-plan.md`, `bba-curated/*` (19 JSON + 19 reports + this
   summary + `.progress/`). The `.progress/` directory is disposable cache —
   candidates for `.gitignore`.
 

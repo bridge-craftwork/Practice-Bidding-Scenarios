@@ -51,8 +51,8 @@ The acid, over the book-lead DD line:
 `fruit_rank` (the promoted card, lower = more spectacular), `duck_trick`, and
 `fruit_trick` are recorded for authoring: Rectify_The_Count wants the duck
 early and visible (the shipped arc is tricks one, two, five); Simple_Squeeze
-wants the two-suit guard story legible. See squeeze-endplay-plan.md §5 and
-finesse-family-plan.md §9.
+wants the two-suit guard story legible. See notes/plans/squeeze-endplay-plan.md §5 and
+notes/plans/finesse-family-plan.md §9.
 
 Usage: rectify_detect.py bba/Pool_A.pbn [...] > scan.json
 """

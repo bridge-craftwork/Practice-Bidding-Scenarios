@@ -46,11 +46,11 @@ inspect its artifacts when unsure.
 
 ## Phase 1 — Curate (→ bba-curated/<scn>.pbn)
 Grade the filtered pool and annotate it, exactly as for New_Minor_Forcing (design:
-`pbn-curation-plan.md`).
+`notes/plans/pbn-curation-plan.md`).
 - Layer A features: `python3 -P py/curate.py <scn>` (resumable; reads the `.btn`
   `# curate:` directive).
 - Layer B grading: fan out subagents to grade each board's BIDDING
-  (textbook / standard / judgment / reject) per the rubric in `pbn-curation-plan.md`;
+  (textbook / standard / judgment / reject) per the rubric in `notes/plans/pbn-curation-plan.md`;
   write verdicts to `bba-curated/<scn>-graded.json`. Borderline-but-defensible calls
   are **judgment + also_ok**, never reject (board-137 calibration).
 - Annotate: `python3 -P py/annotate.py <scn>` → inserts `{Curate ...}` blocks into

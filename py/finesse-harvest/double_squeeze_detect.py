@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Double-squeeze detector — the WIDENED acid (see squeeze-endplay-plan.md log 07-04).
+"""Double-squeeze detector — the WIDENED acid (see notes/plans/squeeze-endplay-plan.md log 07-04).
 
 The first hunt (squeeze_family_detect's "double" class) demanded TWO promoted
 winners with distinct victims — but a textbook double squeeze scores exactly
