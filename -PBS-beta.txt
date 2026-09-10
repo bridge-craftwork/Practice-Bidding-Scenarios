@@ -1,5 +1,5 @@
 //BBOalert, Bidding Scenarios
-//BBOalert, Bidding Scenarios - version 4.1.11-beta
+//BBOalert, Bidding Scenarios - version 4.1.12-beta
 //
 // BETA channel. This file is a mirror of -PBS.txt and is meant to stay one:
 // same records, same order, differing ONLY in the three things that make it
@@ -43,7 +43,7 @@ Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 // Keep them in step with line 2 and with BBAcompare respectively. runtime/
 // falls back to "unset" rather than to a real version, so forgetting either
 // shows up as obviously missing instead of as a wrong channel.
-Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta'; window.pbsClientVersion='1.9.26-beta'; R='';
+Script,onDataLoad,window.pbsVersionLabel='v4.1.12-beta'; window.pbsClientVersion='1.9.26-beta'; R='';
 
 // Development loader - BETA ONLY, never add this to -PBS.txt.
 // Paste runtime JavaScript and Run it, without pushing to GitHub.
@@ -64,10 +64,9 @@ Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/d
 
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-hcp.js
 
-// UNDER TEST IN BETA. Lets BBO's Phoenix dropdowns paint above our panel -
-// without it, the name-tag menu (Show profile / BBO Store / Help / Sign out) is
-// covered by pbs-panel0 and Sign out cannot be clicked while the PBS tab shows.
-// Promote to -PBS.txt once it has run in beta.
+// Let BBO's Phoenix dropdowns paint above our panel. Without this the name-tag
+// menu (Show profile / BBO Store / Help / Sign out) is covered by pbs-panel0
+// whenever the PBS tab is showing, and Sign out cannot be clicked at all.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/onAnyMutation-dropdown.js
 
 // Start BBA Auction Compare panel (called by Auction Compare button)

@@ -1,5 +1,5 @@
 //BBOalert, Bidding Scenarios Toggle
-//BBOalert, Bidding Scenarios Toggle - version 4.1.11
+//BBOalert, Bidding Scenarios Toggle - version 4.1.12
 //
 // RETIRED. This variant is no longer maintained separately: it was a stale copy
 // of release (v4.1.8, still on the pre-polling js/setDealerCode.js) that missed
@@ -51,7 +51,7 @@ Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 // at this file becomes a thing you can look up rather than a thing you guess.
 // If nothing reports -toggle for a good while, this file can be left to rot
 // safely - though still not deleted.
-Script,onDataLoad,window.pbsVersionLabel='v4.1.11-toggle'; window.pbsClientVersion='1.9.26-toggle'; R='';
+Script,onDataLoad,window.pbsVersionLabel='v4.1.12-toggle'; window.pbsClientVersion='1.9.26-toggle'; R='';
 
 // Host-conflict guard - must load before the blocks that call it.
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/deferGuard.js
@@ -68,6 +68,11 @@ Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtim
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/displayHCP.js
 
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/onAnyMutation-hcp.js
+
+// Let BBO's Phoenix dropdowns paint above our panel. Without this the name-tag
+// menu (Show profile / BBO Store / Help / Sign out) is covered by pbs-panel0
+// whenever the PBS tab is showing, and Sign out cannot be clicked at all.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/onAnyMutation-dropdown.js
 
 // Start BBA Auction Compare panel (called by Auction Compare button)
 Script,startBBACompare,window.startBBACompare(); R='';
