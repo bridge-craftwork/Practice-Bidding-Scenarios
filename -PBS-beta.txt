@@ -23,8 +23,26 @@ Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
 Javascript,https://github.com/bridge-craftwork/bbo-pbs/blob/master/Plugins/BBAcompare.js
 Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 
-// Channel identity. runtime/ is shared by both channels and carries no version
+// Channel identity. runtime/ is shared by every channel and carries no version
 // of its own, so the data file - the one per-channel artefact - declares it.
+//
+// The two numbers below are different things and move independently:
+//
+//   pbsVersionLabel   The PBS package version - the same number as line 2 of
+//                     this file. Printed in the console banner on startup:
+//                     "PBS <label>: Initializing...". Human-facing, and the
+//                     first thing anyone reads in a bug report.
+//
+//   pbsClientVersion  The plug-in version - the same number BBAcompare.js
+//                     carries as CLIENT_VERSION. Sent as the X-Client-Version
+//                     header to bba.harmonicsystems.com/api/scenario/select on
+//                     EVERY scenario click. Machine-facing: this is what the
+//                     telemetry counts, and what tells release traffic apart
+//                     from beta and toggle.
+//
+// Keep them in step with line 2 and with BBAcompare respectively. runtime/
+// falls back to "unset" rather than to a real version, so forgetting either
+// shows up as obviously missing instead of as a wrong channel.
 Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta'; window.pbsClientVersion='1.9.26-beta'; R='';
 
 // Development loader - BETA ONLY, never add this to -PBS.txt.
