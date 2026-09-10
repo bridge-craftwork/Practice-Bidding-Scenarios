@@ -1,10 +1,18 @@
 //BBOalert, Bidding Scenarios
 //BBOalert, Bidding Scenarios - version 4.1.11-beta-autostart
-Import,https://github.com/bridge-craftwork/Practice-Bidding-Scenarios/blob/main/js/setDealerCode-polling.js
-Import,https://github.com/bridge-craftwork/Practice-Bidding-Scenarios/blob/main/js/toggleRotate.js
+// setDealerCode and the rotate toggle, from runtime/ like every other block.
+// These two were copied into runtime/ during the split but the imports below
+// were left pointing at the originals in this repo, so beta went on loading the
+// UNFIXED copies: the 5s dead wait in setDealerCode and no sticky rotate.
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/setDealerCode-polling.js
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/toggleRotate.js
 Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
 Javascript,https://github.com/bridge-craftwork/bbo-pbs/blob/master/Plugins/BBAcompare.js
 Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
+
+// Channel identity. runtime/ is shared by both channels and carries no version
+// of its own, so the data file - the one per-channel artefact - declares it.
+Script,onDataLoad,window.pbsVersionLabel='v4.1.11-beta-autostart'; window.pbsClientVersion='1.9.26-beta'; R='';
 
 // Development loader - BETA ONLY, never add this to -PBS.txt.
 // Paste runtime JavaScript and Run it, without pushing to GitHub.
