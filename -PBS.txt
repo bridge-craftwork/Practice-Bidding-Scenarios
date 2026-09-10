@@ -14,7 +14,11 @@
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/setDealerCode-polling.js
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/toggleRotate.js
 Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
-Javascript,https://github.com/bridge-craftwork/bbo-pbs/blob/master/Plugins/BBAcompare.js
+// BBAcompare lives in runtime/plugins/ with everything else fetched at run
+// time, so it has a release/beta channel like the rest. It used to be loaded
+// straight from bbo-pbs/master by both files, which meant every change to it
+// shipped to release with no beta stage.
+Javascript,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/plugins/BBAcompare.js
 Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 
 // Channel identity. runtime/ is shared by every channel and carries no version

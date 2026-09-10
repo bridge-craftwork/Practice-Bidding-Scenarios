@@ -20,11 +20,10 @@
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/setDealerCode-polling.js
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/toggleRotate.js
 Javascript,https://github.com/stanmaz/BBOalert/blob/master/Plugins/PBNcapture.js
-// UNDER TEST IN BETA. BBAcompare now lives in runtime/plugins/ like every
-// other file we fetch at run time, so it finally has a beta channel - it used
-// to ship straight to release. This copy also carries the dealer fix: the old
-// one read the dealer letter from the auction headers, which BBO translates,
-// so a Turkish user sent K/G instead of N/S. Promote to -PBS.txt once soaked.
+// BBAcompare lives in runtime/plugins/ with everything else fetched at run
+// time, so it has a release/beta channel like the rest. It used to be loaded
+// straight from bbo-pbs/master by both files, which meant every change to it
+// shipped to release with no beta stage.
 Javascript,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/main/runtime/plugins/BBAcompare.js
 Import,https://github.com/stanmaz/BBOalert/blob/master/Scripts/PBStooltips.js
 
