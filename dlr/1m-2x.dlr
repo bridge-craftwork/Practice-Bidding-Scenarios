@@ -231,43 +231,6 @@ tpEW = tpEast + tpWest
 
 ### End of Imported Script: TP
 # Defines tpSouth
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
 # Defines keepNN throttles (keepNN ~= keep NN% of hands) for leveling
 
 # ============================================================
@@ -311,7 +274,20 @@ sRange = tpSouth>11 and hcp(south)>10 and tpSouth<22 and hcp(south)<23
 #   Test 2NT only:  s1m and n2NT and sRange and sShape and calmWest
 #   Test 3NT only:  s1m and n3NT and sRange and sShape and calmWest
 # ============================================================
-s1m and ((n3m and keep70) or (n2S and keep53) or (n2m and keep67) or (n2H and keep33) or (n2NT and keep67) or n3NT) and sRange and sShape and calmWest
+HandType_n3m = n3m
+HandType_n2S = n2S
+HandType_n2m = n2m
+HandType_n2H = n2H
+HandType_n2NT = n2NT
+HandType_n3NT = n3NT
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
+s1m and sRange and sShape and calmWest
+and (HandType_n3m or HandType_n2S or HandType_n2m or HandType_n2H or HandType_n2NT or HandType_n3NT) and levelTheDeal
 
 action printoneline,
 

@@ -119,15 +119,16 @@ nNewSuit = shape(north,any 5xxx+any 6xxx) and hcp(north)>9 and not nFit
 nNotrump = not (nRaises or nCueBids or nNewSuit) and nStop and hcp(north)>9
 nPunts   = not (nRaises or nCueBids or nNewSuit or nNotrump)
 
-#include "script/Leveling"
+HandType_Raise = nRaises
+HandType_Cue = nCueBids
+HandType_Suit = nNewSuit
+HandType_NT = nNotrump
+HandType_Punts = nPunts
 
-levelRaise = nRaises  and keep67
-levelCue   = nCueBids and keep
-levelSuit  = nNewSuit and keep25
-levelNT    = nNotrump and keep
-levelPunts = nPunts   and keep25
-
-levelTheDeal = nRaises or nCueBids or nNewSuit or levelNT or levelPunts
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 eOpens and sOvercalls and wPasses and (nRaises or nCueBids or nNewSuit or nNotrump or nPunts)

@@ -43,8 +43,6 @@ gibNT = nt1 or nt2
 
 ### End of GIB 1 Notrump ###
 
-#include "script/Leveling"
-
 # N/S slam zone (shared by both paths)
 slamZone = hcp(south)>=12 and (hcp(north)+hcp(south))>=28
 
@@ -83,11 +81,18 @@ ewModest   = (hcp(west)+hcp(east))<=22
 overcallPath = nOpens and (heartScn or spadeScn) and ewModest
 
 # Leveling: overcall hands are ~10x more common than preempt hands.
-# Without throttling, dealer fills the 500-hand cap entirely with
-# overcall hands and finds 0 preempts. keep03 cuts overcall to ~3%,
-# producing a typical ~196 preempt + ~304 overcall mix and ~10-12
-# filtered matches per run.
-slamZone and (preemptPath or (overcallPath and keep03))
+# Without leveling, dealer fills the 500-hand cap entirely with
+# overcall hands and finds 0 preempts.
+HandType_preemptPath = preemptPath
+HandType_overcallPath = overcallPath
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
+slamZone
+and (HandType_preemptPath or HandType_overcallPath) and levelTheDeal
 
 action
 average "hcp north       " hcp(north),
