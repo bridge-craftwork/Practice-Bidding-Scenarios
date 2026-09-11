@@ -2,6 +2,12 @@
 # button-text: Splinters after Minor
 # gib-works: true
 # bba-works: true
+# level-budget: 400000
+# Grand slams are 1 qualifying deal in 400 here, so leveling the three types
+# evenly would cost about 1.6 million deals per deal kept -- more than pbn can
+# deal in its 300,000,000-deal limit, let alone a BBO table. 400,000 is the most
+# that still leaves pbn room for 500 boards; it brings grand slams from 0.25%
+# to about 8%. See notes/plans/294-leveling-conversion-findings.md.
 # auction-filter: Auction.....\n(1C Pass 3[DHS]|1D Pass (3[HS]|4C))
 # convention-card-ns: 21GF-DEFAULT
 # convention-card-ew: 21GF-GIB
@@ -50,12 +56,16 @@ game  = (tpNorth + tpSouth)<33 and not part
 slam  = (tpNorth + tpSouth)<37 and not (part or game)
 grand =                            not (part or game or slam)
 
-#include "script/Leveling"
-lev1 = part  and keep
-lev2 = game  and keep70
-lev3 = slam  and keep
-lev4 = grand and keep
-levelTheDeal = lev1 or lev2 or lev3 or lev4
+# No part-score type: combined TP under 26 cannot happen once North splinters
+# (dealer3: "never seen in 778 deals: `1`")
+HandType_2 = game
+HandType_3 = slam
+HandType_4 = grand
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 sOpens and calmWest and nSplinters
 and levelTheDeal
