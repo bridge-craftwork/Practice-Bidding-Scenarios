@@ -69,13 +69,11 @@ invite = hcp(north)>7 and hcp(north)<12 and not hascard(west,2C)
 force  = hcp(north)>11
 nResponds = (weak or invite or force)
 
-#include "script/Leveling"
-
 # Define leveling
-levWeak   = weak   and keep
-levInvite = invite and keep
-levForce  = force  and keep
-levelTheDeal = (levWeak or levInvite or levForce)
+levWeak   = weak
+levInvite = invite
+levForce  = force
+levelTheDeal = levWeak or levInvite or levForce
 
 wOpensWeak2 and nPasses and ePasses and sDoubles and nResponds
 and levelTheDeal
