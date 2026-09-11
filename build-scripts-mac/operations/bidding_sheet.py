@@ -138,7 +138,9 @@ def run_bidding_sheet(scenario: str, verbose: bool = True) -> bool:
         bridge_wrangler, "to-pdf",
         "-i", dest_pbn,
         "-o", pdf_path,
-        "-l", "bidding-sheets"
+        "-l", "bidding-sheets",
+        # The sheets carry their own banner; no page furniture from the PBN
+        "--no-page-furniture",
     ]
 
     try:
