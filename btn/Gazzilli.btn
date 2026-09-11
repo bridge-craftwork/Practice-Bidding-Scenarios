@@ -55,13 +55,19 @@ s2C = s2CRange and sMajor and not s2N
 s3x = s3xRange and sMajor and shape(south,any 65xx+any 55xx)
 s2x = s2xRange and sMajor and not shape(south,any 6xxx) and not s3x   // avoid 1H - 2H and 1S - 2S 
 
-#include "script/Leveling"
+lev2x = s2x
+lev3x = s3x
+lev2C = s2C
+lev2N = s2N
+HandType_2x = lev2x
+HandType_3x = lev3x
+HandType_2C = lev2C
+HandType_2N = lev2N
 
-lev2x = s2x and keep06
-lev3x = s3x and keep
-lev2C = s2C and keep25
-lev2N = s2N and keep11
-levelTheDeal = lev2x or lev3x or lev2C or lev2N
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 (s2x or s3x or s2C or s2N) and calmOpps and nRange and not gibNT 
 and levelTheDeal

@@ -26,12 +26,16 @@ jacFit = jac and (hFit5 or sFit5)
 sta = shape(north, 4xxx + x4xx)                // includes smolen
 staFit = sta and (hFit4 or sFit4)
 
-#include "script/Leveling"
-
 # Define Leveling
-case1  = jacFit    and keep70
-case2  = staFit    and keep
-levelTheDeal = case1 or case2
+case1  = jacFit
+case2  = staFit
+HandType_case1 = case1
+HandType_case2 = case2
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Do it
 gibNT and hcp(north)>13 and shape(north,any 0xxx) and (case1 or case2)
