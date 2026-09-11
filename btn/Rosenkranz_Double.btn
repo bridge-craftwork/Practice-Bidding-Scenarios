@@ -60,12 +60,14 @@ hasTopHonor = hasTopHonorH or hasTopHonorS
 # No top honor — simple raise
 noTopHonor = not hasTopHonor
 
-#include "script/Leveling"
-
 # Level to ~50% top honor, ~50% no top honor
-levWith    = hasTopHonor and keep
-levWithout = noTopHonor  and keep
-levelTheDeal = levWith or levWithout
+HandType_With = hasTopHonor
+HandType_Without = noTopHonor
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 eOpens and sOvercalls and westBids and nAdvances and levelTheDeal
 
