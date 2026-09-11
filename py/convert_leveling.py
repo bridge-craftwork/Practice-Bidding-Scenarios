@@ -45,6 +45,15 @@ Usage (from the project root):
     python3 py/convert_leveling.py Drury --write    # rewrite btn/Drury.btn
     python3 py/convert_leveling.py --all --json     # screen every ladder scenario
     python3 py/convert_leveling.py Drury --out DIR  # write DIR/Drury.btn and DIR/Drury.dlr
+
+Two variants, both keeping exactly the set of deals the scenario produces:
+
+    --narrow   also add `and (HandType_a or HandType_b ...)` to the condition.
+               dealer3's fix for a gap: the old verdict was an `or` of the
+               same types, so deals outside them were never dealt anyway.
+    --unlevel  take out a ladder that levels nothing (every keep `keep` or
+               `keep0`, or a verdict the condition no longer uses) instead of
+               converting it.
 """
 import argparse
 import difflib
@@ -177,8 +186,15 @@ def make_label(term: str) -> str:
     return term
 
 
-def convert(text: str):
-    """Return (new_text, info). Raises Refused."""
+def convert(text: str, narrow: bool = False, unlevel: bool = False):
+    """Return (new_text, info). Raises Refused.
+
+    narrow:  also add `and (HandType_a or HandType_b ...)` to the condition,
+             dealer3's fix for a gap. The old verdict was an `or` of the same
+             types, so this keeps exactly the deals the scenario produced.
+    unlevel: instead of converting, take out a ladder that levels nothing --
+             every keep `keep` or `keep0`, or a verdict the condition no longer
+             uses -- keeping exactly the deals the scenario produces."""
     lines = text.split("\n")
 
     # --- where the ladder comes from
@@ -200,6 +216,10 @@ def convert(text: str):
     if ladder_lines is None:
         raise Refused("no ladder: no #include \"script/Leveling\" and no pasted ladder")
     ladder = ladder_names_from(ladder_lines)
+    # a commented-out include of the ladder goes with the ladder
+    for i, line in enumerate(lines):
+        if re.match(r'^\s*##+include\s+"script/Leveling"\s*$', line):
+            remove.add(i)
 
     in_chat = set()
     inside = False
@@ -296,7 +316,7 @@ def convert(text: str):
                       "line": di, "cond": cond})
         consumed.add(di)
 
-    if len(types) < 2:
+    if len(types) < 2 and not unlevel:
         raise Refused("only %d hand type" % len(types))
 
     # --- nothing else may use the ladder
@@ -312,14 +332,20 @@ def convert(text: str):
                           % (", ".join(used), line.strip()))
 
     zero = [t["term"] for t in types if t["keep"] == "keep0"]
-    if zero:
+    if zero and not unlevel:
         raise Refused("term(s) %s are kept never (keep0); needs a _Share of 0 decided by hand"
                       % ", ".join(zero))
 
     # --- the condition must use the verdict
     code_after = [strip_comment(l) for i, l in enumerate(lines) if i > vi and i not in in_chat]
-    if not any(re.search(r"\b%s\b" % vname, c) for c in code_after):
+    verdict_used = any(re.search(r"\b%s\b" % vname, c) for c in code_after)
+    if not verdict_used and not unlevel:
         raise Refused("%s is defined but nothing after it uses it" % vname)
+    if unlevel and verdict_used:
+        real = ["%s (%s)" % (t["term"], t["keep"]) for t in types
+                if t["keep"] not in (None, "keep", "keep0")]
+        if real:
+            raise Refused("not a ladder that levels nothing: %s" % ", ".join(real))
 
     # --- labels
     labels = {}
@@ -348,6 +374,12 @@ def convert(text: str):
                 return "  " + raw[j:].strip()
         return ""
 
+    if unlevel:
+        return unlevel_text(lines, remove, rewrite, types, elsewhere, vi, vname, prefix,
+                            verdict_used, trailing_comment), {
+            "types": [{"label": t["label"], "term": t["term"], "keep": t["keep"]} for t in types],
+            "prefix": prefix, "chat_mix_lines": [], "verdict_used": verdict_used}
+
     handtype_lines = []
     for t in types:
         ht = "HandType_%s" % t["label"]
@@ -373,8 +405,10 @@ def convert(text: str):
             remove.add(j)
 
     out = []
+    after_removal = False
     for i, line in enumerate(lines):
         if i in remove:
+            after_removal = True
             continue
         if i == vi:
             if handtype_lines:
@@ -382,15 +416,24 @@ def convert(text: str):
             if out and out[-1].strip():
                 out.append("")
             out.extend(PLACEHOLDER)
+            after_removal = False
             continue
+        # a removal can leave two blank lines together; collapse only those
+        if after_removal and not line.strip() and out and not out[-1].strip():
+            continue
+        after_removal = after_removal and not line.strip()
         out.append(rewrite.get(i, line))
-    # removing lines can leave two blank lines together
-    tidy = []
-    for line in out:
-        if not line.strip() and tidy and not tidy[-1].strip():
-            continue
-        tidy.append(line)
-    new_text = "\n".join(tidy)
+    if narrow:
+        clause = "(%s)" % " or ".join("HandType_%s" % t["label"] for t in types)
+        end = out.index(PLACEHOLDER[-1])
+        for j in range(end + 1, len(out)):
+            if not out[j].lstrip().startswith("#") and \
+                    re.search(r"\b%s\b" % vname, strip_comment(out[j])):
+                out[j] = re.sub(r"\b%s\b" % vname, "%s and %s" % (clause, vname), out[j], count=1)
+                break
+        else:
+            raise Refused("found no condition line using %s to narrow" % vname)
+    new_text = "\n".join(out)
     if vname != "levelTheDeal":
         new_text = re.sub(r"\b%s\b" % vname, "levelTheDeal", new_text)
 
@@ -402,6 +445,52 @@ def convert(text: str):
         "chat_mix_lines": chat_hints,
     }
     return new_text, info
+
+
+def unlevel_text(lines, remove, rewrite, types, elsewhere, vi, vname, prefix,
+                 verdict_used, trailing_comment):
+    """The scenario with a ladder that levels nothing taken out."""
+    remove = set(remove)
+    kept = []
+    for t in types:
+        line = lines[t["line"]] if t["line"] is not None else None
+        drop_line = t["term"] not in elsewhere and (not verdict_used or t["keep"] == "keep0")
+        if line is not None:
+            if drop_line:
+                remove.add(t["line"])
+            elif t["keep"]:
+                m = DEF_RE.match(line)
+                rewrite[t["line"]] = line[:m.start(2)] + t["cond"] + trailing_comment(line)
+        if t["keep"] != "keep0":
+            kept.append(t["term"])
+    if verdict_used:
+        body = " or ".join(kept) if len(kept) > 1 else kept[0]
+        if prefix:
+            body = "%s and (%s)" % (prefix, body)
+        rewrite[vi] = "%s = %s" % (vname, body)
+    else:
+        remove.add(vi)
+        # the switched-off use goes too
+        for i, line in enumerate(lines):
+            if re.match(r"^\s*#+\s*(and\s+)?%s\s*$" % vname, line):
+                remove.add(i)
+    for i in sorted(remove):
+        j = i - 1
+        if j >= 0 and j not in remove and re.match(r"^\s*#(?!include)", lines[j]) \
+                and re.search(r"level", lines[j], re.IGNORECASE) \
+                and (i + 1 >= len(lines) or not lines[i + 1].strip() or i + 1 in remove):
+            remove.add(j)
+    out = []
+    after_removal = False
+    for i, line in enumerate(lines):
+        if i in remove:
+            after_removal = True
+            continue
+        if after_removal and not line.strip() and out and not out[-1].strip():
+            continue
+        after_removal = after_removal and not line.strip()
+        out.append(rewrite.get(i, line))
+    return "\n".join(out)
 
 
 def ladder_scenarios():
@@ -425,6 +514,10 @@ def main():
     ap.add_argument("--diff", action="store_true", help="print a unified diff")
     ap.add_argument("--out", help="write <out>/<name>.btn and the dlr made from it")
     ap.add_argument("--json", action="store_true", help="one JSON line per scenario")
+    ap.add_argument("--narrow", action="store_true",
+                    help="also narrow the condition to the hand types (dealer3's fix for a gap)")
+    ap.add_argument("--unlevel", action="store_true",
+                    help="take out a ladder that levels nothing, keeping the deals the same")
     args = ap.parse_args()
 
     names = ladder_scenarios() if args.all else args.scenarios
@@ -437,7 +530,7 @@ def main():
         with open(path, encoding="utf-8") as f:
             text = f.read()
         try:
-            new_text, info = convert(text)
+            new_text, info = convert(text, narrow=args.narrow, unlevel=args.unlevel)
         except Refused as e:
             failed += 1
             if args.json:
