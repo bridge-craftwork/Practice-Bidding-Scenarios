@@ -54,6 +54,11 @@ export default async function ({ page, ctx, say }) {
   const readLog = () => page.evaluate(() => localStorage.getItem('PBNcapture') || '');
   const records = log => log.split(/\n(?=\[Event )/).map(r => r.trim()).filter(r => r.startsWith('[Event '));
   const boardOf = rec => parseInt((rec.match(/^\[Board "(\d+)"\]/m) || [])[1], 10) || 0;
+  // PBNcapture writes notrump as "1NT"; BBA writes "1N", in the auction and
+  // the contract alike. Store captures the BBA way, so one auction-filter works
+  // on both. A record has no other digit-then-NT text (the contract "3NTX"
+  // becomes "3NX", as BBA writes it).
+  const bbaNotation = rec => rec.replace(/([1-7])NT/g, '$1N');
 
   const setCapture = (enable, redeals) => inPbs(a => {
     const sel = document.getElementById('bboalert-menu-config');
@@ -155,7 +160,7 @@ export default async function ({ page, ctx, say }) {
       if (recs.length > have) {
         have = recs.length;
         kicks = 0;
-        writeFileSync(job.partialPbn, recs.slice(0, job.boards).join('\n\n') + '\n');
+        writeFileSync(job.partialPbn, recs.slice(0, job.boards).map(bbaNotation).join('\n\n') + '\n');
         if (have % 10 === 0 || have >= job.boards) note(`${Math.min(have, job.boards)}/${job.boards} boards`);
         if (delayMs && have < job.boards) {
           await page.waitForTimeout(delayMs);

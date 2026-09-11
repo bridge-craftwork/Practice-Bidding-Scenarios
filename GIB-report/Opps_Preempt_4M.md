@@ -12,21 +12,21 @@ Match: 429/500 = 85.8%
 ```
     6  1S-P-2H-P-4S
     3  1H-P-2C-P-4H
-    2  1H-P-1S-P-2H-P-3C-P-3H-P-3NT-P-4H
+    2  1H-P-1S-P-2H-P-3C-P-3H-P-3N-P-4H
     2  1S-P-2C-P-4S
     2  1S-P-2S-X-4S
     1  1H-1S-P-2D
-    1  1H-1S-P-3D-P-3H-P-3NT
+    1  1H-1S-P-3D-P-3H-P-3N
     1  1H-2D-P-2H-P-3H-P-3S-P-4D-P-4S
     1  1H-2D-P-2S-P-3C-X-3D-4H-P-P-4S-P-P-5H-P-P-5S
     1  1H-2H-P-3H-P-4C-P-4S-P-5C-P-6S
-    1  1H-2NT-3C-3D-4H
-    1  1H-2NT-3D-4C-4H-P-P-5C-X
+    1  1H-2N-3C-3D-4H
+    1  1H-2N-3D-4C-4H-P-P-5C-X
     1  1H-4D-P-5D
-    1  1H-P-1NT-4S-P-P-5H
-    1  1H-P-1NT-P-2H-P-P-2S-P-3S-P-4S
-    1  1H-P-1NT-P-2H-P-P-2S-P-4S
-    1  1H-P-1NT-X-2H-3H-P-4C-P-4S
+    1  1H-P-1N-4S-P-P-5H
+    1  1H-P-1N-P-2H-P-P-2S-P-3S-P-4S
+    1  1H-P-1N-P-2H-P-P-2S-P-4S
+    1  1H-P-1N-X-2H-3H-P-4C-P-4S
     1  1H-P-1S-2C-2H-P-3H-X-4H
     1  1H-P-1S-P-2H-P-3C-P-3H-P-3S-P-4H
     1  1H-P-1S-P-2H-P-3C-P-3H-P-3S-P-4H-P-4S
@@ -34,36 +34,36 @@ Match: 429/500 = 85.8%
     1  1H-P-1S-X-2H
     1  1H-P-1S-X-3H-4D
     1  1H-P-2C-2S-3H-4S-X
-    1  1H-P-2C-2S-3H-P-3NT-P-4H
+    1  1H-P-2C-2S-3H-P-3N-P-4H
     1  1H-P-2D-P-4H
     1  1H-P-2H-X-4H-4S-P-P-5H-P-P-X
     1  1H-P-P-X-P-2S-P-4S
-    1  1H-X-2NT-P-4H
+    1  1H-X-2N-P-4H
     1  1H-X-P-2H-3H-3S-P-4S
-    1  1S-2C-2D-P-2S-3C-3NT-P-4S
-    1  1S-2C-P-P-2S-P-4NT-P-6C-P-6S
-    1  1S-2H-2S-3H-3S-4H-4S-4NT-P-6H
+    1  1S-2C-2D-P-2S-3C-3N-P-4S
+    1  1S-2C-P-P-2S-P-4N-P-6C-P-6S
+    1  1S-2H-2S-3H-3S-4H-4S-4N-P-6H
     1  1S-2H-2S-3H-3S-4H-4S-X-P-5H
     1  1S-2H-P-3D-P-3S-P-4H
     1  1S-2H-P-P-2S-3H-4S
     1  1S-2H-P-P-2S-X-P-3C
-    1  1S-2NT-P-3S-P-4NT-P-5C-P-5D
+    1  1S-2N-P-3S-P-4N-P-5C-P-5D
     1  1S-2S-3S-4C-P-5C
     1  1S-2S-3S-4H-4S
     1  1S-2S-4D-4H-4S
     1  1S-2S-P-4H
-    1  1S-2S-X-2NT-4S
+    1  1S-2S-X-2N-4S
     1  1S-3C-3S-4C-4S-P-P-5C-5S
     1  1S-3H-P-4H-4S
     1  1S-3H-X-4H-4S
-    1  1S-P-1NT-2H-2S-4H-4S
-    1  1S-P-1NT-2S-P-2NT-P-3D-P-3H
-    1  1S-P-1NT-P-2S
-    1  1S-P-1NT-P-2S-P-3S-P-4S
-    1  1S-P-1NT-X-2S-3D-4S
-    1  1S-P-2D-P-2S-P-3C-P-3S-P-3NT-P-4S
+    1  1S-P-1N-2H-2S-4H-4S
+    1  1S-P-1N-2S-P-2N-P-3D-P-3H
+    1  1S-P-1N-P-2S
+    1  1S-P-1N-P-2S-P-3S-P-4S
+    1  1S-P-1N-X-2S-3D-4S
+    1  1S-P-2D-P-2S-P-3C-P-3S-P-3N-P-4S
     1  1S-P-2D-P-4S
-    1  1S-P-2H-P-4S-P-4NT-P-5S-P-6S
+    1  1S-P-2H-P-4S-P-4N-P-5S-P-6S
     1  1S-P-3H-P-3S
     1  1S-P-3H-P-4H
     1  1S-P-P-X-P-3H-P-4H
@@ -83,61 +83,61 @@ Match: 429/500 = 85.8%
    17  4S-P-P-5H
    16  4H-P-P-4S
    13  4H-P-P-X
-   10  4S-4NT-P-5D
+   10  4S-4N-P-5D
     9  4H-4S
     8  4H-X
     7  4S-5H
-    6  4S-4NT-P-5C
-    6  4S-P-P-4NT-P-5D
+    6  4S-4N-P-5C
+    6  4S-P-P-4N-P-5D
     5  4H-X-P-5C
     5  4H-X-P-6S
     4  4H-P-P-X-P-5C
     4  4H-P-P-X-P-5D
-    4  4S-P-P-4NT-P-5C
+    4  4S-P-P-4N-P-5C
     3  4H-X-P-5D
-    2  4H-P-P-4NT-P-5C
-    2  4H-P-P-X-P-4NT-P-5C
-    2  4H-X-P-4NT-P-5C-P-5D
-    2  4H-X-P-4NT-P-5D
+    2  4H-P-P-4N-P-5C
+    2  4H-P-P-X-P-4N-P-5C
+    2  4H-X-P-4N-P-5C-P-5D
+    2  4H-X-P-4N-P-5D
     2  4H-X-P-4S-P-5D
     2  4H-X-P-4S-P-P-5H-X
     2  4S-P-P-5C-P-6C
     2  4S-P-P-5D
     2  4S-P-P-5D-P-6D
     2  4S-P-P-5H-P-6H
-    1  4H-4NT-P-5C
-    1  4H-4S-P-4NT-P-5NT-P-6S
-    1  4H-4S-P-4NT-P-5S
-    1  4H-4S-P-4NT-P-5S-P-6S
+    1  4H-4N-P-5C
+    1  4H-4S-P-4N-P-5N-P-6S
+    1  4H-4S-P-4N-P-5S
+    1  4H-4S-P-4N-P-5S-P-6S
     1  4H-4S-P-6C
     1  4H-4S-P-6S
     1  4H-4S-X
     1  4H-5H-P-5S
-    1  4H-P-4NT-P-5D-P-5H
-    1  4H-P-4NT-P-5D-P-6H
-    1  4H-P-P-4NT-P-5D
-    1  4H-P-P-4S-P-4NT-P-5C-P-5D-P-5S
+    1  4H-P-4N-P-5D-P-5H
+    1  4H-P-4N-P-5D-P-6H
+    1  4H-P-P-4N-P-5D
+    1  4H-P-P-4S-P-4N-P-5C-P-5D-P-5S
     1  4H-P-P-4S-P-5C-P-5D
     1  4H-P-P-4S-P-5D
     1  4H-P-P-4S-P-P-X
-    1  4H-P-P-X-P-4NT-P-5C-P-5D
-    1  4H-P-P-X-P-4NT-P-5C-P-5D-P-6C
-    1  4H-P-P-X-P-4NT-P-5D
-    1  4H-X-P-4NT-P-5D-P-6C
+    1  4H-P-P-X-P-4N-P-5C-P-5D
+    1  4H-P-P-X-P-4N-P-5C-P-5D-P-6C
+    1  4H-P-P-X-P-4N-P-5D
+    1  4H-X-P-4N-P-5D-P-6C
     1  4H-X-P-4S-P-5C
     1  4H-X-P-4S-P-5C-P-6C
     1  4H-X-P-5D-P-P-X
-    1  4S-4NT-P-5H
-    1  4S-4NT-P-6D
+    1  4S-4N-P-5H
+    1  4S-4N-P-6D
     1  4S-5C-P-6C
     1  4S-5D-P-6D
     1  4S-5H-P-6H
-    1  4S-5H-P-6NT
+    1  4S-5H-P-6N
     1  4S-5H-X
     1  4S-5H-X-P-P-6C-X
-    1  4S-P-4NT-P-5H-P-6S
+    1  4S-P-4N-P-5H-P-6S
     1  4S-P-5C-P-6S
-    1  4S-P-P-4NT-P-5D-5S
+    1  4S-P-P-4N-P-5D-5S
     1  4S-P-P-5H-P-6D
     1  4S-P-P-5S-P-6C
 ```
@@ -266,7 +266,7 @@ Match: 429/500 = 85.8%
 4H      Pass    Pass    Pass
 ```
 
-### 1H-P-1S-P-2H-P-3C-P-3H-P-3NT-P-4H (2)
+### 1H-P-1S-P-2H-P-3C-P-3H-P-3N-P-4H (2)
 
 ```
 [Event "autoCapture"]
@@ -287,7 +287,7 @@ Match: 429/500 = 85.8%
 [Auction "E"]
 1H      Pass    1S      Pass
 2H      Pass    3C      Pass
-3H      Pass    3NT     Pass
+3H      Pass    3N     Pass
 4H      Pass    Pass    Pass
 
 [Event "autoCapture"]
@@ -308,7 +308,7 @@ Match: 429/500 = 85.8%
 [Auction "E"]
 1H      Pass    1S      Pass
 2H      Pass    3C      Pass
-3H      Pass    3NT     Pass
+3H      Pass    3N     Pass
 4H      Pass    Pass    Pass
 ```
 
@@ -419,7 +419,7 @@ Match: 429/500 = 85.8%
 Pass    Pass    Pass
 ```
 
-### 1H-1S-P-3D-P-3H-P-3NT (1)
+### 1H-1S-P-3D-P-3H-P-3N (1)
 
 ```
 [Event "autoCapture"]
@@ -435,11 +435,11 @@ Pass    Pass    Pass
 {HCP 12 10 11 7}
 {TP 14 13 12 8}
 {Losers 5 5 8 9}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "N"]
 [Auction "E"]
 1H      1S      Pass    3D
-Pass    3H      Pass    3NT
+Pass    3H      Pass    3N
 Pass    Pass    Pass
 ```
 
