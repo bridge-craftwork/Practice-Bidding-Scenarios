@@ -15,7 +15,7 @@ The Bridge Play Trainer is a **separate repo** (`~/AI-Bridge-Play-Trainer`, gith
 - **This repo = content + pipeline**: scenarios, the dealer pipeline, the `coaching/*.pbn` tutorial prose, the `btn/` menu layout, the VS Code extension, BBO integration.
 - **AI-Bridge-Play-Trainer = engine + UI**: FastAPI server, web UI, card-play mechanics, scoring, the coaching-marker parser.
 
-At runtime the trainer **reads** this repo's files via `BRIDGE_DATA_ROOT` (default this directory) → `coaching/*.pbn` + `btn/`. It never writes back, and this repo doesn't depend on the trainer. Rule of thumb: anything about a *particular hand or what it teaches* belongs here; anything about *how the app behaves for every hand* belongs in the trainer. The one shared seam is the coaching markers (`[show X]`, `[BID xxx]`, `\S\H\D\C`) — prose authored here, parser in the trainer's `server.py`. See [Bridge Play Trainer.md](Bridge Play Trainer.md) for the full trainer write-up.
+At runtime the trainer **reads** this repo's files via `BRIDGE_DATA_ROOT` (default this directory) → `coaching/*.pbn` + `btn/`. It never writes back, and this repo doesn't depend on the trainer. Rule of thumb: anything about a *particular hand or what it teaches* belongs here; anything about *how the app behaves for every hand* belongs in the trainer. The one shared seam is the coaching markers (`[show X]`, `[BID xxx]`, `\S\H\D\C`) — prose authored here, parser in the trainer's `server.py`. See [Bridge Play Trainer.md](notes/Bridge%20Play%20Trainer.md) for the full trainer write-up.
 
 ### Coaching: staging vs. served (`coaching-curated/` → `coaching/`)
 
@@ -32,8 +32,8 @@ A curation stage is being built between `filter` and coaching authoring.
 Before working on anything touching `bba/`, `bba-curated/`, `coaching/`, or
 `py/curate|annotate|select|auction_diff|spiral_auction|coach.py`, read:
 
-- the most recent `bookmark-curation-*.md` (current status + open items)
-- `pbn-curation-plan.md` (design) and `bba-curated/README.md` (the
+- the most recent `notes/bookmarks/bookmark-curation-*.md` (current status + open items)
+- `notes/plans/pbn-curation-plan.md` (design) and `bba-curated/README.md` (the
   `{Curate}` block format and the `py/select.py` filter)
 
 Convention/spiral scenarios (e.g. `Spiral_Raises_*`) take a different path and do
@@ -202,6 +202,11 @@ Extension provides:
 - `bbsa/` - Bridge Base Scenario Archive
 - `.vscode/` - VS Code workspace settings
 
+**Working notes:**
+- `notes/` - Reference docs and status write-ups (e.g. `Bridge Play Trainer.md`, `scenario-seating.md`)
+- `notes/plans/` - Design docs, proposals, and plans
+- `notes/bookmarks/` - Session bookmarks (`bookmark-<topic>-YYYY-MM-DD.md`)
+
 ### Key Python Modules
 
 Core utilities in `py/`:
@@ -277,6 +282,16 @@ Central configuration in [build-scripts-mac/config.py](build-scripts-mac/config.
 - Generated files maintain the same base name with different extensions
 - Scenario names are used as keys throughout the system
 - Avoid spaces in scenario names; use underscores instead
+
+### Keep the Repo Root Clean
+
+The root holds only `-PBS*.txt`, `-PBS README.md`, `README.md`, `CLAUDE.md`, and the data/source folders. **Never create new files at the root.**
+
+- Plans, proposals, design docs → `notes/plans/`
+- Session bookmarks / status handoffs → `notes/bookmarks/`
+- Other durable reference or status docs → `notes/`
+- Reusable Python tools → `py/`
+- Session logs, draft emails/notes to people, and throwaway analysis scripts → the session scratchpad, not the repo. Only commit them if they record a decision someone will need later.
 
 ## BBO Integration
 

@@ -11,7 +11,7 @@ There are lots of sites focused on bridge bidding. **This site is for those want
 The trainer is a **separate repository** from Practice-Bidding-Scenarios:
 
 - Code: `~/AI-Bridge-Play-Trainer` — [github.com/ADavidBailey/AI-Bridge-Play-Trainer](https://github.com/ADavidBailey/AI-Bridge-Play-Trainer). Ships code only.
-- Data: *this* repo (Practice-Bidding-Scenarios) supplies the scenarios the trainer plays — the coaching PBNs in [coaching/](coaching/) and the menu layout in [btn/-button-layout-release.txt](btn/-button-layout-release.txt).
+- Data: *this* repo (Practice-Bidding-Scenarios) supplies the scenarios the trainer plays — the coaching PBNs in [coaching/](../coaching/) and the menu layout in [btn/-button-layout-release.txt](../btn/-button-layout-release.txt).
 
 The server resolves its data location from `BRIDGE_DATA_ROOT`, defaulting to `/Users/adavidbailey/Practice-Bidding-Scenarios`.
 
@@ -71,7 +71,7 @@ Recognised markers:
 
 The parser only inspects the curly block immediately after `[Auction]`; pre-auction `{Shape ...}` / `{HCP ...}` / `{Losers ...}` blocks in the older `bba/*.pbn` files are ignored, and stripped before endplay parses the PBN. Coaching reveals are kept in the **author's real-compass frame** so the PBNs stay portable; the frontend maps them through `state.rotation_shift`. Scenarios without an embedded coaching block simply play normally (`state.coaching === null` skips the tutorial path).
 
-The trainer prefers `coaching/<scenario>.pbn` and falls back to `bba/<scenario>.pbn`. Authoring conventions for these files — every marker, the section ordering, and the rules — are documented in [coaching/README.md](coaching/README.md); the upstream generation plan (how the files are produced) lives in the trainer repo's `pbn-coaching-generator-plan.md`.
+The trainer prefers `coaching/<scenario>.pbn` and falls back to `bba/<scenario>.pbn`. Authoring conventions for these files — every marker, the section ordering, and the rules — are documented in [coaching/README.md](../coaching/README.md); the upstream generation plan (how the files are produced) lives in the trainer repo's `pbn-coaching-generator-plan.md`.
 
 ## Backend (FastAPI)
 

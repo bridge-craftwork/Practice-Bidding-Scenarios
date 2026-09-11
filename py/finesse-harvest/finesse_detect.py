@@ -7,7 +7,7 @@ missing honor to the other defender, re-solve, see if South's trick count moves)
 
 Emits JSON candidates keyed by pool name. Swing sign: delta > 0 = the honor is
 onside and NEEDED (rung 2, demand-evidence); delta < 0 = offside / needless
-(rung 1, decline). See finesse-family-plan.md §9 — a swing only flags
+(rung 1, decline). See notes/plans/finesse-family-plan.md §9 — a swing only flags
 honor-location SENSITIVITY; the downstream filters (finesse_taken.py,
 verify_play.py) decide whether the finesse is genuinely takeable/taken.
 """

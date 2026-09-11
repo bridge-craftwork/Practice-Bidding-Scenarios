@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""curate.py — Layer A of the curate pipeline op (see pbn-curation-plan.md).
+"""curate.py — Layer A of the curate pipeline op (see notes/plans/pbn-curation-plan.md).
 
-Generalizes curation_trial.py across all coaching scenarios:
+Generalizes the (since retired) curation_trial.py prototype across all coaching scenarios:
   - DD soundness classify (ok / wrong_sided / down_both) vs each board's own
     contract, for the current coaching set AND the full bba/ pool
   - by-force honor-swap test (by-force lessons)

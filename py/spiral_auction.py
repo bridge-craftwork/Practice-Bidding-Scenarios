@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """spiral_auction.py — generate Spiral Raises convention auctions for
-the Spiral Raises scenarios (see convention-auction-curation-plan.md).
+the Spiral Raises scenarios (see notes/plans/convention-auction-curation-plan.md).
 
 BBA (21GF-DEFAULT) does not play Spiral Raises, so bba/Spiral_Raises_Wolpert.pbn
 holds natural 2/1 auctions. The hands, however, are built so the spiral-raise
