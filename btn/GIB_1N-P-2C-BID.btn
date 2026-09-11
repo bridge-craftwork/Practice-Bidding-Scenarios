@@ -116,13 +116,17 @@ e4Bs = e4Ds or e4Hs or e4Ss
 
 e4B = e4Bw or e4Bs
 
-#include "script/Leveling"
+# A 7-card suit with 3-level values bids it. eX already excludes 8- and 9-card
+# suits and 7-4/7-5/7-6, but not 7-3-2-1.
+HandType_X = eX and not e3B
+HandType_2B = e2B
+HandType_3B = e3B
+HandType_4B = e4B
 
-levX  = eX  and keep11
-lev2B = e2B and keep33
-lev3B = e3B and keep44
-lev4B = e4B and keep
-levelTheDeal = lev2B or lev3B or lev4B or levX
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 gibNT and tpSouth<19 and calmWest and n2Clubs and (eShape or eX) and (e2B or e3B or e4B or eX)

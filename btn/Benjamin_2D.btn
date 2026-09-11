@@ -45,15 +45,18 @@ s2DB = hcp(south)>24 and bal
 twoC = s2C2S or s2C1S or s2CB
 twoD = s2DU or s2DB
 
-#include "script/Leveling"
+# 24 HCP unbalanced is 2D (the chat: 2D shows 23+ unbalanced)
+HandType_s2C2S = s2C2S and not s2DU
+HandType_s2C1S = s2C1S and not s2DU
+HandType_s2CB = s2CB
 
-levs2C2S = s2C2S and keep
-levs2C1S = s2C1S and keep11
-levs2CB  = s2CB  and keep11
+HandType_s2DU = s2DU
+HandType_s2DB = s2DB
 
-levs2DU = s2DU and keep
-levs2DB = s2DB and keep19
-levelTheDeal = levs2C2S or levs2C1S or levs2CB or levs2DU or levs2DB
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 (s2C1S or s2C2S or s2CB or s2DU or s2DB)

@@ -57,58 +57,30 @@ c2S = spades(south)>4 and hearts(south)<4 and shape(south,any 54xx)
 # 2N = 5-5 or better in the minors
 c2N = diamonds(south)>4 and clubs(south)>4
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Define Leveling
-lC     = c2C   and keep56
-lD     = c2D   and keep70
-lH     = c2H   and keep75
-lS     = c2S   and keep75
-lN     = c2N   and keep
+HandType_C = c2C
+# 2D is a six-card major "w/o a side suit": 6-6 in the majors is 2C (both
+# majors), and six of a major with six of a minor is the X hand with a 6+ minor
+HandType_D = c2D and not (c2C or m6)
+HandType_H = c2H
+HandType_S = c2S
+HandType_N = c2N
 
 # The following are included in the X and are leveled separately
-lM4m5  = M4m5  and keep25
-lm6    = m6    and keep47
-lM5    = M5    and keep30
-lBal19 = bal19 and keep
+lM4m5  = M4m5
+lm6    = m6
+lM5    = M5
+lBal19 = bal19
 
-levelTheDeal = lC or lD or lH or lS or lN or lM4m5 or lm6 or lM5 or lBal19
+HandType_M4m5 = lM4m5
+HandType_m6 = lm6 and not c2N    // 6-5 in the minors is 2N, not X
+HandType_M5 = lM5 and not bal19    // both are X; a balanced 19+ counts as Bal19
+HandType_Bal19 = lBal19
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now OPEN 1NT
 gibNT and (cX or c2C or c2D or c2H or c2S or c2N) and hcp(south)>10
