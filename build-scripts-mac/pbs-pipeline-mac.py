@@ -48,6 +48,7 @@ from operations.quiz import run_quiz
 from operations.release import run_release
 from operations.release_layout import run_release_layout
 from operations.package import run_package
+from operations.gib import run_gib, run_gib_report, run_bbo_demo
 from scenario_summary import generate_summary
 
 
@@ -66,6 +67,10 @@ OPERATIONS = {
     "release": run_release,
     "release-layout": run_release_layout,
     "package": run_package,
+    # gib drives a live BBO account (issue #323); like release, never in "*" or "op+"
+    "gib": run_gib,
+    "gibReport": run_gib_report,
+    "bbo-demo": run_bbo_demo,
 }
 
 # Create case-insensitive lookup: lowercase -> canonical name
@@ -367,6 +372,14 @@ Operations (in order):
     filterStats - Show filter statistics
     biddingSheet - Generate bidding sheets PDF
     quiz        - Generate quiz PBN/PDF from filtered BBA
+
+Run explicitly (not part of "*"):
+    gib         - Capture GIB robot auctions on live BBO into GIB/, then gibReport.
+                  One scenario at a time.
+    gibReport   - Filter GIB/ capture into GIB-filtered/ and GIB-filtered-out/
+                  (PBN + PDF), report to GIB-report/
+    bbo-demo    Open the gib table on live BBO with the script loaded and leave
+                  it for testing by hand. Captures nothing. One scenario at a time.
         """,
     )
 
@@ -398,6 +411,14 @@ Operations (in order):
     operations = expand_operations(args.operations)
     if not operations:
         print(f"No valid operations specified: {args.operations}")
+        sys.exit(1)
+
+    # gib and bbo-demo run robots on a live BBO account, where we are guests:
+    # never let a pattern turn them into back-to-back sessions.
+    live = [op for op in ("gib", "bbo-demo") if op in operations]
+    if live and len(scenarios) > 1:
+        print_error(f"{live[0]} runs on live BBO, one scenario at a time; "
+                    f"'{args.scenario_pattern}' matches {len(scenarios)}")
         sys.exit(1)
 
     if verbose:

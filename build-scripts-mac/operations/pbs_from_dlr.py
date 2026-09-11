@@ -234,20 +234,20 @@ def parse_dlr_file(dlr_content: str) -> dict:
     return result
 
 
-def generate_pbs(dlr_content: str, scenario_filename: str) -> str:
+def bbo_dealer_code(dlr_content: str, parsed: dict = None) -> tuple:
     """
-    Generate PBS file content from DLR file content.
-    Button width and color are derived from the layout file.
+    The dealer script exactly as BBO's Deal Source box receives it, and the
+    dealer seat to pass alongside it: the two arguments of the
+    setDealerCode(`...`, "S", true) call in a generated .pbs.
+
+    Also used by py/gib_capture.py, which hands the same script straight to
+    setDealerCode so the robots bid exactly what we ship.
+
+    Returns:
+        (dealer_code, dealer_position)
     """
-    parsed = parse_dlr_file(dlr_content)
-
-    alias = parsed['alias'] or 'Unknown'
-    button_text = parsed['button_text'] or alias
-    dealer_position = parsed['dealer_position'] or 'S'
-
-    # Get layout styles for this scenario
-    layout_styles = load_layout_styles()
-    scenario_style = layout_styles.get(scenario_filename, {})
+    if parsed is None:
+        parsed = parse_dlr_file(dlr_content)
 
     # Dealer code is already expanded in the DLR (includes inlined)
     dealer_code = parsed['dealer_code']
@@ -255,13 +255,7 @@ def generate_pbs(dlr_content: str, scenario_filename: str) -> str:
     # Remove "action printpbn" line - not needed in PBS
     dealer_code = re.sub(r'\n*action\s+printpbn\s*\n*', '\n', dealer_code)
 
-    # Build the PBS content
     lines = []
-
-    # Script block with logging code
-    lines.append(f"Script,{alias}")
-    lines.append(generate_logging_code(alias, scenario_filename))
-    lines.append("setDealerCode(`")
 
     # Add auction filter and convention cards if present (as block comment)
     has_metadata = parsed['auction_filter'] or parsed['convention_card_ns'] or parsed['convention_card_ew']
@@ -278,6 +272,34 @@ def generate_pbs(dlr_content: str, scenario_filename: str) -> str:
 
     # Add dealer code
     lines.append(dealer_code.rstrip())
+
+    return '\n'.join(lines), parsed['dealer_position'] or 'S'
+
+
+def generate_pbs(dlr_content: str, scenario_filename: str) -> str:
+    """
+    Generate PBS file content from DLR file content.
+    Button width and color are derived from the layout file.
+    """
+    parsed = parse_dlr_file(dlr_content)
+
+    alias = parsed['alias'] or 'Unknown'
+    button_text = parsed['button_text'] or alias
+
+    # Get layout styles for this scenario
+    layout_styles = load_layout_styles()
+    scenario_style = layout_styles.get(scenario_filename, {})
+
+    dealer_code, dealer_position = bbo_dealer_code(dlr_content, parsed)
+
+    # Build the PBS content
+    lines = []
+
+    # Script block with logging code
+    lines.append(f"Script,{alias}")
+    lines.append(generate_logging_code(alias, scenario_filename))
+    lines.append("setDealerCode(`")
+    lines.append(dealer_code)
 
     # Close setDealerCode
     lines.append(f"`, \"{dealer_position}\", true)")
