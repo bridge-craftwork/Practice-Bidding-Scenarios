@@ -65,15 +65,23 @@ rebid   = s1Suit        and not (fit or force1 or force2)
 newSuit = s2Suit        and not (fit or force1 or force2 or rebid) 
 other   = not (force1 or force2 or rebid or newSuit)
 
-# Level the deal
-#include "script/Leveling"
+HandType_Force1 = force1
+HandType_Force2 = force2
+HandType_Rebid = rebid
+HandType_NewSuit = newSuit
+HandType_Other = other
 
-levForce1  = force1  and keep75
-levForce2  = force2  and keep
-levRebid   = rebid   and keep
-levNewSuit = newSuit and keep56
-levOther   = other   and keep06
-levelTheDeal = levForce1 or levForce2 or levRebid or levNewSuit or levOther
+# The chat's four groups at the same frequency: Force is force1 and force2 together
+HandType_Force1_Share  = 1
+HandType_Force2_Share  = 1
+HandType_Rebid_Share   = 2
+HandType_NewSuit_Share = 2
+HandType_Other_Share   = 2
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 # South opens, West passes, and North makes a Weak Jump Shift
