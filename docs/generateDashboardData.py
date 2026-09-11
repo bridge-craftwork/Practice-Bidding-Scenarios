@@ -49,17 +49,18 @@ def get_git_commits(days=365):
         return []
 
 
+def current_scenarios():
+    """Names of the current scenarios: the .btn master files"""
+    btn_dir = os.path.join(PROJECT_ROOT, 'btn')
+    if not os.path.exists(btn_dir):
+        return set()
+    return {f[:-4] for f in os.listdir(btn_dir)
+            if f.endswith('.btn') and not f.startswith(('.', '-'))}
+
+
 def get_scenario_count():
-    """Count the number of PBS scenario files"""
-    pbs_dir = os.path.join(PROJECT_ROOT, 'pbs-release')
-    if os.path.exists(pbs_dir):
-        count = 0
-        for f in os.listdir(pbs_dir):
-            file_path = os.path.join(pbs_dir, f)
-            if os.path.isfile(file_path) and not f.startswith('.') and f.endswith('.pbs'):
-                count += 1
-        return count
-    return 0
+    """Count the number of scenarios"""
+    return len(current_scenarios())
 
 
 def get_unique_scenarios_worked(events):
@@ -79,21 +80,14 @@ def get_scenarios_worked_from_git(days=1095):
     Get cumulative unique scenarios worked on per month from git history.
     Looks at commits that modified files in scenario directories (PBS, dlr, pbn, etc.)
     and also at root level files from earlier project structure.
-    Only counts scenarios that currently exist in the PBS folder.
+    Only counts scenarios that currently exist in btn/.
     Returns dict with monthly cumulative scenario counts and total unique scenarios.
     """
     since_date = (datetime.now() - timedelta(days=days)).strftime('%Y-%m-%d')
     scenario_dirs = ['pbs-release/', 'PBS/', 'dlr/', 'pbn/', 'bba/', 'bba-filtered/', 'bidding-sheets/']
 
-    # Get the set of current valid scenario names from pbs-release folder
-    pbs_dir = os.path.join(PROJECT_ROOT, 'pbs-release')
-    valid_scenarios = set()
-    if os.path.exists(pbs_dir):
-        for f in os.listdir(pbs_dir):
-            file_path = os.path.join(pbs_dir, f)
-            if os.path.isfile(file_path) and not f.startswith('.') and f.endswith('.pbs'):
-                # Store without extension as the canonical name
-                valid_scenarios.add(f[:-4])
+    # The current scenario names, as canonical names
+    valid_scenarios = current_scenarios()
 
     # Build a normalized lookup for matching historical names to current names
     # Current: "3_Under_Invitational_Jump", Historical: "Dealer: 3 Under Invitational Jump.gdoc"

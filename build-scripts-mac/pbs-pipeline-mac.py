@@ -43,7 +43,6 @@ from operations.filter import run_filter
 from operations.filter_stats import run_filter_stats
 from operations.bidding_sheet import run_bidding_sheet
 from operations.dlr_from_btn import run_dlr
-from operations.pbs_from_dlr import run_pbs
 from operations.quiz import run_quiz
 from operations.release import run_release
 from operations.release_layout import run_release_layout
@@ -55,7 +54,6 @@ from scenario_summary import generate_summary
 # Map operation names to functions
 OPERATIONS = {
     "dlr": run_dlr,         # Generate DLR from BTN
-    "pbs": run_pbs,         # Generate PBS from DLR
     "pbn": run_pbn,
     "rotate": run_rotate,
     "bba": run_bba,
@@ -63,7 +61,7 @@ OPERATIONS = {
     "filterStats": run_filter_stats,
     "biddingSheet": run_bidding_sheet,
     "quiz": run_quiz,
-    # release, release-layout, and package are NOT in OPERATIONS_ORDER, so they won't run with "*" or "op+"
+    # release and release-layout are NOT in OPERATIONS_ORDER, so they won't run with "*" or "op+"
     "release": run_release,
     "release-layout": run_release_layout,
     "package": run_package,
@@ -176,7 +174,7 @@ def format_duration(seconds: float) -> str:
 BBA_AND_DOWNSTREAM = {'bba', 'filter', 'filterStats', 'biddingSheet', 'quiz'}
 
 # Dealer-side operations skipped for bba-direct scenarios (curated bba files).
-# dlr/pbs still run so the BTN's @chat metadata flows to BBO via the PBS file.
+# dlr still runs: BBO loads the scenario from the .dlr.
 BBA_DIRECT_SKIP = {'pbn', 'rotate', 'bba'}
 
 
@@ -364,7 +362,6 @@ Examples:
 
 Operations (in order):
     dlr         - Generate DLR from BTN file (outputs to dlr/)
-    pbs         - Generate PBS from DLR file (outputs to pbs-test/)
     pbn         - Generate PBN hands from DLR using dealer
     rotate      - Create rotated PBN/LIN files for 4-player practice
     bba         - Analyze bidding with BBA
@@ -374,6 +371,9 @@ Operations (in order):
     quiz        - Generate quiz PBN/PDF from filtered BBA
 
 Run explicitly (not part of "*"):
+    release     - Publish: regenerate the DLR, commit the BTN and DLR, push main.
+                  BBO loads dlr/ from main, so this puts the scenario live.
+    release-layout - Copy btn/-button-layout-beta.txt to -release.txt, commit, push
     gib         - Capture GIB robot auctions on live BBO into GIB/, then gibReport.
                   One scenario at a time.
     gibReport   - Filter GIB/ capture into GIB-filtered/ and GIB-filtered-out/

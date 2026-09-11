@@ -1,19 +1,19 @@
 name: Build deal-source manifest
 
-# PBS issue #167: pre-build manifest/manifest-{release,beta,test}.json so the BBO
+# PBS issue #167: pre-build manifest/manifest-{release,beta}.json so the BBO
 # extension and Bridge-Classroom deal-source dialog fetch ONE file instead of
-# scanning ~400 .btn/.pbs files. Regenerates whenever the inputs change.
+# scanning ~400 files. Regenerates whenever the inputs change.
 
 on:
   push:
     branches: [main]
     paths:
       - 'btn/**'
-      - 'pbs-release/**'
-      - 'pbs-test/**'
+      - 'dlr/**'
       - 'coaching-non-rotated/**'
       - 'py/build_manifest.py'
       - 'py/board_version_token.py'
+      - 'build-scripts-mac/bbo_dealer.py'
       - '.github/workflows/build-manifest.yml'
   workflow_dispatch:
 
@@ -50,5 +50,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add manifest
-          git commit -m "manifest: rebuild from btn/pbs (${GITHUB_SHA::7}) [skip ci]"
+          git commit -m "manifest: rebuild from btn/dlr (${GITHUB_SHA::7}) [skip ci]"
           git push

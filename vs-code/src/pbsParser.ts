@@ -1,5 +1,4 @@
 import * as fs from 'fs';
-import * as path from 'path';
 
 export interface PbsButton {
     label: string;
@@ -19,55 +18,11 @@ export interface PbsSection {
 }
 
 /**
- * Parse a Button definition from a PBS file.
- * Button format: Button,<label>,<description with \n\>,<styling>
- *
- * Examples:
- *   Button,1m-1x-2m,\n\
- *   --- 1m-1x-2m\n\
- *   %OneMinorTwoMinor%
- *
- *   Button,15-17 NT (Lev),\n\
- *   ---  15-17 Notrump Opening\n\
- *   ...description...\n\
- *   %Notrump%,backgroundColor=lightpink
+ * Parse a single BBOalert Button line (may span multiple lines with \n\
+ * continuation), as found in the legacy -PBS.txt main config.
+ * Format: Button,<label>,<description with \n\>,<styling>
  */
-export function parseButtonDefinition(content: string, filePath: string, startLine: number): PbsButton | null {
-    // Find the Button line
-    const lines = content.split('\n');
-    let buttonContent = '';
-    let inButton = false;
-    let buttonLineNumber = 0;
-
-    for (let i = 0; i < lines.length; i++) {
-        const line = lines[i];
-        if (line.startsWith('Button,')) {
-            inButton = true;
-            buttonLineNumber = startLine + i;
-            buttonContent = line;
-            // Check if it continues (ends with \n\)
-            if (!line.trimEnd().endsWith('\\n\\')) {
-                break;
-            }
-        } else if (inButton) {
-            buttonContent += '\n' + line;
-            if (!line.trimEnd().endsWith('\\n\\')) {
-                break;
-            }
-        }
-    }
-
-    if (!buttonContent) {
-        return null;
-    }
-
-    return parseButtonLine(buttonContent, filePath, buttonLineNumber);
-}
-
-/**
- * Parse a single button line (may span multiple lines with \n\ continuation)
- */
-export function parseButtonLine(buttonContent: string, filePath?: string, lineNumber?: number): PbsButton | null {
+function parseButtonLine(buttonContent: string, filePath?: string, lineNumber?: number): PbsButton | null {
     // Remove the "Button," prefix
     if (!buttonContent.startsWith('Button,')) {
         return null;
@@ -148,64 +103,6 @@ export function parseButtonLine(buttonContent: string, filePath?: string, lineNu
         filePath,
         lineNumber
     };
-}
-
-/**
- * Parse all PBS files in a directory and extract button definitions
- */
-export async function parsePbsDirectory(pbsDir: string): Promise<PbsButton[]> {
-    const buttons: PbsButton[] = [];
-
-    if (!fs.existsSync(pbsDir)) {
-        return buttons;
-    }
-
-    const files = fs.readdirSync(pbsDir);
-
-    for (const file of files) {
-        const filePath = path.join(pbsDir, file);
-        const stat = fs.statSync(filePath);
-
-        if (stat.isFile()) {
-            try {
-                const content = fs.readFileSync(filePath, 'utf-8');
-                const button = parseButtonFromFile(content, filePath);
-                if (button) {
-                    buttons.push(button);
-                }
-            } catch (error) {
-                console.error(`Error parsing ${filePath}:`, error);
-            }
-        }
-    }
-
-    return buttons;
-}
-
-/**
- * Parse a single PBS file and extract its button definition
- */
-export function parseButtonFromFile(content: string, filePath: string): PbsButton | null {
-    const lines = content.split('\n');
-
-    // Find the Button definition (usually at the end)
-    for (let i = lines.length - 1; i >= 0; i--) {
-        if (lines[i].startsWith('Button,')) {
-            // Collect all continuation lines
-            let buttonContent = lines[i];
-            let j = i;
-            while (buttonContent.trimEnd().endsWith('\\n\\') && j + 1 < lines.length) {
-                j++;
-                buttonContent += '\n' + lines[j];
-            }
-            const button = parseButtonLine(buttonContent, filePath, i + 1);
-            if (button && button.label && button.label !== '---') {
-                return button;
-            }
-        }
-    }
-
-    return null;
 }
 
 /**

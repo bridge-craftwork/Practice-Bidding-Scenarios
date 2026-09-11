@@ -82,8 +82,6 @@ DRIVE_MAPPINGS = None  # Use get_drive_mappings() instead
 FOLDERS = {
     "btn": os.path.join(PROJECT_ROOT, "btn"),
     "pbs": os.path.join(PROJECT_ROOT, "PBS"),
-    "pbs_test": os.path.join(PROJECT_ROOT, "pbs-test"),
-    "pbs_release": os.path.join(PROJECT_ROOT, "pbs-release"),
     "dlr": os.path.join(PROJECT_ROOT, "dlr"),
     "pbn": os.path.join(PROJECT_ROOT, "pbn"),
     "pbn_rotated": os.path.join(PROJECT_ROOT, "pbn-rotated-for-4-players"),
@@ -159,7 +157,6 @@ def dealer_seed(scenario: str) -> int:
 # Pipeline operations in order
 OPERATIONS_ORDER = [
     "dlr",      # Generate DLR from BTN
-    "pbs",      # Generate PBS from DLR
     "pbn",
     "rotate",
     "bba",
