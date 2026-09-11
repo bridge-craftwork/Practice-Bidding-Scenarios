@@ -92,6 +92,11 @@ FOLDERS = {
     "bba_summary": os.path.join(PROJECT_ROOT, "bba-summary"),
     "bba_filtered": os.path.join(PROJECT_ROOT, "bba-filtered"),
     "bba_filtered_out": os.path.join(PROJECT_ROOT, "bba-filtered-out"),
+    # GIB robot captures (py/gib_capture.py) and what gibReport derives from them
+    "gib": os.path.join(PROJECT_ROOT, "GIB"),
+    "gib_filtered": os.path.join(PROJECT_ROOT, "GIB-filtered"),
+    "gib_filtered_out": os.path.join(PROJECT_ROOT, "GIB-filtered-out"),
+    "gib_report": os.path.join(PROJECT_ROOT, "GIB-report"),
     "bidding_sheets": os.path.join(PROJECT_ROOT, "bidding-sheets"),
     "quiz": os.path.join(PROJECT_ROOT, "quiz"),
     "bbsa": os.path.join(PROJECT_ROOT, "bbsa"),

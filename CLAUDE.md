@@ -98,6 +98,8 @@ Pipeline operations in order:
 
 The default `*` order continues past `biddingSheet` with `quiz` (generate quiz PBN/PDF/JSON) and `package` (copy artifacts into the Bidding Scenarios hierarchy). The `release` and `release-layout` operations are NOT in the default order — invoke them explicitly; `release` promotes `pbs-test/` → `pbs-release/`.
 
+`gib` and `gibReport` are also explicit-only. They are a **report on how well a scenario matches GIB**, not a second lesson pipeline; BBA stays the source everything downstream is built from. `gib` runs `py/gib_capture.py`, which has BBO's robots bid 30 deals from the scenario's `.dlr` on a live account (Mac, Playwright test profile), replaces `GIB/<name>.pbn`, then runs `gibReport`. `gibReport` filters that capture by the `auction-filter` into `GIB-filtered/` and `GIB-filtered-out/` (PBN + PDF) and writes `GIB-report/<name>.md` plus `GIB-report/-summary.md`. It touches only local files, so it also works on the hand-collected captures. `bbo-demo` (also explicit-only; `py/gib_capture.py --demo`) sets up the same four-robot table with the scenario's script loaded and captures nothing. It leaves the browser open so a person can test the script by hand: redealing, reading the robots' bid explanations. Closing the BBO tab ends it. The pipeline refuses `gib` or `bbo-demo` on more than one scenario at a time: we are guests on BBO, so keep live runs to about 30 boards. The 40 filters that anchor on BBA `Note` tags match nothing in a GIB capture; the report flags them.
+
 ### Testing
 
 ```bash
@@ -185,6 +187,8 @@ Extension provides:
 - `bba-filtered/` - Filtered BBA files by auction pattern
 - `bba-filtered-out/` - BBA files that were filtered out
 - `bba-summary/` - Statistics summaries
+- `GIB/` - Auctions bid by BBO's GIB robots, one PBN capture per scenario: older ones hand-collected, new ones from `py/gib_capture.py` (issue #323)
+- `GIB-filtered/`, `GIB-filtered-out/`, `GIB-report/` - `gibReport` output: the capture split by `auction-filter` (PBN + PDF), and a match report per scenario
 
 **Generated (Final Output):**
 - `bidding-sheets/` - PDF bidding sheets for practice
@@ -198,7 +202,6 @@ Extension provides:
 - `js/` - JavaScript for BBO automation
 
 **Configuration:**
-- `GIB/` - GIB convention card definitions
 - `bbsa/` - Bridge Base Scenario Archive
 - `.vscode/` - VS Code workspace settings
 
