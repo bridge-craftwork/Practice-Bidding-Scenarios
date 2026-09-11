@@ -9,7 +9,7 @@
 /*@chat
 --- Trap Pass, Maybe
  After 1x, (overcall), Pass, (Pass), consider reopening with DOUBLE.
-About 50% of South's passes are trap passes.  The others are weak passes.
+About {{level-mix:Trap}} of South's passes are trap passes.  The others are weak passes.
 @chat*/
 
 #include "script/TP"
@@ -87,10 +87,13 @@ ePass = tpEast<9 and shape(east,xxxx-any 7xxx -any 6xxx)
 # South makes a Take-Out X
 sTOX =shape(south,any 5422 +any 5431 +any 5440)
 
-#include "script/Leveling"
-levWeak = nWeak and keep11
-levTrap = nTrap and keep
-levelTheDeal = levWeak or levTrap
+HandType_Weak = nWeak
+HandType_Trap = nTrap
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 sOpens and wOvercalls and (nTrap or nWeak) and ePass and sTOX
