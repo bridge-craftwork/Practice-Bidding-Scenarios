@@ -55,12 +55,15 @@ game2 = tpSouth==14 or tpSouth==15
 slam1 = tpSouth==16 or tpSouth==17
 slam2 = tpSouth>17
 
-#include "script/Leveling"
-lev1 = game1 and keep25
-lev2 = game2 and keep19
-lev3 = slam1 and keep33
-lev4 = slam2 and keep94
-levelTheDeal = lev1 or lev2 or lev3 or lev4
+HandType_1 = game1
+HandType_2 = game2
+HandType_3 = slam1
+HandType_4 = slam2
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 sOpens and fit and nSplinters and calmWest
 and levelTheDeal
