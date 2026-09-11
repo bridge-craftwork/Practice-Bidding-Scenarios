@@ -24,36 +24,36 @@ Match: 0/500 = 0.0%
     3  P-P-1S-P-2C-P-2D-P-3S-P-4S
     2  P-P-1H-P-2C-P-2H
     2  P-P-1H-P-3D-P-4H
-    2  P-P-1S-P-1NT-P-2H
+    2  P-P-1S-P-1N-P-2H
     2  P-P-1S-P-2C-P-3D-P-4D-P-4S
     2  P-P-1S-P-2C-P-3H-P-4S
     2  P-P-1S-P-2D-P-3H-P-4H
     2  P-P-1S-P-3D-P-4S
-    1  P-P-1C-P-1H-P-2S-P-2NT-P-3C-P-3D-P-3S-P-4NT-P-5H-P-5S
-    1  P-P-1D-P-1H-P-1S-P-1NT-P-2D-P-2S
-    1  P-P-1D-P-1NT-P-2H-P-3D-P-3NT
+    1  P-P-1C-P-1H-P-2S-P-2N-P-3C-P-3D-P-3S-P-4N-P-5H-P-5S
+    1  P-P-1D-P-1H-P-1S-P-1N-P-2D-P-2S
+    1  P-P-1D-P-1N-P-2H-P-3D-P-3N
     1  P-P-1H-P-2C-P-2D-P-2H-P-4H
     1  P-P-1H-P-2C-P-2D-P-4H
     1  P-P-1H-P-2C-P-2S-P-4H
     1  P-P-1H-P-2C-P-3H-P-4H-P-5C-P-6H
     1  P-P-1H-P-2C-P-3H-P-4H-P-6H
-    1  P-P-1H-P-2C-P-3S-P-4H-P-4NT-P-5D-P-6H
-    1  P-P-1H-P-2D-P-2S-P-2NT-P-3H-P-3NT-P-4S
-    1  P-P-1S-P-1NT-P-2H-P-2S-P-3NT
-    1  P-P-1S-P-1NT-P-2H-P-2S-P-4H
-    1  P-P-1S-P-1NT-P-2H-P-2S-P-4S
-    1  P-P-1S-P-1NT-P-3H-P-3NT-P-4H
-    1  P-P-1S-P-1NT-P-3H-P-4H
+    1  P-P-1H-P-2C-P-3S-P-4H-P-4N-P-5D-P-6H
+    1  P-P-1H-P-2D-P-2S-P-2N-P-3H-P-3N-P-4S
+    1  P-P-1S-P-1N-P-2H-P-2S-P-3N
+    1  P-P-1S-P-1N-P-2H-P-2S-P-4H
+    1  P-P-1S-P-1N-P-2H-P-2S-P-4S
+    1  P-P-1S-P-1N-P-3H-P-3N-P-4H
+    1  P-P-1S-P-1N-P-3H-P-4H
     1  P-P-1S-P-2C-P-2D-P-2H-P-2S
     1  P-P-1S-P-2C-P-2D-P-2S-P-4S
     1  P-P-1S-P-2C-P-2D-P-4S
     1  P-P-1S-P-2C-P-2S
-    1  P-P-1S-P-2C-P-3D-P-3NT-P-4S
+    1  P-P-1S-P-2C-P-3D-P-3N-P-4S
     1  P-P-1S-P-2C-P-3D-P-4D-P-6S
     1  P-P-1S-P-2C-P-3D-P-4S
-    1  P-P-1S-P-2C-P-3H-P-3NT-P-4S
-    1  P-P-1S-P-2C-P-3H-P-4H-P-4NT-P-5H-P-5NT-P-6S
-    1  P-P-1S-P-2C-P-3S-P-4C-P-4NT-P-5S-P-5NT-P-6S
+    1  P-P-1S-P-2C-P-3H-P-3N-P-4S
+    1  P-P-1S-P-2C-P-3H-P-4H-P-4N-P-5H-P-5N-P-6S
+    1  P-P-1S-P-2C-P-3S-P-4C-P-4N-P-5S-P-5N-P-6S
     1  P-P-1S-P-2C-P-3S-P-4S-P-5C-P-6S
 ```
 

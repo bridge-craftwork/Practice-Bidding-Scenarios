@@ -183,7 +183,7 @@ Extension provides:
 - `bba-filtered/` - Filtered BBA files by auction pattern
 - `bba-filtered-out/` - BBA files that were filtered out
 - `bba-summary/` - Statistics summaries
-- `GIB/` - Auctions bid by BBO's GIB robots, one PBN capture per scenario: older ones hand-collected, new ones from `py/gib_capture.py` (issue #323)
+- `GIB/` - Auctions bid by BBO's GIB robots, one PBN capture per scenario: older ones hand-collected, new ones from `py/gib_capture.py` (issue #323). Stored in BBA's notation (`1N`, `[Contract "3N"]`, not `1NT`), so one `auction-filter` works on both BBA and GIB auctions
 - `GIB-filtered/`, `GIB-filtered-out/`, `GIB-report/` - `gibReport` output: the capture split by `auction-filter` (PBN + PDF), and a match report per scenario
 
 **Generated (Final Output):**

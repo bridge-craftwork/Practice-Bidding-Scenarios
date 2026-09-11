@@ -14,82 +14,82 @@ Match: 0/500 = 0.0%
 ## Not matched: 500 boards, by sequence
 
 ```
-  122  1NT-P-2C-P-2D-P-3S-P-4H
-  103  1NT-P-2C-P-2D-P-3H-P-4S
-   85  1NT-P-2C-P-2D-P-3S-P-3NT
-   71  1NT-P-2C-P-2D-P-3H-P-3NT
-   15  1NT-P-2C-P-2D-P-3H-P-3S-P-4S
-    7  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5S-P-6S
-    6  1NT-P-2C-X-2D-P-3H-P-4S
-    4  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5C-P-5D-P-5H-P-6H
-    4  1NT-P-2C-X-2D-P-3S-P-4H
-    3  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5D-P-6S
-    3  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5D-P-6H
-    3  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-4NT-P-5C-P-5D-P-5H-P-6H
-    3  1NT-P-2C-X-2D-P-3S-P-3NT
-    2  1NT-P-2C-P-2D-P-3H-P-3S-P-4H-P-5C-P-6S
-    2  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5D-P-5H-P-5S
-    2  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5H-P-6S
-    2  1NT-P-2C-P-2D-P-3S-P-3NT-P-6NT
-    2  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5H-P-6H
-    2  1NT-P-2C-P-2D-P-3S-P-4H-P-5C-P-5D-P-6H
-    2  1NT-P-2C-X-2D-P-3H-P-3S-P-4S
-    2  1NT-P-2C-X-P-P-3H-P-4H
-    1  1NT-P-2C-2D-P-3D-3NT
-    1  1NT-P-2C-2D-P-P-3H-P-4H
-    1  1NT-P-2C-2D-P-P-3NT
-    1  1NT-P-2C-2H-P-P-2S-P-3C-P-3NT
-    1  1NT-P-2C-2H-P-P-3S-P-4S
-    1  1NT-P-2C-2S-P-P-3NT
-    1  1NT-P-2C-2S-P-P-X
-    1  1NT-P-2C-3C-P-P-3NT
-    1  1NT-P-2C-3D-P-P-3NT
-    1  1NT-P-2C-3D-P-P-4H
-    1  1NT-P-2C-3D-P-P-4H-P-4NT-P-5D-P-5H
-    1  1NT-P-2C-3D-P-P-4S-P-4NT-P-6D-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-3NT-P-6NT
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4C-P-4D-P-4H-P-4S-P-5C-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4C-P-4D-P-4NT-P-5C-P-5D-P-5S-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4C-P-4H-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4D-P-4S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4D-P-5C-P-5H-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4H-P-4S
-    1  1NT-P-2C-P-2D-P-3H-P-3S-P-4H-P-4S-P-4NT-P-5D-P-5H-P-6C-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5C-P-5D-P-5S-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5C-P-5NT-P-6H-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5D-P-5NT-P-6C-P-7S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5H-P-5NT-P-6C-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5H-P-5NT-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-5C-P-5D-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-5C-P-5H-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-5H-P-5S-P-6S
-    1  1NT-P-2C-P-2D-P-3H-P-4S-P-6S
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5C-P-5NT-P-6C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5H-P-5NT-P-6C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5S-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-4NT-P-5H-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-4NT-P-5S-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-4NT-P-6C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-5C-P-5H-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-5C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-4S-P-5H-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-5C-P-5D-P-5S-P-6H-P-7H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-5C-P-6H
-    1  1NT-P-2C-P-2D-P-3S-P-4H-P-5D-P-6H
-    1  1NT-P-2C-X-2D-P-3H-P-4S-P-4NT-P-5D-P-6S
-    1  1NT-P-2C-X-2D-P-3H-P-4S-P-4NT-P-5S-P-5NT-P-6H-P-6S
-    1  1NT-P-2C-X-P-P-3H-P-4H-P-4NT-P-5D-P-5H
-    1  1NT-P-2C-X-P-P-3H-P-4H-P-5C-P-5D-P-6H
-    1  1NT-P-2C-X-P-P-3S-P-3NT
-    1  1NT-P-2C-X-P-P-3S-P-3NT-P-4NT
-    1  1NT-P-2C-X-P-P-3S-P-4S-P-4NT-P-5C-P-5D-P-6D-P-6S
-    1  1NT-P-2C-X-P-P-3S-X-3NT
-    1  1NT-P-2C-X-XX-P-3H-P-4H
-    1  1NT-P-2C-X-XX-P-3H-P-4H-P-6H
-    1  1NT-P-2C-X-XX-P-3S-P-4S
-    1  1NT-P-2C-X-XX-P-3S-P-4S-P-4NT-P-5S-P-5NT-P-6C-P-6S
-    1  1NT-P-2C-X-XX-P-3S-P-4S-P-5D-P-5H-P-5S-P-6C-P-6S
+  122  1N-P-2C-P-2D-P-3S-P-4H
+  103  1N-P-2C-P-2D-P-3H-P-4S
+   85  1N-P-2C-P-2D-P-3S-P-3N
+   71  1N-P-2C-P-2D-P-3H-P-3N
+   15  1N-P-2C-P-2D-P-3H-P-3S-P-4S
+    7  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5S-P-6S
+    6  1N-P-2C-X-2D-P-3H-P-4S
+    4  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5C-P-5D-P-5H-P-6H
+    4  1N-P-2C-X-2D-P-3S-P-4H
+    3  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5D-P-6S
+    3  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5D-P-6H
+    3  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-4N-P-5C-P-5D-P-5H-P-6H
+    3  1N-P-2C-X-2D-P-3S-P-3N
+    2  1N-P-2C-P-2D-P-3H-P-3S-P-4H-P-5C-P-6S
+    2  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5D-P-5H-P-5S
+    2  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5H-P-6S
+    2  1N-P-2C-P-2D-P-3S-P-3N-P-6N
+    2  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5H-P-6H
+    2  1N-P-2C-P-2D-P-3S-P-4H-P-5C-P-5D-P-6H
+    2  1N-P-2C-X-2D-P-3H-P-3S-P-4S
+    2  1N-P-2C-X-P-P-3H-P-4H
+    1  1N-P-2C-2D-P-3D-3N
+    1  1N-P-2C-2D-P-P-3H-P-4H
+    1  1N-P-2C-2D-P-P-3N
+    1  1N-P-2C-2H-P-P-2S-P-3C-P-3N
+    1  1N-P-2C-2H-P-P-3S-P-4S
+    1  1N-P-2C-2S-P-P-3N
+    1  1N-P-2C-2S-P-P-X
+    1  1N-P-2C-3C-P-P-3N
+    1  1N-P-2C-3D-P-P-3N
+    1  1N-P-2C-3D-P-P-4H
+    1  1N-P-2C-3D-P-P-4H-P-4N-P-5D-P-5H
+    1  1N-P-2C-3D-P-P-4S-P-4N-P-6D-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-3N-P-6N
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4C-P-4D-P-4H-P-4S-P-5C-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4C-P-4D-P-4N-P-5C-P-5D-P-5S-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4C-P-4H-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4D-P-4S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4D-P-5C-P-5H-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4H-P-4S
+    1  1N-P-2C-P-2D-P-3H-P-3S-P-4H-P-4S-P-4N-P-5D-P-5H-P-6C-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5C-P-5D-P-5S-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5C-P-5N-P-6H-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5D-P-5N-P-6C-P-7S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5H-P-5N-P-6C-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5H-P-5N-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-5C-P-5D-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-5C-P-5H-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-5H-P-5S-P-6S
+    1  1N-P-2C-P-2D-P-3H-P-4S-P-6S
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5C-P-5N-P-6C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5H-P-5N-P-6C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5S-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-4N-P-5H-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-4N-P-5S-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-4N-P-6C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-5C-P-5H-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-5C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-4S-P-5H-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-5C-P-5D-P-5S-P-6H-P-7H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-5C-P-6H
+    1  1N-P-2C-P-2D-P-3S-P-4H-P-5D-P-6H
+    1  1N-P-2C-X-2D-P-3H-P-4S-P-4N-P-5D-P-6S
+    1  1N-P-2C-X-2D-P-3H-P-4S-P-4N-P-5S-P-5N-P-6H-P-6S
+    1  1N-P-2C-X-P-P-3H-P-4H-P-4N-P-5D-P-5H
+    1  1N-P-2C-X-P-P-3H-P-4H-P-5C-P-5D-P-6H
+    1  1N-P-2C-X-P-P-3S-P-3N
+    1  1N-P-2C-X-P-P-3S-P-3N-P-4N
+    1  1N-P-2C-X-P-P-3S-P-4S-P-4N-P-5C-P-5D-P-6D-P-6S
+    1  1N-P-2C-X-P-P-3S-X-3N
+    1  1N-P-2C-X-XX-P-3H-P-4H
+    1  1N-P-2C-X-XX-P-3H-P-4H-P-6H
+    1  1N-P-2C-X-XX-P-3S-P-4S
+    1  1N-P-2C-X-XX-P-3S-P-4S-P-4N-P-5S-P-5N-P-6C-P-6S
+    1  1N-P-2C-X-XX-P-3S-P-4S-P-5D-P-5H-P-5S-P-6C-P-6S
 ```
 
 ## Matched: 0 boards, by sequence
@@ -99,7 +99,7 @@ Match: 0/500 = 0.0%
 
 ## Not matched: example deals
 
-### 1NT-P-2C-P-2D-P-3S-P-4H (122)
+### 1N-P-2C-P-2D-P-3S-P-4H (122)
 
 ```
 [Event "autoCapture"]
@@ -118,7 +118,7 @@ Match: 0/500 = 0.0%
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 
@@ -138,7 +138,7 @@ Match: 0/500 = 0.0%
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 
@@ -158,12 +158,12 @@ Match: 0/500 = 0.0%
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3H-P-4S (103)
+### 1N-P-2C-P-2D-P-3H-P-4S (103)
 
 ```
 [Event "autoCapture"]
@@ -182,7 +182,7 @@ Match: 0/500 = 0.0%
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 
@@ -202,7 +202,7 @@ Match: 0/500 = 0.0%
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 
@@ -222,12 +222,12 @@ Match: 0/500 = 0.0%
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3S-P-3NT (85)
+### 1N-P-2C-P-2D-P-3S-P-3N (85)
 
 ```
 [Event "autoCapture"]
@@ -243,12 +243,12 @@ Match: 0/500 = 0.0%
 {HCP 11 5 16 8}
 {TP 12 5 16 9}
 {Losers 7 10 6 9}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 
 [Event "autoCapture"]
 [Board "5"]
@@ -263,12 +263,12 @@ Match: 0/500 = 0.0%
 {HCP 14 7 16 3}
 {TP 16 7 16 4}
 {Losers 6 9 7 10}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 
 [Event "autoCapture"]
 [Board "6"]
@@ -283,15 +283,15 @@ Match: 0/500 = 0.0%
 {HCP 10 8 15 7}
 {TP 12 9 16 7}
 {Losers 8 8 6 10}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3H-P-3NT (71)
+### 1N-P-2C-P-2D-P-3H-P-3N (71)
 
 ```
 [Event "autoCapture"]
@@ -307,12 +307,12 @@ Match: 0/500 = 0.0%
 {HCP 11 11 15 3}
 {TP 13 12 15 4}
 {Losers 7 8 6 10}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 
 [Event "autoCapture"]
 [Board "26"]
@@ -327,12 +327,12 @@ Match: 0/500 = 0.0%
 {HCP 11 7 15 7}
 {TP 13 9 15 7}
 {Losers 7 8 7 9}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 
 [Event "autoCapture"]
 [Board "52"]
@@ -347,15 +347,15 @@ Match: 0/500 = 0.0%
 {HCP 14 10 15 1}
 {TP 15 10 16 2}
 {Losers 6 9 7 11}
-[Contract "3NT"]
+[Contract "3N"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-3NT     Pass    Pass    Pass
+3N     Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3H-P-3S-P-4S (15)
+### 1N-P-2C-P-2D-P-3H-P-3S-P-4S (15)
 
 ```
 [Event "autoCapture"]
@@ -374,7 +374,7 @@ Match: 0/500 = 0.0%
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 3S      Pass    4S      Pass
 Pass    Pass
@@ -395,7 +395,7 @@ Pass    Pass
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 3S      Pass    4S      Pass
 Pass    Pass
@@ -416,13 +416,13 @@ Pass    Pass
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
 3S      Pass    4S      Pass
 Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5S-P-6S (7)
+### 1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5S-P-6S (7)
 
 ```
 [Event "autoCapture"]
@@ -441,9 +441,9 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5S      Pass    6S      Pass
 Pass    Pass
 
@@ -463,9 +463,9 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5S      Pass    6S      Pass
 Pass    Pass
 
@@ -485,14 +485,14 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5S      Pass    6S      Pass
 Pass    Pass
 ```
 
-### 1NT-P-2C-X-2D-P-3H-P-4S (6)
+### 1N-P-2C-X-2D-P-3H-P-4S (6)
 
 ```
 [Event "autoCapture"]
@@ -511,7 +511,7 @@ Pass    Pass
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 
@@ -531,7 +531,7 @@ Pass    Pass
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 
@@ -551,12 +551,12 @@ Pass    Pass
 [Contract "4S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3H      Pass
 4S      Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3S-P-4H-P-4NT-P-5C-P-5D-P-5H-P-6H (4)
+### 1N-P-2C-P-2D-P-3S-P-4H-P-4N-P-5C-P-5D-P-5H-P-6H (4)
 
 ```
 [Event "autoCapture"]
@@ -575,9 +575,9 @@ Pass    Pass
 [Contract "6H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-4H      Pass    4NT     Pass
+4H      Pass    4N     Pass
 5C      Pass    5D      Pass
 5H      Pass    6H      Pass
 Pass    Pass
@@ -598,9 +598,9 @@ Pass    Pass
 [Contract "6H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-4H      Pass    4NT     Pass
+4H      Pass    4N     Pass
 5C      Pass    5D      Pass
 5H      Pass    6H      Pass
 Pass    Pass
@@ -621,15 +621,15 @@ Pass    Pass
 [Contract "6H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3S      Pass
-4H      Pass    4NT     Pass
+4H      Pass    4N     Pass
 5C      Pass    5D      Pass
 5H      Pass    6H      Pass
 Pass    Pass
 ```
 
-### 1NT-P-2C-X-2D-P-3S-P-4H (4)
+### 1N-P-2C-X-2D-P-3S-P-4H (4)
 
 ```
 [Event "autoCapture"]
@@ -648,7 +648,7 @@ Pass    Pass
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 
@@ -668,7 +668,7 @@ Pass    Pass
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 
@@ -688,12 +688,12 @@ Pass    Pass
 [Contract "4H"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      X
+1N     Pass    2C      X
 2D      Pass    3S      Pass
 4H      Pass    Pass    Pass
 ```
 
-### 1NT-P-2C-P-2D-P-3H-P-4S-P-4NT-P-5D-P-6S (3)
+### 1N-P-2C-P-2D-P-3H-P-4S-P-4N-P-5D-P-6S (3)
 
 ```
 [Event "autoCapture"]
@@ -712,9 +712,9 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5D      Pass    6S      Pass
 Pass    Pass
 
@@ -734,9 +734,9 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5D      Pass    6S      Pass
 Pass    Pass
 
@@ -756,9 +756,9 @@ Pass    Pass
 [Contract "6S"]
 [Declarer "S"]
 [Auction "S"]
-1NT     Pass    2C      Pass
+1N     Pass    2C      Pass
 2D      Pass    3H      Pass
-4S      Pass    4NT     Pass
+4S      Pass    4N     Pass
 5D      Pass    6S      Pass
 Pass    Pass
 ```
