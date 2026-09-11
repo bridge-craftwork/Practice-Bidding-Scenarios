@@ -32,7 +32,8 @@ import tempfile
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config import FOLDERS, MAC_TOOLS, PROJECT_ROOT, DEALER_GENERATE, LEVEL_SEED, LEVEL_TIMEOUT
+from config import (FOLDERS, MAC_TOOLS, PROJECT_ROOT, DEALER_GENERATE, LEVEL_GENERATE,
+                    LEVEL_SEED, LEVEL_TIMEOUT)
 from utils.leveling import (CURRENT, declares_hand_types, dlr_path, leveled_dlr_path,
                             leveled_pbn_path, leveled_status, stamp_line)
 from utils.properties import get_btn_property
@@ -95,6 +96,7 @@ def run_level(scenario: str, verbose: bool = True) -> bool:
 
     cmd = [MAC_TOOLS["dealer"], source, "-q",
            "-s", str(LEVEL_SEED),
+           "-g", str(LEVEL_GENERATE),
            "--level-timeout", str(LEVEL_TIMEOUT)]
     budget = get_btn_property(scenario, "level-budget")
     if budget:

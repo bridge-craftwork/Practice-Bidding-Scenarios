@@ -152,6 +152,12 @@ DEALER_PRODUCE = 500
 # because a run the clock stops won't reproduce.
 LEVEL_SEED = 1
 LEVEL_TIMEOUT = 600      # seconds
+# Most deals to generate while measuring. dealer3's own default, 10,000,000,
+# stops a scenario whose condition keeps one deal in 100,000 after about 100
+# qualifying deals, a few dozen sightings of its rarest type (issue #294).
+# A generate limit stops on the same deal on every run, so the file still
+# rebuilds byte-identical; the clock does not.
+LEVEL_GENERATE = 2000000000
 
 # Bidding sheet parameters
 BIDDING_SHEET_MAX_BOARDS = 50  # Max boards to include in bidding sheets PDF
