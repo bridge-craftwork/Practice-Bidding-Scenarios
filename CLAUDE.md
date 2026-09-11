@@ -250,7 +250,7 @@ Central configuration in [build-scripts-mac/config.py](build-scripts-mac/config.
   - Optional filtering rules for auction patterns
 - The `-PBS.txt` file lists all scenarios and their organization
 - When creating new scenarios, follow the existing `.btn` structure
-- **Commas in scenario chat**: Use plain regular commas in `.btn` files. `py/build_manifest.py` converts them to wide commas (，) in the manifest's chat; do not hand-type wide commas in `.btn` files.
+- **Commas in scenario chat**: Use plain regular commas in `.btn` files; they reach BBO chat as plain commas. Do not hand-type wide commas (，) in `.btn` files.
 
 ### Working with the Pipeline
 
