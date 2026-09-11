@@ -34,13 +34,15 @@ type_2 = ((oneSpade && spades(north)<3) || (oneHeart && hearts(north)<3 && spade
 # 5+ clubs and 13+
 type_3 = (oneSpade || oneHeart) && hcp(south)>12 && hcp(north)>12 && clubs(north)>4
 
-#include "script/Leveling"
-
 # Do the leveling
-level_type_1 = type_1 and keep19
-level_type_2 = type_2 and keep
-level_type_3 = type_3 and keep44
-levelTheDeal = level_type_1 || level_type_2 || level_type_3
+HandType_type_1 = type_1
+HandType_type_2 = type_2
+HandType_type_3 = type_3
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ( type_1 || type_2 || type_3 ) and calmOpps
 && levelTheDeal
