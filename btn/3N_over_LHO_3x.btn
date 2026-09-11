@@ -90,13 +90,15 @@ case1 = oneStop and sHCP>17
 case2 = oneStop and sRebid and sHCP>15 and not case1
 case3 = twoStop and sHCP>15 and not (case1 or case2)
 
-#include "script/Leveling"
-
 # Level it
-level1 = case1 and keep06
-level2 = case2 and keep97
-level3 = case3 and keep
-levelTheDeal = level1 or level2 or level3
+HandType_1 = case1
+HandType_2 = case2
+HandType_3 = case3
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # south bids 3N
 wPreempts and nPasses and ePasses and (case1 or case2 or case3)
