@@ -20,7 +20,6 @@ dealer south
 # Import Define-1N and Leveling
 #include "script/Define-1N"
 # Defines NT, ntMin, ntAvt, and ntMax
-#include "script/Leveling"
 
 # North has a good suit and slam interest
 
@@ -33,10 +32,14 @@ gC = clubs(north)>4    and top3(north,clubs)>1
 nResponds = hcp(north)>15 and (gS or gH or gD or gC) and shape(north,any 65xx +any 64xx +any 55xx)
 
 # Level it
-levMin = ntMin and keep30
-levAvg = ntAvg and keep67
-levMax = ntMax and keep
-levelTheDeal = levMin or levAvg or levMax
+HandType_Min = ntMin
+HandType_Avg = ntAvg
+HandType_Max = ntMax
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Ready for Leveling
 

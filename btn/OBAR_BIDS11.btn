@@ -61,12 +61,14 @@ n1Suit    = (nSpades or nHearts or nDiamonds or nClubs) and shape(north,any 6xxx
 n3Suits   = shape(north,any 5440+any 4441)
 BIDS      = (n1Suit or n3Suits) and hcp(north)>10
 
-#include "script/Leveling"
+HandType_X = n3Suits
+HandType_5 = n1Suit and shape (north,any 5xxx)
+HandType_6 = n1Suit and shape (north,any 6xxx)
 
-levX = n3Suits                          and keep
-lev5 = n1Suit and shape(north,any 5xxx) and keep86
-lev6 = n1Suit and shape(north,any 6xxx) and keep89
-levelTheDeal = lev5 or lev6 or levX
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 OBAR and BIDS
 and levelTheDeal

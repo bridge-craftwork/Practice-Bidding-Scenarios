@@ -30,14 +30,14 @@ nMin = hcp(north)>5  and hcp(north)<11
 nMid = hcp(north)>10 and hcp(north)<13
 nMax = hcp(north)>12
 
-# Level the deal
-#include "script/Leveling"
+HandType_Min = nMin
+HandType_Mid = nMid
+HandType_Max = nMax
 
-lMin = nMin and keep70
-lMid = nMid and keep
-lMax = nMax and keep75
-
-levelTheDeal = (lMin or lMid or lMax)
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 sOpens and (nMin or nMid or nMax) and calmOpps
 and levelTheDeal
