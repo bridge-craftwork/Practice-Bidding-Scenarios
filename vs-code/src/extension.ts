@@ -175,7 +175,7 @@ export function activate(context: vscode.ExtensionContext) {
     configWatcher.onDidChange(refreshButtonViews);
 
     // Watch artifact directories for current scenario status updates
-    const artifactWatcher = vscode.workspace.createFileSystemWatcher('**/{dlr,pbn,pbn-rotated-for-4-players,bba,bba-filtered,bidding-sheets,quiz}/*');
+    const artifactWatcher = vscode.workspace.createFileSystemWatcher('**/{dlr,dlr-leveled,pbn,pbn-leveled,pbn-rotated-for-4-players,bba,bba-filtered,bidding-sheets,quiz}/*');
     artifactWatcher.onDidChange(restoreFreshnessOnBuild);
     artifactWatcher.onDidCreate(restoreFreshnessOnBuild);
     artifactWatcher.onDidDelete(() => currentScenarioProvider.refresh());

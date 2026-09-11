@@ -24,6 +24,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import FOLDERS, PROJECT_ROOT
+from utils.leveling import leveled_or_original
 
 # Module-level cache for the parsed layout
 _layout_cache = None
@@ -163,9 +164,13 @@ def run_package(scenario: str, verbose: bool = True) -> bool:
             src_name = src_pattern.format(scenario=scenario)
             src_path = os.path.join(FOLDERS[folder_key], src_name)
 
-            # Fallback: if bba_filtered PBN doesn't exist, try pbn/
+            # A leveled scenario ships its leveled script (issue #322)
+            if folder_key == "dlr":
+                src_path = leveled_or_original(scenario, "dlr")
+
+            # Fallback: if bba_filtered PBN doesn't exist, try pbn/ (pbn-leveled/ when leveled)
             if not os.path.exists(src_path) and folder_key == "bba_filtered" and dest_suffix == ".pbn":
-                src_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
+                src_path = leveled_or_original(scenario, "pbn")
 
             if not os.path.exists(src_path):
                 continue

@@ -7,7 +7,9 @@ deal-source dialog used to build their scenario menu by fetching the layout
 file and then one `.pbs` file per button (~300 requests) plus GitHub-API listing
 calls for the orphan diagnostics — roughly 400 hits every time a menu was
 built. This script pre-computes a single JSON manifest per tier so a consumer
-makes ONE request instead. On a click, the consumer fetches dlr/<name>.dlr.
+makes ONE request instead. On a click, the consumer fetches the scenario's
+`dlr` path: dlr-leveled/<name>.dlr when the scenario is leveled (issue #322),
+dlr/<name>.dlr otherwise.
 
 Each manifest folds together everything the menu needs:
   * the button LAYOUT (majors, action buttons, sections, button rows with
@@ -55,6 +57,8 @@ SCHEMA_VERSION = 2
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BTN_DIR = os.path.join(ROOT, "btn")
 DLR_DIR = os.path.join(ROOT, "dlr")
+# Leveled copies (issue #322): where one exists, it is the script to load
+DLR_LEVELED_DIR = os.path.join(ROOT, "dlr-leveled")
 # Bridge-Classroom-served coaching collection: source of the v2 `lessons` roster
 # (producer contract R5). One .pbn per lesson; key = PBN basename.
 COACHING_DIR = os.path.join(ROOT, "coaching-non-rotated")
@@ -412,11 +416,18 @@ def build_tier(tier, btn_meta, lessons, dlr_index):
     missing = []
     for name in referenced:
         dlr_path = dlr_index.get(name)
-        button = parse_dlr_button(dlr_path) if dlr_path else None
         is_missing = dlr_path is None
         if is_missing:
             missing.append(name)
-        scenarios[name] = scenario_entry(name, btn_meta, button, is_missing)
+        # A leveled scenario's chat comes from its leveled copy, where dealer3
+        # has filled in the {{level-mix}} tokens
+        leveled = os.path.join(DLR_LEVELED_DIR, f"{name}.dlr")
+        if dlr_path and os.path.exists(leveled):
+            dlr_path = leveled
+        button = parse_dlr_button(dlr_path) if dlr_path else None
+        entry = scenario_entry(name, btn_meta, button, is_missing)
+        entry["dlr"] = os.path.relpath(dlr_path, ROOT) if dlr_path else None
+        scenarios[name] = entry
 
     # Orphans: a .dlr the layout doesn't reference.
     ref_set = set(referenced)
@@ -426,7 +437,7 @@ def build_tier(tier, btn_meta, lessons, dlr_index):
         "schemaVersion": SCHEMA_VERSION,
         "tier": tier,
         "generatedAtCommit": git_sha(),
-        "sources": {"layout": f"btn/{layout_name}", "dlr": "dlr"},
+        "sources": {"layout": f"btn/{layout_name}", "dlr": "dlr", "dlrLeveled": "dlr-leveled"},
         "layout": items,
         "scenarios": scenarios,
         # v2 producer-contract R5 roster (tier-independent — coaching collection).

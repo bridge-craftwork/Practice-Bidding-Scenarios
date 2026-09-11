@@ -73,6 +73,7 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
     // Individual operations
     registerCommand(context, 'pbs.runDlr', 'dlr');
+    registerCommand(context, 'pbs.runLevel', 'level');
     registerCommand(context, 'pbs.runPbn', 'pbn');
     registerCommand(context, 'pbs.runRotate', 'rotate');
     registerCommand(context, 'pbs.runBba', 'bba');
@@ -84,6 +85,7 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
     // Plus operations (from X through end)
     registerCommand(context, 'pbs.runDlrPlus', 'dlr+');
+    registerCommand(context, 'pbs.runLevelPlus', 'level+');
     registerCommand(context, 'pbs.runPbnPlus', 'pbn+');
     registerCommand(context, 'pbs.runRotatePlus', 'rotate+');
     registerCommand(context, 'pbs.runBbaPlus', 'bba+');
@@ -94,7 +96,8 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
     // Release operation (not included in wildcards - must be explicit).
     // Publishes the scenario: commits and pushes btn/<name>.btn + dlr/<name>.dlr
-    // to main, which is what the BBO extension loads.
+    // (and dlr-leveled/<name>.dlr when leveled) to main, which is what the BBO
+    // extension loads.
     context.subscriptions.push(
         vscode.commands.registerCommand('pbs.runRelease', async () => {
             const scenario = getCurrentScenario();
@@ -106,7 +109,7 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
                 `Publish ${scenario}?`,
                 {
                     modal: true,
-                    detail: `Commits btn/${scenario}.btn and dlr/${scenario}.dlr and pushes them to main. BBO users get the change as soon as the push lands.`
+                    detail: `Commits btn/${scenario}.btn and dlr/${scenario}.dlr, and dlr-leveled/${scenario}.dlr if the scenario is leveled, and pushes them to main. BBO users get the change as soon as the push lands.`
                 },
                 'Publish'
             );

@@ -1,0 +1,35 @@
+name: Check leveled scripts
+
+# Issue #322: the level operation writes dlr-leveled/<name>.dlr from
+# dlr/<name>.dlr and stamps it with that file's hash. Fail when a leveled file
+# no longer matches its dlr, or a scenario that declares hand types has none.
+# The check is a hash comparison, so it needs no dealer3.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'dlr/**'
+      - 'dlr-leveled/**'
+      - 'build-scripts-mac/utils/leveling.py'
+      - '.github/workflows/check-leveled.yml'
+  pull_request:
+    paths:
+      - 'dlr/**'
+      - 'dlr-leveled/**'
+      - 'build-scripts-mac/utils/leveling.py'
+      - '.github/workflows/check-leveled.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Check leveled scripts against their sources
+        run: python3 build-scripts-mac/utils/leveling.py --check

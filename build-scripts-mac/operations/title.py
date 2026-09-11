@@ -44,7 +44,7 @@ def get_title_from_pbs(scenario: str) -> str:
     return scenario
 
 
-def run_title(scenario: str, verbose: bool = True) -> bool:
+def run_title(scenario: str, verbose: bool = True, pbn_path: str = None) -> bool:
     """
     Update title metadata in the PBN file with the title from PBS.
 
@@ -57,6 +57,7 @@ def run_title(scenario: str, verbose: bool = True) -> bool:
     Args:
         scenario: Scenario name (e.g., "Smolen")
         verbose: Whether to print progress
+        pbn_path: The file to update, if not pbn/{scenario}.pbn
 
     Returns:
         True if successful, False otherwise
@@ -71,7 +72,7 @@ def run_title(scenario: str, verbose: bool = True) -> bool:
         print(f"  Title: {title}")
 
     # Update PBN file
-    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
+    pbn_path = pbn_path or os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
 
     if not os.path.exists(pbn_path):
         print(f"Error: PBN file not found: {pbn_path}")

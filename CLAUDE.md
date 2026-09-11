@@ -88,14 +88,17 @@ python3 pbs-pipeline-mac.py "Weak_2_Bids" "pbn"
 
 Pipeline operations in order:
 1. `dlr` - Extract dealer code from the `.btn` master file
-2. `pbn` - Generate hands using dealer
-3. `rotate` - Create 4-player rotations (PBN and LIN formats)
-4. `bba` - Analyze bidding with Bridge Base Archive
-5. `filter` - Filter by auction patterns
-6. `filterStats` - Generate statistics
-7. `biddingSheet` - Generate PDF bidding sheets
+2. `level` - Write `dlr-leveled/<name>.dlr` for a scenario that declares hand types (`HandType_*`)
+3. `pbn` - Generate hands using dealer
+4. `rotate` - Create 4-player rotations (PBN and LIN formats)
+5. `bba` - Analyze bidding with Bridge Base Archive
+6. `filter` - Filter by auction patterns
+7. `filterStats` - Generate statistics
+8. `biddingSheet` - Generate PDF bidding sheets
 
-The default `*` order continues past `biddingSheet` with `quiz` (generate quiz PBN/PDF/JSON) and `package` (copy artifacts into the Bidding Scenarios hierarchy). The `release` and `release-layout` operations are NOT in the default order — invoke them explicitly. `release` publishes a scenario: it regenerates the `.dlr`, commits the `.btn` and `.dlr` (only those two files), and pushes `main`. It refuses to run on any other branch. `release-layout` copies `btn/-button-layout-beta.txt` over `-button-layout-release.txt` and pushes; the two layout files decide which buttons each channel shows. To try a script before releasing it, use `bbo-demo`, which loads the local `.dlr` into BBO without going through GitHub.
+**Leveling (issue #322).** `level` runs `dealer3 --write-leveled` on a `.dlr` that names `HandType_*` variables. It skips every other scenario, and removes leftover leveled files when a scenario stops declaring hand types. Where `dlr-leveled/<name>.dlr` exists, it wins downstream. `pbn` writes both `pbn/<name>.pbn` (the natural mix) and `pbn-leveled/<name>.pbn` (interleaved by hand type). `rotate`, `bba`, `gib`, `package` and the manifest read the leveled files. One resolver decides this: `leveled_or_original()` in `build-scripts-mac/utils/leveling.py`. The leveled file's first line stamps the sha256 of the `.dlr` it came from. `level` skips a file that is still current, `pbn` refuses a stale one, and the `check-leveled` workflow fails CI on either a stale file or a missing one. `# level-budget: N` in a `.btn` caps the leveling cost.
+
+The default `*` order continues past `biddingSheet` with `quiz` (generate quiz PBN/PDF/JSON) and `package` (copy artifacts into the Bidding Scenarios hierarchy). The `release` and `release-layout` operations are NOT in the default order — invoke them explicitly. `release` publishes a scenario: it regenerates and levels the `.dlr`, commits the `.btn`, the `.dlr` and `dlr-leveled/<name>.dlr` if there is one (only those files), and pushes `main`. It refuses to run on any other branch. `release-layout` copies `btn/-button-layout-beta.txt` over `-button-layout-release.txt` and pushes; the two layout files decide which buttons each channel shows. To try a script before releasing it, use `bbo-demo`, which loads the local `.dlr` into BBO without going through GitHub.
 
 `gib` and `gibReport` are also explicit-only. They are a **report on how well a scenario matches GIB**, not a second lesson pipeline; BBA stays the source everything downstream is built from. `gib` runs `py/gib_capture.py`, which has BBO's robots bid 30 deals from the scenario's `.dlr` on a live account (Mac, Playwright test profile), replaces `GIB/<name>.pbn`, then runs `gibReport`. `gibReport` filters that capture by the `auction-filter` into `GIB-filtered/` and `GIB-filtered-out/` (PBN + PDF) and writes `GIB-report/<name>.md` plus `GIB-report/-summary.md`. It touches only local files, so it also works on the hand-collected captures. `bbo-demo` (also explicit-only; `py/gib_capture.py --demo`) sets up the same four-robot table with the scenario's script loaded and captures nothing. It leaves the browser open so a person can test the script by hand: redealing, reading the robots' bid explanations. Closing the BBO tab ends it. The pipeline refuses `gib` or `bbo-demo` on more than one scenario at a time: we are guests on BBO, so keep live runs to about 30 boards. The 40 filters that anchor on BBA `Note` tags match nothing in a GIB capture; the report flags them.
 
@@ -122,8 +125,10 @@ The system follows a linear transformation pipeline:
 btn file (master scenario definition: dealer code + button metadata)
     ↓ [dlr] Extract dealer code
 dlr file (dealer language constraints; what BBO loads, published by [release] = git push)
+    ↓ [level] dealer3 --write-leveled, only for scripts that declare HandType_ variables
+dlr-leveled file (wins downstream wherever it exists)
     ↓ [pbn] Generate hands via dealer (500 per scenario)
-pbn file (Portable Bridge Notation)
+pbn file (Portable Bridge Notation; pbn-leveled/ too, when leveled)
     ↓ [rotate] Create 4-player rotations
 pbn-rotated & lin-rotated files
     ↓ [bba] Analyze bidding with BBA
@@ -175,6 +180,8 @@ Extension provides:
 
 **Generated (Intermediate):**
 - `dlr/` - Extracted dealer code
+- `dlr-leveled/` - Leveled copies of the `.dlr` files that declare hand types, from the `level` operation (issue #322). Committed, stamped with their source's hash; where one exists it wins downstream
+- `pbn-leveled/` - Hands dealt from `dlr-leveled/`, interleaved by hand type; `pbn/` keeps the natural mix beside them
 - `pbs-release/` - **Frozen.** The `.pbs` files older BBO extension sessions load. Nothing writes it any more (issue #321); delete it once those sessions have turned over. `pbs-test/` and the `pbs` operation are gone.
 - `pbn/` - Bridge Portable Notation files (~500 hands each)
 - `pbn-rotated-for-4-players/` - Rotated PBN for 4-player practice
@@ -189,7 +196,7 @@ Extension provides:
 **Generated (Final Output):**
 - `bidding-sheets/` - PDF bidding sheets for practice
 - `quiz/` - Bidding quizzes in three forms, all from the `quiz` operation: `{Scenario}.pbn` (print layout), `{Scenario}.pdf`, and `{Scenario}.json` — one `quiz-lesson/v1` file per scenario, plus an `index.json` manifest. The JSON is hierarchical (lesson → exercise, which owns the shared prompt → question, a hand + its answer) and is what lesson-studio embeds by value. Its shape is fixed by Contract 3 (`documentation/contracts/quiz-json-schema.md` in the lesson-studio repo), so change it there first. **Generated — never hand-edit.**
-- `manifest/` - Pre-built deal-source menu manifests (`manifest-{release,beta}.json`), generated by `py/build_manifest.py` via a GitHub Action so the BBO extension / Bridge Classroom build their menu from ONE fetch; on a click they fetch `dlr/<name>.dlr`. **Generated — never hand-edit** (see `manifest/README.md`).
+- `manifest/` - Pre-built deal-source menu manifests (`manifest-{release,beta}.json`), generated by `py/build_manifest.py` via a GitHub Action so the BBO extension / Bridge Classroom build their menu from ONE fetch; on a click they fetch the scenario's `dlr` path (`dlr-leveled/<name>.dlr` when leveled, else `dlr/<name>.dlr`). **Generated — never hand-edit** (see `manifest/README.md`).
 
 **Source Code:**
 - `build-scripts-mac/` - Python pipeline orchestration and operations

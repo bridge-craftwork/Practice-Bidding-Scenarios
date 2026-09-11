@@ -8,7 +8,9 @@ and refreshed on every push by
 **Why (PBS #167):** building the menu used to cost ~1 layout fetch + ~300
 per-scenario `.pbs` fetches + GitHub-API listing calls for the missing/orphan
 diagnostics — roughly **400 requests per menu build**. A consumer now fetches
-**one** manifest, and on a click fetches that scenario's `dlr/<name>.dlr`.
+**one** manifest, and on a click fetches that scenario's `dlr` path:
+`dlr-leveled/<name>.dlr` when the scenario is leveled (PBS #322), otherwise
+`dlr/<name>.dlr`.
 
 ## Files / tiers
 
@@ -36,7 +38,7 @@ Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
   "schemaVersion": 2,
   "tier": "release",
   "generatedAtCommit": "<sha>",
-  "sources": { "layout": "btn/-button-layout-release.txt", "dlr": "dlr" },
+  "sources": { "layout": "btn/-button-layout-release.txt", "dlr": "dlr", "dlrLeveled": "dlr-leveled" },
 
   "layout": [                    // ordered menu tree — render top to bottom
     { "type": "major",     "title": "Bidding Scenarios ..." },
@@ -59,7 +61,9 @@ Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
       "bbaWorks": true,          // from .btn  (NOT available in the menu today)
       "conventionCardNS": "21GF-GIB",
       "conventionCardEW": "21GF-GIB",
-      "missing": false           // true => referenced by layout but no .dlr exists
+      "missing": false,          // true => referenced by layout but no .dlr exists
+      "dlr": "dlr/Smolen.dlr"    // the script to load; dlr-leveled/<name>.dlr when
+                                 // the scenario is leveled (PBS #322); null if missing
     }
   },
 
