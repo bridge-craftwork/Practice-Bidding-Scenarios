@@ -1,65 +1,14 @@
 import * as vscode from 'vscode';
-import * as path from 'path';
 import { ButtonPanelProvider } from './buttonPanelProvider';
 import { ButtonGridProvider } from './buttonGridProvider';
 import { CurrentScenarioProvider, ScenarioTreeItem } from './currentScenarioProvider';
-import { PendingReleaseProvider } from './pendingReleaseProvider';
 import { registerPipelineCommands, createStatusBar } from './pipelineRunner';
 import { ActivityLogger } from './activityLogger';
 import { getBtnMetadata, clearMetadataCache } from './btnParser';
+import { getScenarioFromPath } from './scenarioPaths';
 
 // Export logger instance for use by other modules (e.g., pipelineRunner)
 export let activityLogger: ActivityLogger | undefined;
-
-/**
- * Check if a path contains a PBS directory (case-insensitive)
- */
-function containsPbsDir(filePath: string): boolean {
-    return filePath.includes('/PBS/') || filePath.includes('/pbs/');
-}
-
-/**
- * Artifact directories that contain scenario outputs
- */
-const ARTIFACT_DIRS = [
-    'btn', 'pbs-test', 'PBS', 'pbs', 'dlr', 'pbn', 'pbn-rotated-for-4-players',
-    'bba', 'bba-filtered', 'bba-filtered-out', 'bba-summary', 'bidding-sheets',
-    'lin', 'lin-rotated-for-4-players', 'quiz'
-];
-
-/**
- * Get scenario name from a file path
- */
-function getScenarioFromPath(filePath: string | undefined): string | undefined {
-    if (!filePath) {
-        return undefined;
-    }
-
-    const dir = path.dirname(filePath);
-    const dirName = path.basename(dir);
-
-    if (!ARTIFACT_DIRS.includes(dirName)) {
-        return undefined;
-    }
-
-    const fileName = path.basename(filePath);
-
-    // For PBS files (legacy), there's no extension
-    if (dirName.toLowerCase() === 'pbs') {
-        return fileName;
-    }
-
-    // Remove extension
-    const baseName = fileName.replace(/\.(btn|pbs|pbn|dlr|pdf|html|txt|lin)$/i, '');
-
-    // Handle bidding sheet names
-    const biddingSheetMatch = baseName.match(/^(.+?)\s+Bidding Sheets?$/i);
-    if (biddingSheetMatch) {
-        return biddingSheetMatch[1];
-    }
-
-    return baseName;
-}
 
 /**
  * Update the pbs.bbaWorks context variable based on current editor
@@ -128,16 +77,6 @@ export function activate(context: vscode.ExtensionContext) {
         }
     };
 
-    // Create the pending release provider (shows scenarios awaiting release)
-    const pendingReleaseProvider = new PendingReleaseProvider(workspaceRoot);
-
-    // Register the pending release tree view
-    const pendingReleaseView = vscode.window.createTreeView('pbsPendingRelease', {
-        treeDataProvider: pendingReleaseProvider,
-        showCollapseAll: false,
-        canSelectMany: true
-    });
-
     // Update bbaWorks context when active editor changes
     const editorChangeListener = vscode.window.onDidChangeActiveTextEditor(editor => {
         updateBbaWorksContext(editor, workspaceRoot);
@@ -146,22 +85,6 @@ export function activate(context: vscode.ExtensionContext) {
 
     // Initial context update
     updateBbaWorksContext(vscode.window.activeTextEditor, workspaceRoot);
-
-    // Watch for BTN file changes to clear metadata cache and update context
-    const btnWatcher = vscode.workspace.createFileSystemWatcher('**/btn/*.btn');
-    btnWatcher.onDidChange(() => {
-        clearMetadataCache();
-        updateBbaWorksContext(vscode.window.activeTextEditor, workspaceRoot);
-    });
-    btnWatcher.onDidCreate(() => {
-        clearMetadataCache();
-        updateBbaWorksContext(vscode.window.activeTextEditor, workspaceRoot);
-    });
-    btnWatcher.onDidDelete(() => {
-        clearMetadataCache();
-        updateBbaWorksContext(vscode.window.activeTextEditor, workspaceRoot);
-    });
-    context.subscriptions.push(btnWatcher);
 
     // Create the button panel provider (tree view)
     const buttonPanelProvider = new ButtonPanelProvider(workspaceRoot);
@@ -193,12 +116,6 @@ export function activate(context: vscode.ExtensionContext) {
         vscode.window.showInformationMessage('PBS Button Grid refreshed');
     });
 
-    // Register refresh command for pending release view
-    const refreshPendingReleaseCommand = vscode.commands.registerCommand('pbs.refreshPendingRelease', () => {
-        pendingReleaseProvider.refresh();
-        vscode.window.showInformationMessage('Pending Release refreshed');
-    });
-
     // Register rebuild artifact command (for right-click context menu)
     const rebuildArtifactCommand = vscode.commands.registerCommand('pbs.rebuildArtifact', async (item: ScenarioTreeItem) => {
         if (item?.artifactInfo?.command) {
@@ -222,11 +139,6 @@ export function activate(context: vscode.ExtensionContext) {
             const document = await vscode.workspace.openTextDocument(filePath);
             const editor = await vscode.window.showTextDocument(document);
 
-            // Set language mode to 'pbs' for files in the PBS directory
-            if (containsPbsDir(filePath)) {
-                await vscode.languages.setTextDocumentLanguage(document, 'pbs');
-            }
-
             if (lineNumber && lineNumber > 0) {
                 const position = new vscode.Position(lineNumber - 1, 0);
                 editor.selection = new vscode.Selection(position, position);
@@ -237,30 +149,30 @@ export function activate(context: vscode.ExtensionContext) {
         }
     });
 
-    // Watch for PBS file changes (both cases)
-    const pbsWatcher = vscode.workspace.createFileSystemWatcher('**/{PBS,pbs}/*');
-    pbsWatcher.onDidChange(() => {
+    // Watch BTN files: clear the metadata cache, update context, and rebuild
+    // the Scenarios tree and Button Grid (both are built from btn/*.btn)
+    const onBtnChange = () => {
+        clearMetadataCache();
+        updateBbaWorksContext(vscode.window.activeTextEditor, workspaceRoot);
         buttonPanelProvider.refresh();
         buttonGridProvider.refresh();
-        currentScenarioProvider.refresh();
-    });
-    pbsWatcher.onDidCreate(() => {
-        buttonPanelProvider.refresh();
-        buttonGridProvider.refresh();
-        currentScenarioProvider.refresh();
-    });
-    pbsWatcher.onDidDelete(() => {
-        buttonPanelProvider.refresh();
-        buttonGridProvider.refresh();
-        currentScenarioProvider.refresh();
-    });
+    };
+    const btnWatcher = vscode.workspace.createFileSystemWatcher('**/btn/*.btn');
+    btnWatcher.onDidChange(onBtnChange);
+    btnWatcher.onDidCreate(onBtnChange);
+    btnWatcher.onDidDelete(onBtnChange);
 
-    // Also watch the main config file
-    const configWatcher = vscode.workspace.createFileSystemWatcher('**/-PBS.txt');
-    configWatcher.onDidChange(() => {
+    // Watch the button layout file (section structure) and the legacy main config
+    const refreshButtonViews = () => {
         buttonPanelProvider.refresh();
         buttonGridProvider.refresh();
-    });
+    };
+    const layoutWatcher = vscode.workspace.createFileSystemWatcher('**/btn/-button-layout-release.txt');
+    layoutWatcher.onDidChange(refreshButtonViews);
+    layoutWatcher.onDidCreate(refreshButtonViews);
+    layoutWatcher.onDidDelete(refreshButtonViews);
+    const configWatcher = vscode.workspace.createFileSystemWatcher('**/-PBS.txt');
+    configWatcher.onDidChange(refreshButtonViews);
 
     // Watch artifact directories for current scenario status updates
     const artifactWatcher = vscode.workspace.createFileSystemWatcher('**/{dlr,pbn,pbn-rotated-for-4-players,bba,bba-filtered,bidding-sheets,quiz}/*');
@@ -274,40 +186,20 @@ export function activate(context: vscode.ExtensionContext) {
     packageWatcher.onDidCreate(() => currentScenarioProvider.refresh());
     packageWatcher.onDidDelete(() => currentScenarioProvider.refresh());
 
-    // Watch pbs-test directory for pending release updates
-    const pbsTestWatcher = vscode.workspace.createFileSystemWatcher('**/pbs-test/*.pbs');
-    pbsTestWatcher.onDidChange((uri) => {
-        pendingReleaseProvider.refresh();
-        buttonPanelProvider.refresh();
-        restoreFreshnessOnBuild(uri);
-    });
-    pbsTestWatcher.onDidCreate((uri) => {
-        pendingReleaseProvider.refresh();
-        buttonPanelProvider.refresh();
-        restoreFreshnessOnBuild(uri);
-    });
-    pbsTestWatcher.onDidDelete(() => {
-        pendingReleaseProvider.refresh();
-        buttonPanelProvider.refresh();
-        currentScenarioProvider.refresh();
-    });
-
     context.subscriptions.push(
         currentScenarioView,
-        pendingReleaseView,
         treeView,
         webviewProvider,
         refreshCommand,
         refreshGridCommand,
-        refreshPendingReleaseCommand,
         rebuildArtifactCommand,
         toggleStalenessCommand,
         openFileCommand,
-        pbsWatcher,
+        btnWatcher,
+        layoutWatcher,
         configWatcher,
         artifactWatcher,
-        packageWatcher,
-        pbsTestWatcher
+        packageWatcher
     );
 
     // Register pipeline commands and status bar
@@ -320,7 +212,6 @@ export function activate(context: vscode.ExtensionContext) {
         buttonPanelProvider.refresh();
         buttonGridProvider.refresh();
         currentScenarioProvider.refresh();
-        pendingReleaseProvider.refresh();
         console.log('PBS Dashboard refreshed on startup');
     }, 500);
 }

@@ -1,74 +1,7 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import { activityLogger } from './extension';
-
-/**
- * Check if a directory name is a source directory (btn or PBS - case-insensitive)
- */
-function isSourceDir(dirName: string): boolean {
-    const lower = dirName.toLowerCase();
-    return lower === 'pbs' || lower === 'btn';
-}
-
-/**
- * Artifact directories that contain scenario outputs
- */
-const ARTIFACT_DIRS = [
-    'btn',
-    'pbs-test',
-    'PBS',
-    'pbs',
-    'dlr',
-    'pbn',
-    'pbn-rotated-for-4-players',
-    'bba',
-    'bba-filtered',
-    'bba-filtered-out',
-    'bba-summary',
-    'bidding-sheets',
-    'lin',
-    'lin-rotated-for-4-players',
-    'quiz'
-];
-
-/**
- * Get the scenario name from a file path.
- * Works for PBS files and artifact files in any of the artifact directories.
- * The scenario name is the filename without extension.
- */
-function getScenarioFromPath(filePath: string | undefined): string | undefined {
-    if (!filePath) {
-        return undefined;
-    }
-
-    const dir = path.dirname(filePath);
-    const dirName = path.basename(dir);
-
-    // Check if file is in PBS directory or any artifact directory
-    if (!ARTIFACT_DIRS.includes(dirName)) {
-        return undefined;
-    }
-
-    // Get filename and remove extension (if any)
-    const fileName = path.basename(filePath);
-
-    // For PBS files (legacy), there's no extension
-    if (dirName.toLowerCase() === 'pbs') {
-        return fileName;
-    }
-
-    // For artifact files, remove the extension to get scenario name
-    // Handle compound extensions like ".btn", ".pbs", ".pbn", ".pdf", ".html", ".txt", ".lin"
-    const baseName = fileName.replace(/\.(btn|pbs|pbn|dlr|pdf|html|txt|lin)$/i, '');
-
-    // Also handle bidding sheet names like "1N Bidding Sheets.pdf" -> "1N"
-    const biddingSheetMatch = baseName.match(/^(.+?)\s+Bidding Sheets?$/i);
-    if (biddingSheetMatch) {
-        return biddingSheetMatch[1];
-    }
-
-    return baseName;
-}
+import { getScenarioFromPath } from './scenarioPaths';
 
 /**
  * Get the current scenario from the active editor
@@ -140,7 +73,6 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
     // Individual operations
     registerCommand(context, 'pbs.runDlr', 'dlr');
-    registerCommand(context, 'pbs.runPbsOp', 'pbs');
     registerCommand(context, 'pbs.runPbn', 'pbn');
     registerCommand(context, 'pbs.runRotate', 'rotate');
     registerCommand(context, 'pbs.runBba', 'bba');
@@ -152,7 +84,6 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
     // Plus operations (from X through end)
     registerCommand(context, 'pbs.runDlrPlus', 'dlr+');
-    registerCommand(context, 'pbs.runPbsOpPlus', 'pbs+');
     registerCommand(context, 'pbs.runPbnPlus', 'pbn+');
     registerCommand(context, 'pbs.runRotatePlus', 'rotate+');
     registerCommand(context, 'pbs.runBbaPlus', 'bba+');
@@ -161,8 +92,32 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
     registerCommand(context, 'pbs.runQuizPlus', 'quiz+');
     registerCommand(context, 'pbs.runPackagePlus', 'package+');
 
-    // Release operation (not included in wildcards - must be explicit)
-    registerCommand(context, 'pbs.runRelease', 'release');
+    // Release operation (not included in wildcards - must be explicit).
+    // Publishes the scenario: commits and pushes btn/<name>.btn + dlr/<name>.dlr
+    // to main, which is what the BBO extension loads.
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pbs.runRelease', async () => {
+            const scenario = getCurrentScenario();
+            if (!scenario) {
+                return;
+            }
+
+            const confirm = await vscode.window.showInformationMessage(
+                `Publish ${scenario}?`,
+                {
+                    modal: true,
+                    detail: `Commits btn/${scenario}.btn and dlr/${scenario}.dlr and pushes them to main. BBO users get the change as soon as the push lands.`
+                },
+                'Publish'
+            );
+
+            if (confirm !== 'Publish') {
+                return;
+            }
+
+            await runPipeline(scenario, 'release');
+        })
+    );
 
     // Release layout operation (copies beta layout to release)
     context.subscriptions.push(
@@ -179,64 +134,6 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
 
             // Pass "layout" as dummy scenario - the operation ignores it
             await runPipeline('layout', 'release-layout');
-        })
-    );
-
-    // Release selected scenarios from tree view (supports multi-select)
-    context.subscriptions.push(
-        vscode.commands.registerCommand('pbs.releaseSelected', async (...args: any[]) => {
-            // args[0] is the clicked item, args[1] is the array of selected items
-            const selectedItems = args[1] || [args[0]];
-
-            if (!selectedItems || selectedItems.length === 0) {
-                vscode.window.showWarningMessage('No scenarios selected for release');
-                return;
-            }
-
-            // Extract scenario names from the selected items
-            const scenarios: string[] = [];
-            for (const item of selectedItems) {
-                // The item has a button property with scriptId, or we can use the label
-                if (item.button && item.button.scriptId) {
-                    scenarios.push(item.button.scriptId);
-                } else if (item.label && typeof item.label === 'string') {
-                    // Convert label back to scenario name (replace spaces with underscores)
-                    scenarios.push(item.label.replace(/ /g, '_'));
-                }
-            }
-
-            if (scenarios.length === 0) {
-                vscode.window.showWarningMessage('No valid scenarios found in selection');
-                return;
-            }
-
-            // Confirm release
-            const confirm = await vscode.window.showInformationMessage(
-                `Release ${scenarios.length} scenario(s) to production?`,
-                { modal: true },
-                'Release'
-            );
-
-            if (confirm !== 'Release') {
-                return;
-            }
-
-            // Run release for each scenario, continuing on errors
-            const failed: string[] = [];
-            for (const scenario of scenarios) {
-                try {
-                    await runPipeline(scenario, 'release');
-                } catch (e) {
-                    failed.push(scenario);
-                    vscode.window.showWarningMessage(`Release failed for ${scenario}: ${e}`);
-                }
-            }
-
-            if (failed.length > 0) {
-                vscode.window.showWarningMessage(
-                    `Release failed for ${failed.length} scenario(s): ${failed.join(', ')}`
-                );
-            }
         })
     );
 }

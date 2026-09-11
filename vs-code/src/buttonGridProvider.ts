@@ -1,14 +1,16 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
-import { PbsButton, PbsSection, parsePbsDirectory, parseButtonLayoutFile } from './pbsParser';
+import { PbsSection, parseButtonLayoutFile } from './pbsParser';
+import { parseBtnDirectory, resolveLayoutSections } from './btnParser';
 
-/**
- * Check if a path contains a PBS directory (case-insensitive)
- */
-function containsPbsDir(filePath: string): boolean {
-    return filePath.includes('/PBS/') || filePath.includes('/pbs/') ||
-           filePath.includes('/pbs-release/') || filePath.includes('/pbs-test/');
+/** Escape text for use in HTML content or a double-quoted attribute */
+function escapeHtml(text: string): string {
+    return text
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
 }
 
 export class ButtonGridProvider implements vscode.WebviewViewProvider {
@@ -16,7 +18,6 @@ export class ButtonGridProvider implements vscode.WebviewViewProvider {
 
     private _view?: vscode.WebviewView;
     private sections: PbsSection[] = [];
-    private buttonsByScriptId: Map<string, PbsButton> = new Map();
 
     constructor(
         private readonly _extensionUri: vscode.Uri,
@@ -47,11 +48,6 @@ export class ButtonGridProvider implements vscode.WebviewViewProvider {
                         const document = await vscode.workspace.openTextDocument(data.filePath);
                         const editor = await vscode.window.showTextDocument(document);
 
-                        // Set language mode to 'pbs' for files in the PBS directory
-                        if (containsPbsDir(data.filePath)) {
-                            await vscode.languages.setTextDocumentLanguage(document, 'pbs');
-                        }
-
                         if (data.lineNumber && data.lineNumber > 0) {
                             const position = new vscode.Position(data.lineNumber - 1, 0);
                             editor.selection = new vscode.Selection(position, position);
@@ -70,106 +66,20 @@ export class ButtonGridProvider implements vscode.WebviewViewProvider {
         }
     }
 
-    private async loadData() {
+    private loadData() {
         if (!this.workspaceRoot) {
             return;
         }
 
-        // Load buttons from pbs-release and pbs-test directories (new format with .pbs extension)
-        // pbs-test contains modified scenarios, pbs-release contains production scenarios
-        const pbsReleaseDir = path.join(this.workspaceRoot, 'pbs-release');
-        const pbsTestDir = path.join(this.workspaceRoot, 'pbs-test');
+        // One button per btn/*.btn master file; the layout file gives the sections
+        const buttons = parseBtnDirectory(path.join(this.workspaceRoot, 'btn'));
 
-        // Load from both directories, with pbs-test taking precedence
-        const releaseButtons = await parsePbsDirectory(pbsReleaseDir);
-        const testButtons = await parsePbsDirectory(pbsTestDir);
-
-        // Merge: pbs-test overrides pbs-release for same scenario
-        const buttonMap = new Map<string, PbsButton>();
-        for (const btn of releaseButtons) {
-            if (btn.scriptId) {
-                buttonMap.set(btn.scriptId, btn);
-            }
-        }
-        for (const btn of testButtons) {
-            if (btn.scriptId) {
-                buttonMap.set(btn.scriptId, btn); // Override release with test
-            }
-        }
-        const buttons = Array.from(buttonMap.values());
-
-        // Index buttons by script ID and by filename (for fallback matching)
-        this.buttonsByScriptId.clear();
-        const buttonsByFilename = new Map<string, PbsButton>();
-
-        for (const button of buttons) {
-            if (button.scriptId) {
-                this.buttonsByScriptId.set(button.scriptId, button);
-            }
-            if (button.filePath) {
-                // Extract filename without path for fallback matching
-                const filename = path.basename(button.filePath);
-                buttonsByFilename.set(filename, button);
-            }
-        }
-
-        // Load section structure from button layout file
         const layoutPath = path.join(this.workspaceRoot, 'btn', '-button-layout-release.txt');
         if (fs.existsSync(layoutPath)) {
             this.sections = parseButtonLayoutFile(layoutPath);
-
-            // Resolve file paths for imported buttons
-            for (const section of this.sections) {
-                for (let i = 0; i < section.buttons.length; i++) {
-                    const button = section.buttons[i];
-                    if (button.scriptId && !button.filePath) {
-                        // Try to resolve by scriptId first
-                        let resolvedButton = this.buttonsByScriptId.get(button.scriptId);
-
-                        // If not found and we have a targetFilename from the Import URL, try that
-                        if (!resolvedButton && button.targetFilename) {
-                            resolvedButton = buttonsByFilename.get(button.targetFilename);
-                        }
-
-                        // If still not found, try to find by matching filename patterns
-                        if (!resolvedButton) {
-                            // Normalize the scriptId for comparison (lowercase, no underscores/dashes)
-                            const normalizedScriptId = button.scriptId.toLowerCase().replace(/[_-]/g, '');
-
-                            // Search through all filenames for a match
-                            // Prefer exact matches, then filename contains scriptId (not vice versa)
-                            let bestMatch: PbsButton | undefined;
-                            let bestMatchScore = 0;
-
-                            for (const [filename, btn] of buttonsByFilename) {
-                                const normalizedFilename = filename.toLowerCase().replace(/[_-]/g, '');
-
-                                if (normalizedFilename === normalizedScriptId) {
-                                    // Exact match - use it immediately
-                                    bestMatch = btn;
-                                    break;
-                                } else if (normalizedFilename.includes(normalizedScriptId)) {
-                                    // Filename contains scriptId - good match
-                                    // Prefer shorter filenames (closer to exact match)
-                                    const score = normalizedScriptId.length / normalizedFilename.length;
-                                    if (score > bestMatchScore) {
-                                        bestMatchScore = score;
-                                        bestMatch = btn;
-                                    }
-                                }
-                            }
-
-                            resolvedButton = bestMatch;
-                        }
-
-                        if (resolvedButton) {
-                            section.buttons[i] = resolvedButton;
-                        }
-                    }
-                }
-            }
+            resolveLayoutSections(this.sections, buttons);
         } else {
-            // No main config, create a single section with all buttons
+            // No layout file, create a single section with all buttons
             this.sections = [{
                 title: 'PBS Buttons',
                 buttons: buttons,
@@ -222,8 +132,8 @@ export class ButtonGridProvider implements vscode.WebviewViewProvider {
                         class="pbs-button"
                         style="background-color: ${bgColor}; width: ${width};"
                         onclick="openFile('${escapedFilePath}', ${lineNumber})"
-                        title="${button.description || button.label}"
-                    >${button.label}</button>`;
+                        title="${escapeHtml(button.description || button.label)}"
+                    >${escapeHtml(button.label)}</button>`;
                 }).join('\n');
 
             const headerBgColor = section.backgroundColor || 'lightblue';

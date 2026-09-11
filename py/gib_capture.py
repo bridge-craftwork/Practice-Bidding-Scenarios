@@ -10,10 +10,10 @@ auctions as PBN (issue #323).
     python3 py/gib_capture.py Smolen --dry-run       # show what BBO would receive
     python3 py/gib_capture.py Smolen --demo          # the same table, left to you
 
-The dealer script is stripped exactly as the `pbs` operation strips it for the
-.pbs button (bbo_dealer_code in build-scripts-mac/operations/pbs_from_dlr.py),
-and handed straight to setDealerCode on a live table: no GitHub round trip, so
-no CDN staleness, and the robots bid exactly what we ship.
+The dealer script is stripped exactly as the BBO extension strips it when a
+button is clicked (bbo_dealer_code in build-scripts-mac/bbo_dealer.py), and
+handed straight to setDealerCode on a live table: no GitHub round trip, so no
+CDN staleness, and the robots bid exactly what we ship.
 
 How: pbs-bbo-extension's test/playwright/pwrun.mjs (the live-BBO harness, with
 its signed-in test profile, invisible sign-in and hard watchdog) runs
@@ -50,9 +50,8 @@ import tempfile  # noqa: E402
 import time  # noqa: E402
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-sys.path.insert(0, os.path.join(PROJECT_ROOT, 'build-scripts-mac', 'operations'))
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'build-scripts-mac'))
-from pbs_from_dlr import bbo_dealer_code  # noqa: E402
+from bbo_dealer import bbo_dealer_code  # noqa: E402
 
 CAPTURE_MODULE = os.path.join(PROJECT_ROOT, 'js', 'gib-capture.mjs')
 PWRUN = os.environ.get('PBS_PWRUN', os.path.expanduser(

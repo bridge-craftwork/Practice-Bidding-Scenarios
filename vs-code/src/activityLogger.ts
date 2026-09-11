@@ -1,6 +1,7 @@
 import * as vscode from 'vscode';
 import * as fs from 'fs';
 import * as path from 'path';
+import { getScenarioFromPath } from './scenarioPaths';
 
 type ActivityType = 'file_save' | 'session_start' | 'session_end' | 'pipeline_run';
 
@@ -28,14 +29,7 @@ interface ActivityLog {
  * Maps file extensions and directory names to file types
  */
 function getFileType(filePath: string): string | undefined {
-    const dir = path.dirname(filePath);
-    const dirName = path.basename(dir).toLowerCase();
     const ext = path.extname(filePath).toLowerCase();
-
-    // PBS files have no extension
-    if (dirName === 'pbs' && !ext) {
-        return 'pbs';
-    }
 
     // Map extensions to types
     const extMap: { [key: string]: string } = {
@@ -53,24 +47,6 @@ function getFileType(filePath: string): string | undefined {
     };
 
     return extMap[ext] || ext.slice(1) || undefined;
-}
-
-/**
- * Extract scenario name from file path if applicable
- */
-function getScenarioFromPath(filePath: string): string | undefined {
-    const dir = path.dirname(filePath);
-    const dirName = path.basename(dir).toLowerCase();
-
-    const scenarioDirs = ['pbs', 'dlr', 'pbn', 'bba', 'bba-filtered', 'bba-summary', 'bidding-sheets'];
-
-    if (!scenarioDirs.includes(dirName)) {
-        return undefined;
-    }
-
-    const fileName = path.basename(filePath);
-    // Remove extension
-    return fileName.replace(/\.[^/.]+$/, '') || fileName;
 }
 
 /**

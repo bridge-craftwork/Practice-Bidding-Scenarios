@@ -8,10 +8,10 @@ def push_with_rebase_retry(verbose: bool = True, retries: int = 3) -> bool:
     ``git pull --rebase --autostash origin main`` and retry.
 
     This handles the manifest-bot race: a GitHub Action rebuilds ``manifest/`` and
-    commits+pushes to ``main`` after every push touching ``btn/``, ``pbs-*/``, etc.,
-    so a subsequent bare push (as the ``release`` / ``release-layout`` ops and the
-    ``pbs`` auto-commit do) fails as a non-fast-forward. Rebasing onto the bot's
-    commit and re-pushing recovers automatically. ``--autostash`` keeps it safe when
+    commits+pushes to ``main`` after every push touching ``btn/``, ``dlr/``, etc.,
+    so a subsequent bare push (as the ``release`` / ``release-layout`` ops do)
+    fails as a non-fast-forward. Rebasing onto the bot's commit and re-pushing
+    recovers automatically. ``--autostash`` keeps it safe when
     the working tree has other uncommitted changes (e.g. mid-pipeline artifacts).
 
     The caller must have already committed and be inside the repo working tree.

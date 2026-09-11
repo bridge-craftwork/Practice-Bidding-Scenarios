@@ -1,11 +1,19 @@
 """
-Release operation: Move scenario from pbs-test to pbs-release and commit/push.
+Release operation: publish a scenario by committing its .btn and .dlr and
+pushing main.
+
+The BBO extension and Bridge Classroom load dlr/<name>.dlr from main, so a push
+to main is the release (issue #321). Which buttons each channel shows is still
+set by btn/-button-layout-{release,beta}.txt; see release-layout.
+
+The .dlr is regenerated from the .btn first, so what ships always matches the
+master file. Only those two files are committed; anything else staged or
+modified in the tree is left alone.
 
 This operation is intentionally NOT included in OPERATIONS_ORDER,
 so it won't run with "*" or "op+" wildcards. It must be invoked explicitly.
 """
 import os
-import shutil
 import subprocess
 import sys
 
@@ -13,14 +21,17 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import FOLDERS, PROJECT_ROOT
+from operations.dlr_from_btn import run_dlr
+
+
+def _git(*args):
+    return subprocess.run(["git", *args], capture_output=True, text=True, cwd=PROJECT_ROOT)
 
 
 def run_release(scenario: str, verbose: bool = True) -> bool:
     """
-    Release a scenario by moving it from pbs-test to pbs-release and committing.
-
-    pbs-test/{scenario}.pbs -> pbs-release/{scenario}.pbs
-    Then commits and pushes the pbs-release file.
+    Release a scenario: regenerate its .dlr, commit btn/{scenario}.btn and
+    dlr/{scenario}.dlr, and push main.
 
     Args:
         scenario: Scenario name (e.g., "Smolen")
@@ -32,107 +43,61 @@ def run_release(scenario: str, verbose: bool = True) -> bool:
     if verbose:
         print(f"--------- Releasing {scenario}")
 
-    pbs_test_path = os.path.join(FOLDERS["pbs_test"], f"{scenario}.pbs")
-    pbs_release_path = os.path.join(FOLDERS["pbs_release"], f"{scenario}.pbs")
-
-    # Check that pbs-test file exists
-    if not os.path.exists(pbs_test_path):
-        # No pbs-test file — verify whether current DLR matches the released PBS
-        if os.path.exists(pbs_release_path):
-            from operations.pbs_from_dlr import generate_pbs
-            dlr_path = os.path.join(FOLDERS["dlr"], f"{scenario}.dlr")
-            if os.path.exists(dlr_path):
-                with open(dlr_path, 'r', encoding='utf-8') as f:
-                    dlr_content = f.read()
-                with open(pbs_release_path, 'r', encoding='utf-8') as f:
-                    release_content = f.read()
-                generated = generate_pbs(dlr_content, scenario)
-                if generated == release_content:
-                    print(f"  {scenario}: Already up to date (matches released version)")
-                    return True
-        print(f"Error: release: No pbs-test file found: {pbs_test_path}")
+    # A push from any other branch would not reach users
+    branch = _git("rev-parse", "--abbrev-ref", "HEAD").stdout.strip()
+    if branch != "main":
+        print(f"Error: release: on branch '{branch}'; release pushes main")
         return False
 
+    if not run_dlr(scenario, verbose):
+        return False
+
+    paths = [
+        os.path.relpath(os.path.join(FOLDERS["btn"], f"{scenario}.btn"), PROJECT_ROOT),
+        os.path.relpath(os.path.join(FOLDERS["dlr"], f"{scenario}.dlr"), PROJECT_ROOT),
+    ]
+
+    original_dir = os.getcwd()
+    os.chdir(PROJECT_ROOT)
     try:
-        # Move file from pbs-test to pbs-release
-        if verbose:
-            print(f"  Moving: {pbs_test_path}")
-            print(f"      to: {pbs_release_path}")
+        result = _git("add", "--", *paths)
+        if result.returncode != 0:
+            print(f"  Git add failed: {result.stderr.strip()}")
+            return False
 
-        # Ensure pbs-release folder exists
-        os.makedirs(FOLDERS["pbs_release"], exist_ok=True)
-
-        # Copy then remove (safer than move across filesystems)
-        shutil.copy2(pbs_test_path, pbs_release_path)
-        os.remove(pbs_test_path)
-
-        if verbose:
-            print(f"  Moved successfully")
-
-        # Git add, commit, and push
-        if verbose:
-            print(f"  Committing and pushing...")
-
-        # Change to project root for git commands
-        original_dir = os.getcwd()
-        os.chdir(PROJECT_ROOT)
-
-        try:
-            # Git add the release file
-            subprocess.run(
-                ["git", "add", pbs_release_path],
-                check=True,
-                capture_output=True,
-                text=True
-            )
-
-            # Stage the pbs-test removal only if git was tracking it
-            tracked = subprocess.run(
-                ["git", "ls-files", "--error-unmatch", pbs_test_path],
-                capture_output=True,
-                text=True
-            )
-            if tracked.returncode == 0:
-                subprocess.run(
-                    ["git", "add", pbs_test_path],
-                    check=True,
-                    capture_output=True,
-                    text=True
-                )
-
-            # Commit
-            commit_msg = f"Release {scenario} to pbs-release"
-            result = subprocess.run(
-                ["git", "commit", "-m", commit_msg],
-                capture_output=True,
-                text=True
-            )
-
+        # Commit only these two paths, even if other changes are staged
+        if _git("diff", "--cached", "--quiet", "--", *paths).returncode != 0:
+            commit_msg = f"Release {scenario}"
+            result = _git("commit", "-m", commit_msg, "--", *paths)
             if result.returncode != 0:
-                if "nothing to commit" in result.stdout or "nothing to commit" in result.stderr:
-                    print(f"  Nothing to commit (file unchanged)")
-                else:
-                    print(f"  Git commit failed: {result.stderr}")
-                    return False
-            else:
-                if verbose:
-                    print(f"  Committed: {commit_msg}")
-
-            # Push (rebase-and-retry on the manifest-bot race)
-            from git_utils import push_with_rebase_retry
-            if not push_with_rebase_retry(verbose):
+                print(f"  Git commit failed: {result.stderr.strip()}")
                 return False
+            if verbose:
+                print(f"  Committed: {commit_msg}")
+        elif verbose:
+            print(f"  {' and '.join(paths)} unchanged since the last commit")
 
-        finally:
-            os.chdir(original_dir)
+        # Push if main is ahead of origin: this commit, or earlier unpushed ones
+        _git("fetch", "--quiet", "origin", "main")
+        ahead = _git("rev-list", "--count", "origin/main..HEAD").stdout.strip()
+        if ahead == "0":
+            if verbose:
+                print(f"  {scenario}: already released (main matches origin/main)")
+            return True
 
-        return True
+        if verbose:
+            print(f"  Pushing {ahead} commit(s) to origin/main...")
+        # Rebase-and-retry on the manifest-bot race
+        from git_utils import push_with_rebase_retry
+        return push_with_rebase_retry(verbose)
 
     except Exception as e:
         print(f"Error: release: {e}")
         import traceback
         traceback.print_exc()
         return False
+    finally:
+        os.chdir(original_dir)
 
 
 if __name__ == "__main__":

@@ -1,7 +1,8 @@
 import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
-import { PbsButton, PbsSection, parsePbsDirectory, parseButtonLayoutFile, parseMainPbsConfig } from './pbsParser';
+import { PbsButton, PbsSection, parseButtonLayoutFile, parseMainPbsConfig } from './pbsParser';
+import { parseBtnDirectory, resolveLayoutSections } from './btnParser';
 
 /**
  * Tree item representing either a section header or a button
@@ -81,7 +82,6 @@ export class ButtonPanelProvider implements vscode.TreeDataProvider<PbsTreeItem>
     readonly onDidChangeTreeData: vscode.Event<PbsTreeItem | undefined | null | void> = this._onDidChangeTreeData.event;
 
     private sections: PbsSection[] = [];
-    private buttonsByScriptId: Map<string, PbsButton> = new Map();
     private unmappedButtons: PbsButton[] = [];
 
     constructor(private workspaceRoot: string | undefined) {
@@ -101,46 +101,10 @@ export class ButtonPanelProvider implements vscode.TreeDataProvider<PbsTreeItem>
             return;
         }
 
-        // Load buttons from pbs-release and pbs-test directories (new format with .pbs extension)
-        // pbs-test contains modified scenarios, pbs-release contains production scenarios
-        const pbsReleaseDir = path.join(this.workspaceRoot, 'pbs-release');
-        const pbsTestDir = path.join(this.workspaceRoot, 'pbs-test');
+        // One button per btn/*.btn master file
+        const buttons = parseBtnDirectory(path.join(this.workspaceRoot, 'btn'));
 
-        // Load from both directories, with pbs-test taking precedence
-        const releaseButtons = await parsePbsDirectory(pbsReleaseDir);
-        const testButtons = await parsePbsDirectory(pbsTestDir);
-
-        // Merge: pbs-test overrides pbs-release for same scenario
-        const buttonMap = new Map<string, PbsButton>();
-        for (const btn of releaseButtons) {
-            if (btn.scriptId) {
-                buttonMap.set(btn.scriptId, btn);
-            }
-        }
-        for (const btn of testButtons) {
-            if (btn.scriptId) {
-                buttonMap.set(btn.scriptId, btn); // Override release with test
-            }
-        }
-        const buttons = Array.from(buttonMap.values());
-
-        // Index buttons by script ID and by filename (for fallback matching)
-        this.buttonsByScriptId.clear();
-        const buttonsByFilename = new Map<string, PbsButton>();
-
-        for (const button of buttons) {
-            if (button.scriptId) {
-                this.buttonsByScriptId.set(button.scriptId, button);
-            }
-            if (button.filePath) {
-                // Extract filename without path for fallback matching
-                const filename = path.basename(button.filePath);
-                buttonsByFilename.set(filename, button);
-            }
-        }
-
-        // Try to load the button layout file for section structure
-        // Prefer btn/-button-layout-release.txt (new format) over -PBS.txt (legacy)
+        // Section structure: btn/-button-layout-release.txt, else legacy -PBS.txt
         const layoutPath = path.join(this.workspaceRoot, 'btn', '-button-layout-release.txt');
         const mainConfigPath = path.join(this.workspaceRoot, '-PBS.txt');
 
@@ -148,66 +112,14 @@ export class ButtonPanelProvider implements vscode.TreeDataProvider<PbsTreeItem>
             this.sections = parseButtonLayoutFile(layoutPath);
         } else if (fs.existsSync(mainConfigPath)) {
             this.sections = parseMainPbsConfig(mainConfigPath);
+        } else {
+            this.sections = [];
         }
 
         if (this.sections.length > 0) {
+            const mappedFilePaths = resolveLayoutSections(this.sections, buttons);
 
-            // Resolve file paths for imported buttons and track which files are mapped
-            const mappedFilePaths = new Set<string>();
-
-            for (const section of this.sections) {
-                for (let i = 0; i < section.buttons.length; i++) {
-                    const button = section.buttons[i];
-                    if (button.scriptId && !button.filePath) {
-                        // Try to resolve by scriptId first
-                        let resolvedButton = this.buttonsByScriptId.get(button.scriptId);
-
-                        // If not found and we have a targetFilename, try that
-                        if (!resolvedButton && button.targetFilename) {
-                            resolvedButton = buttonsByFilename.get(button.targetFilename);
-                        }
-
-                        // If not found, try to find by matching filename patterns
-                        if (!resolvedButton) {
-                            // Normalize the scriptId for comparison (lowercase, no underscores/dashes)
-                            const normalizedScriptId = button.scriptId.toLowerCase().replace(/[_-]/g, '');
-
-                            // Search through all filenames for a match
-                            let bestMatch: PbsButton | undefined;
-                            let bestMatchScore = 0;
-
-                            for (const [filename, btn] of buttonsByFilename) {
-                                const normalizedFilename = filename.toLowerCase().replace(/[_-]/g, '');
-
-                                if (normalizedFilename === normalizedScriptId) {
-                                    bestMatch = btn;
-                                    break;
-                                } else if (normalizedFilename.includes(normalizedScriptId)) {
-                                    const score = normalizedScriptId.length / normalizedFilename.length;
-                                    if (score > bestMatchScore) {
-                                        bestMatchScore = score;
-                                        bestMatch = btn;
-                                    }
-                                }
-                            }
-
-                            resolvedButton = bestMatch;
-                        }
-
-                        if (resolvedButton) {
-                            section.buttons[i] = resolvedButton;
-                            if (resolvedButton.filePath) {
-                                mappedFilePaths.add(resolvedButton.filePath);
-                            }
-                        }
-                    } else if (button.filePath) {
-                        // Button already has a file path
-                        mappedFilePaths.add(button.filePath);
-                    }
-                }
-            }
-
-            // Find unmapped buttons (PBS files not referenced in any section)
+            // Unmapped: .btn files not referenced in any section
             this.unmappedButtons = buttons.filter(btn =>
                 btn.filePath &&
                 btn.label &&
@@ -215,7 +127,8 @@ export class ButtonPanelProvider implements vscode.TreeDataProvider<PbsTreeItem>
                 !mappedFilePaths.has(btn.filePath)
             );
         } else {
-            // No main config, create a single section with all buttons
+            // No layout, create a single section with all buttons
+            this.unmappedButtons = [];
             this.sections = [{
                 title: 'PBS Buttons',
                 buttons: buttons,

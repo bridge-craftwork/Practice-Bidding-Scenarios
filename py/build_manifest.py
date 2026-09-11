@@ -3,11 +3,11 @@
 build_manifest.py — Generate the BBO / Bridge-Classroom deal-source manifest(s).
 
 Motivation (PBS issue #167): the BBO browser extension and the Bridge-Classroom
-deal-source dialog currently build their scenario menu by fetching the layout
+deal-source dialog used to build their scenario menu by fetching the layout
 file and then one `.pbs` file per button (~300 requests) plus GitHub-API listing
-calls for the test/orphan diagnostics — roughly 400 hits every time a menu is
+calls for the orphan diagnostics — roughly 400 hits every time a menu was
 built. This script pre-computes a single JSON manifest per tier so a consumer
-makes ONE request instead.
+makes ONE request instead. On a click, the consumer fetches dlr/<name>.dlr.
 
 Each manifest folds together everything the menu needs:
   * the button LAYOUT (majors, action buttons, sections, button rows with
@@ -16,18 +16,13 @@ Each manifest folds together everything the menu needs:
     bba-works, convention cards);
   * the MISSING / ORPHAN deltas the extension computes at runtime today.
 
-Tiers (see also btn/-button-layout-{release,beta}.txt and the PBS Dynamic
-Layout plugin's Use_Beta_Layout / Enable_Test_Mode toggles):
+Tiers (the BBO extension's Use_Beta_Layout toggle picks one):
 
-  release : -button-layout-release.txt  +  pbs-release/
-  beta    : -button-layout-beta.txt     +  pbs-release/
-  test    : -button-layout-beta.txt     +  pbs-release/ and pbs-test/
-            (adds a testScenarios list for the [TEST: pbs-test/] section)
-  release-test : -button-layout-release.txt + pbs-release/ and pbs-test/
-            (the 4th toggle combination: release layout with test mode on)
+  release : -button-layout-release.txt  +  dlr/
+  beta    : -button-layout-beta.txt     +  dlr/
 
-The two extension toggles (Use_Beta_Layout, Enable_Test_Mode) are orthogonal —
-these four tiers are the four combinations. See the TIERS table below.
+The `test` and `release-test` tiers, which added pbs-test/ scenarios, went with
+pbs-test/ (issue #321). The extension falls back from them to beta / release.
 
 Pure stdlib so it runs unchanged in GitHub Actions (ubuntu) and on the Mac.
 Layout / btn parsing lineage: build-scripts-mac/build_pbs_from_layout.py.
@@ -50,33 +45,24 @@ from collections import Counter
 # from sys.path — so re-add it explicitly for the sibling import below.
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from board_version_token import board_version_token, normalize_calls  # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                "build-scripts-mac"))
+from bbo_dealer import parse_dlr_file  # noqa: E402
 
 SCHEMA_VERSION = 2
 
 # Repo root = parent of this file's directory (py/).
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BTN_DIR = os.path.join(ROOT, "btn")
+DLR_DIR = os.path.join(ROOT, "dlr")
 # Bridge-Classroom-served coaching collection: source of the v2 `lessons` roster
 # (producer contract R5). One .pbn per lesson; key = PBN basename.
 COACHING_DIR = os.path.join(ROOT, "coaching-non-rotated")
 
-# tier -> (layout filename, list of pbs source dirs [primary first])
-#
-# The extension's two toggles are orthogonal, giving 4 combinations; each tier
-# below is one of them (Use_Beta_Layout selects the layout file, Enable_Test_Mode
-# adds pbs-test/ as an override source + a testScenarios list):
-#
-#   tier          | Use_Beta_Layout | Enable_Test_Mode | layout   | pbs sources
-#   ------------- | --------------- | ---------------- | -------- | ----------------------
-#   release       | false           | false            | release  | pbs-release
-#   beta          | true            | false            | beta     | pbs-release
-#   test          | true            | true             | beta     | pbs-release + pbs-test
-#   release-test  | false           | true             | release  | pbs-release + pbs-test
+# tier -> layout filename
 TIERS = {
-    "release":      ("-button-layout-release.txt", ["pbs-release"]),
-    "beta":         ("-button-layout-beta.txt",    ["pbs-release"]),
-    "test":         ("-button-layout-beta.txt",    ["pbs-release", "pbs-test"]),
-    "release-test": ("-button-layout-release.txt", ["pbs-release", "pbs-test"]),
+    "release": "-button-layout-release.txt",
+    "beta":    "-button-layout-beta.txt",
 }
 
 
@@ -138,62 +124,26 @@ def load_all_btn_metadata():
 
 
 # --------------------------------------------------------------------------- #
-# .pbs Button line (source of the on-screen text + chat the menu renders today)
+# .dlr header (source of the on-screen text + chat the menu renders)
 # --------------------------------------------------------------------------- #
-_ALIAS_RE = re.compile(r"%([A-Za-z][A-Za-z0-9_]*)%")
+def parse_dlr_button(dlr_path):
+    """Return {'buttonText','chat','alias'} from a .dlr header.
 
-
-def parse_pbs_button(pbs_path):
-    """Return {'buttonText','chat','alias','style'} from a .pbs Button record.
-
-    The record is multi-line, each continued physical line ending with `\\`
-    (BBOalert line-continuation), terminated by a `%alias%` token, mirroring the
-    extension's parsePbsButton. Returns None if there is no Button line.
+    Chat comes out in the form the BBO extension renders: literal `\\n` tokens
+    for line breaks, and wide commas, because the .pbs Button record it used to
+    come from separated its fields with commas. The extension's dealerFromDlr
+    produces the same string.
     """
-    with open(pbs_path, "r", encoding="utf-8") as fh:
-        lines = fh.read().split("\n")
-    start = None
-    for i, ln in enumerate(lines):
-        if ln.startswith("Button,"):
-            start = i
-            break
-    if start is None:
-        return None
-
-    # First line: Button,<text>,<chat-fragment...>
-    first = lines[start]
-    parts = first.split(",", 2)
-    button_text = parts[1] if len(parts) > 1 else ""
-    frag = parts[2] if len(parts) > 2 else ""
-
-    chat_pieces = []
-    alias = None
-    style = None
-
-    def consume(fragment, is_first):
-        """Append a fragment's chat, return True once %alias% terminator seen."""
-        nonlocal alias, style
-        m = _ALIAS_RE.search(fragment)
-        if m:
-            alias = m.group(1)
-            chat_pieces.append(fragment[: m.start()].rstrip("\\"))
-            style = fragment[m.end():].lstrip(",").strip()
-            return True
-        chat_pieces.append(fragment.rstrip("\\") if fragment.endswith("\\") else fragment)
-        return False
-
-    done = consume(frag, True)
-    idx = start + 1
-    while not done and idx < len(lines):
-        done = consume(lines[idx], False)
-        idx += 1
-
-    chat = "".join(chat_pieces)
+    with open(dlr_path, "r", encoding="utf-8") as fh:
+        parsed = parse_dlr_file(fh.read())
+    chat = parsed["chat"]
+    if chat:
+        chat = "\\n" + "\\n".join(chat.replace(", ", "，").split("\n")) + "\\n"
+    alias = parsed["alias"] or "Unknown"
     return {
-        "buttonText": button_text,
+        "buttonText": parsed["button_text"] or alias,
         "chat": chat,
         "alias": alias,
-        "style": style or None,
     }
 
 
@@ -414,22 +364,21 @@ def build_lessons():
 # --------------------------------------------------------------------------- #
 # manifest assembly
 # --------------------------------------------------------------------------- #
-def list_pbs(dir_name):
-    d = os.path.join(ROOT, dir_name)
-    if not os.path.isdir(d):
+def list_dlr():
+    if not os.path.isdir(DLR_DIR):
         return {}
-    return {fn[:-4]: os.path.join(d, fn)
-            for fn in os.listdir(d) if fn.endswith(".pbs")}
+    return {fn[:-4]: os.path.join(DLR_DIR, fn)
+            for fn in os.listdir(DLR_DIR) if fn.endswith(".dlr")}
 
 
-def scenario_entry(name, btn_meta, pbs_button, missing):
-    """Merge .btn metadata + .pbs Button line into one manifest scenario entry."""
+def scenario_entry(name, btn_meta, dlr_button, missing):
+    """Merge .btn metadata + .dlr header into one manifest scenario entry."""
     bm = btn_meta.get(name, {})
-    text = (pbs_button or {}).get("buttonText") or bm.get("buttonText") or name
-    chat = (pbs_button or {}).get("chat")
+    text = (dlr_button or {}).get("buttonText") or bm.get("buttonText") or name
+    chat = (dlr_button or {}).get("chat")
     if not chat:
         chat = bm.get("chat")
-    alias = (pbs_button or {}).get("alias") or bm.get("alias") or name
+    alias = (dlr_button or {}).get("alias") or bm.get("alias") or name
     return {
         "buttonText": text,
         "chat": chat,
@@ -454,38 +403,30 @@ def git_sha():
         return None
 
 
-def build_tier(tier, btn_meta, lessons):
-    layout_name, pbs_dirs = TIERS[tier]
+def build_tier(tier, btn_meta, lessons, dlr_index):
+    layout_name = TIERS[tier]
     layout_path = os.path.join(BTN_DIR, layout_name)
     items, referenced = parse_layout(layout_path)
-
-    # Map filename -> .pbs path, primary dir first (pbs-test overrides release).
-    pbs_index = {}
-    per_dir = {}
-    for d in pbs_dirs:
-        per_dir[d] = list_pbs(d)
-    for d in pbs_dirs:  # last dir wins so pbs-test overrides pbs-release
-        pbs_index.update(per_dir[d])
 
     scenarios = {}
     missing = []
     for name in referenced:
-        pbs_path = pbs_index.get(name)
-        button = parse_pbs_button(pbs_path) if pbs_path else None
-        is_missing = pbs_path is None
+        dlr_path = dlr_index.get(name)
+        button = parse_dlr_button(dlr_path) if dlr_path else None
+        is_missing = dlr_path is None
         if is_missing:
             missing.append(name)
         scenarios[name] = scenario_entry(name, btn_meta, button, is_missing)
 
-    # Orphans: a .pbs in the primary (release) source not referenced by layout.
+    # Orphans: a .dlr the layout doesn't reference.
     ref_set = set(referenced)
-    orphans = sorted(n for n in per_dir[pbs_dirs[0]] if n not in ref_set)
+    orphans = sorted(n for n in dlr_index if n not in ref_set)
 
     manifest = {
         "schemaVersion": SCHEMA_VERSION,
         "tier": tier,
         "generatedAtCommit": git_sha(),
-        "sources": {"layout": f"btn/{layout_name}", "pbs": pbs_dirs},
+        "sources": {"layout": f"btn/{layout_name}", "dlr": "dlr"},
         "layout": items,
         "scenarios": scenarios,
         # v2 producer-contract R5 roster (tier-independent — coaching collection).
@@ -499,19 +440,6 @@ def build_tier(tier, btn_meta, lessons):
         },
     }
 
-    # Any test-mode tier (pbs-test in its sources): expose the pbs-test-only
-    # scenarios for the [TEST] section. Same output as before for `test`.
-    if "pbs-test" in pbs_dirs:
-        test_only = sorted(n for n in per_dir.get("pbs-test", {})
-                           if n not in per_dir.get("pbs-release", {}))
-        manifest["testScenarios"] = [
-            scenario_entry(n, btn_meta,
-                           parse_pbs_button(per_dir["pbs-test"][n]), False)
-            | {"name": n}
-            for n in test_only
-        ]
-        manifest["counts"]["testOnly"] = len(test_only)
-
     return manifest
 
 
@@ -524,6 +452,7 @@ def main():
     args = ap.parse_args()
 
     btn_meta = load_all_btn_metadata()
+    dlr_index = list_dlr()
     lessons = build_lessons()  # tier-independent; compute once, share across tiers
     tiers = [args.tier] if args.tier else sorted(TIERS)
     out_dir = os.path.join(ROOT, args.out_dir)
@@ -536,11 +465,10 @@ def main():
           f"({lesson_stable} stable)")
 
     for tier in tiers:
-        m = build_tier(tier, btn_meta, lessons)
+        m = build_tier(tier, btn_meta, lessons, dlr_index)
         c = m["counts"]
         print(f"[{tier}] referenced={c['referenced']} "
-              f"missing={c['missing']} orphans={c['orphans']}"
-              + (f" testOnly={c.get('testOnly')}" if "testOnly" in c else ""))
+              f"missing={c['missing']} orphans={c['orphans']}")
         if not args.check:
             path = os.path.join(out_dir, f"manifest-{tier}.json")
             # Preserve the prior generatedAtCommit when nothing else changed, so a

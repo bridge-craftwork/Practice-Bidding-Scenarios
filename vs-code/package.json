@@ -25,13 +25,6 @@
           "initialSize": 2
         },
         {
-          "id": "pbsPendingRelease",
-          "name": "Pending Release",
-          "type": "tree",
-          "initialSize": 1,
-          "canSelectMany": true
-        },
-        {
           "id": "pbsButtonPanel",
           "name": "Scenarios",
           "type": "tree",
@@ -67,11 +60,6 @@
         "icon": "$(refresh)"
       },
       {
-        "command": "pbs.refreshPendingRelease",
-        "title": "Refresh Pending Release",
-        "icon": "$(refresh)"
-      },
-      {
         "command": "pbs.openPbsFile",
         "title": "Open PBS File"
       },
@@ -83,10 +71,6 @@
       {
         "command": "pbs.runDlr",
         "title": "PBS: Run DLR"
-      },
-      {
-        "command": "pbs.runPbsOp",
-        "title": "PBS: Run PBS"
       },
       {
         "command": "pbs.runPbn",
@@ -115,10 +99,6 @@
       {
         "command": "pbs.runDlrPlus",
         "title": "PBS: Run DLR+"
-      },
-      {
-        "command": "pbs.runPbsOpPlus",
-        "title": "PBS: Run PBS+"
       },
       {
         "command": "pbs.runPbnPlus",
@@ -168,12 +148,7 @@
       },
       {
         "command": "pbs.runRelease",
-        "title": "PBS: Release to Production"
-      },
-      {
-        "command": "pbs.releaseSelected",
-        "title": "Release to Production",
-        "icon": "$(cloud-upload)"
+        "title": "PBS: Publish (commit + push btn/dlr)"
       },
       {
         "command": "pbs.runReleaseLayout",
@@ -194,11 +169,6 @@
           "group": "navigation"
         },
         {
-          "command": "pbs.refreshPendingRelease",
-          "when": "view == pbsPendingRelease",
-          "group": "navigation"
-        },
-        {
           "command": "pbs.refreshButtonGrid",
           "when": "view == pbsButtonGrid",
           "group": "navigation"
@@ -209,17 +179,12 @@
           "command": "pbs.rebuildArtifact",
           "when": "view == pbsCurrentScenario && viewItem == artifact",
           "group": "inline"
-        },
-        {
-          "command": "pbs.releaseSelected",
-          "when": "view == pbsPendingRelease && viewItem == pendingRelease",
-          "group": "inline"
         }
       ],
       "editor/title": [
         {
           "submenu": "pbs.pipeline",
-          "when": "resourcePath =~ /\\/([Pp][Bb][Ss]|btn|pbs-test|dlr|pbn|pbn-rotated-for-4-players|bba|bba-filtered|bba-filtered-out|bba-summary|bidding-sheets|lin|lin-rotated-for-4-players|quiz)\\/[^/]+$/ && resourceFilename != -button-layout-beta.txt",
+          "when": "resourcePath =~ /\\/(btn|dlr|pbn|pbn-rotated-for-4-players|bba|bba-filtered|bba-filtered-out|bba-summary|bidding-sheets|lin|lin-rotated-for-4-players|quiz)\\/[^/]+$/ && resourceFilename != -button-layout-beta.txt",
           "group": "navigation"
         },
         {
@@ -236,10 +201,6 @@
         {
           "command": "pbs.runDlr",
           "group": "2_individual@1"
-        },
-        {
-          "command": "pbs.runPbsOp",
-          "group": "2_individual@2"
         },
         {
           "command": "pbs.runPbn",
@@ -281,10 +242,6 @@
         {
           "command": "pbs.runDlrPlus",
           "group": "3_plus@1"
-        },
-        {
-          "command": "pbs.runPbsOpPlus",
-          "group": "3_plus@2"
         },
         {
           "command": "pbs.runPbnPlus",
