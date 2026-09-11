@@ -9,12 +9,12 @@
 /*@chat
 --- Jacoby 2N w/4x showing a void (Leveled)
 Five different Opening hands can be described after a major suit open and a Jacoby 2N response. The percentages
-are the approximate frequency of occurrence for the various hand types. Use the (Leveled) script to even that out.
-• 4x (17%) - any strength with a void
-• 3x (22%) - any strength with a singleton
-• 3M (20%) - 18+ Semi-Balanced
-• 3N (24%) - 15-17 Semi-Balanced
-• 4M (17%) - 12-14 Semi-Balanced
+are the approximate frequency of occurrence for the various hand types using this leveled script.
+• 4x ({{level-mix:x4}}) - any strength with a void
+• 3x ({{level-mix:x3}}) - any strength with a singleton
+• 3M ({{level-mix:M3}}) - 18+ Semi-Balanced
+• 3N ({{level-mix:N3}}) - 15-17 Semi-Balanced
+• 4M ({{level-mix:M4}}) - 12-14 Semi-Balanced
 @chat*/
 
 produce 1000
@@ -43,16 +43,18 @@ N3 = majorFit4 and suitPoints>14 and suitPoints<18 and not (x4 or x3 or M3)
 M4 = majorFit4 and suitPoints>11 and suitPoints<15 and not (x4 or x3 or M3 or N3)
 ##### End of Jacopy 2N #####
 
-#include "script/Leveling"
-
 ##### Level the Deal #####
 
-lx4 = x4 and keep56
-lx3 = x3 and keep06
-lM3 = M3 and keep
-lN3 = N3 and keep25
-lM4 = M4 and keep06
-levelTheDeal = lx4 or lx3 or lM3 or lN3 or lM4
+HandType_x4 = x4
+HandType_x3 = x3
+HandType_M3 = M3
+HandType_N3 = N3
+HandType_M4 = M4
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ##### End of Level the Deal #####
 
