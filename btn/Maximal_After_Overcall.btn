@@ -52,9 +52,13 @@ eRange = tpEast>5 and tpEast<11
 sRange = tpSouth>5
 ranges = wRange and nRange and eRange and sRange
 
-#include "script/Leveling"
+HandType_wMaxH = wMaxH
+HandType_wMaxD = wMaxD
 
-levelTheDeal = (wMaxH and keep30) or wMaxD
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 (wMaxH or wMaxD) and ranges and nsBid

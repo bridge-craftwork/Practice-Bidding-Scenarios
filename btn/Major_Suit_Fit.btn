@@ -62,14 +62,16 @@ simple  = sP>7  and sP<11 and (fit3 or fit4)
 invite3 = sP>10 and sP<13 and fit3
 invite4 = sP>10 and sP<13 and fit4
 
-#include "script/Leveling"
+HandType_1 = faulty
+HandType_2 = simple
+HandType_3 = invite3
+HandType_4 = invite4
+HandType_5 = preempt
 
-lev1 = faulty  and keep25
-lev2 = simple  and keep11
-lev3 = invite3 and keep25
-lev4 = invite4 and keep89
-lev5 = preempt and keep
-levelTheDeal = lev1 or lev2 or lev3 or lev4 or lev5
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 nOpens = (oH or oS) and hcp(north)>11 and hcp(north)<19
 sResponds = (preempt or faulty or simple or invite3 or invite4) and not Splinter
