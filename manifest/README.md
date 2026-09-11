@@ -53,7 +53,7 @@ Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
   "scenarios": {                 // keyed by .btn/.dlr filename (= layout "name")
     "Smolen": {
       "buttonText": "Smolen",    // on-screen label (from the .dlr header)
-      "chat": "\\n--- Smolen\\n...",  // raw chat w/ \n tokens, wide commas, !S suit codes
+      "chat": "\\n--- Smolen\\n...",  // raw chat w/ \n tokens, !S suit codes
       "alias": "Smolen",
       "gibWorks": true,          // from .btn  (NOT available in the menu today)
       "bbaWorks": true,          // from .btn  (NOT available in the menu today)
@@ -84,9 +84,10 @@ Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
 }
 ```
 
-`buttonText`/`chat`/`alias` are taken from the `.dlr` header, in the form the old
-`.pbs` `Button,` line carried them: wide commas, `!C` suit tokens and `\n`
-tokens for line breaks, so the menu reads exactly as it did.
+`buttonText`/`chat`/`alias` are taken from the `.dlr` header. Chat keeps `!C`
+suit tokens and uses `\n` tokens for line breaks; commas stay plain. The old
+`.pbs` `Button,` line needed wide commas (，) because commas separated its
+fields, but BBO chat takes plain ones.
 `gibWorks`/`bbaWorks`/convention cards come from the `.btn` header.
 
 ### `lessons` roster (v2)

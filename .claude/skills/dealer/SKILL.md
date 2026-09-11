@@ -28,7 +28,7 @@ Always edit **btn files**, never dlr files directly.
 
 /*@chat
 Description text for BBO display.
-Use plain regular commas here; the pipeline converts them to wide commas (，) downstream. Do NOT hand-type wide commas in .btn files.
+Use plain regular commas here. Do NOT hand-type wide commas (，) in .btn files.
 @chat*/
 
 dealer south|west|north|east

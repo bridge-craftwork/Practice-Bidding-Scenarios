@@ -129,16 +129,16 @@ def load_all_btn_metadata():
 def parse_dlr_button(dlr_path):
     """Return {'buttonText','chat','alias'} from a .dlr header.
 
-    Chat comes out in the form the BBO extension renders: literal `\\n` tokens
-    for line breaks, and wide commas, because the .pbs Button record it used to
-    come from separated its fields with commas. The extension's dealerFromDlr
-    produces the same string.
+    Chat comes out in the form the BBO extension sends to chat: literal `\\n`
+    tokens for line breaks, commas left plain. (It used to carry wide commas,
+    which were only needed inside the .pbs Button record.) The extension's
+    dealerFromDlr produces the same string.
     """
     with open(dlr_path, "r", encoding="utf-8") as fh:
         parsed = parse_dlr_file(fh.read())
     chat = parsed["chat"]
     if chat:
-        chat = "\\n" + "\\n".join(chat.replace(", ", "，").split("\n")) + "\\n"
+        chat = "\\n" + "\\n".join(chat.split("\n")) + "\\n"
     alias = parsed["alias"] or "Unknown"
     return {
         "buttonText": parsed["button_text"] or alias,
