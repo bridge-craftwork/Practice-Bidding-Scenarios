@@ -21,17 +21,19 @@ dealer south
 #include "script/Calm-Opponents"
 # Defines calmOpps
 
-#include "script/Leveling"
-
 # Level it
 ntMin = hcp(south)==15
 ntAvg = hcp(south)==16
 ntMax = hcp(south)==17
 
-levMin = ntMin and keep44
-levAvg = ntAvg and keep56
-levMax = ntMax and keep
-levelTheDeal = levMin or levAvg or levMax
+HandType_Min = ntMin
+HandType_Avg = ntAvg
+HandType_Max = ntMax
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Ready for Leveling
 

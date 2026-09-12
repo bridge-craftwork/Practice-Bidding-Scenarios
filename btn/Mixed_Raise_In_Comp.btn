@@ -55,20 +55,18 @@ sRange   = sTP>6 and sTP<10 and controls(south)>1   // BBO defines Mixed Raise a
 
 sRaises = sShape and sRange
 
-#include "script/Leveling"
-
 supCards = nHearts ? hearts(south) : spades(south)
 
 void = shape(south,any 0xxx)
 sing = shape(south,any 1xxx)
 
-lev0 = void               and keep
-lev1 = sing               and keep
-lev2 = not (void or sing) and keep
+lev0 = void
+lev1 = sing
+lev2 = not (void or sing)
 
-lev4 = supCards==4        and keep
-lev5 = supCards==5        and keep
-lev6 = supCards>=6        and keep
+lev4 = supCards==4
+lev5 = supCards==5
+lev6 = supCards>=6
 
 levelTheDeal = lev2 or lev0 or lev1 or lev4 or lev5 or lev6
 

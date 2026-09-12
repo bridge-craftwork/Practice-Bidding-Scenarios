@@ -24,7 +24,6 @@ about 16-18 and asks partner to think about game.
 
 dealer south
 
-#include "script/Leveling"
 #include "script/Calm-Opponents"
 # provides calmOpps (both opponents too weak or flat to interfere)
 
@@ -75,13 +74,19 @@ f4 = d > 3 and d >= s and s == 4 and h < 4 and c < 4 and nRespH and minOpener
 southHand = f1 or f2min or f2inv or f3min or f3inv or f4
 
 # ===== Level toward mostly-minimum spread; invitational jumps are the minority tier =====
-levF1    = f1     and keep75
-levF2min = f2min  and keep
-levF2inv = f2inv  and keep47
-levF3min = f3min  and keep
-levF3inv = f3inv  and keep47
-levF4    = f4     and keep
-levelTheDeal = levF1 or levF2min or levF2inv or levF3min or levF3inv or levF4
+HandType_F1 = f1
+HandType_F2min = f2min
+HandType_F2inv = f2inv
+# Six diamonds and four spades after 1D-1H is F4: show the spades at the one
+# level, as the chat says and as BBA bids it
+HandType_F3min = f3min and not f4
+HandType_F3inv = f3inv
+HandType_F4 = f4
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 southHand and northHand and calmOpps and levelTheDeal
 

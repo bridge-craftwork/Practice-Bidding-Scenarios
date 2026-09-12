@@ -40,7 +40,6 @@ dealer south
 # Defines calmOpps
 
 # Import leveling code
-#include "script/Leveling"
 # Defines keep14, keep86, etc.
 
 # North has 4-12 HCP with at least one 4-card major
@@ -55,18 +54,25 @@ nHCPRange = hcp(north)>3 and hcp(north)<13
 nWeak = hcp(north)<8
 nNormal = hcp(north)>7
 
-# Level it: target ~15% weak hands
-# keep33 for weak (~33%), keep30 for normal (~30%)
-leveledNorth = (nWeak and keep33) or (nNormal and keep30)
+# Level it: target 15% weak hands
+HandType_nWeak = nWeak
+HandType_nNormal = nNormal
+HandType_nWeak_Share   = 3
+HandType_nNormal_Share = 17
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # North's hand requirements
-northHand = nHasMajor and nHCPRange and leveledNorth
+northHand = nHasMajor and nHCPRange
 
 # disallow 14-point hands that might open with 5-card minor:
 true15to17 = hcp(south)>14 and hcp(south)<18
 
 # Combine all conditions
-condition NT and northHand and calmOpps and true15to17
+condition NT and northHand and calmOpps and true15to17 and levelTheDeal
 
 # Generate Statistics
 action

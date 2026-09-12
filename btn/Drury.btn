@@ -13,7 +13,7 @@ After P (P) 1M (P), 2!C is Drury or Reverse Drury.
 2!C asks about the opener's hand.
 Drury:  2!D denies game interest and 2M shows game interest.
 Reverse Drury: 2!D shows some game interest and 2M denies game interest.
-Leveled Partscore 35%, game 60%, slam 5%.
+Leveled Partscore {{level-mix:Low}}, game {{level-mix:Mid}}, slam {{level-mix:High}}.
 4NT is Roman Keycard Blackwood (1430) with a trump suit agreed, or quantitative (inviting 6NT) in a notrump auction. Keycard responses:
   • 5!C = 1 or 4 keycards
   • 5!D = 0 or 3
@@ -56,18 +56,24 @@ nOpens = (nSpade or nHeart) and nRange and not nNT and diamonds(north)<len and c
 
 sResponds = tpSouth>9 and not sSJS
 
-# Level north's opening to balance partscore/game/slam
-#include "script/Leveling"
-
 # Level by north's HCP to balance partscore/game/slam
 nLow  = hcp(north) < 15
 nMid  = hcp(north) > 14 and hcp(north) < 19
 nHigh = hcp(north) > 18
 
-levLow  = nLow  and keep
-levMid  = nMid  and keep03
-levHigh = nHigh and keep25
-levelTheDeal = levLow or levMid or levHigh
+HandType_Low = nLow
+HandType_Mid = nMid
+HandType_High = nHigh
+
+# The mix the chat promises: partscore 35%, game 60%, slam 5%
+HandType_Low_Share  = 7
+HandType_Mid_Share  = 12
+HandType_High_Share = 1
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 sPasses and nOpens and calmOpps and sResponds

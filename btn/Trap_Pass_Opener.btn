@@ -97,11 +97,13 @@ eOpens1 = (o1S or o1H)
 eOpens2 = (wS or wH or wD or wC) and hcp(east)>5 and hcp(east)<12 and shape(east,any 7xxx +any 6xxx +any 5xxx)
 eOpens = eOpens1 or eOpens2
 
-#include "script/Leveling"
+HandType_1 = eOpens1
+HandType_2 = eOpens2
 
-l1 = eOpens1 and keep14
-l2 = eOpens2 and keep97
-levelTheDeal = l1 or l2
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 wPasses   = hcp(west)<6
 nBalances = hcp(north)>10 and shape(north,any 5440+any 5431+any 4441)

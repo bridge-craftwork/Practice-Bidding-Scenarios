@@ -47,11 +47,13 @@ twoH = nS5 and (nH5 or nH4) and nMin
 twoS = nS5 and nH4          and nMax
 nRevFlannery = twoH or twoS
 
-#include "script/Leveling"
+HandType_2H = twoH
+HandType_2S = twoS
 
-lev2H = twoH and keep
-lev2S = twoS and keep70
-levelTheDeal = lev2S or lev2H
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # South opens 1 minor, West Passes, South bids 2H or 2S (reverse flannery) NOTE: BBA responds 1S on almost all of these
 sOneMinor and calmWest and nRevFlannery

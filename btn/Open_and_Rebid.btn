@@ -29,7 +29,6 @@ Reference: https://www.advinbridge.com/this-week-in-bridge/637
 
 dealer south
 
-#include "script/Leveling"
 #include "script/Calm-Opponents"
 # provides calmOpps (both opponents too weak/flat to interfere)
 
@@ -81,14 +80,27 @@ nRespS = spades(north) > 3 and not nRespH
 unbidMajorRule = n_65mM or (nRespS and (h == 2 or h == 4)) or (nRespH and (s == 2 or s == 4)) or not (nRespS or nRespH)
 
 # ===== Level toward ~50/25/25 (balanced + 5d4c are common, so downsample them) =====
-levN5c4d = n_5c4d and keep
-levN65mM = n_65mM and keep
-levN55m  = n_55m  and keep
-levT5d4c = t_5d4c and keep47
-levTbal  = t_bal  and keep015
-levE6c4d = e_6c4d and keep
-levE5c4dM= e_5c4dM and keep
-levelTheDeal = levN5c4d or levN65mM or levN55m or levT5d4c or levTbal or levE6c4d or levE5c4dM
+HandType_N5c4d = n_5c4d
+HandType_N65mM = n_65mM
+HandType_N55m = n_55m
+HandType_T5d4c = t_5d4c
+HandType_Tbal = t_bal
+HandType_E6c4d = e_6c4d
+HandType_E5c4dM = e_5c4dM
+
+# 50/25/25 across the non-standard, standard and edge groups, even within each
+HandType_N5c4d_Share  = 4
+HandType_N65mM_Share  = 4
+HandType_N55m_Share   = 4
+HandType_T5d4c_Share  = 3
+HandType_Tbal_Share   = 3
+HandType_E6c4d_Share  = 3
+HandType_E5c4dM_Share = 3
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 southHand and northHand and calmOpps and levelTheDeal and unbidMajorRule
 

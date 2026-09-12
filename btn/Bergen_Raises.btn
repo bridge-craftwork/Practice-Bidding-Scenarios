@@ -74,14 +74,16 @@ case3N = tp>12 and tp<16 and shape(south, any 4333)
 # 3D = Limit Raise 11-12 TP
 case3D = tp>10 and tp<13 and not (case3oM or case3N)
 
-#include "script/Leveling"
+HandType_C = case3C
+HandType_D = case3D
+HandType_oM = case3oM
+HandType_M = case3M
+HandType_N = case3N
 
-lC  = case3C  and keep045
-lD  = case3D  and keep11
-loM = case3oM and keep06
-lM  = case3M  and keep19
-lN  = case3N  and keep
-levelTheDeal = lC or lD or loM or lM or lN
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 nOpens and (case3M or case3C or case3oM or case3N or case3D) and calmEast

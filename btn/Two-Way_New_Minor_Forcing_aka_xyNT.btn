@@ -52,13 +52,16 @@ game        = hcp(south)>12 and hcp(south)<18
 slam        = hcp(south)>17
 
 #include "script/Calm-Opponents"
-#include "script/Leveling"
 
-levPartscore = partscore and keep19
-levInvite    = invite    and keep25
-levGame      = game      and keep14
-levSlam      = slam      and keep
-levelTheDeal = (levPartscore or levInvite or levGame or levSlam)
+HandType_Partscore = partscore
+HandType_Invite = invite
+HandType_Game = game
+HandType_Slam = slam
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 northOpens and southResponds and calmOpps and (partscore or invite or game or slam)
 and levelTheDeal

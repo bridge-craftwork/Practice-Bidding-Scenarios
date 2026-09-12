@@ -176,53 +176,19 @@ wkBal   = balResp and wkRange
 giBal   = balResp and giRange
 gfBal   = balResp and gfRange
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Do the Leveling
-levwkb = wkBal and keep03
-levgib = giBal and keep045
-levgfb = gfBal and keep015
+HandType_wkb = wkBal
+HandType_gib = giBal
+HandType_gfb = gfBal
 
-levwkr = wkRaise and keep
-levgir = giRaise and keep
-levgfr = gfRaise and keep
-levelTheDeal = levwkr or levgir or levgfr or levwkb or levgib or levgfb
+HandType_wkr = wkRaise
+HandType_gir = giRaise
+HandType_gfr = gfRaise
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 (wkRaise or giRaise or gfRaise or wkBal or giBal or gfBal) and calmOpps and hcp(south)<22

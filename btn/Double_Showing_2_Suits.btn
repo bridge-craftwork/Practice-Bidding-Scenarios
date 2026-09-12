@@ -100,10 +100,8 @@ eastActs = eastBids or eastRaises
 southActs = (sGHS or sGDS or sGDH or sGCS or sGCH or sGCD) and hcp(south)>11
 
 
-#include "script/Leveling"
-levNBids = northBids   and keep0  // It's very hard to get North to bid.  Keeping only .015 of the passes produces less than 10 bids.
-levNPass = northPasses and keep
-levelTheDeal = levNBids or levNPass
+levNPass = northPasses
+levelTheDeal = levNPass
 
 ##### Now do it #####
 westOpens and northActs and eastActs and southActs

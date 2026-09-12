@@ -38,52 +38,21 @@ nt28   = ntShape and hcp(south)>27
 nShape = shape(north, any 5332+any 4432+any 4333)
 totalHCP = hcp(north) + hcp(south)
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
+HandType_1214 = nt1214
+HandType_1517 = nt1517
+HandType_1819 = nt1819
+HandType_2021 = nt2021
+HandType_2224 = nt2224
+HandType_2527 = nt2527
+HandType_28 = nt28
 
-lev1214 = nt1214 and keep
-lev1517 = nt1517 and keep47
-lev1819 = nt1819 and keep67
-lev2021 = nt2021 and keep75
-lev2224 = nt2224 and keep75
-lev2527 = nt2527 and keep
-lev28   = nt28 and keep
-levelTheDeal = lev1214 or lev1517 or lev1819 or lev2021 or lev2224 or lev2527 or lev28
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ntShape and totalHCP>35
-and levelTheDeal
+and (HandType_1214 or HandType_1517 or HandType_1819 or HandType_2021 or HandType_2224 or HandType_2527 or HandType_28) and levelTheDeal
 
 produce 10000
 

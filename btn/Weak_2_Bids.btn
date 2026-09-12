@@ -64,18 +64,8 @@ oFeature = rInvite and hcp(south)>8 and oHonor
 # Opener rebids suit
 oRebid = rInvite and not oFeature
 
-#include "script/Leveling"
-
-# Level the deal
-case1 = rPass and keep11
-case2 = rRaise and keep19
-case3 = rInvite and keep56
-case4 = rForce and keep
-levelTheDeal = (case1 or case2 or case3 or case4)
-
 # do it
 weakTwo
-#and levelTheDeal
 
 action
 average "Responder pass          " 100 * rPass,

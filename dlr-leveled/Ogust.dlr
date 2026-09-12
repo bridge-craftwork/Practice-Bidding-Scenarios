@@ -1,0 +1,210 @@
+# leveled-from: dlr/Ogust.dlr sha256:d123dfa85bc72d7362a5ee854be059a7d10db553445c4a55dd918b78a05b1782
+# alias: Ogust
+# button-text: Ogust
+# scenario-title: --- Ogust: After a weak 2, 2NT asks about hand strength and suit quality..
+# gib-works: false
+# bba-works: true
+# auction-filter: 2[DHS] +Pass +2N =.= +Pass\n3[CDHSN]
+# convention-card-ns: 21GF-Ogust
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Ogust: After a weak 2, 2NT asks about hand strength and suit quality..
+Opener's rebids:
+  3C = Minimal hand, poor suit
+  3D = Minimal hand, good suit
+  3H = Maximal hand, poor suit
+  3S = Maximal hand, good suit
+  3NT = Solid suit (AKQ)
+https://www.bridgebum.com/ogust.php
+@chat*/
+
+dealer south
+
+##### Imported Script: Define Calm Opponents #####
+
+# Avoid concentration of values
+cce = top4(east,clubs)<2
+cde = top4(east,diamonds)<2
+che = top4(east,hearts)<2
+cse = top4(east,spades)<2
+noConEast = cce and cde and che and cse
+
+ccw = top4(west,clubs)<2
+cdw = top4(west,diamonds)<2
+chw = top4(west,hearts)<2
+csw = top4(west,spades)<2
+noConWest = ccw and cdw and chw and csw
+
+balEast    = shape(east,any 4432 +any 4333)
+unbalEast  = shape(east,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+balWest    = shape(west,any 4432 +any 4333)
+unbalWest  = shape(west,xxxx -any 4432 -any 4333 -any 9xxx -any 8xxx -any 7xxx-any 6xxx -any 55xx)
+
+calmEast = (unbalEast and noConEast and hcp(east)<8) or (balEast and hcp(east)<11)
+calmWest = (unbalWest and noConWest and hcp(west)<8) or (balWest and hcp(west)<11)
+calmOpps = calmEast and calmWest
+
+##### End of Imported Script: Define Calm Opponents #####
+### Imported script: TP (Total Points)
+//   Total Points = HCP + Short-Suit Points - Penalty Points
+//   Short-Suit Points: 3 for void, 2 for singleton, 1 for doubleton
+//   Penalty Points: 1 for each honor (K/Q/J) in a short suit (devalues wasted honors like Kx, Qx)
+
+## Calculate TP for North
+# Short-Suit Points: void=3, singleton=2, doubleton=1
+nSpadeSSP = spades(north)<3   ? 3-spades(north)   : 0
+nHeartSSP = hearts(north)<3   ? 3-hearts(north)   : 0
+nDiamSSP  = diamonds(north)<3 ? 3-diamonds(north) : 0
+nClubSSP  = clubs(north)<3    ? 3-clubs(north)    : 0
+nSSP = nSpadeSSP + nHeartSSP + nDiamSSP + nClubSSP
+
+# Penalty Points: deduct 1 for honors in short suits
+nSpadePP = spades(north)<3   and hcp(north,spades)>0   ? 1 : 0
+nHeartPP = hearts(north)<3   and hcp(north,hearts)>0   ? 1 : 0
+nDiamPP  = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+nClubPP  = clubs(north)<3    and hcp(north,clubs)>0    ? 1 : 0
+nPP = nSpadePP + nHeartPP + nDiamPP + nClubPP
+
+tpNorth = hcp(north) + nSSP - nPP
+
+## Calculate TP for East
+eSpadeSSP = spades(east)<3   ? 3-spades(east)   : 0
+eHeartSSP = hearts(east)<3   ? 3-hearts(east)   : 0
+eDiamSSP  = diamonds(east)<3 ? 3-diamonds(east) : 0
+eClubSSP  = clubs(east)<3    ? 3-clubs(east)    : 0
+eSSP = eSpadeSSP + eHeartSSP + eDiamSSP + eClubSSP
+
+eSpadePP = spades(east)<3   and hcp(east,spades)>0   ? 1 : 0
+eHeartPP = hearts(east)<3   and hcp(east,hearts)>0   ? 1 : 0
+eDiamPP  = diamonds(east)<3 and hcp(east,diamonds)>0 ? 1 : 0
+eClubPP  = clubs(east)<3    and hcp(east,clubs)>0    ? 1 : 0
+ePP = eSpadePP + eHeartPP + eDiamPP + eClubPP
+
+tpEast = hcp(east) + eSSP - ePP
+
+## Calculate TP for South
+sSpadeSSP = spades(south)<3   ? 3-spades(south)   : 0
+sHeartSSP = hearts(south)<3   ? 3-hearts(south)   : 0
+sDiamSSP  = diamonds(south)<3 ? 3-diamonds(south) : 0
+sClubSSP  = clubs(south)<3    ? 3-clubs(south)    : 0
+sSSP = sSpadeSSP + sHeartSSP + sDiamSSP + sClubSSP
+
+sSpadePP = spades(south)<3   and hcp(south,spades)>0   ? 1 : 0
+sHeartPP = hearts(south)<3   and hcp(south,hearts)>0   ? 1 : 0
+sDiamPP  = diamonds(south)<3 and hcp(south,diamonds)>0 ? 1 : 0
+sClubPP  = clubs(south)<3    and hcp(south,clubs)>0    ? 1 : 0
+sPP = sSpadePP + sHeartPP + sDiamPP + sClubPP
+
+tpSouth = hcp(south) + sSSP - sPP
+
+## Calculate TP for West
+wSpadeSSP = spades(west)<3   ? 3-spades(west)   : 0
+wHeartSSP = hearts(west)<3   ? 3-hearts(west)   : 0
+wDiamSSP  = diamonds(west)<3 ? 3-diamonds(west) : 0
+wClubSSP  = clubs(west)<3    ? 3-clubs(west)    : 0
+wSSP = wSpadeSSP + wHeartSSP + wDiamSSP + wClubSSP
+
+wSpadePP = spades(west)<3   and hcp(west,spades)>0   ? 1 : 0
+wHeartPP = hearts(west)<3   and hcp(west,hearts)>0   ? 1 : 0
+wDiamPP  = diamonds(west)<3 and hcp(west,diamonds)>0 ? 1 : 0
+wClubPP  = clubs(west)<3    and hcp(west,clubs)>0    ? 1 : 0
+wPP = wSpadePP + wHeartPP + wDiamPP + wClubPP
+
+tpWest = hcp(west) + wSSP - wPP
+
+## Partnership Totals
+tpNS = tpNorth + tpSouth
+tpEW = tpEast + tpWest
+
+### End of Imported Script: TP
+
+# South opens a Weak Two (GIB definition): 6+ suit, no 4-card side suit, 10- HCP, 7+ TP
+sHcp = hcp(south)
+# Suit quality: 2 of top 3 (AKQ) or 3 of top 5 (AKQJT) -- e.g., KQ yes, KJT yes, KJ no
+w2s = shape(south, 6xxx -xxx6 -any 4xxx) and (top3(south,spades)>1 or top5(south,spades)>2)     and (spades(north) + hcp(north))<19
+w2h = shape(south, x6xx -xxx6 -any 4xxx) and (top3(south,hearts)>1 or top5(south,hearts)>2)     and (hearts(north) + hcp(north))<19
+w2d = shape(south, xx6x -xxx6 -any 4xxx) and (top3(south,diamonds)>1 or top5(south,diamonds)>2)
+
+stiffS = spades(south)==1   and hcp(south,spades)>0
+stiffH = hearts(south)==1   and hcp(south,hearts)>0
+stiffD = diamonds(south)==1 and hcp(south,diamonds)>0
+stiffC = clubs(south)==1    and hcp(south,clubs)>0
+noStiffHonor = not (stiffS or stiffH or stiffD or stiffC)
+
+# GIB minimums are floors -- hands at minimum in ALL dimensions often don't get opened.
+# Require at least one of (suit quality, HCP, TP) to be above minimum.
+aboveMinSuit = (w2s and top3(south,spades)>1) or (w2h and top3(south,hearts)>1) or (w2d and top3(south,diamonds)>1)
+aboveMinHcp = sHcp > 6
+aboveMinTp = tpSouth > 7
+atLeastOneAbove = aboveMinSuit or aboveMinHcp or aboveMinTp
+
+w2Range = sHcp<10 and tpSouth>6 and tpSouth<12
+weakTwo = (w2s or w2h or w2d) and w2Range and noStiffHonor and atLeastOneAbove
+
+# North has 15-16 TP or 21+ TP -- strong enough to invite game or slam.
+northAsks = (hcp(north)>14 and tpNorth<17) or tpNorth>20
+
+# Good suit (BBA definition) = 5+ HCP in suit (AJ, KQ, AQ, AK, or better)
+goodSuit = (w2s and hcp(south,spades)>4) or (w2h and hcp(south,hearts)>4) or (w2d and hcp(south,diamonds)>4)
+poorSuit = not goodSuit
+
+# Solid suit = all 3 top honors (AKQ)
+solidSuit = (w2s and top3(south,spades)==3) or (w2h and top3(south,hearts)==3) or (w2d and top3(south,diamonds)==3)
+
+# Minimal = 5-7 HCP, Maximal = 8-10 HCP
+minimal = sHcp<8
+maximal = sHcp>7
+
+# Ogust response categories
+case3C = minimal and poorSuit                    // Minimal, poor suit
+case3D = minimal and goodSuit and not solidSuit  // Minimal, good suit
+case3H = maximal and poorSuit                    // Maximal, poor suit
+case3S = maximal and goodSuit and not solidSuit  // Maximal, good suit
+case3N = solidSuit                               // Solid suit (AKQ)
+
+# Level: bring 3D and 3S down toward 3H (14%)
+HandType_3C = case3C
+HandType_3D = case3D
+HandType_3H = case3H
+HandType_3S = case3S
+HandType_3N = case3N
+
+### BEGIN GENERATED LEVELING ###
+# Generated by dealer --write-leveled. Do not edit; edit the stock
+# scenario and regenerate, or the two will disagree without saying so.
+#
+# measured over  75462 deals, seed 1
+#
+# type    natural    target     keep      seen
+# 3C      0.06772   0.20000   0.3603      5110
+# 3D      0.23984   0.20000   0.1017     18099
+# 3H      0.11762   0.20000   0.2074      8876
+# 3S      0.55042   0.20000   0.0443     41536
+# 3N      0.02440   0.20000   1.0000      1841
+#
+# exactness      1.000  (full)
+# acceptance     0.1220 of qualifying deals
+# cost           about 217273 deals dealt per deal kept
+# precision      keeps set by 3N, the rarest, seen 1841 times (+-2.3%); expect the mix within +-0.46 points
+
+roll = (rnd(1000) % 1000 + 1000) % 1000
+
+level_3C = HandType_3C and roll < 360
+level_3D = HandType_3D and roll < 102
+level_3H = HandType_3H and roll < 207
+level_3S = HandType_3S and roll < 44
+level_3N = HandType_3N
+levelTheDeal = level_3C or level_3D or level_3H or level_3S or level_3N
+### END GENERATED LEVELING ###
+
+weakTwo and northAsks and calmOpps and levelTheDeal
+
+produce 40
+action printoneline,
+average "3C Min/Poor " 100 * case3C,
+average "3D Min/Good " 100 * case3D,
+average "3H Max/Poor " 100 * case3H,
+average "3S Max/Good " 100 * case3S,
+average "3N Solid AKQ" 100 * case3N,

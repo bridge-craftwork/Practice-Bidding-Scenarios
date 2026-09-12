@@ -17,13 +17,16 @@ dealer south
 
 # Import Define-1N and Leveling
 #include "script/Define-1N"
-#include "script/Leveling"
 
 # Level it
-levMin = ntMin and keep56
-levAvg = ntAvg and keep75
-levMax = ntMax and keep97
-levelTheDeal = levMin or levAvg or levMax
+HandType_Min = ntMin
+HandType_Avg = ntAvg
+HandType_Max = ntMax
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Ready for Leveling
 

@@ -41,15 +41,21 @@ slam = strength>11
 texas    = (sN>5 or hN>5) and (game or slam)
 jacoby   = ((sN>4 and hN<4) or (hN>4 and sN<4)) and not texas  // no strength requirement
 
-#include "script/Leveling"
+# Level transfer x strength: four types, even, so Jacoby/Texas and game/slam
+# each come out half and half, as the chat promises
+HandType_JacobyGame = jacoby and game
+HandType_JacobySlam = jacoby and slam
+HandType_TexasGame  = texas  and game
+HandType_TexasSlam  = texas  and slam
 
-levJacoby = jacoby and keep44
-levTexas  = texas  and keep
-levGame   = game   and keep19
-levSlam   = slam   and keep
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Do it ###
-twoNT and (levJacoby or levTexas) and (levGame or levSlam)
+twoNT and (jacoby or texas) and (game or slam)
+and levelTheDeal
 
 ### Generate Statistics
 produce 5000

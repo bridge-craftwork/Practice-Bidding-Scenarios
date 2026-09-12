@@ -119,17 +119,19 @@ n2NT = nNT and hcp(north)>19 and hcp(north)<22                                  
 # East opens
 eOpens = (oS or oH or oD or oC) and hcp(east)>11 and hcp(east)<15
 
-#include "script/Leveling"
+HandType_nOC1 = nOC1
+HandType_nOC2 = nOC2
+HandType_nTOX = nTOX
+HandType_nOCN = nOCN
+HandType_nJOC = nJOC
+HandType_nTSO = nTSO
+HandType_nTS = nTS
+HandType_n2NT = n2NT
 
-levnOC1 = nOC1  and keep03
-levnOC2 = nOC2  and keep045
-levnTOX = nTOX  and keep015
-levnOCN = nOCN  and keep11
-levnJOC = nJOC  and keep19
-levnTSO = nTSO  and keep06
-levnTS  = nTS   and keep89
-levn2NT = n2NT  and keep
-levelTheDeal = (levnOC1 or levnOC2 or levnTOX or levnOCN or levnJOC or levnTSO or levnTS or levn2NT)
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 eOpens and wPasses and calmSouth and (nOC1 or nOC2 or nTOX or nOCN or nJOC or nTSO or nTS or n2NT)
 and levelTheDeal

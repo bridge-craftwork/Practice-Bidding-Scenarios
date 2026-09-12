@@ -45,11 +45,13 @@ minor2 = ((cN>4 and dN>3) or (dN>4 and cN>3)) and (hcp(north,clubs) + hcp(north,
 # Define Responses
 oneMinor = (cSuit or dSuit) and (game or slam)
 
-#include "script/Leveling"
+HandType_Slam = slam
+HandType_Game = game
 
-levSlam = slam and keep
-levGame = game and keep53
-levelTheDeal = levSlam or levGame
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Do it ###
 twoNT and oneMinor

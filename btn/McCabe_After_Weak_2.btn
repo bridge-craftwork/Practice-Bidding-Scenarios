@@ -93,17 +93,18 @@ mySuit = (sS or sH or sD or sC) and not fit and not (rule17 or rule15 or leadAsk
 ### Define pass
 pass = not (rule17 or rule15 or leadAsk or raise or mySuit)
 
-# Define leveling
-#include "script/Leveling"
-
 # Level the deal
-lRule17      = rule17     and keep75
-lRule15      = rule15     and keep25
-lLeadAsk     = leadAsk    and keep14
-lRaise       = raise      and keep06
-lmySuit      = mySuit     and keep94
-lPass        = pass       and keep03
-levelTheDeal = lRule17 or lRule15 or lLeadAsk or lRaise or lmySuit or lPass
+HandType_Rule17 = rule17
+HandType_Rule15 = rule15
+HandType_LeadAsk = leadAsk
+HandType_Raise = raise
+HandType_mySuit = mySuit
+HandType_Pass = pass
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 weakTwo and westX and (rule17 or rule15 or leadAsk or raise or mySuit or pass)

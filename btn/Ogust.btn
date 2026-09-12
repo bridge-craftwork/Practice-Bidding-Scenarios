@@ -66,15 +66,17 @@ case3H = maximal and poorSuit                    // Maximal, poor suit
 case3S = maximal and goodSuit and not solidSuit  // Maximal, good suit
 case3N = solidSuit                               // Solid suit (AKQ)
 
-#include "script/Leveling"
-
 # Level: bring 3D and 3S down toward 3H (14%)
-lev3C = case3C and keep
-lev3D = case3D and keep53
-lev3H = case3H and keep
-lev3S = case3S and keep25
-lev3N = case3N and keep
-levelTheDeal = lev3C or lev3D or lev3H or lev3S or lev3N
+HandType_3C = case3C
+HandType_3D = case3D
+HandType_3H = case3H
+HandType_3S = case3S
+HandType_3N = case3N
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 weakTwo and northAsks and calmOpps and levelTheDeal
 

@@ -120,53 +120,19 @@ n2NT = nNT and hcp(north)>19 and hcp(north)<22                                  
 # East opens
 eOpens = (oS or oH or oD or oC) and hcp(east)>11 and hcp(east)<15
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
+HandType_nOC1 = nOC1
+HandType_nOC2 = nOC2
+HandType_nTOX = nTOX
+HandType_nOCN = nOCN
+HandType_nJOC = nJOC
+HandType_nTSO = nTSO
+HandType_nTS = nTS
+HandType_n2NT = n2NT
 
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
-levnOC1 = nOC1  and keep03
-levnOC2 = nOC2  and keep045
-levnTOX = nTOX  and keep015
-levnOCN = nOCN  and keep11
-levnJOC = nJOC  and keep19
-levnTSO = nTSO  and keep06
-levnTS  = nTS   and keep89
-levn2NT = n2NT  and keep
-levelTheDeal = (levnOC1 or levnOC2 or levnTOX or levnOCN or levnJOC or levnTSO or levnTS or levn2NT)
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 eOpens and wPasses and calmSouth and (nOC1 or nOC2 or nTOX or nOCN or nJOC or nTSO or nTS or n2NT)
 and levelTheDeal

@@ -9,11 +9,11 @@
 
 /*@chat
 ---  Minor Opening w/Bal Resp (Lev)
-6-10  (21.6%) 1!D, 1!H, 1!S, 1N
-11-12 (20.0%) 2!H
-13-15 (22.8%) 2N, GF
-16-17 (15.4%) 3N
-18-19 (20.2%) 2N, GF+
+6-10  ({{level-mix:06_10}}) 1!D, 1!H, 1!S, 1N
+11-12 ({{level-mix:11_12}}) 2!H
+13-15 ({{level-mix:13_15}}) 2N, GF
+16-17 ({{level-mix:16_17}}) 3N
+18-19 ({{level-mix:18_19}}) 2N, GF+
 @chat*/
 
 # Minor Opening w/Bal Resp (Lev)
@@ -62,54 +62,20 @@ n13_15 = hcp(north)>12 and hcp(north)<16
 n16_17 = hcp(north)>15 and hcp(north)<18
 n18_19 = hcp(north)>17 and hcp(north)<20
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Do the Leveling
-lev06_10 = n06_10 and keep11
-lev11_12 = n11_12 and keep14
-lev13_15 = n13_15 and keep14
-lev16_17 = n16_17 and keep25
-lev18_19 = n18_19 and keep
-levelTheDeal = lev06_10 or lev11_12 or lev13_15 or lev16_17 or lev18_19
+HandType_06_10 = n06_10
+HandType_11_12 = n11_12
+HandType_13_15 = n13_15
+HandType_16_17 = n16_17
+HandType_18_19 = n18_19
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 oneMinor and nbalanced and hcp(north)>5 and calmOpps
-and levelTheDeal
+and (HandType_06_10 or HandType_11_12 or HandType_13_15 or HandType_16_17 or HandType_18_19) and levelTheDeal
 
 produce 1000
 action printoneline,

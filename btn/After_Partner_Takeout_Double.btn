@@ -108,12 +108,15 @@ southHand = sRange and sNoStack
 # because North's takeout shape absorbs the unbid suits. Keep the rarest
 # opening (D) fully and downsample the others by 12/theirs so each opening
 # lands near 25%.
-#include "script/Leveling"
-levS = oS and keep33
-levH = oH and keep33
-levD = oD and keep94
-levC = oC and keep94
-levelTheDeal = levS or levH or levD or levC
+HandType_S = oS
+HandType_H = oH
+HandType_D = oD
+HandType_C = oC
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ##### Now do it #####
 westHand and northHand and eastHand and southHand and levelTheDeal

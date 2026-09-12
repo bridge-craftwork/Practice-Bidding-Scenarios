@@ -44,17 +44,19 @@ wkBal   = balResp and wkRange
 giBal   = balResp and giRange
 gfBal   = balResp and gfRange
 
-#include "script/Leveling"
-
 # Do the Leveling
-levwkb = wkBal and keep03
-levgib = giBal and keep045
-levgfb = gfBal and keep015
+HandType_wkb = wkBal
+HandType_gib = giBal
+HandType_gfb = gfBal
 
-levwkr = wkRaise and keep
-levgir = giRaise and keep
-levgfr = gfRaise and keep
-levelTheDeal = levwkr or levgir or levgfr or levwkb or levgib or levgfb
+HandType_wkr = wkRaise
+HandType_gir = giRaise
+HandType_gfr = gfRaise
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 (wkRaise or giRaise or gfRaise or wkBal or giBal or gfBal) and calmOpps and hcp(south)<22

@@ -263,49 +263,17 @@ e4Bs = e4Ds or e4Hs or e4Ss
 
 e4B = e4Bw or e4Bs
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
+# A 7-card suit with 3-level values bids it. eX already excludes 8- and 9-card
+# suits and 7-4/7-5/7-6, but not 7-3-2-1.
+HandType_X = eX and not e3B
+HandType_2B = e2B
+HandType_3B = e3B
+HandType_4B = e4B
 
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
-levX  = eX  and keep11
-lev2B = e2B and keep33
-lev3B = e3B and keep44
-lev4B = e4B and keep
-levelTheDeal = lev2B or lev3B or lev4B or levX
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 gibNT and tpSouth<19 and calmWest and n2Clubs and (eShape or eX) and (e2B or e3B or e4B or eX)

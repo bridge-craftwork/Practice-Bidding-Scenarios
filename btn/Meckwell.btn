@@ -65,16 +65,24 @@ c2H = not cX and heartSuit
 c2S = not cX and spadeSuit
 c2N = bothMinors
 
-#include "script/Leveling"
-
 # Define Leveling
-lX = cX  and keep03
-lC = c2C and keep89
-lD = c2D and keep89
-lH = c2H and keep11
-lS = c2S and keep11
-lN = c2N and keep
-levelTheDeal = lX or lC or lD or lH or lS or lN
+# 5-5 in the minors is 2N. oneSuit counts a 5-5 hand as one-suited (it
+# excludes 76/75/65 but not 55), which also made it an X through oneMinor.
+HandType_X = cX and not c2N
+HandType_C = c2C
+HandType_D = c2D
+# sGH/sGS are suit quality, not length, so a short strong suit sets heartSuit or
+# spadeSuit too. The chat's 2H/2S show 5+: where both are set, the longer suit bids.
+HandType_H = c2H and not (c2S and sS > sH)
+HandType_S = c2S and not (c2H and sH >= sS)
+# bothMinors takes 5-4 too, but the chat's 2N is 5-5 or better: a 5-4 minor
+# hand with a four-card major is 2C/2D (a minor and a major)
+HandType_N = c2N and not (c2C or c2D)
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now OPEN 1NT
 gibNT and (cX or c2C or c2D or c2H or c2S or c2N) and hcp(south)>9

@@ -108,14 +108,20 @@ trapwD = wD       and top5(south,diamonds)>2
 trapwC = wC       and top5(south,clubs)>2
 trap   = trap1S or trap1H or trapwS or trapwH or trapwD or trapwC
 
-#include "script/Leveling"
+l1t = eOpens1 and trap
+l1n = eOpens1 and not trap
+l2t = eOpens2 and trap
+l2n = eOpens2 and not trap
 
-l1t = eOpens1 and trap     and keep19
-l1n = eOpens1 and not trap and keep06
-l2t = eOpens2 and trap     and keep
-l2n = eOpens2 and not trap and keep25
+HandType_1t = l1t
+HandType_1n = l1n
+HandType_2t = l2t
+HandType_2n = l2n
 
-levelTheDeal = l1t or l1n or l2t or l2n
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 wPasses   = hcp(west)<6
 nBalances = hcp(north)>10 and shape(north,any 5440+any 5431+any 4441)

@@ -1,0 +1,186 @@
+# leveled-from: dlr/Weak_2_Bids_Leveled.dlr sha256:5a68b4eac7561015314c652e5729e53b96546caff61045b8966aa5c25c5b3fcd
+# alias: WeakTwoBidsLev
+# button-text: (Lev)
+# scenario-title: --- Weak Two Bids without 4-card major - Leveled
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n2[DHS]
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Weak Two Bids without 4-card major - Leveled
+Opener has a 6-card suit without a 4-card side major, no voids, 6+ TP,
+5-10 HCP. Matches GIB robot opening requirements. This script is leveled.
+Meaning that responder is equally likely to have a pass, raise, invite, or force.
+https://www.bridgebum.com/weak_two.php
+@chat*/
+
+dealer south
+
+# Define South's Weak 2 Bids w/o 4-card major side suit
+# Matches GIB requirements: 6 suit, 1-3 side suits (1-4 clubs),
+# no 4-card side major, 5-10 HCP
+
+### Imported script: TP (Total Points)
+//   Total Points = HCP + Short-Suit Points - Penalty Points
+//   Short-Suit Points: 3 for void, 2 for singleton, 1 for doubleton
+//   Penalty Points: 1 for each honor (K/Q/J) in a short suit (devalues wasted honors like Kx, Qx)
+
+## Calculate TP for North
+# Short-Suit Points: void=3, singleton=2, doubleton=1
+nSpadeSSP = spades(north)<3   ? 3-spades(north)   : 0
+nHeartSSP = hearts(north)<3   ? 3-hearts(north)   : 0
+nDiamSSP  = diamonds(north)<3 ? 3-diamonds(north) : 0
+nClubSSP  = clubs(north)<3    ? 3-clubs(north)    : 0
+nSSP = nSpadeSSP + nHeartSSP + nDiamSSP + nClubSSP
+
+# Penalty Points: deduct 1 for honors in short suits
+nSpadePP = spades(north)<3   and hcp(north,spades)>0   ? 1 : 0
+nHeartPP = hearts(north)<3   and hcp(north,hearts)>0   ? 1 : 0
+nDiamPP  = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+nClubPP  = clubs(north)<3    and hcp(north,clubs)>0    ? 1 : 0
+nPP = nSpadePP + nHeartPP + nDiamPP + nClubPP
+
+tpNorth = hcp(north) + nSSP - nPP
+
+## Calculate TP for East
+eSpadeSSP = spades(east)<3   ? 3-spades(east)   : 0
+eHeartSSP = hearts(east)<3   ? 3-hearts(east)   : 0
+eDiamSSP  = diamonds(east)<3 ? 3-diamonds(east) : 0
+eClubSSP  = clubs(east)<3    ? 3-clubs(east)    : 0
+eSSP = eSpadeSSP + eHeartSSP + eDiamSSP + eClubSSP
+
+eSpadePP = spades(east)<3   and hcp(east,spades)>0   ? 1 : 0
+eHeartPP = hearts(east)<3   and hcp(east,hearts)>0   ? 1 : 0
+eDiamPP  = diamonds(east)<3 and hcp(east,diamonds)>0 ? 1 : 0
+eClubPP  = clubs(east)<3    and hcp(east,clubs)>0    ? 1 : 0
+ePP = eSpadePP + eHeartPP + eDiamPP + eClubPP
+
+tpEast = hcp(east) + eSSP - ePP
+
+## Calculate TP for South
+sSpadeSSP = spades(south)<3   ? 3-spades(south)   : 0
+sHeartSSP = hearts(south)<3   ? 3-hearts(south)   : 0
+sDiamSSP  = diamonds(south)<3 ? 3-diamonds(south) : 0
+sClubSSP  = clubs(south)<3    ? 3-clubs(south)    : 0
+sSSP = sSpadeSSP + sHeartSSP + sDiamSSP + sClubSSP
+
+sSpadePP = spades(south)<3   and hcp(south,spades)>0   ? 1 : 0
+sHeartPP = hearts(south)<3   and hcp(south,hearts)>0   ? 1 : 0
+sDiamPP  = diamonds(south)<3 and hcp(south,diamonds)>0 ? 1 : 0
+sClubPP  = clubs(south)<3    and hcp(south,clubs)>0    ? 1 : 0
+sPP = sSpadePP + sHeartPP + sDiamPP + sClubPP
+
+tpSouth = hcp(south) + sSSP - sPP
+
+## Calculate TP for West
+wSpadeSSP = spades(west)<3   ? 3-spades(west)   : 0
+wHeartSSP = hearts(west)<3   ? 3-hearts(west)   : 0
+wDiamSSP  = diamonds(west)<3 ? 3-diamonds(west) : 0
+wClubSSP  = clubs(west)<3    ? 3-clubs(west)    : 0
+wSSP = wSpadeSSP + wHeartSSP + wDiamSSP + wClubSSP
+
+wSpadePP = spades(west)<3   and hcp(west,spades)>0   ? 1 : 0
+wHeartPP = hearts(west)<3   and hcp(west,hearts)>0   ? 1 : 0
+wDiamPP  = diamonds(west)<3 and hcp(west,diamonds)>0 ? 1 : 0
+wClubPP  = clubs(west)<3    and hcp(west,clubs)>0    ? 1 : 0
+wPP = wSpadePP + wHeartPP + wDiamPP + wClubPP
+
+tpWest = hcp(west) + wSSP - wPP
+
+## Partnership Totals
+tpNS = tpNorth + tpSouth
+tpEW = tpEast + tpWest
+
+### End of Imported Script: TP
+
+noVoid = not shape(south, any 0xxx)
+w2s = spades(south)==6   and hearts(south)<=3 and diamonds(south)<=3 and clubs(south)<=4 and noVoid and top5(south,spades)>2
+w2h = hearts(south)==6   and spades(south)<=3 and diamonds(south)<=3 and clubs(south)<=4 and noVoid and top5(south,hearts)>2
+w2d = diamonds(south)==6 and spades(south)<=3 and hearts(south)<=3   and clubs(south)<=4 and noVoid and top5(south,diamonds)>2
+
+w2Range = tpSouth>6 and hcp(south)<11
+
+weakTwo = (w2s or w2h or w2d) and w2Range
+
+# Define responders hand types
+
+# Responder Raises
+sFit = w2s and spades(north)>2
+hFit = w2s and hearts(north)>2
+dFit = w2s and diamonds(north)>2
+fit = sFit or hFit or dFit
+
+# Define Feature -- an Ace or King outside the trump suit
+sAK = top2(south,spades)==1 and not sFit
+hAK = top2(south,hearts)==1 and not hFit
+dAK = top2(south,diamonds)==1 and not dFit
+cAK = top2(south,clubs)==1
+oHonor = (sAK or hAK or dAK or cAK)
+
+rPass = hcp(north)<15 and not fit
+rRaise = fit and hcp(north)<14               // Extend the preempt
+rInvite = fit and hcp(north)>13              // 2N
+rForce = hcp(north)>16 and not rInvite       // Do something
+
+# Responder bids new suit
+rGS = (spades(north)==5 && top5(north,spades)>3) or (spades(north)>5 and top5(north,spades) >2)
+rGH = (hearts(north)==5 && top5(north,hearts)>3) or (hearts(north)>5 and top5(north,hearts) >2)
+rGD = (diamonds(north)==5 && top5(north,diamonds)>3) or (diamonds(north)>5 and top5(north,diamonds) >2)
+rGC = (clubs(north)==5 && top5(north,clubs)>3) or (clubs(north)>5 and top5(north,clubs) >2)
+rGSuit = rGS or rGH or rGD or rGC
+rNewSuit = rForce and rGSuit
+
+# Opener shows feature
+oFeature = rInvite and hcp(south)>8 and oHonor
+
+# Opener rebids suit
+oRebid = rInvite and not oFeature
+
+# Level the deal
+HandType_case1 = rPass
+HandType_case2 = rRaise
+HandType_case3 = rInvite
+HandType_case4 = rForce
+
+### BEGIN GENERATED LEVELING ###
+# Generated by dealer --write-leveled. Do not edit; edit the stock
+# scenario and regenerate, or the two will disagree without saying so.
+#
+# measured over  36069 deals, seed 1
+#
+# type     natural    target     keep      seen
+# case1    0.58851   0.25000   0.0942     21227
+# case2    0.27142   0.25000   0.2043      9790
+# case3    0.08462   0.25000   0.6553      3052
+# case4    0.05545   0.25000   1.0000      2000
+#
+# exactness      1.000  (full)
+# acceptance     0.2218 of qualifying deals
+# cost           about 401 deals dealt per deal kept
+# precision      keeps set by case4, the rarest, seen 2000 times (+-2.2%); expect the mix within +-0.54 points
+
+roll = (rnd(1000) % 1000 + 1000) % 1000
+
+level_case1 = HandType_case1 and roll < 94
+level_case2 = HandType_case2 and roll < 204
+level_case3 = HandType_case3 and roll < 655
+level_case4 = HandType_case4
+levelTheDeal = level_case1 or level_case2 or level_case3 or level_case4
+### END GENERATED LEVELING ###
+
+# do it
+weakTwo
+and (HandType_case1 or HandType_case2 or HandType_case3 or HandType_case4) and levelTheDeal
+
+action printoneline,
+average "Responder pass          " 100 * rPass,
+average "Responder raise         " 100 * rRaise,
+average "Responder invite        " 100 * rInvite,
+average "Responder force         " 100 * rForce,
+
+average "2NT/Opener rebids major " 100 * oRebid,
+average "2NT/Opener shows feature" 100 * oFeature,
+average "New suit response       " 100 * rNewSuit,
+average "Trump fit               " 100 * fit,

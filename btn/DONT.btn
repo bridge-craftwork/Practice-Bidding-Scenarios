@@ -46,15 +46,17 @@ c2D = (sGD    and (sGH or sGS))        and not (cX or c2C)
 c2H = (sGH    and sGS)                 and not (cX or c2C or c2D) 
 c2S = minWithSpades                    and not (cX or c2C or c2D or c2H) 
 
-#include "script/Leveling"
-
 # Define Leveling
-lX = cX  and keep03
-lC = c2C and keep19
-lD = c2D and keep33
-lH = c2H and keep75
-lS = c2S and keep03
-levelTheDeal = lX or lC or lD or lH or lS
+HandType_X = cX
+HandType_C = c2C
+HandType_D = c2D
+HandType_H = c2H
+HandType_S = c2S
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now OPEN 1NT
 gibNT and (cX or c2C or c2D or c2H or c2S) and tpSouth>8

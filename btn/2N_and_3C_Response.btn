@@ -46,13 +46,17 @@ minor2 = ((cN>4 and dN>3) or (dN>4 and cN>3)) and (hcp(north,clubs) + hcp(north,
 smolen   = shape(north,54xx+45xx-any 7xxx-any 6xxx-any 55xx)       and (game or slam) and shape(south,33xx+32xx+23xx)  // rebid 2D
 stayman  = shape(north,44xx+4xxx+x4xx-54xx-45xx-any 7xxx-any 6xxx) and (game or slam) and not smolen
 
-#include "script/Leveling"
-
-levGame    = game    and keep14
-levSlam    = slam    and keep
+HandType_Game = game
+HandType_Slam = slam
  
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
 ### Do it ###
-twoNT and (smolen or stayman) and (levGame or levSlam)
+twoNT and (smolen or stayman)
+and (HandType_Game or HandType_Slam) and levelTheDeal
 
 ### Generate Statistics ###
 produce 5000

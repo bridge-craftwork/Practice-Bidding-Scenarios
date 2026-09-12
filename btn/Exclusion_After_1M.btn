@@ -33,10 +33,9 @@ splinter = sOpens and shape(north,any 0xxx+any 1xxx) and tpNorth>12 and tpNorth<
 jacoby2n = sOpens and tpNorth>12 and not splinter
 invite   = sOpens  and tpNorth>9 and tpNorth<13 and not (splinter or jacoby2n)
 
-#include "script/Leveling"
-levSpl = splinter and keep
-levJ2n = jacoby2n and keep
-levInv = invite   and keep
+levSpl = splinter
+levJ2n = jacoby2n
+levInv = invite
 levelTheDeal = levSpl or levJ2n or levInv
 
 (splinter or jacoby2n or invite) and (tpNorth + tpSouth)>32

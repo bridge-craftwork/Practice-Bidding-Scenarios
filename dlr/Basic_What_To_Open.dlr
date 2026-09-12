@@ -30,44 +30,6 @@ https://pfdubois.github.io/BridgeBidding/Opening.html#choosing-an-opening-bid
 
 dealer south
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 ntShape = shape(south,any 4333 + any 4432 + any 5332 - 5xxx -x5xx)
 
 oN = hcp(south)>14 and hcp(south)<18 and ntShape
@@ -94,14 +56,17 @@ wHcp = hcp(west) < 11
 
 # Leveling: balance the six opening-bid paths so each shows up roughly equally.
 # 2N is so rare it stays at full keep regardless.
-lev1C = oC and keep25
-lev1D = oD and keep19
-lev1H = oH and keep30
-lev1S = oS and keep25
-lev1N = oN and keep44
-lev2N = tN and keep
+HandType_1C = oC
+HandType_1D = oD
+HandType_1H = oH
+HandType_1S = oS
+HandType_1N = oN
+HandType_2N = tN
 
-levelTheDeal = lev1C or lev1D or lev1H or lev1S or lev1N or lev2N
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 (oS or oH or oD or oC or oN or tN) and sHcp and levelTheDeal
 

@@ -10,11 +10,11 @@
 --- Jacoby 2N (Leveled)
 Five different Opening hands can be described after a major suit open and a Jacoby 2N response. The percentages
 are the approximate frequency of occurrence for the various hand types using this leveled script.
-• 4x (21%) - any strength with a good (5-cards with 2+ of top 3) second suit
-• 3x (23%) - any strength with a singleton/void
-• 3M (20%) - 18+ semi-balanced
-• 3N (20%) - 15-17 semi-balanced
-• 4M (16%) - 12-14 semi-balanced
+• 4x ({{level-mix:x4}}) - any strength with a good (5-cards with 2+ of top 3) second suit
+• 3x ({{level-mix:x3}}) - any strength with a singleton/void
+• 3M ({{level-mix:M3}}) - 18+ semi-balanced
+• 3N ({{level-mix:N3}}) - 15-17 semi-balanced
+• 4M ({{level-mix:M4}}) - 12-14 semi-balanced
 @chat*/
 
 produce 5000
@@ -56,15 +56,17 @@ M4 = mFit and suitPoints>11 and suitPoints<15 and not (x4 or x3 or M3 or N3)
 
 ##### End of Jacoby 2N #####
 
-#include "script/Leveling"
-
 # Do the leveling
-levelx4 = x4 and keep25
-levelx3 = x3 and keep03
-levelM3 = M3 and keep86
-levelN3 = N3 and keep14
-levelM4 = M4 and keep03
-levelTheDeal = levelx3 or levelM4 or levelM3 or levelx4 or levelN3
+HandType_x4 = x4
+HandType_x3 = x3
+HandType_M3 = M3
+HandType_N3 = N3
+HandType_M4 = M4
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ##### Now do it #####
 condition

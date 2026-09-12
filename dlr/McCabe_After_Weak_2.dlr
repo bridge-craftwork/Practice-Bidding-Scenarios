@@ -94,53 +94,18 @@ mySuit = (sS or sH or sD or sC) and not fit and not (rule17 or rule15 or leadAsk
 ### Define pass
 pass = not (rule17 or rule15 or leadAsk or raise or mySuit)
 
-# Define leveling
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Level the deal
-lRule17      = rule17     and keep75
-lRule15      = rule15     and keep25
-lLeadAsk     = leadAsk    and keep14
-lRaise       = raise      and keep06
-lmySuit      = mySuit     and keep94
-lPass        = pass       and keep03
-levelTheDeal = lRule17 or lRule15 or lLeadAsk or lRaise or lmySuit or lPass
+HandType_Rule17 = rule17
+HandType_Rule15 = rule15
+HandType_LeadAsk = leadAsk
+HandType_Raise = raise
+HandType_mySuit = mySuit
+HandType_Pass = pass
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 weakTwo and westX and (rule17 or rule15 or leadAsk or raise or mySuit or pass)

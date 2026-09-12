@@ -42,11 +42,13 @@ calmEast  = ((length5or6East  and noConEast  and hcp(east) <9) or (length4East  
 shaded = hcp(south)>3 and hcp(south)<12 and shape(south,any 64xx+any 63xx+any 54xx+any 5332-any 55xx-xxx6-xxx5)
 full   = hcp(south)>11 and hcp(south)<15
 
-#include "script/Leveling"
+HandType_Shaded = shaded
+HandType_Full = full
 
-levShaded = shaded and keep
-levFull   = full   and keep53
-levelTheDeal = levShaded or levFull
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it...
 calmNorth and calmEast and (shaded or full)

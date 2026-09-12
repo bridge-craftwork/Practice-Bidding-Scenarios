@@ -187,49 +187,19 @@ s2C = s2CRange and sMajor and not s2N
 s3x = s3xRange and sMajor and shape(south,any 65xx+any 55xx)
 s2x = s2xRange and sMajor and not shape(south,any 6xxx) and not s3x   // avoid 1H - 2H and 1S - 2S 
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
+lev2x = s2x
+lev3x = s3x
+lev2C = s2C
+lev2N = s2N
+HandType_2x = lev2x
+HandType_3x = lev3x
+HandType_2C = lev2C
+HandType_2N = lev2N
 
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
-lev2x = s2x and keep06
-lev3x = s3x and keep
-lev2C = s2C and keep25
-lev2N = s2N and keep11
-levelTheDeal = lev2x or lev3x or lev2C or lev2N
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 (s2x or s3x or s2C or s2N) and calmOpps and nRange and not gibNT 
 and levelTheDeal

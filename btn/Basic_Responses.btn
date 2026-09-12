@@ -26,7 +26,6 @@ right.
 
 dealer north
 
-#include "script/Leveling"
 #include "script/Calm-Opponents"
 # provides calmOpps (both opponents too weak or flat to interfere)
 
@@ -86,12 +85,23 @@ f5 = (r2_over1S or r2_over1H) and sHcp > 9 and sHcp < 13 and ss < 4 and (not ((o
 southHand = f1 or f2 or f3 or f4 or f5
 
 # ===== Level toward mostly-minimum spread; the 10+ families are the minority tier =====
-levF1 = f1 and keep
-levF2 = f2 and keep25
-levF3 = f3 and keep
-levF4 = f4 and keep
-levF5 = f5 and keep25
-levelTheDeal = levF1 or levF2 or levF3 or levF4 or levF5
+HandType_F1 = f1
+HandType_F2 = f2
+HandType_F3 = f3
+HandType_F4 = f4
+HandType_F5 = f5
+
+# The minimum families (F1-F3) twice as often as the 10+ ones (F4, F5): 75/25
+HandType_F1_Share = 2
+HandType_F2_Share = 2
+HandType_F3_Share = 2
+HandType_F4_Share = 1
+HandType_F5_Share = 1
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 northOpens and southHand and calmOpps and levelTheDeal
 

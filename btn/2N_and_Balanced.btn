@@ -37,13 +37,17 @@ slam = strength>11
 
 balanced = shape(north,any 4333 +any 4432 +any 5332 -5xxx-x5xx)
 
-#include "script/Leveling"
+HandType_Game = game
+HandType_Slam = slam
 
-levGame = game and keep11
-levSlam = slam and keep
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 ### Do it ###
-twoNT and balanced and (levGame or levSlam)
+twoNT and balanced
+and (HandType_Game or HandType_Slam) and levelTheDeal
 
 ### Generate Statistics
 

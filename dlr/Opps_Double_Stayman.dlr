@@ -25,48 +25,14 @@ n2C = shape(north, 54xx+44xx+43xx+34xx+42xx+24xx) and hcp(north)>8
 oneSuit = shape(east,any 7xxx+any 6xxx+any 5xxx-any 75xx-any 66xx-any 65xx-any 55xx)
 eDoubles = ((clubs(east)>4 and top4(east,clubs)==3) or (clubs(east)>5 and top4(east,clubs)==2)) and hcp(east)>8 and oneSuit
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Reduce long club suits
-lev5 = clubs(east)==5 and keep
-levMore = clubs(east)>5 and keep44
-levelTheDeal = lev5 or levMore
+HandType_5 = clubs (east) ==5
+HandType_More = clubs (east) >5
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 sNT and n2C and eDoubles
 and levelTheDeal

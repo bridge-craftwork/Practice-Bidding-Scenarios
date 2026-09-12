@@ -61,11 +61,13 @@ calmEast  = ((length5or6East  and noConEast  and hcp(east) <9) or (length4East  
 # For 4th seat, the rule points of 15 applies -- it should be less than 15 for a pass-out.
 r15 = hcp(south) + spades(south)
 
-#include "script/Leveling"
+HandType_14 = r15==14
+HandType_15 = r15==15
 
-lev14 = r15==14 and keep94
-lev15 = r15==15 and keep56
-levelTheDeal = lev14 or lev15
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 calmWest and calmNorth and calmEast and hcp(south)>10 and hcp(south)<15 and r15>13 and r15<16

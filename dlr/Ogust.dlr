@@ -163,51 +163,17 @@ case3H = maximal and poorSuit                    // Maximal, poor suit
 case3S = maximal and goodSuit and not solidSuit  // Maximal, good suit
 case3N = solidSuit                               // Solid suit (AKQ)
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
 # Level: bring 3D and 3S down toward 3H (14%)
-lev3C = case3C and keep
-lev3D = case3D and keep53
-lev3H = case3H and keep
-lev3S = case3S and keep25
-lev3N = case3N and keep
-levelTheDeal = lev3C or lev3D or lev3H or lev3S or lev3N
+HandType_3C = case3C
+HandType_3D = case3D
+HandType_3H = case3H
+HandType_3S = case3S
+HandType_3N = case3N
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 weakTwo and northAsks and calmOpps and levelTheDeal
 

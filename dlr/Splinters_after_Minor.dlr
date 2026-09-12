@@ -3,6 +3,12 @@
 # scenario-title: --- Splinter Bids are double jumps.  They show a singleton or void in the suit bid and support
 # gib-works: true
 # bba-works: true
+# level-budget: 400000
+# Grand slams are 1 qualifying deal in 400 here, so leveling the three types
+# evenly would cost about 1.6 million deals per deal kept -- more than pbn can
+# deal in its 300,000,000-deal limit, let alone a BBO table. 400,000 is the most
+# that still leaves pbn room for 500 boards; it brings grand slams from 0.25%
+# to about 8%. See notes/plans/294-leveling-conversion-findings.md.
 # auction-filter: Auction.....\n(1C Pass 3[DHS]|1D Pass (3[HS]|4C))
 # convention-card-ns: 21GF-DEFAULT
 # convention-card-ew: 21GF-GIB
@@ -253,48 +259,16 @@ game  = (tpNorth + tpSouth)<33 and not part
 slam  = (tpNorth + tpSouth)<37 and not (part or game)
 grand =                            not (part or game or slam)
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
+# No part-score type: combined TP under 26 cannot happen once North splinters
+# (dealer3: "never seen in 778 deals: `1`")
+HandType_2 = game
+HandType_3 = slam
+HandType_4 = grand
 
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-lev1 = part  and keep
-lev2 = game  and keep70
-lev3 = slam  and keep
-lev4 = grand and keep
-levelTheDeal = lev1 or lev2 or lev3 or lev4
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 sOpens and calmWest and nSplinters
 and levelTheDeal

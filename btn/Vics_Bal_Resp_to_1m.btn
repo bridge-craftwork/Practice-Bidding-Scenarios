@@ -40,12 +40,15 @@ n2 = hcp(north)>=11 and hcp(north)<=12
 n3 = hcp(north)>=13 and hcp(north)<=15
 n4 = hcp(north)>=16 and hcp(north)<=17
 
-#include "script/Leveling"
-lev1N = n1 and keep14
-lev2H = n2 and keep30
-lev2N = n3 and keep33
-lev3N = n4 and keep
-levelTheDeal = lev1N or lev2H or lev2N or lev3N
+HandType_1N = n1
+HandType_2H = n2
+HandType_2N = n3
+HandType_3N = n4
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 (oneClub or oneDiamond) and (n1 or n2 or n3 or n4) and nNT and calmWest

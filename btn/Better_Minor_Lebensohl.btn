@@ -61,12 +61,15 @@ weak   = hcp(north)<8
 invite = hcp(north)>7 and hcp(north)<12
 force  = hcp(north)>11
 
-#include "script/Leveling"
 # Define leveling
-levWeak   = weak   and keep89
-levInvite = invite and keep30
-levForce  = force  and keep70
-levelTheDeal = levWeak or levInvite or levForce
+HandType_Weak = weak
+HandType_Invite = invite
+HandType_Force = force
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 eOpensWeak2 and sDoubles and wPasses and (weak or invite or force)
 and levelTheDeal

@@ -1,0 +1,289 @@
+# leveled-from: dlr/Major_Suit_Fit.dlr sha256:77fc496f2b9aac6d1b027f0ab8ff976566f685335961d77fa9e4a7f26057b190
+# alias: MajorSuitFit
+# button-text: Major Suit Fit (Lev)
+# scenario-title: --- Major Suit Fit
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n((1H +Pass +[2-7]H)|(1S +Pass +[2-7]S))
+# curate: kind=bidding
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Major Suit Fit
+  • 2M = 8-10 TP and 3+ card support
+  • 1N/2M = 4-7 TP and 3+ card support (Forcing/Semi-Forcing NT followed by 2M)
+  • 1N/3M = 11-12 TP and 3-card support (Forcing/Semi-Forcing NT followed by 3M)
+  • 3M = 11-12 TP and 4+ card support
+  • 4M = 0-7 TP and 5+ card support
+TP = HCP + short suit points + 1 for 4+ support-not-4333
+Check the link below for more information
+https://www.larryco.com/bridge-articles/major-openings-part-1
+4NT is Roman Keycard Blackwood (1430) with a trump suit agreed, or quantitative (inviting 6NT) in a notrump auction. Keycard responses:
+  • 5!C = 1 or 4 keycards
+  • 5!D = 0 or 3
+  • 5!H = 2 without the trump queen
+  • 5!S = 2 with the trump queen
+@chat*/
+
+# Major_Suit_Fit
+dealer north
+
+##### Imported Script -- Predict Opening 1-Bid North #####
+# 01/19/2026 -- Changed to use TP and separate ranges for C, D, and majors
+# 03/30/2025 -- Changed to use gibNT
+
+# GIB opens 1N w/15-17 HCP or 15-16 and a 5-card major
+ntP = hcp(north) + shape(north,5xxx+x5xx)
+nt1 = shape(north, any 5332+any 4432+any 4333) and hcp(north)>14 and ntP<18
+
+# GIB does not open with 5422 and a 5-card major
+# GIB does not open with 5422 and the strength to reverse
+nt2 = shape(north, any 5422 -5xxx-x5xx-4xxx) and hcp(north)>14 and hcp(north)<17
+
+gibNT = nt1 or nt2
+
+## Calculate TP for North -- NOTE:  This uses different variable names than TP to avoid conflicts when both are used.
+# Calculate North's Short-Suit Penalty Points
+ssp = spades(north)<3 and hcp(north,spades)>0     ? 1 : 0
+shp = hearts(north)<3 and hcp(north,hearts)>0     ? 1 : 0
+sdp = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+scp = clubs(north)<3 and hcp(north,clubs)>0       ? 1 : 0
+
+# Calculate North's Short-Suit Points
+sv01 = shape(north, any 0xxx) ? 3 : 0
+ss01 = shape(north, any 1xxx) ? 2 : 0 // allow for 2 singletons
+ss02 = shape(north, any 11xx) ? 2 : 0
+sd01 = shape(north, any 2xxx) ? 1 : 0 // allow for 3 doubletons
+sd02 = shape(north, any 22xx) ? 1 : 0
+sd03 = shape(north, any 222x) ? 1 : 0
+
+# Calculate North's Total Points
+nTP = hcp(north) + sv01+ss01+ss02+sd01+sd02+sd03 -ssp-shp-sdp-scp
+
+# Calculate length points for North (lengthPoints)
+lp1 = spades(north)>4 ? spades(north)-4 : 0
+lp2 = hearts(north)>4 ? hearts(north)-4 : 0
+lp3 = diamonds(north)>4 ? diamonds(north)-4 : 0
+lp4 = clubs(north)>4 ? clubs(north)-4 : 0
+lengthPoints = lp1 + lp2 + lp3 + lp4
+
+# Define suit points for north (suitPoints)
+suitPoints = hcp(north) + lengthPoints
+
+TwoNtShape = shape(north, any 4333 +any 4432 +any 5332 +any 5422)
+
+# Define ntPoint ranges
+oneNT   = gibNT
+twoNT   = TwoNtShape and hcp(north)>19 and hcp(north)<22
+
+# Define Gambling 3N
+g3Shape = shape(north,any 9xxx +any 8xxx +any 7xxx -any 4xxx -any 5xxx -any 6xxx)
+threeNT = (top3(north,clubs)==3 and clubs(north)>6) or (top3(north,diamonds)==3 and diamonds(north)>6) and hcp(north)<12 and g3Shape
+
+# Define Game Forcing 2C
+case1 = hcp(north)>18 and nTP>21
+case2 = hcp(north)>18 and nTP>19 and losers(north)<5 and (spades(north)>5 or hearts(north)>5)
+case3 = hcp(north)>18 and nTP>19 and losers(north)<4 and (diamonds(north)>5 or clubs(north)>5)
+gameForce2C = (case1 or case2 or case3)
+
+### Predict North's opening BID
+P1 = gameForce2C
+P2 = P1 or threeNT or twoNT or oneNT
+
+# Define quality and length lower limits for 10 HCP openers
+
+q2of3 = (top3(north,spades)>1 or top3(north,hearts)>1) and controls(north)>3
+lgt5  = (spades(north)>4 or hearts(north)>4) and shape(north,any 7xxx +any 64xx +any 55xx +any 1xxx+any 0xxx -any 8xxx -any 54xx) and nTP>(hcp(north) +2)
+
+# Predict North's Opening suit
+# What's the longest suit?
+s = spades(north)
+h = hearts(north)
+d = diamonds(north)
+c = clubs(north)
+
+## GIB has different requirements for 1H/S, 1D, and 1C openings
+#Define range for 1 H/S
+lS = s>4 and s>=h and s>=d and s>=c
+lH = h>4 and h>s and h>=d and h>=c
+lM = lS or lH
+
+hsOK1 = lM and hcp(north)>11
+hsOK2 = lM and hcp(north)>10 and nTP>12 and not hsOK1
+hsOK3 = lM and hcp(north)>9  and lgt5 and q2of3 and not (hsOK1 or hsOK2)
+hsRange = (hsOK1 or hsOK2 or hsOK3) and not P2
+
+# Define 1D Range
+dOK1 = hcp(north)>11 and (diamonds(north)>3 or shape(north, 4432))
+dOK2 = hcp(north)>9  and nTP>12 and diamonds(north)>5 and not dOK1
+dRange = (dOK1 or dOK2) and not P2
+
+# Define 1C Range
+cOK1 = hcp(north)>10 and nTP>12 and spades(north)==4
+cOK2 = hcp(north)>9  and nTP>12 and clubs(north)>5 and not cOK1
+cOK3 = hcp(north)>11 and clubs(north)>2            and not (cOK1 or cOK2)
+cRange = (cOK1 or cOK2 or cOK3) and clubs(north)>2 and clubs(north)>diamonds(north) and not P2
+
+oS = s>4 and s>=h and s>=d and s>=c and hsRange
+oH = not oS and h>4 and h>=d and h>=c and hsRange
+oD = not (oS or oH) and ((d>3 and d>=c) or c<3) and dRange
+oC = not (oS or oH or oD) and cRange
+openingSuit = (oS or oH or oD or oC)
+oneSpade   = oS
+oneHeart   = oH
+oneDiamond = oD
+oneClub    = oC
+
+##### End of Imported Script -- Predict Opening 1-Bid-North #####
+# Returns oS & oH
+
+### Imported script: TP (Total Points)
+//   Total Points = HCP + Short-Suit Points - Penalty Points
+//   Short-Suit Points: 3 for void, 2 for singleton, 1 for doubleton
+//   Penalty Points: 1 for each honor (K/Q/J) in a short suit (devalues wasted honors like Kx, Qx)
+
+## Calculate TP for North
+# Short-Suit Points: void=3, singleton=2, doubleton=1
+nSpadeSSP = spades(north)<3   ? 3-spades(north)   : 0
+nHeartSSP = hearts(north)<3   ? 3-hearts(north)   : 0
+nDiamSSP  = diamonds(north)<3 ? 3-diamonds(north) : 0
+nClubSSP  = clubs(north)<3    ? 3-clubs(north)    : 0
+nSSP = nSpadeSSP + nHeartSSP + nDiamSSP + nClubSSP
+
+# Penalty Points: deduct 1 for honors in short suits
+nSpadePP = spades(north)<3   and hcp(north,spades)>0   ? 1 : 0
+nHeartPP = hearts(north)<3   and hcp(north,hearts)>0   ? 1 : 0
+nDiamPP  = diamonds(north)<3 and hcp(north,diamonds)>0 ? 1 : 0
+nClubPP  = clubs(north)<3    and hcp(north,clubs)>0    ? 1 : 0
+nPP = nSpadePP + nHeartPP + nDiamPP + nClubPP
+
+tpNorth = hcp(north) + nSSP - nPP
+
+## Calculate TP for East
+eSpadeSSP = spades(east)<3   ? 3-spades(east)   : 0
+eHeartSSP = hearts(east)<3   ? 3-hearts(east)   : 0
+eDiamSSP  = diamonds(east)<3 ? 3-diamonds(east) : 0
+eClubSSP  = clubs(east)<3    ? 3-clubs(east)    : 0
+eSSP = eSpadeSSP + eHeartSSP + eDiamSSP + eClubSSP
+
+eSpadePP = spades(east)<3   and hcp(east,spades)>0   ? 1 : 0
+eHeartPP = hearts(east)<3   and hcp(east,hearts)>0   ? 1 : 0
+eDiamPP  = diamonds(east)<3 and hcp(east,diamonds)>0 ? 1 : 0
+eClubPP  = clubs(east)<3    and hcp(east,clubs)>0    ? 1 : 0
+ePP = eSpadePP + eHeartPP + eDiamPP + eClubPP
+
+tpEast = hcp(east) + eSSP - ePP
+
+## Calculate TP for South
+sSpadeSSP = spades(south)<3   ? 3-spades(south)   : 0
+sHeartSSP = hearts(south)<3   ? 3-hearts(south)   : 0
+sDiamSSP  = diamonds(south)<3 ? 3-diamonds(south) : 0
+sClubSSP  = clubs(south)<3    ? 3-clubs(south)    : 0
+sSSP = sSpadeSSP + sHeartSSP + sDiamSSP + sClubSSP
+
+sSpadePP = spades(south)<3   and hcp(south,spades)>0   ? 1 : 0
+sHeartPP = hearts(south)<3   and hcp(south,hearts)>0   ? 1 : 0
+sDiamPP  = diamonds(south)<3 and hcp(south,diamonds)>0 ? 1 : 0
+sClubPP  = clubs(south)<3    and hcp(south,clubs)>0    ? 1 : 0
+sPP = sSpadePP + sHeartPP + sDiamPP + sClubPP
+
+tpSouth = hcp(south) + sSSP - sPP
+
+## Calculate TP for West
+wSpadeSSP = spades(west)<3   ? 3-spades(west)   : 0
+wHeartSSP = hearts(west)<3   ? 3-hearts(west)   : 0
+wDiamSSP  = diamonds(west)<3 ? 3-diamonds(west) : 0
+wClubSSP  = clubs(west)<3    ? 3-clubs(west)    : 0
+wSSP = wSpadeSSP + wHeartSSP + wDiamSSP + wClubSSP
+
+wSpadePP = spades(west)<3   and hcp(west,spades)>0   ? 1 : 0
+wHeartPP = hearts(west)<3   and hcp(west,hearts)>0   ? 1 : 0
+wDiamPP  = diamonds(west)<3 and hcp(west,diamonds)>0 ? 1 : 0
+wClubPP  = clubs(west)<3    and hcp(west,clubs)>0    ? 1 : 0
+wPP = wSpadePP + wHeartPP + wDiamPP + wClubPP
+
+tpWest = hcp(west) + wSSP - wPP
+
+## Partnership Totals
+tpNS = tpNorth + tpSouth
+tpEW = tpEast + tpWest
+
+### End of Imported Script: TP
+# Returns tpSouth
+
+# Avoid preempts, weak 2, Michaels, and Unusual NT
+ePreempt  = shape(east,any 9xxx +any 8xxx +any 7xxx +any 6xxx) and hcp(east)>3
+e2Suits   = shape(east,any 76xx +any 75xx +any 66xx +any 65xx +any 55xx) and hcp(east)>3
+eOvercall = shape(east,any 5xxx) and hcp(east)>7
+ePasses   = hcp(east)<11 and not(ePreempt or e2Suits or eOvercall)
+
+# Define South's 3- 4+ and 5+ card fits
+spadeFit3 = oS and spades(south)==3
+spadeFit4 = oS and spades(south)==4
+spadeFit5 = oS and spades(south)>4
+heartFit3 = oH and hearts(south)==3
+heartFit4 = oH and hearts(south)==4
+heartFit5 = oH and hearts(south)>4
+fit3 = spadeFit3 or heartFit3
+fit4 = spadeFit4 or heartFit4
+fit5 = spadeFit5 or heartFit5
+
+# Calculate South's Total Points: tpSouth +1 for 4+ support unless 4333
+sP = tpSouth + (fit4 and shape(south,xxxx-any 4333))
+
+# Avoid Splinter
+Splinter = fit4 and shape(south,any 0xxx +any 1xxx) and sP>10 and sP<16
+
+preempt = sP<8            and fit5
+faulty  = sP>3  and sP<8  and (fit3 or fit4)
+simple  = sP>7  and sP<11 and (fit3 or fit4)
+invite3 = sP>10 and sP<13 and fit3
+invite4 = sP>10 and sP<13 and fit4
+
+HandType_1 = faulty
+HandType_2 = simple
+HandType_3 = invite3
+HandType_4 = invite4
+HandType_5 = preempt
+
+### BEGIN GENERATED LEVELING ###
+# Generated by dealer --write-leveled. Do not edit; edit the stock
+# scenario and regenerate, or the two will disagree without saying so.
+#
+# measured over  94101 deals, seed 1
+#
+# type    natural    target     keep      seen
+# 1       0.25869   0.20000   0.0822     24343
+# 2       0.43234   0.20000   0.0492     40684
+# 3       0.21583   0.20000   0.0985     20310
+# 4       0.07188   0.20000   0.2957      6764
+# 5       0.02125   0.20000   1.0000      2000
+#
+# exactness      1.000  (full)
+# acceptance     0.1063 of qualifying deals
+# cost           about 828 deals dealt per deal kept
+# precision      keeps set by 5, the rarest, seen 2000 times (+-2.2%); expect the mix within +-0.44 points
+
+roll = (rnd(1000) % 1000 + 1000) % 1000
+
+level_1 = HandType_1 and roll < 82
+level_2 = HandType_2 and roll < 49
+level_3 = HandType_3 and roll < 98
+level_4 = HandType_4 and roll < 296
+level_5 = HandType_5
+levelTheDeal = level_1 or level_2 or level_3 or level_4 or level_5
+### END GENERATED LEVELING ###
+
+nOpens = (oH or oS) and hcp(north)>11 and hcp(north)<19
+sResponds = (preempt or faulty or simple or invite3 or invite4) and not Splinter
+
+nOpens and ePasses and sResponds
+and levelTheDeal
+
+action printoneline,
+average "faulty raise  " 100 * faulty,
+average "simple raise  " 100 * simple,
+average "3-card invite " 100 * invite3,
+average "4-card invite " 100 * invite4,
+average "preempt       " 100 * preempt,

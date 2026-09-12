@@ -109,50 +109,20 @@ trapwD = wD       and top5(south,diamonds)>2
 trapwC = wC       and top5(south,clubs)>2
 trap   = trap1S or trap1H or trapwS or trapwH or trapwD or trapwC
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
+l1t = eOpens1 and trap
+l1n = eOpens1 and not trap
+l2t = eOpens2 and trap
+l2n = eOpens2 and not trap
 
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
+HandType_1t = l1t
+HandType_1n = l1n
+HandType_2t = l2t
+HandType_2n = l2n
 
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
-
-l1t = eOpens1 and trap     and keep19
-l1n = eOpens1 and not trap and keep06
-l2t = eOpens2 and trap     and keep
-l2n = eOpens2 and not trap and keep25
-
-levelTheDeal = l1t or l1n or l2t or l2n
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 wPasses   = hcp(west)<6
 nBalances = hcp(north)>10 and shape(north,any 5440+any 5431+any 4441)

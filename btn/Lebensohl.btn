@@ -55,12 +55,14 @@ n0Suit  = shape(north,any 4432+any 4333+any 4441) and hcp(north)>9
 n1Suit  = (GSN or GHN or GDN or GCN)              and hcp(north)>8
 nForces = (n0Suit or n1Suit)
 
-#include "script/Leveling"
-
 # Reduce West's 1-suited hands
-lev1Suit  = w1Suit  and keep03
-lev2Suit  = w2Suit  and keep
-levelTheDeal = (lev2Suit or lev1Suit)
+HandType_1Suit = w1Suit
+HandType_2Suit = w2Suit
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Now do it
 sOpens and wCompetes and nForces

@@ -70,19 +70,20 @@ game       = hcp(north)>4  and hcp(north)<11
 slamInvite = hcp(north)>10 and hcp(north)<14
 slamForce  = hcp(north)>13
 
-#include "script/Leveling"
-
 # Leveling: balance game and slam outcomes.
 # Game-zone (5-10) is the most common range; slam ranges rarer.
-levGame      = game and keep33
-levSlamInv   = slamInvite and keep
-levSlamForce = slamForce and keep
+HandType_Game = game
+HandType_SlamInv = slamInvite
+HandType_SlamForce = slamForce
 
-levelTheDeal = levGame or levSlamInv or levSlamForce
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # Combine
 twoN and nQualifies and nNoLongSuit
-and levelTheDeal
+and (HandType_Game or HandType_SlamInv or HandType_SlamForce) and levelTheDeal
 
 action
 average "Has 4!S only       " 100 * nHas4SAndNot4H,

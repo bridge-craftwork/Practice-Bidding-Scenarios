@@ -27,43 +27,6 @@ right.
 
 dealer north
 
-### Imported Leveling Code ###
-c1 = hascard(west,2C)
-c2 = hascard(east,2D)
-c3 = hascard(west,3C)
-c4 = hascard(east,3D)
-
-keep06 = c1 and c2          // this is used later w/c3 & c4 expressions
-keep44 = c3 or c4           // this is used later w/c1 & c2 expressions
-
-keep015 = keep06 and c3
-keep03 = keep06 and keep44
-keep045 = keep06 and not c3
-####06 = c1 and c2
-keep11 = c1 and keep44
-keep14 = c1 and not keep44
-keep19 = c1 and not c2
-keep25 = c1
-keep30 = keep06 or c3
-keep33 = c1 or (c2 and keep44)
-####44 = c3 or c4
-keep47 = keep44 or keep06
-
-keep53 = not keep47
-keep56 = not keep44
-keep67 = not keep33
-keep70 = not keep30
-keep75 = not keep25
-keep81 = not keep19
-keep86 = not keep14
-keep89 = not keep11
-keep94 = not keep06
-keep955 = not keep045
-keep97 = not keep03
-keep985 = not keep015
-keep   = 1
-keep0  = 0
-### End of Imported Leveling Code ###
 ##### Imported Script: Define Calm Opponents #####
 
 # Avoid concentration of values
@@ -148,12 +111,23 @@ f5 = (r2_over1S or r2_over1H) and sHcp > 9 and sHcp < 13 and ss < 4 and (not ((o
 southHand = f1 or f2 or f3 or f4 or f5
 
 # ===== Level toward mostly-minimum spread; the 10+ families are the minority tier =====
-levF1 = f1 and keep
-levF2 = f2 and keep25
-levF3 = f3 and keep
-levF4 = f4 and keep
-levF5 = f5 and keep25
-levelTheDeal = levF1 or levF2 or levF3 or levF4 or levF5
+HandType_F1 = f1
+HandType_F2 = f2
+HandType_F3 = f3
+HandType_F4 = f4
+HandType_F5 = f5
+
+# The minimum families (F1-F3) twice as often as the 10+ ones (F4, F5): 75/25
+HandType_F1_Share = 2
+HandType_F2_Share = 2
+HandType_F3_Share = 2
+HandType_F4_Share = 1
+HandType_F5_Share = 1
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 northOpens and southHand and calmOpps and levelTheDeal
 

@@ -56,16 +56,7 @@ wAllAces = hascard(west,AS) + hascard(west,AH) + hascard(west,AD) + hascard(west
 wOutsideAces = wAllAces - wTrumpAce
 wXX = (wSuitLen + length)<11 and wSuitLen>2 and wOutsideAces>1 and controls(west)>5 and hcp(west)>14
 
-# Define leveling
-#include "script/Leveling"
-
-lev7 = length==7 and keep25
-lev8 = length==8 and keep81
-lev9 = length==9 and keep
-levelTheDeal = lev7 or lev8 or lev9
-
 eOpens and sDoubles and wXX
-#and levelTheDeal
 
 action
 average "hcp East " hcp(east),

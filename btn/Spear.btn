@@ -120,13 +120,16 @@ X    = shape(north,any 5422+any 5332+any 4432+any 4333) and hcp(north)>12 and no
 nSpear = twoC or twoD or twoH or twoS or X
 
 # Define Leveling
-#include "script/Leveling"
-lev2C = twoC and keep
-lev2D = twoD and keep47
-lev2H = twoH and keep67
-lev2S = twoS and keep67
-levX  = X    and keep06
-levelTheDeal = lev2C or lev2D or lev2H or lev2S or levX
+HandType_2C = twoC
+HandType_2D = twoD
+HandType_2H = twoH
+HandType_2S = twoS
+HandType_X = X
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
 
 # East opens 1 minor, South Passes, West bid's 1N, and North makes a Spear bid
 eOneMinor and sPasses and wOneNT and nSpear
