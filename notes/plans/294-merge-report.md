@@ -293,5 +293,19 @@ because those feed `py/spiral_auction.py`.
    that lesson wants.
 4. The six narrowed conditions: no deal changes, but they now exclude those
    hands in writing.
-5. Whether the `-g` fix should be folded into PR #329 or ride along with this
-   branch.
+5. Nothing about the `-g` fix: it rides along on this branch rather than being
+   folded into #329. No scenario on `main` or on #329 declares hand types (0
+   files, against 68 here), so `level` there skips every scenario and the
+   missing `-g` is unreachable. The fix arrives in the same merge as the first
+   files that need it. The one condition is not regenerating anything — a
+   `release` included, since it runs `level` — between the two merges.
+
+Two guards were added to `level` alongside it:
+
+- The "measuring stopped on the clock" warning now matches only dealer3's
+  clock message. It used to fire on the thin-measurement warning as well,
+  because that names `--level-timeout` too.
+- A thin measurement now says so: when the rarest hand type was seen fewer than
+  500 times, `level` prints how well the keeps are known and that the error does
+  not average out. `Splinters_after_Minor` (407 sightings) is the one committed
+  scenario that trips it.

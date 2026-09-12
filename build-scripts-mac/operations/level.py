@@ -43,10 +43,24 @@ VERIFY_DEALS = 10000
 # calling the leveling wrong
 VERIFY_TOLERANCE = 0.02
 
+# Sightings of the rarest type below which the keeps are worth a word. dealer3
+# aims for 2,000 (about +-2.2%); at 500 it is about +-4.5%. A keep divides by a
+# measured rate, so a rate measured thin is wrong for good — dealing more
+# afterwards converges on the wrong mix rather than around the right one.
+MIN_SIGHTINGS = 500
+
 # A row of the summary dealer3 prints to stderr:
 #   type     natural    target       mix     keep      seen
 #   12_14    0.58301   0.20000   0.20000   0.0217     92304
 MIX_ROW = re.compile(r"^\s+(\S+)\s+[\d.]+\s+[\d.]+\s+([\d.]+)\s+[\d.]+\s+\d+\s*$")
+
+# "keeps pinned down by `22_24`, the rarest, seen 2000 times: +-2.2%"
+SIGHTINGS = re.compile(r"pinned down by `([^`]+)`, the rarest, seen (\d+) times")
+
+# dealer3 names only --level-timeout when the clock ended the measuring; its
+# thin-measurement warning says "Raise --level-measure or --level-timeout",
+# which is a different thing and must not read as a clock stop.
+CLOCK_STOP = re.compile(r"Raise --level-timeout\b")
 
 
 def _rel(path: str) -> str:
@@ -135,11 +149,24 @@ def run_level(scenario: str, verbose: bool = True) -> bool:
                 print(f"  {line}")
         print(f"  Created: {_rel(leveled)}")
 
-    # dealer3 names the switch when the clock, not the sightings, ended the
-    # measuring. The file is still usable, but a rebuild won't reproduce it.
-    if "--level-timeout" in report:
+    # The clock, not the sightings, ended the measuring. The file is still
+    # usable, but a rebuild won't reproduce it: a deal limit stops on the same
+    # deal every time, the clock stops wherever it lands.
+    if CLOCK_STOP.search(report):
         print(f"  Warning: measuring {scenario} stopped on the clock, so a rebuild won't be "
-              f"byte-identical. Raise LEVEL_TIMEOUT in config.py, or set # level-budget.")
+              f"byte-identical. Raise LEVEL_TIMEOUT in config.py, or widen the hand types.")
+
+    # How well the keeps are known. Say so here rather than leaving it to be
+    # read out of dealer3's own summary.
+    m = SIGHTINGS.search(report)
+    if m and int(m.group(2)) < MIN_SIGHTINGS:
+        print(f"  Warning: {scenario}'s rarest hand type `{m.group(1)}` was seen only "
+              f"{m.group(2)} times, so its keep is measured to about "
+              f"±{100 / int(m.group(2)) ** 0.5:.0f}%, and that error does not average out. "
+              f"Raise LEVEL_GENERATE or LEVEL_TIMEOUT in config.py, or widen the hand types.")
+    elif not m:
+        print(f"  Warning: dealer3 reported no precision for {scenario}'s keeps; "
+              f"check the summary above.")
 
     return _verify(leveled, report, verbose)
 
