@@ -27,6 +27,7 @@ OUTPUT_FILE = os.path.join(PROJECT_ROOT, "docs", "Scenario_Summary.html")
 # Columns for ET: operation names and their short display headers
 OP_COLUMNS = [
     ("dlr", "dlr"),
+    ("level", "level"),
     ("pbn", "pbn"),
     ("rotate", "rotate"),
     ("bba", "bba"),

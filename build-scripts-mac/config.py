@@ -83,7 +83,10 @@ FOLDERS = {
     "btn": os.path.join(PROJECT_ROOT, "btn"),
     "pbs": os.path.join(PROJECT_ROOT, "PBS"),
     "dlr": os.path.join(PROJECT_ROOT, "dlr"),
+    # Leveled copies (issue #322); where one exists it wins downstream
+    "dlr_leveled": os.path.join(PROJECT_ROOT, "dlr-leveled"),
     "pbn": os.path.join(PROJECT_ROOT, "pbn"),
+    "pbn_leveled": os.path.join(PROJECT_ROOT, "pbn-leveled"),
     "pbn_rotated": os.path.join(PROJECT_ROOT, "pbn-rotated-for-4-players"),
     "lin_rotated": os.path.join(PROJECT_ROOT, "lin-rotated-for-4-players"),
     "bba": os.path.join(PROJECT_ROOT, "bba"),
@@ -144,6 +147,12 @@ SEED_OFFSET = 1          # Increment to regenerate all scenarios with fresh deal
 DEALER_GENERATE = 300000000
 DEALER_PRODUCE = 500
 
+# Leveling parameters (the level operation, issue #322). The seed is fixed so a
+# rebuild is byte-identical. The timeout is set well past what measuring takes,
+# because a run the clock stops won't reproduce.
+LEVEL_SEED = 1
+LEVEL_TIMEOUT = 600      # seconds
+
 # Bidding sheet parameters
 BIDDING_SHEET_MAX_BOARDS = 50  # Max boards to include in bidding sheets PDF
 
@@ -157,6 +166,7 @@ def dealer_seed(scenario: str) -> int:
 # Pipeline operations in order
 OPERATIONS_ORDER = [
     "dlr",      # Generate DLR from BTN
+    "level",    # Leveled DLR, for a scenario that declares hand types (issue #322)
     "pbn",
     "rotate",
     "bba",

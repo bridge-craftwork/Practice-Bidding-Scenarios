@@ -10,7 +10,8 @@ import sys
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from config import FOLDERS, MAC_TOOLS
+from config import FOLDERS, MAC_TOOLS, PROJECT_ROOT
+from utils.leveling import leveled_or_original
 
 
 def run_rotate(scenario: str, verbose: bool = True) -> bool:
@@ -20,6 +21,8 @@ def run_rotate(scenario: str, verbose: bool = True) -> bool:
     pbn/{scenario}.pbn -> pbn-rotated-for-4-players/{scenario}.pbn
                        -> lin-rotated-for-4-players/{scenario}.lin
 
+    Reads pbn-leveled/{scenario}.pbn instead when the scenario is leveled.
+
     Args:
         scenario: Scenario name (e.g., "Smolen")
         verbose: Whether to print progress
@@ -27,11 +30,12 @@ def run_rotate(scenario: str, verbose: bool = True) -> bool:
     Returns:
         True if successful, False otherwise
     """
+    pbn_path = leveled_or_original(scenario, "pbn")
     if verbose:
-        print(f"--------- bridge-wrangler: Creating rotated files for {scenario}")
+        print(f"--------- bridge-wrangler: Creating rotated files for {scenario} "
+              f"from {os.path.relpath(pbn_path, PROJECT_ROOT)}")
 
     # Check that PBN file exists
-    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
     if not os.path.exists(pbn_path):
         print(f"Error: rotate: PBN file not found: {pbn_path}")
         return False

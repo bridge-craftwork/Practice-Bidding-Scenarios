@@ -17,6 +17,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from config import FOLDERS, MAC_TOOLS, PROJECT_ROOT
 from utils.properties import get_convention_card_ns, get_convention_card_ew
 from operations.title import get_title_from_pbs
+from utils.leveling import leveled_or_original
 
 # Timeout for BBA completion
 BBA_TIMEOUT = 300
@@ -107,8 +108,11 @@ def run_bba(scenario: str, verbose: bool = True, output_dir: str = None) -> bool
     Returns:
         True if successful, False otherwise
     """
+    # pbn-leveled/ when the scenario is leveled (issue #322)
+    pbn_path = leveled_or_original(scenario, "pbn")
     if verbose:
-        print(f"--------- bba-cli: Creating bba/{scenario}.pbn from pbn/{scenario}.pbn")
+        print(f"--------- bba-cli: Creating bba/{scenario}.pbn from "
+              f"{os.path.relpath(pbn_path, PROJECT_ROOT)}")
 
     bba_cli = MAC_TOOLS.get("bba_cli")
     if not bba_cli or not os.path.exists(bba_cli):
@@ -116,7 +120,6 @@ def run_bba(scenario: str, verbose: bool = True, output_dir: str = None) -> bool
         print(f"  Install from https://github.com/Rick-Wilson/BBA-Tools/releases (.dmg)")
         return False
 
-    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
     if not os.path.exists(pbn_path):
         print(f"Error: PBN file not found: {pbn_path}")
         return False

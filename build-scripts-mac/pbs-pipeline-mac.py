@@ -36,6 +36,7 @@ def print_error(msg: str):
     print(f"{RED}{msg}{RESET}")
 
 # Import operations
+from operations.level import run_level
 from operations.pbn_from_dlr import run_pbn
 from operations.rotate import run_rotate
 from operations.bba_from_pbn import run_bba
@@ -54,6 +55,7 @@ from scenario_summary import generate_summary
 # Map operation names to functions
 OPERATIONS = {
     "dlr": run_dlr,         # Generate DLR from BTN
+    "level": run_level,     # Leveled copy of a DLR that declares hand types
     "pbn": run_pbn,
     "rotate": run_rotate,
     "bba": run_bba,
@@ -362,7 +364,10 @@ Examples:
 
 Operations (in order):
     dlr         - Generate DLR from BTN file (outputs to dlr/)
-    pbn         - Generate PBN hands from DLR using dealer
+    level       - For a DLR that declares HandType_ variables, write the leveled
+                  copy to dlr-leveled/; it wins downstream wherever it exists
+    pbn         - Generate PBN hands from DLR using dealer (and pbn-leveled/
+                  from dlr-leveled/, when the scenario is leveled)
     rotate      - Create rotated PBN/LIN files for 4-player practice
     bba         - Analyze bidding with BBA
     filter      - Filter hands by auction pattern

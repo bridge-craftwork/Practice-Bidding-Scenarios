@@ -2,7 +2,7 @@ import * as vscode from 'vscode';
 import * as path from 'path';
 import * as fs from 'fs';
 import { getBtnMetadata, clearMetadataCache } from './btnParser';
-import { getScenarioFromPath } from './scenarioPaths';
+import { getScenarioFromPath, isLeveled, pbnFor } from './scenarioPaths';
 
 /**
  * Find the first packaged PBN file for a scenario in the Bidding Scenarios hierarchy.
@@ -28,37 +28,60 @@ function findPackagePath(scenario: string, root: string): string {
 
 // Define all artifacts in pipeline order with their dependencies
 // requiresBba indicates artifacts that need bba-works=true to be shown
+// requiresLeveled indicates artifacts only a leveled scenario has (issue #322)
 const ARTIFACTS = [
     {
         name: 'dlr',
         shortName: 'dlr',
         requiresBba: false,
+        requiresLeveled: false,
         getPath: (s: string, r: string) => path.join(r, 'dlr', `${s}.dlr`),
         getSourcePath: (s: string, r: string) => path.join(r, 'btn', `${s}.btn`),
         command: 'pbs.runDlr'
     },
     {
+        name: 'dlr-leveled',
+        shortName: 'lvl',
+        requiresBba: false,
+        requiresLeveled: true,
+        getPath: (s: string, r: string) => path.join(r, 'dlr-leveled', `${s}.dlr`),
+        getSourcePath: (s: string, r: string) => path.join(r, 'dlr', `${s}.dlr`),
+        command: 'pbs.runLevel'
+    },
+    {
         name: 'pbn',
         shortName: 'pbn',
         requiresBba: false,
+        requiresLeveled: false,
         getPath: (s: string, r: string) => path.join(r, 'pbn', `${s}.pbn`),
         getSourcePath: (s: string, r: string) => path.join(r, 'dlr', `${s}.dlr`),
+        command: 'pbs.runPbn'
+    },
+    {
+        name: 'pbn-leveled',
+        shortName: 'pbnL',
+        requiresBba: false,
+        requiresLeveled: true,
+        getPath: (s: string, r: string) => path.join(r, 'pbn-leveled', `${s}.pbn`),
+        getSourcePath: (s: string, r: string) => path.join(r, 'dlr-leveled', `${s}.dlr`),
         command: 'pbs.runPbn'
     },
     {
         name: 'rotate',
         shortName: 'rot',
         requiresBba: false,
+        requiresLeveled: false,
         getPath: (s: string, r: string) => path.join(r, 'pbn-rotated-for-4-players', `${s}.pbn`),
-        getSourcePath: (s: string, r: string) => path.join(r, 'pbn', `${s}.pbn`),
+        getSourcePath: (s: string, r: string) => pbnFor(s, r),
         command: 'pbs.runRotate'
     },
     {
         name: 'bba',
         shortName: 'bba',
         requiresBba: true,
+        requiresLeveled: false,
         getPath: (s: string, r: string) => path.join(r, 'bba', `${s}.pbn`),
-        getSourcePath: (s: string, r: string) => path.join(r, 'pbn', `${s}.pbn`),
+        getSourcePath: (s: string, r: string) => pbnFor(s, r),
         command: 'pbs.runBba'
     },
     {
@@ -94,7 +117,7 @@ const ARTIFACTS = [
             // Package copies from bba-filtered (with pbn fallback), so compare against actual source
             const filtered = path.join(r, 'bba-filtered', `${s}.pbn`);
             if (fs.existsSync(filtered)) { return filtered; }
-            return path.join(r, 'pbn', `${s}.pbn`);
+            return pbnFor(s, r);
         },
         command: 'pbs.runPackage'
     }
@@ -335,9 +358,11 @@ export class CurrentScenarioProvider implements vscode.TreeDataProvider<Scenario
             // Get scenario metadata to filter artifacts
             const metadata = getBtnMetadata(this.currentScenario!, this.workspaceRoot!);
 
-            // Filter artifacts based on bbaWorks
+            // Filter artifacts based on bbaWorks, and on whether the scenario is leveled
+            const leveled = isLeveled(this.currentScenario!, this.workspaceRoot!);
             const visibleArtifacts = ARTIFACTS.filter(artifact =>
-                !artifact.requiresBba || metadata.bbaWorks
+                (!artifact.requiresBba || metadata.bbaWorks) &&
+                (!artifact.requiresLeveled || leveled)
             );
 
             // Build artifact children

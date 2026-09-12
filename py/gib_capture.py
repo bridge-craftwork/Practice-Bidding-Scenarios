@@ -62,10 +62,16 @@ LOCK = os.path.join(tempfile.gettempdir(), 'pbs-gib-capture.lock')
 
 
 def resolve_dlr(arg: str) -> tuple:
-    """A scenario name or a .dlr path -> (scenario name, .dlr path)."""
+    """A scenario name or a .dlr path -> (scenario name, .dlr path).
+
+    A scenario name reads its leveled copy when it has one (issue #322).
+    """
     if arg.endswith('.dlr') or os.sep in arg:
         path = os.path.abspath(arg)
         return os.path.splitext(os.path.basename(path))[0], path
+    leveled = os.path.join(PROJECT_ROOT, 'dlr-leveled', f'{arg}.dlr')
+    if os.path.exists(leveled):
+        return arg, leveled
     return arg, os.path.join(PROJECT_ROOT, 'dlr', f'{arg}.dlr')
 
 

@@ -73,6 +73,10 @@
         "title": "PBS: Run DLR"
       },
       {
+        "command": "pbs.runLevel",
+        "title": "PBS: Run Level"
+      },
+      {
         "command": "pbs.runPbn",
         "title": "PBS: Run PBN"
       },
@@ -99,6 +103,10 @@
       {
         "command": "pbs.runDlrPlus",
         "title": "PBS: Run DLR+"
+      },
+      {
+        "command": "pbs.runLevelPlus",
+        "title": "PBS: Run Level+"
       },
       {
         "command": "pbs.runPbnPlus",
@@ -148,7 +156,7 @@
       },
       {
         "command": "pbs.runRelease",
-        "title": "PBS: Publish (commit + push btn/dlr)"
+        "title": "PBS: Publish (commit + push btn/dlr/dlr-leveled)"
       },
       {
         "command": "pbs.runReleaseLayout",
@@ -184,7 +192,7 @@
       "editor/title": [
         {
           "submenu": "pbs.pipeline",
-          "when": "resourcePath =~ /\\/(btn|dlr|pbn|pbn-rotated-for-4-players|bba|bba-filtered|bba-filtered-out|bba-summary|bidding-sheets|lin|lin-rotated-for-4-players|quiz)\\/[^/]+$/ && resourceFilename != -button-layout-beta.txt",
+          "when": "resourcePath =~ /\\/(btn|dlr|dlr-leveled|pbn|pbn-leveled|pbn-rotated-for-4-players|bba|bba-filtered|bba-filtered-out|bba-summary|bidding-sheets|lin|lin-rotated-for-4-players|quiz)\\/[^/]+$/ && resourceFilename != -button-layout-beta.txt",
           "group": "navigation"
         },
         {
@@ -201,6 +209,10 @@
         {
           "command": "pbs.runDlr",
           "group": "2_individual@1"
+        },
+        {
+          "command": "pbs.runLevel",
+          "group": "2_individual@2"
         },
         {
           "command": "pbs.runPbn",
@@ -242,6 +254,10 @@
         {
           "command": "pbs.runDlrPlus",
           "group": "3_plus@1"
+        },
+        {
+          "command": "pbs.runLevelPlus",
+          "group": "3_plus@2"
         },
         {
           "command": "pbs.runPbnPlus",

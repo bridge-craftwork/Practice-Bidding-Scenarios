@@ -6,9 +6,11 @@ The BBO extension and Bridge Classroom load dlr/<name>.dlr from main, so a push
 to main is the release (issue #321). Which buttons each channel shows is still
 set by btn/-button-layout-{release,beta}.txt; see release-layout.
 
-The .dlr is regenerated from the .btn first, so what ships always matches the
-master file. Only those two files are committed; anything else staged or
-modified in the tree is left alone.
+The .dlr is regenerated from the .btn first, and then leveled (issue #322), so
+what ships always matches the master file. Only those files are committed:
+the .btn, the .dlr, and dlr-leveled/<name>.dlr when the scenario is leveled
+(or its removal, when it no longer is). Anything else staged or modified in
+the tree is left alone.
 
 This operation is intentionally NOT included in OPERATIONS_ORDER,
 so it won't run with "*" or "op+" wildcards. It must be invoked explicitly.
@@ -22,6 +24,8 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 from config import FOLDERS, PROJECT_ROOT
 from operations.dlr_from_btn import run_dlr
+from operations.level import run_level
+from utils.leveling import leveled_dlr_path
 
 
 def _git(*args):
@@ -49,18 +53,23 @@ def run_release(scenario: str, verbose: bool = True) -> bool:
         print(f"Error: release: on branch '{branch}'; release pushes main")
         return False
 
-    if not run_dlr(scenario, verbose):
+    if not run_dlr(scenario, verbose) or not run_level(scenario, verbose):
         return False
 
     paths = [
         os.path.relpath(os.path.join(FOLDERS["btn"], f"{scenario}.btn"), PROJECT_ROOT),
         os.path.relpath(os.path.join(FOLDERS["dlr"], f"{scenario}.dlr"), PROJECT_ROOT),
     ]
+    # The leveled copy ships with it, or its deletion does when level removed it
+    leveled = os.path.relpath(leveled_dlr_path(scenario), PROJECT_ROOT)
+    if os.path.exists(leveled_dlr_path(scenario)) or \
+            _git("ls-files", "--error-unmatch", "--", leveled).returncode == 0:
+        paths.append(leveled)
 
     original_dir = os.getcwd()
     os.chdir(PROJECT_ROOT)
     try:
-        result = _git("add", "--", *paths)
+        result = _git("add", "-A", "--", *paths)
         if result.returncode != 0:
             print(f"  Git add failed: {result.stderr.strip()}")
             return False
