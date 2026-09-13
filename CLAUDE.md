@@ -182,7 +182,6 @@ Extension provides:
 - `dlr/` - Extracted dealer code
 - `dlr-leveled/` - Leveled copies of the `.dlr` files that declare hand types, from the `level` operation (issue #322). Committed, stamped with their source's hash; where one exists it wins downstream
 - `pbn-leveled/` - Hands dealt from `dlr-leveled/`, interleaved by hand type; `pbn/` keeps the natural mix beside them
-- `pbs-release/` - **Frozen.** The `.pbs` files older BBO extension sessions load. Nothing writes it any more (issue #321); delete it once those sessions have turned over. `pbs-test/` and the `pbs` operation are gone.
 - `pbn/` - Bridge Portable Notation files (~500 hands each)
 - `pbn-rotated-for-4-players/` - Rotated PBN for 4-player practice
 - `lin-rotated-for-4-players/` - LIN format for BBO
@@ -230,7 +229,7 @@ Pipeline operations in `build-scripts-mac/operations/`:
 ### Data Formats
 
 1. **BTN (Button / master scenario)**: The authored source format — combines dealer constraints with button metadata for BBO integration. Lives in `btn/`; everything else is derived from it.
-2. **PBS (Practice Bidding Scenario)**: The old BBOalert wrapper around a `.dlr`. Only the frozen `pbs-release/` copies remain; nothing generates them now
+2. **PBS (Practice Bidding Scenario)**: Retired. The old BBOalert wrapper around a `.dlr`; nothing generates or reads one now (issue #321). The name survives in `-PBS.txt` and the VS Code extension
 3. **DLR (Dealer)**: Dealer language for hand generation constraints - a DSL for expressing bridge hand requirements
 4. **PBN (Portable Bridge Notation)**: Standard bridge hand format, ~160-170KB per file (~500 hands)
 5. **BBA (Bridge Base Archive)**: PBN with bidding analysis, ~300-340KB per file
