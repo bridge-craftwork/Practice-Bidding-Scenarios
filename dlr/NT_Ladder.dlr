@@ -31,12 +31,44 @@ hcp18_19 = hcp(south) >= 18 and hcp(south) <= 19
 hcp20_21 = hcp(south) >= 20 and hcp(south) <= 21
 hcp22_24 = hcp(south) >= 22 and hcp(south) <= 24
 
-# Level the ranges (12-14 is most common, 22-24 is rarest)
+# The five bands: what the deals are tagged, charted and interleaved by
 HandType_12_14 = hcp12_14
 HandType_15_17 = hcp15_17
 HandType_18_19 = hcp18_19
 HandType_20_21 = hcp20_21
 HandType_22_24 = hcp22_24
+
+# Level on each HCP, not on the band: levelling the bands alone leaves the
+# inside of each as nature had it, and a 12 is far commoner than a 14.
+# Shares keep the bands even while the values inside them are flat — a value in
+# a two-wide band is wanted half again as often as one in a three-wide band.
+LevelType_12 = hcp(south) == 12
+LevelType_13 = hcp(south) == 13
+LevelType_14 = hcp(south) == 14
+LevelType_15 = hcp(south) == 15
+LevelType_16 = hcp(south) == 16
+LevelType_17 = hcp(south) == 17
+LevelType_18 = hcp(south) == 18
+LevelType_19 = hcp(south) == 19
+LevelType_20 = hcp(south) == 20
+LevelType_21 = hcp(south) == 21
+LevelType_22 = hcp(south) == 22
+LevelType_23 = hcp(south) == 23
+LevelType_24 = hcp(south) == 24
+
+LevelType_12_Share = 2      # 12-14, 15-17 and 22-24 are three HCP wide
+LevelType_13_Share = 2
+LevelType_14_Share = 2
+LevelType_15_Share = 2
+LevelType_16_Share = 2
+LevelType_17_Share = 2
+LevelType_18_Share = 3      # 18-19 and 20-21 are two
+LevelType_19_Share = 3
+LevelType_20_Share = 3
+LevelType_21_Share = 3
+LevelType_22_Share = 2
+LevelType_23_Share = 2
+LevelType_24_Share = 2
 
 ### BEGIN GENERATED LEVELING ###
 noLeveling = 1
