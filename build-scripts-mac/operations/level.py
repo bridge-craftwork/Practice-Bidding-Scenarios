@@ -190,7 +190,13 @@ def _verify(leveled: str, report: str, verbose: bool) -> bool:
            "--stats-json"]
     try:
         result = subprocess.run(cmd, capture_output=True, text=True, timeout=600)
-        shares = {t["name"]: t["share"] for t in json.loads(result.stdout)["hand_types"]}
+        stats = json.loads(result.stdout)
+        # A scenario that levels on LevelType_ is checked against those: the
+        # keeps and the mix table are over them, and its hand types only group
+        # the deals (NT_Ladder: five bands grouped, each HCP levelled).
+        # dealer3 omits level_types when they would just be the hand types.
+        shares = {t["name"]: t["share"]
+                  for t in stats.get("level_types") or stats["hand_types"]}
     except subprocess.TimeoutExpired:
         print(f"Error: level: checking {_rel(leveled)} took over 600 seconds")
         return False
@@ -198,6 +204,15 @@ def _verify(leveled: str, report: str, verbose: bool) -> bool:
         print(f"Error: level: couldn't read the check run's --stats-json (exit {result.returncode})")
         if result.stderr:
             print(result.stderr.strip())
+        return False
+
+    # Names in the mix with no count at all mean the check run reported
+    # different categories, not that the keeps dealt none of them.
+    missing = [name for name in mix if name not in shares]
+    if missing:
+        print(f"Error: level: the check run reported no counts for {', '.join(missing)}. "
+              f"Checking a scenario that levels on LevelType_ needs a dealer3 whose "
+              f"--stats-json reports level_types")
         return False
 
     if verbose:
