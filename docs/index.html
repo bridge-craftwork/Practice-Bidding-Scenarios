@@ -177,14 +177,14 @@
     </style>
     <script>
 const DASHBOARD_DATA = {
-  "generatedAt": "2026-09-09T18:01:31.709418",
+  "generatedAt": "2026-09-13T12:07:40.986701",
   "summary": {
-    "totalScenarios": 347,
-    "scenariosWorked": 347,
-    "totalFileEdits": 49605,
+    "totalScenarios": 348,
+    "scenariosWorked": 348,
+    "totalFileEdits": 47653,
     "totalPipelineRuns": 2712,
-    "totalSessionHours": 6279,
-    "totalCommits": 7527
+    "totalSessionHours": 6309,
+    "totalCommits": 7587
   },
   "charts": {
     "labels": [
@@ -219,7 +219,7 @@ const DASHBOARD_DATA = {
       "Sep 26"
     ],
     "fileEdits": [
-      3851,
+      1899,
       5419,
       2185,
       232,
@@ -281,7 +281,7 @@ const DASHBOARD_DATA = {
       4
     ],
     "commits": [
-      66,
+      36,
       209,
       187,
       41,
@@ -309,10 +309,10 @@ const DASHBOARD_DATA = {
       312,
       476,
       72,
-      20
+      110
     ],
     "sessionHours": [
-      45,
+      29,
       143,
       158,
       47,
@@ -340,7 +340,7 @@ const DASHBOARD_DATA = {
       573,
       592,
       281,
-      54
+      100
     ],
     "scenariosWorked": [
       120,
@@ -370,26 +370,11 @@ const DASHBOARD_DATA = {
       333,
       338,
       345,
-      346,
-      347
+      347,
+      348
     ]
   },
   "recentActivity": [
-    {
-      "timestamp": "2026-08-30T13:11:25.802Z",
-      "type": "pipeline_run",
-      "details": {
-        "scenario": "Lebensohl",
-        "operation": "release"
-      }
-    },
-    {
-      "timestamp": "2026-08-30T19:01:22.655Z",
-      "type": "session_end",
-      "details": {
-        "durationMinutes": 4529
-      }
-    },
     {
       "timestamp": "2026-08-30T22:41:25.570Z",
       "type": "session_start",
@@ -517,58 +502,70 @@ const DASHBOARD_DATA = {
         "scenario": "Opps_Preempt_4M",
         "operation": "release"
       }
+    },
+    {
+      "timestamp": "2026-09-10T13:58:07.559Z",
+      "type": "session_end",
+      "details": {
+        "durationMinutes": 2773
+      }
+    },
+    {
+      "timestamp": "2026-09-11T15:50:18.077Z",
+      "type": "session_start",
+      "details": {}
     }
   ],
   "recentCommits": [
     {
-      "hash": "0f279d31",
-      "date": "2026-09-09 16:37:09 -0500",
-      "message": "Daily dashboard update"
+      "hash": "f5746fc5",
+      "date": "2026-09-12 23:02:42 -0700",
+      "message": "Merge pull request #337 from bridge-craftwork/fix/nt-ladder-level-types"
     },
     {
-      "hash": "9adcae3f",
-      "date": "2026-09-09 16:32:53 -0500",
-      "message": "Release Opps_Preempt_4M to pbs-release"
+      "hash": "073e9d5c",
+      "date": "2026-09-12 22:54:49 -0700",
+      "message": "level: check a LevelType_ scenario against its level types"
     },
     {
-      "hash": "64899cc5",
-      "date": "2026-09-09 16:31:59 -0500",
-      "message": "Drop the strength-concentration test from Opps_Preempt_4M"
+      "hash": "2919fd4a",
+      "date": "2026-09-12 22:41:02 -0700",
+      "message": "NT_Ladder: level on each HCP, not on the five bands"
     },
     {
-      "hash": "29a8ea9d",
-      "date": "2026-09-09 16:30:40 -0500",
-      "message": "Update pbs-test/Opps_Preempt_4M.pbs"
+      "hash": "da42b756",
+      "date": "2026-09-12 21:20:08 -0700",
+      "message": "Merge pull request #335 from bridge-craftwork/chore/delete-pbs-release"
     },
     {
-      "hash": "211b0037",
-      "date": "2026-09-09 16:27:48 -0500",
-      "message": "Update pbs-test/Opps_Preempt_4M.pbs"
+      "hash": "d38feca0",
+      "date": "2026-09-12 21:19:46 -0700",
+      "message": "Delete pbs-release/: the .pbs format is retired"
     },
     {
-      "hash": "0e5b3637",
-      "date": "2026-09-09 21:17:59 +0000",
-      "message": "manifest: rebuild from btn/pbs (9c8dfd6) [skip ci]"
+      "hash": "41e12d37",
+      "date": "2026-09-12 08:50:35 -0700",
+      "message": "Merge pull request #333 from bridge-craftwork/feat/keep-note-filters"
     },
     {
-      "hash": "9c8dfd61",
-      "date": "2026-09-09 16:17:05 -0500",
-      "message": "Promote Opps_Preempt/Opps_Preempt_4M pairing to release layout"
+      "hash": "6a189579",
+      "date": "2026-09-11 22:22:46 -0700",
+      "message": "Keep the BBA Note filters where GIB cannot bid the convention (#328 follow-up)"
     },
     {
-      "hash": "ba02ff90",
-      "date": "2026-09-09 21:02:02 +0000",
-      "message": "manifest: rebuild from btn/pbs (3644c6a) [skip ci]"
+      "hash": "3d8e82ab",
+      "date": "2026-09-12 04:53:38 +0000",
+      "message": "manifest: rebuild from btn/dlr (0abc65c) [skip ci]"
     },
     {
-      "hash": "3644c6a2",
-      "date": "2026-09-09 16:01:11 -0500",
-      "message": "Release Opps_Preempt_4M to pbs-release"
+      "hash": "0abc65c2",
+      "date": "2026-09-11 21:52:04 -0700",
+      "message": "Merge pull request #332 from bridge-craftwork/feat/294-handtypes"
     },
     {
-      "hash": "abec3a8b",
-      "date": "2026-09-09 20:57:41 +0000",
-      "message": "manifest: rebuild from btn/pbs (b33f2e7) [skip ci]"
+      "hash": "6133fa32",
+      "date": "2026-09-11 21:52:01 -0700",
+      "message": "Merge pull request #329 from bridge-craftwork/feat/level-operation"
     }
   ]
 };
