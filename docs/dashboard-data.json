@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-09-14T12:01:25.287272",
+  "generatedAt": "2026-09-14T18:01:39.642254",
   "summary": {
     "totalScenarios": 349,
-    "scenariosWorked": 348,
+    "scenariosWorked": 349,
     "totalFileEdits": 47462,
-    "totalPipelineRuns": 2712,
+    "totalPipelineRuns": 2715,
     "totalSessionHours": 6360,
-    "totalCommits": 7585
+    "totalCommits": 7591
   },
   "charts": {
     "labels": [
@@ -100,7 +100,7 @@
       37,
       65,
       5,
-      4
+      7
     ],
     "commits": [
       31,
@@ -131,7 +131,7 @@
       312,
       476,
       72,
-      113
+      119
     ],
     "sessionHours": [
       26,
@@ -193,27 +193,10 @@
       338,
       345,
       347,
-      348
+      349
     ]
   },
   "recentActivity": [
-    {
-      "timestamp": "2026-09-01T14:41:51.358Z",
-      "type": "session_start",
-      "details": {}
-    },
-    {
-      "timestamp": "2026-09-01T16:44:33.330Z",
-      "type": "session_end",
-      "details": {
-        "durationMinutes": 123
-      }
-    },
-    {
-      "timestamp": "2026-09-06T09:51:02.345Z",
-      "type": "session_start",
-      "details": {}
-    },
     {
       "timestamp": "2026-09-08T14:40:42.137Z",
       "type": "session_end",
@@ -336,9 +319,63 @@
       "timestamp": "2026-09-14T15:27:55.630Z",
       "type": "session_start",
       "details": {}
+    },
+    {
+      "timestamp": "2026-09-14T22:03:18.289Z",
+      "type": "pipeline_run",
+      "details": {
+        "scenario": "Competitive_Doubles",
+        "operation": "release"
+      }
+    },
+    {
+      "timestamp": "2026-09-14T22:05:45.947Z",
+      "type": "pipeline_run",
+      "details": {
+        "scenario": "-button-layout-release",
+        "operation": "release"
+      }
+    },
+    {
+      "timestamp": "2026-09-14T22:06:46.780Z",
+      "type": "pipeline_run",
+      "details": {
+        "scenario": "Competitive_Doubles",
+        "operation": "release"
+      }
     }
   ],
   "recentCommits": [
+    {
+      "hash": "1e439a3b",
+      "date": "2026-09-14 22:11:00 +0000",
+      "message": "manifest: rebuild from btn/dlr (19b2cda) [skip ci]"
+    },
+    {
+      "hash": "19b2cda8",
+      "date": "2026-09-14 17:10:08 -0500",
+      "message": "Release button layout to production"
+    },
+    {
+      "hash": "e4ed1c14",
+      "date": "2026-09-14 16:47:12 -0500",
+      "message": "NT_Ladder: rebuild downstream files from the per-HCP leveled script"
+    },
+    {
+      "hash": "90e8832d",
+      "date": "2026-09-14 21:46:45 +0000",
+      "message": "manifest: rebuild from btn/dlr (bdce118) [skip ci]"
+    },
+    {
+      "hash": "bdce118e",
+      "date": "2026-09-14 16:45:47 -0500",
+      "message": "Add Competitive_Doubles scenario (second takeout double, TWiB 647)"
+    },
+    {
+      "hash": "a1b43cec",
+      "date": "2026-09-14 12:02:19 -0500",
+      "message": "Daily dashboard update"
+    },
     {
       "hash": "ebff6943",
       "date": "2026-09-14 06:02:18 -0500",
@@ -358,36 +395,6 @@
       "hash": "f5746fc5",
       "date": "2026-09-12 23:02:42 -0700",
       "message": "Merge pull request #337 from bridge-craftwork/fix/nt-ladder-level-types"
-    },
-    {
-      "hash": "073e9d5c",
-      "date": "2026-09-12 22:54:49 -0700",
-      "message": "level: check a LevelType_ scenario against its level types"
-    },
-    {
-      "hash": "2919fd4a",
-      "date": "2026-09-12 22:41:02 -0700",
-      "message": "NT_Ladder: level on each HCP, not on the five bands"
-    },
-    {
-      "hash": "da42b756",
-      "date": "2026-09-12 21:20:08 -0700",
-      "message": "Merge pull request #335 from bridge-craftwork/chore/delete-pbs-release"
-    },
-    {
-      "hash": "d38feca0",
-      "date": "2026-09-12 21:19:46 -0700",
-      "message": "Delete pbs-release/: the .pbs format is retired"
-    },
-    {
-      "hash": "41e12d37",
-      "date": "2026-09-12 08:50:35 -0700",
-      "message": "Merge pull request #333 from bridge-craftwork/feat/keep-note-filters"
-    },
-    {
-      "hash": "6a189579",
-      "date": "2026-09-11 22:22:46 -0700",
-      "message": "Keep the BBA Note filters where GIB cannot bid the convention (#328 follow-up)"
     }
   ]
 }
