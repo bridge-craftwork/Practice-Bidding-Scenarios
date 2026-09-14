@@ -1,0 +1,152 @@
+# alias: CompetitiveDoubles
+# button-text: Competitive Doubles
+# gib-works: true
+# bba-works: true
+# auction-filter: Auction.....\n1[HS] +X +Pass +(1S|2[CDH]) +2[HS]
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Competitive Doubles: the second takeout double
+East opens 1!H or 1!S. You (South) make a takeout double, West passes, and
+partner (North) advances as cheaply as he can in his best suit. East rebids
+his suit. Your turn again.
+
+"A double shows the values to compete in the bidding, but no clear opinion
+about what to do." Your takeout double promised 3+ cards in every unbid
+suit, so partner's suit may be the one you hold only three of — and a weak
+partner had to bid SOMETHING. Choose by strength first, then by fit:
+
+• Pass — a minimum takeout double (12-14 HCP). You have already described
+  your hand; leave the rest to partner.
+• Raise partner — extra values (17+ HCP, or 16 with a singleton) AND
+  4+ card support for the suit partner bid.
+• Double again — the same extra values but only 3-card support. The
+  second takeout double says "I want to compete, but I do not know where."
+  Partner can rebid his suit, try another suit, or pass for penalty with a
+  trump stack. (With a strong 5-card minor of your own, bidding it at the
+  3-level is the alternative; the robots often prefer it.)
+
+A perfect second double: !SAK85 !H4 !DKT972 !CAJ6 after 1!H (X) P (2!C);
+2!H (?) — extras, three clubs, and the diamonds are not worth 3!D on their own.
+
+The robots (BBA and GIB) wait for about 17 before acting again; the article
+is happier to compete on 14+. The 15-16 HCP hands where the styles part
+company are left out of this scenario.
+
+Level: intermediate.
+Reference: https://www.advinbridge.com/this-week-in-bridge/647
+@chat*/
+
+dealer east
+
+#include "script/TP"
+# Provides tpWest, tpNorth, tpEast, tpSouth.
+
+##### East opens 1H or 1S and later rebids it at the 2-level #####
+# A 6-card major, at most a 4-card minor beside it, so the rebid is 2M
+# rather than a second suit. 11-15 HCP: BBA opens 11 with a 6-card major;
+# 16+ would jump to 3M.
+oH = hearts(east)==6 and spades(east)<4
+oS = spades(east)==6 and hearts(east)<4
+eOneSuit = shape(east, any 6322 + any 6331 + any 6421)
+eRange   = hcp(east)>10 and hcp(east)<16
+eastHand = (oH or oS) and eOneSuit and eRange
+
+##### South makes a takeout double (the student) #####
+# Short in opener's major, 3+ in every unbid suit. Classic takeout shapes;
+# any 5-card suit is a minor (a 5-card unbid major would overcall instead),
+# and no 5332: with 3-3 beside the 5-card minor BBA overcalls the minor.
+sShort = (oH and hearts(south)<3) or (oS and spades(south)<3)
+sSupS  = oS or spades(south)>2
+sSupH  = oH or hearts(south)>2
+sSupport = sSupS and sSupH and diamonds(south)>2 and clubs(south)>2
+sShape   = shape(south, any 4441 + any 4432 + any 5431 + any 5440 + any 5422)
+sNoMajor5 = spades(south)<5 and hearts(south)<5
+
+# Not a 1NT overcall: balanced 15-18 with a stopper (K or better) in their suit.
+sStop = (oH and hcp(south,hearts)>2) or (oS and hcp(south,spades)>2)
+sNT   = shape(south, any 4432 + any 5332) and hcp(south)>14 and sStop
+
+# 12-18 HCP: strong enough to double, not strong enough to double and cuebid.
+sRange    = hcp(south)>11 and hcp(south)<19 and tpSouth>11
+southHand = sShort and sSupport and sShape and sNoMajor5 and sRange and not sNT
+
+##### West passes #####
+# Under 8 HCP so the robot has no 1NT and no redouble; fewer than 3 trumps so
+# no raise; no 5-card suit to introduce, and over 1H a 4-card spade suit only
+# with 0-4 HCP (BBA bids 1S on it from 5).
+wWeak    = hcp(west)<8
+wNoRaise = (oH and hearts(west)<3) or (oS and spades(west)<3)
+wNoLong  = spades(west)<5 and hearts(west)<5 and diamonds(west)<5 and clubs(west)<5
+wNo1S    = oS or spades(west)<4 or hcp(west)<5
+westHand = wWeak and wNoRaise and wNoLong and wNo1S
+
+##### North advances as cheaply as he can in his longest unbid suit #####
+# 0-7 HCP: with 8 BBA advances 1NT (stopper or not) or jumps on a 5-card
+# suit. Over 1H a 4+ card spade suit is bid at the 1-level (1S) with 0-6
+# HCP (BBA jumps to 2S with 7), the rest at the 2-level. The bid suit is the UNIQUE longest unbid suit of 4 or 5
+# cards (a 6-card suit jumps), so we know which suit South must support —
+# except 4-4 in the minors when South holds the minors equally, where
+# either bid lands in the same band. No 5-card stack in opener's suit
+# (that is a penalty pass).
+nS = oS ? 0 : spades(north)
+nH = oH ? 0 : hearts(north)
+nD = diamonds(north)
+nC = clubs(north)
+
+nBidS = oH and nS>3 and nS<6 and nS>=nD and nS>=nC and hcp(north)<7
+nBidH = oS and nH>3 and nH<6 and nH>nD and nH>nC
+nBidD = nD>3 and nD<6 and nD>nH and nD>nC and nD>nS
+nBidC = nC>3 and nC<6 and nC>nH and nC>nD and nC>nS
+nBidDC = nD>3 and nD<6 and nD==nC and nD>nH and nD>nS and diamonds(south)==clubs(south)
+nBids = nBidS or nBidH or nBidD or nBidC or nBidDC
+
+nNoStack  = (oH and hearts(north)<5) or (oS and spades(north)<5)
+nRange    = hcp(north)<8
+northHand = nBids and nNoStack and nRange
+
+##### South's second decision: the three hand types #####
+# Support for the suit North bid (a 4-4 minor tie falls through to clubs,
+# which South then holds equally with diamonds).
+sFit = nBidS ? spades(south) : (nBidH ? hearts(south) : (nBidD ? diamonds(south) : clubs(south)))
+
+# Minimum = 12-14 HCP; extras = 18+ total points (17 HCP, or 16 with a
+# singleton). The 15-17 HCP hands in between are where styles differ (the
+# article acts on about 14+; BBA and the robots wait for 17), so leave them out.
+sMin   = hcp(south)<15
+sExtra = tpSouth>17
+# 3-card support with extras is nearly always a 5431 with a 5-card minor
+# (a 4441 short in their suit is 4-4-4 in the unbid suits). BBA bids that
+# minor at the 3-level about a third of the time; the article doubles.
+sPass  = sMin
+sRaise = sExtra and sFit>3
+sX     = sExtra and sFit==3
+
+HandType_Pass  = sPass
+HandType_Raise = sRaise
+HandType_X     = sX
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
+##### Now do it #####
+eastHand and southHand and westHand and northHand and (sPass or sRaise or sX) and levelTheDeal
+
+action
+average "E 1H            " 100 * oH,
+average "E 1S            " 100 * oS,
+average "N bids 1S       " 100 * nBidS,
+average "N bids 2H       " 100 * nBidH,
+average "N bids 2D       " 100 * nBidD,
+average "N bids 2C       " 100 * nBidC,
+average "S pass  (12-14) " 100 * sPass,
+average "S raise (18+,4)" 100 * sRaise,
+average "S X     (18+,3)" 100 * sX,
+average "E HCP avg       "       hcp(east),
+average "S HCP avg       "       hcp(south),
+average "S TP  avg       "       tpSouth,
+average "N HCP avg       "       hcp(north),
+average "W HCP avg       "       hcp(west),
