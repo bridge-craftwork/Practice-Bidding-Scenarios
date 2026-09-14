@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "release",
-  "generatedAtCommit": "bdce118ea0cf284d2d609e683e26ee8fac5ae7a6",
+  "generatedAtCommit": "19b2cda8c68c585809934751a7c8d484631023b4",
   "sources": {
     "layout": "btn/-button-layout-release.txt",
     "dlr": "dlr",
@@ -1894,6 +1894,20 @@
           "color": null,
           "width": "50%",
           "grouped": false
+        }
+      ]
+    },
+    {
+      "type": "row",
+      "buttons": [
+        {
+          "name": "Competitive_Doubles",
+          "color": null,
+          "width": "50%",
+          "grouped": false
+        },
+        {
+          "name": "---"
         }
       ]
     },
@@ -5690,6 +5704,17 @@
       "conventionCardEW": "21GF-GIB",
       "missing": false,
       "dlr": "dlr-leveled/After_Partner_Takeout_Double.dlr"
+    },
+    "Competitive_Doubles": {
+      "buttonText": "Competitive Doubles",
+      "chat": "\\n--- Competitive Doubles: the second takeout double\\nEast opens 1!H or 1!S. You (South) make a takeout double, West passes, and\\npartner (North) advances as cheaply as he can in his best suit. East rebids\\nhis suit. Your turn again.\\n\\n\"A double shows the values to compete in the bidding, but no clear opinion\\nabout what to do.\" Your takeout double promised 3+ cards in every unbid\\nsuit, so partner's suit may be the one you hold only three of — and a weak\\npartner had to bid SOMETHING. Choose by strength first, then by fit:\\n\\n• Pass — a minimum takeout double (12-14 HCP). You have already described\\n  your hand; leave the rest to partner.\\n• Raise partner — extra values (17+ HCP, or 16 with a singleton) AND\\n  4+ card support for the suit partner bid.\\n• Double again — the same extra values but only 3-card support. The\\n  second takeout double says \"I want to compete, but I do not know where.\"\\n  Partner can rebid his suit, try another suit, or pass for penalty with a\\n  trump stack. (With a strong 5-card minor of your own, bidding it at the\\n  3-level is the alternative; the robots often prefer it.)\\n\\nA perfect second double: !SAK85 !H4 !DKT972 !CAJ6 after 1!H (X) P (2!C);\\n2!H (?) — extras, three clubs, and the diamonds are not worth 3!D on their own.\\n\\nThe robots (BBA and GIB) wait for about 17 before acting again; the article\\nis happier to compete on 14+. The 15-16 HCP hands where the styles part\\ncompany are left out of this scenario.\\n\\nLevel: intermediate.\\nReference: https://www.advinbridge.com/this-week-in-bridge/647\\n",
+      "alias": "CompetitiveDoubles",
+      "gibWorks": true,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "21GF-GIB",
+      "missing": false,
+      "dlr": "dlr-leveled/Competitive_Doubles.dlr"
     },
     "Opp_Redoubles": {
       "buttonText": "Opps Redouble",
@@ -17951,7 +17976,6 @@
     "missing": [],
     "orphans": [
       "Bust_Over_Strong_2C",
-      "Competitive_Doubles",
       "Found_Endplay",
       "Found_Rabbis_Rule",
       "Lebensohl2",
@@ -17960,9 +17984,9 @@
     ]
   },
   "counts": {
-    "referenced": 342,
-    "scenarios": 342,
+    "referenced": 343,
+    "scenarios": 343,
     "missing": 0,
-    "orphans": 7
+    "orphans": 6
   }
 }
