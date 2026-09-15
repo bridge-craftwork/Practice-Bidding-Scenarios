@@ -29,7 +29,7 @@ def fix_event_tags(scenario: str, file_path: str, verbose: bool = True) -> bool:
 
     BBA overwrites Event tags with Windows paths like "P:\\bba\\scenario".
     This function:
-    - Adds/updates %HRTitleEvent header comment (used by pbn-to-pdf)
+    - Adds/updates %HRTitleEvent header comment (used by bridge-wrangler to-pdf)
     - Replaces all [Event "..."] tags with the proper title
 
     Args:

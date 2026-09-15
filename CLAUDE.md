@@ -50,7 +50,7 @@ and `select.py` take the scenario as a positional argument.
 
 ### Development Environment Setup
 
-Required environment variables (add to `~/.zshrc`):
+Environment variables (add to `~/.zshrc`). The whole pipeline runs on the Mac by default; the four Windows variables are needed only with `PBS_DEALER_PLATFORM="windows"`, which runs `dealer.exe` on the VM over SSH:
 ```bash
 export WINDOWS_HOST="your-windows-ip"
 export WINDOWS_USER="your-windows-username"
@@ -145,9 +145,9 @@ bidding-sheets (final output)
 
 The system bridges Mac and Windows environments:
 
-- **Mac**: Python orchestrator, native dealer tool, wkhtmltopdf for PDFs
-- **Windows VM**: Windows-only tools (dealer.exe, BBA.exe/bba-cli, Filter.js, SetDealerMulti.js)
-- **Communication**: SSH with UNC path mapping, file-based queuing for GUI apps
+- **Mac**: Python orchestrator and every pipeline tool: dealer3, bba-cli, bridge-wrangler (rotate, filter, and every PDF via `to-pdf`)
+- **Windows VM**: optional. Used only to run `dealer.exe` when `PBS_DEALER_PLATFORM="windows"`
+- **Communication**: SSH with UNC path mapping, for that `dealer.exe` path only
 
 Drive mappings (Mac → Windows):
 - `G:` → GitHub folder (parent of project)
@@ -240,7 +240,7 @@ Pipeline operations in `build-scripts-mac/operations/`:
 Central configuration in [build-scripts-mac/config.py](build-scripts-mac/config.py):
 - SSH host/user for Windows VM
 - Drive mappings (P:, S: drives with UNC paths)
-- Tool paths (dealer, bba-cli, wkhtmltopdf)
+- Tool paths (dealer, bba-cli, bridge-wrangler)
 - Default convention cards: `21GF-DEFAULT`, `21GF-GIB`
 - Dealer parameters: seed=5, generate=300000000, produce=500
 - Pipeline operations order
@@ -264,7 +264,6 @@ Central configuration in [build-scripts-mac/config.py](build-scripts-mac/config.
 - Each operation reads from its input folder and writes to its output folder
 - The pipeline can be resumed from any operation using the "+" suffix (e.g., "bba+" runs from bba to end)
 - Always test pipeline changes on a single scenario before running on all scenarios
-- File-based queueing is used for GUI tools (BBA.exe) that can't run headless
 
 ### Working with the VS Code Extension
 
@@ -276,9 +275,8 @@ Central configuration in [build-scripts-mac/config.py](build-scripts-mac/config.
 
 ### Cross-Platform Considerations
 
-- Mac is the primary development platform; Windows VM handles Windows-only tools
-- SSH runner handles drive mapping and UNC path conversion automatically
-- Test Windows tool execution when modifying pipeline operations
+- Mac is the primary development platform, and by default the whole pipeline runs there
+- The Windows VM is used only by `pbn` when `PBS_DEALER_PLATFORM="windows"`; `ssh_runner.py` handles drive mapping and UNC path conversion for it
 - UNC paths must be used for SSH execution (mapped drives don't persist in SSH sessions)
 
 ### File Naming Conventions

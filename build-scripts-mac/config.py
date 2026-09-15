@@ -112,7 +112,6 @@ WINDOWS_TOOLS = {
     "filter_js": "S:\\Filter.js",
     "set_dealer_multi_js": "S:\\SetDealerMulti.js",
     "bidding_sheets_wsf": "S:\\BiddingSheets.wsf",
-    "wkhtmltopdf": "wkhtmltopdf",  # Assumes wkhtmltopdf is in Windows PATH
 }
 
 # Mac tool paths
@@ -129,7 +128,6 @@ WINDOWS_TOOLS = {
 # in @executable_path).
 MAC_TOOLS = {
     "python": "python3",
-    "wkhtmltopdf": "/opt/homebrew/bin/wkhtmltopdf",  # Adjust if installed elsewhere
     "dealer": "/Applications/Bridge Utilities/dealer3",  # Mac version of dealer
     "bridge_wrangler": "/Applications/Bridge Utilities/bridge-wrangler",
     "bba_cli": "/Applications/Bridge Utilities/bba-cli",

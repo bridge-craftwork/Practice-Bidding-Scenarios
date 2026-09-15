@@ -1,6 +1,6 @@
 # Mac Build Pipeline for Practice-Bidding-Scenarios
 
-This folder contains a Python-based build pipeline for running on Mac, using SSH to execute Windows-only tools on a Parallels VM.
+This folder contains a Python-based build pipeline that runs on the Mac. By default every step runs locally; SSH to a Windows VM is used only when `PBS_DEALER_PLATFORM=windows` (the `pbn` step then runs `dealer.exe` on the VM).
 
 ## Quick Start
 
@@ -24,53 +24,59 @@ python3 pbs-pipeline-mac.py "*" "*"
 
 ### Mac
 - Python 3 with `requests` module: `pip3 install requests --user --break-system-packages`
-- wkhtmltopdf (for PDF generation): `brew install wkhtmltopdf`
-- SSH access to Windows VM
+- In `/Applications/Bridge Utilities/`:
+  - `dealer3` (dlr leveling and PBN generation)
+  - `bba-cli` (bidding analysis)
+  - `bridge-wrangler` (rotate, filter, and PDF generation)
 
-### Windows VM
-- OpenSSH Server enabled
+### Windows VM (optional — only for `PBS_DEALER_PLATFORM=windows`)
+- OpenSSH Server enabled, and SSH access from the Mac
 - Drive mappings are handled automatically via `net use` commands (configured via `PBS_UNC_PREFIX` env var)
 
 ## Operations
 
 | Operation | Description | Runs On |
 |-----------|-------------|---------|
-| `dlr` | Extract dealer code from PBS file | Mac (py/oneExtract.py) |
-| `pbn` | Generate PBN from DLR | Mac (dealer) or Windows (dealer.exe via SSH) |
-| `rotate` | Create rotated PBN/LIN for 4-player practice | Windows (SetDealerMulti.js via SSH) |
+| `dlr` | Generate DLR from BTN file | Mac (native Python) |
+| `level` | Leveled DLR, for a scenario that declares hand types | Mac (dealer3) |
+| `pbn` | Generate PBN from DLR, then set its title | Mac (dealer3) or Windows (dealer.exe via SSH) |
+| `rotate` | Create rotated PBN/LIN for 4-player practice | Mac (bridge-wrangler) |
 | `bba` | Generate BBA with bidding analysis | Mac (bba-cli native) |
-| `title` | Set title (skipped) | - |
-| `filter` | Filter BBA by auction patterns | Windows (Filter.js via SSH) |
+| `filter` | Filter BBA by auction patterns | Mac (bridge-wrangler) |
 | `filterStats` | Count hands in filtered files | Mac (native Python) |
-| `biddingSheet` | Generate bidding sheet PDFs | Windows + Mac |
+| `biddingSheet` | Generate bidding sheet PDFs | Mac (bridge-wrangler) |
+| `quiz` | Generate quiz PBN/PDF/JSON | Mac (bridge-wrangler for the PDF) |
+| `package` | Copy artifacts into the Bidding Scenarios hierarchy | Mac (native Python) |
 
 ## File Flow
 
 ```
-PBS/{scenario}
-    ↓ dlr (oneExtract.py)
+btn/{scenario}.btn
+    ↓ dlr (dlr_from_btn.py)
 dlr/{scenario}.dlr
-    ↓ pbn (dealer.exe)
-pbn/{scenario}.pbn
-    ↓ rotate (SetDealerMulti.js)
+    ↓ level (dealer3 --write-leveled; only if the script declares HandType_ variables)
+dlr-leveled/{scenario}.dlr
+    ↓ pbn (dealer3)
+pbn/{scenario}.pbn  (and pbn-leveled/{scenario}.pbn when leveled)
+    ↓ rotate (bridge-wrangler rotate-deals + to-lin)
 pbn-rotated-for-4-players/{scenario}.pbn
 lin-rotated-for-4-players/{scenario}.lin
     ↓ bba (bba-cli)
 bba/{scenario}.pbn
 bba-summary/{scenario}.txt
-    ↓ filter (Filter.js)
+    ↓ filter (bridge-wrangler filter + to-pdf)
 bba-filtered/{scenario}.pbn
 bba-filtered-out/{scenario}.pbn
-    ↓ biddingSheet (SetDealerMulti.js + wkhtmltopdf)
+    ↓ biddingSheet (bridge-wrangler rotate-deals + to-pdf)
 bidding-sheets/{scenario}.pbn
 bidding-sheets/{scenario} Bidding Sheets.pdf
 ```
 
 ## Configuration
 
-### Environment Variables (required)
+### Environment Variables (Windows dealer only)
 
-Add these to your `~/.zshenv` (not `~/.zshrc`) so they're available to non-interactive shells like VSCode:
+These are needed only if you run dealer on the Windows VM (`PBS_DEALER_PLATFORM=windows`, below). Add them to your `~/.zshenv` (not `~/.zshrc`) so they're available to non-interactive shells like VSCode:
 
 ```bash
 # Windows VM connection
@@ -91,7 +97,7 @@ Restart your terminal or VSCode for the changes to take effect.
 export PBS_DEALER_PLATFORM="mac"
 ```
 
-By default, the `pbn` operation runs `dealer` locally on Mac (`/Applications/dealer`). Set to `"windows"` to run `dealer.exe` on the Windows VM via SSH instead.
+By default, the `pbn` operation runs `dealer3` locally on Mac (`/Applications/Bridge Utilities/dealer3`). Set to `"windows"` to run `dealer.exe` on the Windows VM via SSH instead.
 
 ### config.py (shared settings)
 
@@ -105,18 +111,20 @@ Edit `config.py` to change:
 ┌─────────────────────────────────────────────────────────────┐
 │                         MAC                                  │
 │  pbs-pipeline-mac.py (orchestrator)                         │
-│  ├── operations/dlr.py           → py/oneExtract.py (local)│
-│  ├── operations/pbn.py           → dealer (local or SSH)   │
-│  ├── operations/rotate.py        → SetDealerMulti.js (SSH) │
+│  ├── operations/dlr_from_btn.py  → Python (local)          │
+│  ├── operations/level.py         → dealer3 (local)         │
+│  ├── operations/pbn_from_dlr.py  → dealer3 (local) or SSH  │
+│  ├── operations/rotate.py        → bridge-wrangler (local) │
 │  ├── operations/bba_from_pbn.py  → bba-cli (local)         │
-│  ├── operations/filter.py        → Filter.js (SSH)         │
-│  └── operations/bidding_sheet.py → wkhtmltopdf (local)     │
+│  ├── operations/filter.py        → bridge-wrangler (local) │
+│  ├── operations/bidding_sheet.py → bridge-wrangler (local) │
+│  └── operations/quiz.py          → bridge-wrangler (local) │
 └──────────────────────┬──────────────────────────────────────┘
-                       │ SSH
+                       │ SSH (only when PBS_DEALER_PLATFORM=windows)
 ┌──────────────────────▼──────────────────────────────────────┐
-│                      WINDOWS VM                              │
+│                  WINDOWS VM (optional)                       │
 │  - P:\ and S:\ mapped to Mac folders                        │
-│  - dealer.exe, cscript for .js/.wsf scripts                 │
+│  - dealer.exe                                               │
 └─────────────────────────────────────────────────────────────┘
 ```
 
@@ -144,16 +152,24 @@ pip3 install requests --user --break-system-packages
 build-scripts-mac/
 ├── pbs-pipeline-mac.py  # Main CLI orchestrator
 ├── config.py          # Configuration (SSH, paths, tools)
-├── ssh_runner.py      # SSH command execution
+├── ssh_runner.py      # SSH command execution (Windows dealer only)
 ├── operations/
-│   ├── dlr.py         # PBS → DLR
-│   ├── pbn.py         # DLR → PBN
-│   ├── rotate.py      # PBN rotation
+│   ├── dlr_from_btn.py # BTN → DLR
+│   ├── level.py       # DLR → leveled DLR (dealer3)
+│   ├── pbn_from_dlr.py # DLR → PBN (dealer3, or dealer.exe via SSH)
+│   ├── title.py       # Set PBN titles (called by pbn)
+│   ├── rotate.py      # PBN rotation (bridge-wrangler)
 │   ├── bba_from_pbn.py # PBN → BBA (bba-cli, local)
-│   ├── filter.py      # BBA filtering
+│   ├── filter.py      # BBA filtering + PDFs (bridge-wrangler)
 │   ├── filter_stats.py # Count filtered hands
-│   └── bidding_sheet.py # Generate PDFs
+│   ├── bidding_sheet.py # Generate PDFs (bridge-wrangler)
+│   ├── quiz.py        # Quiz PBN/PDF/JSON
+│   ├── package.py     # Copy artifacts into the Bidding Scenarios hierarchy
+│   ├── gib.py         # GIB capture + match report (explicit-only)
+│   ├── release.py     # Publish a scenario's .dlr to main (explicit-only)
+│   └── release_layout.py # Publish the button layout (explicit-only)
 └── utils/
+    ├── leveling.py    # leveled_or_original() resolver
     ├── paths.py       # Mac ↔ Windows path conversion
     └── properties.py  # Read properties from .dlr files
 ```
