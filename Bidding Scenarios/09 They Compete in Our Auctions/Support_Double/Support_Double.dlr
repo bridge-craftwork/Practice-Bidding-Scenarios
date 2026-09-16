@@ -159,7 +159,7 @@ calmOpps = calmEast and calmWest
 # Define responder's suits and opener's 3-card support
 nH = hearts(north)>3 and hearts(north)>=spades(north) and hearts(south)==3
 nS = spades(north)>3 and spades(north)>hearts(north)  and spades(south)==3
-nResponds = (nH or nS) and hcp(north)>5
+nResponds = (nH or nS) and hcp(north)>5 and hcp(north)<12
 
 # North has to make the response the scenario assumes. Over 1C a 4+ diamond
 # suit gets bid up the line first, and with 3+ hearts North raises 1H
