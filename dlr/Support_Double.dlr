@@ -3,7 +3,7 @@
 # scenario-title: --- Support Double
 # gib-works: true
 # bba-works: true
-# auction-filter: Auction.....\n.*\nX
+# auction-filter: Note....Support double
 # convention-card-ns: 21GF-DEFAULT
 # convention-card-ew: 21GF-GIB
 
@@ -161,16 +161,43 @@ nH = hearts(north)>3 and hearts(north)>=spades(north) and hearts(south)==3
 nS = spades(north)>3 and spades(north)>hearts(north)  and spades(south)==3
 nResponds = (nH or nS) and hcp(north)>5
 
+# North has to make the response the scenario assumes. Over 1C a 4+ diamond
+# suit gets bid up the line first, and with 3+ hearts North raises 1H
+# instead of bidding 1S.
+nMajorFirst = diamonds(north)<4
+nNoHeartFit = hearts(north)<3
+
 # South opens 1C, 1D, or 1H
 sOpens = (oC or oD or oH) and hcp(south)>11
 
-CH = oC and nH and (spades(east)>3   and diamonds(east)>3 or (spades(east)>4   or diamonds(east)>4))
-CS = oC and nS and (hearts(east)>3   and diamonds(east)>3 or (hearts(east)>4   or diamonds(east)>4))
-DH = oD and nH and (spades(east)>3   and clubs(east)>3    or (spades(east)>4   or clubs(east)>4))
-DS = oD and nS and (hearts(east)>3   and clubs(east)>3    or (hearts(east)>4   or clubs(east)>4))
-HS = oH and nS and (diamonds(east)>3 and clubs(east)>3    or (diamonds(east)>4 or clubs(east)>4))
+# East has one other suit for overcall or both other suits for X
+e1S = spades(east)==5  and top3(east,spades)>1
+e1H = hearts(east)>4   and top3(east,hearts)>1
+e1D = diamonds(east)>4 and top3(east,diamonds)>1
+e1C = clubs(east)>4    and top3(east,clubs)>1
 
-eBids = (hcp(east)>9 and (CH or DH)) or hcp(east)>11 and (CS or DS or HS)
+# 4-4 in the unbid suits is a takeout double of the response, and BBA needs a
+# full opening hand to make one: with 10-12 it passes about two thirds of the time.
+eValues = hcp(east)>12
+
+eDS = eValues and diamonds(east)>3 and spades(east)>3
+eDH = eValues and diamonds(east)>3 and hearts(east)>3
+eCS = eValues and clubs(east)>3    and spades(east)>3
+eCH = eValues and clubs(east)>3    and hearts(east)>3
+eCD = eValues and clubs(east)>3    and diamonds(east)>3
+
+CH = oC and nH and nMajorFirst and (eDS or (e1D or e1S))
+CS = oC and nS and nMajorFirst and (eDH or (e1D or e1H))
+DH = oD and nH and (eCS or (e1C or e1S))
+DS = oD and nS and (eCH or (e1C or e1H))
+HS = oH and nS and nNoHeartFit and (eCD or (e1C or e1D))
+
+eNT   = hcp(east)>14 and hcp(east)<18 and shape(east,any 4333 +any 4432 +any 5332)
+# Two 5-card suits belong in a different auction, not a support double
+e55   = shape(east,any 55xx +any 65xx +any 66xx +any 75xx +any 85xx)
+# A 7+ card suit preempts to the 3-level, above any support double
+eLong = spades(east)>6 or hearts(east)>6 or diamonds(east)>6 or clubs(east)>6
+eBids = ((hcp(east)>11 and (CH or DH)) or (hcp(east)>11 and (CS or DS or HS))) and not eNT and not e55 and not eLong
 
 sOpens and calmWest and nResponds and eBids
 
