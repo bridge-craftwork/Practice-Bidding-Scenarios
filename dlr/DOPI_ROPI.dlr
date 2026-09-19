@@ -3,7 +3,8 @@
 # scenario-title: --- DOPI-ROPI: Responding to Blackwood after Interference
 # gib-works: false
 # bba-works: true
-# auction-filter: (^4N =.= +[X5]|.* 4N =.= +[X5].\n)
+# auction-filter: 4N =.= +[X5]
+# vulnerable: NS
 # convention-card-ns: 21GF-DEFAULT
 # convention-card-ew: 21GF-DEFAULT
 
@@ -21,16 +22,20 @@ When an opponent doubles 4NT, use ROPI:
   I = next steps = 2, 3 keycards
 https://www.acblunit390.org/Simon/dopi-ropi.htm
 
-This deck covers two paths to 5-level interference over 4NT:
-(A) An opponent preempts a 7+ minor at 3-level with partner support.
-(B) E/W have an 11+ major fit and start with a 1-level overcall or
-    Unusual NT.
+N/S are vulnerable, E/W are not. West preempts a 7+ minor at the 3-level,
+East has support, and with the vulnerability in their favor they may
+sacrifice at the 5-level over our 4NT.
 @chat*/
 
 # Note: BBA does not implement lead-directing (Lightner) doubles. An
 # earlier version used 7-card AKQJ holdings hoping BBA would X 4NT
 # for the lead — it never did. This deck instead targets the DOPI
 # trigger: opponents bidding 5-level over our 4NT.
+#
+# BBA's opponents save over 4NT mostly when they are not vulnerable
+# against vulnerable: with rotating vulnerability the trigger fired on
+# ~1% of deals, at NS-only ~5%, and ~9% once the overcall path below
+# was dropped. Hence `# vulnerable: NS` in the header.
 
 # DOPI-ROPI: Interference over Blackwood
 dealer north
@@ -44,10 +49,10 @@ gibNT = nt1 or nt2
 
 ### End of GIB 1 Notrump ###
 
-# N/S slam zone (shared by both paths)
+# N/S slam zone
 slamZone = hcp(south)>=12 and (hcp(north)+hcp(south))>=28
 
-# === Path A: 3-level minor preempt by West, East supports ===
+# === 3-level minor preempt by West, East supports ===
 # N opens 1M, S has 4+ support → Jacoby 2NT GF, gives N/S a clean
 # path to Blackwood. W preempts a 7+ minor (3 of AKQJ); E has 4+
 # support so W has confidence to compete over 4NT.
@@ -61,43 +66,21 @@ majorFit = (heartOpen or spadeOpen) and not gibNT
 wClubsLong    = clubs(west)>=7    and top4(west,clubs)>=3
 wDiamondsLong = diamonds(west)>=7 and top4(west,diamonds)>=3
 wMinor   = wClubsLong or wDiamondsLong
-wRange   = hcp(west)>=8 and hcp(west)<=11
+wRange   = hcp(west)>=6 and hcp(west)<=11
 wShort   = (spadeOpen and spades(west)<=1) or (heartOpen and hearts(west)<=1)
 eFit     = (wClubsLong and clubs(east)>=4) or (wDiamondsLong and diamonds(east)>=4)
 eMin     = hcp(east)<10
 preemptPath = majorFit and wMinor and wRange and wShort and eFit and eMin
 
-# === Path B: 1-level overcall / Unusual NT with 11+ major fit ===
-# E/W have a 5-6 or 6-5 major fit; one overcalls naturally (1H, 1S,
-# or 2NT-Unusual) and the partnership pushes through 4NT. N opens a
-# lower-ranking suit so the major can be overcalled at the 1-level.
-# In practice BBA picks Unusual NT more often than a simple 1-level
-# overcall when the long-suit holder has a second 5+ card suit.
-nOpens     = hcp(north)>=12 and hcp(north)<=21 and not gibNT
-ewHearts11 = hearts(west)+hearts(east)>=11 and hearts(west)>=5 and hearts(east)>=5
-ewSpades11 = spades(west)+spades(east)>=11 and spades(west)>=5 and spades(east)>=5
-heartScn   = ewHearts11 and (clubs(north)>=5 or diamonds(north)>=5) and hearts(north)<5 and spades(north)<5
-spadeScn   = ewSpades11 and (clubs(north)>=5 or diamonds(north)>=5 or hearts(north)>=5) and spades(north)<5
-ewModest   = (hcp(west)+hcp(east))<=22
-overcallPath = nOpens and (heartScn or spadeScn) and ewModest
+# A second path — E/W with an 11+ major fit overcalling at the 1-level or
+# with Unusual NT — was tried and dropped: BBA passed 4NT on ~98% of those
+# deals, and they crowded out the preempts.
 
-# Leveling: overcall hands are ~10x more common than preempt hands.
-# Without leveling, dealer fills the 500-hand cap entirely with
-# overcall hands and finds 0 preempts.
-HandType_preemptPath = preemptPath
-HandType_overcallPath = overcallPath
-
-### BEGIN GENERATED LEVELING ###
-noLeveling = 1
-levelTheDeal = noLeveling
-### END GENERATED LEVELING ###
-
-slamZone
-and (HandType_preemptPath or HandType_overcallPath) and levelTheDeal
+slamZone and preemptPath
 
 action printoneline,
 average "hcp north       " hcp(north),
 average "hcp south       " hcp(south),
 average "hcp e+w         " (hcp(east)+hcp(west)),
-average "preempt path %  " 100 * preemptPath,
-average "overcall path % " 100 * overcallPath,
+average "west clubs      " 100 * wClubsLong,
+average "west diamonds   " 100 * wDiamondsLong,
