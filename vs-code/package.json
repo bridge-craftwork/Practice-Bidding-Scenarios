@@ -167,6 +167,14 @@
         "title": "PBS: BBO Demo (try this script in BBO)"
       },
       {
+        "command": "pbs.runGib",
+        "title": "PBS: GIB Capture (30 boards on a live BBO table)"
+      },
+      {
+        "command": "pbs.runGibReport",
+        "title": "PBS: GIB Report (filter the capture, no BBO)"
+      },
+      {
         "command": "pbs.runRelease",
         "title": "PBS: Publish (commit + push btn/dlr/dlr-leveled)"
       },
@@ -313,7 +321,15 @@
         },
         {
           "command": "pbs.runBboDemo",
-          "group": "4_live"
+          "group": "4_live@1"
+        },
+        {
+          "command": "pbs.runGib",
+          "group": "4_live@2"
+        },
+        {
+          "command": "pbs.runGibReport",
+          "group": "4_live@3"
         },
         {
           "command": "pbs.runRelease",

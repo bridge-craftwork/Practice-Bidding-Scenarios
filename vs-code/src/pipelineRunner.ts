@@ -104,6 +104,39 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
     // are guests on BBO.
     registerCommand(context, 'pbs.runBboDemo', 'bbo-demo');
 
+    // gibReport reads the capture already in GIB/ and writes the filtered
+    // files and the report. Local only, so it runs on a click like any other
+    // operation -- and it is the one to reach for after editing a filter.
+    registerCommand(context, 'pbs.runGibReport', 'gibReport');
+
+    // gib replaces that capture by having BBO's robots bid 30 boards on a live
+    // account, so it asks first: it costs someone else's server time, and a
+    // misclick beside the local operations would spend it silently. Also
+    // explicit-only, and one scenario at a time.
+    context.subscriptions.push(
+        vscode.commands.registerCommand('pbs.runGib', async () => {
+            const scenario = getCurrentScenario();
+            if (!scenario) {
+                return;
+            }
+
+            const confirm = await vscode.window.showInformationMessage(
+                `Capture GIB auctions for ${scenario}?`,
+                {
+                    modal: true,
+                    detail: `Has BBO's robots bid 30 boards from this scenario's script on a live account, replaces GIB/${scenario}.pbn with what they bid, and then runs the report. Keep live runs small: we are guests on BBO.`
+                },
+                'Capture'
+            );
+
+            if (confirm !== 'Capture') {
+                return;
+            }
+
+            await runPipeline(scenario, 'gib');
+        })
+    );
+
     // Release operation (not included in wildcards - must be explicit).
     // Publishes the scenario: commits and pushes btn/<name>.btn + dlr/<name>.dlr
     // (and dlr-leveled/<name>.dlr when leveled) to main, which is what the BBO
