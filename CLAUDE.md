@@ -90,13 +90,24 @@ Pipeline operations in order:
 1. `dlr` - Extract dealer code from the `.btn` master file
 2. `level` - Write `dlr-leveled/<name>.dlr` for a scenario that declares hand types (`HandType_*`)
 3. `pbn` - Generate hands using dealer
-4. `rotate` - Create 4-player rotations (PBN and LIN formats)
-5. `bba` - Analyze bidding with Bridge Base Archive
-6. `filter` - Filter by auction patterns
-7. `filterStats` - Generate statistics
-8. `biddingSheet` - Generate PDF bidding sheets
+4. `solve` - Add a double-dummy table to every deal
+5. `rotate` - Create 4-player rotations (PBN and LIN formats)
+6. `bba` - Analyze bidding with Bridge Base Archive
+7. `filter` - Filter by auction patterns
+8. `filterStats` - Generate statistics
+9. `biddingSheet` - Generate PDF bidding sheets
 
 **Leveling (issue #322).** `level` runs `dealer3 --write-leveled` on a `.dlr` that names `HandType_*` variables. It skips every other scenario, and removes leftover leveled files when a scenario stops declaring hand types. Where `dlr-leveled/<name>.dlr` exists, it wins downstream. `pbn` writes both `pbn/<name>.pbn` (the natural mix) and `pbn-leveled/<name>.pbn` (interleaved by hand type). `rotate`, `bba`, `gib`, `package` and the manifest read the leveled files. One resolver decides this: `leveled_or_original()` in `build-scripts-mac/utils/leveling.py`. The leveled file's first line stamps the sha256 of the `.dlr` it came from. `level` skips a file that is still current, `pbn` refuses a stale one, and the `check-leveled` workflow fails CI on either a stale file or a missing one. `# level-budget: N` in a `.btn` caps the leveling cost.
+
+**Solving (issue #341).** `solve` runs `bridge-wrangler analyze` over a scenario's
+deals and writes each board's `[OptimumResultTable]` into the deal file itself,
+leaving every other byte alone. The table depends only on the deal, so everything
+downstream inherits it: `rotate` turns the table with the hands, and bba-cli keeps
+it beside the auction it generates. A file whose every deal already has a table is
+skipped, so the cost is paid once per deal — about 0.13s a deal, so a little over a
+minute for a 500-deal scenario. Dealing new hands rewrites the file and drops the
+tables with it, which is what makes the next `solve` redo them. `bba-direct`
+scenarios skip it along with `pbn` and `rotate`, having no dealt hands of their own.
 
 The default `*` order continues past `biddingSheet` with `quiz` (generate quiz PBN/PDF/JSON) and `package` (copy artifacts into the Bidding Scenarios hierarchy). The `release` and `release-layout` operations are NOT in the default order — invoke them explicitly. `release` publishes a scenario: it regenerates and levels the `.dlr`, commits the `.btn`, the `.dlr` and `dlr-leveled/<name>.dlr` if there is one (only those files), and pushes `main`. It refuses to run on any other branch. `release-layout` copies `btn/-button-layout-beta.txt` over `-button-layout-release.txt` and pushes; the two layout files decide which buttons each channel shows. To try a script before releasing it, use `bbo-demo`, which loads the local `.dlr` into BBO without going through GitHub.
 
@@ -129,6 +140,8 @@ dlr file (dealer language constraints; what BBO loads, published by [release] = 
 dlr-leveled file (wins downstream wherever it exists)
     ↓ [pbn] Generate hands via dealer (500 per scenario)
 pbn file (Portable Bridge Notation; pbn-leveled/ too, when leveled)
+    ↓ [solve] Add [OptimumResultTable] to every deal, in place
+pbn file, now carrying its double-dummy tables
     ↓ [rotate] Create 4-player rotations
 pbn-rotated & lin-rotated files
     ↓ [bba] Analyze bidding with BBA

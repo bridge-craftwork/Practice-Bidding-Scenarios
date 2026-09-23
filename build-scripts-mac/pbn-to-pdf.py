@@ -38,24 +38,87 @@ def parse_deal(deal_str):
     return hands
 
 
-def parse_optimum_table(table_str):
-    """Parse OptimumResultTable into dict of {seat: {strain: tricks}}."""
-    if not table_str:
+def parse_optimum_table(block):
+    """Read a board's double-dummy table as {seat: {strain: tricks}}.
+
+    Two shapes are on disk, and both are read here.
+
+    The conforming PBN 2.1 table section (5.7), which bridge-wrangler and
+    Bridge Composer write, is a header naming the columns followed by one
+    line per cell:
+
+        [OptimumResultTable "Declarer;Denomination\\2R;Result\\1R"]
+        N NT 10
+        N  S  9
+
+    Older bridge-wrangler builds packed the whole table into the tag value
+    instead, with escaped newlines and tabs and the strains in a positional
+    header row:
+
+        [OptimumResultTable "NT\\tS\\tH\\tD\\tC\\nN\\t7\\t6\\t7\\t6\\t6\\n..."]
+
+    Returns None when the board carries no table, or when one is there but
+    no row could be read from it.
+    """
+    m = re.search(r'\[OptimumResultTable "([^"]*)"\]', block)
+    if not m:
         return None
-    lines = table_str.split('\\n')
+
+    header = m.group(1)
+    # The legacy form carries the data in the tag value itself.
+    if '\\n' in header or '\\t' in header:
+        return parse_legacy_optimum_table(header)
+
+    # The conforming form names its columns; find which one holds the seat,
+    # the denomination and the trick count, rather than assuming an order.
+    # Each column may carry a format specifier after a backslash ("Result\\2R").
+    columns = [c.split('\\')[0].strip() for c in header.split(';')]
+    try:
+        seat_col = columns.index('Declarer')
+        strain_col = columns.index('Denomination')
+        tricks_col = columns.index('Result')
+    except ValueError:
+        return None
+
+    result = {}
+    # The rows are the lines after the tag's own line, up to the next tag or a
+    # blank line.
+    _, _, rest = block[m.end():].partition('\n')
+    for line in rest.splitlines():
+        if not line.strip():
+            break
+        if line.lstrip().startswith('['):
+            break
+        fields = line.split()
+        if len(fields) <= max(seat_col, strain_col, tricks_col):
+            continue
+        result.setdefault(fields[seat_col], {})[fields[strain_col]] = fields[tricks_col]
+
+    return result or None
+
+
+def parse_legacy_optimum_table(table_str):
+    """Read the pre-2026 table, packed into the tag value.
+
+    The header row names the strains and each later row is a seat followed by
+    its trick counts in that order. Tabs and newlines may be written as escape
+    sequences or as the characters themselves, so both are normalized first.
+    """
+    text = table_str.replace('\\t', '\t').replace('\\n', '\n')
+    lines = [line for line in text.split('\n') if line.strip()]
     if len(lines) < 2:
         return None
-    # First line is header: NT\tS\tH\tD\tC
-    strains = lines[0].split('\t')
+
+    strains = lines[0].split()
     result = {}
     for line in lines[1:]:
-        parts = line.split('\t')
-        if len(parts) >= 6:
-            seat = parts[0]
-            result[seat] = {}
-            for j, strain in enumerate(strains):
-                result[seat][strain] = parts[j + 1]
-    return result
+        parts = line.split()
+        if len(parts) < len(strains) + 1:
+            continue
+        seat = parts[0]
+        result[seat] = {strain: parts[i + 1] for i, strain in enumerate(strains)}
+
+    return result or None
 
 
 def parse_auction(auction_text, dealer):
@@ -98,8 +161,7 @@ def parse_pbn(content):
         declarer_m = re.search(r'\[Declarer "([^"]+)"\]', block)
         board['declarer'] = declarer_m.group(1) if declarer_m else '?'
 
-        opt_m = re.search(r'\[OptimumResultTable "([^"]+)"\]', block)
-        board['dd'] = parse_optimum_table(opt_m.group(1)) if opt_m else None
+        board['dd'] = parse_optimum_table(block)
 
         # Parse HCP from comment
         hcp_m = re.search(r'\{HCP\s+(\d+)\s+(\d+)\s+(\d+)\s+(\d+)\}', block)

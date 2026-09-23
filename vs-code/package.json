@@ -81,6 +81,10 @@
         "title": "PBS: Run PBN"
       },
       {
+        "command": "pbs.runSolve",
+        "title": "PBS: Run Solve"
+      },
+      {
         "command": "pbs.runRotate",
         "title": "PBS: Run Rotate"
       },
@@ -111,6 +115,10 @@
       {
         "command": "pbs.runPbnPlus",
         "title": "PBS: Run PBN+"
+      },
+      {
+        "command": "pbs.runSolvePlus",
+        "title": "PBS: Run Solve+"
       },
       {
         "command": "pbs.runRotatePlus",
@@ -219,37 +227,41 @@
           "group": "2_individual@3"
         },
         {
-          "command": "pbs.runRotate",
+          "command": "pbs.runSolve",
           "group": "2_individual@4"
         },
         {
-          "command": "pbs.runBba",
-          "group": "2_individual@5",
-          "when": "pbs.bbaWorks"
+          "command": "pbs.runRotate",
+          "group": "2_individual@5"
         },
         {
-          "command": "pbs.runFilter",
+          "command": "pbs.runBba",
           "group": "2_individual@6",
           "when": "pbs.bbaWorks"
         },
         {
-          "command": "pbs.runFilterStats",
+          "command": "pbs.runFilter",
           "group": "2_individual@7",
           "when": "pbs.bbaWorks"
         },
         {
-          "command": "pbs.runBiddingSheet",
+          "command": "pbs.runFilterStats",
           "group": "2_individual@8",
           "when": "pbs.bbaWorks"
         },
         {
-          "command": "pbs.runQuiz",
+          "command": "pbs.runBiddingSheet",
           "group": "2_individual@9",
           "when": "pbs.bbaWorks"
         },
         {
+          "command": "pbs.runQuiz",
+          "group": "2_individual@10",
+          "when": "pbs.bbaWorks"
+        },
+        {
           "command": "pbs.runPackage",
-          "group": "2_individual@10"
+          "group": "2_individual@11"
         },
         {
           "command": "pbs.runDlrPlus",
@@ -264,32 +276,36 @@
           "group": "3_plus@3"
         },
         {
-          "command": "pbs.runRotatePlus",
+          "command": "pbs.runSolvePlus",
           "group": "3_plus@4"
         },
         {
-          "command": "pbs.runBbaPlus",
-          "group": "3_plus@5",
-          "when": "pbs.bbaWorks"
+          "command": "pbs.runRotatePlus",
+          "group": "3_plus@5"
         },
         {
-          "command": "pbs.runFilterPlus",
+          "command": "pbs.runBbaPlus",
           "group": "3_plus@6",
           "when": "pbs.bbaWorks"
         },
         {
-          "command": "pbs.runFilterStatsPlus",
+          "command": "pbs.runFilterPlus",
           "group": "3_plus@7",
           "when": "pbs.bbaWorks"
         },
         {
-          "command": "pbs.runQuizPlus",
+          "command": "pbs.runFilterStatsPlus",
           "group": "3_plus@8",
           "when": "pbs.bbaWorks"
         },
         {
+          "command": "pbs.runQuizPlus",
+          "group": "3_plus@9",
+          "when": "pbs.bbaWorks"
+        },
+        {
           "command": "pbs.runPackagePlus",
-          "group": "3_plus@9"
+          "group": "3_plus@10"
         },
         {
           "command": "pbs.runRelease",

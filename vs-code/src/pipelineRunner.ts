@@ -75,6 +75,7 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
     registerCommand(context, 'pbs.runDlr', 'dlr');
     registerCommand(context, 'pbs.runLevel', 'level');
     registerCommand(context, 'pbs.runPbn', 'pbn');
+    registerCommand(context, 'pbs.runSolve', 'solve');
     registerCommand(context, 'pbs.runRotate', 'rotate');
     registerCommand(context, 'pbs.runBba', 'bba');
     registerCommand(context, 'pbs.runFilter', 'filter');
@@ -87,6 +88,7 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
     registerCommand(context, 'pbs.runDlrPlus', 'dlr+');
     registerCommand(context, 'pbs.runLevelPlus', 'level+');
     registerCommand(context, 'pbs.runPbnPlus', 'pbn+');
+    registerCommand(context, 'pbs.runSolvePlus', 'solve+');
     registerCommand(context, 'pbs.runRotatePlus', 'rotate+');
     registerCommand(context, 'pbs.runBbaPlus', 'bba+');
     registerCommand(context, 'pbs.runFilterPlus', 'filter+');

@@ -172,6 +172,7 @@ OPERATIONS_ORDER = [
     "dlr",      # Generate DLR from BTN
     "level",    # Leveled DLR, for a scenario that declares hand types (issue #322)
     "pbn",
+    "solve",    # Double-dummy table on every deal (issue #341)
     "rotate",
     "bba",
     "filter",

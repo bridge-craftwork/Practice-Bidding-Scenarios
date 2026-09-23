@@ -38,6 +38,7 @@ def print_error(msg: str):
 # Import operations
 from operations.level import run_level
 from operations.pbn_from_dlr import run_pbn
+from operations.solve import run_solve
 from operations.rotate import run_rotate
 from operations.bba_from_pbn import run_bba
 from operations.filter import run_filter
@@ -57,6 +58,7 @@ OPERATIONS = {
     "dlr": run_dlr,         # Generate DLR from BTN
     "level": run_level,     # Leveled copy of a DLR that declares hand types
     "pbn": run_pbn,
+    "solve": run_solve,   # Double-dummy table on every deal
     "rotate": run_rotate,
     "bba": run_bba,
     "filter": run_filter,
@@ -177,7 +179,7 @@ BBA_AND_DOWNSTREAM = {'bba', 'filter', 'filterStats', 'biddingSheet', 'quiz'}
 
 # Dealer-side operations skipped for bba-direct scenarios (curated bba files).
 # dlr still runs: BBO loads the scenario from the .dlr.
-BBA_DIRECT_SKIP = {'pbn', 'rotate', 'bba'}
+BBA_DIRECT_SKIP = {'pbn', 'solve', 'rotate', 'bba'}
 
 
 def filter_operations_for_scenario(scenario: str, operations: list) -> list:
