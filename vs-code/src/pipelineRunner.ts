@@ -96,6 +96,14 @@ export function registerPipelineCommands(context: vscode.ExtensionContext): void
     registerCommand(context, 'pbs.runQuizPlus', 'quiz+');
     registerCommand(context, 'pbs.runPackagePlus', 'package+');
 
+    // BBO demo (explicit-only, like release, and never in a wildcard run).
+    // Opens a four-robot table on BBO with this scenario's script loaded and
+    // captures nothing, so a script can be tried by hand -- redealing, reading
+    // the robots' explanations -- before it is published. Closing the BBO tab
+    // ends it. One scenario at a time: the pipeline refuses more, because we
+    // are guests on BBO.
+    registerCommand(context, 'pbs.runBboDemo', 'bbo-demo');
+
     // Release operation (not included in wildcards - must be explicit).
     // Publishes the scenario: commits and pushes btn/<name>.btn + dlr/<name>.dlr
     // (and dlr-leveled/<name>.dlr when leveled) to main, which is what the BBO
