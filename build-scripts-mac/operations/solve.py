@@ -35,6 +35,16 @@ DEAL_RE = re.compile(r'^\[Deal "', re.MULTILINE)
 # the par tags come with, so counting it answers both questions at once.
 SOLVED_RE = re.compile(r'^\[DoubleDummyTricks "', re.MULTILINE)
 
+# The stamp a solved file carries in its header, as `% solved: 500/500 deals`.
+# Solving writes its results into the deal file rather than a file of its own,
+# so a solved file and an unsolved one are the same path: nothing about the file
+# itself says which it is. The stamp says it in the first line, the way
+# dlr-leveled/<name>.dlr records the .dlr it was made from, so a reader -- the
+# VS Code panel, a person, a future check -- can tell without counting tags
+# through a quarter of a megabyte. Dealing new hands rewrites the file without
+# it, which is exactly when it should stop claiming to be solved.
+STAMP_RE = re.compile(r'^% solved: .*$\n?', re.MULTILINE)
+
 # Worker threads. Unset means every core, which is what the tool defaults to.
 SOLVE_THREADS = os.environ.get("PBS_SOLVE_THREADS")
 
@@ -44,6 +54,54 @@ def count_deals_and_solved(pbn_path: str) -> tuple:
     with open(pbn_path, encoding="utf-8", errors="replace") as f:
         content = f.read()
     return len(DEAL_RE.findall(content)), len(SOLVED_RE.findall(content))
+
+
+def read_stamp(pbn_path: str):
+    """The (deals, solved) a file's stamp claims, or None if it carries none.
+
+    Reads the header rather than the file: the stamp is in the first few lines,
+    and this is the question asked most often and answered least expensively.
+    """
+    with open(pbn_path, encoding="utf-8", errors="replace") as f:
+        head = f.read(4096)
+
+    m = re.search(r'^% solved: (\d+)/(\d+) deals', head, re.MULTILINE)
+    if not m:
+        return None
+    return int(m.group(2)), int(m.group(1))
+
+
+def write_stamp(pbn_path: str, deals: int, solved: int, keep_mtime: bool = False):
+    """Record in the file's header how much of it is solved.
+
+    The stamp goes above the first tag, among the `%` lines PBN keeps for
+    exactly this (2.1 section 2.3), and replaces any earlier one rather than
+    stacking up. Every tool in this pipeline preserves those lines.
+
+    keep_mtime restores the file's timestamp afterwards, for stamping a file
+    that was already solved. The deals and their tables are untouched there, so
+    letting the clock move would tell rotate, bba and everything after them to
+    rebuild against content that has not changed.
+    """
+    before = os.stat(pbn_path)
+
+    with open(pbn_path, encoding="utf-8", errors="replace") as f:
+        content = f.read()
+
+    content = STAMP_RE.sub("", content)
+    stamp = f"% solved: {solved}/{deals} deals, bridge-solver\n"
+
+    # After the header's other % lines, and always before the first tag.
+    first_tag = content.find("[")
+    head, rest = content[:first_tag], content[first_tag:]
+    if head and not head.endswith("\n"):
+        head += "\n"
+
+    with open(pbn_path, "w", encoding="utf-8") as f:
+        f.write(head + stamp + rest)
+
+    if keep_mtime:
+        os.utime(pbn_path, (before.st_atime, before.st_mtime))
 
 
 def run_solve(scenario: str, verbose: bool = True) -> bool:
@@ -75,12 +133,21 @@ def run_solve(scenario: str, verbose: bool = True) -> bool:
         print(f"Error: solve: PBN file not found: {pbn_path}")
         return False
 
-    deals, solved = count_deals_and_solved(pbn_path)
+    # The stamp answers this without reading the whole file; a file solved
+    # before the stamp existed, or by bridge-solver directly, is counted
+    # instead and then stamped, so it need not be solved again to gain one.
+    stamped = read_stamp(pbn_path)
+    deals, solved = stamped if stamped else count_deals_and_solved(pbn_path)
     if deals == 0:
         print(f"Error: solve: no deals in {pbn_path}")
         return False
 
     if solved >= deals:
+        if not stamped:
+            write_stamp(pbn_path, deals, solved, keep_mtime=True)
+            if verbose:
+                print(f"  Already solved; stamped {deals} deals")
+            return True
         if verbose:
             print(f"  Up to date: all {deals} deals solved")
         return True
@@ -122,6 +189,7 @@ def run_solve(scenario: str, verbose: bool = True) -> bool:
                   f"were solved; leaving {os.path.basename(pbn_path)} alone")
             return False
 
+        write_stamp(temp_path, solved_deals, now_solved)
         shutil.move(temp_path, pbn_path)
     except Exception as e:
         print(f"Error: solve: bridge-solver: {e}")

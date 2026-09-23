@@ -67,6 +67,20 @@ const ARTIFACTS = [
         command: 'pbs.runPbn'
     },
     {
+        // Solving writes into the deal file rather than a file of its own, so
+        // there is no artifact whose mtime could answer "is this solved?".
+        // The file's `% solved: n/m deals` stamp answers it instead, which is
+        // why this row reads a header rather than comparing timestamps.
+        name: 'solve',
+        shortName: 'dd',
+        requiresBba: false,
+        requiresLeveled: false,
+        getPath: (s: string, r: string) => pbnFor(s, r),
+        getSourcePath: (s: string, r: string) => pbnFor(s, r),
+        command: 'pbs.runSolve',
+        fromStamp: true
+    },
+    {
         name: 'rotate',
         shortName: 'rot',
         requiresBba: false,
@@ -131,12 +145,41 @@ type ArtifactStatus = 'fresh' | 'stale' | 'missing' | 'unchecked';
 // were written in the same pipeline run.
 const FRESHNESS_TOLERANCE_MS = 1000;
 
+/**
+ * What a deal file's `% solved: n/m deals` stamp says, or null if it has none.
+ *
+ * Only the header is read: the stamp is in the first few lines, and the
+ * alternative -- counting double-dummy tags through a quarter of a megabyte --
+ * would be paid on every refresh of this panel.
+ */
+function readSolvedStamp(pbnPath: string): { deals: number, solved: number } | null {
+    let head = '';
+    try {
+        const fd = fs.openSync(pbnPath, 'r');
+        try {
+            const buf = Buffer.alloc(4096);
+            const read = fs.readSync(fd, buf, 0, buf.length, 0);
+            head = buf.toString('utf8', 0, read);
+        } finally {
+            fs.closeSync(fd);
+        }
+    } catch {
+        return null;
+    }
+
+    const m = head.match(/^% solved: (\d+)\/(\d+) deals/m);
+    if (!m) { return null; }
+    return { solved: parseInt(m[1], 10), deals: parseInt(m[2], 10) };
+}
+
 interface ArtifactInfo {
     name: string;
     shortName: string;
     status: ArtifactStatus;
     command: string;
     artifactPath: string;
+    /** For a stamped artifact: what its stamp claims, for the tooltip. */
+    detail?: string;
 }
 
 /**
@@ -183,9 +226,14 @@ export class ScenarioTreeItem extends vscode.TreeItem {
             }
 
             // Tooltip with path and status
-            const statusText = artifactInfo.status === 'fresh' ? 'Up to date' :
+            let statusText = artifactInfo.status === 'fresh' ? 'Up to date' :
                 artifactInfo.status === 'stale' ? 'Needs rebuild' :
                 artifactInfo.status === 'unchecked' ? 'Stale warning muted' : 'Not yet built';
+            // A stamped artifact says how much of itself is done, which is more
+            // use than "up to date" on its own.
+            if (artifactInfo.detail) {
+                statusText = `${statusText} — ${artifactInfo.detail}`;
+            }
             const clickAction = artifactInfo.status === 'missing' ? '' : '\n\n*Click to open*';
             this.tooltip = new vscode.MarkdownString(`**${artifactInfo.name}**\n\n${statusText}\n\n\`${artifactInfo.artifactPath}\`${clickAction}`);
             this.contextValue = 'artifact';
@@ -406,6 +454,36 @@ export class CurrentScenarioProvider implements vscode.TreeDataProvider<Scenario
         const sourcePath = artifact.getSourcePath(scenario, root);
 
         let status: ArtifactStatus = 'missing';
+        let detail: string | undefined;
+
+        if ((artifact as { fromStamp?: boolean }).fromStamp) {
+            // The deal file is both the artifact and its own source here, so
+            // the stamp decides, not the timestamps.
+            if (fs.existsSync(artifactPath)) {
+                const stamp = readSolvedStamp(artifactPath);
+                if (stamp && stamp.solved >= stamp.deals) {
+                    status = 'fresh';
+                    detail = `${stamp.deals} deals solved`;
+                } else if (stamp) {
+                    status = 'stale';
+                    detail = `${stamp.solved} of ${stamp.deals} deals solved`;
+                } else {
+                    status = 'stale';
+                    detail = 'dealt, not solved';
+                }
+                if (status === 'stale' && this.isMuted(scenario)) {
+                    status = 'unchecked';
+                }
+            }
+            return {
+                name: artifact.name,
+                shortName: artifact.shortName,
+                status,
+                command: artifact.command,
+                artifactPath,
+                detail
+            };
+        }
 
         if (fs.existsSync(artifactPath)) {
             // Artifact exists - check if fresh or stale

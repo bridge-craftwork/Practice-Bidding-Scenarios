@@ -113,7 +113,17 @@ The tags depend only on the deal, so everything downstream inherits them: `rotat
 turns all four with the hands, and bba-cli keeps them beside the auction it
 generates. A file whose deals are all solved is skipped, and within a file
 bridge-solver leaves an already-analysed board as it found it, so no deal is
-solved twice. Dealing new hands rewrites the file without them, which is what
+solved twice.
+
+A solved file says so in its header: `% solved: 500/500 deals, bridge-solver`.
+Solving writes into the deal file rather than a file of its own, so no path or
+timestamp distinguishes a solved file from an unsolved one -- the stamp does,
+the way `dlr-leveled/<name>.dlr` records the `.dlr` it came from. `solve` reads
+it instead of counting tags through a quarter of a megabyte, the VS Code panel's
+`dd` row reads it to show "500 deals solved" or "dealt, not solved", and it
+survives into `bba/`, where it is equally true. Stamping a file that was already
+solved keeps the file's timestamp, since its deals and tables have not changed
+and everything downstream would otherwise be told to rebuild for a header line. Dealing new hands rewrites the file without them, which is what
 makes the next `solve` redo them. `bba-direct` scenarios skip it along with `pbn`
 and `rotate`, having no dealt hands of their own.
 
