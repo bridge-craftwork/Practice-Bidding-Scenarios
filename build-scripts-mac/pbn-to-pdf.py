@@ -9,6 +9,7 @@ import tempfile
 
 # Path to tools
 BRIDGE_WRANGLER = "/Applications/Bridge Utilities/bridge-wrangler"
+BRIDGE_SOLVER = "/Applications/Bridge Utilities/bridge-solver"
 CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome"
 
 SUIT_HTML = {
@@ -516,18 +517,23 @@ def generate_html(boards, title):
 
 
 def ensure_dd_analysis(pbn_path):
-    """Run bridge-wrangler analyze if the file lacks DD data. Returns path to analyzed file."""
+    """Solve the file if it lacks DD data. Returns the path to use.
+
+    bridge-solver owns double dummy: bridge-wrangler had an `analyze` until its
+    v0.11.0, and it was removed rather than kept as a slower second
+    implementation. A file the pipeline produced is already solved by then, so
+    this is the path for a one-off PBN handed to this script directly.
+    """
     with open(pbn_path, 'r') as f:
         content = f.read()
 
     if '[OptimumResultTable' in content:
         return pbn_path
 
-    # Need to run analysis
     analyzed_path = pbn_path.replace('.pbn', '-analyzed.pbn')
     print(f"Running double-dummy analysis...")
     result = subprocess.run(
-        [BRIDGE_WRANGLER, 'analyze', '-i', pbn_path, '-o', analyzed_path],
+        [BRIDGE_SOLVER, '-i', pbn_path, '-o', analyzed_path],
         capture_output=True, text=True
     )
     if result.returncode != 0:

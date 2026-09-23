@@ -131,6 +131,10 @@ MAC_TOOLS = {
     "dealer": "/Applications/Bridge Utilities/dealer3",  # Mac version of dealer
     "bridge_wrangler": "/Applications/Bridge Utilities/bridge-wrangler",
     "bba_cli": "/Applications/Bridge Utilities/bba-cli",
+    # Double-dummy solving (the solve operation). bridge-wrangler had an
+    # `analyze` until its v0.11.0, solving one board at a time on one thread;
+    # this is the tool that owns double dummy, and it uses every core.
+    "bridge_solver": "/Applications/Bridge Utilities/bridge-solver",
 }
 
 # Where to run dealer: "mac" (default) or "windows"

@@ -90,7 +90,7 @@ Pipeline operations in order:
 1. `dlr` - Extract dealer code from the `.btn` master file
 2. `level` - Write `dlr-leveled/<name>.dlr` for a scenario that declares hand types (`HandType_*`)
 3. `pbn` - Generate hands using dealer
-4. `solve` - Add a double-dummy table to every deal
+4. `solve` - Add double-dummy tables and par to every deal
 5. `rotate` - Create 4-player rotations (PBN and LIN formats)
 6. `bba` - Analyze bidding with Bridge Base Archive
 7. `filter` - Filter by auction patterns
@@ -99,15 +99,23 @@ Pipeline operations in order:
 
 **Leveling (issue #322).** `level` runs `dealer3 --write-leveled` on a `.dlr` that names `HandType_*` variables. It skips every other scenario, and removes leftover leveled files when a scenario stops declaring hand types. Where `dlr-leveled/<name>.dlr` exists, it wins downstream. `pbn` writes both `pbn/<name>.pbn` (the natural mix) and `pbn-leveled/<name>.pbn` (interleaved by hand type). `rotate`, `bba`, `gib`, `package` and the manifest read the leveled files. One resolver decides this: `leveled_or_original()` in `build-scripts-mac/utils/leveling.py`. The leveled file's first line stamps the sha256 of the `.dlr` it came from. `level` skips a file that is still current, `pbn` refuses a stale one, and the `check-leveled` workflow fails CI on either a stale file or a missing one. `# level-budget: N` in a `.btn` caps the leveling cost.
 
-**Solving (issue #341).** `solve` runs `bridge-wrangler analyze` over a scenario's
-deals and writes each board's `[OptimumResultTable]` into the deal file itself,
-leaving every other byte alone. The table depends only on the deal, so everything
-downstream inherits it: `rotate` turns the table with the hands, and bba-cli keeps
-it beside the auction it generates. A file whose every deal already has a table is
-skipped, so the cost is paid once per deal — about 0.13s a deal, so a little over a
-minute for a 500-deal scenario. Dealing new hands rewrites the file and drops the
-tables with it, which is what makes the next `solve` redo them. `bba-direct`
-scenarios skip it along with `pbn` and `rotate`, having no dealt hands of their own.
+**Solving (issue #341).** `solve` runs the `bridge-solver` CLI over a scenario's
+deals and writes four tags into the deal file itself, leaving every other byte
+alone: `[OptimumResultTable]` and `[DoubleDummyTricks]`, the same table in two
+encodings, and `[OptimumScore]` and `[ParContract]`, the par computed from that
+table at no extra solving cost. bridge-wrangler had an `analyze` until its
+v0.11.0; it solved one board at a time on one thread, and was removed rather than
+kept as a slower second implementation of bridge-solver's job. bridge-solver uses
+every core (`-j`, overridable with `PBS_SOLVE_THREADS`) and gives identical bytes
+at any thread count: a 500-deal scenario takes about 8 seconds rather than 70.
+
+The tags depend only on the deal, so everything downstream inherits them: `rotate`
+turns all four with the hands, and bba-cli keeps them beside the auction it
+generates. A file whose deals are all solved is skipped, and within a file
+bridge-solver leaves an already-analysed board as it found it, so no deal is
+solved twice. Dealing new hands rewrites the file without them, which is what
+makes the next `solve` redo them. `bba-direct` scenarios skip it along with `pbn`
+and `rotate`, having no dealt hands of their own.
 
 The default `*` order continues past `biddingSheet` with `quiz` (generate quiz PBN/PDF/JSON) and `package` (copy artifacts into the Bidding Scenarios hierarchy). The `release` and `release-layout` operations are NOT in the default order — invoke them explicitly. `release` publishes a scenario: it regenerates and levels the `.dlr`, commits the `.btn`, the `.dlr` and `dlr-leveled/<name>.dlr` if there is one (only those files), and pushes `main`. It refuses to run on any other branch. `release-layout` copies `btn/-button-layout-beta.txt` over `-button-layout-release.txt` and pushes; the two layout files decide which buttons each channel shows. To try a script before releasing it, use `bbo-demo`, which loads the local `.dlr` into BBO without going through GitHub.
 
@@ -140,8 +148,8 @@ dlr file (dealer language constraints; what BBO loads, published by [release] = 
 dlr-leveled file (wins downstream wherever it exists)
     ↓ [pbn] Generate hands via dealer (500 per scenario)
 pbn file (Portable Bridge Notation; pbn-leveled/ too, when leveled)
-    ↓ [solve] Add [OptimumResultTable] to every deal, in place
-pbn file, now carrying its double-dummy tables
+    ↓ [solve] Add the double-dummy tags and par to every deal, in place
+pbn file, now carrying its double-dummy tables and par
     ↓ [rotate] Create 4-player rotations
 pbn-rotated & lin-rotated files
     ↓ [bba] Analyze bidding with BBA
@@ -158,7 +166,7 @@ bidding-sheets (final output)
 
 The system bridges Mac and Windows environments:
 
-- **Mac**: Python orchestrator and every pipeline tool: dealer3, bba-cli, bridge-wrangler (rotate, filter, and every PDF via `to-pdf`)
+- **Mac**: Python orchestrator and every pipeline tool: dealer3, bba-cli, bridge-solver (double dummy and par), bridge-wrangler (rotate, filter, and every PDF via `to-pdf`)
 - **Windows VM**: optional. Used only to run `dealer.exe` when `PBS_DEALER_PLATFORM="windows"`
 - **Communication**: SSH with UNC path mapping, for that `dealer.exe` path only
 
