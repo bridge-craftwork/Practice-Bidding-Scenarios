@@ -6,6 +6,11 @@ Finally, set correct Event tags using title from PBS file.
 A leveled scenario (issue #322) gets two PBN files: pbn/{scenario}.pbn from
 the natural mix, which is how you see what leveling changed, and
 pbn-leveled/{scenario}.pbn from dlr-leveled/, which rotate and bba read.
+
+`# vulnerable: None|NS|EW|All` in the .btn fixes every board's vulnerability;
+without it dealer3 rotates through the four. A scenario whose auctions turn
+on vulnerability (sacrifices, DOPI/ROPI) can hold it favorable. Mac only:
+dealer.exe has no such switch, so the Windows path ignores it and says so.
 """
 import os
 import re
@@ -20,6 +25,9 @@ from config import FOLDERS, MAC_TOOLS, WINDOWS_TOOLS, PROJECT_ROOT, dealer_seed,
 from ssh_runner import run_windows_command, mac_to_windows_path
 from operations.title import run_title
 from utils.leveling import STALE, UNLEVELED, leveled_dlr_path, leveled_pbn_path, leveled_status
+from utils.properties import get_btn_property
+
+VULNERABILITIES = ("None", "NS", "EW", "All")
 
 # ANSI color codes
 RED = '\033[91m'
@@ -125,11 +133,28 @@ def run_pbn(scenario: str, verbose: bool = True) -> bool:
                      verbose, interleave=True)
 
 
+def _vulnerability(scenario: str) -> str | None:
+    """The .btn's `# vulnerable:` value, normalized to dealer3's spelling."""
+    value = get_btn_property(scenario, "vulnerable")
+    if value is None:
+        return None
+    for vul in VULNERABILITIES:
+        if value.strip().lower() == vul.lower():
+            return vul
+    print_error(f"Error: # vulnerable: {value!r} in btn/{scenario}.btn; "
+                f"expected one of {', '.join(VULNERABILITIES)}")
+    return ""
+
+
 def _make_pbn(scenario: str, dlr_path: str, pbn_path: str, verbose: bool,
               interleave: bool = False) -> bool:
     """Deal dlr_path into pbn_path, then add the comments and title."""
     dlr_rel = os.path.relpath(dlr_path, PROJECT_ROOT)
     pbn_rel = os.path.relpath(pbn_path, PROJECT_ROOT)
+
+    vulnerable = _vulnerability(scenario)
+    if vulnerable == "":
+        return False
 
     if DEALER_PLATFORM == "mac":
         # Step 1: Run dealer locally on Mac
@@ -148,6 +173,8 @@ def _make_pbn(scenario: str, dlr_path: str, pbn_path: str, verbose: bool,
         ]
         if interleave:
             dealer_cmd.append("--interleave")
+        if vulnerable:
+            dealer_cmd += ["--vulnerable", vulnerable]
 
         if verbose:
             print(f"  [Local] {' '.join(dealer_cmd)} < {dlr_path}")
@@ -226,6 +253,8 @@ def _make_pbn(scenario: str, dlr_path: str, pbn_path: str, verbose: bool,
             print(f"--------- dealer.exe (Windows): Creating {pbn_rel} from {dlr_rel}")
             if interleave:
                 print("  (dealer.exe has no --interleave; boards stay in the order dealt)")
+            if vulnerable:
+                print(f"  (dealer.exe has no --vulnerable; ignoring # vulnerable: {vulnerable})")
 
         # Build Windows paths
         win_dlr = mac_to_windows_path(dlr_path)

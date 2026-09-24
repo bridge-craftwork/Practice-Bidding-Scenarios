@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-09-19",
     "source_quiz": "DOPI_ROPI"
   },
   "exercises": [
@@ -15,6 +15,42 @@
       "title": "Exercise One — Opening Bids",
       "prompt": "What do you open with each of these hands?",
       "questions": [
+        {
+          "hand": {
+            "spades": "QT962",
+            "hearts": "KJT82",
+            "diamonds": "T87",
+            "clubs": ""
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "02AE8B2E420710C65432A89A6A0C",
+            "event": "DOPI_ROPI",
+            "board": 1
+          }
+        },
+        {
+          "hand": {
+            "spades": "QT976",
+            "hearts": "A9632",
+            "diamonds": "2",
+            "clubs": "K9"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "A28BAD2BDB33095A2200A8D04886",
+            "event": "DOPI_ROPI",
+            "board": 28
+          }
+        },
         {
           "hand": {
             "spades": "JT732",
@@ -28,9 +64,45 @@
           "answer": "1S",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "22A98B8902399853137BBF433438",
+            "id": "12A98B8902399853137BBF433438",
             "event": "DOPI_ROPI",
-            "board": 1
+            "board": 2
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQ8643",
+            "hearts": "J63",
+            "diamonds": "9",
+            "clubs": "A75"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "2229A32BC8A8A43A590299280062",
+            "event": "DOPI_ROPI",
+            "board": 4
+          }
+        },
+        {
+          "hand": {
+            "spades": "T5",
+            "hearts": "KQJ642",
+            "diamonds": "KQ32",
+            "clubs": "8"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "12AE8686CC2258AD70421A8A6486",
+            "event": "DOPI_ROPI",
+            "board": 3
           }
         },
         {
@@ -46,45 +118,117 @@
           "answer": "1H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "728B09A9268AC3897CD8206B6210",
+            "id": "428B09A9268AC3897CD8206B6210",
             "event": "DOPI_ROPI",
-            "board": 2
+            "board": 6
           }
-        },
+        }
+      ]
+    },
+    {
+      "id": "DOPI_ROPI-2",
+      "type": "bidding",
+      "title": "Exercise Two — Responding to 1♥",
+      "prompt": "Partner opens 1♥. What do you bid with each of these hands?",
+      "questions": [
         {
           "hand": {
-            "spades": "QT85",
-            "hearts": "AQ743",
-            "diamonds": "T",
-            "clubs": "K73"
+            "spades": "AKQ842",
+            "hearts": "AT83",
+            "diamonds": "AJ8",
+            "clubs": ""
           },
-          "seat": "N",
+          "seat": "S",
           "dealer": "N",
           "vulnerability": "NS",
-          "answer": "1H",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "D28EA90B9A27D01AC9602B828158",
+            "id": "12AE8686CC2258AD70421A8A6486",
             "event": "DOPI_ROPI",
             "board": 3
           }
         },
         {
           "hand": {
-            "spades": "QT8",
-            "hearts": "Q",
-            "diamonds": "AKQ875",
-            "clubs": "J73"
+            "spades": "AQT8",
+            "hearts": "QJ543",
+            "diamonds": "7",
+            "clubs": "A94"
           },
-          "seat": "N",
+          "seat": "S",
           "dealer": "N",
-          "vulnerability": "Both",
-          "answer": "1D",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "03EFBF0E9536943F5D7B7E7699DA",
+            "id": "428B09A9268AC3897CD8206B6210",
             "event": "DOPI_ROPI",
-            "board": 5
+            "board": 6
+          }
+        },
+        {
+          "hand": {
+            "spades": "QJT93",
+            "hearts": "AKQ7",
+            "diamonds": "",
+            "clubs": "AQ52"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "2NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "622B21AB8988914262D17B0A81DB",
+            "event": "DOPI_ROPI",
+            "board": 8
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQ972",
+            "hearts": "J4",
+            "diamonds": "AQ865",
+            "clubs": "9"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "C28C068E26C8B31C827C5E200A9A",
+            "event": "DOPI_ROPI",
+            "board": 31
           }
         }
       ]

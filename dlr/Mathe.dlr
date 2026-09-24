@@ -1,0 +1,78 @@
+# alias: Mathe
+# button-text: Mathe
+# scenario-title: --- Mathe over Strong 1!C
+# gib-works: false
+# bba-works: true
+# scenario-title: --- Mathe over Strong 1C
+# auction-filter: Auction.....\n1C +
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: Precision
+
+/*@chat
+--- Mathe over Strong 1!C
+After East opens an artificial 1!C (Precision, 16+ HCP), South can show:
+• X    = both majors, 4-4 or better
+• 1NT  = both minors, 4-4 or better
+• 1!D, 1!H, 1!S = natural, 5+ cards
+Partner (advancer) normally pulls X or 1NT to the better of the advertised
+suits; a new suit is natural. Show a 4-4 two-suiter only at favorable
+vulnerability -- otherwise be 5-4 or better.
+NOTE:  GIB does NOT play this!
+https://www.bridgebum.com/mathe_1c.php
+@chat*/
+
+# Neither BBA nor GIB plays Mathe.  The filter just keeps East's 1C opening;
+# the deals are built so South always has a Mathe call.
+
+dealer east
+
+# East opens strong 1C (Precision): 16+ HCP, any shape
+strong1C = hcp(east)>15
+
+# South: enough to act over a strong club, but not a strong hand
+sValues = hcp(south)>5 and hcp(south)<14
+
+# South's 4+ card suits
+sS4 = spades(south)>3
+sH4 = hearts(south)>3
+sD4 = diamonds(south)>3
+sC4 = clubs(south)>3
+
+# Two-suiters want the values in the two suits
+majorHonors = hcp(south,spades)   + hcp(south,hearts) > 3
+minorHonors = hcp(south,diamonds) + hcp(south,clubs)  > 3
+
+# South's Mathe calls, in priority order
+mX   = sS4 and sH4 and majorHonors                   // X   = both majors
+m1N  = sD4 and sC4 and minorHonors and not mX        // 1NT = both minors
+m1S  = spades(south)>4   and not (mX or m1N)         // natural spades
+m1H  = hearts(south)>4   and not (mX or m1N or m1S)  // natural hearts
+m1D  = diamonds(south)>4 and not (mX or m1N or m1S or m1H)  // natural diamonds
+mSuit = m1S or m1H or m1D
+
+# Level the three kinds of call so the two-suiters aren't swamped by natural overcalls
+HandType_X    = mX
+HandType_1N   = m1N
+HandType_Suit = mSuit
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
+# Now do it: East opens strong 1C and South has a Mathe call
+strong1C and sValues and (mX or m1N or mSuit) and levelTheDeal
+
+action printoneline,
+
+average "X  (majors)  " 100 * mX,
+average "1N (minors)  " 100 * m1N,
+average "1S natural   " 100 * m1S,
+average "1H natural   " 100 * m1H,
+average "1D natural   " 100 * m1D,
+
+average "X  is 5-4+   " 100 * (mX  and (spades(south)>4 or hearts(south)>4)),
+average "1N is 5-4+   " 100 * (m1N and (diamonds(south)>4 or clubs(south)>4)),
+
+average "hcp South" hcp(south),
+average "hcp East " hcp(east),

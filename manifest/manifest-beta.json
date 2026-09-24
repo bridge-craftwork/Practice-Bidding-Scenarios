@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "tier": "beta",
-  "generatedAtCommit": "58d9b85b8b8994452aa7a402f6fd565a51341b10",
+  "generatedAtCommit": "0f6e33605086ac1a29503af805f120073286a977",
   "sources": {
     "layout": "btn/-button-layout-beta.txt",
     "dlr": "dlr",
@@ -2207,7 +2207,10 @@
           "grouped": false
         },
         {
-          "name": "---"
+          "name": "Mathe",
+          "color": null,
+          "width": "50%",
+          "grouped": false
         }
       ]
     },
@@ -4145,14 +4148,14 @@
     },
     "DOPI_ROPI": {
       "buttonText": "DOPI-ROPI",
-      "chat": "\\n--- DOPI-ROPI: Responding to Blackwood after Interference\\nWhen an opponent bids over partner's 4NT (Blackwood/RKCB), use DOPI:\\n  D = Double = 0 keycards\\n  O = next step up = 1 keycard\\n  P = Pass = 1 keycard (without trump queen)\\n  I = next steps = 2, 3 keycards\\nWhen an opponent doubles 4NT, use ROPI:\\n  R = Redouble = 0 keycards\\n  O = next step up = 1 keycard\\n  P = Pass = 1 keycard (without trump queen)\\n  I = next steps = 2, 3 keycards\\nhttps://www.acblunit390.org/Simon/dopi-ropi.htm\\n\\nThis deck covers two paths to 5-level interference over 4NT:\\n(A) An opponent preempts a 7+ minor at 3-level with partner support.\\n(B) E/W have an 11+ major fit and start with a 1-level overcall or\\n    Unusual NT.\\n",
+      "chat": "\\n--- DOPI-ROPI: Responding to Blackwood after Interference, stick with your response structure \\nand just replace the first 2 steps with X/XX and Pass.\\nhttps://www.acblunit390.org/Simon/dopi-ropi.htm\\n",
       "alias": "DOPIROPI",
       "gibWorks": false,
       "bbaWorks": true,
       "conventionCardNS": "21GF-DEFAULT",
       "conventionCardEW": "21GF-DEFAULT",
       "missing": false,
-      "dlr": "dlr-leveled/DOPI_ROPI.dlr"
+      "dlr": "dlr/DOPI_ROPI.dlr"
     },
     "Spiral_Raises_Wolpert": {
       "buttonText": "Spiral Raises Wolpert",
@@ -6045,6 +6048,17 @@
       "conventionCardEW": "Precision",
       "missing": false,
       "dlr": "dlr/CRASH.dlr"
+    },
+    "Mathe": {
+      "buttonText": "Mathe",
+      "chat": "\\n--- Mathe over Strong 1!C\\nAfter East opens an artificial 1!C (Precision, 16+ HCP), South can show:\\n• X    = both majors, 4-4 or better\\n• 1NT  = both minors, 4-4 or better\\n• 1!D, 1!H, 1!S = natural, 5+ cards\\nPartner (advancer) normally pulls X or 1NT to the better of the advertised\\nsuits; a new suit is natural. Show a 4-4 two-suiter only at favorable\\nvulnerability -- otherwise be 5-4 or better.\\nNOTE:  GIB does NOT play this!\\nhttps://www.bridgebum.com/mathe_1c.php\\n",
+      "alias": "Mathe",
+      "gibWorks": false,
+      "bbaWorks": true,
+      "conventionCardNS": "21GF-DEFAULT",
+      "conventionCardEW": "Precision",
+      "missing": false,
+      "dlr": "dlr-leveled/Mathe.dlr"
     },
     "Support_Double": {
       "buttonText": "Support Double",
@@ -17984,8 +17998,8 @@
     ]
   },
   "counts": {
-    "referenced": 343,
-    "scenarios": 343,
+    "referenced": 344,
+    "scenarios": 344,
     "missing": 0,
     "orphans": 6
   }
