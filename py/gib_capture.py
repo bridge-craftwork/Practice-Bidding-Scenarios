@@ -174,9 +174,16 @@ def main() -> int:
         print(f'# dealer seat: {seat}\n{code}')
         return 0
 
-    for path, what in ((PWRUN, 'pwrun.mjs (set PBS_PWRUN)'), (args.profile, 'test profile')):
+    # The harness and its browser profile live outside both repos, so a Mac that
+    # has not done this before is missing them rather than broken. Say which,
+    # and where the rest of the setup is written down.
+    for path, what in ((PWRUN, 'pwrun.mjs (clone pbs-bbo-extension, or set PBS_PWRUN)'),
+                       (args.profile, 'BBO browser profile')):
         if not os.path.exists(path):
             print(f'Error: {what} not found: {path}', file=sys.stderr)
+            print('  Setup: pbs-bbo-extension/docs/testing-with-playwright.md '
+                  '("Setting up on another Mac")', file=sys.stderr)
+            print(f'  Then:  node {PWRUN} --check', file=sys.stderr)
             return 1
 
     lock = open(LOCK, 'w')
