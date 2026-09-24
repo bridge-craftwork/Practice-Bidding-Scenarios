@@ -43,6 +43,7 @@ sys.path = [p for p in sys.path if os.path.abspath(p or '.') != os.path.dirname(
 
 import argparse  # noqa: E402
 import fcntl  # noqa: E402
+import signal  # noqa: E402
 import json  # noqa: E402
 import re  # noqa: E402
 import subprocess  # noqa: E402
@@ -59,6 +60,12 @@ PWRUN = os.environ.get('PBS_PWRUN', os.path.expanduser(
 PROFILE = os.path.expanduser('~/.playwright-mcp/bbo-profile-test')
 OUT_DIR = os.path.join(PROJECT_ROOT, 'GIB')
 LOCK = os.path.join(tempfile.gettempdir(), 'pbs-gib-capture.lock')
+# A --keep-open run outlives this script: the harness is detached into its own
+# session so the browser stays up for a person, and the lock above goes with the
+# process that took it. The pid it left behind is recorded here instead, so the
+# next run can close it rather than collide with it -- a browser holding the
+# profile is what a later run would otherwise fail on, well after starting.
+DEMO_PID = os.path.join(tempfile.gettempdir(), 'pbs-bbo-demo.pid')
 
 
 def resolve_dlr(arg: str) -> tuple:
@@ -85,6 +92,100 @@ def count_boards(pbn_path: str) -> tuple:
     return len(re.findall(r'^\[Event ', text, re.MULTILINE)), sorted(set(dealers))
 
 
+def clear_stale_lock(profile: str, verbose: bool = True):
+    """Remove a profile lock whose owning process is gone.
+
+    Chromium's SingletonLock is a symlink named <host>-<pid>. It is only stale
+    if that pid is dead on this host; a live one belongs to a browser someone
+    is using, and removing it would take their profile out from under them.
+    """
+    singleton = os.path.join(profile, 'SingletonLock')
+    try:
+        owner = os.readlink(singleton)
+    except OSError:
+        return
+
+    pid = owner.rsplit('-', 1)[-1]
+    if not pid.isdigit():
+        return
+    try:
+        os.kill(int(pid), 0)
+        return          # alive: not ours to remove
+    except OSError:
+        pass
+
+    if verbose:
+        print(f'  clearing a profile lock left by pid {pid}, which is gone', flush=True)
+    for name in ('SingletonLock', 'SingletonCookie', 'SingletonSocket'):
+        try:
+            os.remove(os.path.join(profile, name))
+        except OSError:
+            pass
+
+
+def take_over(verbose: bool = True):
+    """Close a browser left open by an earlier --keep-open run, if one is up.
+
+    One BBO session at a time is the rule anyway -- the account cannot hold two
+    -- so a run that finds an old browser takes it over rather than refusing.
+    The harness was started in its own session, so the whole process group goes:
+    node, Chromium and its helpers together.
+    """
+    try:
+        with open(DEMO_PID, encoding='utf-8') as f:
+            pid, profile = f.read().split('\n')[:2]
+        pid = int(pid)
+    except (OSError, ValueError):
+        return
+
+    try:
+        os.killpg(pid, 0)
+    except OSError:
+        os.remove(DEMO_PID)   # long gone; the file is just litter
+        return
+
+    if verbose:
+        print(f'Closing the browser left open by an earlier run (pid {pid}, {profile})', flush=True)
+    try:
+        os.killpg(pid, signal.SIGTERM)
+    except OSError:
+        pass
+
+    for _ in range(100):      # 10s, then insist
+        try:
+            os.killpg(pid, 0)
+        except OSError:
+            break
+        time.sleep(0.1)
+    else:
+        try:
+            os.killpg(pid, signal.SIGKILL)
+        except OSError:
+            pass
+
+    # If it happened to be our own child, reap it: a zombie still answers to
+    # kill(pid, 0), and the lock check below would read that as a live owner.
+    try:
+        os.waitpid(pid, os.WNOHANG)
+    except OSError:
+        pass
+
+    # Chromium writes a lock into the profile and clears it on the way out. A
+    # browser killed mid-launch leaves it behind, pointing at a pid that no
+    # longer exists, and the next launch is then arguing with a ghost -- so
+    # wait for the owner to clear it, and remove it once the owner is gone.
+    singleton = os.path.join(profile, 'SingletonLock')
+    for _ in range(50):
+        if not os.path.lexists(singleton):
+            break
+        time.sleep(0.1)
+    else:
+        clear_stale_lock(profile, verbose)
+
+    if os.path.exists(DEMO_PID):
+        os.remove(DEMO_PID)
+
+
 def run_harness(job: dict, profile: str, timeout: int, keep_open: bool, workdir: str) -> dict:
     """Run pwrun.mjs on the capture module; return its result JSON."""
     job_path = os.path.join(workdir, 'job.json')
@@ -104,6 +205,10 @@ def run_harness(job: dict, profile: str, timeout: int, keep_open: bool, workdir:
         with open(log_path, 'w') as log:
             proc = subprocess.Popen(cmd, env=env, stdout=log, stderr=subprocess.STDOUT,
                                     stdin=subprocess.DEVNULL, start_new_session=True)
+        # start_new_session makes it a process-group leader, so this pid is the
+        # handle for the browser too, and the next run can close the lot.
+        with open(DEMO_PID, 'w', encoding='utf-8') as f:
+            f.write(f'{proc.pid}\n{profile}\n')
     else:
         proc = subprocess.Popen(cmd, env=env)
     # With --keep-open the harness never exits; its result file is the signal.
@@ -193,7 +298,12 @@ def main() -> int:
         print('Error: another GIB capture is running (one live BBO session at a time)', file=sys.stderr)
         return 1
 
+    # A browser from an earlier --keep-open run holds the profile, and the lock
+    # above says nothing about it: that run's lock died with its python. It is
+    # closed just before the browser is needed -- after every check that can
+    # still refuse the run, so nothing is taken over for a run that then stops.
     if args.demo:
+        take_over()
         return run_demo(scenario, dlr_path, code, seat, args.profile)
 
     out = os.path.abspath(args.out or os.path.join(OUT_DIR, f'{scenario}.pbn'))
@@ -208,6 +318,8 @@ def main() -> int:
     if os.path.exists(partial):
         os.remove(partial)
     timeout = args.timeout or int(180 + (10 + args.delay) * args.boards)
+
+    take_over()
 
     print(f'GIB capture: {scenario}, {args.boards} boards, dealer {seat}, '
           f'delay {args.delay:g}s, watchdog {timeout}s\n  from {dlr_path}\n  to   {out}', flush=True)
