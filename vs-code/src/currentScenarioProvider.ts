@@ -306,6 +306,16 @@ export class CurrentScenarioProvider implements vscode.TreeDataProvider<Scenario
         }
     }
 
+    /**
+     * The scenario this panel is showing, which is the last scenario file the
+     * editor was on. It is deliberately sticky -- switching to a README does
+     * not clear it -- so it answers "which scenario am I working on?" when the
+     * active editor cannot, such as from the command palette or a tree view.
+     */
+    getCurrentScenario(): string | undefined {
+        return this.currentScenario;
+    }
+
     refresh(): void {
         this._onDidChangeTreeData.fire();
     }

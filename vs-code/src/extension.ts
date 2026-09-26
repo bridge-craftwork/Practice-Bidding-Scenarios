@@ -203,7 +203,7 @@ export function activate(context: vscode.ExtensionContext) {
     );
 
     // Register pipeline commands and status bar
-    registerPipelineCommands(context);
+    registerPipelineCommands(context, () => currentScenarioProvider.getCurrentScenario());
     createStatusBar(context);
 
     // Explicit startup refresh to catch changes made while VS Code was closed

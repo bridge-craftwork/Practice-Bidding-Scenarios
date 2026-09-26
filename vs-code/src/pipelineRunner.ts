@@ -4,22 +4,39 @@ import { activityLogger } from './extension';
 import { getScenarioFromPath } from './scenarioPaths';
 
 /**
- * Get the current scenario from the active editor
+ * The scenario the PBS panel is showing, set at activation. It is the fallback
+ * when the active editor cannot name one.
+ */
+let panelScenario: () => string | undefined = () => undefined;
+
+/**
+ * Which scenario a command should run on.
+ *
+ * The active editor answers this when a scenario file is open and focused. It
+ * cannot when focus is anywhere else -- the command palette, a tree view, the
+ * button grid, a PDF -- and a command run from the palette used to fail there
+ * with "No active editor", which described the editor rather than the problem.
+ *
+ * So fall back to the scenario the PBS panel is showing. That panel holds the
+ * last scenario file the editor was on, and says so on screen, which makes it
+ * the honest answer to "which scenario am I working on?".
  */
 function getCurrentScenario(): string | undefined {
     const editor = vscode.window.activeTextEditor;
-    if (!editor) {
-        vscode.window.showWarningMessage('No active editor');
-        return undefined;
+    const fromEditor = editor && getScenarioFromPath(editor.document.uri.fsPath);
+    if (fromEditor) {
+        return fromEditor;
     }
 
-    const scenario = getScenarioFromPath(editor.document.uri.fsPath);
-    if (!scenario) {
-        vscode.window.showWarningMessage('Current file is not a PBS scenario');
-        return undefined;
+    const fromPanel = panelScenario();
+    if (fromPanel) {
+        return fromPanel;
     }
 
-    return scenario;
+    vscode.window.showWarningMessage(
+        'No scenario selected. Open one from btn/, dlr/ or pbn/, or click a scenario ' +
+        'in the PBS panel, then run this again.');
+    return undefined;
 }
 
 /**
@@ -67,7 +84,13 @@ function registerCommand(context: vscode.ExtensionContext, commandId: string, op
 /**
  * Register all pipeline commands
  */
-export function registerPipelineCommands(context: vscode.ExtensionContext): void {
+export function registerPipelineCommands(
+    context: vscode.ExtensionContext,
+    currentScenario?: () => string | undefined,
+): void {
+    if (currentScenario) {
+        panelScenario = currentScenario;
+    }
     // All operations
     registerCommand(context, 'pbs.runAll', '*');
 
