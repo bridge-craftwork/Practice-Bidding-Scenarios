@@ -57,7 +57,12 @@ from bbo_dealer import bbo_dealer_code  # noqa: E402
 CAPTURE_MODULE = os.path.join(PROJECT_ROOT, 'js', 'gib-capture.mjs')
 PWRUN = os.environ.get('PBS_PWRUN', os.path.expanduser(
     '~/Development/GitHub/pbs-bbo-extension/test/playwright/pwrun.mjs'))
-PROFILE = os.path.expanduser('~/.playwright-mcp/bbo-profile-test')
+# The browser profile carrying a signed-in BBO session. The default is the slim
+# one kept for automation, so a run does not contend with a browser open on the
+# everyday profile; a machine whose signed-in profile is the other one sets
+# PBS_BBO_PROFILE, which pwrun.mjs reads by the same name.
+PROFILE = os.environ.get('PBS_BBO_PROFILE',
+                         os.path.expanduser('~/.playwright-mcp/bbo-profile-test'))
 OUT_DIR = os.path.join(PROJECT_ROOT, 'GIB')
 LOCK = os.path.join(tempfile.gettempdir(), 'pbs-gib-capture.lock')
 # A --keep-open run outlives this script: the harness is detached into its own
