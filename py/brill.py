@@ -57,7 +57,7 @@ cross-check mode here, not the workhorse.
 
 Subcommands
   probe    verify the ctx grammar and service liveness
-  bid      pbn/<scn>.pbn  -> brill/<scn>.pbn
+  bid      pbn-leveled/ or pbn/<scn>.pbn  -> brill/<scn>.pbn
   filter   brill/<scn>.pbn -> brill-filtered/<scn>.pbn  (bridge-wrangler)
   compare  report Brill vs BBA pass rates + annotation coverage
 
@@ -340,8 +340,18 @@ def cmd_probe(args):
           "dealer->North relabeling are right.")
 
 
+def default_source(scenario: str) -> str:
+    """The dealt file for a scenario: pbn-leveled/ when it is leveled.
+
+    A leveled scenario has no pbn/<name>.pbn to fall back on -- since 2026-09
+    only the leveled file is dealt -- so reading pbn/ by name would miss.
+    """
+    leveled = f"pbn-leveled/{scenario}.pbn"
+    return leveled if os.path.exists(leveled) else f"pbn/{scenario}.pbn"
+
+
 def cmd_bid(args):
-    src_path = args.source or f"pbn/{args.scenario}.pbn"
+    src_path = args.source or default_source(args.scenario)
     boards = split_boards(open(src_path, encoding="utf-8", errors="replace").read())
     if args.limit:
         boards = boards[:args.limit]
@@ -448,7 +458,8 @@ def main():
 
     b = sub.add_parser("bid", help="bid a scenario's hands through Brill")
     b.add_argument("scenario")
-    b.add_argument("--source", help="input PBN (default pbn/<scn>.pbn)")
+    b.add_argument("--source", help="input PBN (default: the dealt file, "
+                                    "pbn-leveled/<scn>.pbn when leveled, else pbn/<scn>.pbn)")
     b.add_argument("--limit", type=int, default=0, help="first N boards only")
     b.add_argument("--workers", type=int, default=8, help="parallel boards")
     b.add_argument("--sleep", type=float, default=0.0, help="delay between calls")

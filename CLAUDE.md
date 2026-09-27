@@ -97,7 +97,7 @@ Pipeline operations in order:
 8. `filterStats` - Generate statistics
 9. `biddingSheet` - Generate PDF bidding sheets
 
-**Leveling (issue #322).** `level` runs `dealer3 --write-leveled` on a `.dlr` that names `HandType_*` variables. It skips every other scenario, and removes leftover leveled files when a scenario stops declaring hand types. Where `dlr-leveled/<name>.dlr` exists, it wins downstream. `pbn` writes both `pbn/<name>.pbn` (the natural mix) and `pbn-leveled/<name>.pbn` (interleaved by hand type). `rotate`, `bba`, `gib`, `package` and the manifest read the leveled files. One resolver decides this: `leveled_or_original()` in `build-scripts-mac/utils/leveling.py`. The leveled file's first line stamps the sha256 of the `.dlr` it came from. `level` skips a file that is still current, `pbn` refuses a stale one, and the `check-leveled` workflow fails CI on either a stale file or a missing one. `# level-budget: N` in a `.btn` caps the leveling cost.
+**Leveling (issue #322).** `level` runs `dealer3 --write-leveled` on a `.dlr` that names `HandType_*` variables. It skips every other scenario, and removes leftover leveled files when a scenario stops declaring hand types. Where `dlr-leveled/<name>.dlr` exists, it wins downstream. `pbn` writes `pbn-leveled/<name>.pbn` (interleaved by hand type) and, for a leveled scenario, only that: the natural mix in `pbn/<name>.pbn` was a second full dealer run, about 30 seconds a scenario, producing a file nothing downstream reads -- it existed to show what leveling changed, a comparison nobody was making. `PBS_NATURAL_MIX=1` deals it as well, which is what to set when leveling itself is what you are investigating; otherwise `pbn` removes a leftover one, as `level` does with its own. Unleveled scenarios are unaffected: `pbn/<name>.pbn` is their only dealt file. `rotate`, `bba`, `gib`, `package` and the manifest read the leveled files. One resolver decides this: `leveled_or_original()` in `build-scripts-mac/utils/leveling.py`. The leveled file's first line stamps the sha256 of the `.dlr` it came from. `level` skips a file that is still current, `pbn` refuses a stale one, and the `check-leveled` workflow fails CI on either a stale file or a missing one. `# level-budget: N` in a `.btn` caps the leveling cost.
 
 **Solving (issue #341).** `solve` runs the `bridge-solver` CLI over a scenario's
 deals and writes four tags into the deal file itself, leaving every other byte
@@ -212,7 +212,7 @@ Extension provides:
 **Generated (Intermediate):**
 - `dlr/` - Extracted dealer code
 - `dlr-leveled/` - Leveled copies of the `.dlr` files that declare hand types, from the `level` operation (issue #322). Committed, stamped with their source's hash; where one exists it wins downstream
-- `pbn-leveled/` - Hands dealt from `dlr-leveled/`, interleaved by hand type; `pbn/` keeps the natural mix beside them
+- `pbn-leveled/` - Hands dealt from `dlr-leveled/`, interleaved by hand type. For a leveled scenario this is the only dealt file; see `PBS_NATURAL_MIX` above
 - `pbn/` - Bridge Portable Notation files (~500 hands each)
 - `pbn-rotated-for-4-players/` - Rotated PBN for 4-player practice
 - `lin-rotated-for-4-players/` - LIN format for BBO

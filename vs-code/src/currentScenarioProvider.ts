@@ -49,10 +49,14 @@ const ARTIFACTS = [
         command: 'pbs.runLevel'
     },
     {
+        // The natural mix, dealt only for a scenario that is NOT leveled: a
+        // leveled one is dealt into pbn-leveled/ alone, so showing this row
+        // would report a file that is not supposed to exist as missing.
         name: 'pbn',
         shortName: 'pbn',
         requiresBba: false,
         requiresLeveled: false,
+        requiresUnleveled: true,
         getPath: (s: string, r: string) => path.join(r, 'pbn', `${s}.pbn`),
         getSourcePath: (s: string, r: string) => path.join(r, 'dlr', `${s}.dlr`),
         command: 'pbs.runPbn'
@@ -420,7 +424,8 @@ export class CurrentScenarioProvider implements vscode.TreeDataProvider<Scenario
             const leveled = isLeveled(this.currentScenario!, this.workspaceRoot!);
             const visibleArtifacts = ARTIFACTS.filter(artifact =>
                 (!artifact.requiresBba || metadata.bbaWorks) &&
-                (!artifact.requiresLeveled || leveled)
+                (!artifact.requiresLeveled || leveled) &&
+                (!(artifact as { requiresUnleveled?: boolean }).requiresUnleveled || !leveled)
             );
 
             // Build artifact children

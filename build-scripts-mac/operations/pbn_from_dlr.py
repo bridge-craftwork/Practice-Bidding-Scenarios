@@ -29,6 +29,15 @@ from utils.properties import get_btn_property
 
 VULNERABILITIES = ("None", "NS", "EW", "All")
 
+# A leveled scenario used to be dealt twice: once from dlr/ into pbn/, the
+# "natural mix", and once from dlr-leveled/ into pbn-leveled/, which is the file
+# every later stage reads. The natural mix was there to show what leveling
+# changed, a comparison nobody was making -- so it cost a second full dealer run
+# and 9MB of files that nothing read, rewritten on every re-deal. Set
+# PBS_NATURAL_MIX=1 to deal it anyway, which is what to do when leveling itself
+# is what you are investigating.
+NATURAL_MIX = os.environ.get("PBS_NATURAL_MIX", "").strip().lower() in ("1", "true", "yes")
+
 # ANSI color codes
 RED = '\033[91m'
 RESET = '\033[0m'
@@ -115,17 +124,28 @@ def run_pbn(scenario: str, verbose: bool = True) -> bool:
         print_error(f"Error: DLR file not found: {dlr_path}")
         return False
 
-    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
-    if not _make_pbn(scenario, dlr_path, pbn_path, verbose):
-        return False
-
     status = leveled_status(scenario)
-    if status == UNLEVELED:
-        return True
     if status == STALE:
         print_error(f"Error: dlr-leveled/{scenario}.dlr was made from an older "
                     f"dlr/{scenario}.dlr; run level first")
         return False
+
+    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
+
+    if status == UNLEVELED:
+        return _make_pbn(scenario, dlr_path, pbn_path, verbose)
+
+    if NATURAL_MIX:
+        if not _make_pbn(scenario, dlr_path, pbn_path, verbose):
+            return False
+    elif os.path.exists(pbn_path):
+        # Left by an earlier build, and now dealt from a script that has moved
+        # on. Nothing reads it, and a stale file that looks current is worse
+        # than none -- the same reason level removes its own leftovers.
+        os.remove(pbn_path)
+        if verbose:
+            print(f"  Removed pbn/{scenario}.pbn: leveled scenarios deal only "
+                  f"pbn-leveled/ (PBS_NATURAL_MIX=1 to keep both)")
 
     os.makedirs(FOLDERS["pbn_leveled"], exist_ok=True)
     # Interleaved, so any run of boards from the top walks through the hand types

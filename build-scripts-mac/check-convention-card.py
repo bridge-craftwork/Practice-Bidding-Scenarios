@@ -27,6 +27,7 @@ import tempfile
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from utils.leveling import leveled_or_original
 from config import FOLDERS, MAC_TOOLS, DEFAULT_CC1, DEFAULT_CC2
 
 # ---------------------------------------------------------------------------
@@ -238,7 +239,7 @@ def run_bba_test(scenario, current_cc_name):
         print("  Error: bridge-wrangler not found")
         return None
 
-    pbn_path = os.path.join(FOLDERS["pbn"], f"{scenario}.pbn")
+    pbn_path = leveled_or_original(scenario, "pbn")
     if not os.path.exists(pbn_path):
         print(f"  Error: PBN file not found: {pbn_path}")
         return None

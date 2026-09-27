@@ -3,7 +3,9 @@ import argparse
 
 parser = argparse.ArgumentParser(description="Extract dealer code")
 parser.add_argument("--scenario", type=str, help="Name of scenario is required")
-parser.add_argument("--pbn", type=str, help="PBN file to process (default: ../pbn/<scenario>.pbn)")
+parser.add_argument("--pbn", type=str, help="PBN file to process "
+                    "(default: the dealt file, ../pbn-leveled/<scenario>.pbn when the "
+                    "scenario is leveled, else ../pbn/<scenario>.pbn)")
 args = parser.parse_args()
 scenario = str(args.scenario)
 
@@ -44,7 +46,10 @@ def process():
 
 # Do a single scenario
 filename = scenario + '.pbn'
-file_path = args.pbn or os.path.join('..', 'pbn', filename)
+# A leveled scenario is dealt only into pbn-leveled/; pbn/ holds the rest.
+_leveled = os.path.join('..', 'pbn-leveled', filename)
+file_path = args.pbn or (_leveled if os.path.exists(_leveled)
+                         else os.path.join('..', 'pbn', filename))
 if os.path.isfile(file_path):
     process()
 else:

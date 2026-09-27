@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 # Add parent directory to path for imports
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
+from utils.leveling import leveled_or_original
 from config import FOLDERS, OPERATIONS_ORDER, PROJECT_ROOT
 from utils.properties import get_bba_works, get_btn_property, get_chat_text
 
@@ -172,7 +173,9 @@ def generate_summary(pattern: str = "*"):
     # Collect data for each scenario
     rows = []
     for scenario in scenarios:
-        deals = count_boards(os.path.join(FOLDERS["pbn"], f"{scenario}.pbn"))
+        # The dealt file downstream reads: pbn-leveled/ for a leveled scenario,
+        # which since 2026-09 is the only one such a scenario has.
+        deals = count_boards(leveled_or_original(scenario, "pbn"))
         filtered = count_boards(os.path.join(FOLDERS["bba_filtered"], f"{scenario}.pbn"))
         filtered_out = count_boards(os.path.join(FOLDERS["bba_filtered_out"], f"{scenario}.pbn"))
 
