@@ -417,7 +417,7 @@ def generate_dashboard_data():
     labels = format_month_labels(sorted_months)
 
     return {
-        "generatedAt": datetime.now().isoformat(),
+        "generatedAt": os.environ.get("PBS_GENERATED_AT") or datetime.now().isoformat(),
         "summary": {
             "totalScenarios": get_scenario_count(),
             "scenariosWorked": total_scenarios_worked,

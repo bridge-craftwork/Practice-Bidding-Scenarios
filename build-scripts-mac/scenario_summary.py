@@ -312,11 +312,13 @@ def generate_summary(pattern: str = "*"):
     h.append('</head>')
     h.append('<body>')
     h.append('  <h1>Scenario Summary</h1>')
-    utc_ts = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
+    # The dashboard job sets PBS_GENERATED_AT so every page it writes shows one time.
+    utc_ts = os.environ.get('PBS_GENERATED_AT') or datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
     h.append(f'  <p class="subtitle">{len(rows)} scenarios &mdash; Generated <span id="gen-time" data-utc="{utc_ts}"></span>')
     h.append(f'    &mdash; <a class="nav-btn" href="./">Dashboard</a>')
     h.append(f'    <a class="nav-btn nav-btn-active" href="Scenario_Summary.html">Scenario Summary</a>')
-    h.append(f'    <a class="nav-btn" href="Convention_Card_Summary.html">Convention Cards</a></p>')
+    h.append(f'    <a class="nav-btn" href="Convention_Card_Summary.html">Convention Cards</a>')
+    h.append(f'    <a class="nav-btn" href="Curation_Summary.html">Curation</a></p>')
 
     # Side-by-side summaries
     h.append('  <div class="summaries">')
