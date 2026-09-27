@@ -6,6 +6,14 @@ cd /Users/adavidbailey/Practice-Bidding-Scenarios
 
 echo "$(date): Starting dashboard update"
 
+# launchd runs a job missed during sleep the moment the Mac wakes, often before the
+# network is back. Wait up to 5 minutes for github.com rather than failing the run.
+for i in $(seq 1 30); do
+    git ls-remote --exit-code origin HEAD >/dev/null 2>&1 && break
+    [ "$i" -eq 30 ] && { echo "$(date): github.com unreachable after 5 minutes; giving up"; exit 1; }
+    sleep 10
+done
+
 # Bring main level with GitHub first, so the push at the end is a fast-forward.
 # Without this, a PR merged on GitHub between runs leaves every later push rejected
 # and the dashboard commits pile up locally. --autostash tolerates a dirty tree.
@@ -35,7 +43,10 @@ else
     # one more rebase covers that race.
     if ! git push; then
         echo "$(date): Push rejected; rebasing once more and retrying"
-        git pull --rebase origin main && git push
+        if ! { git pull --rebase --autostash origin main && git push; }; then
+            echo "$(date): Push failed; the commit is left local"
+            exit 1
+        fi
     fi
     echo "$(date): Push complete"
 fi
