@@ -35,8 +35,8 @@ export PBS_GENERATED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 # Generate convention card summary
 /usr/bin/python3 build-scripts-mac/convention_card_summary.py
 
-# Generate curation summary
-/usr/bin/python3 docs/generateCurationSummary.py
+# Generate curation summary (needs endplay, which /usr/bin/python3 lacks)
+/usr/local/bin/python3 docs/generateCurationSummary.py
 
 # Check if there are changes to commit
 if git diff --quiet docs/index.html docs/dashboard-data.json docs/Scenario_Summary.html docs/Convention_Card_Summary.html docs/Curation_Summary.html; then
