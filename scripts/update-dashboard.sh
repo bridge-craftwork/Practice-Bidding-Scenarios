@@ -23,6 +23,9 @@ if ! git pull --rebase --autostash origin main; then
     exit 1
 fi
 
+# One timestamp for every page this run writes, so their "Generated" times agree.
+export PBS_GENERATED_AT="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
 # Generate dashboard data
 /usr/bin/python3 docs/generateDashboardData.py
 
@@ -32,12 +35,15 @@ fi
 # Generate convention card summary
 /usr/bin/python3 build-scripts-mac/convention_card_summary.py
 
+# Generate curation summary
+/usr/bin/python3 docs/generateCurationSummary.py
+
 # Check if there are changes to commit
-if git diff --quiet docs/index.html docs/dashboard-data.json docs/Scenario_Summary.html docs/Convention_Card_Summary.html; then
+if git diff --quiet docs/index.html docs/dashboard-data.json docs/Scenario_Summary.html docs/Convention_Card_Summary.html docs/Curation_Summary.html; then
     echo "$(date): No changes to commit"
 else
     echo "$(date): Committing and pushing changes"
-    git add docs/index.html docs/dashboard-data.json docs/Scenario_Summary.html docs/Convention_Card_Summary.html
+    git add docs/index.html docs/dashboard-data.json docs/Scenario_Summary.html docs/Convention_Card_Summary.html docs/Curation_Summary.html
     git commit -m "Daily dashboard update"
     # The manifest bot can land a commit in the seconds between the pull and this push;
     # one more rebase covers that race.

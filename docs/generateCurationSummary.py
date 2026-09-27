@@ -7,6 +7,7 @@ site's existing style (matches index.html / Scenario_Summary.html). Re-run
 after re-curating to refresh:  python3 docs/generateCurationSummary.py
 """
 import json, os, glob, collections, sys
+from datetime import datetime, timezone
 
 DOCS = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(DOCS)
@@ -33,7 +34,7 @@ def collect():
             "totals": {"scenarios": len(rows), "boards": sum(r["boards"] for r in rows),
                        "themes": len(theme_rows)}}
 
-NAV = ('<p style="text-align:center;color:#666;margin-bottom:24px">&mdash; '
+NAV = ('<p style="text-align:center;color:#666;margin-bottom:24px">Generated <span id="gen-time" data-utc="__GENERATED__"></span> &mdash; '
        '<a class="nav-btn" href="./">Dashboard</a> '
        '<a class="nav-btn" href="Scenario_Summary.html">Scenario Summary</a> '
        '<a class="nav-btn" href="Convention_Card_Summary.html">Convention Cards</a> '
@@ -114,12 +115,17 @@ options:{indexAxis:'y',plugins:{legend:{labels:{boxWidth:12}}},
 scales:{x:{beginAtZero:true,ticks:{precision:0}},y:{ticks:{font:{size:11}}}},
 responsive:true,maintainAspectRatio:false}});
 const hu=(D.themes.find(t=>t.theme==='hold-up')||{}).textbook,cw=(D.themes.find(t=>t.theme==='count-winners')||{}).textbook;
+const gt=document.getElementById('gen-time'),gd=new Date(gt.dataset.utc);
+gt.textContent=gd.toLocaleDateString()+' '+gd.toLocaleTimeString([],{hour:'2-digit',minute:'2-digit',timeZoneName:'short'});
 document.getElementById('note').innerHTML='<b>Reading the themes:</b> a play lesson pulls from any pool here regardless of which scenario generated the board &mdash; e.g. a hold-up lesson draws the <b>'+hu+'</b> textbook hold-up boards, a counting lesson the <b>'+cw+'</b> textbook count-winners boards. Defensive themes skew low on textbook because the current library is bidding- and declarer-heavy.';
 </script></body></html>'''
 
 if __name__ == "__main__":
     data = collect()
-    out = (HTML.replace("__NAV__", NAV)
+    # The dashboard job sets PBS_GENERATED_AT so every page it writes shows one time.
+    generated = (os.environ.get("PBS_GENERATED_AT")
+                 or datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"))
+    out = (HTML.replace("__NAV__", NAV.replace("__GENERATED__", generated))
                .replace("__SCOPE__", str(data["totals"]["scenarios"]))
                .replace("__DATA__", json.dumps(data)))
     path = os.path.join(DOCS, "Curation_Summary.html")
