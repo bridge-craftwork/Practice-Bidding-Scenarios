@@ -50,7 +50,6 @@ from operations.release import run_release
 from operations.release_layout import run_release_layout
 from operations.package import run_package
 from operations.gib import run_gib, run_gib_report, run_bbo_demo
-from scenario_summary import generate_summary
 
 
 # Map operation names to functions
@@ -460,10 +459,6 @@ Run explicitly (not part of "*"):
 
     # Persist timing data
     _save_timing_data(all_durations)
-
-    # Update Scenario Summary report (skip for non-pipeline operations like release)
-    if set(operations) & set(OPERATIONS_ORDER):
-        generate_summary()
 
     # Final summary
     if len(scenarios) > 1:
