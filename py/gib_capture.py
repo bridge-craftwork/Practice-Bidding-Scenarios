@@ -56,7 +56,7 @@ from bbo_dealer import bbo_dealer_code  # noqa: E402
 
 CAPTURE_MODULE = os.path.join(PROJECT_ROOT, 'js', 'gib-capture.mjs')
 PWRUN = os.environ.get('PBS_PWRUN', os.path.expanduser(
-    '~/Development/GitHub/pbs-bbo-extension/test/playwright/pwrun.mjs'))
+    '/Volumes/Express2T/Development/GitHub/pbs-bbo-extension/test/playwright/pwrun.mjs'))
 # The browser profile carrying a signed-in BBO session. The default is the slim
 # one kept for automation, so a run does not contend with a browser open on the
 # everyday profile; a machine whose signed-in profile is the other one sets

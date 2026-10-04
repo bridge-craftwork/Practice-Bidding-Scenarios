@@ -25,7 +25,7 @@ def mac_to_windows_path(mac_path: str) -> str:
     Convert a Mac path to a Windows path using drive mappings.
 
     Example:
-        /Users/rick/Development/GitHub/Practice-Bidding-Scenarios/pbn/Smolen.pbn
+        /Volumes/Express2T/Development/GitHub/Practice-Bidding-Scenarios/pbn/Smolen.pbn
         -> P:\\pbn\\Smolen.pbn
     """
     # Normalize the path
@@ -50,7 +50,7 @@ def windows_to_mac_path(windows_path: str) -> str:
 
     Example:
         P:\\pbn\\Smolen.pbn
-        -> /Users/rick/Development/GitHub/Practice-Bidding-Scenarios/pbn/Smolen.pbn
+        -> /Volumes/Express2T/Development/GitHub/Practice-Bidding-Scenarios/pbn/Smolen.pbn
     """
     # Normalize the path
     windows_path = windows_path.replace("/", "\\")
