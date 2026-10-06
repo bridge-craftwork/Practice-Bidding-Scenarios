@@ -15,8 +15,9 @@ def get_drive_mapping_commands() -> str:
     """
     commands = []
     for mac_base, (drive_letter, unc_path) in get_drive_mappings().items():
-        # Use net use to map the drive (ignore errors if already mapped)
-        commands.append(f"net use {drive_letter} {unc_path} >nul 2>&1")
+        # Use net use to map the drive (ignore errors if already mapped).
+        # /persistent:no keeps SSH-side mappings out of the desktop's remembered drives.
+        commands.append(f"net use {drive_letter} {unc_path} /persistent:no >nul 2>&1")
     return " & ".join(commands)
 
 

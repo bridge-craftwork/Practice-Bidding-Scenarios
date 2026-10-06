@@ -21,6 +21,11 @@ WINDOWS_SSH_HOST = os.environ.get("WINDOWS_HOST")
 WINDOWS_SSH_USER = os.environ.get("WINDOWS_USER")
 UNC_PREFIX = os.environ.get("PBS_UNC_PREFIX")
 BCSCRIPT_PATH = os.environ.get("PBS_BCSCRIPT_PATH")
+# Optional extra or replacement drive mappings, one variable per letter:
+#   export WINDOWS_DRIVE_E="/Volumes/External/Development=\\Mac\External\Development"
+# The value is "<Mac path>=<Windows UNC path>". A variable for G:, P: or S:
+# replaces the built-in mapping for that letter.
+DRIVE_ENV_PREFIX = "WINDOWS_DRIVE_"
 
 def require_windows_config():
     """Validate that Windows VM environment variables are set.
@@ -56,6 +61,23 @@ def _mac_to_unc(mac_path: str) -> str:
         return UNC_PREFIX + relative.replace("/", "\\")
     return expanded.replace("/", "\\")
 
+def _env_drive_mappings(defaults):
+    """Read WINDOWS_DRIVE_<letter> variables. Drops any default that uses the same letter."""
+    extra = {}
+    for name, value in sorted(os.environ.items()):
+        letter = name[len(DRIVE_ENV_PREFIX):]
+        if not name.startswith(DRIVE_ENV_PREFIX) or len(letter) != 1 or not letter.isalpha():
+            continue
+        mac_path, sep, unc_path = value.partition("=")
+        if not sep or not mac_path or not unc_path:
+            print(f"Warning: ignoring {name}; expected \"<Mac path>=<UNC path>\"")
+            continue
+        drive = letter.upper() + ":"
+        for key in [k for k, (d, _) in defaults.items() if d == drive]:
+            del defaults[key]
+        extra[os.path.expanduser(mac_path).rstrip("/")] = (drive, unc_path)
+    return extra
+
 # Drive mappings are built lazily since they require Windows config
 _DRIVE_MAPPINGS = None
 
@@ -73,6 +95,7 @@ def get_drive_mappings():
             # S: drive maps to BridgeComposer scripts folder
             _bcscript_expanded: ("S:", _mac_to_unc(_bcscript_expanded)),
         }
+        _DRIVE_MAPPINGS.update(_env_drive_mappings(_DRIVE_MAPPINGS))
     return _DRIVE_MAPPINGS
 
 # For backward compatibility
