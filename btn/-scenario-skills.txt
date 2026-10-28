@@ -1,0 +1,233 @@
+# Scenario skills: which convention or skill each scenario practises, as IDs
+# from the convention card's vocabulary (bridge-craftwork/convention-card,
+# spec/conventions/<category>/<name>.toml). The manifest carries them as
+# `scenarios[name].skills`, so a tool can say "PBS has deals for Bergen
+# raises" (the convention card editor's Solo practice report).
+#
+# Format:
+#   Scenario_Name: category/skill, category/skill
+#   # comment
+#
+# A scenario names the conventions its deals practise for the side at the
+# table (Opps_Weak_Two practises defending against preempts, not weak twos).
+# A scenario not listed practises nothing on the list: general bidding, or
+# a treatment the vocabulary doesn't have yet.
+
+1C_WalshStyle: bidding_conventions/walsh
+1M-3N_Picture_Bid: bidding_conventions/picture_3nt
+1N: basic_bidding/notrump_openings
+2N: basic_bidding/notrump_openings
+2N_and_MSS: bidding_conventions/minor_suit_stayman
+2N_and_Transfers: bidding_conventions/jacoby_transfers
+3N: basic_bidding/notrump_openings
+After_Partner_Overcalls: competitive_bidding/advancing_overcalls
+After_Partner_Takeout_Double: competitive_bidding/takeout_doubles
+BART: bidding_conventions/bart
+Balancing: competitive_bidding/balancing
+Basic_Major: basic_bidding/major_suit_openings
+Basic_Minor: basic_bidding/minor_suit_openings
+Basic_NT: basic_bidding/notrump_openings
+Basic_Overcall: competitive_bidding/overcalls
+Basic_Takeout_Double: competitive_bidding/takeout_doubles
+Basic_Weak_2: bidding_conventions/weak_2s
+Benjamin_2D: bidding_conventions/benjamin_2d
+Bergen_Raises: bidding_conventions/bergen_raises
+Bergen_Thrump_X_after_Preempt: competitive_bidding/thrump_double
+Better_Minor_Lebensohl: competitive_bidding/lebensohl
+Bust_Over_Strong_2C: bidding_conventions/two_heart_bust
+CRASH: competitive_bidding/crash
+Cappelletti: competitive_bidding/cappelletti
+Cappelletti_in_4th: competitive_bidding/cappelletti
+DONT: competitive_bidding/dont
+DOPI_ROPI: bidding_conventions/dopi_ropi
+Drury: bidding_conventions/drury
+Equal_Level_Conversion: competitive_bidding/equal_level_conversion
+Exclusion_After_1M: bidding_conventions/exclusion_blackwood
+Exclusion_After_Sta_Jac: bidding_conventions/exclusion_blackwood
+Exit_Transfers: competitive_bidding/exit_transfers
+Fit_Jumps_after_1M_Double: competitive_bidding/fit_showing_jumps
+Fit_Showing_Jumps: competitive_bidding/fit_showing_jumps
+Flannery: bidding_conventions/flannery
+Forcing_NT: bidding_conventions/forcing_1nt
+Forcing_Pass: competitive_bidding/forcing_pass
+Fourth_Suit_Forcing: bidding_conventions/fourth_suit_forcing
+GIB_1N-P-2C-BID: bidding_conventions/stayman
+GIB_1N-P-2C: bidding_conventions/stayman
+GIB_Sandwich_NT_BPH: competitive_bidding/sandwich_nt
+GSF_after_Preempt: bidding_conventions/grand_slam_force
+Gambling_3N: bidding_conventions/gambling_3nt
+Game_Forcing_2C: bidding_conventions/strong_2c
+Gavin_Mixed_Raise: competitive_bidding/mixed_raise
+Gavin_Semi-Forcing_NT_with_Fit: bidding_conventions/semi_forcing_1nt
+Gavin_Strong_Splinter: bidding_conventions/splinters
+Gavin_Weak_Splinter: bidding_conventions/splinters
+Gazzilli: bidding_conventions/gazzilli
+Gerber: bidding_conventions/gerber
+Gerber_By_Opener: bidding_conventions/gerber
+Gerber_By_Responder: bidding_conventions/gerber
+Good_Bad_2N: competitive_bidding/good_bad_2nt
+Grand_Slam_Force: bidding_conventions/grand_slam_force
+Grand_Slam_Force_2: bidding_conventions/grand_slam_force
+Help_Suit_Game_Try: bidding_conventions/help_suit_game_try
+Impossible_2S: bidding_conventions/impossible_2s
+Inverted_Minors: bidding_conventions/inverted_minors
+Jacoby_2N: bidding_conventions/jacoby_2nt
+Jacoby_2N_4x_void: bidding_conventions/jacoby_2nt
+Jacoby_2N_4x_void_Leveled: bidding_conventions/jacoby_2nt
+Jacoby_2N_Leveled: bidding_conventions/jacoby_2nt
+Jacoby_Super-Accept: bidding_conventions/jacoby_transfers, bidding_conventions/super_accept
+Jacoby_Transfer: bidding_conventions/jacoby_transfers
+Jordan_2N: competitive_bidding/jordan_2nt
+Jump_Overcalls: competitive_bidding/overcalls
+Kokish_Relay: bidding_conventions/kokish
+Lars_Multi_2D: bidding_conventions/lars_multi
+Last_Train_GT2: bidding_conventions/last_train
+Last_Train_Game_Try: bidding_conventions/last_train
+Lead_Directing_Double: competitive_bidding/lead_directing_doubles
+Leaping_Michaels: competitive_bidding/leaping_michaels
+Lebensohl: competitive_bidding/lebensohl
+Lebensohl2: competitive_bidding/lebensohl
+Lebensohl_vs_Opps_W2_Bal: competitive_bidding/lebensohl
+Lebensohl_vs_Opps_W2_Bal_or_Dir: competitive_bidding/lebensohl
+Lebensohl_vs_Opps_W2_Dir: competitive_bidding/lebensohl
+Losing_Trick_Count: basic_bidding/hand_evaluation
+MST_or_MSS: bidding_conventions/minor_suit_stayman, bidding_conventions/minor_suit_transfers
+Major_Opener: basic_bidding/major_suit_openings
+Mathe: competitive_bidding/mathe
+Maximal_After_Overcall: competitive_bidding/maximal_doubles
+Maximal_Double: competitive_bidding/maximal_doubles
+McCabe_After_Weak_2: bidding_conventions/mccabe
+McCabe_after_WJO: bidding_conventions/mccabe
+Meckwell: competitive_bidding/meckwell
+Michaels_Cuebid: competitive_bidding/michaels_unusual
+Michaels_after_1m: competitive_bidding/michaels_unusual
+Michaels_and_Unusual: competitive_bidding/michaels_unusual
+Mini-Maxi_Roman_2D: bidding_conventions/mini_roman_2d
+Minor_Suit_Opener: basic_bidding/minor_suit_openings
+Minor_Suit_Opener_Mixed_Raise: competitive_bidding/mixed_raise
+Minor_Suit_Stayman: bidding_conventions/minor_suit_stayman
+Minor_Suit_Transfer: bidding_conventions/minor_suit_transfers
+Mitchell_Stayman: competitive_bidding/mitchell_stayman
+Mixed_Raise_In_Comp: competitive_bidding/mixed_raise
+Muiderberg_Two_Bids: bidding_conventions/muiderberg
+Multi_2D: bidding_conventions/multi_2d
+Multi_Landy: competitive_bidding/multi_landy
+NT_Splinter: bidding_conventions/splinters
+Namyats: bidding_conventions/namyats
+Ned_Weak_Two: bidding_conventions/weak_2s
+Ned_Weak_Two_Leveled: bidding_conventions/weak_2s
+Negative_Double: competitive_bidding/negative_doubles
+New_Minor_Forcing: bidding_conventions/new_minor_forcing
+Non_Leaping_Michaels_After_2-Bid: competitive_bidding/non_leaping_michaels
+Non_Leaping_Michaels_After_3-Bid: competitive_bidding/non_leaping_michaels
+Ogust: bidding_conventions/ogust
+Opps_2-Suited_Overcalls: competitive_bidding/unusual_vs_unusual
+Opps_Double_Jacoby: bidding_conventions/jacoby_transfers
+Opps_Double_Stayman: bidding_conventions/stayman
+Opps_Michaels_Cuebid: competitive_bidding/unusual_vs_unusual
+Opps_Michaels_and_Unusual: competitive_bidding/unusual_vs_unusual
+Opps_Open_1N_15-17: competitive_bidding/defense_vs_1nt
+Opps_Overcall_Stayman_or_Jacoby: bidding_conventions/stayman, bidding_conventions/jacoby_transfers
+Opps_Preempt: competitive_bidding/defense_vs_preempts
+Opps_Preempt_4M: competitive_bidding/defense_vs_preempts
+Opps_Weak_Two: competitive_bidding/defense_vs_preempts
+Power_Double_Balanced: competitive_bidding/takeout_doubles
+Power_Double_Unbalanced: competitive_bidding/takeout_doubles
+Preempt_Keycard: bidding_conventions/preempt_keycard
+Preempts: bidding_conventions/preemptive_bids
+Puppet_Stayman_1N: bidding_conventions/puppet_stayman
+Puppet_Stayman_2N: bidding_conventions/puppet_stayman
+Responsive_Double: competitive_bidding/responsive_doubles
+Responsive_Double_after_Overcall: competitive_bidding/responsive_doubles
+Reverse_After_Two_Over_One: bidding_conventions/reverse_bids, bidding_conventions/two_over_one
+Reverse_By_Opener: bidding_conventions/reverse_bids
+Reverse_By_Responder: bidding_conventions/reverse_bids
+Reverse_Flannery: bidding_conventions/reverse_flannery
+Reversed_Splinters_By_Opener: bidding_conventions/splinters
+Rosenkranz_Double: competitive_bidding/rosenkranz
+SCS16_1C_1SuitedOpnr: precision/1c_opener
+SCS16_1C_1SuitedResp: precision/1c_responder
+SCS16_1C_3-Suit_Resp: precision/1c_responder
+SCS16_1C_3-Suit_Resp_5-7: precision/1c_responder
+SCS16_1C_54_Resp: precision/1c_responder
+SCS16_1C_55_Resp: precision/1c_responder
+SCS16_1C_any_0-4_Resp: precision/1c_responder
+SCS16_1C_any_5-7_Resp: precision/1c_responder
+SCS16_1C_any_8plus_Resp: precision/1c_responder
+SCS16_1or2C: precision/1c_opener
+SCS_1C_3-Suit_Resp: precision/1c_responder
+SCS_1C_3-Suit_Resp_5-7: precision/1c_responder
+SCS_1C_54_Resp: precision/1c_responder
+SCS_1C_55_Resp: precision/1c_responder
+SCS_1C_any_0-4_Resp: precision/1c_responder
+SCS_1C_any_5-7_Resp: precision/1c_responder
+SCS_1C_any_8plus_Resp: precision/1c_responder
+SCS_Impossible_Negative: precision/1c_responder
+Scrambling_2NT: competitive_bidding/scrambling_2nt
+Serious: bidding_conventions/serious_3nt
+Six_Key_RKC: bidding_conventions/six_key_rkcb
+Size_Asking_Minor_Suit_Stayman: bidding_conventions/minor_suit_stayman
+Slam_after_Stayman: bidding_conventions/stayman
+Slam_after_Stayman_or_Jacoby_w30plus: bidding_conventions/stayman, bidding_conventions/jacoby_transfers
+Slam_after_Stayman_or_Jacoby_w31plus: bidding_conventions/stayman, bidding_conventions/jacoby_transfers
+Slam_after_Transfer: bidding_conventions/jacoby_transfers
+Smolen: bidding_conventions/smolen
+Smolen_Invitational: bidding_conventions/smolen
+Smolen_after_2N: bidding_conventions/smolen
+Snapdragon_Double: competitive_bidding/snapdragon
+Soloway_Jump_Shift: bidding_conventions/soloway
+Soloway_Jump_Shift_Type-1: bidding_conventions/soloway
+Soloway_Jump_Shift_Type-2: bidding_conventions/soloway
+Soloway_Jump_Shift_Type-3: bidding_conventions/soloway
+Soloway_Jump_Shift_Type-4: bidding_conventions/soloway
+Spear: competitive_bidding/spear
+Spiral_Raises_Weinstein: bidding_conventions/spiral
+Spiral_Raises_Wolpert: bidding_conventions/spiral
+Splinters: bidding_conventions/splinters
+Splinters_By_Opener: bidding_conventions/splinters
+Splinters_after_Minor: bidding_conventions/splinters
+Stayman: bidding_conventions/stayman
+Suction: competitive_bidding/suction
+SupportX_by_Advancer: competitive_bidding/support_doubles
+Support_Double: competitive_bidding/support_doubles
+Takeout_Double: competitive_bidding/takeout_doubles
+Texas_Transfer: bidding_conventions/jacoby_transfers
+Texas_or_Jacoby: bidding_conventions/jacoby_transfers
+Tislevoll_after_Opps_Preempt: bidding_conventions/tislevoll
+Transfer_Advances: competitive_bidding/transfer_advances
+Transfer_Walsh: bidding_conventions/transfer_walsh
+Transfers_after_1M_X: bidding_conventions/transfers_after_double
+Two-Suited_Overcalls: competitive_bidding/michaels_unusual
+Two-Way_Game_Try: bidding_conventions/two_way_game_tries
+Two-Way_New_Minor_Forcing_aka_xyNT: bidding_conventions/two_way_nmf
+Two_Over_One: bidding_conventions/two_over_one
+Unusual_2N: competitive_bidding/michaels_unusual
+WB5_Collante: competitive_bidding/collante
+WB5_Rodrigue: competitive_bidding/rodrigue
+WB5_Roudi: bidding_conventions/roudi
+We_Overcall: competitive_bidding/overcalls
+We_Overcall_1N: competitive_bidding/overcalls
+We_Overcall_1N_then_Gerber: bidding_conventions/gerber
+We_Overcall_NT_then_Jacoby: bidding_conventions/jacoby_transfers
+We_Overcall_NT_then_MSS: bidding_conventions/minor_suit_stayman
+We_Overcall_NT_then_MST: bidding_conventions/minor_suit_transfers
+We_Overcall_NT_then_Smolen: bidding_conventions/smolen
+We_Overcall_NT_then_Stayman: bidding_conventions/stayman
+We_Overcall_NT_then_Texas: bidding_conventions/jacoby_transfers
+We_X_Opps_Preempt: competitive_bidding/takeout_doubles, competitive_bidding/defense_vs_preempts
+We_X_Opps_Weak_2: competitive_bidding/takeout_doubles, competitive_bidding/defense_vs_preempts
+Weak_2_Bids: bidding_conventions/weak_2s
+Weak_2_Bids_Lax: bidding_conventions/weak_2s
+Weak_2_Bids_Lax_Leveled: bidding_conventions/weak_2s
+Weak_2_Bids_Leveled: bidding_conventions/weak_2s
+Weak_Jump_Shift: bidding_conventions/weak_jump_shifts
+Weak_NT_09-12: basic_bidding/notrump_openings
+Weak_NT_09-15: basic_bidding/notrump_openings
+Weak_NT_10-12: basic_bidding/notrump_openings
+Weak_NT_10-13: basic_bidding/notrump_openings
+Weak_NT_11-16: basic_bidding/notrump_openings
+Weak_NT_13-15: basic_bidding/notrump_openings
+Weak_NT_14-15: basic_bidding/notrump_openings
+Western_Cue_Bid: bidding_conventions/western_cuebid
+XYZ: bidding_conventions/xyz
+Xfer_after_1M_X: bidding_conventions/transfers_after_double
