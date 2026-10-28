@@ -61,6 +61,8 @@ Bridge-Classroom-served coaching collection (`coaching-non-rotated/`). The
       "bbaWorks": true,          // from .btn  (NOT available in the menu today)
       "conventionCardNS": "21GF-GIB",
       "conventionCardEW": "21GF-GIB",
+      "skills": ["bidding_conventions/smolen"],  // what it practises, as convention-card
+                                 // skill IDs (btn/-scenario-skills.txt); [] if none
       "missing": false,          // true => referenced by layout but no .dlr exists
       "dlr": "dlr/Smolen.dlr"    // the script to load; dlr-leveled/<name>.dlr when
                                  // the scenario is leveled (PBS #322); null if missing

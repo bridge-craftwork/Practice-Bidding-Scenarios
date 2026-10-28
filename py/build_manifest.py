@@ -62,6 +62,8 @@ DLR_LEVELED_DIR = os.path.join(ROOT, "dlr-leveled")
 # Bridge-Classroom-served coaching collection: source of the v2 `lessons` roster
 # (producer contract R5). One .pbn per lesson; key = PBN basename.
 COACHING_DIR = os.path.join(ROOT, "coaching-non-rotated")
+# Which conventions each scenario practises, as convention-card skill IDs
+SKILLS_PATH = os.path.join(BTN_DIR, "-scenario-skills.txt")
 
 # tier -> layout filename
 TIERS = {
@@ -124,6 +126,27 @@ def load_all_btn_metadata():
     for fn in os.listdir(BTN_DIR):
         if fn.endswith(".btn") and not fn.startswith("-"):
             out[fn[:-4]] = parse_btn_metadata(os.path.join(BTN_DIR, fn))
+    return out
+
+
+def load_scenario_skills(path=SKILLS_PATH):
+    """{scenario: [skill ID]} from btn/-scenario-skills.txt (`Name: id, id`)."""
+    out = {}
+    if not os.path.exists(path):
+        return out
+    with open(path, encoding="utf-8") as fh:
+        for n, raw in enumerate(fh, 1):
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            name, sep, ids = line.partition(":")
+            skills = [i.strip() for i in ids.split(",") if i.strip()]
+            if not sep or not name.strip() or not skills:
+                sys.exit(f"{os.path.relpath(path, ROOT)}:{n}: expected `Scenario: category/skill, ...`")
+            bad = [i for i in skills if not re.fullmatch(r"[a-z0-9_]+/[a-z0-9_]+", i)]
+            if bad:
+                sys.exit(f"{os.path.relpath(path, ROOT)}:{n}: not a skill ID: {', '.join(bad)}")
+            out[name.strip()] = skills
     return out
 
 
@@ -375,7 +398,7 @@ def list_dlr():
             for fn in os.listdir(DLR_DIR) if fn.endswith(".dlr")}
 
 
-def scenario_entry(name, btn_meta, dlr_button, missing):
+def scenario_entry(name, btn_meta, dlr_button, missing, skills=None):
     """Merge .btn metadata + .dlr header into one manifest scenario entry."""
     bm = btn_meta.get(name, {})
     text = (dlr_button or {}).get("buttonText") or bm.get("buttonText") or name
@@ -391,6 +414,7 @@ def scenario_entry(name, btn_meta, dlr_button, missing):
         "bbaWorks": bm.get("bbaWorks"),
         "conventionCardNS": bm.get("conventionCardNS"),
         "conventionCardEW": bm.get("conventionCardEW"),
+        "skills": (skills or {}).get(name, []),
         "missing": missing,
     }
 
@@ -407,7 +431,7 @@ def git_sha():
         return None
 
 
-def build_tier(tier, btn_meta, lessons, dlr_index):
+def build_tier(tier, btn_meta, lessons, dlr_index, skills=None):
     layout_name = TIERS[tier]
     layout_path = os.path.join(BTN_DIR, layout_name)
     items, referenced = parse_layout(layout_path)
@@ -425,7 +449,7 @@ def build_tier(tier, btn_meta, lessons, dlr_index):
         if dlr_path and os.path.exists(leveled):
             dlr_path = leveled
         button = parse_dlr_button(dlr_path) if dlr_path else None
-        entry = scenario_entry(name, btn_meta, button, is_missing)
+        entry = scenario_entry(name, btn_meta, button, is_missing, skills)
         entry["dlr"] = os.path.relpath(dlr_path, ROOT) if dlr_path else None
         scenarios[name] = entry
 
@@ -465,6 +489,10 @@ def main():
     btn_meta = load_all_btn_metadata()
     dlr_index = list_dlr()
     lessons = build_lessons()  # tier-independent; compute once, share across tiers
+    skills = load_scenario_skills()
+    unknown = sorted(n for n in skills if n not in btn_meta)
+    if unknown:
+        sys.exit(f"btn/-scenario-skills.txt names no such scenario: {', '.join(unknown)}")
     tiers = [args.tier] if args.tier else sorted(TIERS)
     out_dir = os.path.join(ROOT, args.out_dir)
     if not args.check:
@@ -476,7 +504,7 @@ def main():
           f"({lesson_stable} stable)")
 
     for tier in tiers:
-        m = build_tier(tier, btn_meta, lessons, dlr_index)
+        m = build_tier(tier, btn_meta, lessons, dlr_index, skills)
         c = m["counts"]
         print(f"[{tier}] referenced={c['referenced']} "
               f"missing={c['missing']} orphans={c['orphans']}")
