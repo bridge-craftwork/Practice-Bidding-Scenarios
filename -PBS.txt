@@ -83,13 +83,17 @@ Script,onLogin,setTimeout(setOptionsOff, 200);
 Script,onDataLoad,$('#bttab-buttons').click();
 
 // Open usual BBO side panel
-Script,onLogin,parent.$('.verticalClass')[0].click();
+// Messages is usually open by now, and clicking an open tab closes it, so only click if it's closed
+Script,onLogin,parent.$('#rightDiv .verticalClass:first:not(.selected)').click();
 
 // Remove the Char, Word, All backspace buttons (hide isn't enough — master toggle re-shows white buttons)
 Script,onDataLoad,$("#adpanel2 button:lt(3)").remove();
 
 // Fix button row heights - make adjacent buttons equal height
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/panelStyle.js
+
+// Don't show the panel while loading
+Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/silentStartupDefault.js
 
 // Redirect chat so it doesn't go to Lobby
 Import,https://github.com/bridge-craftwork/pbs-bbo-extension/blob/release/runtime/chatDestination.js
