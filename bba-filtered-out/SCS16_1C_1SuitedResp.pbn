@@ -3,60 +3,111 @@
 % CC1 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/Precision.bbsa
 % CC2 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/21GF-GIB.bbsa
 %HRTitleEvent "SCS16_1C_1SuitedResp"
+%HRSeed 352481 (offset 1)
+% solved: 500/500 deals, bridge-solver
 [Event "SCS16_1C_1SuitedResp"]
-[Site ""]
+[Site "-"]
 [Board "1"]
 % 78A5738B430CD2937CBF76C09377
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "N:T.QJT4.Q.KQJ8632 KJ752.983.T76.95 AQ863.A.KJ9843.A 94.K7652.A52.T74"]
 {Shape 1417 5332 5161 2533}
 {HCP 11 4 18 7}
 {Losers 5 10 3 9}
-[Declarer "S"]
-[Contract "7N"]
-[Result "9"]
-[Score "NS -200"]
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  2C =1=    Pass
-4S =2=    Pass  5C    Pass
-7N    Pass  Pass  Pass
-[Note "1:10+ HCP if fit or 6+; 12+ F"]
-[Note "2:1m opening allows 5M"]
+[Declarer "S"]
+[Contract "4N"]
+[Result "9"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "9999c9999c4443144420"]
+[OptimumScore "NS 920"]
+[ParContract "NS 6C="]
+[Score "NS -50"]
+[Auction "S"]
+1D    Pass  1H    Pass
+2S =1=    Pass  3C =2=    Pass
+3N    Pass  4C    Pass
+4N    Pass  Pass  Pass
+[Note "1:1m opening allows 5M"]
+[Note "2:Fourth suit"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  9
+N  H  9
+N  D  9
+N  C 12
+S NT  9
+S  S  9
+S  H  9
+S  D  9
+S  C 12
+E NT  4
+E  S  4
+E  H  4
+E  D  3
+E  C  1
+W NT  4
+W  S  4
+W  H  4
+W  D  2
+W  C  0
 
 [Event "SCS16_1C_1SuitedResp"]
-[Site ""]
+[Site "-"]
 [Board "2"]
 % BABA85C78303575A104445B297F0
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "N:T7.KQJT65..QJT93 9865.9873.A8.A84 AKJ43..KQ9653.K5 Q2.A42.JT742.762"]
 {Shape 2605 4423 5062 2353}
 {HCP 9 8 16 7}
 {Losers 5 9 3 10}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "4S"]
 [Result "11"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "89b8b89b8a4325243252"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4H+1"]
 [Score "NS 650"]
-[Scoring "MP"]
 [Auction "S"]
 1D    Pass  1H    Pass
 1S    Pass  2C    Pass
-2D =1=    Pass  4H    Pass
+2D =1=    Pass  3H    Pass
 4S =2=    Pass  Pass  Pass
 [Note "1:Fourth suit"]
 [Note "2:1m opening allows 5M"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  9
+N  H 11
+N  D  8
+N  C 11
+S NT  8
+S  S  9
+S  H 11
+S  D  8
+S  C 10
+E NT  4
+E  S  3
+E  H  2
+E  D  5
+E  C  2
+W NT  4
+W  S  3
+W  H  2
+W  D  5
+W  C  2
 

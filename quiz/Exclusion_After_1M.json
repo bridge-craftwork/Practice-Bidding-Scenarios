@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-30",
+    "generated": "2026-11-10",
     "source_quiz": "Exclusion_After_1M"
   },
   "exercises": [
@@ -129,18 +129,76 @@
       "id": "Exclusion_After_1M-2",
       "type": "bidding",
       "title": "Exercise Two — Responding to 1♥",
+      "prompt": "Partner opens 1♥, RHO bids 1♠. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "4",
+            "hearts": "KT82",
+            "diamonds": "84",
+            "clubs": "AQT643"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "1S"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6BAFCCB3FE8B6EC672D3682763CC",
+            "event": "Exclusion_After_1M",
+            "board": 77
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJ432",
+            "hearts": "KJT9",
+            "diamonds": "7",
+            "clubs": "JT3"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "1S"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "BA29C4E50743CA6ADC7AE6222334",
+            "event": "Exclusion_After_1M",
+            "board": 347
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exclusion_After_1M-3",
+      "type": "bidding",
+      "title": "Exercise Three — Responding to 1♥",
       "prompt": "Partner opens 1♥, RHO bids 2♠. What do you bid with each of these hands?",
       "questions": [
         {
           "hand": {
-            "spades": "",
-            "hearts": "J765",
-            "diamonds": "AQ652",
-            "clubs": "A543"
+            "spades": "J8",
+            "hearts": "KQ97",
+            "diamonds": "KQT9",
+            "clubs": "J98"
           },
           "seat": "N",
           "dealer": "S",
-          "vulnerability": "EW",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -151,9 +209,9 @@
           "answer": "3S",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "69A3E5A044EEBC96C541C3E76FD2",
+            "id": "5AA48E8C37DECF27CA6AF4D46AE2",
             "event": "Exclusion_After_1M",
-            "board": 82
+            "board": 74
           }
         },
         {
@@ -178,19 +236,19 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "F83341E16BE7FFCEE05C08CE227D",
             "event": "Exclusion_After_1M",
-            "board": 188
+            "board": 183
           }
         },
         {
           "hand": {
-            "spades": "T92",
-            "hearts": "AT52",
-            "diamonds": "76",
-            "clubs": "AKQ4"
+            "spades": "K2",
+            "hearts": "T9543",
+            "diamonds": "Q",
+            "clubs": "AK752"
           },
           "seat": "N",
           "dealer": "S",
-          "vulnerability": "EW",
+          "vulnerability": "None",
           "context": {
             "dealer": "S",
             "calls": [
@@ -201,9 +259,9 @@
           "answer": "3S",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "69CBABEFB60E2A6A52E2CAEFDE0C",
+            "id": "C8A327FA92C442DEE3E24FC6842F",
             "event": "Exclusion_After_1M",
-            "board": 92
+            "board": 156
           }
         },
         {
@@ -228,15 +286,40 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "69E1A045EE4191D5EC823242D0E4",
             "event": "Exclusion_After_1M",
-            "board": 86
+            "board": 80
+          }
+        },
+        {
+          "hand": {
+            "spades": "9872",
+            "hearts": "A986",
+            "diamonds": "KQJT2",
+            "clubs": ""
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2S"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "A8C169EAEAD8010E34C07250EE2A",
+            "event": "Exclusion_After_1M",
+            "board": 332
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-3",
+      "id": "Exclusion_After_1M-4",
       "type": "bidding",
-      "title": "Exercise Three — Responding to 1♥",
+      "title": "Exercise Four — Responding to 1♥",
       "prompt": "Partner opens 1♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -286,7 +369,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "4AA7CA240B48A2E33EB0FA4B28A6",
             "event": "Exclusion_After_1M",
-            "board": 257
+            "board": 252
           }
         },
         {
@@ -341,38 +424,38 @@
         },
         {
           "hand": {
-            "spades": "QJT4",
-            "hearts": "AJ985",
-            "diamonds": "KT75",
+            "spades": "Q852",
+            "hearts": "AT754",
+            "diamonds": "AK8",
+            "clubs": "8"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "4C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6B86A520D9C0A927C168094AD21A",
+            "event": "Exclusion_After_1M",
+            "board": 84
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKQ75",
+            "hearts": "Q872",
+            "diamonds": "QT98",
             "clubs": ""
           },
           "seat": "N",
           "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "P"
-            ]
-          },
-          "answer": "4C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "194A61250920C4CCE264C2246DD4",
-            "event": "Exclusion_After_1M",
-            "board": 30
-          }
-        },
-        {
-          "hand": {
-            "spades": "QJ542",
-            "hearts": "AJ98",
-            "diamonds": "A85",
-            "clubs": "3"
-          },
-          "seat": "N",
-          "dealer": "S",
           "vulnerability": "None",
           "context": {
             "dealer": "S",
@@ -384,92 +467,9 @@
           "answer": "4C",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "38896D2C0DD48448DDE5182C672E",
+            "id": "78222008517968CA0EE222FEFDC4",
             "event": "Exclusion_After_1M",
-            "board": 48
-          }
-        }
-      ]
-    },
-    {
-      "id": "Exclusion_After_1M-4",
-      "type": "bidding",
-      "title": "Exercise Four — Responding to 1♠",
-      "prompt": "Partner opens 1♠, RHO bids 3♣. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "KQ52",
-            "hearts": "KQ",
-            "diamonds": "JT96",
-            "clubs": "KQ8"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "3C"
-            ]
-          },
-          "answer": "4C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "98A0030F9ABA98DF90683CB05410",
-            "event": "Exclusion_After_1M",
-            "board": 125
-          }
-        },
-        {
-          "hand": {
-            "spades": "Q983",
-            "hearts": "8",
-            "diamonds": "AKQJT9",
-            "clubs": "J8"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "3C"
-            ]
-          },
-          "answer": "4C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "3AAEAC1C5F9D2E03A0A0B06A18D8",
-            "event": "Exclusion_After_1M",
-            "board": 244
-          }
-        },
-        {
-          "hand": {
-            "spades": "A6543",
-            "hearts": "QJ93",
-            "diamonds": "T",
-            "clubs": "QJ3"
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "3C"
-            ]
-          },
-          "answer": "3S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "C820A24F8FE8CC9CAE103C1607B0",
-            "event": "Exclusion_After_1M",
-            "board": 360
+            "board": 98
           }
         }
       ]
@@ -478,6 +478,147 @@
       "id": "Exclusion_After_1M-5",
       "type": "bidding",
       "title": "Exercise Five — Responding to 1♠",
+      "prompt": "Partner opens 1♠, RHO bids 2♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "K9843",
+            "hearts": "",
+            "diamonds": "KQJ432",
+            "clubs": "T3"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2C"
+            ]
+          },
+          "answer": "4S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6AA22CACAC9B3938A158D93C1F7E",
+            "event": "Exclusion_After_1M",
+            "board": 83
+          }
+        },
+        {
+          "hand": {
+            "spades": "QJ95",
+            "hearts": "KQ9",
+            "diamonds": "T8",
+            "clubs": "K986"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "2C"
+            ]
+          },
+          "answer": "3C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "9BBC8F0C2C540B57929B20A05CD8",
+            "event": "Exclusion_After_1M",
+            "board": 121
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exclusion_After_1M-6",
+      "type": "bidding",
+      "title": "Exercise Six — Responding to 1♠",
+      "prompt": "Partner opens 1♠, RHO bids 3♥. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "QJ92",
+            "hearts": "A9763",
+            "diamonds": "T",
+            "clubs": "AJ7"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "3H"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "BB8FB1313F5500B04FC2FEBE8030",
+            "event": "Exclusion_After_1M",
+            "board": 144
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJT864",
+            "hearts": "A",
+            "diamonds": "Q74",
+            "clubs": "K98"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "3H"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "19095BB13A14B737B2355C31BA9C",
+            "event": "Exclusion_After_1M",
+            "board": 211
+          }
+        },
+        {
+          "hand": {
+            "spades": "KJ93",
+            "hearts": "JT8",
+            "diamonds": "AJ8542",
+            "clubs": ""
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "3H"
+            ]
+          },
+          "answer": "4S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "E8B911950A84304AFDF2BABA3E59",
+            "event": "Exclusion_After_1M",
+            "board": 384
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exclusion_After_1M-7",
+      "type": "bidding",
+      "title": "Exercise Seven — Responding to 1♠",
       "prompt": "Partner opens 1♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -507,10 +648,10 @@
         },
         {
           "hand": {
-            "spades": "KJ93",
-            "hearts": "Q943",
-            "diamonds": "Q",
-            "clubs": "AT94"
+            "spades": "A872",
+            "hearts": "A",
+            "diamonds": "AQ3",
+            "clubs": "J9742"
           },
           "seat": "N",
           "dealer": "S",
@@ -525,9 +666,9 @@
           "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "5AAB268E2AF303D2A872B24306A4",
+            "id": "4A0DA1DDABF89B382B60B8BB5C2B",
             "event": "Exclusion_After_1M",
-            "board": 72
+            "board": 51
           }
         },
         {
@@ -577,7 +718,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "798589173CF9579BB7DC81C81436",
             "event": "Exclusion_After_1M",
-            "board": 105
+            "board": 99
           }
         },
         {
@@ -607,10 +748,10 @@
         },
         {
           "hand": {
-            "spades": "J852",
-            "hearts": "K76",
-            "diamonds": "AKJ932",
-            "clubs": ""
+            "spades": "A965",
+            "hearts": "3",
+            "diamonds": "AT643",
+            "clubs": "KQ4"
           },
           "seat": "N",
           "dealer": "S",
@@ -622,22 +763,47 @@
               "P"
             ]
           },
-          "answer": "4C",
+          "answer": "4H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "3B95849915795528C24838AA9626",
+            "id": "FB2593A3907428B1992610E7C6D8",
             "event": "Exclusion_After_1M",
-            "board": 53
+            "board": 186
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-6",
+      "id": "Exclusion_After_1M-8",
       "type": "bidding",
-      "title": "Exercise Six — Responding to 2♣",
+      "title": "Exercise Eight — Responding to 2♣",
       "prompt": "Partner opens 2♣. What do you bid with each of these hands?",
       "questions": [
+        {
+          "hand": {
+            "spades": "AK95",
+            "hearts": "JT853",
+            "diamonds": "",
+            "clubs": "Q875"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1A2620A7808812CBD3AA07FA8A90",
+            "event": "Exclusion_After_1M",
+            "board": 29
+          }
+        },
         {
           "hand": {
             "spades": "K952",
@@ -660,15 +826,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "DAA92E49889A0C80B2F0118A8E31",
             "event": "Exclusion_After_1M",
-            "board": 174
+            "board": 168
           }
         },
         {
           "hand": {
-            "spades": "65",
-            "hearts": "K9752",
-            "diamonds": "83",
-            "clubs": "AQT2"
+            "spades": "",
+            "hearts": "J765",
+            "diamonds": "AQ652",
+            "clubs": "A543"
           },
           "seat": "N",
           "dealer": "S",
@@ -680,12 +846,12 @@
               "P"
             ]
           },
-          "answer": "2H",
+          "answer": "3D",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "39EB4AAB6CEB4E724A240AE470CF",
+            "id": "69A3E5A044EEBC96C541C3E76FD2",
             "event": "Exclusion_After_1M",
-            "board": 241
+            "board": 76
           }
         },
         {
@@ -710,15 +876,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "FB8D1901B0D6910281B3B630C938",
             "event": "Exclusion_After_1M",
-            "board": 194
+            "board": 189
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-7",
+      "id": "Exclusion_After_1M-9",
       "type": "bidding",
-      "title": "Exercise Seven — Opener's Rebid after 2♠",
+      "title": "Exercise Nine — Opener's Rebid after 2♠",
       "prompt": "You open 1♥, LHO bids 2♥, partner responds 2♠, RHO bids 3♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -745,7 +911,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "AA87E0A227DE43E3F663974A44DB",
             "event": "Exclusion_After_1M",
-            "board": 134
+            "board": 129
           }
         },
         {
@@ -772,71 +938,17 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "EAE705C76DDC28E2C95C4417F86A",
             "event": "Exclusion_After_1M",
-            "board": 178
+            "board": 172
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-8",
+      "id": "Exclusion_After_1M-10",
       "type": "bidding",
-      "title": "Exercise Eight — Opener's Rebid after 3♠",
-      "prompt": "You open 1♥, LHO bids 2♠, partner responds 3♠. What do you bid with each of these hands?",
+      "title": "Exercise Ten — Opener's Rebid after 2♠",
+      "prompt": "You open 1♥, LHO bids 2♥, partner responds 2♠. What do you bid with each of these hands?",
       "questions": [
-        {
-          "hand": {
-            "spades": "AQ98",
-            "hearts": "AKQT43",
-            "diamonds": "",
-            "clubs": "K76"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "2S",
-              "3S",
-              "P"
-            ]
-          },
-          "answer": "5D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "69A3E5A044EEBC96C541C3E76FD2",
-            "event": "Exclusion_After_1M",
-            "board": 82
-          }
-        },
-        {
-          "hand": {
-            "spades": "AJ5",
-            "hearts": "KQJT7",
-            "diamonds": "",
-            "clubs": "AK732"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "2S",
-              "3S",
-              "P"
-            ]
-          },
-          "answer": "5D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "6A892DEFAC6848CE69DEB0C3D9DD",
-            "event": "Exclusion_After_1M",
-            "board": 282
-          }
-        },
         {
           "hand": {
             "spades": "KJ",
@@ -851,8 +963,8 @@
             "dealer": "S",
             "calls": [
               "1H",
+              "2H",
               "2S",
-              "3S",
               "P"
             ]
           },
@@ -861,7 +973,69 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "69CBABEFB60E2A6A52E2CAEFDE0C",
             "event": "Exclusion_After_1M",
-            "board": 92
+            "board": 86
+          }
+        },
+        {
+          "hand": {
+            "spades": "K75",
+            "hearts": "AJ743",
+            "diamonds": "",
+            "clubs": "AKJ76"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2H",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "5D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "AA21814EEDDED8CAA1C18F63E24A",
+            "event": "Exclusion_After_1M",
+            "board": 135
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exclusion_After_1M-11",
+      "type": "bidding",
+      "title": "Exercise Eleven — Opener's Rebid after 3♠",
+      "prompt": "You open 1♥, LHO bids 2♠, partner responds 3♠. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AKQ",
+            "hearts": "A8632",
+            "diamonds": "AJ854",
+            "clubs": ""
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2S",
+              "3S",
+              "P"
+            ]
+          },
+          "answer": "5C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "5AA48E8C37DECF27CA6AF4D46AE2",
+            "event": "Exclusion_After_1M",
+            "board": 74
           }
         },
         {
@@ -888,34 +1062,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "C8A327FA92C442DEE3E24FC6842F",
             "event": "Exclusion_After_1M",
-            "board": 163
-          }
-        },
-        {
-          "hand": {
-            "spades": "",
-            "hearts": "AK8765",
-            "diamonds": "AQ3",
-            "clubs": "A842"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "2S",
-              "3S",
-              "P"
-            ]
-          },
-          "answer": "4S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "8B2D26CE5BF3F2E12A2BEB41CE49",
-            "event": "Exclusion_After_1M",
-            "board": 115
+            "board": 156
           }
         },
         {
@@ -942,15 +1089,69 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "C9290BCDC67E6CEE10E1E759C25B",
             "event": "Exclusion_After_1M",
-            "board": 167
+            "board": 160
+          }
+        },
+        {
+          "hand": {
+            "spades": "",
+            "hearts": "AKQ964",
+            "diamonds": "KQJT2",
+            "clubs": "T8"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2S",
+              "3S",
+              "P"
+            ]
+          },
+          "answer": "4S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0BE7EF2E0E5DE2D1002A43EBF84C",
+            "event": "Exclusion_After_1M",
+            "board": 196
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJ5",
+            "hearts": "KQJT7",
+            "diamonds": "",
+            "clubs": "AK732"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1H",
+              "2S",
+              "3S",
+              "P"
+            ]
+          },
+          "answer": "5D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "6A892DEFAC6848CE69DEB0C3D9DD",
+            "event": "Exclusion_After_1M",
+            "board": 281
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-9",
+      "id": "Exclusion_After_1M-12",
       "type": "bidding",
-      "title": "Exercise Nine — Opener's Rebid after 2♣",
+      "title": "Exercise Twelve — Opener's Rebid after 2♣",
       "prompt": "You open 1♥, partner responds 2♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -977,7 +1178,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "7A6687EFEFB36ECA5BEBA442C4F2",
             "event": "Exclusion_After_1M",
-            "board": 95
+            "board": 89
           }
         },
         {
@@ -1004,7 +1205,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "1A876783667718B0C2E243EB4BE6",
             "event": "Exclusion_After_1M",
-            "board": 213
+            "board": 205
           }
         },
         {
@@ -1031,7 +1232,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "7849ABA8ED4766CECC9FDBA5C5D6",
             "event": "Exclusion_After_1M",
-            "board": 291
+            "board": 289
           }
         },
         {
@@ -1064,9 +1265,9 @@
       ]
     },
     {
-      "id": "Exclusion_After_1M-10",
+      "id": "Exclusion_After_1M-13",
       "type": "bidding",
-      "title": "Exercise Ten — Opener's Rebid after 2♦",
+      "title": "Exercise Thirteen — Opener's Rebid after 2♦",
       "prompt": "You open 1♥, partner responds 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1093,34 +1294,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "1ABD0DAC612E4A4A988CE0DEE0EE",
             "event": "Exclusion_After_1M",
-            "board": 220
-          }
-        },
-        {
-          "hand": {
-            "spades": "",
-            "hearts": "AKT974",
-            "diamonds": "Q9",
-            "clubs": "AKJ73"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1H",
-              "P",
-              "2D",
-              "P"
-            ]
-          },
-          "answer": "3C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "88292952F96A20C6E946D8664544",
-            "event": "Exclusion_After_1M",
-            "board": 306
+            "board": 214
           }
         },
         {
@@ -1147,15 +1321,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "E9A186CF41F3B1EECC65E65066E3",
             "event": "Exclusion_After_1M",
-            "board": 382
+            "board": 380
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-11",
+      "id": "Exclusion_After_1M-14",
       "type": "bidding",
-      "title": "Exercise Eleven — Opener's Rebid after 2NT",
+      "title": "Exercise Fourteen — Opener's Rebid after 2NT",
       "prompt": "You open 1♥, partner responds 2NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1241,14 +1415,14 @@
         },
         {
           "hand": {
-            "spades": "K72",
-            "hearts": "AJ986",
-            "diamonds": "",
-            "clubs": "AKQJT"
+            "spades": "",
+            "hearts": "KQT7643",
+            "diamonds": "AJ",
+            "clubs": "KQJ3"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "None",
+          "vulnerability": "EW",
           "context": {
             "dealer": "S",
             "calls": [
@@ -1258,12 +1432,12 @@
               "P"
             ]
           },
-          "answer": "4C",
+          "answer": "3S",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "186989D569C96E279467DACC47B6",
+            "id": "194A61250920C4CCE264C2246DD4",
             "event": "Exclusion_After_1M",
-            "board": 23
+            "board": 30
           }
         },
         {
@@ -1295,14 +1469,14 @@
         },
         {
           "hand": {
-            "spades": "",
-            "hearts": "KJT8765",
-            "diamonds": "AKJ2",
-            "clubs": "A7"
+            "spades": "A2",
+            "hearts": "AT9652",
+            "diamonds": "",
+            "clubs": "AKJ97"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "Both",
+          "vulnerability": "EW",
           "context": {
             "dealer": "S",
             "calls": [
@@ -1312,20 +1486,20 @@
               "P"
             ]
           },
-          "answer": "3S",
+          "answer": "4C",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "2B0DEF486C643A2A69202370400E",
+            "id": "49A1314CCD2F6506DDE427D244AE",
             "event": "Exclusion_After_1M",
-            "board": 34
+            "board": 62
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-12",
+      "id": "Exclusion_After_1M-15",
       "type": "bidding",
-      "title": "Exercise Twelve — Opener's Rebid after 3♦",
+      "title": "Exercise Fifteen — Opener's Rebid after 3♦",
       "prompt": "You open 1♥, partner responds 3♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1352,7 +1526,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "AAA087644F5B6AE78FFAB84CE7F2",
             "event": "Exclusion_After_1M",
-            "board": 143
+            "board": 138
           }
         },
         {
@@ -1379,139 +1553,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "EB4D294D7802EA14C9192C1364E2",
             "event": "Exclusion_After_1M",
-            "board": 381
+            "board": 378
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-13",
+      "id": "Exclusion_After_1M-16",
       "type": "bidding",
-      "title": "Exercise Thirteen — Opener's Rebid after 3♣",
-      "prompt": "You open 1♠, LHO bids 2♣, partner responds 3♣. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "AQJT7",
-            "hearts": "AKQJ7",
-            "diamonds": "",
-            "clubs": "975"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "2C",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "5D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "6AA22CACAC9B3938A158D93C1F7E",
-            "event": "Exclusion_After_1M",
-            "board": 89
-          }
-        },
-        {
-          "hand": {
-            "spades": "AK764",
-            "hearts": "J54",
-            "diamonds": "AKQJ3",
-            "clubs": ""
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "2C",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "5C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "9BBC8F0C2C540B57929B20A05CD8",
-            "event": "Exclusion_After_1M",
-            "board": 127
-          }
-        }
-      ]
-    },
-    {
-      "id": "Exclusion_After_1M-14",
-      "type": "bidding",
-      "title": "Exercise Fourteen — Opener's Rebid after 3♣",
-      "prompt": "You open 1♠, LHO bids 2NT, partner responds 3♣. What do you bid with each of these hands?",
-      "questions": [
-        {
-          "hand": {
-            "spades": "AKT83",
-            "hearts": "KJ2",
-            "diamonds": "",
-            "clubs": "AKT43"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "2NT",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "4D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "2A8DA15C2FB10398105A58318DE8",
-            "event": "Exclusion_After_1M",
-            "board": 40
-          }
-        },
-        {
-          "hand": {
-            "spades": "AJ975",
-            "hearts": "A9843",
-            "diamonds": "AK7",
-            "clubs": ""
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "2NT",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "5C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "A9AB3853B714AF6E98469F202C1C",
-            "event": "Exclusion_After_1M",
-            "board": 334
-          }
-        }
-      ]
-    },
-    {
-      "id": "Exclusion_After_1M-15",
-      "type": "bidding",
-      "title": "Exercise Fifteen — Opener's Rebid after 3♥",
+      "title": "Exercise Sixteen — Opener's Rebid after 3♥",
       "prompt": "You open 1♠, LHO bids 2♠, partner responds 3♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1538,7 +1588,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "58A8272D9AB635BD4D1634798E48",
             "event": "Exclusion_After_1M",
-            "board": 77
+            "board": 70
           }
         },
         {
@@ -1565,7 +1615,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "CA8D8FB1B25D9310299F3AB1783A",
             "event": "Exclusion_After_1M",
-            "board": 166
+            "board": 159
           }
         },
         {
@@ -1592,7 +1642,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "C83101840C9D780A4ABD9CF2B68C",
             "event": "Exclusion_After_1M",
-            "board": 162
+            "board": 154
           }
         },
         {
@@ -1619,7 +1669,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "D8810278B01CC69E3183BE387C49",
             "event": "Exclusion_After_1M",
-            "board": 363
+            "board": 362
           }
         },
         {
@@ -1646,15 +1696,77 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "D880A713BCB47A2F363E0622A356",
             "event": "Exclusion_After_1M",
-            "board": 368
+            "board": 367
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-16",
+      "id": "Exclusion_After_1M-17",
       "type": "bidding",
-      "title": "Exercise Sixteen — Opener's Rebid after 2♦",
+      "title": "Exercise Seventeen — Opener's Rebid after 2♣",
+      "prompt": "You open 1♠, partner responds 2♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "KQT986542",
+            "hearts": "AK2",
+            "diamonds": "K",
+            "clubs": ""
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "3B23AFBA3A9A939010B4B7903BA7",
+            "event": "Exclusion_After_1M",
+            "board": 42
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKJT62",
+            "hearts": "",
+            "diamonds": "KQJT9",
+            "clubs": "Q2"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1S",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "3D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "989F831190B200763F86D64737BD",
+            "event": "Exclusion_After_1M",
+            "board": 125
+          }
+        }
+      ]
+    },
+    {
+      "id": "Exclusion_After_1M-18",
+      "type": "bidding",
+      "title": "Exercise Eighteen — Opener's Rebid after 2♦",
       "prompt": "You open 1♠, partner responds 2♦. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1686,14 +1798,14 @@
         },
         {
           "hand": {
-            "spades": "AKQ754",
-            "hearts": "53",
+            "spades": "AKQ43",
+            "hearts": "842",
             "diamonds": "",
-            "clubs": "AQJ93"
+            "clubs": "AQJT9"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "None",
+          "vulnerability": "Both",
           "context": {
             "dealer": "S",
             "calls": [
@@ -1706,9 +1818,9 @@
           "answer": "3C",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "4899889D0D343D1ABC48A496E51A",
+            "id": "3B95849915795528C24838AA9626",
             "event": "Exclusion_After_1M",
-            "board": 63
+            "board": 47
           }
         },
         {
@@ -1735,7 +1847,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "A8A93BB59CAA9A1AD43F3759E4AE",
             "event": "Exclusion_After_1M",
-            "board": 133
+            "board": 128
           }
         },
         {
@@ -1762,15 +1874,15 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "CB2555ABA1379A99BA1A1770B814",
             "event": "Exclusion_After_1M",
-            "board": 164
+            "board": 157
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-17",
+      "id": "Exclusion_After_1M-19",
       "type": "bidding",
-      "title": "Exercise Seventeen — Opener's Rebid after 2♥",
+      "title": "Exercise Nineteen — Opener's Rebid after 2♥",
       "prompt": "You open 1♠, partner responds 2♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1824,7 +1936,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "080143B59D12B207D6C6578C3284",
             "event": "Exclusion_After_1M",
-            "board": 207
+            "board": 199
           }
         },
         {
@@ -1851,7 +1963,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "39889141B14A8C1E3C8A18FE463A",
             "event": "Exclusion_After_1M",
-            "board": 239
+            "board": 234
           }
         },
         {
@@ -1884,9 +1996,9 @@
       ]
     },
     {
-      "id": "Exclusion_After_1M-18",
+      "id": "Exclusion_After_1M-20",
       "type": "bidding",
-      "title": "Exercise Eighteen — Opener's Rebid after 2NT",
+      "title": "Exercise Twenty — Opener's Rebid after 2NT",
       "prompt": "You open 1♠, partner responds 2NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -2026,14 +2138,14 @@
         },
         {
           "hand": {
-            "spades": "AQJ87",
+            "spades": "K6532",
             "hearts": "",
-            "diamonds": "AK72",
-            "clubs": "KT95"
+            "diamonds": "AKQ3",
+            "clubs": "KJ98"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "Both",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -2046,17 +2158,17 @@
           "answer": "3H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "2B8E0DB8B2C109B2BF737910440E",
+            "id": "3A07B517F150315DC08B9A33968A",
             "event": "Exclusion_After_1M",
-            "board": 38
+            "board": 49
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-19",
+      "id": "Exclusion_After_1M-21",
       "type": "bidding",
-      "title": "Exercise Nineteen — Opener's Rebid after 3♣",
+      "title": "Exercise 21 — Opener's Rebid after 3♣",
       "prompt": "You open 1♠, partner responds 3♣. What do you bid with each of these hands?",
       "questions": [
         {
@@ -2083,61 +2195,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "78A013C3BF5C44AED288AA103406",
             "event": "Exclusion_After_1M",
-            "board": 101
-          }
-        },
-        {
-          "hand": {
-            "spades": "AKQJ974",
-            "hearts": "",
-            "diamonds": "KJ5",
-            "clubs": "KJ2"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "NS",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "P",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "4H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "1A8E85B8855F9F389230D79A3011",
-            "event": "Exclusion_After_1M",
-            "board": 222
-          }
-        },
-        {
-          "hand": {
-            "spades": "AK974",
-            "hearts": "",
-            "diamonds": "A865",
-            "clubs": "AQJ7"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1S",
-              "P",
-              "3C",
-              "P"
-            ]
-          },
-          "answer": "4H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "78B19849091CBC728D0213BAFCD4",
-            "event": "Exclusion_After_1M",
-            "board": 284
+            "board": 95
           }
         },
         {
@@ -2164,19 +2222,19 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "49AF0D9D3584C72DA44557F40C86",
             "event": "Exclusion_After_1M",
-            "board": 260
+            "board": 256
           }
         },
         {
           "hand": {
-            "spades": "AKQ65",
-            "hearts": "J732",
-            "diamonds": "",
-            "clubs": "AKJ5"
+            "spades": "AK974",
+            "hearts": "",
+            "diamonds": "A865",
+            "clubs": "AQJ7"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "EW",
+          "vulnerability": "None",
           "context": {
             "dealer": "S",
             "calls": [
@@ -2186,28 +2244,28 @@
               "P"
             ]
           },
-          "answer": "4D",
+          "answer": "4H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "C98D918265D0501022B4BD4E242C",
+            "id": "78B19849091CBC728D0213BAFCD4",
             "event": "Exclusion_After_1M",
-            "board": 356
+            "board": 283
           }
         }
       ]
     },
     {
-      "id": "Exclusion_After_1M-20",
+      "id": "Exclusion_After_1M-22",
       "type": "bidding",
-      "title": "Exercise Twenty — Opener's Rebid after 2♥",
+      "title": "Exercise 22 — Opener's Rebid after 2♥",
       "prompt": "You open 2♣, partner responds 2♥. What do you bid with each of these hands?",
       "questions": [
         {
           "hand": {
-            "spades": "AJT8743",
-            "hearts": "AK",
-            "diamonds": "",
-            "clubs": "AQ52"
+            "spades": "QJT632",
+            "hearts": "AKQ6",
+            "diamonds": "AQ5",
+            "clubs": ""
           },
           "seat": "S",
           "dealer": "S",
@@ -2221,12 +2279,12 @@
               "P"
             ]
           },
-          "answer": "2S",
+          "answer": "3H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "DAA92E49889A0C80B2F0118A8E31",
+            "id": "1A2620A7808812CBD3AA07FA8A90",
             "event": "Exclusion_After_1M",
-            "board": 174
+            "board": 29
           }
         },
         {
@@ -2253,7 +2311,61 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "39EB4AAB6CEB4E724A240AE470CF",
             "event": "Exclusion_After_1M",
-            "board": 241
+            "board": 236
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q",
+            "hearts": "AKQ954",
+            "diamonds": "AQT875",
+            "clubs": ""
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2C",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "692B67AA4CF8600A7A4FEAEFC604",
+            "event": "Exclusion_After_1M",
+            "board": 274
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJT8743",
+            "hearts": "AK",
+            "diamonds": "",
+            "clubs": "AQ52"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "2C",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "DAA92E49889A0C80B2F0118A8E31",
+            "event": "Exclusion_After_1M",
+            "board": 168
           }
         }
       ]

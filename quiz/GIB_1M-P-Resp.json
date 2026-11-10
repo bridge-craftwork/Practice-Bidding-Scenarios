@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-29",
+    "generated": "2026-11-10",
     "source_quiz": "GIB_1M-P-Resp"
   },
   "exercises": [
@@ -107,20 +107,20 @@
         },
         {
           "hand": {
-            "spades": "95",
-            "hearts": "AKJ874",
-            "diamonds": "KT6",
-            "clubs": "Q4"
+            "spades": "J5",
+            "hearts": "A97632",
+            "diamonds": "A87",
+            "clubs": "K4"
           },
           "seat": "N",
           "dealer": "N",
-          "vulnerability": "NS",
+          "vulnerability": "Both",
           "answer": "1H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "12C344E9CED73F808B571A417CBE",
+            "id": "038C71663BDAC86E4FC712A1808B",
             "event": "GIB_1M-P-Resp",
-            "board": 18
+            "board": 13
           }
         }
       ]
@@ -233,6 +233,31 @@
         },
         {
           "hand": {
+            "spades": "A432",
+            "hearts": "Q84",
+            "diamonds": "Q6",
+            "clubs": "J762"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "038C71663BDAC86E4FC712A1808B",
+            "event": "GIB_1M-P-Resp",
+            "board": 13
+          }
+        },
+        {
+          "hand": {
             "spades": "872",
             "hearts": "Q",
             "diamonds": "J932",
@@ -254,31 +279,6 @@
             "id": "12C344E9CED73F808B571A417CBE",
             "event": "GIB_1M-P-Resp",
             "board": 18
-          }
-        },
-        {
-          "hand": {
-            "spades": "QJT9",
-            "hearts": "A42",
-            "diamonds": "9752",
-            "clubs": "Q7"
-          },
-          "seat": "S",
-          "dealer": "N",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1H",
-              "P"
-            ]
-          },
-          "answer": "3H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "10217E87B4958AC60BF248E1DC68",
-            "event": "GIB_1M-P-Resp",
-            "board": 27
           }
         }
       ]
@@ -673,14 +673,14 @@
         },
         {
           "hand": {
-            "spades": "3",
-            "hearts": "AT876",
-            "diamonds": "KJ2",
-            "clubs": "KJ65"
+            "spades": "KJ",
+            "hearts": "AJT9754",
+            "diamonds": "T3",
+            "clubs": "A9"
           },
           "seat": "N",
           "dealer": "N",
-          "vulnerability": "Both",
+          "vulnerability": "NS",
           "context": {
             "dealer": "N",
             "calls": [
@@ -690,66 +690,12 @@
               "P"
             ]
           },
-          "answer": "2C",
+          "answer": "2H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "238A9DF06DCBD744C085B17A136F",
+            "id": "12C920BF0086CD9CCB7343CA9668",
             "event": "GIB_1M-P-Resp",
-            "board": 39
-          }
-        },
-        {
-          "hand": {
-            "spades": "7",
-            "hearts": "AKT97",
-            "diamonds": "JT9",
-            "clubs": "A973"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1H",
-              "P",
-              "1S",
-              "P"
-            ]
-          },
-          "answer": "2C",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "2341C7E8AC8F4DDA05547AB6E192",
-            "event": "GIB_1M-P-Resp",
-            "board": 42
-          }
-        },
-        {
-          "hand": {
-            "spades": "A6",
-            "hearts": "AT632",
-            "diamonds": "AT94",
-            "clubs": "42"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1H",
-              "P",
-              "1S",
-              "P"
-            ]
-          },
-          "answer": "2D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "3108B492778ADBACEF03DE798445",
-            "event": "GIB_1M-P-Resp",
-            "board": 54
+            "board": 21
           }
         },
         {
@@ -778,21 +724,129 @@
             "event": "GIB_1M-P-Resp",
             "board": 123
           }
+        },
+        {
+          "hand": {
+            "spades": "3",
+            "hearts": "AT876",
+            "diamonds": "KJ2",
+            "clubs": "KJ65"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "1S",
+              "P"
+            ]
+          },
+          "answer": "2C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "238A9DF06DCBD744C085B17A136F",
+            "event": "GIB_1M-P-Resp",
+            "board": 39
+          }
+        },
+        {
+          "hand": {
+            "spades": "A6",
+            "hearts": "AT632",
+            "diamonds": "AT94",
+            "clubs": "42"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "1S",
+              "P"
+            ]
+          },
+          "answer": "2D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "3108B492778ADBACEF03DE798445",
+            "event": "GIB_1M-P-Resp",
+            "board": 54
+          }
         }
       ]
     },
     {
       "id": "GIB_1M-P-Resp-6",
       "type": "bidding",
-      "title": "Exercise Six — Opener's Rebid after 3♥",
-      "prompt": "You open 1♥, partner responds 3♥. What do you bid with each of these hands?",
+      "title": "Exercise Six — Opener's Rebid after 2♥",
+      "prompt": "You open 1♥, partner responds 2♥. What do you bid with each of these hands?",
       "questions": [
         {
           "hand": {
-            "spades": "A7",
-            "hearts": "Q9875",
-            "diamonds": "A64",
-            "clubs": "AT4"
+            "spades": "94",
+            "hearts": "Q9874",
+            "diamonds": "AK7",
+            "clubs": "A82"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0169F84792EC0481C8A6B70EAE5D",
+            "event": "GIB_1M-P-Resp",
+            "board": 3
+          }
+        },
+        {
+          "hand": {
+            "spades": "A65",
+            "hearts": "QJ643",
+            "diamonds": "Q3",
+            "clubs": "KQ7"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "623E5185C36B6CECB10328CA47DA",
+            "event": "GIB_1M-P-Resp",
+            "board": 101
+          }
+        },
+        {
+          "hand": {
+            "spades": "9",
+            "hearts": "QJT64",
+            "diamonds": "A96",
+            "clubs": "KJ82"
           },
           "seat": "N",
           "dealer": "N",
@@ -802,16 +856,16 @@
             "calls": [
               "1H",
               "P",
-              "3H",
+              "2H",
               "P"
             ]
           },
-          "answer": "4H",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "10217E87B4958AC60BF248E1DC68",
+            "id": "5053F98CCD8C22A5EF827648B755",
             "event": "GIB_1M-P-Resp",
-            "board": 27
+            "board": 350
           }
         },
         {
@@ -829,6 +883,95 @@
             "calls": [
               "1H",
               "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "201F897E45FA044A46E80CA0A9DF",
+            "event": "GIB_1M-P-Resp",
+            "board": 33
+          }
+        },
+        {
+          "hand": {
+            "spades": "JT5",
+            "hearts": "AQJT9",
+            "diamonds": "A3",
+            "clubs": "Q84"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "32C770CD0302CE69DF6E1BB9B460",
+            "event": "GIB_1M-P-Resp",
+            "board": 60
+          }
+        },
+        {
+          "hand": {
+            "spades": "KT",
+            "hearts": "AJT632",
+            "diamonds": "J7",
+            "clubs": "KJ6"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "2H",
+              "P"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "308C3956C10FE86B724DA6D684CB",
+            "event": "GIB_1M-P-Resp",
+            "board": 62
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIB_1M-P-Resp-7",
+      "type": "bidding",
+      "title": "Exercise Seven — Opener's Rebid after 3♥",
+      "prompt": "You open 1♥, partner responds 3♥. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "J5",
+            "hearts": "A97632",
+            "diamonds": "A87",
+            "clubs": "K4"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
               "3H",
               "P"
             ]
@@ -836,9 +979,9 @@
           "answer": "4H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "201F897E45FA044A46E80CA0A9DF",
+            "id": "038C71663BDAC86E4FC712A1808B",
             "event": "GIB_1M-P-Resp",
-            "board": 33
+            "board": 13
           }
         },
         {
@@ -870,14 +1013,14 @@
         },
         {
           "hand": {
-            "spades": "T94",
-            "hearts": "AKQ95",
-            "diamonds": "K",
-            "clubs": "7542"
+            "spades": "QJ6",
+            "hearts": "QT964",
+            "diamonds": "AQ9",
+            "clubs": "K7"
           },
           "seat": "N",
           "dealer": "N",
-          "vulnerability": "None",
+          "vulnerability": "Both",
           "context": {
             "dealer": "N",
             "calls": [
@@ -887,12 +1030,12 @@
               "P"
             ]
           },
-          "answer": "P",
+          "answer": "4H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "504CC38B7A1E0AE7A56CC939DC55",
+            "id": "43BE990F1A4BCC50A903B6C0E4E3",
             "event": "GIB_1M-P-Resp",
-            "board": 88
+            "board": 74
           }
         },
         {
@@ -948,13 +1091,40 @@
             "event": "GIB_1M-P-Resp",
             "board": 104
           }
+        },
+        {
+          "hand": {
+            "spades": "Q5",
+            "hearts": "AKJT2",
+            "diamonds": "J95",
+            "clubs": "J63"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1H",
+              "P",
+              "3H",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "81C74024494EFAEFB4A51B90ED42",
+            "event": "GIB_1M-P-Resp",
+            "board": 131
+          }
         }
       ]
     },
     {
-      "id": "GIB_1M-P-Resp-7",
+      "id": "GIB_1M-P-Resp-8",
       "type": "bidding",
-      "title": "Exercise Seven — Opener's Rebid after 1NT",
+      "title": "Exercise Eight — Opener's Rebid after 1NT",
       "prompt": "You open 1♠, partner responds 1NT. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1122,9 +1292,179 @@
       ]
     },
     {
-      "id": "GIB_1M-P-Resp-8",
+      "id": "GIB_1M-P-Resp-9",
       "type": "bidding",
-      "title": "Exercise Eight — Opener's Rebid after 3♠",
+      "title": "Exercise Nine — Opener's Rebid after 2♠",
+      "prompt": "You open 1♠, partner responds 2♠. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "JT986",
+            "hearts": "AQT3",
+            "diamonds": "K5",
+            "clubs": "K5"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "024ED5C33F08123A9E23B5A0CF58",
+            "event": "GIB_1M-P-Resp",
+            "board": 2
+          }
+        },
+        {
+          "hand": {
+            "spades": "QT643",
+            "hearts": "K5",
+            "diamonds": "AQ76",
+            "clubs": "Q8"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "10D0CB21DC349E6DA21246372BAC",
+            "event": "GIB_1M-P-Resp",
+            "board": 17
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q9832",
+            "hearts": "A93",
+            "diamonds": "J8",
+            "clubs": "AQ8"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "324D6A19F49C0F35DCE0B29A033F",
+            "event": "GIB_1M-P-Resp",
+            "board": 50
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQJT8",
+            "hearts": "QT86",
+            "diamonds": "J3",
+            "clubs": "A4"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "23215B063C0A9000964097E5FF73",
+            "event": "GIB_1M-P-Resp",
+            "board": 45
+          }
+        },
+        {
+          "hand": {
+            "spades": "KT986",
+            "hearts": "K982",
+            "diamonds": "Q3",
+            "clubs": "AQ"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "A0B50871E7360E0B9A1CA864F24F",
+            "event": "GIB_1M-P-Resp",
+            "board": 171
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQ643",
+            "hearts": "QT96",
+            "diamonds": "A8",
+            "clubs": "Q8"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "2S",
+              "P"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "B214BE0DE84CCB95D20EA3333862",
+            "event": "GIB_1M-P-Resp",
+            "board": 178
+          }
+        }
+      ]
+    },
+    {
+      "id": "GIB_1M-P-Resp-10",
+      "type": "bidding",
+      "title": "Exercise Ten — Opener's Rebid after 3♠",
       "prompt": "You open 1♠, partner responds 3♠. What do you bid with each of these hands?",
       "questions": [
         {
@@ -1183,6 +1523,33 @@
         },
         {
           "hand": {
+            "spades": "AQ873",
+            "hearts": "QT98",
+            "diamonds": "K8",
+            "clubs": "Q7"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1S",
+              "P",
+              "3S",
+              "P"
+            ]
+          },
+          "answer": "4S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "302CB009D64BCF032597BE783AD4",
+            "event": "GIB_1M-P-Resp",
+            "board": 56
+          }
+        },
+        {
+          "hand": {
             "spades": "AKQ93",
             "hearts": "Q6",
             "diamonds": "K96",
@@ -1200,39 +1567,12 @@
               "P"
             ]
           },
-          "answer": "4S",
+          "answer": "P",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "102F100E667A21BCA6C3A4582DF5",
             "event": "GIB_1M-P-Resp",
             "board": 24
-          }
-        },
-        {
-          "hand": {
-            "spades": "AKJ82",
-            "hearts": "AT9",
-            "diamonds": "J4",
-            "clubs": "T82"
-          },
-          "seat": "N",
-          "dealer": "N",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "N",
-            "calls": [
-              "1S",
-              "P",
-              "3S",
-              "P"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "13043A973C418011A76AEAFED429",
-            "event": "GIB_1M-P-Resp",
-            "board": 26
           }
         },
         {

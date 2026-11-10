@@ -3,255 +3,455 @@
 % CC1 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/Precision.bbsa
 % CC2 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/21GF-GIB.bbsa
 %HRTitleEvent "SCS_1C_any_5-7_Resp"
+%HRSeed 204662 (offset 1)
+% solved: 500/500 deals, bridge-solver
 [Event "SCS_1C_any_5-7_Resp"]
 [Site ""]
 [Date ""]
 [Board "1"]
 % 0A8590916733326D4E102E30EB56
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "NS"]
-[Deal "N:AKQ.J853.AJ2.AQ8 3.T94.KQT964.K64 T9654.A7.875.JT3 J872.KQ62.3.9752"]
+[Deal "S:AKQ.J853.AJ2.AQ8 3.T94.KQT964.K64 T9654.A7.875.JT3 J872.KQ62.3.9752"]
 {Shape 5233 4414 3433 1363}
 {HCP 5 6 21 8}
 {Losers 10 8 6 7}
-[Declarer "N"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    2D    X     Pass
-3N    Pass  Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "N"]
+[Contract "4S"]
+[Result "11"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "78767897785466554665"]
+[OptimumScore "NS 140"]
+[ParContract "S 1S+2"]
+[Score "NS 650"]
+[Auction "S"]
+1C =1=    2D    2S    Pass
+3D =2=    Pass  4S    Pass
+Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:limit raise or better in !S"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 8
+N  H 7
+N  D 6
+N  C 7
+S NT 8
+S  S 9
+S  H 7
+S  D 7
+S  C 8
+E NT 5
+E  S 4
+E  H 6
+E  D 6
+E  C 5
+W NT 5
+W  S 4
+W  H 6
+W  D 6
+W  C 5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "2"]
 % 0A94E7EDF0CB8A85790DDB32D91E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:A98.KQ.AK8.Q8763 KQJT53.J74.J4.AJ 642.T986.Q62.KT5 7.A532.T9753.942"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:A98.KQ.AK8.Q8763 KQJT53.J74.J4.AJ 642.T986.Q62.KT5 7.A532.T9753.942"]
 {Shape 3433 1453 3235 6322}
 {HCP 5 4 18 13}
 {Losers 10 9 6 7}
-[Declarer "S"]
-[Contract "3C"]
-[Result "8"]
-[Score "NS -100"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    1S    X     Pass
-2C    2S    3C    Pass
-Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "S"]
+[Contract "2S"]
+[Result "7"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "47664476646576965769"]
+[OptimumScore "EW 110"]
+[ParContract "EW 3C="]
+[Score "EW 50"]
+[Auction "E"]
+1C =1=    1S    X     Pass
+2C    2S    Pass  Pass
+Pass
+[Note "1:16+ HCP"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 4
+N  S 7
+N  H 6
+N  D 6
+N  C 4
+S NT 4
+S  S 7
+S  H 6
+S  D 6
+S  C 4
+E NT 6
+E  S 5
+E  H 7
+E  D 6
+E  C 9
+W NT 6
+W  S 5
+W  H 7
+W  D 6
+W  C 9
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "3"]
 % 0969EA0CFF7629461076EF2EA30D
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:3.AK9543.AK9.A92 KJ5.JT6.QJ542.Q7 Q9742.Q82.73.J53 AT86.7.T86.KT864"]
 {Shape 5323 4135 1633 3352}
 {HCP 5 7 18 10}
 {Losers 9 8 5 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4H"]
 [Result "11"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "96a5696a564738647386"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4H="]
 [Score "NS 450"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    1D    Pass  Pass
 2H    Pass  4H    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  6
+N  H 10
+N  D  5
+N  C  6
+S NT  9
+S  S  6
+S  H 10
+S  D  5
+S  C  6
+E NT  4
+E  S  7
+E  H  3
+E  D  8
+E  C  6
+W NT  4
+W  S  7
+W  H  3
+W  D  8
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "4"]
 % 0BFEA6AFC05D489A86770A4BBCE3
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:KQ873.KQ2.AQT3.T AJ2.A63.9854.J93 5.J9754.K76.Q642 T964.T8.J2.AK875"]
 {Shape 1534 4225 5341 3343}
 {HCP 6 8 16 10}
 {Losers 8 8 4 10}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "1N"]
 [Result "7"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "56a8557a857635876358"]
+[OptimumScore "NS 620"]
+[ParContract "NS 4H="]
 [Score "NS 90"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1S    Pass  1N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  6
+N  H 10
+N  D  8
+N  C  5
+S NT  5
+S  S  7
+S  H 10
+S  D  8
+S  C  5
+E NT  7
+E  S  6
+E  H  3
+E  D  5
+E  C  8
+W NT  7
+W  S  6
+W  H  3
+W  D  5
+W  C  8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "5"]
 % 09E941DE55A7B6E0D3E5700E03AC
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:T92.AT862.A.AKJ6 AQ876.95.Q42.852 43.K43.K8753.T73 KJ5.QJ7.JT96.Q94"]
 {Shape 2353 3343 3514 5233}
 {HCP 6 10 16 8}
 {Losers 9 9 6 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3H"]
 [Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "87a8a87a8a5534356353"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4H="]
 [Score "NS 140"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    1S    2D    2S
 Pass  Pass  X     Pass
 3H    Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  7
+N  H 10
+N  D  8
+N  C 10
+S NT  8
+S  S  7
+S  H 10
+S  D  8
+S  C 10
+E NT  5
+E  S  5
+E  H  3
+E  D  4
+E  C  3
+W NT  5
+W  S  6
+W  H  3
+W  D  5
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "6"]
 % 0BB14D3CD0C95124191E802305F0
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:A5.84.KQ6.AKT973 JT2.AQ2.T7.QJ852 Q87643.KT53.83.4 K9.J976.AJ9542.6"]
 {Shape 6421 2461 2236 3325}
 {HCP 5 9 16 10}
 {Losers 7 7 5 8}
-[Declarer "S"]
-[Contract "4S"]
-[Result "10"]
-[Score "NS 620"]
 [Scoring "MP"]
+[Declarer "S"]
+[Contract "2S"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "69657696575478654786"]
+[OptimumScore "NS 140"]
+[ParContract "NS 2S+1"]
+[Score "NS 170"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 2C    Pass  2S    Pass
-2N    Pass  3S    Pass
-4S    Pass  Pass  Pass
+Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 9
+N  H 6
+N  D 5
+N  C 7
+S NT 6
+S  S 9
+S  H 6
+S  D 5
+S  C 7
+E NT 5
+E  S 4
+E  H 7
+E  D 8
+E  C 6
+W NT 5
+W  S 4
+W  H 7
+W  D 8
+W  C 6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "7"]
 % 0882AFD4B27513FA9BAF7762CBC6
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:AKJ76.K64.AJ94.T Q832.JT85.QT52.Q 9.A32.873.K97653 T54.Q97.K6.AJ842"]
 {Shape 1336 3325 5341 4441}
 {HCP 7 10 16 7}
 {Losers 8 8 6 8}
-[Declarer "N"]
-[Contract "2N"]
-[Result "8"]
-[Score "NS 120"]
 [Scoring "MP"]
+[Declarer "N"]
+[Contract "3N"]
+[Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "77779777886665466654"]
+[OptimumScore "NS 110"]
+[ParContract "N 2C+1"]
+[Score "NS -50"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
-1S    Pass  2N    Pass
+1S    Pass  3N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 7
+N  H 7
+N  D 7
+N  C 9
+S NT 7
+S  S 7
+S  H 7
+S  D 8
+S  C 8
+E NT 6
+E  S 6
+E  H 6
+E  D 5
+E  C 4
+W NT 6
+W  S 6
+W  H 6
+W  D 5
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "8"]
 % 089F6184EF26363B4ED660BB7029
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:AQ4.KJT52.K53.K2 J6.9843.QT96.Q53 T982.Q7.842.AJ84 K753.A6.AJ7.T976"]
 {Shape 4234 4234 3532 2443}
 {HCP 7 12 16 5}
 {Losers 10 8 6 9}
-[Declarer "S"]
-[Contract "3N"]
-[Result "8"]
-[Score "NS -50"]
 [Scoring "MP"]
+[Declarer "S"]
+[Contract "2N"]
+[Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "99a8999a893435434354"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4H="]
+[Score "NS 120"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1H    Pass  1S    Pass
-1N    Pass  3N    Pass
+1N    Pass  2N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  9
+N  H 10
+N  D  8
+N  C  9
+S NT  9
+S  S  9
+S  H 10
+S  D  8
+S  C  9
+E NT  3
+E  S  4
+E  H  3
+E  D  5
+E  C  4
+W NT  3
+W  S  4
+W  H  3
+W  D  5
+W  C  4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "9"]
 % 0919A94EF77322D98497301EAFFE
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:K763.K93.AK8.AK8 J82.JT52.Q432.75 A954.Q7.T95.JT63 QT.A864.J76.Q942"]
 {Shape 4234 2434 4333 3442}
 {HCP 7 9 20 4}
 {Losers 10 9 6 10}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4S"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "9a7899a7894365443654"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4S="]
 [Score "NS 420"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 2N    Pass  3C =3=    Pass
@@ -260,198 +460,367 @@ Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 10
+N  H  7
+N  D  8
+N  C  9
+S NT  9
+S  S 10
+S  H  7
+S  D  8
+S  C  9
+E NT  4
+E  S  3
+E  H  6
+E  D  5
+E  C  4
+W NT  4
+W  S  3
+W  H  6
+W  D  5
+W  C  4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "10"]
 % 196C8990494042F2F186DE2D9F90
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:KQ632.A4.KJ.KJ74 875.87.A543.AQT2 4.KJT96.QT9872.3 AJT9.Q532.6.9865"]
 {Shape 1561 4414 5224 3244}
 {HCP 6 7 17 10}
 {Losers 6 8 5 8}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "2D"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "758a5758a55843858538"]
+[OptimumScore "NS 130"]
+[ParContract "NS 3D+1"]
 [Score "NS 130"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1S    Pass  2D    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  5
+N  H  8
+N  D 10
+N  C  5
+S NT  7
+S  S  5
+S  H  8
+S  D 10
+S  C  5
+E NT  5
+E  S  8
+E  H  4
+E  D  3
+E  C  8
+W NT  5
+W  S  8
+W  H  5
+W  D  3
+W  C  8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "11"]
 % 1A542DE464D6137A8E0FFDE3BBD9
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "W"]
 [Vulnerable "EW"]
 [Deal "W:73.KQJ4.AQJT.K52 QT542.853.94.AQJ K96.76.K765.9643 AJ8.AT92.832.T87"]
 {Shape 3244 3433 2443 5323}
 {HCP 6 9 16 9}
 {Losers 9 10 6 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2S"]
 [Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "99767997674457644576"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
 [Score "EW -110"]
-[Scoring "MP"]
 [Auction "W"]
 1C =1=    1S    Pass  2S
 Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 9
+N  S 9
+N  H 7
+N  D 6
+N  C 7
+S NT 9
+S  S 9
+S  H 7
+S  D 6
+S  C 7
+E NT 4
+E  S 4
+E  H 5
+E  D 7
+E  C 6
+W NT 4
+W  S 4
+W  H 5
+W  D 7
+W  C 6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "12"]
 % 19EA63AA2CAF18DD82E343D2FED6
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:QT7.AKQJT6.AQ9.8 A86432.3.JT83.J9 J9.75.K7654.KT65 K5.9842.2.AQ7432"]
 {Shape 2254 2416 3631 6142}
 {HCP 7 9 18 6}
 {Losers 8 6 4 8}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "3N"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "85985959954834848348"]
+[OptimumScore "NS 400"]
+[ParContract "S 3N="]
 [Score "NS 430"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 2H    Pass  3N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 8
+N  S 5
+N  H 9
+N  D 8
+N  C 5
+S NT 9
+S  S 5
+S  H 9
+S  D 9
+S  C 5
+E NT 4
+E  S 8
+E  H 3
+E  D 4
+E  C 8
+W NT 4
+W  S 8
+W  H 3
+W  D 4
+W  C 8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "13"]
 % 1BDDA2A64713224BB8F986F08821
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:KQ753.KQ92.A.A62 A64.764.8763.743 T92.J853.QJ5.JT8 J8.AT.KT942.KQ95"]
 {Shape 3433 2254 5413 3343}
 {HCP 5 13 18 4}
 {Losers 11 6 4 11}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2S"]
-[Result "9"]
-[Score "NS 140"]
-[Scoring "MP"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "7995689a574337643376"]
+[OptimumScore "NS 620"]
+[ParContract "S 4H="]
+[Score "NS 170"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    2D
 2S    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  9
+N  H  9
+N  D  5
+N  C  6
+S NT  8
+S  S  9
+S  H 10
+S  D  5
+S  C  7
+E NT  4
+E  S  3
+E  H  3
+E  D  7
+E  C  6
+W NT  4
+W  S  3
+W  H  3
+W  D  7
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "14"]
 % 18AC87918CE36674CC7A7F8F286B
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
+[Dealer "N"]
 [Vulnerable "None"]
-[Deal "S:AKQJ4.AT932.QT.Q T7.865.K98.AJ873 3.KJ74.632.KT542 98652.Q.AJ754.96"]
+[Deal "N:AKQJ4.AT932.QT.Q T7.865.K98.AJ873 3.KJ74.632.KT542 98652.Q.AJ754.96"]
 {Shape 1435 5152 5521 2335}
 {HCP 7 7 18 8}
 {Losers 8 8 5 9}
-[Declarer "S"]
-[Contract "4H"]
-[Result "10"]
-[Score "NS 420"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    Pass  1D =2=    Pass
-1S    Pass  2N    Pass
-4H    Pass  Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:artificial"]
+[Declarer "S"]
+[Contract "3N"]
+[Result "8"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "77a6777a674427544275"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4H="]
+[Score "NS -50"]
+[Auction "N"]
+1C =1=    Pass  1D =2=    Pass
+1S    Pass  3N    Pass
+Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:artificial"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  7
+N  H 10
+N  D  6
+N  C  7
+S NT  7
+S  S  7
+S  H 10
+S  D  6
+S  C  7
+E NT  4
+E  S  4
+E  H  2
+E  D  7
+E  C  5
+W NT  4
+W  S  4
+W  H  2
+W  D  7
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "15"]
 % 199C9B8AA584D940FFCCD1434577
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "EW"]
-[Deal "N:AKQJT.J.KQ9.J953 9765.72.A76.AT86 .QT8643.854.K742 8432.AK95.JT32.Q"]
+[Deal "S:AKQJT.J.KQ9.J953 9765.72.A76.AT86 .QT8643.854.K742 8432.AK95.JT32.Q"]
 {Shape 0634 4441 5134 4234}
 {HCP 5 10 17 8}
 {Losers 7 8 5 9}
-[Declarer "N"]
-[Contract "3S"]
-[Result "7"]
-[Score "NS -100"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    Pass  3H    Pass
-3S    Pass  Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "N"]
+[Contract "3N"]
+[Result "3"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "88779887795546355564"]
+[OptimumScore "NS 120"]
+[ParContract "NS 1N+1"]
+[Score "NS -300"]
+[Auction "S"]
+1C =1=    Pass  3H    Pass
+3S    Pass  3N    Pass
+Pass  Pass
+[Note "1:16+ HCP"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 8
+N  S 8
+N  H 7
+N  D 7
+N  C 9
+S NT 8
+S  S 8
+S  H 7
+S  D 7
+S  C 9
+E NT 5
+E  S 5
+E  H 4
+E  D 6
+E  C 3
+W NT 5
+W  S 5
+W  H 5
+W  D 6
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "16"]
 % 1BA2FFA38C0BC832FE04E24EB661
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "E"]
 [Vulnerable "All"]
 [Deal "E:AQJ3.AQ52.KJ74.2 K975.K873.T9.J96 T86.JT964.63.KQT 42..AQ852.A87543"]
 {Shape 3523 2056 4441 4423}
 {HCP 6 10 17 7}
 {Losers 9 5 5 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "3CX"]
 [Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "44479444697896479964"]
+[OptimumScore "EW 140"]
+[ParContract "EW 3H=; W 3S="]
 [Score "EW -670"]
-[Scoring "MP"]
 [Auction "E"]
 1C =1=    Pass  1D =2=    2N =3=
 Pass  3C    X     Pass
@@ -459,598 +828,1104 @@ Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Unusual 2NT"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 4
+N  S 4
+N  H 4
+N  D 7
+N  C 9
+S NT 4
+S  S 4
+S  H 4
+S  D 6
+S  C 9
+E NT 7
+E  S 8
+E  H 9
+E  D 6
+E  C 4
+W NT 7
+W  S 9
+W  H 9
+W  D 6
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "17"]
 % 1861F239811DFF6D5B6A04F6372C
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "None"]
 [Deal "N:J.A862.AKJ.AQJT8 K94.KQ943.543.52 QT532.J5.Q76.973 A876.T7.T982.K64"]
 {Shape 5233 4243 1435 3532}
 {HCP 5 7 20 8}
 {Losers 9 9 5 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
-[Scoring "MP"]
+[Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "9888a988894555345553"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
+[Score "NS -50"]
 [Auction "N"]
 1C =1=    1H    X     Pass
 3N    Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  8
+N  H  8
+N  D  8
+N  C 10
+S NT  9
+S  S  8
+S  H  8
+S  D  8
+S  C  9
+E NT  4
+E  S  5
+E  H  5
+E  D  5
+E  C  3
+W NT  4
+W  S  5
+W  H  5
+W  D  5
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "18"]
 % 1A6D6936D8B61C2E7EC177318710
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "S:T3.AK8.QT53.AK64 J6.QT754.642.J92 Q9842.63.A987.53 AK75.J92.KJ.QT87"]
 {Shape 5242 4324 2344 2533}
 {HCP 6 14 16 4}
 {Losers 8 7 6 10}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "2S"]
 [Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "796a7796a75473554735"]
+[OptimumScore "NS 140"]
+[ParContract "NS 2S+1"]
 [Score "NS 110"]
-[Scoring "MP"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2H    Pass
 2S    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  9
+N  H  6
+N  D 10
+N  C  7
+S NT  7
+S  S  9
+S  H  6
+S  D 10
+S  C  7
+E NT  5
+E  S  4
+E  H  7
+E  D  3
+E  C  5
+W NT  5
+W  S  4
+W  H  7
+W  D  3
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "19"]
 % 1A6695F30BCBFFF5B1C2BEA65E1E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "E"]
 [Vulnerable "EW"]
 [Deal "E:K754.A4.AK84.K87 QT986.Q9875.Q76. J2.JT6.9532.QJT9 A3.K32.JT.A65432"]
 {Shape 2344 2326 4243 5530}
 {HCP 5 12 17 6}
 {Losers 10 7 6 6}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2C"]
 [Result "6"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "58946589457549775487"]
+[OptimumScore "NS 140"]
+[ParContract "NS 3H="]
 [Score "EW 100"]
-[Scoring "MP"]
 [Auction "E"]
 1C =1=    Pass  1D =2=    2C
 Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 5
+N  S 8
+N  H 9
+N  D 4
+N  C 6
+S NT 5
+S  S 8
+S  H 9
+S  D 4
+S  C 5
+E NT 7
+E  S 5
+E  H 4
+E  D 9
+E  C 7
+W NT 7
+W  S 5
+W  H 4
+W  D 8
+W  C 7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "20"]
 % 1926EE99A1C0DCA01398F152F316
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:QJ86.AKJ8.Q6.QJ5 KT953.53.K9.T986 A72.T.JT87543.73 4.Q97642.A2.AK42"]
+[Dealer "W"]
+[Vulnerable "NS"]
+[Deal "W:QJ86.AKJ8.Q6.QJ5 KT953.53.K9.T986 A72.T.JT87543.73 4.Q97642.A2.AK42"]
 {Shape 3172 1624 4423 5224}
 {HCP 5 13 16 6}
 {Losers 8 5 7 8}
-[Declarer "S"]
-[Contract "3D"]
-[Result "9"]
-[Score "NS 110"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    Pass  3D    Pass
-Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "S"]
+[Contract "3H"]
+[Result "9"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "66748677487669476694"]
+[OptimumScore "EW 110"]
+[ParContract "EW 2D+1"]
+[Score "EW -140"]
+[Auction "W"]
+1C =1=    Pass  3D    3H
+Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 6
+N  H 7
+N  D 4
+N  C 8
+S NT 6
+S  S 7
+S  H 7
+S  D 4
+S  C 8
+E NT 7
+E  S 6
+E  H 6
+E  D 9
+E  C 4
+W NT 7
+W  S 6
+W  H 6
+W  D 9
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "21"]
 % 2975B181AC3BDC597773A60D7377
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "W"]
 [Vulnerable "NS"]
 [Deal "W:KQJ5.J5.T8.AKQ84 9.AKT7632.J94.J9 T4.Q4.KQ63.T7632 A87632.98.A752.5"]
 {Shape 2245 6241 4225 1732}
 {HCP 7 8 16 9}
 {Losers 8 7 5 7}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3H"]
 [Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "87a7487a744525745257"]
+[OptimumScore "NS 620"]
+[ParContract "NS 4H="]
 [Score "EW -140"]
-[Scoring "MP"]
 [Auction "W"]
 1C =1=    3H    Pass  Pass
 Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  7
+N  H 10
+N  D  7
+N  C  4
+S NT  8
+S  S  7
+S  H 10
+S  D  7
+S  C  4
+E NT  4
+E  S  5
+E  H  2
+E  D  5
+E  C  7
+W NT  4
+W  S  5
+W  H  2
+W  D  5
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "22"]
 % 2B20A96923D85F044A2568914A34
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "All"]
 [Deal "S:K4.AKQJ65.9.KQ64 T.2.KQT753.AT852 AJ862.873.862.J9 Q9753.T94.AJ4.73"]
 {Shape 5332 5332 2614 1165}
 {HCP 6 7 18 9}
 {Losers 10 9 3 5}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "4H"]
 [Result "11"]
-[Score "NS 650"]
-[Scoring "MP"]
-[Auction "S"]
-1C =1=    2N =2=    X     3D
-3H    Pass  4H    Pass
-Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:Unusual 2NT"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "68b4568b455529755297"]
+[OptimumScore "NS 650"]
+[ParContract "NS 5H="]
+[Score "NS 650"]
+[Auction "S"]
+1C =1=    2N =2=    X     3D
+4H    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:Unusual 2NT"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  8
+N  H 11
+N  D  4
+N  C  5
+S NT  6
+S  S  8
+S  H 11
+S  D  4
+S  C  5
+E NT  5
+E  S  5
+E  H  2
+E  D  9
+E  C  7
+W NT  5
+W  S  5
+W  H  2
+W  D  9
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "23"]
 % 2A65C9168537977B7CFCFC5D47D2
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "S:J9.A.AQJT93.AKJ4 K652.T8765.2.765 QT.KJ3.7654.T983 A8743.Q942.K8.Q2"]
 {Shape 2344 5422 2164 4513}
 {HCP 6 11 20 3}
 {Losers 10 7 4 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3D"]
-[Result "10"]
-[Score "NS 130"]
-[Scoring "MP"]
+[Result "11"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "855ab855ab1882018810"]
+[OptimumScore "EW -500"]
+[ParContract "EW 5HX-3; EW 5SX-3"]
+[Score "NS 150"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    1S
 3D    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  5
+N  H  5
+N  D 10
+N  C 11
+S NT  8
+S  S  5
+S  H  5
+S  D 10
+S  C 11
+E NT  1
+E  S  8
+E  H  8
+E  D  2
+E  C  0
+W NT  1
+W  S  8
+W  H  8
+W  D  1
+W  C  0
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "24"]
 % 2B3EEDC1688A00BD570A83917BD4
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "All"]
 [Deal "S:T854.KJ.AK8.KQ84 KQ2.A83.JT63.J92 A96.QT965.72.753 J73.742.Q954.AT6"]
 {Shape 3523 3343 4234 3343}
 {HCP 6 7 16 11}
 {Losers 9 10 6 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "2H"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "78969789695446454464"]
+[OptimumScore "NS 140"]
+[ParContract "NS 1H+2"]
 [Score "NS 170"]
-[Scoring "MP"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2D    Pass
 2H    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 8
+N  H 9
+N  D 6
+N  C 9
+S NT 7
+S  S 8
+S  H 9
+S  D 6
+S  C 9
+E NT 5
+E  S 4
+E  H 4
+E  D 6
+E  C 4
+W NT 5
+W  S 4
+W  H 4
+W  D 6
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "25"]
 % 2969680738C29DDA7F3630EF9291
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "EW"]
-[Deal "N:932.AK4.AKJ8.A92 T84.J765.974.KJ5 QJ65.QT.T532.Q74 AK7.9832.Q6.T863"]
+[Deal "S:932.AK4.AKJ8.A92 T84.J765.974.KJ5 QJ65.QT.T532.Q74 AK7.9832.Q6.T863"]
 {Shape 4243 3424 3343 3433}
 {HCP 7 9 19 5}
 {Losers 9 9 7 11}
-[Declarer "N"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
 [Scoring "MP"]
-[Auction "N"]
+[Declarer "N"]
+[Contract "2D"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "997a8997a84463544635"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
+[Score "NS 130"]
+[Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2C =3=    Pass
-2D    Pass  3N    Pass
-Pass  Pass
+2D    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  9
+N  H  7
+N  D 10
+N  C  8
+S NT  9
+S  S  9
+S  H  7
+S  D 10
+S  C  8
+E NT  4
+E  S  4
+E  H  6
+E  D  3
+E  C  5
+W NT  4
+W  S  4
+W  H  6
+W  D  3
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "26"]
 % 28A270C92C166CD29F34E88C6B2B
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:A74.AJ9532.AK8.Q Q85.K6.T6.KJ9654 JT62.Q4.Q532.732 K93.T87.J974.AT8"]
 {Shape 4243 3343 3631 3226}
 {HCP 5 8 18 9}
 {Losers 10 10 6 7}
-[Declarer "S"]
-[Contract "3H"]
-[Result "10"]
-[Score "NS 170"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    Pass  1D =2=    Pass
-1H    Pass  1S    Pass
-2H    Pass  3H    Pass
-Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:artificial"]
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "58985589857544875448"]
+[OptimumScore "NS 140"]
+[ParContract "NS 3H="]
+[Score "NS 420"]
+[Auction "S"]
+1C =1=    Pass  1D =2=    Pass
+1H    2C    Pass  Pass
+3H    Pass  4C =3=    Pass
+4H    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:artificial"]
+[Note "3:limit raise or better in !H"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 5
+N  S 8
+N  H 9
+N  D 8
+N  C 5
+S NT 5
+S  S 8
+S  H 9
+S  D 8
+S  C 5
+E NT 7
+E  S 5
+E  H 4
+E  D 4
+E  C 8
+W NT 7
+W  S 5
+W  H 4
+W  D 4
+W  C 8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "27"]
 % 2AD6A54C4CF1FFAC59E714DB0816
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
+[Dealer "N"]
 [Vulnerable "NS"]
-[Deal "S:K8.K86.AK652.KT7 AT964.T9.T.QJ853 532.QJ3.QJ98.964 QJ7.A7542.743.A2"]
+[Deal "N:K8.K86.AK652.KT7 AT964.T9.T.QJ853 532.QJ3.QJ98.964 QJ7.A7542.743.A2"]
 {Shape 3343 3532 2353 5215}
 {HCP 6 11 16 7}
 {Losers 10 8 6 7}
-[Declarer "N"]
-[Contract "2D"]
-[Result "7"]
-[Score "NS -100"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    Pass  1D =2=    1H
-2D    Pass  Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:artificial"]
+[Declarer "N"]
+[Contract "2N"]
+[Result "7"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "63583635837a85a7a85a"]
+[OptimumScore "EW 420"]
+[ParContract "EW 4S="]
+[Score "NS -100"]
+[Auction "N"]
+1C =1=    Pass  1D =2=    1H
+2D    Pass  2H =3=    Pass
+2N    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:artificial"]
+[Note "3:limit raise or better in !D"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  3
+N  H  5
+N  D  8
+N  C  3
+S NT  6
+S  S  3
+S  H  5
+S  D  8
+S  C  3
+E NT  7
+E  S 10
+E  H  8
+E  D  5
+E  C 10
+W NT  7
+W  S 10
+W  H  8
+W  D  5
+W  C 10
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "28"]
 % 2B7D199FB32A24DB9BDA34DD2641
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:QJ7.T93.AQ4.AK42 864.AJ5.KT876.95 KT953.2.953.QJ87 A2.KQ8764.J2.T63"]
 {Shape 5134 2623 3334 3352}
 {HCP 6 10 16 8}
 {Losers 8 7 7 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "3S"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "5946a5935a7497374973"]
+[OptimumScore "NS 140"]
+[ParContract "NS 3S="]
 [Score "NS 170"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    1D    1S    2H
-X =2=    Pass  2S    Pass
-Pass  3H    3S    Pass
+X =2=    Pass  3S    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:Support double redouble"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  5
+N  S  9
+N  H  4
+N  D  6
+N  C 10
+S NT  5
+S  S  9
+S  H  3
+S  D  5
+S  C 10
+E NT  7
+E  S  4
+E  H  9
+E  D  7
+E  C  3
+W NT  7
+W  S  4
+W  H  9
+W  D  7
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "29"]
 % 2AA69712F087B970D60FCD6AC40A
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "NS"]
 [Deal "N:AKT9.A4.AKT73.95 J753.J98.QJ8.J83 Q62.T6532.65.KT6 84.KQ7.942.AQ742"]
 {Shape 3523 2335 4252 4333}
 {HCP 5 11 18 6}
 {Losers 9 7 5 11}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2H"]
 [Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "899968a9974344643446"]
+[OptimumScore "NS 620"]
+[ParContract "S 4S="]
 [Score "NS 110"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2D    Pass
 2H    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  9
+N  H  9
+N  D  9
+N  C  6
+S NT  8
+S  S 10
+S  H  9
+S  D  9
+S  C  7
+E NT  4
+E  S  3
+E  H  4
+E  D  4
+E  C  6
+W NT  4
+W  S  3
+W  H  4
+W  D  4
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "30"]
 % 29A538EF1D4B876266223EFD709F
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
+[Dealer "N"]
 [Vulnerable "EW"]
-[Deal "S:A92.AQ876.KT.AJ4 Q4.K543.QJ542.K3 KJ65.T9.863.QT92 T873.J2.A97.8765"]
+[Deal "N:A92.AQ876.KT.AJ4 Q4.K543.QJ542.K3 KJ65.T9.863.QT92 T873.J2.A97.8765"]
 {Shape 4234 4234 3523 2452}
 {HCP 6 5 18 11}
 {Losers 9 10 6 7}
-[Declarer "S"]
-[Contract "3C"]
-[Result "9"]
-[Score "NS 110"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    1D    1S    Pass
-2H    Pass  3C    Pass
-Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "S"]
+[Contract "3S"]
+[Result "8"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "8997a899694436344363"]
+[OptimumScore "NS 140"]
+[ParContract "NS 1H+2; NS 1S+2"]
+[Score "NS -50"]
+[Auction "N"]
+1C =1=    1D    1S    Pass
+2H    Pass  3C    Pass
+3S    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  9
+N  H  9
+N  D  7
+N  C 10
+S NT  8
+S  S  9
+S  H  9
+S  D  6
+S  C  9
+E NT  4
+E  S  4
+E  H  3
+E  D  6
+E  C  3
+W NT  4
+W  S  4
+W  H  3
+W  D  6
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "31"]
 % 38652057694FBC0C3AC451B3FE29
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:94.AKJ2.K54.AJ52 63.9743.AQ6.K986 K872.T86.J72.QT4 AQJT5.Q5.T983.73"]
 {Shape 4333 5242 2434 2434}
 {HCP 6 9 16 9}
 {Losers 10 8 7 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "1N"]
-[Result "7"]
-[Score "NS 90"]
-[Scoring "MP"]
+[Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "65757657576868668686"]
+[OptimumScore "EW 110"]
+[ParContract "EW 2S="]
+[Score "NS 120"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    1S
 Pass  Pass  1N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 5
+N  H 7
+N  D 5
+N  C 7
+S NT 6
+S  S 5
+S  H 7
+S  D 5
+S  C 7
+E NT 6
+E  S 8
+E  H 6
+E  D 8
+E  C 6
+W NT 6
+W  S 8
+W  H 6
+W  D 8
+W  C 6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "32"]
 % 3AE9A437CA7D5B3DE3AC7F9BE2CA
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "S:K64.AK763.KQ.AT8 AJ732.QT85.73.K6 Q8.J2.T865.Q9754 T95.94.AJ942.J32"]
 {Shape 2245 3253 3523 5422}
 {HCP 5 6 19 10}
 {Losers 9 10 6 7}
-[Declarer "S"]
-[Contract "2N"]
-[Result "8"]
-[Score "NS 120"]
 [Scoring "MP"]
+[Declarer "S"]
+[Contract "3C"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "75879768795756457564"]
+[OptimumScore "NS 110"]
+[ParContract "NS 3C="]
+[Score "NS 130"]
 [Auction "S"]
 1C =1=    1S    2C    Pass
 2H    Pass  Pass  2S
-2N    Pass  Pass  Pass
+3C    Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 5
+N  H 8
+N  D 7
+N  C 9
+S NT 7
+S  S 6
+S  H 8
+S  D 7
+S  C 9
+E NT 5
+E  S 7
+E  H 5
+E  D 6
+E  C 4
+W NT 5
+W  S 7
+W  H 5
+W  D 6
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "33"]
 % 39AC9721E5E494CBC6CE0C422F9A
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:AK92.AQJT3.82.QJ JT876..A653.AT95 Q53.87654.Q4.K83 4.K92.KJT97.7642"]
 {Shape 3523 1354 4522 5044}
 {HCP 7 7 17 9}
 {Losers 9 8 6 7}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4H"]
 [Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "7793477934563a9663a9"]
+[OptimumScore "NS -100"]
+[ParContract "NS 4HX-1"]
 [Score "NS 420"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
-1H    Pass  4H    Pass
+1H    1S    2S =3=    Pass
+3H    Pass  4H    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[Note "3:limit raise or better in !H"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  7
+N  H  9
+N  D  3
+N  C  4
+S NT  7
+S  S  7
+S  H  9
+S  D  3
+S  C  4
+E NT  5
+E  S  6
+E  H  3
+E  D 10
+E  C  9
+W NT  6
+W  S  6
+W  H  3
+W  D 10
+W  C  9
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "34"]
 % 3B29E2E935C23191844F83E0CA76
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:875.AKQ4.6.AQJ98 KQT43.J92.AQ3.74 AJ9.T7653.J72.65 62.8.KT9854.KT32"]
 {Shape 3532 2164 3415 5332}
 {HCP 6 6 16 12}
 {Losers 10 7 5 7}
-[Declarer "S"]
-[Contract "3H"]
-[Result "10"]
-[Score "NS 170"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    1S    2H    Pass
-3H    Pass  Pass  Pass
-[Note "1:16+ HCP"]
+[Declarer "S"]
+[Contract "4H"]
+[Result "11"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "77a4977a494528345293"]
+[OptimumScore "EW -500"]
+[ParContract "W 5DX-2"]
+[Score "NS 650"]
+[Auction "N"]
+1C =1=    1S    2H    Pass
+3H    Pass  4H    Pass
+Pass  Pass
+[Note "1:16+ HCP"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  7
+N  H 10
+N  D  4
+N  C  9
+S NT  7
+S  S  7
+S  H 10
+S  D  4
+S  C  9
+E NT  4
+E  S  5
+E  H  2
+E  D  8
+E  C  3
+W NT  4
+W  S  5
+W  H  2
+W  D  9
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "35"]
 % 396ABA093DE7F6EA3C1FA702C426
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "EW"]
 [Deal "S:K5.AT852.AKQ8.QJ T983.KJ97.J76.73 QJ7642.Q43.4.T65 A.6.T9532.AK9842"]
 {Shape 6313 1156 2542 4432}
 {HCP 5 11 19 5}
 {Losers 8 5 5 10}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4S"]
-[Result "10"]
-[Score "NS 420"]
-[Scoring "MP"]
+[Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "79855798556348863488"]
+[OptimumScore "NS 140"]
+[ParContract "NS 2S+1"]
+[Score "NS -50"]
 [Auction "S"]
 1C =1=    Pass  3S    Pass
 4S    Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 9
+N  H 8
+N  D 5
+N  C 5
+S NT 7
+S  S 9
+S  H 8
+S  D 5
+S  C 5
+E NT 6
+E  S 3
+E  H 4
+E  D 8
+E  C 8
+W NT 6
+W  S 3
+W  H 4
+W  D 8
+W  C 8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "36"]
 % 3B652E687DD57E800F4B02399818
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "W"]
 [Vulnerable "All"]
-[Deal "N:83.AKQ.KJ97.AJT4 T.J94.Q6432.Q832 K7542.8765.AT.76 AQJ96.T32.85.K95"]
+[Deal "W:83.AKQ.KJ97.AJT4 T.J94.Q6432.Q832 K7542.8765.AT.76 AQJ96.T32.85.K95"]
 {Shape 5422 5323 2344 1354}
 {HCP 7 10 18 5}
 {Losers 8 8 6 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    Pass  1D =2=    1S
-Pass  Pass  2N    Pass
-3N    Pass  Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:artificial"]
+[Declarer "S"]
+[Contract "1S"]
+[Result "5"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "44454444549998899988"]
+[OptimumScore "EW 600"]
+[ParContract "EW 3N="]
+[Score "EW 200"]
+[Auction "W"]
+1C =1=    Pass  1D =2=    1S
+Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:artificial"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 4
+N  S 4
+N  H 4
+N  D 5
+N  C 4
+S NT 4
+S  S 4
+S  H 4
+S  D 5
+S  C 4
+E NT 9
+E  S 9
+E  H 9
+E  D 8
+E  C 8
+W NT 9
+W  S 9
+W  H 9
+W  D 8
+W  C 8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "37"]
 % 38A3E6CD60A13C5784D7D80A9E0A
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "None"]
 [Deal "N:AT73.AKJT.AJT.QT KQ65.9.K876.J975 942.Q742.542.A86 J8.8653.Q93.K432"]
 {Shape 3433 2434 4432 4144}
 {HCP 6 6 19 9}
 {Losers 10 9 7 7}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2H"]
-[Result "10"]
-[Score "NS 170"]
-[Scoring "MP"]
+[Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "88865888654545755567"]
+[OptimumScore "NS 120"]
+[ParContract "NS 2N="]
+[Score "NS 140"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2C =3=    Pass
@@ -1058,59 +1933,105 @@ Pass  Pass  2N    Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 8
+N  S 8
+N  H 8
+N  D 6
+N  C 5
+S NT 8
+S  S 8
+S  H 8
+S  D 6
+S  C 5
+E NT 4
+E  S 5
+E  H 4
+E  D 5
+E  C 7
+W NT 5
+W  S 5
+W  H 5
+W  D 6
+W  C 7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "38"]
 % 39E893AACCDCC858322715114B6E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "EW"]
 [Deal "S:KQ.AQ62.AQ983.54 AJT9.7.JT2.AJT98 7654.J93.K74.K63 832.KT854.65.Q72"]
 {Shape 4333 3523 2452 4135}
 {HCP 7 5 17 11}
 {Losers 10 9 5 8}
-[Declarer "S"]
-[Contract "2H"]
-[Result "8"]
-[Score "NS 110"]
 [Scoring "MP"]
-[Auction "S"]
-1C =1=    Pass  1D =2=    Pass
-1N    Pass  2C =3=    Pass
-2H    Pass  Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:artificial"]
-[Note "3:Stayman"]
+[Declarer "S"]
+[Contract "1N"]
+[Result "8"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "868a6868a64753747537"]
+[OptimumScore "NS 130"]
+[ParContract "NS 2D+2"]
+[Score "NS 120"]
+[Auction "S"]
+1C =1=    Pass  1D =2=    Pass
+1N    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:artificial"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  6
+N  H  8
+N  D 10
+N  C  6
+S NT  8
+S  S  6
+S  H  8
+S  D 10
+S  C  6
+E NT  4
+E  S  7
+E  H  5
+E  D  3
+E  C  7
+W NT  4
+W  S  7
+W  H  5
+W  D  3
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "39"]
 % 3BAE31E32D450A02F1F8369A49B6
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "All"]
 [Deal "S:A42.AQJ.AJ.KJT73 Q76.K7652.9643.6 KJ985.T983.T52.Q T3.4.KQ87.A98542"]
 {Shape 5431 2146 3325 3541}
 {HCP 6 9 20 5}
 {Losers 9 6 6 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4S"]
-[Result "11"]
-[Score "NS 650"]
-[Scoring "MP"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "aba79aba792235422354"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4S+1"]
+[Score "NS 620"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 2N    Pass  3C =3=    X
@@ -1119,58 +2040,106 @@ XX    Pass  3S    Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S 11
+N  H 10
+N  D  7
+N  C  9
+S NT 10
+S  S 11
+S  H 10
+S  D  7
+S  C  9
+E NT  2
+E  S  2
+E  H  3
+E  D  5
+E  C  4
+W NT  2
+W  S  2
+W  H  3
+W  D  5
+W  C  4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "40"]
 % 38696096274F851C71FC08A05B36
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "None"]
 [Deal "N:Q94.AKJ4.K74.A97 6.762.QJ92.K8654 J852.T95.A53.JT3 AKT73.Q83.T86.Q2"]
 {Shape 4333 5332 3433 1345}
 {HCP 6 11 17 6}
 {Losers 11 8 7 8}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "1N"]
 [Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "98877988774545545455"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
 [Score "NS 120"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    1S
 Pass  Pass  1N    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 9
+N  S 8
+N  H 8
+N  D 7
+N  C 7
+S NT 9
+S  S 8
+S  H 8
+S  D 7
+S  C 7
+E NT 4
+E  S 5
+E  H 4
+E  D 5
+E  C 5
+W NT 4
+W  S 5
+W  H 4
+W  D 5
+W  C 5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "41"]
 % 389D31E99B3BC1665604F74D9C32
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "None"]
 [Deal "N:AJ3.Q8.K92.AKQ94 Q95.KT52.8765.63 KT62.964.QJT.JT5 874.AJ73.A43.872"]
 {Shape 4333 3433 3235 3442}
 {HCP 7 9 19 5}
 {Losers 10 10 6 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3N"]
 [Result "8"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "8a78a8a78a4265242652"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4S="]
 [Score "NS -50"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2C =3=    Pass
@@ -1179,145 +2148,265 @@ Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  7
+N  D  8
+N  C 10
+S NT  8
+S  S 10
+S  H  7
+S  D  8
+S  C 10
+E NT  4
+E  S  2
+E  H  6
+E  D  5
+E  C  2
+W NT  4
+W  S  2
+W  H  6
+W  D  5
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "42"]
 % 3A6923A1FD3C9143760C6B4819F6
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "S"]
 [Vulnerable "NS"]
-[Deal "N:Q9.AKQ5.72.AQJ93 J2.JT72.KQ98.T64 KT63.864.JT6.K85 A8754.93.A543.72"]
+[Deal "S:Q9.AKQ5.72.AQJ93 J2.JT72.KQ98.T64 KT63.864.JT6.K85 A8754.93.A543.72"]
 {Shape 4333 5242 2425 2443}
 {HCP 7 8 18 7}
 {Losers 10 8 5 9}
-[Declarer "S"]
-[Contract "3N"]
-[Result "7"]
-[Score "NS -200"]
 [Scoring "MP"]
-[Auction "N"]
+[Declarer "S"]
+[Contract "4C"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "8796a8796a5647356473"]
+[OptimumScore "NS 140"]
+[ParContract "NS 2H+1"]
+[Score "NS 130"]
+[Auction "S"]
 1C =1=    Pass  1D =2=    1S
-2C    Pass  2N    Pass
-3H    Pass  3N    Pass
+2C    Pass  2S =3=    Pass
+3H    Pass  4C    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[Note "3:limit raise or better in !C"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  7
+N  H  9
+N  D  6
+N  C 10
+S NT  8
+S  S  7
+S  H  9
+S  D  6
+S  C 10
+E NT  5
+E  S  6
+E  H  4
+E  D  7
+E  C  3
+W NT  5
+W  S  6
+W  H  4
+W  D  7
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "43"]
 % 3959B1B774188F1C6573BB6F736F
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:KQ95.742.AT5.AK7 .KQJ653.9842.JT8 T8.9.K63.Q965432 AJ76432.AT8.QJ7."]
 {Shape 2137 7330 4333 0643}
 {HCP 5 12 16 7}
 {Losers 7 6 7 7}
-[Declarer "N"]
-[Contract "5CX"]
-[Result "11"]
-[Score "NS 550"]
 [Scoring "MP"]
-[Auction "N"]
-1C =1=    2H    2N =2=    4H
-5C    Pass  Pass  X
-Pass  Pass  Pass
-[Note "1:16+ HCP"]
-[Note "2:Rubensohl after 1m"]
+[Declarer "N"]
+[Contract "5C"]
+[Result "11"]
 [BidSystemEW "2/1GF - 2/1 Game Force"]
 [BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "6525a6526a48a7248a72"]
+[OptimumScore "NS -100"]
+[ParContract "NS 5CX-1"]
+[Score "NS 400"]
+[Auction "N"]
+1C =1=    2H    2N =2=    4H
+5C    Pass  Pass  Pass
+[Note "1:16+ HCP"]
+[Note "2:Rubensohl after 1m"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  5
+N  H  2
+N  D  5
+N  C 10
+S NT  6
+S  S  5
+S  H  2
+S  D  6
+S  C 10
+E NT  4
+E  S  8
+E  H 10
+E  D  7
+E  C  2
+W NT  4
+W  S  8
+W  H 10
+W  D  7
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "44"]
 % 48A085BA80DD4A3604FA5F09ED9C
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:AKQJ2.A3.AJ.KT43 T63.Q86.K87.AJ72 874.KJ974.Q964.5 95.T52.T532.Q986"]
 {Shape 3541 2344 5224 3334}
 {HCP 6 2 22 10}
 {Losers 8 10 4 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "4S"]
 [Result "12"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "bbca8ccca81113511135"]
+[OptimumScore "NS 990"]
+[ParContract "S 6N="]
 [Score "NS 480"]
-[Scoring "MP"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 2S    Pass  4S    Pass
 Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S 11
+N  H 12
+N  D 10
+N  C  8
+S NT 12
+S  S 12
+S  H 12
+S  D 10
+S  C  8
+E NT  1
+E  S  1
+E  H  1
+E  D  3
+E  C  5
+W NT  1
+W  S  1
+W  H  1
+W  D  3
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "45"]
 % 4A75B7465B82FC15DA3FF519B08F
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "W"]
 [Vulnerable "EW"]
 [Deal "W:KT32..AKQ85.A854 975.AK9653.T3.93 864.QT2.962.KJ62 AQJ.J874.J74.QT7"]
 {Shape 3334 3433 4054 3622}
 {HCP 6 11 16 7}
 {Losers 10 9 4 8}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3HX"]
 [Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "44742447428969b8969b"]
+[OptimumScore "EW 600"]
+[ParContract "EW 5C="]
 [Score "EW -530"]
-[Scoring "MP"]
 [Auction "W"]
 1C =1=    2H    Pass  3H
 Pass  Pass  X     Pass
 Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  4
+N  S  4
+N  H  7
+N  D  4
+N  C  2
+S NT  4
+S  S  4
+S  H  7
+S  D  4
+S  C  2
+E NT  8
+E  S  9
+E  H  6
+E  D  9
+E  C 11
+W NT  8
+W  S  9
+W  H  6
+W  D  9
+W  C 11
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "46"]
 % 49EBAAD7D68E7DEF3D658D034072
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "EW"]
 [Deal "S:KT5.AK86.AK.9765 AQJ8.972.T9875.3 74.T543.432.AQ84 9632.QJ.QJ6.KJT2"]
 {Shape 2434 4234 3424 4351}
 {HCP 6 10 17 7}
 {Losers 9 9 6 8}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "2H"]
 [Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "75868769686747567475"]
+[OptimumScore "NS 140"]
+[ParContract "S 2H+1"]
 [Score "NS 140"]
-[Scoring "MP"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2C =3=    Pass
@@ -1325,115 +2414,210 @@ Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Stayman"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 5
+N  H 8
+N  D 6
+N  C 8
+S NT 7
+S  S 6
+S  H 9
+S  D 6
+S  C 8
+E NT 6
+E  S 7
+E  H 4
+E  D 7
+E  C 5
+W NT 6
+W  S 7
+W  H 4
+W  D 7
+W  C 5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "47"]
 % 4AA602F5DB16701E87E7821E38B1
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "NS"]
 [Deal "N:A752.A6.AQT76.Q2 QJ6.Q932.K952.93 KT843.K75.84.J76 9.JT84.J3.AKT854"]
 {Shape 5323 1426 4252 3442}
 {HCP 7 9 16 8}
 {Losers 9 7 6 8}
-[Declarer "N"]
-[Contract "4S"]
-[Result "10"]
-[Score "NS 620"]
 [Scoring "MP"]
+[Declarer "N"]
+[Contract "2S"]
+[Result "9"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "79585795855485754857"]
+[OptimumScore "NS 140"]
+[ParContract "NS 3S="]
+[Score "NS 140"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2H    Pass
-2S    Pass  2N    Pass
-4S    Pass  Pass  Pass
+2S    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 9
+N  H 5
+N  D 8
+N  C 5
+S NT 7
+S  S 9
+S  H 5
+S  D 8
+S  C 5
+E NT 5
+E  S 4
+E  H 8
+E  D 5
+E  C 7
+W NT 5
+W  S 4
+W  H 8
+W  D 5
+W  C 7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "48"]
 % 49E1AC16958747AFAC7EFC268F43
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "EW"]
 [Deal "N:KJT873.AK874..AJ A5.65.K87653.K75 Q4.T932.A2.T9832 962.QJ.QJT94.Q64"]
 {Shape 2425 3253 6502 2263}
 {HCP 6 8 16 10}
 {Losers 9 9 4 7}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "4H"]
 [Result "11"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "7bc5a7bc591118311183"]
+[OptimumScore "NS 980"]
+[ParContract "NS 6H="]
 [Score "NS 450"]
-[Scoring "MP"]
 [Auction "N"]
 1C =1=    1D    1H    2D
 4H    Pass  Pass  Pass
 [Note "1:16+ HCP"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S 11
+N  H 12
+N  D  5
+N  C 10
+S NT  7
+S  S 11
+S  H 12
+S  D  5
+S  C  9
+E NT  1
+E  S  1
+E  H  1
+E  D  8
+E  C  3
+W NT  1
+W  S  1
+W  H  1
+W  D  8
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "49"]
 % 4B28A25DCD31C32C789686C4580E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
 [Vulnerable "All"]
 [Deal "N:K65.AK8.QJ82.QJT J94.T7.A73.A8743 AT82.J9542.654.9 Q73.Q63.KT9.K652"]
 {Shape 4531 3334 3343 3235}
 {HCP 5 10 16 9}
 {Losers 9 8 7 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "2H"]
-[Result "8"]
-[Score "NS 110"]
-[Scoring "MP"]
+[Result "7"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "68986689865545765457"]
+[OptimumScore "NS 140"]
+[ParContract "NS 1H+2"]
+[Score "NS -100"]
 [Auction "N"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2D    Pass
 2H    Pass  Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 8
+N  H 9
+N  D 8
+N  C 6
+S NT 6
+S  S 8
+S  H 9
+S  D 8
+S  C 6
+E NT 5
+E  S 5
+E  H 4
+E  D 5
+E  C 7
+W NT 6
+W  S 5
+W  H 4
+W  D 5
+W  C 7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "50"]
 % 4826A1CEAC0E7C85AC12F8333F7B
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "None"]
 [Deal "S:KJ87.AKJ7.K64.K8 Q5.95432.A8.J975 AT643.QT8.52.432 92.6.QJT973.AQT6"]
 {Shape 5323 2164 4432 2524}
 {HCP 6 9 18 7}
 {Losers 9 6 6 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "3S"]
-[Result "11"]
-[Score "NS 200"]
-[Scoring "MP"]
+[Result "10"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "aa854aa8543248932489"]
+[OptimumScore "EW -300"]
+[ParContract "EW 5CX-2"]
+[Score "NS 170"]
 [Auction "S"]
 1C =1=    Pass  1D =2=    Pass
 1N    Pass  2H    Pass
@@ -1441,5 +2625,24 @@ Pass  Pass
 [Note "1:16+ HCP"]
 [Note "2:artificial"]
 [Note "3:Super acceptance after NT"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S 10
+N  H  8
+N  D  5
+N  C  4
+S NT 10
+S  S 10
+S  H  8
+S  D  5
+S  C  4
+E NT  3
+E  S  2
+E  H  4
+E  D  8
+E  C  9
+W NT  3
+W  S  2
+W  H  4
+W  D  8
+W  C  9

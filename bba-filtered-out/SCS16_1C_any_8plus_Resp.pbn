@@ -3,25 +3,32 @@
 % CC1 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/Precision.bbsa
 % CC2 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/21GF-GIB.bbsa
 %HRTitleEvent "SCS16_1C_any_8plus_Resp"
+%HRSeed 661106 (offset 1)
+% solved: 500/500 deals, bridge-solver
 [Event "SCS16_1C_any_8plus_Resp"]
-[Site ""]
+[Site "-"]
 [Board "1"]
 % 9A052326E234C75EF06EDF66DE75
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "N:AKQT.A9.8653.K95 8642.853..QJ8643 .KQJ64.AQT942.A2 J9753.T72.KJ7.T7"]
 {Shape 4243 4306 0562 5332}
 {HCP 16 3 16 5}
 {Losers 6 8 3 10}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "6N"]
-[Result "12"]
-[Score "NS 1440"]
-[Scoring "MP"]
+[Result "11"]
+[BidSystemEW "2/1GF - 2/1 Game Force"]
+[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[DoubleDummyTricks "cbcb9cacb91212412124"]
+[OptimumScore "NS 1440"]
+[ParContract "NS 6N="]
+[Score "NS -100"]
 [Auction "S"]
 1D    Pass  1S    Pass
 2H    Pass  4N =1=    Pass
@@ -32,6 +39,25 @@ Pass  Pass
 [Note "2:A=0/5 or 3/5"]
 [Note "3:!H queen no !S king no !C king no !D king"]
 [Note "4:0 or 1 trump keys"]
-[BidSystemEW "2/1GF - 2/1 Game Force"]
-[BidSystemNS "PC - Meckwell Lite Precision Club"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 12
+N  S 11
+N  H 12
+N  D 11
+N  C  9
+S NT 12
+S  S 10
+S  H 12
+S  D 11
+S  C  9
+E NT  1
+E  S  2
+E  H  1
+E  D  2
+E  C  4
+W NT  1
+W  S  2
+W  H  1
+W  D  2
+W  C  4
 

@@ -5,7 +5,7 @@
   "provenance": {
     "source": "Practice-Bidding-Scenarios",
     "pipeline_version": "1.0.0",
-    "generated": "2026-07-30",
+    "generated": "2026-11-10",
     "source_quiz": "Jacoby_Transfer"
   },
   "exercises": [
@@ -117,10 +117,35 @@
         },
         {
           "hand": {
-            "spades": "Q9543",
-            "hearts": "2",
-            "diamonds": "J43",
-            "clubs": "AQ83"
+            "spades": "AQJT6",
+            "hearts": "72",
+            "diamonds": "KQT",
+            "clubs": "Q72"
+          },
+          "seat": "N",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0919A013191079B4C734659CDE8F",
+            "event": "Jacoby_Transfer",
+            "board": 9
+          }
+        },
+        {
+          "hand": {
+            "spades": "QJT54",
+            "hearts": "974",
+            "diamonds": "Q42",
+            "clubs": "KJ"
           },
           "seat": "N",
           "dealer": "S",
@@ -135,34 +160,9 @@
           "answer": "2H",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "3893752399D63EBFA45624193B40",
+            "id": "18AE933A2336C0D444BE1609B269",
             "event": "Jacoby_Transfer",
-            "board": 46
-          }
-        },
-        {
-          "hand": {
-            "spades": "K98652",
-            "hearts": "J98",
-            "diamonds": "Q543",
-            "clubs": ""
-          },
-          "seat": "N",
-          "dealer": "S",
-          "vulnerability": "Both",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P"
-            ]
-          },
-          "answer": "2H",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "4BA220B54EF90A0E7E383494662E",
-            "event": "Jacoby_Transfer",
-            "board": 68
+            "board": 16
           }
         }
       ]
@@ -197,7 +197,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "1A0BA1672441408AFB2B9C7578C8",
             "event": "Jacoby_Transfer",
-            "board": 264
+            "board": 266
           }
         },
         {
@@ -224,34 +224,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "2A2F65BE407602F5768FC87622C9",
             "event": "Jacoby_Transfer",
-            "board": 287
-          }
-        },
-        {
-          "hand": {
-            "spades": "43",
-            "hearts": "AJT8",
-            "diamonds": "AKT",
-            "clubs": "K763"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2D",
-              "2H"
-            ]
-          },
-          "answer": "P",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "A860C17EEA221A674DC5788485CA",
-            "event": "Jacoby_Transfer",
-            "board": 398
+            "board": 289
           }
         },
         {
@@ -278,7 +251,34 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "4AC995270F7B6144E97CB36848C8",
             "event": "Jacoby_Transfer",
-            "board": 308
+            "board": 310
+          }
+        },
+        {
+          "hand": {
+            "spades": "43",
+            "hearts": "AJT8",
+            "diamonds": "AKT",
+            "clubs": "K763"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2D",
+              "2H"
+            ]
+          },
+          "answer": "3H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "A860C17EEA221A674DC5788485CA",
+            "event": "Jacoby_Transfer",
+            "board": 400
           }
         }
       ]
@@ -564,7 +564,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "E89E210D87463443FDA8DB5C8CF1",
             "event": "Jacoby_Transfer",
-            "board": 224
+            "board": 226
           }
         },
         {
@@ -591,7 +591,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "AB4DC13E21FC7CF08CD1A7500743",
             "event": "Jacoby_Transfer",
-            "board": 164
+            "board": 165
           }
         }
       ]
@@ -653,7 +653,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "A88986229EABD574DB182C3211F6",
             "event": "Jacoby_Transfer",
-            "board": 152
+            "board": 153
           }
         },
         {
@@ -680,7 +680,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "B889111D5CF720E98DF8DF1CE23F",
             "event": "Jacoby_Transfer",
-            "board": 178
+            "board": 179
           }
         },
         {
@@ -707,7 +707,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "5A25DE8C932678C8A9DF0138D911",
             "event": "Jacoby_Transfer",
-            "board": 335
+            "board": 337
           }
         }
       ]
@@ -716,6 +716,122 @@
       "id": "Jacoby_Transfer-6",
       "type": "bidding",
       "title": "Exercise Six — Opener's Rebid after 2♥",
+      "prompt": "You open 1NT, partner responds 2♥, RHO bids 3♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AK63",
+            "hearts": "AJ2",
+            "diamonds": "KJ93",
+            "clubs": "42"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "3C"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "18AE933A2336C0D444BE1609B269",
+            "event": "Jacoby_Transfer",
+            "board": 16
+          }
+        },
+        {
+          "hand": {
+            "spades": "AQ4",
+            "hearts": "AK32",
+            "diamonds": "J872",
+            "clubs": "QT"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "3C"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "4BA220B54EF90A0E7E383494662E",
+            "event": "Jacoby_Transfer",
+            "board": 68
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKJ",
+            "hearts": "QJ742",
+            "diamonds": "QJ5",
+            "clubs": "J6"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "3C"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "8994B62AA9CF370C621DDA2C7E23",
+            "event": "Jacoby_Transfer",
+            "board": 124
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q7",
+            "hearts": "9432",
+            "diamonds": "AKJ9",
+            "clubs": "KQ6"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "3C"
+            ]
+          },
+          "answer": "P",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1A56558DF672E6389F013F20202A",
+            "event": "Jacoby_Transfer",
+            "board": 276
+          }
+        }
+      ]
+    },
+    {
+      "id": "Jacoby_Transfer-7",
+      "type": "bidding",
+      "title": "Exercise Seven — Opener's Rebid after 2♥",
       "prompt": "You open 1NT, partner responds 2♥, RHO bids 3♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -769,7 +885,7 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "BA9649DD26F714B21A301311BFE7",
             "event": "Jacoby_Transfer",
-            "board": 417
+            "board": 419
           }
         },
         {
@@ -796,15 +912,42 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "8A159AB19C18532C36A0DC83351E",
             "event": "Jacoby_Transfer",
-            "board": 135
+            "board": 136
+          }
+        },
+        {
+          "hand": {
+            "spades": "AK62",
+            "hearts": "JT",
+            "diamonds": "K985",
+            "clubs": "A74"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "3H"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "8991BB16E6243818DD9318F1F683",
+            "event": "Jacoby_Transfer",
+            "board": 137
           }
         }
       ]
     },
     {
-      "id": "Jacoby_Transfer-7",
+      "id": "Jacoby_Transfer-8",
       "type": "bidding",
-      "title": "Exercise Seven — Opener's Rebid after 2♥",
+      "title": "Exercise Eight — Opener's Rebid after 2♥",
       "prompt": "You open 1NT, partner responds 2♥. What do you bid with each of these hands?",
       "questions": [
         {
@@ -836,10 +979,10 @@
         },
         {
           "hand": {
-            "spades": "K842",
-            "hearts": "K5",
-            "diamonds": "AJ9",
-            "clubs": "AJ95"
+            "spades": "KQ92",
+            "hearts": "KQT3",
+            "diamonds": "J32",
+            "clubs": "KJ"
           },
           "seat": "S",
           "dealer": "S",
@@ -856,21 +999,21 @@
           "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "0919A013191079B4C734659CDE8F",
+            "id": "5902A5AE39E2934EF454303E2B98",
             "event": "Jacoby_Transfer",
-            "board": 9
+            "board": 89
           }
         },
         {
           "hand": {
-            "spades": "AK63",
-            "hearts": "AJ2",
-            "diamonds": "KJ93",
-            "clubs": "42"
+            "spades": "AJ92",
+            "hearts": "AJ",
+            "diamonds": "Q42",
+            "clubs": "K843"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "None",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -883,9 +1026,9 @@
           "answer": "2NT",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "18AE933A2336C0D444BE1609B269",
+            "id": "8AACDD14A2588231780B0F15F9B6",
             "event": "Jacoby_Transfer",
-            "board": 16
+            "board": 133
           }
         },
         {
@@ -972,11 +1115,38 @@
       ]
     },
     {
-      "id": "Jacoby_Transfer-8",
+      "id": "Jacoby_Transfer-9",
       "type": "bidding",
-      "title": "Exercise Eight — Opener's Rebid after 2♥",
+      "title": "Exercise Nine — Opener's Rebid after 2♥",
       "prompt": "You open 1NT, partner responds 2♥, RHO doubles. What do you bid with each of these hands?",
       "questions": [
+        {
+          "hand": {
+            "spades": "K842",
+            "hearts": "K5",
+            "diamonds": "AJ9",
+            "clubs": "AJ95"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "X"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0919A013191079B4C734659CDE8F",
+            "event": "Jacoby_Transfer",
+            "board": 9
+          }
+        },
         {
           "hand": {
             "spades": "AJ87",
@@ -996,12 +1166,39 @@
               "X"
             ]
           },
-          "answer": "3S",
+          "answer": "2S",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
             "id": "3893752399D63EBFA45624193B40",
             "event": "Jacoby_Transfer",
             "board": 46
+          }
+        },
+        {
+          "hand": {
+            "spades": "AT84",
+            "hearts": "A862",
+            "diamonds": "J52",
+            "clubs": "AK"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "X"
+            ]
+          },
+          "answer": "3S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "9BA5D1081FB21AA3F4673C98542E",
+            "event": "Jacoby_Transfer",
+            "board": 141
           }
         },
         {
@@ -1028,100 +1225,19 @@
             "repo": "Practice-Bidding-Scenarios",
             "id": "1813A2138876BA19F52D3899DC76",
             "event": "Jacoby_Transfer",
-            "board": 273
+            "board": 275
           }
         },
         {
           "hand": {
-            "spades": "A43",
-            "hearts": "J82",
-            "diamonds": "KQ7",
-            "clubs": "KQ53"
+            "spades": "AT",
+            "hearts": "Q95",
+            "diamonds": "Q95",
+            "clubs": "AK865"
           },
           "seat": "S",
           "dealer": "S",
-          "vulnerability": "None",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "X"
-            ]
-          },
-          "answer": "2S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "489C011124167B24D3CEFD8A9964",
-            "event": "Jacoby_Transfer",
-            "board": 72
-          }
-        },
-        {
-          "hand": {
-            "spades": "K54",
-            "hearts": "AQ8",
-            "diamonds": "K974",
-            "clubs": "A94"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "X"
-            ]
-          },
-          "answer": "2S",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "692D9A2312DF79EC1BCC9C891056",
-            "event": "Jacoby_Transfer",
-            "board": 105
-          }
-        },
-        {
-          "hand": {
-            "spades": "KJ",
-            "hearts": "9762",
-            "diamonds": "AKJT",
-            "clubs": "K52"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "EW",
-          "context": {
-            "dealer": "S",
-            "calls": [
-              "1NT",
-              "P",
-              "2H",
-              "X"
-            ]
-          },
-          "answer": "3D",
-          "board": {
-            "repo": "Practice-Bidding-Scenarios",
-            "id": "591B9900BB18623F6C2CF1575EE5",
-            "event": "Jacoby_Transfer",
-            "board": 323
-          }
-        },
-        {
-          "hand": {
-            "spades": "KQ",
-            "hearts": "Q2",
-            "diamonds": "A982",
-            "clubs": "A7543"
-          },
-          "seat": "S",
-          "dealer": "S",
-          "vulnerability": "None",
+          "vulnerability": "NS",
           "context": {
             "dealer": "S",
             "calls": [
@@ -1134,9 +1250,36 @@
           "answer": "3C",
           "board": {
             "repo": "Practice-Bidding-Scenarios",
-            "id": "58119AA40F064032FDDBD5FD19E2",
+            "id": "DA9D392473926711C8D9651F0C70",
             "event": "Jacoby_Transfer",
-            "board": 331
+            "board": 211
+          }
+        },
+        {
+          "hand": {
+            "spades": "A2",
+            "hearts": "A432",
+            "diamonds": "AK83",
+            "clubs": "J63"
+          },
+          "seat": "S",
+          "dealer": "S",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "S",
+            "calls": [
+              "1NT",
+              "P",
+              "2H",
+              "X"
+            ]
+          },
+          "answer": "3D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "FBAFDE007510181EC4D9C6E32DAA",
+            "event": "Jacoby_Transfer",
+            "board": 237
           }
         }
       ]

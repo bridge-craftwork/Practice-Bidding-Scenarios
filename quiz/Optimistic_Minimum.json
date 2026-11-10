@@ -1,0 +1,773 @@
+{
+  "schema": "quiz-lesson/v1",
+  "id": "Optimistic_Minimum",
+  "title": "Optimistic Minimum",
+  "provenance": {
+    "source": "Practice-Bidding-Scenarios",
+    "pipeline_version": "1.0.0",
+    "generated": "2026-11-10",
+    "source_quiz": "Optimistic_Minimum"
+  },
+  "exercises": [
+    {
+      "id": "Optimistic_Minimum-1",
+      "type": "bidding",
+      "title": "Exercise One — Opening Bids",
+      "prompt": "What do you open with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AJ83",
+            "hearts": "K9873",
+            "diamonds": "K2",
+            "clubs": "J6"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "002A806A25FFC40E4C657BFB04E0",
+            "event": "Optimistic_Minimum",
+            "board": 1
+          }
+        },
+        {
+          "hand": {
+            "spades": "KT",
+            "hearts": "QJ765",
+            "diamonds": "AK7",
+            "clubs": "987"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "01AB3B4ECF2055ADC9C680A45656",
+            "event": "Optimistic_Minimum",
+            "board": 6
+          }
+        },
+        {
+          "hand": {
+            "spades": "653",
+            "hearts": "AKT6",
+            "diamonds": "A743",
+            "clubs": "KQ"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "1NT",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "02878179908F5A9AA40223F617F8",
+            "event": "Optimistic_Minimum",
+            "board": 2
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q952",
+            "hearts": "52",
+            "diamonds": "AKQ2",
+            "clubs": "QJ8"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "answer": "1D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "03AF5F3D61A814F972B204FA940F",
+            "event": "Optimistic_Minimum",
+            "board": 4
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKQ9",
+            "hearts": "KQT7",
+            "diamonds": "93",
+            "clubs": "T94"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "answer": "1C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "022F0A0FBA8125908AB0D0E9745E",
+            "event": "Optimistic_Minimum",
+            "board": 12
+          }
+        },
+        {
+          "hand": {
+            "spades": "AK874",
+            "hearts": "73",
+            "diamonds": "KJ96",
+            "clubs": "32"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "13172EA8BCBBAF2800FE523649D1",
+            "event": "Optimistic_Minimum",
+            "board": 20
+          }
+        }
+      ]
+    },
+    {
+      "id": "Optimistic_Minimum-2",
+      "type": "bidding",
+      "title": "Exercise Two — Responding to 1♣",
+      "prompt": "Partner opens 1♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "JT876",
+            "hearts": "A94",
+            "diamonds": "AQ2",
+            "clubs": "AQ"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "022F0A0FBA8125908AB0D0E9745E",
+            "event": "Optimistic_Minimum",
+            "board": 12
+          }
+        },
+        {
+          "hand": {
+            "spades": "Q9852",
+            "hearts": "A74",
+            "diamonds": "AK6",
+            "clubs": "Q9"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "302A59833645978E2CF984E43E9D",
+            "event": "Optimistic_Minimum",
+            "board": 58
+          }
+        },
+        {
+          "hand": {
+            "spades": "K875",
+            "hearts": "KQT",
+            "diamonds": "KT3",
+            "clubs": "KJ5"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "530CA72AF324FD9DB079B310D559",
+            "event": "Optimistic_Minimum",
+            "board": 87
+          }
+        },
+        {
+          "hand": {
+            "spades": "JT75",
+            "hearts": "AT84",
+            "diamonds": "KQ6",
+            "clubs": "AK"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "00274B39BDAD456CB25896E0C0CE",
+            "event": "Optimistic_Minimum",
+            "board": 14
+          }
+        },
+        {
+          "hand": {
+            "spades": "AT73",
+            "hearts": "AT52",
+            "diamonds": "K85",
+            "clubs": "A8"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "11ABC14E55A655039AFC21C4B8EC",
+            "event": "Optimistic_Minimum",
+            "board": 19
+          }
+        },
+        {
+          "hand": {
+            "spades": "4",
+            "hearts": "Q9543",
+            "diamonds": "AQ2",
+            "clubs": "AKT8"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1C",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1103FF20454F2DF7457CEAA46530",
+            "event": "Optimistic_Minimum",
+            "board": 22
+          }
+        }
+      ]
+    },
+    {
+      "id": "Optimistic_Minimum-3",
+      "type": "bidding",
+      "title": "Exercise Three — Responding to 1♦",
+      "prompt": "Partner opens 1♦. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AT63",
+            "hearts": "AJT",
+            "diamonds": "953",
+            "clubs": "AK2"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "03AF5F3D61A814F972B204FA940F",
+            "event": "Optimistic_Minimum",
+            "board": 4
+          }
+        },
+        {
+          "hand": {
+            "spades": "QT843",
+            "hearts": "K5",
+            "diamonds": "AQ5",
+            "clubs": "A95"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "12CF259E3A90079036C86F988A71",
+            "event": "Optimistic_Minimum",
+            "board": 28
+          }
+        },
+        {
+          "hand": {
+            "spades": "J9873",
+            "hearts": "AJ73",
+            "diamonds": "A",
+            "clubs": "AQ2"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "402B31DFA47594BDA2D23E04A4C3",
+            "event": "Optimistic_Minimum",
+            "board": 64
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKJ5",
+            "hearts": "KQ86",
+            "diamonds": "97",
+            "clubs": "QT6"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0289A8E7854B1C65FC63B2F6514A",
+            "event": "Optimistic_Minimum",
+            "board": 5
+          }
+        },
+        {
+          "hand": {
+            "spades": "KT9",
+            "hearts": "K543",
+            "diamonds": "AJ4",
+            "clubs": "KJ5"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "1049A70EFB80B250005663EAEC72",
+            "event": "Optimistic_Minimum",
+            "board": 27
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJ",
+            "hearts": "QT842",
+            "diamonds": "KJ8",
+            "clubs": "KJ7"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1D",
+              "P"
+            ]
+          },
+          "answer": "1H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "22B90F668F62422E7B1870E8C524",
+            "event": "Optimistic_Minimum",
+            "board": 34
+          }
+        }
+      ]
+    },
+    {
+      "id": "Optimistic_Minimum-4",
+      "type": "bidding",
+      "title": "Exercise Four — Responding to 1NT",
+      "prompt": "Partner opens 1NT. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "AKJT87",
+            "hearts": "75",
+            "diamonds": "T",
+            "clubs": "AT53"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "NS",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "02878179908F5A9AA40223F617F8",
+            "event": "Optimistic_Minimum",
+            "board": 2
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKJ764",
+            "hearts": "Q5",
+            "diamonds": "3",
+            "clubs": "KJ87"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "4H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "03818FEC9B403E5BB3B22A9DF45D",
+            "event": "Optimistic_Minimum",
+            "board": 13
+          }
+        },
+        {
+          "hand": {
+            "spades": "KJ2",
+            "hearts": "KQ83",
+            "diamonds": "A8732",
+            "clubs": "4"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "2C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0101A568BEC6D86202D4744B2190",
+            "event": "Optimistic_Minimum",
+            "board": 3
+          }
+        },
+        {
+          "hand": {
+            "spades": "K",
+            "hearts": "AQT6",
+            "diamonds": "QT84",
+            "clubs": "QJ65"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "2C",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0020B1EB37E8F45AC26F0778054E",
+            "event": "Optimistic_Minimum",
+            "board": 8
+          }
+        },
+        {
+          "hand": {
+            "spades": "8",
+            "hearts": "KQ9874",
+            "diamonds": "AJ7",
+            "clubs": "A93"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "4D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "03072E61D5D0EBAD2648486213F1",
+            "event": "Optimistic_Minimum",
+            "board": 7
+          }
+        },
+        {
+          "hand": {
+            "spades": "2",
+            "hearts": "AJT963",
+            "diamonds": "AK73",
+            "clubs": "K2"
+          },
+          "seat": "S",
+          "dealer": "N",
+          "vulnerability": "Both",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P"
+            ]
+          },
+          "answer": "4D",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "03E5073E696E2CD0F46940F1269B",
+            "event": "Optimistic_Minimum",
+            "board": 10
+          }
+        }
+      ]
+    },
+    {
+      "id": "Optimistic_Minimum-5",
+      "type": "bidding",
+      "title": "Exercise Five — Opener's Rebid after 2♣",
+      "prompt": "You open 1NT, partner responds 2♣. What do you bid with each of these hands?",
+      "questions": [
+        {
+          "hand": {
+            "spades": "A73",
+            "hearts": "AT74",
+            "diamonds": "Q94",
+            "clubs": "AK3"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0101A568BEC6D86202D4744B2190",
+            "event": "Optimistic_Minimum",
+            "board": 3
+          }
+        },
+        {
+          "hand": {
+            "spades": "AJ53",
+            "hearts": "7532",
+            "diamonds": "AK7",
+            "clubs": "K3"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "0020B1EB37E8F45AC26F0778054E",
+            "event": "Optimistic_Minimum",
+            "board": 8
+          }
+        },
+        {
+          "hand": {
+            "spades": "KQ",
+            "hearts": "JT93",
+            "diamonds": "KJ",
+            "clubs": "KQ532"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2H",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "01A239118A4E4FD46E60F57085E1",
+            "event": "Optimistic_Minimum",
+            "board": 9
+          }
+        },
+        {
+          "hand": {
+            "spades": "AKT7",
+            "hearts": "93",
+            "diamonds": "KJT8",
+            "clubs": "A62"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "201523B7A3128650367D9C6FCBFD",
+            "event": "Optimistic_Minimum",
+            "board": 33
+          }
+        },
+        {
+          "hand": {
+            "spades": "KJ87",
+            "hearts": "AKQ",
+            "diamonds": "J85",
+            "clubs": "Q63"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "EW",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "21820F8138977E3B267D5BD455B3",
+            "event": "Optimistic_Minimum",
+            "board": 41
+          }
+        },
+        {
+          "hand": {
+            "spades": "A632",
+            "hearts": "K84",
+            "diamonds": "KJT3",
+            "clubs": "A2"
+          },
+          "seat": "N",
+          "dealer": "N",
+          "vulnerability": "None",
+          "context": {
+            "dealer": "N",
+            "calls": [
+              "1NT",
+              "P",
+              "2C",
+              "P"
+            ]
+          },
+          "answer": "2S",
+          "board": {
+            "repo": "Practice-Bidding-Scenarios",
+            "id": "201983F8B2D37488AE3E5F461319",
+            "event": "Optimistic_Minimum",
+            "board": 43
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -3,1347 +3,2573 @@
 % CC1 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/Basic-Bridge.bbsa
 % CC2 - /Users/adavidbailey/Practice-Bidding-Scenarios/bbsa/Basic-Bridge.bbsa
 %HRTitleEvent "Basic_Minor"
+%HRSeed 217470 (offset 1)
+% solved: 500/500 deals, bridge-solver
 [Event "Basic_Minor"]
 [Site ""]
 [Date ""]
 [Board "1"]
 % 0A2D1868F5631279C30CB8B69BAF
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "S:5432.AQT2.J4.AJ8 J7.J854.T97.KQ65 AK96.76.A62.T732 QT8.K93.KQ853.94"]
 {Shape 4234 3352 4423 2434}
 {HCP 11 10 12 7}
 {Losers 8 7 8 9}
-[Declarer "N"]
-[Contract "2S"]
-[Result "9"]
-[Score "NS 140"]
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1S    Pass
-2S    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "3S"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "79879798795456454564"]
+[OptimumScore "NS 140"]
+[ParContract "NS 1S+2"]
+[Score "NS 140"]
+[Auction "S"]
+1C    Pass  1S    Pass
+2S    Pass  3S    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 7
+N  S 9
+N  H 8
+N  D 7
+N  C 9
+S NT 7
+S  S 9
+S  H 8
+S  D 7
+S  C 9
+E NT 5
+E  S 4
+E  H 5
+E  D 6
+E  C 4
+W NT 5
+W  S 4
+W  H 5
+W  D 6
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "2"]
-% 0BED00A5281B6CBAC2804AC60E5C
+% 0919B7CBD131F7D5F69E4CE143AA
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:Q86.AQJ9.A932.AQ A74.8.JT85.KJ962 KJT3.K76543.Q4.T 952.T2.K76.87543"]
-{Shape 4621 3235 3442 3145}
-{HCP 9 3 19 9}
-{Losers 7 10 6 8}
-[Declarer "S"]
-[Contract "4H"]
-[Result "11"]
-[Score "NS 650"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:K62.42.AQ2.AJT84 QJ9874.KT97.65.5 AT.Q53.JT43.KQ93 53.AJ86.K987.762"]
+{Shape 2344 2443 3235 6421}
+{HCP 12 8 14 6}
+{Losers 7 9 7 7}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1H    Pass
-4H    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "3N"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9559b9559b3774237742"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N=; NS 5C="]
+[Score "NS 430"]
+[Auction "S"]
+1C    Pass  1D =1=    Pass
+1N =2=    Pass  2N    Pass
+3N    Pass  Pass  Pass
+[Note "1:Walsh style"]
+[Note "2:may have 4M"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  5
+N  H  5
+N  D  9
+N  C 11
+S NT  9
+S  S  5
+S  H  5
+S  D  9
+S  C 11
+E NT  3
+E  S  7
+E  H  7
+E  D  4
+E  C  2
+W NT  3
+W  S  7
+W  H  7
+W  D  4
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "3"]
-% 0AC66DA69D6EE274FC07F3424C46
+% 0BED00A5281B6CBAC2804AC60E5C
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:QJ.KQT9.AQ862.KJ A975.875.954.873 6.A6432.KJT73.65 KT8432.J..AQT942"]
-{Shape 1552 6106 2452 4333}
-{HCP 8 10 18 4}
-{Losers 7 4 5 11}
-[Declarer "N"]
-[Contract "4H"]
-[Result "11"]
-[Score "NS 650"]
+[Vulnerable "All"]
+[Deal "S:Q86.AQJ9.A932.AQ A74.8.JT85.KJ962 KJT3.K76543.Q4.T 952.T2.K76.87543"]
+{Shape 4621 3235 3442 3145}
+{HCP 9 3 19 9}
+{Losers 7 10 6 8}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1H    2S
-4H    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "6H"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8bb85bbb862225722257"]
+[OptimumScore "NS 660"]
+[ParContract "S 3N+2"]
+[Score "NS -100"]
+[Auction "S"]
+1D    Pass  1H    Pass
+4H    Pass  4N =1=    Pass
+5S =2=    Pass  6H    Pass
+Pass  Pass
+[Note "1:Blackwood 0123, for !H"]
+[Note "2:A=3 out of 5"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 11
+N  H 11
+N  D  8
+N  C  5
+S NT 11
+S  S 11
+S  H 11
+S  D  8
+S  C  6
+E NT  2
+E  S  2
+E  H  2
+E  D  5
+E  C  7
+W NT  2
+W  S  2
+W  H  2
+W  D  5
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "4"]
-% 09882ADAFBB11CCD391A14D61140
+% 0AC66DA69D6EE274FC07F3424C46
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "W"]
 [Vulnerable "EW"]
-[Deal "N:AT.K.AKQJ76.T873 QJ84.JT7.98.A952 K97653.A82.T32.J 2.Q96543.54.KQ64"]
-{Shape 6331 1624 2164 4324}
-{HCP 8 7 17 8}
-{Losers 8 6 5 9}
-[Declarer "S"]
-[Contract "4S"]
-[Result "11"]
-[Score "NS 450"]
+[Deal "W:QJ.KQT9.AQ862.KJ A975.875.954.873 6.A6432.KJT73.65 KT8432.J..AQT942"]
+{Shape 1552 6106 2452 4333}
+{HCP 8 10 18 4}
+{Losers 7 4 5 11}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1S    Pass
-2C    Pass  2S    Pass
-4S    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "4SXX"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "3b22b3b22b62ab262ab2"]
+[OptimumScore "EW -200"]
+[ParContract "EW 6DX-1"]
+[Score "EW -880"]
+[Auction "W"]
+1D    Pass  1H    2S
+3H    3S    4H    4S
+X     Pass  Pass  XX
+Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S 11
+N  H  2
+N  D  2
+N  C 11
+S NT  3
+S  S 11
+S  H  2
+S  D  2
+S  C 11
+E NT  6
+E  S  2
+E  H 10
+E  D 11
+E  C  2
+W NT  6
+W  S  2
+W  H 10
+W  D 11
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "5"]
-% 0B9F33BD8210AA542ECA1CFB280E
+% 09882ADAFBB11CCD391A14D61140
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:AQJ9.973.AQ752.Q 64.KQ4.9643.T853 KT7532.J62.8.AK4 8.AT85.KJT.J9762"]
-{Shape 6313 1435 4351 2344}
-{HCP 11 9 15 5}
-{Losers 7 8 6 9}
+[Vulnerable "EW"]
+[Deal "S:AT.K.AKQJ76.T873 QJ84.JT7.98.A952 K97653.A82.T32.J 2.Q96543.54.KQ64"]
+{Shape 6331 1624 2164 4324}
+{HCP 8 7 17 8}
+{Losers 8 6 5 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "4S"]
-[Result "10"]
-[Score "NS 620"]
-[Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-3S    Pass  4S    Pass
-Pass  Pass
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9a6c69a6c63371733717"]
+[OptimumScore "NS 920"]
+[ParContract "NS 6D="]
+[Score "NS 450"]
+[Auction "S"]
+1D    Pass  1S    Pass
+2C    Pass  2S    Pass
+4S    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 10
+N  H  6
+N  D 12
+N  C  6
+S NT  9
+S  S 10
+S  H  6
+S  D 12
+S  C  6
+E NT  3
+E  S  3
+E  H  7
+E  D  1
+E  C  7
+W NT  3
+W  S  3
+W  H  7
+W  D  1
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "6"]
-% 0841C1B91DBB047A4EDFE310BCEC
+% 0B9F33BD8210AA542ECA1CFB280E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "S:QT3.52.AK54.AKQJ K652.QT83.9.9432 J94.AK97.QT8.T65 A87.J64.J7632.87"]
-{Shape 3433 3352 3244 4414}
-{HCP 10 6 19 5}
-{Losers 9 10 5 8}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:AQJ9.973.AQ752.Q 64.KQ4.9643.T853 KT7532.J62.8.AK4 8.AT85.KJT.J9762"]
+{Shape 6313 1435 4351 2344}
+{HCP 11 9 15 5}
+{Losers 7 8 6 9}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1H    Pass
-2N    Pass  3N    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9a7869a7862153721537"]
+[OptimumScore "NS 620"]
+[ParContract "NS 4S="]
+[Score "NS 620"]
+[Auction "N"]
+1D    Pass  1S    Pass
+3S    Pass  4S    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 10
+N  H  7
+N  D  8
+N  C  6
+S NT  9
+S  S 10
+S  H  7
+S  D  8
+S  C  6
+E NT  2
+E  S  1
+E  H  5
+E  D  3
+E  C  7
+W NT  2
+W  S  1
+W  H  5
+W  D  3
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "7"]
-% 0A2EA6F81C173856437590209FC5
+% 0841C1B91DBB047A4EDFE310BCEC
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:K53.AK4.KT862.62 Q2.Q96.754.QJ954 AJT94.72.AJ3.T73 876.JT853.Q9.AK8"]
-{Shape 5233 3523 3352 2335}
-{HCP 10 10 13 7}
-{Losers 9 9 7 9}
-[Declarer "N"]
-[Contract "3S"]
-[Result "10"]
-[Score "NS 170"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:QT3.52.AK54.AKQJ K652.QT83.9.9432 J94.AK97.QT8.T65 A87.J64.J7632.87"]
+{Shape 3433 3352 3244 4414}
+{HCP 10 6 19 5}
+{Losers 9 10 5 8}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  2S    Pass
-3S    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "3N"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "a89aaa89aa2443224432"]
+[OptimumScore "NS 430"]
+[ParContract "NS 3N+1"]
+[Score "NS 430"]
+[Auction "N"]
+1D    Pass  1H    Pass
+2N    Pass  3N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S  8
+N  H  9
+N  D 10
+N  C 10
+S NT 10
+S  S  8
+S  H  9
+S  D 10
+S  C 10
+E NT  2
+E  S  4
+E  H  4
+E  D  3
+E  C  2
+W NT  2
+W  S  4
+W  H  4
+W  D  3
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "8"]
-% 086380D0FFB83A5046C1E06F4F9B
+% 0A2EA6F81C173856437590209FC5
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "S:KT2.A54.AKQ865.6 QJ65.JT9.7.KQT85 9.K763.T92.AJ432 A8743.Q82.J43.97"]
-{Shape 1435 5332 3361 4315}
-{HCP 8 7 16 9}
-{Losers 8 9 5 7}
-[Declarer "S"]
-[Contract "3D"]
-[Result "12"]
-[Score "NS 170"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:K53.AK4.KT862.62 Q2.Q96.754.QJ954 AJT94.72.AJ3.T73 876.JT853.Q9.AK8"]
+{Shape 5233 3523 3352 2335}
+{HCP 10 10 13 7}
+{Losers 9 9 7 9}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1H    Pass
-3D    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "3S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8b7b78b7b71160611606"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4S+1"]
+[Score "NS 170"]
+[Auction "N"]
+1D    Pass  1S    Pass
+1N    Pass  2S    Pass
+3S    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 11
+N  H  7
+N  D 11
+N  C  7
+S NT  8
+S  S 11
+S  H  7
+S  D 11
+S  C  7
+E NT  1
+E  S  1
+E  H  6
+E  D  0
+E  C  6
+W NT  1
+W  S  1
+W  H  6
+W  D  0
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "9"]
-% 0A66CDFD14DD7D521C867CD1AFBB
+% 086380D0FFB83A5046C1E06F4F9B
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:632.A3.AJ6.KQT94 KQT4.Q952.84.J75 J7.K6.KQT9753.32 A985.JT874.2.A86"]
-{Shape 2272 4513 3235 4423}
-{HCP 9 9 14 8}
-{Losers 6 8 7 8}
-[Declarer "N"]
-[Contract "4D"]
-[Result "10"]
-[Score "NS 130"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:KT2.A54.AKQ865.6 QJ65.JT9.7.KQT85 9.K763.T92.AJ432 A8743.Q82.J43.97"]
+{Shape 1435 5332 3361 4315}
+{HCP 8 7 16 9}
+{Losers 8 9 5 7}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1D    1H
-X     2H    4D    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "3D"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "a6ab8a6ab83722537225"]
+[OptimumScore "NS 430"]
+[ParContract "NS 3N+1"]
+[Score "NS 150"]
+[Auction "N"]
+1D    Pass  1H    Pass
+3D    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S  6
+N  H 10
+N  D 11
+N  C  8
+S NT 10
+S  S  6
+S  H 10
+S  D 11
+S  C  8
+E NT  3
+E  S  7
+E  H  2
+E  D  2
+E  C  5
+W NT  3
+W  S  7
+W  H  2
+W  D  2
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "10"]
-% 096184892F750E6554F5EC053F1F
+% 0A66CDFD14DD7D521C867CD1AFBB
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:632.A3.AJ6.KQT94 KQT4.Q952.84.J75 J7.K6.KQT9753.32 A985.JT874.2.A86"]
+{Shape 2272 4513 3235 4423}
+{HCP 9 9 14 8}
+{Losers 6 8 7 8}
+[Scoring "MP"]
+[Declarer "S"]
+[Contract "4D"]
+[Result "10"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "855a8855a84883448834"]
+[OptimumScore "NS 130"]
+[ParContract "NS 4D="]
+[Score "NS 130"]
+[Auction "N"]
+1C    Pass  1D =1=    1H
+X     2H    4D    Pass
+Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  5
+N  H  5
+N  D 10
+N  C  8
+S NT  8
+S  S  5
+S  H  5
+S  D 10
+S  C  8
+E NT  4
+E  S  8
+E  H  8
+E  D  3
+E  C  4
+W NT  4
+W  S  8
+W  H  8
+W  D  3
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "11"]
+% 096184892F750E6554F5EC053F1F
 [West "EPBot"]
-[Dealer "S"]
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
+[Dealer "N"]
 [Vulnerable "EW"]
-[Deal "S:KQ.AJ85.Q.AQT864 65.T63.J9532.K75 J9432.KQ94.A.J32 AT87.72.KT8764.9"]
+[Deal "N:KQ.AJ85.Q.AQT864 65.T63.J9532.K75 J9432.KQ94.A.J32 AT87.72.KT8764.9"]
 {Shape 5413 4261 2416 2353}
 {HCP 11 7 18 4}
 {Losers 7 7 5 10}
-[Declarer "S"]
+[Scoring "MP"]
+[Declarer "N"]
 [Contract "6H"]
 [Result "12"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "79b5b79b5b3328233282"]
+[OptimumScore "NS 450"]
+[ParContract "NS 4H+1"]
 [Score "NS 980"]
-[Scoring "MP"]
-[Auction "S"]
+[Auction "N"]
 1C    Pass  1S    Pass
 2H    Pass  4N =1=    Pass
 5H =2=    Pass  6H    Pass
 Pass  Pass
 [Note "1:Blackwood 0123, for !H"]
 [Note "2:A=2 out of 5"]
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
-
-[Event ""]
-[Site ""]
-[Date ""]
-[Board "11"]
-% 1A41DD4465760ABC88601DBC2A00
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:874.J63.QJT.AKJ5 K.T84.A62.Q87642 9532.AQ972.K854. AQJT6.K5.973.T93"]
-{Shape 4540 5233 3334 1336}
-{HCP 9 10 12 9}
-{Losers 6 8 9 8}
-[Declarer "N"]
-[Contract "2H"]
-[Result "8"]
-[Score "NS 110"]
-[Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    1S
-Pass  Pass  2H    Pass
-Pass  Pass
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  9
+N  H 11
+N  D  5
+N  C 11
+S NT  7
+S  S  9
+S  H 11
+S  D  5
+S  C 11
+E NT  3
+E  S  3
+E  H  2
+E  D  8
+E  C  2
+W NT  3
+W  S  3
+W  H  2
+W  D  8
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "12"]
-% 19A2BBE5FFC1975445AC30460848
+% 1A41DD4465760ABC88601DBC2A00
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "S:AK96.AQ6.K32.QT7 QJT.KJ5.J6.86532 53.T7432.AT5.KJ9 8742.98.Q9874.A4"]
-{Shape 2533 4252 4333 3325}
-{HCP 8 6 18 8}
-{Losers 9 8 6 9}
-[Declarer "S"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:874.J63.QJT.AKJ5 K.T84.A62.Q87642 9532.AQ972.K854. AQJT6.K5.973.T93"]
+{Shape 4540 5233 3334 1336}
+{HCP 9 10 12 9}
+{Losers 6 8 9 8}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    Pass
-2N    Pass  3N    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "2H"]
+[Result "8"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "65774657747765977459"]
+[OptimumScore "EW 110"]
+[ParContract "EW 2C+1"]
+[Score "NS 110"]
+[Auction "N"]
+1C    Pass  1H    1S
+Pass  Pass  2H    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 5
+N  H 7
+N  D 7
+N  C 4
+S NT 6
+S  S 5
+S  H 7
+S  D 7
+S  C 4
+E NT 7
+E  S 7
+E  H 6
+E  D 5
+E  C 9
+W NT 7
+W  S 7
+W  H 4
+W  D 5
+W  C 9
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "13"]
-% 1BEEAB4010D01B11DDE4B431056F
+% 19A2BBE5FFC1975445AC30460848
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:K5.AK62.A72.8743 AT76.54.K9.QJT65 J9843.Q3.653.K92 Q2.JT987.QJT84.A"]
-{Shape 5233 2551 2434 4225}
-{HCP 6 10 14 10}
-{Losers 10 7 7 7}
-[Declarer "N"]
-[Contract "1N"]
-[Result "7"]
-[Score "NS 90"]
+[Vulnerable "EW"]
+[Deal "N:AK96.AQ6.K32.QT7 QJT.KJ5.J6.86532 53.T7432.AT5.KJ9 8742.98.Q9874.A4"]
+{Shape 2533 4252 4333 3325}
+{HCP 8 6 18 8}
+{Losers 9 8 6 9}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1S    Pass
-1N    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "3N"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "87a8987a894535445354"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4H="]
+[Score "NS 400"]
+[Auction "N"]
+1C    Pass  1H    Pass
+2N    Pass  3N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  7
+N  H 10
+N  D  8
+N  C  9
+S NT  8
+S  S  7
+S  H 10
+S  D  8
+S  C  9
+E NT  4
+E  S  5
+E  H  3
+E  D  5
+E  C  4
+W NT  4
+W  S  5
+W  H  3
+W  D  5
+W  C  4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "14"]
-% 1A1364B5131DD89B39CC349B16F5
+% 1BEEAB4010D01B11DDE4B431056F
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "W"]
-[Vulnerable "EW"]
-[Deal "W:Q84.K.KQ532.QT72 962.Q752.AJ.K965 AJT753.6.T6.AJ84 K.AJT9843.9874.3"]
-{Shape 6124 1741 3154 3424}
-{HCP 10 8 12 10}
-{Losers 7 7 6 8}
-[Declarer "S"]
-[Contract "3HX"]
-[Result "10"]
-[Score "EW -630"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:K5.AK62.A72.8743 AT76.54.K9.QJT65 J9843.Q3.653.K92 Q2.JT987.QJT84.A"]
+{Shape 5233 2551 2434 4225}
+{HCP 6 10 14 10}
+{Losers 10 7 7 7}
 [Scoring "MP"]
-[Auction "W"]
-1D    Pass  1S    3H
-Pass  Pass  X     Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "1N"]
+[Result "7"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "67556675567688776887"]
+[OptimumScore "EW 110"]
+[ParContract "EW 2H="]
+[Score "NS 90"]
+[Auction "S"]
+1C    Pass  1S    Pass
+1N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 7
+N  H 5
+N  D 5
+N  C 6
+S NT 6
+S  S 7
+S  H 5
+S  D 5
+S  C 6
+E NT 7
+E  S 6
+E  H 8
+E  D 8
+E  C 7
+W NT 7
+W  S 6
+W  H 8
+W  D 8
+W  C 7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "15"]
-% 19A807E21A603B776F16C5F93D78
+% 1A1364B5131DD89B39CC349B16F5
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
+[Dealer "E"]
 [Vulnerable "EW"]
-[Deal "N:A.AQT7.AJ942.543 Q54.98432.73.AT2 KJ963.K5.QT.K987 T872.J6.K865.QJ6"]
-{Shape 5224 4243 1453 3523}
-{HCP 12 7 15 6}
-{Losers 7 9 6 9}
-[Declarer "N"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 430"]
+[Deal "E:Q84.K.KQ532.QT72 962.Q752.AJ.K965 AJT753.6.T6.AJ84 K.AJT9843.9874.3"]
+{Shape 6124 1741 3154 3424}
+{HCP 10 8 12 10}
+{Losers 7 7 6 8}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1S    Pass
-1N    Pass  2C    Pass
-3N    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "4H"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "32a4242a425b39a5b39a"]
+[OptimumScore "NS -300"]
+[ParContract "NS 6HX-2"]
+[Score "EW -420"]
+[Auction "E"]
+1D    Pass  1S    3H
+Pass  4H    Pass  Pass
+Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  2
+N  H 10
+N  D  4
+N  C  2
+S NT  4
+S  S  2
+S  H 10
+S  D  4
+S  C  2
+E NT  5
+E  S 11
+E  H  3
+E  D  9
+E  C 10
+W NT  5
+W  S 11
+W  H  3
+W  D  9
+W  C 10
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "16"]
-% 1B2C332ED2584EC580B9472DFC10
+% 19A807E21A603B776F16C5F93D78
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:76.AQ4.AQ943.864 J83.K63.T6.AT732 AKQ42.9875.85.K5 T95.JT2.KJ72.QJ9"]
-{Shape 5422 3343 2353 3325}
-{HCP 12 8 12 8}
-{Losers 6 10 7 9}
+[Vulnerable "EW"]
+[Deal "S:A.AQT7.AJ942.543 Q54.98432.73.AT2 KJ963.K5.QT.K987 T872.J6.K865.QJ6"]
+{Shape 5224 4243 1453 3523}
+{HCP 12 7 15 6}
+{Losers 7 9 6 9}
+[Scoring "MP"]
 [Declarer "S"]
 [Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
-[Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  2H    Pass
-2S    Pass  3N    Pass
-Pass  Pass
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "baabbbaabb2331223212"]
+[OptimumScore "NS 460"]
+[ParContract "NS 3N+2"]
+[Score "NS 430"]
+[Auction "S"]
+1D    Pass  1S    Pass
+1N    Pass  2C    Pass
+3N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S 10
+N  H 10
+N  D 11
+N  C 11
+S NT 11
+S  S 10
+S  H 10
+S  D 11
+S  C 11
+E NT  2
+E  S  3
+E  H  3
+E  D  1
+E  C  2
+W NT  2
+W  S  3
+W  H  2
+W  D  1
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "17"]
-% 1821135790CAB2067D44F60EE139
+% 1B2C332ED2584EC580B9472DFC10
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "None"]
-[Deal "N:J9.A3.AKJ93.A732 T53.9752.Q865.J6 AK842.T864.T2.KQ Q76.KQJ.74.T9854"]
-{Shape 5422 3325 2254 3442}
-{HCP 12 8 17 3}
-{Losers 7 8 6 10}
+[Vulnerable "All"]
+[Deal "N:76.AQ4.AQ943.864 J83.K63.T6.AT732 AKQ42.9875.85.K5 T95.JT2.KJ72.QJ9"]
+{Shape 5422 3343 2353 3325}
+{HCP 12 8 12 8}
+{Losers 6 10 7 9}
+[Scoring "MP"]
 [Declarer "N"]
 [Contract "3N"]
-[Result "11"]
-[Score "NS 460"]
-[Scoring "MP"]
-[Auction "N"]
-1D    Pass  1S    Pass
-2C    Pass  2H    Pass
-3N    Pass  Pass  Pass
+[Result "7"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9bba89bba82223522235"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4H+1; NS 4S+1"]
+[Score "NS -200"]
+[Auction "N"]
+1D    Pass  1S    Pass
+1N    Pass  2H    Pass
+2S    Pass  3N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 11
+N  H 11
+N  D 10
+N  C  8
+S NT  9
+S  S 11
+S  H 11
+S  D 10
+S  C  8
+E NT  2
+E  S  2
+E  H  2
+E  D  3
+E  C  5
+W NT  2
+W  S  2
+W  H  2
+W  D  3
+W  C  5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "18"]
-% 19ABC6C8141AD136A26BB07F41EC
+% 1821135790CAB2067D44F60EE139
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:A75.A762.AQT6.93 KQ92.854.42.QJ52 JT8.KQ3.9753.A64 643.JT9.KJ8.KT87"]
-{Shape 3343 3334 3442 4324}
-{HCP 10 8 14 8}
-{Losers 9 10 7 8}
-[Declarer "S"]
-[Contract "1N"]
-[Result "8"]
-[Score "NS 120"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:J9.A3.AKJ93.A732 T53.9752.Q865.J6 AK842.T864.T2.KQ Q76.KQJ.74.T9854"]
+{Shape 5422 3325 2254 3442}
+{HCP 12 8 17 3}
+{Losers 7 8 6 10}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1N    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "3N"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "abab9abab93231332313"]
+[OptimumScore "NS 450"]
+[ParContract "NS 4S+1"]
+[Score "NS 460"]
+[Auction "S"]
+1D    Pass  1S    Pass
+2C    Pass  2H    Pass
+3N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S 11
+N  H 10
+N  D 11
+N  C  9
+S NT 10
+S  S 11
+S  H 10
+S  D 11
+S  C  9
+E NT  3
+E  S  2
+E  H  3
+E  D  1
+E  C  3
+W NT  3
+W  S  2
+W  H  3
+W  D  1
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "19"]
-% 1BA10139359A3ECB71C4DD5A4C83
+% 19ABC6C8141AD136A26BB07F41EC
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:AT2.A.953.AKQJ75 865.QJ97.QT84.63 KQJ9.K8632.J6.82 743.T54.AK72.T94"]
-{Shape 4522 3343 3136 3442}
-{HCP 10 7 18 5}
-{Losers 7 10 5 9}
-[Declarer "N"]
-[Contract "5C"]
-[Result "11"]
-[Score "NS 600"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:A75.A762.AQT6.93 KQ92.854.42.QJ52 JT8.KQ3.9753.A64 643.JT9.KJ8.KT87"]
+{Shape 3343 3334 3442 4324}
+{HCP 10 8 14 8}
+{Losers 9 10 7 8}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1H    Pass
-3N    Pass  4C    Pass
-5C    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "1N"]
+[Result "8"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "a9ab7a9ab73432634326"]
+[OptimumScore "NS 430"]
+[ParContract "NS 3N+1"]
+[Score "NS 120"]
+[Auction "S"]
+1D    Pass  1N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S  9
+N  H 10
+N  D 11
+N  C  7
+S NT 10
+S  S  9
+S  H 10
+S  D 11
+S  C  7
+E NT  3
+E  S  4
+E  H  3
+E  D  2
+E  C  6
+W NT  3
+W  S  4
+W  H  3
+W  D  2
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "20"]
-% 187129EB41688B4BFF7CF2F15DFE
+% 1BA10139359A3ECB71C4DD5A4C83
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "None"]
-[Deal "S:9.KQT.AJ54.AKJ43 Q7542.A76542..T6 K.J98.KQT98.Q987 AJT863.3.7632.52"]
-{Shape 1354 6142 1345 5602}
-{HCP 11 5 18 6}
-{Losers 7 8 5 6}
-[Declarer "S"]
-[Contract "5C"]
-[Result "11"]
-[Score "NS 400"]
+[Vulnerable "All"]
+[Deal "S:AT2.A.953.AKQJ75 865.QJ97.QT84.63 KQJ9.K8632.J6.82 743.T54.AK72.T94"]
+{Shape 4522 3343 3136 3442}
+{HCP 10 7 18 5}
+{Losers 7 10 5 9}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1D    2S
-4D    4S    5C    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "4N"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9b97b9b97b1035110351"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4S+1"]
+[Score "NS -100"]
+[Auction "S"]
+1C    Pass  1H    Pass
+3N    Pass  4C    Pass
+4N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 11
+N  H  9
+N  D  7
+N  C 11
+S NT  9
+S  S 11
+S  H  9
+S  D  7
+S  C 11
+E NT  1
+E  S  0
+E  H  3
+E  D  5
+E  C  1
+W NT  1
+W  S  0
+W  H  3
+W  D  5
+W  C  1
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "21"]
-% 1AC5DBBD6A0B78C0360687B5C298
+% 187129EB41688B4BFF7CF2F15DFE
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:Q542.J.A7654.AQ4 AK83.Q974.83.982 T76.AT8653.Q.KT5 J9.K2.KJT92.J763"]
-{Shape 3613 2254 4153 4423}
-{HCP 9 9 13 9}
-{Losers 8 8 6 8}
-[Declarer "N"]
-[Contract "2H"]
-[Result "9"]
-[Score "NS 140"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:9.KQT.AJ54.AKJ43 Q7542.A76542..T6 K.J98.KQT98.Q987 AJT863.3.7632.52"]
+{Shape 1354 6142 1345 5602}
+{HCP 11 5 18 6}
+{Losers 7 8 5 6}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1H    Pass
-1S    Pass  2H    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "5C"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "604a7604a73b9113b911"]
+[OptimumScore "NS -300"]
+[ParContract "NS 6DX-2"]
+[Score "NS 400"]
+[Auction "N"]
+1C    Pass  1D =1=    2S
+3D    4S    5C    Pass
+Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  0
+N  H  4
+N  D 10
+N  C  7
+S NT  6
+S  S  0
+S  H  4
+S  D 10
+S  C  7
+E NT  3
+E  S 11
+E  H  9
+E  D  1
+E  C  1
+W NT  3
+W  S 11
+W  H  9
+W  D  1
+W  C  1
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "22"]
-% 1A25D990075C001ED19492E60336
+% 1AC5DBBD6A0B78C0360687B5C298
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "W"]
-[Vulnerable "EW"]
-[Deal "W:Q65.A4.AJ642.AK7 K74.2.Q9753.QT96 AJ9832.J93.T8.J3 T.KQT8765.K.8542"]
-{Shape 6322 1714 3253 3154}
-{HCP 7 8 18 7}
-{Losers 9 6 6 7}
-[Declarer "S"]
-[Contract "3HX"]
-[Result "8"]
-[Score "EW 100"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:Q542.J.A7654.AQ4 AK83.Q974.83.982 T76.AT8653.Q.KT5 J9.K2.KJT92.J763"]
+{Shape 3613 2254 4153 4423}
+{HCP 9 9 13 9}
+{Losers 8 8 6 8}
 [Scoring "MP"]
-[Auction "W"]
-1D    Pass  1S    3H
-X     Pass  Pass  Pass
+[Declarer "S"]
+[Contract "2H"]
+[Result "8"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "68867678677456574565"]
+[OptimumScore "EW -100"]
+[ParContract "EW 2NX-1"]
+[Score "NS 110"]
+[Auction "N"]
+1D    Pass  1H    Pass
+1S    Pass  2H    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 8
+N  H 8
+N  D 6
+N  C 7
+S NT 6
+S  S 7
+S  H 8
+S  D 6
+S  C 7
+E NT 7
+E  S 4
+E  H 5
+E  D 6
+E  C 5
+W NT 7
+W  S 4
+W  H 5
+W  D 6
+W  C 5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "23"]
-% 19E5DB739BCD4F16116B7C2DB460
+% 1A25D990075C001ED19492E60336
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:J3.A642.KJ6.AT74 AKT.Q53.T954.532 874.T9.Q72.KQJ96 Q9652.KJ87.A83.8"]
-{Shape 3235 5431 2434 3343}
-{HCP 8 10 13 9}
-{Losers 8 7 8 9}
-[Declarer "N"]
-[Contract "2C"]
-[Result "9"]
-[Score "NS 110"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:Q65.A4.AJ642.AK7 K74.2.Q9753.QT96 AJ9832.J93.T8.J3 T.KQT8765.K.8542"]
+{Shape 6322 1714 3253 3154}
+{HCP 7 8 18 7}
+{Losers 9 6 6 7}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  2C    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "bb6a7bb6a62273622736"]
+[OptimumScore "NS 660"]
+[ParContract "NS 4N+1"]
+[Score "NS 620"]
+[Auction "S"]
+1D    Pass  1S    3H
+X     Pass  3S    Pass
+4H =1=    Pass  4S    Pass
+Pass  Pass
+[Note "1:limit raise or better in !S"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S 11
+N  H  6
+N  D 10
+N  C  7
+S NT 11
+S  S 11
+S  H  6
+S  D 10
+S  C  6
+E NT  2
+E  S  2
+E  H  7
+E  D  3
+E  C  6
+W NT  2
+W  S  2
+W  H  7
+W  D  3
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "24"]
-% 2A89D13749907BB103FD2C481AA9
+% 19E5DB739BCD4F16116B7C2DB460
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:AT82.52.Q.AKJ862 K6.Q986.KT87.T54 Q753.AJ74.65.Q97 J94.KT3.AJ9432.3"]
-{Shape 4423 3361 4216 2443}
-{HCP 9 9 14 8}
-{Losers 8 8 6 8}
-[Declarer "S"]
-[Contract "2S"]
-[Result "10"]
-[Score "NS 170"]
+[Vulnerable "EW"]
+[Deal "S:J3.A642.KJ6.AT74 AKT.Q53.T954.532 874.T9.Q72.KQJ96 Q9652.KJ87.A83.8"]
+{Shape 3235 5431 2434 3343}
+{HCP 8 10 13 9}
+{Losers 8 7 8 9}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    Pass
-1S    Pass  2S    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "2C"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "64559645596977469774"]
+[OptimumScore "NS -100"]
+[ParContract "NS 4CX-1"]
+[Score "NS 110"]
+[Auction "S"]
+1C    Pass  2C    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 4
+N  H 5
+N  D 5
+N  C 9
+S NT 6
+S  S 4
+S  H 5
+S  D 5
+S  C 9
+E NT 6
+E  S 9
+E  H 7
+E  D 7
+E  C 4
+W NT 6
+W  S 9
+W  H 7
+W  D 7
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "25"]
-% 29E153799BD0F350793AED3B055E
+% 2A89D13749907BB103FD2C481AA9
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:J.A5.QJ764.AQ753 AT95.Q9764.52.T8 643.3.AKT98.KJ94 KQ872.KJT82.3.62"]
-{Shape 3154 5512 1255 4522}
-{HCP 11 9 14 6}
-{Losers 7 6 5 8}
-[Declarer "N"]
-[Contract "3D"]
-[Result "12"]
-[Score "NS 170"]
+[Vulnerable "NS"]
+[Deal "N:AT82.52.Q.AKJ862 K6.Q986.KT87.T54 Q753.AJ74.65.Q97 J94.KT3.AJ9432.3"]
+{Shape 4423 3361 4216 2443}
+{HCP 9 9 14 8}
+{Losers 8 8 6 8}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  3D    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "7a53a7a63a527a3527a3"]
+[OptimumScore "EW -100"]
+[ParContract "EW 5DX-1"]
+[Score "NS 620"]
+[Auction "N"]
+1C    Pass  1H    Pass
+1S    Pass  2S    Pass
+4S    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S 10
+N  H  5
+N  D  3
+N  C 10
+S NT  7
+S  S 10
+S  H  6
+S  D  3
+S  C 10
+E NT  5
+E  S  2
+E  H  7
+E  D 10
+E  C  3
+W NT  5
+W  S  2
+W  H  7
+W  D 10
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "26"]
-% 2BCD61E7577F5AF2D5B9FB2E2335
+% 29E153799BD0F350793AED3B055E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:6.KQ43.AT4.AK762 AQ875.T8652.965. 432.A.QJ72.QJT53 KJT9.J97.K83.984"]
-{Shape 3145 4333 1435 5530}
-{HCP 10 8 16 6}
-{Losers 7 10 5 7}
-[Declarer "S"]
-[Contract "5C"]
-[Result "12"]
-[Score "NS 620"]
+[Vulnerable "EW"]
+[Deal "S:J.A5.QJ764.AQ753 AT95.Q9764.52.T8 643.3.AKT98.KJ94 KQ872.KJT82.3.62"]
+{Shape 3154 5512 1255 4522}
+{HCP 11 9 14 6}
+{Losers 7 6 5 8}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  3C    Pass
-3D    Pass  4C    Pass
-5C    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "6D"]
+[Result "12"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "844cc844cc2881128811"]
+[OptimumScore "NS 920"]
+[ParContract "NS 6C=; NS 6D="]
+[Score "NS 920"]
+[Auction "S"]
+1D    Pass  3D    Pass
+4N =1=    Pass  5H =2=    Pass
+6D    Pass  Pass  Pass
+[Note "1:Blackwood 0123, for !D"]
+[Note "2:A=2 out of 5"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  4
+N  H  4
+N  D 12
+N  C 12
+S NT  8
+S  S  4
+S  H  4
+S  D 12
+S  C 12
+E NT  2
+E  S  8
+E  H  8
+E  D  1
+E  C  1
+W NT  2
+W  S  8
+W  H  8
+W  D  1
+W  C  1
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "27"]
-% 2A958FBD7B946E1113E0DE18E6FF
+% 2BCD61E7577F5AF2D5B9FB2E2335
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:AKQT.963.AT3.AQ8 6532.QJ2.876.T64 874.K.KQ952.KJ72 J9.AT8754.J4.953"]
-{Shape 3154 2623 4333 4333}
-{HCP 12 6 19 3}
-{Losers 7 9 6 11}
-[Declarer "N"]
-[Contract "4C"]
-[Result "12"]
-[Score "NS 170"]
+[Vulnerable "All"]
+[Deal "N:6.KQ43.AT4.AK762 AQ875.T8652.965. 432.A.QJ72.QJT53 KJT9.J97.K83.984"]
+{Shape 3145 4333 1435 5530}
+{HCP 10 8 16 6}
+{Losers 7 10 5 7}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1D    2H
-2S    Pass  4C    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "6C"]
+[Result "12"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "867ac8679c1761017610"]
+[OptimumScore "NS 1370"]
+[ParContract "NS 6C="]
+[Score "NS 1370"]
+[Auction "N"]
+1C    Pass  3C    Pass
+4N =1=    Pass  5D =2=    Pass
+6C    Pass  Pass  Pass
+[Note "1:Blackwood 0123, for !C"]
+[Note "2:A=1/5 or 5/5"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  6
+N  H  7
+N  D 10
+N  C 12
+S NT  8
+S  S  6
+S  H  7
+S  D  9
+S  C 12
+E NT  1
+E  S  7
+E  H  6
+E  D  1
+E  C  0
+W NT  1
+W  S  7
+W  H  6
+W  D  1
+W  C  0
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "28"]
-% 296D25D1CA4D5D1D0B10FCA04A77
+% 2A958FBD7B946E1113E0DE18E6FF
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
+[Dealer "S"]
+[Vulnerable "NS"]
+[Deal "S:AKQT.963.AT3.AQ8 6532.QJ2.876.T64 874.K.KQ952.KJ72 J9.AT8754.J4.953"]
+{Shape 3154 2623 4333 4333}
+{HCP 12 6 19 3}
+{Losers 7 9 6 11}
+[Scoring "MP"]
+[Declarer "S"]
+[Contract "4C"]
+[Result "12"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "7c7cc7c7cc0060000600"]
+[OptimumScore "NS 1430"]
+[ParContract "NS 6S="]
+[Score "NS 170"]
+[Auction "S"]
+1C    Pass  1D =1=    2H
+2S    Pass  4C    Pass
+Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S 12
+N  H  7
+N  D 12
+N  C 12
+S NT  7
+S  S 12
+S  H  7
+S  D 12
+S  C 12
+E NT  0
+E  S  0
+E  H  6
+E  D  0
+E  C  0
+W NT  0
+W  S  0
+W  H  6
+W  D  0
+W  C  0
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "29"]
+% 296D25D1CA4D5D1D0B10FCA04A77
 [West "EPBot"]
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
 [Dealer "S"]
 [Vulnerable "EW"]
 [Deal "S:4.AK4.J73.AKQT98 QJ5.52.AT985.654 K876.JT73.Q64.72 AT932.Q986.K2.J3"]
 {Shape 4432 5422 1336 3253}
 {HCP 6 10 17 7}
 {Losers 9 7 5 9}
-[Declarer "S"]
-[Contract "3C"]
-[Result "10"]
-[Score "NS 130"]
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    1S
-3C    Pass  Pass  Pass
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
-
-[Event ""]
-[Site ""]
-[Date ""]
-[Board "29"]
-% 2B2F9BA0DC684D3F7A93E6CA9777
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:KQ63.AQT5.AJ98.9 J54.872.KT74.QJT A8.94.532.AK8632 T972.KJ63.Q6.754"]
-{Shape 2236 4423 4441 3343}
-{HCP 11 6 16 7}
-{Losers 7 10 5 10}
 [Declarer "N"]
 [Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
-[Scoring "MP"]
-[Auction "S"]
-1D    Pass  3C =1=    Pass
-3H    Pass  3N    Pass
-Pass  Pass
-[Note "1:Inviting Jump Shifts"]
+[Result "8"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "65768657684857348573"]
+[OptimumScore "NS -100"]
+[ParContract "NS 3CX-1"]
+[Score "NS -50"]
+[Auction "S"]
+1C    Pass  1H    1S
+3C    Pass  3N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 5
+N  H 7
+N  D 6
+N  C 8
+S NT 6
+S  S 5
+S  H 7
+S  D 6
+S  C 8
+E NT 4
+E  S 8
+E  H 5
+E  D 7
+E  C 3
+W NT 4
+W  S 8
+W  H 5
+W  D 7
+W  C 3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "30"]
-% 2A71454406EE3482CA2361CC6653
+% 2B2F9BA0DC684D3F7A93E6CA9777
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "W"]
-[Vulnerable "EW"]
-[Deal "W:8.T653.KQJ93.AK5 T74.A9.A8652.Q94 J96.KQJ874.T4.62 AKQ532.2.7.JT873"]
-{Shape 3622 6115 1453 3253}
-{HCP 7 10 13 10}
-{Losers 8 5 6 8}
-[Declarer "S"]
-[Contract "6S"]
-[Result "11"]
-[Score "EW 50"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:KQ63.AQT5.AJ98.9 J54.872.KT74.QJT A8.94.532.AK8632 T972.KJ63.Q6.754"]
+{Shape 2236 4423 4441 3343}
+{HCP 11 6 16 7}
+{Losers 7 10 5 10}
 [Scoring "MP"]
-[Auction "W"]
-1D    Pass  1H    2S
-3H    3S    4H    4N =1=
-Pass  5H =2=    X     6S
-Pass  Pass  Pass
-[Note "1:Blackwood 0123, for !S"]
-[Note "2:A=2 out of 5"]
+[Declarer "S"]
+[Contract "3N"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "bbbacbbbac1223112231"]
+[OptimumScore "NS 1370"]
+[ParContract "NS 6C="]
+[Score "NS 630"]
+[Auction "N"]
+1D    Pass  3C =1=    Pass
+3H    Pass  3N    Pass
+Pass  Pass
+[Note "1:Inviting Jump Shifts"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S 11
+N  H 11
+N  D 10
+N  C 12
+S NT 11
+S  S 11
+S  H 11
+S  D 10
+S  C 12
+E NT  1
+E  S  2
+E  H  2
+E  D  3
+E  C  1
+W NT  1
+W  S  2
+W  H  2
+W  D  3
+W  C  1
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "31"]
-% 2BAD4422379A720D99DBC75DF5F0
+% 2A71454406EE3482CA2361CC6653
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:AT7.AQ.A84.A8743 6532.J932.T76.K2 QJ8.K85.KJ53.J65 K94.T764.Q92.QT9"]
-{Shape 3343 3433 3235 4432}
-{HCP 11 7 18 4}
-{Losers 9 9 7 10}
-[Declarer "N"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
+[Dealer "E"]
+[Vulnerable "EW"]
+[Deal "E:8.T653.KQJ93.AK5 T74.A9.A8652.Q94 J96.KQJ874.T4.62 AKQ532.2.7.JT873"]
+{Shape 3622 6115 1453 3253}
+{HCP 7 10 13 10}
+{Losers 8 5 6 8}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1D    Pass
-2N    Pass  3N    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "2S"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8a35b8a35b5297252972"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4S="]
+[Score "EW -200"]
+[Auction "E"]
+1D    Pass  1H    2S
+Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  3
+N  D  5
+N  C 11
+S NT  8
+S  S 10
+S  H  3
+S  D  5
+S  C 11
+E NT  5
+E  S  2
+E  H  9
+E  D  7
+E  C  2
+W NT  5
+W  S  2
+W  H  9
+W  D  7
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "32"]
-% 281AE111C44B86983056D310D1BA
+% 2BAD4422379A720D99DBC75DF5F0
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "W"]
-[Vulnerable "None"]
-[Deal "W:982.K.KQ7543.KQ3 KJ53.72.J96.J874 AQ74.JT9.AT82.T5 T6.AQ86543..A962"]
-{Shape 4342 2704 3163 4234}
-{HCP 11 10 13 6}
-{Losers 8 5 6 10}
-[Declarer "S"]
-[Contract "3HX"]
-[Result "9"]
-[Score "EW -530"]
+[Dealer "S"]
+[Vulnerable "All"]
+[Deal "S:AT7.AQ.A84.A8743 6532.J932.T76.K2 QJ8.K85.KJ53.J65 K94.T764.Q92.QT9"]
+{Shape 3343 3433 3235 4432}
+{HCP 11 7 18 4}
+{Losers 9 9 7 10}
 [Scoring "MP"]
-[Auction "W"]
-1D    Pass  1S    3H
-Pass  Pass  X     Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "3N"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "b99aba99ab2343223432"]
+[OptimumScore "NS 660"]
+[ParContract "N 3N+2"]
+[Score "NS 630"]
+[Auction "S"]
+1C    Pass  1D =1=    Pass
+2N    Pass  3N    Pass
+Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S  9
+N  H  9
+N  D 10
+N  C 11
+S NT 10
+S  S  9
+S  H  9
+S  D 10
+S  C 11
+E NT  2
+E  S  3
+E  H  4
+E  D  3
+E  C  2
+W NT  2
+W  S  3
+W  H  4
+W  D  3
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "33"]
-% 292926B453CD18EDCDD4267142C1
+% 281AE111C44B86983056D310D1BA
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
+[Dealer "E"]
+[Vulnerable "None"]
+[Deal "E:982.K.KQ7543.KQ3 KJ53.72.J96.J874 AQ74.JT9.AT82.T5 T6.AQ86543..A962"]
+{Shape 4342 2704 3163 4234}
+{HCP 11 10 13 6}
+{Losers 8 5 6 10}
+[Scoring "MP"]
+[Declarer "N"]
+[Contract "3H"]
+[Result "9"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "3482834828985b4995b4"]
+[OptimumScore "EW 400"]
+[ParContract "EW 5D="]
+[Score "EW -140"]
+[Auction "E"]
+1D    Pass  1S    3H
+Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  3
+N  S  4
+N  H  8
+N  D  2
+N  C  8
+S NT  3
+S  S  4
+S  H  8
+S  D  2
+S  C  8
+E NT  9
+E  S  8
+E  H  5
+E  D 11
+E  C  4
+W NT  9
+W  S  9
+W  H  5
+W  D 11
+W  C  4
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "34"]
+% 292926B453CD18EDCDD4267142C1
 [West "EPBot"]
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
 [Dealer "S"]
 [Vulnerable "EW"]
 [Deal "S:Q.AK85.A9.AT8742 T8762.Q4.T87.Q96 AK95.T732.J432.J J43.J96.KQ65.K53"]
 {Shape 4441 3343 1426 5233}
 {HCP 9 10 17 4}
 {Losers 8 9 5 10}
-[Declarer "N"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 400"]
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1D    Pass
-3C    Pass  3N    Pass
-Pass  Pass
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
-
-[Event ""]
-[Site ""]
-[Date ""]
-[Board "34"]
-% 3A21761604B3DE9577A2014F1078
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:T86.A6.KQJ87.A85 9.KT72.AT653.J32 AQJ53.J54.94.T74 K742.Q983.2.KQ96"]
-{Shape 5323 4414 3253 1453}
-{HCP 8 10 14 8}
-{Losers 9 6 7 8}
 [Declarer "S"]
-[Contract "1N"]
-[Result "8"]
-[Score "NS 120"]
-[Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  Pass  Pass
+[Contract "4H"]
+[Result "12"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "88caa88caa4413344133"]
+[OptimumScore "NS 980"]
+[ParContract "NS 6H="]
+[Score "NS 480"]
+[Auction "S"]
+1C    Pass  1D =1=    Pass
+1H    Pass  2H    Pass
+4H    Pass  Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S  8
+N  H 12
+N  D 10
+N  C 10
+S NT  8
+S  S  8
+S  H 12
+S  D 10
+S  C 10
+E NT  4
+E  S  4
+E  H  1
+E  D  3
+E  C  3
+W NT  4
+W  S  4
+W  H  1
+W  D  3
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "35"]
-% 39294A7F7DD7FAD81130A508CB46
+% 3A21761604B3DE9577A2014F1078
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:5.A5.AK9843.AJ75 T983.QJ96.QJ.864 A764.K432.76.QT3 KQJ2.T87.T52.K92"]
-{Shape 4423 4333 1264 4423}
-{HCP 9 9 16 6}
-{Losers 8 9 5 10}
-[Declarer "N"]
-[Contract "2C"]
-[Result "10"]
-[Score "NS 130"]
+[Vulnerable "NS"]
+[Deal "N:T86.A6.KQJ87.A85 9.KT72.AT653.J32 AQJ53.J54.94.T74 K742.Q983.2.KQ96"]
+{Shape 5323 4414 3253 1453}
+{HCP 8 10 14 8}
+{Losers 9 6 7 8}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1H    Pass
-2C    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "1N"]
+[Result "7"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "67364674645597855978"]
+[OptimumScore "EW 140"]
+[ParContract "EW 2H+1"]
+[Score "NS 90"]
+[Auction "N"]
+1D    Pass  1S    Pass
+1N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 7
+N  H 3
+N  D 6
+N  C 4
+S NT 6
+S  S 7
+S  H 4
+S  D 6
+S  C 4
+E NT 5
+E  S 5
+E  H 9
+E  D 7
+E  C 8
+W NT 5
+W  S 5
+W  H 9
+W  D 7
+W  C 8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "36"]
-% 3B892273B7D47C558A332A1819AD
+% 39294A7F7DD7FAD81130A508CB46
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:AJ72.K52.92.A832 T.QJ96.A7543.T94 K6543.A7.JT8.QJ6 Q98.T843.KQ6.K75"]
-{Shape 5233 3433 4324 1453}
-{HCP 11 10 12 7}
-{Losers 8 8 8 8}
-[Declarer "S"]
-[Contract "3S"]
-[Result "10"]
-[Score "NS 170"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:5.A5.AK9843.AJ75 T983.QJ96.QJ.864 A764.K432.76.QT3 KQJ2.T87.T52.K92"]
+{Shape 4423 4333 1264 4423}
+{HCP 9 9 16 6}
+{Losers 8 9 5 10}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1S    Pass
-2S    Pass  3S    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "2C"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "989cc989cc1441114311"]
+[OptimumScore "NS 920"]
+[ParContract "NS 6C=; NS 6D="]
+[Score "NS 130"]
+[Auction "S"]
+1D    Pass  1H    Pass
+2C    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  8
+N  H  9
+N  D 12
+N  C 12
+S NT  9
+S  S  8
+S  H  9
+S  D 12
+S  C 12
+E NT  1
+E  S  4
+E  H  4
+E  D  1
+E  C  1
+W NT  1
+W  S  4
+W  H  3
+W  D  1
+W  C  1
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "37"]
-% 3A8A31A4DE640CF55A04E8361E04
+% 3B892273B7D47C558A332A1819AD
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:AQ.QT5.QT8642.K8 J85.K84.K.QT9652 K96432.A962.J93. T7.J73.A75.AJ743"]
-{Shape 6430 2335 2362 3316}
-{HCP 8 10 13 9}
-{Losers 7 9 6 8}
-[Declarer "N"]
-[Contract "2S"]
-[Result "10"]
-[Score "NS 170"]
+[Vulnerable "All"]
+[Deal "S:AJ72.K52.92.A832 T.QJ96.A7543.T94 K6543.A7.JT8.QJ6 Q98.T843.KQ6.K75"]
+{Shape 5233 3433 4324 1453}
+{HCP 11 10 12 7}
+{Losers 8 8 8 8}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-2D    Pass  2S    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8a56a8a56a4377343773"]
+[OptimumScore "NS 620"]
+[ParContract "NS 4S="]
+[Score "NS 620"]
+[Auction "S"]
+1C    Pass  1S    Pass
+2S    Pass  3S    Pass
+4S    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  5
+N  D  6
+N  C 10
+S NT  8
+S  S 10
+S  H  5
+S  D  6
+S  C 10
+E NT  4
+E  S  3
+E  H  7
+E  D  7
+E  C  3
+W NT  4
+W  S  3
+W  H  7
+W  D  7
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "38"]
-% 39AFD3495A2083C5FE1475B4293E
+% 3A8A31A4DE640CF55A04E8361E04
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "S:A94.AT3.QJ3.Q853 K87.7542.A72.T64 T632.Q98.KT9.AK9 QJ5.KJ6.8654.J72"]
-{Shape 4333 3343 3334 3433}
-{HCP 12 8 13 7}
-{Losers 8 10 8 10}
-[Declarer "S"]
-[Contract "2N"]
-[Result "9"]
-[Score "NS 150"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:AQ.QT5.QT8642.K8 J85.K84.K.QT9652 K96432.A962.J93. T7.J73.A75.AJ743"]
+{Shape 6430 2335 2362 3316}
+{HCP 8 10 13 9}
+{Losers 7 9 6 8}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1S    Pass
-1N    Pass  2N    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8a9b58a9b54342843428"]
+[OptimumScore "NS 600"]
+[ParContract "NS 5D="]
+[Score "NS 620"]
+[Auction "N"]
+1D    Pass  1S    Pass
+2D    Pass  2S    Pass
+3S    Pass  4S    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  9
+N  D 11
+N  C  5
+S NT  8
+S  S 10
+S  H  9
+S  D 11
+S  C  5
+E NT  4
+E  S  3
+E  H  4
+E  D  2
+E  C  8
+W NT  4
+W  S  3
+W  H  4
+W  D  2
+W  C  8
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "39"]
-% 3BDDA798A5791B43C2C94086D9CE
+% 39AFD3495A2083C5FE1475B4293E
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:KQJ4.KJ.A2.AJT63 A7632.T.QT963.Q5 9.876542.KJ4.K98 T85.AQ93.875.742"]
-{Shape 1633 3433 4225 5152}
-{HCP 7 6 19 8}
-{Losers 8 10 5 7}
-[Declarer "N"]
-[Contract "5H"]
-[Result "11"]
-[Score "NS 650"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:A94.AT3.QJ3.Q853 K87.7542.A72.T64 T632.Q98.KT9.AK9 QJ5.KJ6.8654.J72"]
+{Shape 4333 3343 3334 3433}
+{HCP 12 8 13 7}
+{Losers 8 10 8 10}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    Pass
-2S    Pass  3H    Pass
-4H    Pass  5C    Pass
-5H    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "3N"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "99889999894444444444"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
+[Score "NS 400"]
+[Auction "N"]
+1C    Pass  1S    Pass
+1N    Pass  2N    Pass
+3S    Pass  3N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 9
+N  S 9
+N  H 8
+N  D 8
+N  C 9
+S NT 9
+S  S 9
+S  H 9
+S  D 8
+S  C 9
+E NT 4
+E  S 4
+E  H 4
+E  D 4
+E  C 4
+W NT 4
+W  S 4
+W  H 4
+W  D 4
+W  C 4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "40"]
-% 39EB9F963569FE8733FA28C41817
+% 3BDDA798A5791B43C2C94086D9CE
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "S:KQ8.AT5.AT653.JT A964.J976.K9.543 J7532.84.7.AK872 T.KQ32.QJ842.Q96"]
-{Shape 5215 1453 3352 4423}
-{HCP 8 10 14 8}
-{Losers 7 6 7 9}
-[Declarer "S"]
-[Contract "1N"]
-[Result "8"]
-[Score "NS 120"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:KQJ4.KJ.A2.AJT63 A7632.T.QT963.Q5 9.876542.KJ4.K98 T85.AQ93.875.742"]
+{Shape 1633 3433 4225 5152}
+{HCP 7 6 19 8}
+{Losers 8 10 5 7}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "4H"]
+[Result "11"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "b997ab997a2445224452"]
+[OptimumScore "NS 660"]
+[ParContract "NS 3N+2"]
+[Score "NS 650"]
+[Auction "N"]
+1C    Pass  1H    Pass
+2N    Pass  3H    Pass
+4H    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S  9
+N  H  9
+N  D  7
+N  C 10
+S NT 11
+S  S  9
+S  H  9
+S  D  7
+S  C 10
+E NT  2
+E  S  4
+E  H  4
+E  D  5
+E  C  2
+W NT  2
+W  S  4
+W  H  4
+W  D  5
+W  C  2
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "41"]
-% 389481432C961B03F2B8F9D35E64
+% 39EB9F963569FE8733FA28C41817
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "N"]
-[Vulnerable "None"]
-[Deal "N:AKT6.J2.KQ874.K5 754.765.AT2.AJ62 J98.KQ8.965.Q984 Q32.AT943.J3.T73"]
-{Shape 3334 3523 4252 3334}
-{HCP 8 7 16 9}
-{Losers 9 9 5 10}
-[Declarer "N"]
-[Contract "3S"]
-[Result "9"]
-[Score "NS 140"]
+[Vulnerable "EW"]
+[Deal "N:KQ8.AT5.AT653.JT A964.J976.K9.543 J7532.84.7.AK872 T.KQ32.QJ842.Q96"]
+{Shape 5215 1453 3352 4423}
+{HCP 8 10 14 8}
+{Losers 7 6 7 9}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1N    Pass
-2S    Pass  3S    Pass
-Pass  Pass
+[Declarer "N"]
+[Contract "1N"]
+[Result "8"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "8a6698a6695377353773"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4S="]
+[Score "NS 120"]
+[Auction "N"]
+1D    Pass  1S    Pass
+1N    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  8
+N  S 10
+N  H  6
+N  D  6
+N  C  9
+S NT  8
+S  S 10
+S  H  6
+S  D  6
+S  C  9
+E NT  5
+E  S  3
+E  H  7
+E  D  7
+E  C  3
+W NT  5
+W  S  3
+W  H  7
+W  D  7
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "42"]
-% 3A1C9586633A41CDB6C45CD8F68F
+% 389481432C961B03F2B8F9D35E64
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "NS"]
-[Deal "N:KQ72.J.KQ763.K98 8643.T73.J9.A654 AT.Q9862.A852.J2 J95.AK54.T4.QT73"]
-{Shape 2542 3424 4153 4324}
-{HCP 11 10 14 5}
-{Losers 7 8 5 10}
-[Declarer "S"]
-[Contract "3N"]
-[Result "9"]
-[Score "NS 600"]
+[Dealer "S"]
+[Vulnerable "None"]
+[Deal "S:AKT6.J2.KQ874.K5 754.765.AT2.AJ62 J98.KQ8.965.Q984 Q32.AT943.J3.T73"]
+{Shape 3334 3523 4252 3334}
+{HCP 8 7 16 9}
+{Losers 9 9 5 10}
 [Scoring "MP"]
-[Auction "N"]
-1D    Pass  1H    Pass
-1S    Pass  2N    Pass
-3N    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "3S"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "89797897975464554645"]
+[OptimumScore "NS 140"]
+[ParContract "NS 1S+2"]
+[Score "NS 140"]
+[Auction "S"]
+1D    Pass  1N    Pass
+2S    Pass  3S    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 8
+N  S 9
+N  H 7
+N  D 9
+N  C 7
+S NT 8
+S  S 9
+S  H 7
+S  D 9
+S  C 7
+E NT 5
+E  S 4
+E  H 6
+E  D 4
+E  C 5
+W NT 5
+W  S 4
+W  H 6
+W  D 4
+W  C 5
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "43"]
-% 3BB91F02FDD79843DBA35D392FD0
+% 3A1C9586633A41CDB6C45CD8F68F
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "All"]
-[Deal "S:A96.63.KJ53.AJ54 JT72.AJ4.A974.92 KQ43.Q8.T.KT8763 85.KT9752.Q862.Q"]
-{Shape 4216 2641 3244 4342}
-{HCP 10 7 13 10}
-{Losers 6 7 8 9}
-[Declarer "N"]
-[Contract "3C"]
-[Result "10"]
-[Score "NS 130"]
+[Vulnerable "NS"]
+[Deal "S:KQ72.J.KQ763.K98 8643.T73.J9.A654 AT.Q9862.A852.J2 J95.AK54.T4.QT73"]
+{Shape 2542 3424 4153 4324}
+{HCP 11 10 14 5}
+{Losers 7 8 5 10}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  2C    Pass
-3C    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "1N"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "999b7999b74442644426"]
+[OptimumScore "NS 600"]
+[ParContract "NS 3N=; NS 5D="]
+[Score "NS 150"]
+[Auction "S"]
+1D    Pass  1H    Pass
+1S    Pass  1N    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S  9
+N  H  9
+N  D 11
+N  C  7
+S NT  9
+S  S  9
+S  H  9
+S  D 11
+S  C  7
+E NT  4
+E  S  4
+E  H  4
+E  D  2
+E  C  6
+W NT  4
+W  S  4
+W  H  4
+W  D  2
+W  C  6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "44"]
-% 38AD3732004CDD83729B741AA4C2
+% 3BB91F02FDD79843DBA35D392FD0
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "None"]
-[Deal "S:A863.A3.QJ872.A9 92.KQ75.K53.JT53 KQJ4.JT82.64.K86 T75.964.AT9.Q742"]
-{Shape 4423 3334 4252 2434}
-{HCP 10 6 15 9}
-{Losers 8 10 6 8}
-[Declarer "S"]
-[Contract "2S"]
-[Result "10"]
-[Score "NS 170"]
+[Dealer "N"]
+[Vulnerable "All"]
+[Deal "N:A96.63.KJ53.AJ54 JT72.AJ4.A974.92 KQ43.Q8.T.KT8763 85.KT9752.Q862.Q"]
+{Shape 4216 2641 3244 4342}
+{HCP 10 7 13 10}
+{Losers 6 7 8 9}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1H    Pass
-1S    Pass  2S    Pass
-Pass  Pass
+[Declarer "S"]
+[Contract "3C"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "6944a6944a4498344983"]
+[OptimumScore "NS 140"]
+[ParContract "NS 3S="]
+[Score "NS 130"]
+[Auction "N"]
+1D    Pass  3C =1=    Pass
+Pass  Pass
+[Note "1:Inviting Jump Shifts"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  6
+N  S  9
+N  H  4
+N  D  4
+N  C 10
+S NT  6
+S  S  9
+S  H  4
+S  D  4
+S  C 10
+E NT  4
+E  S  4
+E  H  9
+E  D  8
+E  C  3
+W NT  4
+W  S  4
+W  H  9
+W  D  8
+W  C  3
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "45"]
-% 3A857E017E48E8C366862AB33931
+% 38AD3732004CDD83729B741AA4C2
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:A64.975.A76.AQ32 98.KJ432.Q842.T9 Q532.AQT86.KJ.84 KJT7..T953.KJ765"]
-{Shape 4522 4045 3334 2542}
-{HCP 12 8 14 6}
-{Losers 6 7 8 8}
-[Declarer "N"]
-[Contract "4H"]
-[Result "11"]
-[Score "NS 650"]
+[Dealer "N"]
+[Vulnerable "None"]
+[Deal "N:A863.A3.QJ872.A9 92.KQ75.K53.JT53 KQJ4.JT82.64.K86 T75.964.AT9.Q742"]
+{Shape 4423 3334 4252 2434}
+{HCP 10 6 15 9}
+{Losers 8 10 6 8}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1H    Pass
-1N    Pass  2H    Pass
-4H    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "4S"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "9a8969a8964343743537"]
+[OptimumScore "NS 420"]
+[ParContract "NS 4S="]
+[Score "NS 420"]
+[Auction "N"]
+1D    Pass  1H    Pass
+1S    Pass  2S    Pass
+3S    Pass  4S    Pass
+Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  9
+N  S 10
+N  H  8
+N  D  9
+N  C  6
+S NT  9
+S  S 10
+S  H  8
+S  D  9
+S  C  6
+E NT  4
+E  S  3
+E  H  4
+E  D  3
+E  C  7
+W NT  4
+W  S  3
+W  H  5
+W  D  3
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "46"]
-% 391198BC46F5E54BE453CC2113BA
+% 3A857E017E48E8C366862AB33931
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "S"]
-[Vulnerable "EW"]
-[Deal "S:KQ2.974.K82.AT94 T975.QT2.Q5.KQ75 A43.J85.A643.863 J86.AK63.JT97.J2"]
-{Shape 3343 3442 3334 4324}
-{HCP 9 10 12 9}
-{Losers 10 9 8 8}
-[Declarer "S"]
-[Contract "1N"]
-[Result "7"]
-[Score "NS 90"]
+[Dealer "N"]
+[Vulnerable "NS"]
+[Deal "N:A64.975.A76.AQ32 98.KJ432.Q842.T9 Q532.AQT86.KJ.84 KJT7..T953.KJ765"]
+{Shape 4522 4045 3334 2542}
+{HCP 12 8 14 6}
+{Losers 6 7 8 8}
 [Scoring "MP"]
-[Auction "S"]
-1C    Pass  1D    Pass
-1N    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "4H"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "aab78aab783326423244"]
+[OptimumScore "NS 650"]
+[ParContract "NS 4H+1"]
+[Score "NS 620"]
+[Auction "N"]
+1C    Pass  1H    Pass
+1N    Pass  2H    Pass
+4H    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 10
+N  S 10
+N  H 11
+N  D  7
+N  C  8
+S NT 10
+S  S 10
+S  H 11
+S  D  7
+S  C  8
+E NT  3
+E  S  3
+E  H  2
+E  D  6
+E  C  4
+W NT  2
+W  S  3
+W  H  2
+W  D  4
+W  C  4
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "47"]
-% 4AD7A7E61CC4016F6074D45B4EDD
+% 391198BC46F5E54BE453CC2113BA
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
+[Dealer "N"]
+[Vulnerable "EW"]
+[Deal "N:KQ2.974.K82.AT94 T975.QT2.Q5.KQ75 A43.J85.A643.863 J86.AK63.JT97.J2"]
+{Shape 3343 3442 3334 4324}
+{HCP 9 10 12 9}
+{Losers 10 9 8 8}
+[Scoring "MP"]
+[Declarer "N"]
+[Contract "1N"]
+[Result "7"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "66667666676777667776"]
+[OptimumScore "EW 80"]
+[ParContract "EW 1H=; EW 1S="]
+[Score "NS 90"]
+[Auction "N"]
+1C    Pass  1D =1=    Pass
+1N =2=    Pass  Pass  Pass
+[Note "1:Walsh style"]
+[Note "2:may have 4M"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 6
+N  S 6
+N  H 6
+N  D 6
+N  C 7
+S NT 6
+S  S 6
+S  H 6
+S  D 6
+S  C 7
+E NT 6
+E  S 7
+E  H 7
+E  D 7
+E  C 6
+W NT 6
+W  S 7
+W  H 7
+W  D 7
+W  C 6
+
+[Event ""]
+[Site ""]
+[Date ""]
+[Board "48"]
+% 4AD7A7E61CC4016F6074D45B4EDD
 [West "EPBot"]
+[North "EPBot"]
+[East "EPBot"]
+[South "EPBot"]
 [Dealer "S"]
 [Vulnerable "NS"]
 [Deal "S:K.KQ87.AKQT65.92 AQT52.6.97.JT765 J9.T93.J832.AK84 87643.AJ542.4.Q3"]
 {Shape 2344 5512 1462 5125}
 {HCP 9 7 17 7}
 {Losers 9 8 4 7}
-[Declarer "N"]
-[Contract "3N"]
-[Result "7"]
-[Score "NS -200"]
 [Scoring "MP"]
+[Declarer "S"]
+[Contract "5D"]
+[Result "11"]
+[BidSystemEW "Sayc - Standard American Yellow Card"]
+[BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "738a5738a55952759527"]
+[OptimumScore "EW -100"]
+[ParContract "EW 4SX-1"]
+[Score "NS 600"]
 [Auction "S"]
 1D    Pass  1N    Pass
-2H    Pass  3N    Pass
-Pass  Pass
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
-
-[Event ""]
-[Site ""]
-[Date ""]
-[Board "48"]
-% 49E1511880805D8F7E68810E6EDE
-[North "EPBot"]
-[East "EPBot"]
-[South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "EW"]
-[Deal "N:JT85.A63.Q6.AK95 A2.7.987432.QJT6 Q4.JT854.AKJT5.8 K9763.KQ92..7432"]
-{Shape 2551 5404 4324 2164}
-{HCP 11 8 14 7}
-{Losers 7 6 8 7}
-[Declarer "S"]
-[Contract "4H"]
-[Result "10"]
-[Score "NS 420"]
-[Scoring "MP"]
-[Auction "N"]
-1C    Pass  1H    Pass
-1S    Pass  2D    Pass
-2H    Pass  2N    Pass
-4H    Pass  Pass  Pass
-[BidSystemEW "Sayc - Standard American Yellow Card"]
-[BidSystemNS "Sayc - Standard American Yellow Card"]
+2D    Pass  3D    Pass
+5D    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT  7
+N  S  3
+N  H  8
+N  D 10
+N  C  5
+S NT  7
+S  S  3
+S  H  8
+S  D 10
+S  C  5
+E NT  5
+E  S  9
+E  H  5
+E  D  2
+E  C  7
+W NT  5
+W  S  9
+W  H  5
+W  D  2
+W  C  7
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "49"]
-% 4BEDB6552797DC52C631C0E8193D
+% 49E1511880805D8F7E68810E6EDE
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
-[Dealer "N"]
-[Vulnerable "All"]
-[Deal "N:KT.AJ4.A92.AQ632 A9754.K62.43.954 J632.75.KQJT7.JT Q8.QT983.865.K87"]
-{Shape 4252 2533 2335 5323}
-{HCP 8 7 18 7}
-{Losers 8 9 6 9}
-[Declarer "N"]
-[Contract "3N"]
-[Result "10"]
-[Score "NS 630"]
+[Dealer "S"]
+[Vulnerable "EW"]
+[Deal "S:JT85.A63.Q6.AK95 A2.7.987432.QJT6 Q4.JT854.AKJT5.8 K9763.KQ92..7432"]
+{Shape 2551 5404 4324 2164}
+{HCP 11 8 14 7}
+{Losers 7 6 8 7}
 [Scoring "MP"]
-[Auction "N"]
-1C    Pass  1D    Pass
-2N    Pass  3S    Pass
-3N    Pass  Pass  Pass
+[Declarer "N"]
+[Contract "4H"]
+[Result "10"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "96885968853644636446"]
+[OptimumScore "NS 400"]
+[ParContract "NS 3N="]
+[Score "NS 420"]
+[Auction "S"]
+1C    Pass  1H    Pass
+1S    Pass  2D    Pass
+2N    Pass  3H    Pass
+4H    Pass  Pass  Pass
+[OptimumResultTable "Declarer;Denomination\2R;Result\1R"]
+N NT 9
+N  S 6
+N  H 8
+N  D 8
+N  C 5
+S NT 9
+S  S 6
+S  H 8
+S  D 8
+S  C 5
+E NT 3
+E  S 6
+E  H 4
+E  D 4
+E  C 6
+W NT 3
+W  S 6
+W  H 4
+W  D 4
+W  C 6
 
 [Event ""]
 [Site ""]
 [Date ""]
 [Board "50"]
-% 4AE22B75075131DC6634437F9628
+% 4BEDB6552797DC52C631C0E8193D
+[West "EPBot"]
 [North "EPBot"]
 [East "EPBot"]
 [South "EPBot"]
-[West "EPBot"]
 [Dealer "S"]
-[Vulnerable "NS"]
-[Deal "S:3.AK72.QJ763.QT9 A8.Q964.AT95.862 KJ962.J5.84.KJ54 QT754.T83.K2.A73"]
-{Shape 5224 5323 1453 2443}
-{HCP 9 9 12 10}
-{Losers 8 8 6 8}
-[Declarer "S"]
-[Contract "1N"]
-[Result "7"]
-[Score "NS 90"]
+[Vulnerable "All"]
+[Deal "S:KT.AJ4.A92.AQ632 A9754.K62.43.954 J632.75.KQJT7.JT Q8.QT983.865.K87"]
+{Shape 4252 2533 2335 5323}
+{HCP 8 7 18 7}
+{Losers 8 9 6 9}
 [Scoring "MP"]
-[Auction "S"]
-1D    Pass  1S    Pass
-1N    Pass  Pass  Pass
+[Declarer "S"]
+[Contract "3N"]
+[Result "9"]
 [BidSystemEW "Sayc - Standard American Yellow Card"]
 [BidSystemNS "Sayc - Standard American Yellow Card"]
+[DoubleDummyTricks "b98ccba8cc1351113511"]
+[OptimumScore "NS 1370"]
+[ParContract "NS 6C=; NS 6D="]
+[Score "NS 600"]
+[Auction "S"]
+1C    Pass  1D =1=    Pass
+2N    Pass  3S    Pass
+3N    Pass  Pass  Pass
+[Note "1:Walsh style"]
+[OptimumResultTable "Declarer;Denomination\2R;Result\2R"]
+N NT 11
+N  S  9
+N  H  8
+N  D 12
+N  C 12
+S NT 11
+S  S 10
+S  H  8
+S  D 12
+S  C 12
+E NT  1
+E  S  3
+E  H  5
+E  D  1
+E  C  1
+W NT  1
+W  S  3
+W  H  5
+W  D  1
+W  C  1

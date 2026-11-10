@@ -1,0 +1,102 @@
+# alias: OptimisticMinimum
+# button-text: Optimistic Minimum
+# gib-works: true
+# bba-works: true
+# scenario-title: --- Optimistic Minimum
+# auction-filter: Auction.....\n(1H +Pass +2N.* Pass\n4H|1S +Pass +2N.* Pass\n4S|1N +Pass +2C.* Pass\n2[HS]|1N +Pass +2[DH].* Pass\n[23][HS]|1N +Pass +4[DH].* Pass\n4[HS]|1[CD] +Pass +1H +Pass\n2H|1[CD] +Pass +1S +Pass\n2S)
+# convention-card-ns: 21GF-DEFAULT
+# convention-card-ew: 21GF-GIB
+
+/*@chat
+--- Optimistic Minimum
+Partner's bidding has limited their hand. You must decide: stop in game, or bid on toward slam?
+  1M - 2N (Jacoby) - 4M -- opener is minimum (12-14), no shortness. You have 15-18.
+  1N - 2C - 2M -- a 4-4 fit opposite 15-17. You have 13-16 with shortness.
+  1N - transfer (or Texas) - M -- opposite 15-17. You have a 6-card major, 12-15, with shortness.
+  1m - 1M - 2M -- opener is minimum (12-14) with 4-card support. You have 15-18.
+Picture partner's "Optimistic Minimum":
+  1. Visualize partner's shape.
+  2. Give partner only the HCP their bidding promised.
+  3. Put those HCP where they help you most (aces, trump honors, kings in your long suits, nothing opposite your shortness).
+  4. If slam is good opposite that hand, and still reasonable opposite a less-perfect one, bid on.
+4NT is Roman Keycard Blackwood (1430).
+Based on Robert Todd, Advinbridge "This Week in Bridge" #652.
+@chat*/
+
+dealer north
+
+#include "script/Predict-Opening-1-Bid-North"
+#include "script/Calm-Opponents"
+#include "script/TP"
+
+##### Type 1: 1M - 2N (Jacoby) - 4M #####
+# North opens 1M with a minimum, semi-balanced hand -> 4M over Jacoby 2N
+# Good second suits -- 5+ cards with 2 of the top 3 (these would bid 4x over 2N)
+gS = spades(north)>4   and top3(north,spades)>1
+gH = hearts(north)>4   and top3(north,hearts)>1
+gD = diamonds(north)>4 and top3(north,diamonds)>1
+gC = clubs(north)>4    and top3(north,clubs)>1
+
+fitSpades = oneSpade and spades(south)>3
+fitHearts = oneHeart and hearts(south)>3
+fit = fitSpades or fitHearts
+
+secondSuit = (fitSpades and (gH or gD or gC)) or (fitHearts and (gS or gD or gC))
+nShort     = shape(north, any 0xxx + any 1xxx)
+minimumOpener = fit and suitPoints>11 and suitPoints<15 and not (secondSuit or nShort)
+
+# South bids Jacoby 2N with slam interest; no long side suit to show first
+lenSouth = fitSpades ? spades(south) : hearts(south)
+strSouth = tpSouth + lenSouth - 4
+j2nSouth = hcp(south)>14 and hcp(south)<19 and strSouth<23 and (hcp(north)+hcp(south))>26
+noSideSuit = not shape(south, any 6xxx + any 7xxx)
+
+typeJ2N = minimumOpener and j2nSouth and noSideSuit
+
+##### Shared by the 1NT types #####
+sShort = shape(south, any 0xxx + any 1xxx)
+
+##### Type 2: 1N - 2C - 2M (4-4 fit) #####
+# South has exactly one 4-card major and shortness; North shows that major
+stayH = hearts(south)==4 and spades(south)<4 and hearts(north)>3
+stayS = spades(south)==4 and hearts(south)<4 and spades(north)>3 and hearts(north)<4
+typeStayman = oneNT and (stayH or stayS) and sShort and hcp(south)>12 and hcp(south)<17
+
+##### Type 3: 1N - transfer (2D/2H or Texas 4D/4H) - M #####
+# South has a 6-card major, shortness, and slam interest opposite 15-17
+xferH = hearts(south)==6 and spades(south)<4
+xferS = spades(south)==6 and hearts(south)<4
+typeTransfer = oneNT and (xferH or xferS) and sShort and hcp(south)>11 and hcp(south)<16
+
+##### Type 4: 1m - 1M - 2M (opener's minimum raise) #####
+# South responds in the longer major (hearts with 4-4); North raises with 4-card support
+# A strong 5-card major would jump shift, and a longer minor would be bid first
+respH = hearts(south)>3 and hearts(south)>=spades(south) and not shape(south, 55xx)
+respS = spades(south)>3 and not respH
+lenM  = respH ? hearts(south) : spades(south)
+topM  = respH ? top3(south,hearts) : top3(south,spades)
+quietMajor = (lenM==4 or (lenM==5 and topM<2)) and diamonds(south)<lenM and clubs(south)<lenM
+raiseH = respH and hearts(north)==4
+raiseS = respS and spades(north)==4
+typeRaise = (oD or oC) and (raiseH or raiseS) and quietMajor and hcp(north)>11 and hcp(north)<15 and hcp(south)>14 and hcp(south)<19
+
+##### Hand types #####
+HandType_J2N      = typeJ2N
+HandType_Stayman  = typeStayman
+HandType_Transfer = typeTransfer
+HandType_Raise    = typeRaise
+
+### BEGIN GENERATED LEVELING ###
+noLeveling = 1
+levelTheDeal = noLeveling
+### END GENERATED LEVELING ###
+
+##### Now do it #####
+(HandType_J2N or HandType_Stayman or HandType_Transfer or HandType_Raise) and levelTheDeal and calmOpps
+
+produce 30
+action
+average "1. J2N      " 100 * typeJ2N,
+average "2. Stayman  " 100 * typeStayman,
+average "3. Transfer " 100 * typeTransfer,
+average "4. Raise    " 100 * typeRaise,
