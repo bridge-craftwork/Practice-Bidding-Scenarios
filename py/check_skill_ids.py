@@ -65,7 +65,9 @@ def load_pack(path=None):
 
 def check(skills, pack):
     """(unknown, kinds): {id: [scenario]} not defined, and a count by kind."""
-    defs = pack.get("conventions", {})
+    # Agreements are under `conventions`; skills and judgement have a list
+    # of their own, `skills`, in the same namespace of IDs.
+    defs = {**pack.get("conventions", {}), **pack.get("skills", {})}
     unknown, kinds = {}, {}
     for scenario in sorted(skills):
         for i in skills[scenario]:
