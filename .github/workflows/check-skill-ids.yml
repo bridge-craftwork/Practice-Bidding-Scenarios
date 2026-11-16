@@ -1,0 +1,33 @@
+name: Check scenario skill IDs
+
+# btn/-scenario-skills.txt tags each scenario with the conventions it
+# practises, as IDs from bridge-craftwork/bridge-common-conventions. Fail when
+# an ID is not defined there (a typo, or an ID nobody defined). The check
+# fetches the published snapshot; nothing else here needs the network.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'btn/-scenario-skills.txt'
+      - 'py/check_skill_ids.py'
+      - '.github/workflows/check-skill-ids.yml'
+  pull_request:
+    paths:
+      - 'btn/-scenario-skills.txt'
+      - 'py/check_skill_ids.py'
+      - '.github/workflows/check-skill-ids.yml'
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Every ID is defined in bridge-common-conventions
+        run: python3 py/check_skill_ids.py
